@@ -1,4 +1,4 @@
-All source code from Meathax
+Source code from my MiSTer FPGA cores
 
 All cores available in the Meatcores downloader avalible at https://www.patreon.com/Meathax
 
