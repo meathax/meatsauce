@@ -5,6 +5,7 @@ All cores available in the Meatcores downloader avalible at https://www.patreon.
 Join us on Discord! https://discord.gg/E6Sb6WY9C
 
 
+----------------------------------------
 To get all my cores on your mister:
 
 Get downloader_meatcores.ini from here
