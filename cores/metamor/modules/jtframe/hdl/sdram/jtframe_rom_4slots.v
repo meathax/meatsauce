@@ -1,0 +1,244 @@
+/* SPDX-FileCopyrightText: 2026 Jose Tejada Gomez
+ * SPDX-License-Identifier: GPL-3.0-or-later
+ * Date: 1-12-2020 */
+
+// 4 slots for SDRAM read-only access
+// slot 0 --> maximum priority
+// slot 3 --> minimum priority
+// Each slot can be used for 8, 16 or 32 bit access
+// Small 4 byte cache used for each slot
+/* verilator coverage_off */
+module jtframe_rom_4slots #(parameter
+    SDRAMW = 22,
+    TAG_RAM = 0,
+    SLOT0_DW = 8, SLOT1_DW = 8, SLOT2_DW = 8, SLOT3_DW = 8,
+    SLOT0_AW = 8, SLOT1_AW = 8, SLOT2_AW = 8, SLOT3_AW = 8,
+
+    SLOT0_LATCH  = 0,
+    SLOT1_LATCH  = 0,
+    SLOT2_LATCH  = 0,
+    SLOT3_LATCH  = 0,
+
+    SLOT0_DOUBLE = 0,
+    SLOT1_DOUBLE = 0,
+    SLOT2_DOUBLE = 0,
+    SLOT3_DOUBLE = 0,
+
+    SLOT0_OKLATCH= 1,
+    SLOT1_OKLATCH= 1,
+    SLOT2_OKLATCH= 1,
+    SLOT3_OKLATCH= 1,
+
+    CACHE0_SIZE = 0,
+    CACHE1_SIZE = 0,
+    CACHE2_SIZE = 0,
+    CACHE3_SIZE = 0,
+    CACHE0_LARGE = 0,
+    CACHE1_LARGE = 0,
+    CACHE2_LARGE = 0,
+    CACHE3_LARGE = 0,
+    SLOT0_BURSTLEN = 32,
+    SLOT1_BURSTLEN = 32,
+    SLOT2_BURSTLEN = 32,
+    SLOT3_BURSTLEN = 32,
+/* verilator lint_off WIDTH */
+    parameter [SDRAMW-1:0] SLOT0_OFFSET = 0,
+    parameter [SDRAMW-1:0] SLOT1_OFFSET = 0,
+    parameter [SDRAMW-1:0] SLOT2_OFFSET = 0,
+    parameter [SDRAMW-1:0] SLOT3_OFFSET = 0,
+/* verilator lint_on WIDTH */
+    parameter REF_FILE="sdram_bank4.hex"
+)(
+    input               rst,
+    input               clk,
+
+    input  [SLOT0_AW-1:0] slot0_addr,
+    input  [SLOT1_AW-1:0] slot1_addr,
+    input  [SLOT2_AW-1:0] slot2_addr,
+    input  [SLOT3_AW-1:0] slot3_addr,
+
+    //  output data
+    output [SLOT0_DW-1:0] slot0_dout,
+    output [SLOT1_DW-1:0] slot1_dout,
+    output [SLOT2_DW-1:0] slot2_dout,
+    output [SLOT3_DW-1:0] slot3_dout,
+
+    input               slot0_cs,
+    input               slot1_cs,
+    input               slot2_cs,
+    input               slot3_cs,
+
+    output              slot0_ok,
+    output              slot1_ok,
+    output              slot2_ok,
+    output              slot3_ok,
+    // SDRAM controller interface
+    input               sdram_ack,
+    output              sdram_rd,
+    output [SDRAMW-1:0] sdram_addr,
+    input               data_dst,
+    input               data_rdy,
+    input       [15:0]  data_read
+);
+
+localparam SW=4;
+
+wire [SW-1:0] req, ok;
+wire [SW-1:0] slot_sel;
+wire [SDRAMW-1:0] slot0_addr_req, slot1_addr_req, slot2_addr_req, slot3_addr_req;
+
+assign slot0_ok = ok[0];
+assign slot1_ok = ok[1];
+assign slot2_ok = ok[2];
+assign slot3_ok = ok[3];
+
+wire [SDRAMW-1:0] offset0 = SLOT0_OFFSET,
+                  offset1 = SLOT1_OFFSET,
+                  offset2 = SLOT2_OFFSET,
+                  offset3 = SLOT3_OFFSET;
+
+jtframe_romrq #(.SDRAMW(SDRAMW),.AW(SLOT0_AW),.DW(SLOT0_DW),
+    .LATCH(SLOT0_LATCH),.DOUBLE(SLOT0_DOUBLE),.OKLATCH(SLOT0_OKLATCH),
+    .CACHE_SIZE ( CACHE0_SIZE     ),
+    .CACHE_LARGE( CACHE0_LARGE    ),
+    .TAG_RAM    ( TAG_RAM         ),
+    .BURSTLEN   ( SLOT0_BURSTLEN  ))
+u_slot0(
+    .rst       ( rst                    ),
+    .clk       ( clk                    ),
+    .clr       ( 1'd0                   ),
+    .offset    ( offset0                ),
+    .addr      ( slot0_addr             ),
+    .addr_ok   ( slot0_cs               ),
+    .sdram_addr( slot0_addr_req         ),
+    .din       ( data_read              ),
+    .din_ok    ( data_rdy               ),
+    .dst       ( data_dst               ),
+    .dout      ( slot0_dout             ),
+    .req       ( req[0]                 ),
+    .data_ok   ( ok[0]                  ),
+    .we        ( slot_sel[0]            )
+);
+
+jtframe_romrq #(.SDRAMW(SDRAMW),.AW(SLOT1_AW),.DW(SLOT1_DW),
+    .LATCH(SLOT1_LATCH),.DOUBLE(SLOT1_DOUBLE),.OKLATCH(SLOT1_OKLATCH),
+    .CACHE_SIZE ( CACHE1_SIZE     ),
+    .CACHE_LARGE( CACHE1_LARGE    ),
+    .TAG_RAM    ( TAG_RAM         ),
+    .BURSTLEN   ( SLOT1_BURSTLEN  ))
+u_slot1(
+    .rst       ( rst                    ),
+    .clk       ( clk                    ),
+    .clr       ( 1'd0                   ),
+    .offset    ( offset1                ),
+    .addr      ( slot1_addr             ),
+    .addr_ok   ( slot1_cs               ),
+    .sdram_addr( slot1_addr_req         ),
+    .din       ( data_read              ),
+    .din_ok    ( data_rdy               ),
+    .dst       ( data_dst               ),
+    .dout      ( slot1_dout             ),
+    .req       ( req[1]                 ),
+    .data_ok   ( ok[1]                  ),
+    .we        ( slot_sel[1]            )
+);
+
+jtframe_romrq #(.SDRAMW(SDRAMW),.AW(SLOT2_AW),.DW(SLOT2_DW),
+    .LATCH(SLOT2_LATCH),.DOUBLE(SLOT2_DOUBLE),.OKLATCH(SLOT2_OKLATCH),
+    .CACHE_SIZE ( CACHE2_SIZE     ),
+    .CACHE_LARGE( CACHE2_LARGE    ),
+    .TAG_RAM    ( TAG_RAM         ),
+    .BURSTLEN   ( SLOT2_BURSTLEN  ))
+u_slot2(
+    .rst       ( rst                    ),
+    .clk       ( clk                    ),
+    .clr       ( 1'd0                   ),
+    .offset    ( offset2                ),
+    .addr      ( slot2_addr             ),
+    .addr_ok   ( slot2_cs               ),
+    .sdram_addr( slot2_addr_req         ),
+    .din       ( data_read              ),
+    .din_ok    ( data_rdy               ),
+    .dst       ( data_dst               ),
+    .dout      ( slot2_dout             ),
+    .req       ( req[2]                 ),
+    .data_ok   ( ok[2]                  ),
+    .we        ( slot_sel[2]            )
+);
+
+jtframe_romrq #(.SDRAMW(SDRAMW),.AW(SLOT3_AW),.DW(SLOT3_DW),
+    .LATCH(SLOT3_LATCH),.DOUBLE(SLOT3_DOUBLE),.OKLATCH(SLOT3_OKLATCH),
+    .CACHE_SIZE ( CACHE3_SIZE     ),
+    .CACHE_LARGE( CACHE3_LARGE    ),
+    .TAG_RAM    ( TAG_RAM         ),
+    .BURSTLEN   ( SLOT3_BURSTLEN  ))
+u_slot3(
+    .rst       ( rst                    ),
+    .clk       ( clk                    ),
+    .clr       ( 1'd0                   ),
+    .offset    ( offset3                ),
+    .addr      ( slot3_addr             ),
+    .addr_ok   ( slot3_cs               ),
+    .sdram_addr( slot3_addr_req         ),
+    .din       ( data_read              ),
+    .din_ok    ( data_rdy               ),
+    .dst       ( data_dst               ),
+    .dout      ( slot3_dout             ),
+    .req       ( req[3]                 ),
+    .data_ok   ( ok[3]                  ),
+    .we        ( slot_sel[3]            )
+);
+
+jtframe_ramslot_ctrl #(
+    .SDRAMW         ( SDRAMW        ),
+    .SW             (     SW        ),
+    .WRSW           (      0        )
+)u_ctrl(
+    .rst            ( rst           ),
+    .clk            ( clk           ),
+    .req            ( req           ),
+    .slot_addr_req  ({  slot3_addr_req, slot2_addr_req,
+                        slot1_addr_req, slot0_addr_req }),
+    .slot_sel       ( slot_sel      ),
+    // SDRAM controller interface
+    .sdram_ack      ( sdram_ack     ),
+    .sdram_rd       ( sdram_rd      ),
+    .sdram_addr     ( sdram_addr    ),
+    .data_rdy       ( data_rdy      ),
+
+    // RAM section ignored
+    .erase_bsy      (  1'b0         ),
+    .req_rnw        (  1'b1         ),
+    .slot_din       ( 16'd0         ),
+    .wrmask         (  2'd0         ),
+    .sdram_wr       (               ),
+    .data_write     (               ),
+    .sdram_wrmask   (               )
+);
+
+`ifdef JTFRAME_SDRAM_CHECK
+
+reg [15:0] mem[0:4*1024*1024];
+
+initial begin
+    $readmemh( REF_FILE, mem );
+end
+
+always @( posedge clk ) begin
+    if( data_rdy ) begin
+        if( !slot_sel ) begin
+            $display("ERROR: SDRAM data received but it had not been requested at time %t - %m\n", $time);
+            $finish;
+        end else if( { mem[sdram_addr+1], mem[sdram_addr] } !== data_read ) begin
+            $display("ERROR: Wrong data read at time %t - %m", $time);
+            $display("       at address %X", sdram_addr );
+            $display("       expecting %X_%X - Read %X_%X\n",
+                    mem[sdram_addr+1], mem[sdram_addr], data_read[31:16], data_read[15:0]);
+            $finish;
+        end
+    end
+end
+
+`endif
+
+endmodule
