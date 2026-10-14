@@ -1,0 +1,294 @@
+{
+  "scope": "Read-only production integration assessment with source snapshots and reused prior native/component inference receipts. No RTL changes or new simulation/compiler run.",
+  "created_utc": "2026-10-10T04:56:58.317536+00:00",
+  "source_sha256": {
+    "Nintendo8080.sv": "d089441e89e0335ebd0571596da62be6f1c626e8c6fc3a481401b29f558540c6",
+    "files.qip": "feeaad38122304bc58a7af156ee92fe4645c1ddc00c4184aefaae7f1bd221e99",
+    "rtl/n8080_board.sv": "a3267486c736d4a8672f4681d3ab9247f2d5809a4fa3d88a12cba5963e7a2faa",
+    "rtl/n8080_cpu.sv": "fd46ad43ceee26003b788b06bc5f79f0e85ca9d4e52a6bb0573077a1682286c8",
+    "rtl/n8080_dram_control.sv": "2b5b3babc3aef7d23b1807c968808bf95217a1000df02ad6f5d6fd813d599c1b",
+    "rtl/n8080_dram_storage.sv": "e43ea1abd41d45c8237d3a08ba2e0790434e3dd59f662a29934424be284b7dc2",
+    "rtl/n8080_memory_phases.sv": "a27d44d465a6a464778ba645262b2b00e3ee69916b91a11db935a5903d202058",
+    "rtl/n8080_ram_readback.sv": "72edd65085b4f11cc17be9fe3bc9952081885e1db6f863105c3a7ccc239ff891",
+    "rtl/vendor/hiscore/hiscore.v": "bdacc524a90f721d59530a9f4abea0495fb40b8681445146e060d4b3db6ddd7d",
+    "sim/cpu_dram_service_qualification.sv": "a46fb7488703333a5f6d315e2efe5e4cd2be37ea4e9b23666766b90ea58cb007",
+    "sim/cpu_dram_service_qualification.cpp": "6cf12e8951120b40353f29973ad75d37b3edf0345a5590d84ac5c198e1616430",
+    "docs/evidence/sheriff_cpu_dram_service.json": "2fbe2a8fa475f850087a224b35c52687f5b9e3914fa3317f9da81b2c47fafa55",
+    "docs/evidence/sheriff_dram_storage_inference.json": "d418586da17ab030e8f9f0622bfcea497e0df5daabc16c4af6501ff5aa59217e",
+    "docs/CPU_WR_RD_ALTERNATE_SOURCE.md": "630f8317727a21c1b1b6860dd51c6917e2ea7cc0fb21757e96a674a33eaee5b3",
+    "docs/evidence/sheriff_cpu_wr_rd_alternate_source.json": "7fa561b32627af7bc9cb41ce39beec127c7a5cbe86b315cfcc54309bf5d8dd79",
+    "docs/DRAM_DATA_ORDERING.md": "500da731e594192273838d5b8a5b941c56a748adb98470666561146d509e4711",
+    "docs/CPU_DRAM_SERVICE.md": "fc93a8bcf88735d2ada6b63336015e19e6ed9d20645f6406b19b8e5ec333115d",
+    "docs/DRAM_INTEGRATION_REQUIREMENTS.md": "56f35bf4e5b7033723a31c31a2353bc06746c0dbc51e309cb2882d4777a5a0bd",
+    "_checks/agent-dram-integration-20261010/source-audit.py": "43d6d8e63308243ebe17f1f538f5274240beae5b317f84acae42935d2695abc2"
+  },
+  "snapshot_base": "_checks/agent-dram-integration-20261010/sources",
+  "line_refs": {
+    "production_board": {
+      "CPU_instance": [
+        77,
+        82
+      ],
+      "DIN_priority": [
+        105,
+        106
+      ],
+      "CPU_debug_RAM_read": 109,
+      "video_RAM_read": 110,
+      "ROM_PROM_download": [
+        112,
+        115
+      ],
+      "CPU_debug_write_priority": [
+        116,
+        119
+      ],
+      "service_tail": [
+        55,
+        65
+      ],
+      "dynamic_video_address": [
+        72,
+        75
+      ],
+      "cold_init": [
+        40,
+        50
+      ],
+      "warm_reset": [
+        147,
+        153
+      ],
+      "pause_scanout": [
+        155,
+        172
+      ]
+    },
+    "wrapper": {
+      "reset_and_download": [
+        104,
+        115
+      ],
+      "hiscore_bridge": [
+        127,
+        147
+      ]
+    },
+    "CPU": {
+      "phase_freeze": 18,
+      "compatibility_READY_tie": [
+        64,
+        68
+      ]
+    },
+    "hiscore": {
+      "no_ack_ports": [
+        53,
+        75
+      ],
+      "configurable_holds": [
+        79,
+        85
+      ],
+      "read_samples": [
+        598,
+        626
+      ],
+      "write_hold": [
+        688,
+        720
+      ]
+    },
+    "joined_top": {
+      "CPU_pause_tied_low": 25,
+      "crystal_enable": [
+        33,
+        34
+      ],
+      "control": [
+        39,
+        46
+      ],
+      "storage": [
+        47,
+        50
+      ],
+      "readback": [
+        51,
+        53
+      ]
+    },
+    "memory_phases": {
+      "reset_origin": [
+        23,
+        28
+      ],
+      "advance_if_ce": 29
+    },
+    "storage": {
+      "uninitialized_array": 36,
+      "control_reset": [
+        47,
+        59
+      ]
+    }
+  },
+  "next_missing_input": {
+    "signal": "CPU_WR_RD",
+    "required_proof": "Actual CPU-side driver/equation, polarity and transitions through CPU-board continuations into the video-board RAM-disable input.",
+    "known_equation": "disable = HREAD_n AND NOT CPU_WR_RD",
+    "why_constant_not_enough": "Joined constant1 enables all CPU slots; it does not establish dynamic bus applicability or grant transitions relative to RAS/CAS.",
+    "missing_coordinates": "CPU-side Bandido continuation turn near(3555,5210), aligned risers around4215/4250; retained alternate source still did not prove driver bridge.",
+    "recovery": "docs/CPU_WR_RD_ALTERNATE_SOURCE.md",
+    "necessary_not_sufficient": true
+  },
+  "minimal_wiring": [
+    {
+      "action": "CPU_ready_RAM_DIN",
+      "supported": "Existing interfaces and joined DO\u2192readback\u2192READY proof.",
+      "production_change": "n8080_cpu_ready .ready(service.ready); preserve INTA/I/O priority and replace only RAM DIN with captured_data.",
+      "blocked_by": "Raw CPU_WR_RD source and non-fixture IRQ/I/O applicability."
+    },
+    {
+      "action": "RAM_pin_control_storage",
+      "supported": "Mapped CPU address, raw WR, SYNC/STSTB, WE and RAS/CAS/DO event semantics.",
+      "production_change": "Instantiate control/storage/readback; replace abstract RAM write_start commit by actual pin events.",
+      "blocked_by": "CPU_WR_RD waveform and absolute phase/reset alignment."
+    },
+    {
+      "action": "Video_data",
+      "supported": "Conditional physical C2/C3 address mapping.",
+      "production_change": "Dynamic physical Hbyte/V to control; held video DO to qualified byte capture/serializer/pixel deadline.",
+      "blocked_by": "Dynamic H/V origin/flip, row setup and video capture ordering; fixed fixture did not cover this."
+    },
+    {
+      "action": "Pause_phases",
+      "supported": "Master clock plus independently identified crystal enable is the required interface.",
+      "production_change": "Define a periodic physical phase enable unaffected by CPU execution pause; specify debug_freeze separately.",
+      "blocked_by": "Joined CPU-derived enable is constant0/1 during pause, not a periodic20.16MHz enable."
+    },
+    {
+      "action": "Hiscore_debug",
+      "supported": "Existing paused ownership, address mask and configurable timed interface.",
+      "production_change": "Explicit service bridge with bounded read/write deadlines, video priority and CPU captured-byte restoration.",
+      "blocked_by": "No ACK/valid input, two-clock tail not proven for pin-event readback, same-address collisions unqualified."
+    },
+    {
+      "action": "Reset_download",
+      "supported": "Separate ROM/audio/PROM loads and warm RAM retention.",
+      "production_change": "Keep download routes; define cold-zero initialization, control cancellation and phase/refresh policy.",
+      "blocked_by": "Uninitialized storage differs from production zero startup; source reset/refresh alignment open."
+    },
+    {
+      "action": "Manifest_acceptance",
+      "supported": "M10K logical serialization/resource result; native conditional CPU service.",
+      "production_change": "Add four component files through QIP only after integration inputs/policies are settled.",
+      "blocked_by": "Changed full-board graphics/CPU/persistence/pause/IRQ and device fit/timing acceptance are not covered by component proof."
+    }
+  ],
+  "current_RAM_owners": [
+    "CPU/debug registered read",
+    "Independent bitmap registered read",
+    "Mutually exclusive CPU/debug write"
+  ],
+  "download_RAM_write": false,
+  "pause_enable_hazard": {
+    "frozen_phase_constant_high": [
+      2,
+      4,
+      7,
+      9,
+      12,
+      14,
+      17,
+      19,
+      22,
+      24
+    ],
+    "frozen_phase_constant_low": [
+      0,
+      1,
+      3,
+      5,
+      6,
+      8,
+      10,
+      11,
+      13,
+      15,
+      16,
+      18,
+      20,
+      21,
+      23
+    ],
+    "effect_high": "Slots advance on every master edge.",
+    "effect_low": "Slots stop.",
+    "periodic_crystal_enable_qualified_during_pause": false
+  },
+  "read_during_write_collision": "Current simulation nonblocking RAM reads observe old state at an overlapping write; new source-scheduled sampling and video/debug same-byte behavior require explicit ownership and capture qualification.",
+  "prior_joined_native": {
+    "report": "docs/evidence/sheriff_cpu_dram_service.json",
+    "report_sha256": "2fbe2a8fa475f850087a224b35c52687f5b9e3914fa3317f9da81b2c47fafa55",
+    "actual_build_OS_exit": 0,
+    "actual_workflow_OS_exit": 0,
+    "actual_native_OS_exits": [
+      0,
+      0,
+      0,
+      0,
+      0
+    ],
+    "origins": [
+      0,
+      5,
+      10,
+      15,
+      20
+    ],
+    "valid_RAM_read_captures_per_origin": 7,
+    "write_services_per_origin": 8,
+    "CPU_WR_RD_stimulus": 1,
+    "physical_Hbyte": 19,
+    "physical_V": 166
+  },
+  "prior_storage_inference": {
+    "report": "docs/evidence/sheriff_dram_storage_inference.json",
+    "report_sha256": "d418586da17ab030e8f9f0622bfcea497e0df5daabc16c4af6501ff5aa59217e",
+    "actual_OS_exit": 0,
+    "M10K_segments": 16,
+    "block_bits": 131072,
+    "operation_mode": "DUAL_PORT",
+    "logical_access_resource_purpose_pass": true,
+    "physical_SINGLE_PORT_is_acceptance_gate": false
+  },
+  "uncovered_semantics": [
+    "CPU_WR_RD dynamic generator/polarity and edge timing.",
+    "Physical H/V changes, flip/origin, row setup and serializer capture.",
+    "Pause/debug/service ownership, current CPU-phase-derived enable hazard, timed hiscore latency and readback restoration.",
+    "CPU/video/debug same-byte old/new ordering.",
+    "Deterministic cold RAM initialization versus warm retention; phase/reset/refresh during download/pause.",
+    "IRQ/IN/OUT boundaries and real whole-board ROM delivery with physical RAM service."
+  ],
+  "production_wiring_justified": false,
+  "assessment_source_closure_qualified": true,
+  "RTL_changed": false,
+  "native_simulation_rerun": false,
+  "primitive_bench_run": false,
+  "compiler_run": false,
+  "physical_timing_qualified": false,
+  "parent_export_normalization": [
+    {
+      "path": "docs/COMMON_ORIGIN.md",
+      "original_sha256": "09cb3e0e8c18e5c7b8dea62a82041dfc14187c9de95d6fbb98860e80cd1ccddd",
+      "LF_sha256": "53446824b6765630f69e595bc9ea8307d89d7d2664d5c31df5db5f193eab86a2",
+      "kind": "documentary export only"
+    },
+    {
+      "path": "docs/evidence/sheriff_common_origin.json",
+      "original_sha256": "2bf45bfbeb5cc7ab3d73ae408bb5bfff681eba2d40b68bc7612b3a893c9655ac",
+      "LF_sha256": "0f9234ee57c04a59f42e2bee19081fd3b87e4c305fffe56122f47df3f35b6c91",
+      "kind": "documentary export only"
+    }
+  ]
+}

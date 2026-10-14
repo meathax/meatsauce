@@ -1,0 +1,418 @@
+{
+  "worker_pid": 53168,
+  "started": 1791576722.0496917,
+  "command": [
+    "D:\\Arcade\\AI\\aCORES\\Alpha68k N\\tools\\mame0289\\mame.exe",
+    "kyros",
+    "-rompath",
+    "D:\\Arcade\\AI\\aCORES\\Alpha68k N\\roms",
+    "-noreadconfig",
+    "-skip_gameinfo",
+    "-video",
+    "none",
+    "-sound",
+    "none",
+    "-nothrottle",
+    "-noautoframeskip",
+    "-frameskip",
+    "0",
+    "-autoboot_delay",
+    "0",
+    "-autoboot_script",
+    "D:\\Arcade\\AI\\aCORES\\Alpha68k N\\sim\\mame\\capture_late_scene_candidates.lua",
+    "-pluginspath",
+    "D:\\Arcade\\AI\\aCORES\\Alpha68k N\\tools\\mame0289\\plugins",
+    "-seconds_to_run",
+    "116",
+    "-snapshot_directory",
+    "D:\\Arcade\\AI\\aCORES\\Alpha68k N\\sim\\captures\\kyros\\late_scene_candidates6000_stairs_zigzag",
+    "-cfg_directory",
+    "D:\\Arcade\\AI\\aCORES\\Alpha68k N\\sim\\captures\\kyros\\late_scene_candidates6000_stairs_zigzag\\cfg",
+    "-nvram_directory",
+    "D:\\Arcade\\AI\\aCORES\\Alpha68k N\\sim\\captures\\kyros\\late_scene_candidates6000_stairs_zigzag\\nvram",
+    "-state_directory",
+    "D:\\Arcade\\AI\\aCORES\\Alpha68k N\\sim\\captures\\kyros\\late_scene_candidates6000_stairs_zigzag\\states"
+  ],
+  "source_parent": "743c1d79841e0788345d8c3e73c62e679f27ad43",
+  "source_sha256": {
+    "sim\\mame\\capture_late_scene_candidates.lua": "65694b1eb3e0a2ac348174e9c5cf5b918e5e5d830eca65d7f749f833c81a6082",
+    "scripts\\record_late_scene_candidates.py": "e9c6db9f532e170f8bc998ad514bd32301f66a29674279d3beac84232e2a2d95",
+    "research/late_scene_cheat_historical_definitions.json": "987bcae0585dffef375f5a9b94afeecead4dbd36c4b10b6a390c5f54fcd86dbb"
+  },
+  "executable_sha256": "af6966108d9b52c22465c6d50f4e5d50cc371b50f2d27dc443935f287aad37a3",
+  "set": "kyros",
+  "frames": 6000,
+  "route": "stairs-zigzag",
+  "scope": "MAME scene discovery with explicit fixture RAM cheats; not real RTL gameplay or late-scene acceptance",
+  "mame_pid": 9012,
+  "exit_code": 0,
+  "ended": 1791576732.9452958,
+  "artifacts": [
+    {
+      "path": "sim\\captures\\kyros\\late_scene_candidates6000_stairs_zigzag\\frame_000000.display.rgb",
+      "sha256": "9a4b97b4b079955bac86930724c8bcdd30aba4732f1dcbcbac2ec270f5f5e485"
+    },
+    {
+      "path": "sim\\captures\\kyros\\late_scene_candidates6000_stairs_zigzag\\frame_000000.png",
+      "sha256": "27ab769c7d70ea6f343800bcb8ecb87e43bccdec012c2a385047f8d01290b278"
+    },
+    {
+      "path": "sim\\captures\\kyros\\late_scene_candidates6000_stairs_zigzag\\frame_000000.sprites.bin",
+      "sha256": "9f1dcbc35c350d6027f98be0f5c8b43b42ca52b7604459c0c42be3aa88913d47"
+    },
+    {
+      "path": "sim\\captures\\kyros\\late_scene_candidates6000_stairs_zigzag\\frame_000000.work.bin",
+      "sha256": "ad7facb2586fc6e966c004d7d1d16b024f5805ff7cb47c7a85dabd8b48892ca7"
+    },
+    {
+      "path": "sim\\captures\\kyros\\late_scene_candidates6000_stairs_zigzag\\frame_000179.display.rgb",
+      "sha256": "159db246e6c1ca749ddf242ec71367a07727892df17a5f760446eb58941b8cdd"
+    },
+    {
+      "path": "sim\\captures\\kyros\\late_scene_candidates6000_stairs_zigzag\\frame_000179.png",
+      "sha256": "a737aadd5ec024d17b735efa86e2d156e088d8f20804149bb4526d900374fdee"
+    },
+    {
+      "path": "sim\\captures\\kyros\\late_scene_candidates6000_stairs_zigzag\\frame_000179.sprites.bin",
+      "sha256": "3d8918435b6cf7e2132037e5f603e6f114428e7bd08b7455cb6de6aa077733c7"
+    },
+    {
+      "path": "sim\\captures\\kyros\\late_scene_candidates6000_stairs_zigzag\\frame_000179.work.bin",
+      "sha256": "e1db108e08bb7a4b5b58c1f9902631e1d625a62bce9f3fde775778c51feaae69"
+    },
+    {
+      "path": "sim\\captures\\kyros\\late_scene_candidates6000_stairs_zigzag\\frame_000300.display.rgb",
+      "sha256": "7f943b9faa4dbf246526e278a9e1a4bce65587ac9c5d30cfbdd0517c922cddc0"
+    },
+    {
+      "path": "sim\\captures\\kyros\\late_scene_candidates6000_stairs_zigzag\\frame_000300.png",
+      "sha256": "2c588454f4d05e7d1859aed604d84e0376a3e8008d413e885052795914843390"
+    },
+    {
+      "path": "sim\\captures\\kyros\\late_scene_candidates6000_stairs_zigzag\\frame_000300.sprites.bin",
+      "sha256": "e3ea0214928e2e06aaf738f95d162a8edafc00dde9563a2d07c158ec98d28249"
+    },
+    {
+      "path": "sim\\captures\\kyros\\late_scene_candidates6000_stairs_zigzag\\frame_000300.work.bin",
+      "sha256": "e965ed8944f6e0deb865fc5d6d3866db2069aad8c024a8596fe2348ad61f0944"
+    },
+    {
+      "path": "sim\\captures\\kyros\\late_scene_candidates6000_stairs_zigzag\\frame_000600.display.rgb",
+      "sha256": "870367cea2cc090698af979491e7a9c75e56ca3048a484753ad11186728f9bc8"
+    },
+    {
+      "path": "sim\\captures\\kyros\\late_scene_candidates6000_stairs_zigzag\\frame_000600.png",
+      "sha256": "b9ca58fd5715b21891b77c6f42b068554c1ce96a41ceb2a07fde1b64075e00f0"
+    },
+    {
+      "path": "sim\\captures\\kyros\\late_scene_candidates6000_stairs_zigzag\\frame_000600.sprites.bin",
+      "sha256": "e5278764380265c52fa179824aa7f940340123f17d548435f0c3f9d4ca30eb9a"
+    },
+    {
+      "path": "sim\\captures\\kyros\\late_scene_candidates6000_stairs_zigzag\\frame_000600.work.bin",
+      "sha256": "cef2a5738be790921b82c4935bdd7b01bc44333638b93d1087e3b2fcb6ba6151"
+    },
+    {
+      "path": "sim\\captures\\kyros\\late_scene_candidates6000_stairs_zigzag\\frame_000900.display.rgb",
+      "sha256": "db63e54f459d914d36ddbe731e69dbdc6be95f68764e6faee0760ca893e33e90"
+    },
+    {
+      "path": "sim\\captures\\kyros\\late_scene_candidates6000_stairs_zigzag\\frame_000900.png",
+      "sha256": "805b6111329ca4993dbf68a7de85fb364a86765153cd2b24c58c41933f3444c8"
+    },
+    {
+      "path": "sim\\captures\\kyros\\late_scene_candidates6000_stairs_zigzag\\frame_000900.sprites.bin",
+      "sha256": "8ab323da58ac23c69627384d4bc6ac9efd2781b8fa9f0ce3401512a0e03a1620"
+    },
+    {
+      "path": "sim\\captures\\kyros\\late_scene_candidates6000_stairs_zigzag\\frame_000900.work.bin",
+      "sha256": "61235a94222fad7aad3ceb2081b76c6f4751c12d1be239583c37bf91a739e0c6"
+    },
+    {
+      "path": "sim\\captures\\kyros\\late_scene_candidates6000_stairs_zigzag\\frame_001200.display.rgb",
+      "sha256": "787962ccfe4610ebc6d5dda0817ffe252c0c00c2e3f51308c82b8bd51c1b14d0"
+    },
+    {
+      "path": "sim\\captures\\kyros\\late_scene_candidates6000_stairs_zigzag\\frame_001200.png",
+      "sha256": "8744e8026bd90e0adc992cab3d62f9e6077039509a6911a9e4b959e61b23f586"
+    },
+    {
+      "path": "sim\\captures\\kyros\\late_scene_candidates6000_stairs_zigzag\\frame_001200.sprites.bin",
+      "sha256": "f8663f0723f8b94f6c69db592961897390293f6a0021e7ba80bc036658942478"
+    },
+    {
+      "path": "sim\\captures\\kyros\\late_scene_candidates6000_stairs_zigzag\\frame_001200.work.bin",
+      "sha256": "5754eb358c347877c627bccc4f2b8c08480258d7568a8e17bd464c7545c79b7a"
+    },
+    {
+      "path": "sim\\captures\\kyros\\late_scene_candidates6000_stairs_zigzag\\frame_001500.display.rgb",
+      "sha256": "5f5c1ee30121fce7c6a3c349b091a895cfa75d296a180512a36afe84cb5d82b4"
+    },
+    {
+      "path": "sim\\captures\\kyros\\late_scene_candidates6000_stairs_zigzag\\frame_001500.png",
+      "sha256": "776af3460da0a11fdc82b6f6f97505287089893fad0044e635ab0c7cbe54d35a"
+    },
+    {
+      "path": "sim\\captures\\kyros\\late_scene_candidates6000_stairs_zigzag\\frame_001500.sprites.bin",
+      "sha256": "301408d960293ea07681c56a794abc5013a0fc250acbadace3bb00e3445bb66c"
+    },
+    {
+      "path": "sim\\captures\\kyros\\late_scene_candidates6000_stairs_zigzag\\frame_001500.work.bin",
+      "sha256": "a1e9d6642f3b7071367a9d6046f10c608291106385f15af460a49f7976313a4e"
+    },
+    {
+      "path": "sim\\captures\\kyros\\late_scene_candidates6000_stairs_zigzag\\frame_001800.display.rgb",
+      "sha256": "a740fa22be35f7247b125f330c47f5fafcf83b7a73d52277d19f84d1143994f1"
+    },
+    {
+      "path": "sim\\captures\\kyros\\late_scene_candidates6000_stairs_zigzag\\frame_001800.png",
+      "sha256": "5da06598a710069bd8f5cb6386f804029e3d5dc80ef04a1f88a8d37e6479c10f"
+    },
+    {
+      "path": "sim\\captures\\kyros\\late_scene_candidates6000_stairs_zigzag\\frame_001800.sprites.bin",
+      "sha256": "b37bb519eb8b581b896f0e371ebac6f1c5a93da842d01a14b7bc7d854376b0e1"
+    },
+    {
+      "path": "sim\\captures\\kyros\\late_scene_candidates6000_stairs_zigzag\\frame_001800.work.bin",
+      "sha256": "b6206b675237906e6b95fbb4d75f469eb9066cb55a7f57b977dd582c85f8fe79"
+    },
+    {
+      "path": "sim\\captures\\kyros\\late_scene_candidates6000_stairs_zigzag\\frame_002100.display.rgb",
+      "sha256": "e6dc5c608a702def2f721d8323990351f12f98bbf79e94765b2db3ea1441e39d"
+    },
+    {
+      "path": "sim\\captures\\kyros\\late_scene_candidates6000_stairs_zigzag\\frame_002100.png",
+      "sha256": "a66d9261160009b002239f07e62819ea2958963ccaf7d5eedfe367baa599e5f0"
+    },
+    {
+      "path": "sim\\captures\\kyros\\late_scene_candidates6000_stairs_zigzag\\frame_002100.sprites.bin",
+      "sha256": "168cbd0dd688ba334f5948a8ddccd7143e65d2a24690e910fff83caf0735b93b"
+    },
+    {
+      "path": "sim\\captures\\kyros\\late_scene_candidates6000_stairs_zigzag\\frame_002100.work.bin",
+      "sha256": "b0749015bc8c87fba80210bc1f4525010d7b09cbff00dd6b14b6236689d6e678"
+    },
+    {
+      "path": "sim\\captures\\kyros\\late_scene_candidates6000_stairs_zigzag\\frame_002400.display.rgb",
+      "sha256": "015f76b25d77b9b7684b17c200a65b232fc14649b9618c388e1ea4d6eabc6e97"
+    },
+    {
+      "path": "sim\\captures\\kyros\\late_scene_candidates6000_stairs_zigzag\\frame_002400.png",
+      "sha256": "ad452fc67cb573d8384b2c23a0bfc686633d9e04593feafb0d3700731941b7eb"
+    },
+    {
+      "path": "sim\\captures\\kyros\\late_scene_candidates6000_stairs_zigzag\\frame_002400.sprites.bin",
+      "sha256": "d5f01200b1eaeccf8c87ad53756ae78a7e6e2053fc44a33461a03d005c5ba75f"
+    },
+    {
+      "path": "sim\\captures\\kyros\\late_scene_candidates6000_stairs_zigzag\\frame_002400.work.bin",
+      "sha256": "38e65a4b10929544d0b508ba231c2c8dba3a8593669462bf5efe6ac6d4685f16"
+    },
+    {
+      "path": "sim\\captures\\kyros\\late_scene_candidates6000_stairs_zigzag\\frame_002700.display.rgb",
+      "sha256": "9b1440176a359e5e5ecd75fe7ac81e29f7e61cc26376d61660a3f6c4f6c61d56"
+    },
+    {
+      "path": "sim\\captures\\kyros\\late_scene_candidates6000_stairs_zigzag\\frame_002700.png",
+      "sha256": "cbdda013d4f57f215d94af050b7f5d04cd9605f661c14f70465b0d48e94743f1"
+    },
+    {
+      "path": "sim\\captures\\kyros\\late_scene_candidates6000_stairs_zigzag\\frame_002700.sprites.bin",
+      "sha256": "47415686bcd44e5816ae05cb7fce435ac2f59ec082a7754d440fb841733fd9dc"
+    },
+    {
+      "path": "sim\\captures\\kyros\\late_scene_candidates6000_stairs_zigzag\\frame_002700.work.bin",
+      "sha256": "9eadc02d0c89b0ede9ade6e1453f2307f81d2ca95b2a517aa6b2813a3babb77a"
+    },
+    {
+      "path": "sim\\captures\\kyros\\late_scene_candidates6000_stairs_zigzag\\frame_003000.display.rgb",
+      "sha256": "bf64585426b4e00f5fb47e754edfd5174d1b18de9f418e5062ffecbae986229b"
+    },
+    {
+      "path": "sim\\captures\\kyros\\late_scene_candidates6000_stairs_zigzag\\frame_003000.png",
+      "sha256": "8f4162cb5f78cdd14dec23102909a11f7e0e52c1431f231523f5cfa7cbfe0d86"
+    },
+    {
+      "path": "sim\\captures\\kyros\\late_scene_candidates6000_stairs_zigzag\\frame_003000.sprites.bin",
+      "sha256": "1e3639a92bbc87e8cb097471106c25eb7db6b16496020164b0e205357952c1e9"
+    },
+    {
+      "path": "sim\\captures\\kyros\\late_scene_candidates6000_stairs_zigzag\\frame_003000.work.bin",
+      "sha256": "fadeca164c27b97f7091c1b6c669fb6e457286e9294f41e90f2279959d967ad2"
+    },
+    {
+      "path": "sim\\captures\\kyros\\late_scene_candidates6000_stairs_zigzag\\frame_003300.display.rgb",
+      "sha256": "0e46d2c40f40550981ce39304073fc64e87658b41a74e94cff48c469cb130177"
+    },
+    {
+      "path": "sim\\captures\\kyros\\late_scene_candidates6000_stairs_zigzag\\frame_003300.png",
+      "sha256": "758fe6c10e7e8077e49bb4033711de3c29276b59401cb8689224b1c30cf7070f"
+    },
+    {
+      "path": "sim\\captures\\kyros\\late_scene_candidates6000_stairs_zigzag\\frame_003300.sprites.bin",
+      "sha256": "563237f3bda9cb7ddda95b73a4ccfe89e66e42957c2f079fe50e0b4e1ee3526a"
+    },
+    {
+      "path": "sim\\captures\\kyros\\late_scene_candidates6000_stairs_zigzag\\frame_003300.work.bin",
+      "sha256": "a98f1b9058d8a43d087ce1ae47a9197471742860fd5b3aa73735bfeceb9203e4"
+    },
+    {
+      "path": "sim\\captures\\kyros\\late_scene_candidates6000_stairs_zigzag\\frame_003600.display.rgb",
+      "sha256": "d51c161ed8ff0f11d760a8ea11f5c7a79333ff368145e91bcc236679550d2662"
+    },
+    {
+      "path": "sim\\captures\\kyros\\late_scene_candidates6000_stairs_zigzag\\frame_003600.png",
+      "sha256": "f4bb93b54e1556b1fa72854c02773c84661813823fd53f1c69ab99c1d4734160"
+    },
+    {
+      "path": "sim\\captures\\kyros\\late_scene_candidates6000_stairs_zigzag\\frame_003600.sprites.bin",
+      "sha256": "318c71eaeb9f9babad2e1bd5a4dbf40712bb7101450ea118545e1ca1b6537282"
+    },
+    {
+      "path": "sim\\captures\\kyros\\late_scene_candidates6000_stairs_zigzag\\frame_003600.work.bin",
+      "sha256": "86ea19a1dfe8839a28a555687401c67c1aa31bdf64ac86229db0abddef45acc1"
+    },
+    {
+      "path": "sim\\captures\\kyros\\late_scene_candidates6000_stairs_zigzag\\frame_003900.display.rgb",
+      "sha256": "84f34e438a2be1ec3fbc6a6b3279bf2fb72aa1b45cabe037940dafe899291966"
+    },
+    {
+      "path": "sim\\captures\\kyros\\late_scene_candidates6000_stairs_zigzag\\frame_003900.png",
+      "sha256": "73e163176edd57e9524c8cabca10e7597ffcd4f50985477fa2cc3464d1beb190"
+    },
+    {
+      "path": "sim\\captures\\kyros\\late_scene_candidates6000_stairs_zigzag\\frame_003900.sprites.bin",
+      "sha256": "1f4004a13e2a5a91821fa28d55d9bce0a469aac7cdfe135ba5d59ea7d2d1cfdd"
+    },
+    {
+      "path": "sim\\captures\\kyros\\late_scene_candidates6000_stairs_zigzag\\frame_003900.work.bin",
+      "sha256": "5c6da0d4c2cbe6251821bfb755b59498b792b666d2da1fcfd0a1996e1c3ceb01"
+    },
+    {
+      "path": "sim\\captures\\kyros\\late_scene_candidates6000_stairs_zigzag\\frame_004200.display.rgb",
+      "sha256": "596a075c2abc240287431954d53fa2a8e9180dd787736bbde65d8c023b253a20"
+    },
+    {
+      "path": "sim\\captures\\kyros\\late_scene_candidates6000_stairs_zigzag\\frame_004200.png",
+      "sha256": "902baef56f7504a12a14e4fcee03f5735d4ca7b0379fc4e7451541372fa5e55e"
+    },
+    {
+      "path": "sim\\captures\\kyros\\late_scene_candidates6000_stairs_zigzag\\frame_004200.sprites.bin",
+      "sha256": "151ba1fc0717a084b4f73ad2346761293ebadb8883372313098e20ca1e312035"
+    },
+    {
+      "path": "sim\\captures\\kyros\\late_scene_candidates6000_stairs_zigzag\\frame_004200.work.bin",
+      "sha256": "0b855c4a819de320af6226cc8fae29de6d6ca65edd24363e269d97d77d33c9da"
+    },
+    {
+      "path": "sim\\captures\\kyros\\late_scene_candidates6000_stairs_zigzag\\frame_004500.display.rgb",
+      "sha256": "b97cca184b1b7e7d34e23a15ef3bd743ef858e14688cd44a4fbd5f0c703d73b5"
+    },
+    {
+      "path": "sim\\captures\\kyros\\late_scene_candidates6000_stairs_zigzag\\frame_004500.png",
+      "sha256": "9402e8d8c03cb34a697e6eda81f230d69b1eb1ae8e31e2a92d722b1e767cca6d"
+    },
+    {
+      "path": "sim\\captures\\kyros\\late_scene_candidates6000_stairs_zigzag\\frame_004500.sprites.bin",
+      "sha256": "52b28c69b23ffb630c3af2d1a3796286f4379e2551062f9d31849200dff4a5e0"
+    },
+    {
+      "path": "sim\\captures\\kyros\\late_scene_candidates6000_stairs_zigzag\\frame_004500.work.bin",
+      "sha256": "9cbaac33e717883cb93c6c6501172148f7581fb2596ef058de9a1fafd16c879b"
+    },
+    {
+      "path": "sim\\captures\\kyros\\late_scene_candidates6000_stairs_zigzag\\frame_004800.display.rgb",
+      "sha256": "653af8f72289e1bcf87dc5494ae81d322b6cd8211d7750a98bf1803a1a7791e8"
+    },
+    {
+      "path": "sim\\captures\\kyros\\late_scene_candidates6000_stairs_zigzag\\frame_004800.png",
+      "sha256": "b43b8b7a8c7efe8630bfd8e3b923f0a38675afea90728d21f35b06df1713cc8c"
+    },
+    {
+      "path": "sim\\captures\\kyros\\late_scene_candidates6000_stairs_zigzag\\frame_004800.sprites.bin",
+      "sha256": "491558079e477ae7363e5cc374d3b3903220259342bdd205e1d8eaf6a4fb5d4d"
+    },
+    {
+      "path": "sim\\captures\\kyros\\late_scene_candidates6000_stairs_zigzag\\frame_004800.work.bin",
+      "sha256": "a4e108bae92b358727880ca6ccad5d90398293ef4bf11a08449a4a412b9fde9b"
+    },
+    {
+      "path": "sim\\captures\\kyros\\late_scene_candidates6000_stairs_zigzag\\frame_005100.display.rgb",
+      "sha256": "4324b5847b4a6503e95751de34c47691f317f9a065977b529690638fce4e84d7"
+    },
+    {
+      "path": "sim\\captures\\kyros\\late_scene_candidates6000_stairs_zigzag\\frame_005100.png",
+      "sha256": "726b6fb74ce0a517e705607a24b4dea2c16acd520133504a52c2b36a63d647a3"
+    },
+    {
+      "path": "sim\\captures\\kyros\\late_scene_candidates6000_stairs_zigzag\\frame_005100.sprites.bin",
+      "sha256": "c37fd5961913dda48dd4721129e568bce57cda2c1ecc336a6fe58a303f325b57"
+    },
+    {
+      "path": "sim\\captures\\kyros\\late_scene_candidates6000_stairs_zigzag\\frame_005100.work.bin",
+      "sha256": "b193d52fa147d8506b27a867b533081286c3c08008a5645b099d992f08a26b4e"
+    },
+    {
+      "path": "sim\\captures\\kyros\\late_scene_candidates6000_stairs_zigzag\\frame_005400.display.rgb",
+      "sha256": "80b240060dbfbee29567dc17f6057e476166298d027ee81232a13e3ba3fa9fb5"
+    },
+    {
+      "path": "sim\\captures\\kyros\\late_scene_candidates6000_stairs_zigzag\\frame_005400.png",
+      "sha256": "90c9812f22c3d366911bd7ac29610421698cdb14aaf95812440a741a864526d6"
+    },
+    {
+      "path": "sim\\captures\\kyros\\late_scene_candidates6000_stairs_zigzag\\frame_005400.sprites.bin",
+      "sha256": "3f1d338bc680ece7b80fae9725bff50e279273bbb82a1c92f92876198c678ef2"
+    },
+    {
+      "path": "sim\\captures\\kyros\\late_scene_candidates6000_stairs_zigzag\\frame_005400.work.bin",
+      "sha256": "bf6acb09b8809a82da4540d6cb84d951937cd3b4a1e71a89cefd0dd4b5c4fb78"
+    },
+    {
+      "path": "sim\\captures\\kyros\\late_scene_candidates6000_stairs_zigzag\\frame_005700.display.rgb",
+      "sha256": "ea971dbfd5929657bde1c341b930d3645836e3988d4685f0a9d1114b527694b3"
+    },
+    {
+      "path": "sim\\captures\\kyros\\late_scene_candidates6000_stairs_zigzag\\frame_005700.png",
+      "sha256": "22af9e5e7f576a0965c410a35585ec59913384cebff7983e00d4df9962790c7e"
+    },
+    {
+      "path": "sim\\captures\\kyros\\late_scene_candidates6000_stairs_zigzag\\frame_005700.sprites.bin",
+      "sha256": "593179976bd1bccfa13f5552b65c2d3775de63beb71ebc86c257bd95de79571a"
+    },
+    {
+      "path": "sim\\captures\\kyros\\late_scene_candidates6000_stairs_zigzag\\frame_005700.work.bin",
+      "sha256": "844a74de71caa26a31207b9d9d898bee2165115ded57324d103b7ad74b2ced88"
+    },
+    {
+      "path": "sim\\captures\\kyros\\late_scene_candidates6000_stairs_zigzag\\frame_005999.display.rgb",
+      "sha256": "4f85babe5655dc4b8ada8165967b5d68788c599a91758ed22c3db8c07eb72f32"
+    },
+    {
+      "path": "sim\\captures\\kyros\\late_scene_candidates6000_stairs_zigzag\\frame_005999.png",
+      "sha256": "d24c63bfa9e27939457e162d6e45a15b74ec24c8c65da24a53063647707d1f0d"
+    },
+    {
+      "path": "sim\\captures\\kyros\\late_scene_candidates6000_stairs_zigzag\\frame_005999.sprites.bin",
+      "sha256": "dca083a6a5bf7ead0b812ab6cfec30b3f6fb46c20e99978dde2b3126284d8536"
+    },
+    {
+      "path": "sim\\captures\\kyros\\late_scene_candidates6000_stairs_zigzag\\frame_005999.work.bin",
+      "sha256": "bce8d4905c0d75891a1ae2932f620d5f242f51c729ebafb05cca1af520c658bb"
+    },
+    {
+      "path": "sim\\captures\\kyros\\late_scene_candidates6000_stairs_zigzag\\frame_states.csv",
+      "sha256": "147580f230be4cba0244dd257b9a3eee907bb0ec739e8224f542d7c0b8068555"
+    }
+  ],
+  "checks": {
+    "exit_zero": true,
+    "completion_marker": true,
+    "no_lua_failure": true,
+    "all_frames_observed": true,
+    "expected_snapshot_count": true,
+    "complete_assets": true
+  },
+  "passed": true,
+  "wall_seconds": 11.320722341537476
+}

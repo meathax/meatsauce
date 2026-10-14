@@ -1,0 +1,40 @@
+{
+  "worker_pid": 7636,
+  "started": 1791582881.0639892,
+  "source_parent": "9bfb6e0f88a23865cd06bab7a03fde365f9f5768",
+  "runner_sha256": "45e467682aaf40cc75459d93a5234967a6652650807b99259fde7a0a876362fb",
+  "source": {
+    "canonical_host": "sim/wrapper_main.cpp",
+    "canonical_host_sha256": "ba687d84a7e408cccf58a33cc71d6a0b2fd46d63bf70d251abe0b5965b674a0e",
+    "derived_host": "sim/captures/diagnostics/earned_wrapper/wrapper_main.cpp",
+    "derived_host_sha256": "8868faf306e7faf0db1f0ccabe0d710d70d5bd4743c8521dd28de65ddf9798a8",
+    "canonical_builder_sha256": "c7b7153e82bb24246a81ede9365d1f9437d890d528e9d2519ad46ec4abab6a7f",
+    "derived_builder": "sim/captures/diagnostics/earned_wrapper/build.sh",
+    "derived_builder_sha256": "5b9f906752d1c3b728eee96712db06dab348a9d2b9ebe810e495abc094a7c619",
+    "scope": "Actual wrapper CPU gameplay via real HPS ports, real donor save, CPU reset clears score then real donor restore. No synthetic RAM writes. No production RTL changes; qualification pending.",
+    "generator_sha256": "d69a446c4b9204e45010b940b0fe90c59f97edd1a4eb6a08e14a99f3f282ab4b"
+  },
+  "ports_sha256": "17378a389bf597a0fa659fea008728aef3e6e10fa59f8efc5867e16676ca09b2",
+  "scope": "Current real wrapper gameplay, actual CPU-earned score, real HPS donor upload, actual reset-cleared score and real HPS restore; no synthetic RAM writes; not a full-game/hardware qualification",
+  "build_pid": 7638,
+  "build_command": [
+    "bash",
+    "/mnt/d/Arcade/AI/aCORES/Alpha68k N/sim/captures/diagnostics/earned_wrapper/build.sh"
+  ],
+  "executable_sha256": "30d0db6ce4addb6e8028987cd4595a7f213ee893ea73a4b6d29800438ac5a585",
+  "manifest_sha256": "bdb4c7d06ecaf2051dd984d1e84d225757b26f0eeb6f0f432befb46f759f3376",
+  "rom_sha256": "5cf728d5d40e9be14a4a9c07792bab9f44404a75c2c2eed92124ff96ee9b5ef6",
+  "hiscore_config_sha256": "62f56ac9e7616de9f2451e8d0eeab61df63fab86fb8434e0b4e83c48ecdc7b22",
+  "simulation_pid": 7814,
+  "command": [
+    "/mnt/d/Arcade/AI/aCORES/Alpha68k N/sim/captures/rtl/kyros_earned_wrapper901_v2/alpha68kn_wrapper_earned_sim",
+    "/mnt/d/Arcade/AI/aCORES/Alpha68k N/roms/kyros/download.bin",
+    "901",
+    "/mnt/d/Arcade/AI/aCORES/Alpha68k N/sim/captures/rtl/kyros_earned_wrapper901_v2",
+    "--earned-score",
+    "/mnt/d/Arcade/AI/aCORES/Alpha68k N/sim/captures/kyros/combat3600_v2/frame_states.csv"
+  ],
+  "run_started": 1791582934.0935495,
+  "exit_code": 1,
+  "ended": 1791585473.2046869
+}

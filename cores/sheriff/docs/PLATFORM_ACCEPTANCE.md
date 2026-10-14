@@ -1,0 +1,35 @@
+# Current Sheriff platform acceptance
+
+Run the bounded read-only audit from the canonical core root:
+
+```powershell
+python -X utf8 tools/platform_acceptance_audit.py --output docs/evidence/sheriff_platform_acceptance.json
+```
+
+Exit0 qualifies the saved MRA's parent/MAME metadata, eleven chip CRC/SHA1/size checks, explicit7168-byte CPU padding, 0x4800-byte pack equality, sound/PROM offsets0x4000/0x4400, HPS button ordering, menu DIP mapping, and24-byte hiscore/NVRAM descriptor. ROM contents remain private. The helper reads the actual XML without regenerating it and rejects source changes during its audit.
+
+Sheriff currently instantiates a single static board and consumes no mod input. Its MRA therefore has no index1 mod download; adding one would not select another profile. Lives/cabinet belong to the actual OSD status menu, whose defaults select3 lives/Upright.
+
+The audit stores exact current tracked HDL/project hashes and compares every discoverable source hash map in retained controls/display/gamma/hiscore/analog/P1 evidence. Matching maps preserve their original scope only. Partial maps and mismatches cannot qualify the complete current wrapper. No unchanged component or saved runtime test is repeated by this audit.
+
+Full current-wrapper HPS boot/loading/reset behavior, all three frozen gameplay fixtures, later-round color, mixed audio, pause/persistence, native/direct/HDMI platform execution, the applicable bug dispositions, and exact final-source fit/STA remain independently required. A passing static audit does not close these gates.
+
+The queue observation is in docs/evidence/sheriff_queue_admission_20261010.json. The canonical public interface exposes a RecipeId parameter; the pinned32-recipe registry contains no Sheriff/Sherrif/Nintendo8080/N8080 recipe. No queue job was submitted. Independent admission of a reviewed Sheriff complete preassembly recipe is still required. Do not modify the protected registry/worker, select another core's recipe, or run raw compiler stages.
+
+The fresh genuine HPS smoke passed on frozen source identity368bf82fd5477e32ff09278f2951d4d30b8ea8629e88d8b1e83ae9f8f88bbdec: observer compile0, native runtime0, producer0,19179 observations and all18432 ROM addresses. It verifies reset held while loading, first execution, ordinary P1/P2 digital transactions, explicit HPS reset holding PC0 and resumed execution. The run reuses verified saved connected172-source model objects and freezes178 tracked HDL/project files. The additional6 files are disconnected physical video/qualification modules. Exact evidence: docs/evidence/sheriff_platform_hps_smoke.json; private recovery:_checks/agent-platform-20261010/{frozen-source.json,platform-compile.json,platform-terminal.json,runtime/platform_probe.csv}. The generated host observer changes no RTL state or platform model.
+
+The smoke lasts at most30ms and does not qualify longer gameplay, graphics/audio equality or later source edits. Use tools/platform_hps_smoke.py with an explicit --output directory containing the frozen-source.json and frozen-source subtree; it verifies immutable sources and saved model objects before linking its observer and refuses an already-created frozen-model directory. The original executed script is retained in the recovery directory.
+
+The concrete independently reviewed preassembly request is docs/evidence/sheriff_queue_admission_proposal.json. All32 installed recipes were inspected for exact source/cwd compatibility; none is generic or Sheriff-compatible. Its requested recipe ID is a proposal, and its dispatch command must remain unexecuted until reviewed registration.
+
+## Pinned early framework timing: 66f53ed9
+
+The exact committed archive contains 564 tracked files. Full-framework map, fit, default STA and all eight supported operating conditions each exited 0 in `_checks/agent-platform-check-66f53ed9-20261010/source`. `GENERATE_RBF_FILE` remained OFF; no assembly, full compile or RBF was requested or run. Auxiliary `build_id.v` is bound separately. The original archive/manifest remain intact; post-tool QSF metadata only changes `LAST_QUARTUS_VERSION` from Standard to Lite Edition. No functional/timing assignment or RTL/sys/SDC change occurred.
+
+All seven strict measured resource gates pass: ALM 26.2372%, LAB 41.8039%, peak H/V 24.1/29.8%, average H/V 10.1/10.8%, M10K 22.4231%, memory bits 15.1666%, DSP 30.3571%. This is not complete timing acceptance: default hot-corner setup is +0.170 ns, but cold Slow 1100mV -40C setup is -0.008 ns. Eight-corner minima are setup -0.008, hold +0.104, recovery +3.904, removal +0.253 and minimum pulse width +0.396 ns. The first failing path is HDMI scaler `ascal|o_hacc_next[2]` to `[13]` (second from `[1]`, -0.007 ns), the accumulator feedback add/subtract/mux at frozen `sys/ascal.vhd:2240-2247`.
+
+Fitter multi-corner optimization is already On (fit report line 126); `TIMEQUEST_MULTICORNER_ANALYSIS OFF` only selects default analyzer reporting. Intel's [timing closure methodology](https://www.intel.com/programmable/technical-pdfs/654340.pdf) supports placement-seed experiments, without promising improvement. One isolated SEED 1 to 2 experiment was attempted in `_checks/agent-platform-seed2-66f53ed9-20261010`, preserving synthesis/RTL/SDC. Production QSF remains unchanged. The user stopped this chat on 2026-10-10; its positively identified check-only fitter (PID 66160, parent 27712) was terminated. The incomplete trial is unqualified; no trial STA or further compiler work was launched. Stop receipt: `_checks/stop-request-20261010.json`.
+
+Every unconstrained row is source-classified in `docs/evidence/sheriff_platform_timing_66f53ed9.json`: 4 input endpoints/14 paths and 50 output endpoints/98 paths, repeated identically for setup and hold. Clock targets are all constrained. The reported unconstrained endpoints are external platform ports; none is a synchronous board CPU/RAM register endpoint. HDMI video/audio and USER_IO audio are synchronous interfaces requiring actual receiver and PCB timing budgets. Expander SDA is sampled by a 50 MHz register under a derived I2C clock and needs protocol/board-delay qualification. HPS I2C/interrupt status are hard-IP/asynchronous platform boundary roles; their source role alone is not a vendor timing or synchronizer proof. SDIO and SD_SPI_CS paths include analog video/sync aliases and asynchronous card-detect mode control, requiring mode-specific contracts. LED paths are human status exception candidates. No blanket false paths, constraint relaxation or sys edits were added. Platform exception audit and release qualification remain open.
+
+Recovery includes the exact archive, original and post-tool source maps, generated build input, native compiler executable hashes, four actual exit receipts, all reports, and 483 database/model files. The report's `artifact_sha256`, `receipts`, `unconstrained`, `first_failure`, `original_source_identity` and `post_tool_source_identity` keys bind the scope. The frozen parser's workspace-name revision heuristic (`agent`) is explicitly superseded by the actual pinned manifest.

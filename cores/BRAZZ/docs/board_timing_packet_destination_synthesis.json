@@ -1,0 +1,49 @@
+{
+  "scope": "cs_boot_probe RTL, virtual pins, provisional 2 ns external interface budget; excludes MiSTer wrapper/PLL/physical memory backend",
+  "stage": "D:\\Arcade\\AI\\aCORES\\BRAZZ\\Arcade-CrystalSystem_MiSTer\\sim\\obj_dir\\timing\\1791168471066726200",
+  "source_sha256": {
+    "rtl/cpu/se3208_pkg.sv": "63bdde59a9eb369742ad68baabddf3be191571408bcacf7f71fa958e222e1b99",
+    "rtl/cpu/se3208_decode.sv": "c03060740f22ad0c8fd0fb1c3d5cdf75093fb66adef4a01983cf5602734c2a00",
+    "rtl/cpu/se3208_execute.sv": "74c1ae1941bacaae7f6af03020249c53646ca4f8ea7fa926c0f40383551a5881",
+    "rtl/cpu/se3208_bus_access.sv": "6148290e6962342651d6f486f461da1e3e17e0ea37c1bd808d931993afda0f61",
+    "rtl/cpu/se3208_cp_access.sv": "4af771f1526ac8ce0a4455ede36964c3fc1ec40c6d31007a512983e1a8b7ecd5",
+    "rtl/cpu/se3208.sv": "6d9a517924ec1171ee159126d426a2a0ea7f79a2854c12d8a380c2656434f835",
+    "rtl/memory/cs_bus_arbiter.sv": "7f621a249c0acd8360abaf5d356381116d3520dded288cb69830e8fa6037c23e",
+    "rtl/soc/vr0_cp0.sv": "48c5a0dbcc1e9f447587a33ac9b05232626d23293b3466a694f6f60ab65a0854",
+    "rtl/soc/vr0_control.sv": "505692267b29f6563a842b2517ab78b7327a4f4b029e596f5b02218869105041",
+    "rtl/soc/vr0_dma.sv": "adcd8bf0f4c47babea595e33deca38ed117406fdffac45ffbe381644548f9578",
+    "rtl/soc/ds1302.sv": "8e13a89d688962280335c31cf3d7224011591717a3766b52335c6bf3110a54ff",
+    "rtl/soc/vr0_gpio.sv": "65368b4c214fd8974c065fa9bdd6bcce5b55d209c9092ed3845a847d90a785a4",
+    "rtl/video/vr0_pixel_pkg.sv": "8fc4c932cab3725c9f9412c650c8f90efa3834225e0a0058d1d6ed5fe22119d9",
+    "rtl/video/vr0_gpu.sv": "bb76726772e5fc2edb31d460c5331c3b393208b7130bea70622a70d5d0122cbc",
+    "rtl/video/vr0_crtc.sv": "834df84e81d84d1cff0ab17daf03e4166017d8cf1f3e3579509d52ca628a6447",
+    "rtl/video/vr0_scanout.sv": "21bb75b87db31b1adf69b19b837cbabd1894e65730b791716c99883aa03ef325",
+    "rtl/board/cs_address_decode.sv": "5165b7c87ae942988df6475859d8594ffa5a3b9caae21a29dd08c8fdc8eeabb9",
+    "rtl/board/cs_board_io.sv": "2c7c71ebc43df90d759ae2000e58b5f3858342ad7aecabb0d2f589ac277427b5",
+    "rtl/board/cs_flash_cmd.sv": "8dd94e9a5426d27556639175fa1f699acfb53cd8efcfd2b59276ac56cd4c40d8",
+    "rtl/audio/vr0_audio_pkg.sv": "a922fe95e199ab6a94ac6f17807e3781ebe59ae9fd725a4537dbae550b5b954c",
+    "rtl/audio/vr0_voice.sv": "c2d5ff9ea2769e0dede51cdab19ac38fc9400e59ac31741f31b20fa14fbe1135",
+    "rtl/audio/vr0_spu.sv": "d70cfcc2a522d3c5618ba985addb172d2e8264206884a182aa63336dd177cbc2",
+    "rtl/board/cs_boot_probe.sv": "5b72575a09c83b5ba88da345ca691ddaaafdfb95be70ba57e956e77552c7ad51"
+  },
+  "clock_period_ns": 11.64,
+  "seed": 1,
+  "rbf_generated": false,
+  "requested_fit": false,
+  "steps": [
+    {
+      "tool": "quartus_map",
+      "returncode": 0,
+      "seconds": 149.656,
+      "errors": [],
+      "log": "D:\\Arcade\\AI\\aCORES\\BRAZZ\\Arcade-CrystalSystem_MiSTer\\sim\\obj_dir\\timing\\1791168471066726200\\quartus_map.log"
+    }
+  ],
+  "configuration_sha256": {
+    "board.qpf": "8242ee5e59a70da6149cb823d27ca626c19cecce70342b4e21184bb2adb3d6c3",
+    "board.qsf": "c2757648a3f2e7e75e885d6a2573ca6b4310a75c8d1c2d4d5ab6fe1d56583530",
+    "board.sdc": "fe6d06a2aedc54b21a6e571910c339d13556eddd427809a4599eeb7c817673b3"
+  },
+  "status": "SYNTHESIS_PASS",
+  "synthesis_summary": "Analysis & Synthesis Status : Successful - Mon Oct 05 13:50:20 2026\nQuartus Prime Version : 17.0.2 Build 602 07/19/2017 SJ Lite Edition\nRevision Name : board\nTop-level Entity Name : cs_boot_probe\nFamily : Cyclone V\nLogic utilization (in ALMs) : N/A\nTotal registers : 23589\nTotal pins : 0\nTotal virtual pins : 1,440\nTotal block memory bits : 65,536\nTotal DSP Blocks : 31\nTotal HSSI RX PCSs : 0\nTotal HSSI PMA RX Deserializers : 0\nTotal HSSI TX PCSs : 0\nTotal HSSI PMA TX Serializers : 0\nTotal PLLs : 0\nTotal DLLs : 0\n"
+}

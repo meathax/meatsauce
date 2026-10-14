@@ -1,0 +1,70 @@
+{
+  "scope": "finite current-design Kyros Japan boot/coin/start/play; no broad MAME_EXACT/death/reset/physical pass",
+  "terminal": {
+    "worker_pid": 125738,
+    "started": 1791540988.4715996,
+    "base_revision": "ff746d2d132e128671ae41bd9248db9eb6873ff4",
+    "local_adaptation": "YMFM SSG curve 5",
+    "frames_per_game": 720,
+    "game": "kyrosj",
+    "command": [
+      "./alpha68kn_system_sim",
+      "../../roms/kyrosj/download.bin",
+      "720",
+      "../captures/rtl/kyrosj_current720_curvefixed_drive",
+      "gameplay",
+      "--inputs",
+      "../captures/kyrosj/gameplay/frame_states.csv"
+    ],
+    "executable_sha256": "54529234af5aa50cb1d486d8f037a7dd8496b0da0f83e399b0cf8eb2094498cf",
+    "rom_sha256": "07d3dbbbc22d8ba039fbbf105106bc54d484d2868b930b0eaef7a49317bea20d",
+    "ports_sha256": "ed826d092dab4e09aaa0b5ed8222e13c74aed5dc53d211f48b0e548a26776bc5",
+    "simulation_pid": 129710,
+    "exit_code": 0,
+    "ended": 1791543331.9570558
+  },
+  "capture": "D:\\Arcade\\AI\\aCORES\\Alpha68k N\\sim\\captures\\rtl\\kyrosj_current720_curvefixed_drive",
+  "fields": 720,
+  "all_fields_complete": true,
+  "bad_fields": [],
+  "worst_line_cycles": 2280,
+  "comparisons": [
+    {
+      "frame": 0,
+      "different_pixels": 0,
+      "rtl_sha256": "9a4b97b4b079955bac86930724c8bcdd30aba4732f1dcbcbac2ec270f5f5e485",
+      "mame_sha256": "9a4b97b4b079955bac86930724c8bcdd30aba4732f1dcbcbac2ec270f5f5e485"
+    },
+    {
+      "frame": 30,
+      "different_pixels": 0,
+      "rtl_sha256": "9a4b97b4b079955bac86930724c8bcdd30aba4732f1dcbcbac2ec270f5f5e485",
+      "mame_sha256": "9a4b97b4b079955bac86930724c8bcdd30aba4732f1dcbcbac2ec270f5f5e485"
+    },
+    {
+      "frame": 90,
+      "different_pixels": 0,
+      "rtl_sha256": "597b7466c651ce13c6948134b3d586d62680f8fb85994fcbc7f2d047c07ce5bb",
+      "mame_sha256": "597b7466c651ce13c6948134b3d586d62680f8fb85994fcbc7f2d047c07ce5bb"
+    },
+    {
+      "frame": 240,
+      "different_pixels": 0,
+      "rtl_sha256": "159db246e6c1ca749ddf242ec71367a07727892df17a5f760446eb58941b8cdd",
+      "mame_sha256": "159db246e6c1ca749ddf242ec71367a07727892df17a5f760446eb58941b8cdd"
+    },
+    {
+      "frame": 360,
+      "different_pixels": 0,
+      "rtl_sha256": "c70ec6bd6464f4da16a10cbc23eb328327aea1a578a4089eade1ae6f6e39178f",
+      "mame_sha256": "c70ec6bd6464f4da16a10cbc23eb328327aea1a578a4089eade1ae6f6e39178f"
+    },
+    {
+      "frame": 600,
+      "different_pixels": 0,
+      "rtl_sha256": "870367cea2cc090698af979491e7a9c75e56ca3048a484753ad11186728f9bc8",
+      "mame_sha256": "870367cea2cc090698af979491e7a9c75e56ca3048a484753ad11186728f9bc8"
+    }
+  ],
+  "passed": true
+}

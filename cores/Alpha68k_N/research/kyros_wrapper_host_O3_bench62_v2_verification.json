@@ -1,0 +1,82 @@
+{
+  "scope": "Unchanged real CPU/board/framework RTL and host source. Only host -Os becomes -O3. Two actual normal HPS/ROM boot62 replays; no score/game-state injection, no whole-game or hardware qualification.",
+  "checks": {
+    "both_exit_zero": true,
+    "all62_metric_rows_exact": true,
+    "full_core_coverage": true,
+    "no_unmapped_or_renderer_failure": true,
+    "all_captured_rgb_exact": true,
+    "model_objects_unchanged": true
+  },
+  "finite_prefix_pass": true,
+  "baseline_wall_seconds": 149.98178505897522,
+  "optimized_wall_seconds": 156.23687982559204,
+  "speedup": 0.9599640317087783,
+  "images": [
+    {
+      "name": "frame_000000.core.rgb",
+      "baseline_sha256": "9a4b97b4b079955bac86930724c8bcdd30aba4732f1dcbcbac2ec270f5f5e485",
+      "optimized_sha256": "9a4b97b4b079955bac86930724c8bcdd30aba4732f1dcbcbac2ec270f5f5e485",
+      "bytes": 172032,
+      "exact": true
+    },
+    {
+      "name": "frame_000000.vga.rgb",
+      "baseline_sha256": "20fd0e2e757209f98ccd1374f3d48ec6678ad29d2bb8e6893e259cb5ffe3fb62",
+      "optimized_sha256": "20fd0e2e757209f98ccd1374f3d48ec6678ad29d2bb8e6893e259cb5ffe3fb62",
+      "bytes": 172806,
+      "exact": true
+    },
+    {
+      "name": "frame_000030.core.rgb",
+      "baseline_sha256": "9a4b97b4b079955bac86930724c8bcdd30aba4732f1dcbcbac2ec270f5f5e485",
+      "optimized_sha256": "9a4b97b4b079955bac86930724c8bcdd30aba4732f1dcbcbac2ec270f5f5e485",
+      "bytes": 172032,
+      "exact": true
+    },
+    {
+      "name": "frame_000030.vga.rgb",
+      "baseline_sha256": "9a4b97b4b079955bac86930724c8bcdd30aba4732f1dcbcbac2ec270f5f5e485",
+      "optimized_sha256": "9a4b97b4b079955bac86930724c8bcdd30aba4732f1dcbcbac2ec270f5f5e485",
+      "bytes": 172032,
+      "exact": true
+    },
+    {
+      "name": "frame_000060.core.rgb",
+      "baseline_sha256": "14034d0f5c96249cbf3df241c441f6c260b5c617c3ef81bd6f9bb579c49ab081",
+      "optimized_sha256": "14034d0f5c96249cbf3df241c441f6c260b5c617c3ef81bd6f9bb579c49ab081",
+      "bytes": 172032,
+      "exact": true
+    },
+    {
+      "name": "frame_000060.vga.rgb",
+      "baseline_sha256": "14034d0f5c96249cbf3df241c441f6c260b5c617c3ef81bd6f9bb579c49ab081",
+      "optimized_sha256": "14034d0f5c96249cbf3df241c441f6c260b5c617c3ef81bd6f9bb579c49ab081",
+      "bytes": 172032,
+      "exact": true
+    },
+    {
+      "name": "frame_000061.core.rgb",
+      "baseline_sha256": "b0c2e61fc0ac448f9d93dbb033ed154beb7f698804fe93ae4aa47b8e31d2a700",
+      "optimized_sha256": "b0c2e61fc0ac448f9d93dbb033ed154beb7f698804fe93ae4aa47b8e31d2a700",
+      "bytes": 172032,
+      "exact": true
+    },
+    {
+      "name": "frame_000061.vga.rgb",
+      "baseline_sha256": "b0c2e61fc0ac448f9d93dbb033ed154beb7f698804fe93ae4aa47b8e31d2a700",
+      "optimized_sha256": "b0c2e61fc0ac448f9d93dbb033ed154beb7f698804fe93ae4aa47b8e31d2a700",
+      "bytes": 172032,
+      "exact": true
+    }
+  ],
+  "original_elf_sha256": "030131b18194d703fdb44e54fca8225239aada679c7c62663204f480fe10330f",
+  "optimized_elf_sha256": "deafd1d7f3a0309bfde2ae3beea5fcc58029dad45095dffce4b5f8f301c13286",
+  "model_object_pins": {
+    "/mnt/d/vibes/fpga/temp/alpha68kn-wrapper.4Xqm9y/obj/verilated.o": "1fb8eea41361c50c954dfb6be36075537646d358e0db4f13555a77cf17feecf5",
+    "/mnt/d/vibes/fpga/temp/alpha68kn-wrapper.4Xqm9y/obj/verilated_threads.o": "aa0e255a02d3b1e477d561ba1f27ba7b7c8f707bb27cdd7278a07919499a97aa",
+    "/mnt/d/vibes/fpga/temp/alpha68kn-wrapper.4Xqm9y/obj/Vemu__ALL.a": "4b6efb54fe58f82c1516058dfd151cf3c697a6ec0b401ad86151b192c6e190a9"
+  },
+  "host_sha256": "e28b4192983a08c6b21765693fc4703f67e6ae6e7db0abee7e0f33662a087b2f",
+  "adoption_limit": "No canonical builder change or running acceptance job replacement. Speed on later gameplay and actual earned/reset/restore remain unqualified."
+}

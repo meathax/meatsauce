@@ -1,0 +1,57 @@
+{
+  "purpose": "Minimal CPU-local vpa_sync request/return observer; source-only, no build/runtime release",
+  "observer_fields": [
+    "request_current_time",
+    "previous_last_vpa_time",
+    "return_cycle",
+    "request_cycle_mod10",
+    "total_cycles_at_callback",
+    "icount",
+    "CPU_local_time_as48MHz_ticks",
+    "machine_time_as48MHz_ticks",
+    "PC",
+    "instruction_PC",
+    "IR",
+    "IRD",
+    "IRC",
+    "SR",
+    "interrupt_level",
+    "pending_state",
+    "next_state"
+  ],
+  "observer_admission": "Private maincpu only, request5500000..6200000 CPUcycles; append logerror only; lambda returns original exact result; no state getter export/import, timer, IRQ, memory, cycle or phase writes.",
+  "unchanged_function_restoration_byte_exact": true,
+  "header_generated_microcode_unchanged": true,
+  "original_private_CPP": {
+    "path": "D:\\vibes\\fpga\\temp\\mame289-irq-cutoff-private\\src\\devices\\cpu\\m68000\\m68000.cpp",
+    "bytes": 15611,
+    "sha256": "6a4ebd3b187906d59c2a2c982ce39313ace0d9f6dfcc83ed904314757de1437e"
+  },
+  "original_private_PE": {
+    "path": "D:\\vibes\\fpga\\temp\\mame289-irq-cutoff-private\\kyros_irqcut.exe",
+    "bytes": 124357887,
+    "sha256": "cb9ac0f56d97ac0cac97190b2e9e028fa68f7dc9c19235d9b3e364387c218c6d"
+  },
+  "original_private_header": {
+    "path": "D:\\vibes\\fpga\\temp\\mame289-irq-cutoff-private\\src\\devices\\cpu\\m68000\\m68000.h",
+    "bytes": 20484,
+    "sha256": "9f71230fcea063a5eefaef1481d972c6630085b22d0042de1e6e3bc0df660217"
+  },
+  "official_MAME_CPU_CPP": {
+    "path": "D:\\Arcade\\AI\\mame289\\src\\devices\\cpu\\m68000\\m68000.cpp",
+    "bytes": 14894,
+    "sha256": "ef095e786564a203b828ed8e1e517b6af2e0d8fd64090d432f8be67480a5fab3"
+  },
+  "manual_manifest": {
+    "path": "D:\\Arcade\\AI\\aCORES\\Alpha68k N\\research\\mame_cutoff_observer_stage\\manual_e_vpa\\import_manifest.json",
+    "bytes": 6503,
+    "sha256": "89b21154749869faa0ea49e07bcca96964363d1690e99dc3eca7003122ed1401"
+  },
+  "build_policy": "No build or runtime authorized by preparation. Future isolated private source/build workspace must preserve this original source/PE and official0.289 binary/source. Sourcepatch is ready for rootreview; exact isolatedobject/library/linkoverlay recipe still requires separate reviewed admission before compile. Reuse reviewed UCRT64 minimal alpha68k_n -j2 environment only after root sourcepins review; no hardlink edits, giantrepo copy or direct POSIX invocation.",
+  "future_run_scope": "At most one cloned qualified61 private MAME run with unchanged qualified ROM/input/capture hooks; no native replay needed. Compare all original arrays/CSV/audio and rawIRQcutoffs before interpreting IRQ_VPA; required logger rows map exactly to ten alreadyjoinedIACKs and return/result unchanged.",
+  "not_claimed": "Physical power-onEphase or donor defect; three+8 account of24 ticks; currentcanonical complete-game qualification",
+  "actual_builds": 0,
+  "actual_guest_runs": 0,
+  "guest_timing_patch": false,
+  "root_runtime_release": false
+}

@@ -1,0 +1,90 @@
+// standard game interface for JTFRAME based
+// games. The different configurations are
+// enabled via macros defined in cfg/macros.def
+    input           rst,
+    input           clk,        // always matched to the SDRAM clock
+    input           rst24, clk24,
+`ifdef JTFRAME_CLK48
+    input           rst48, clk48,
+`endif
+    input           rst96, clk96,
+`ifdef JTFRAME_PXLCLK
+    input           pxl2_cen, pxl_cen,
+`else
+    output          pxl2_cen, pxl_cen,
+`endif
+    output   [`JTFRAME_COLORW-1:0]  red, green, blue,
+    output          LHBL, LVBL, HS, VS,
+    // cabinet I/O
+    input   [ 3:0]  cab_1p, coin,
+    input   [`JTFRAME_BUTTONS+3:0] joystick1, joystick2, joystick3, joystick4,
+`ifdef JTFRAME_PADDLE
+    input   [ 7:0]  paddle_0, paddle_1, paddle_2, paddle_3,
+`endif
+    input   [ 1:0]  dial_x, dial_y,
+`ifdef JTFRAME_MOUSE
+    input   [15:0]  mouse_1p, mouse_2p,
+    input   [ 1:0]  mouse_strobe,
+`endif
+`ifdef JTFRAME_LIGHTGUN
+    input   [ 8:0]  gun_1p_x, gun_1p_y, gun_2p_x, gun_2p_y,
+`endif
+`ifdef JTFRAME_SPINNER
+    input   [ 7:0]  spinner_1p, spinner_2p,
+`endif
+    input   [15:0]  joyana_l1, joyana_l2, joyana_l3, joyana_l4,
+    input   [15:0]  joyana_r1, joyana_r2, joyana_r3, joyana_r4,
+    // Sound control
+    input   [ 5:0]  snd_en,
+    input   [ 7:0]  snd_vol,
+    // DIP switches
+    input   [31:0]  status, dipsw,
+    input           dip_pause, dip_test, service, tilt,
+`ifdef JTFRAME_OSD_FLIP // splits the declaration because verilator doesn't handle the inout well
+    input           dip_flip,
+`else
+    output           dip_flip,
+`endif
+    input   [ 1:0]  dip_fxlevel,
+`ifdef JTFRAME_GAME_UART
+    output          uart_tx,
+    input           uart_rx,
+`endif
+    // Debug
+`ifdef JTFRAME_STATUS
+    input      [7:0] st_addr,
+    output     [7:0] st_dout,
+`endif
+    input   [3:0]   gfx_en,
+    input      [7:0] debug_bus,
+    output     [7:0] debug_view,
+    // Line-frame buffer. It can be used for object drawing (random access)
+    // or for full line dump.
+    // The memory holding the frame buffer depends on the target FPGA platform
+`ifdef JTFRAME_LF_BUFFER
+    output   [`JTFRAME_LF_VW-1:0] game_vrender,
+    output   [`JTFRAME_LF_HW-1:0] game_hdump,
+    output   [`JTFRAME_LF_HW-1:0] ln_addr,
+    output   [15:0] ln_data,
+    output          ln_done,
+    output          ln_we,
+    output          fb_keep,
+    input           ln_hs, ln_vs, ln_lvbl,
+    input    [15:0] ln_dout,
+    input    [15:0] ln_pxl,
+    input    [`JTFRAME_LF_VW-1:0] ln_v,
+`endif
+`ifdef JTFRAME_LF_ZOOM
+    output   [ 8:0] h_step,
+    output   [ 8:0] v_step,
+`endif
+`ifdef JTFRAME_SAVEGAME
+    output            sav_change,
+    output            sav_wait,
+    output            sav_done,
+    input      [ 1:0] sav_wr,
+    input             sav_ack,
+    output    [15:0]  sav_din,
+    input     [15:0]  sav_dout,
+    input     [15:0]  sav_addr,
+`endif

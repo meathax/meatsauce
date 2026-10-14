@@ -1,0 +1,52 @@
+{
+  "target": "mister_audio_cdc",
+  "acceptance": "unit verification",
+  "runtime": "native Windows PE / MSYS2 UCRT64",
+  "commands": [
+    [
+      "D:/vibes/fpga/bin/verilator.exe",
+      "--cc",
+      "--exe",
+      "--build",
+      "-j",
+      "4",
+      "-O3",
+      "--top-module",
+      "cs_audio_interp",
+      "--Mdir",
+      "R:/Verilator/CrystalSystem/tool-20261009T234654888Z-32824-170338890/obj_dir",
+      "-CFLAGS",
+      "-O2",
+      "-MAKEFLAGS",
+      "OPT_FAST=-O2",
+      "-MAKEFLAGS",
+      "OPT_GLOBAL=-O2",
+      "-Wno-fatal",
+      "D:/Arcade/AI/aCORES/BRAZZ/Arcade-CrystalSystem_MiSTer/rtl/audio/cs_audio_interp.sv",
+      "D:/Arcade/AI/aCORES/BRAZZ/Arcade-CrystalSystem_MiSTer/sim/mister/audio_cdc.cpp"
+    ],
+    [
+      "D:/vibes/fpga/bin/verilator.exe",
+      "sim",
+      "R:/Verilator/CrystalSystem/tool-20261009T234654888Z-32824-170338890/obj_dir/Vcs_audio_interp.exe",
+      "50"
+    ]
+  ],
+  "exit_code": 0,
+  "run_seconds": 2.172521600004984,
+  "sources": [
+    {
+      "path": "rtl/audio/cs_audio_interp.sv",
+      "sha256": "bcb41f149c84287dcc5261afd3815fbf6725bfbf9414b811b7086494eb851953"
+    },
+    {
+      "path": "sim/mister/audio_cdc.cpp",
+      "sha256": "2d0e8df7c58377c463545417394ec09c7629e8f6ba16ef00187f34446f22cb26"
+    }
+  ],
+  "workspace": "R:/Verilator/CrystalSystem/tool-20261009T234654888Z-32824-170338890",
+  "timing_profile": null,
+  "stdout": "level 0.05 FS: capture SNR 200.0 dB, longest stale cl 2 clk_audio cycles (0.1 us)\nlevel 0.25 FS: capture SNR 200.0 dB, longest stale cl 2 clk_audio cycles (0.1 us)\nlevel 0.50 FS: capture SNR 200.0 dB, longest stale cl 2 clk_audio cycles (0.1 us)\nlevel 0.90 FS: capture SNR 200.0 dB, longest stale cl 2 clk_audio cycles (0.1 us)\nPASS capture SNR >= 50.0 dB at every level\n",
+  "stderr": "",
+  "build_log": "sim/obj_dir/mister_audio_cdc/build.log"
+}

@@ -1,0 +1,167 @@
+{
+  "scope": "Finite actual CPU RAM-bounded energy depletion/life-consumption window, exact accepted AY2 register states and unchanged production noise masking. No direct CPU-channel PCM or exact unsampled death edge.",
+  "checks": {
+    "actual3301_terminal_zero": true,
+    "pinned_rom_unchanged": true,
+    "pinned_disassembly_unchanged": true,
+    "all61_marker_cases_match": true,
+    "sound_operand_unchanged": true,
+    "all7732_ay2_writes_and_labels_match": true,
+    "actual1260_not_depleted": true,
+    "actual1260_has_active_noise": true,
+    "actual1290_source_depletion_marker": true,
+    "actual1290_noise_disabled": true,
+    "noise_disabled_through1380": true,
+    "actual_life_decrement3_to2": true,
+    "same_compiled_current_production_sound_rtl": true,
+    "qualified_unchanged_chip_contract": true
+  },
+  "finite_post_depletion_noise_mask_composition_pass": true,
+  "full_B03_acceptance": false,
+  "whole_game_acceptance": false,
+  "native_depletion_bound": {
+    "exclusive_lower_field": 1260,
+    "inclusive_upper_field": 1290
+  },
+  "actual_before_snapshot": {
+    "frame": 1260,
+    "path": "D:\\Arcade\\AI\\aCORES\\Alpha68k N\\sim\\captures\\rtl\\kyros_combat_hud3301\\frame_001260.work.bin",
+    "sha256": "a0d0825bc7cb7532f186a78e221c196099db607a88c8b0eee3f05d6e454bdc20",
+    "observed_byte_20009": 5,
+    "lives_bcd_20103": 3,
+    "energy_20105": 2,
+    "energy_depleted_flag_20414": 0,
+    "player_state_20408": 2,
+    "last_ay2_b_register_state_at_snapshot": {
+      "frame": 1259,
+      "tick": 1021088090,
+      "mixer": 239,
+      "volume_b": 6,
+      "noise_b_enabled_nonzero_volume": true
+    },
+    "energy_depleted_state": false
+  },
+  "actual_after_snapshot": {
+    "frame": 1290,
+    "path": "D:\\Arcade\\AI\\aCORES\\Alpha68k N\\sim\\captures\\rtl\\kyros_combat_hud3301\\frame_001290.work.bin",
+    "sha256": "2882053dfcb8163072c744f234a93d9215de3ff7b5e6b6f0e2b5c6a77cf51057",
+    "observed_byte_20009": 3,
+    "lives_bcd_20103": 3,
+    "energy_20105": 0,
+    "energy_depleted_flag_20414": 1,
+    "player_state_20408": 11,
+    "last_ay2_b_register_state_at_snapshot": {
+      "frame": 1289,
+      "tick": 1045425074,
+      "mixer": 252,
+      "volume_b": 7,
+      "noise_b_enabled_nonzero_volume": false
+    },
+    "energy_depleted_state": true
+  },
+  "actual_life_decrement_snapshot": {
+    "frame": 1380,
+    "path": "D:\\Arcade\\AI\\aCORES\\Alpha68k N\\sim\\captures\\rtl\\kyros_combat_hud3301\\frame_001380.work.bin",
+    "sha256": "40eba9351b1d9814a96951a0b3887107c1ff181375dbac1e416d1a229c9422db",
+    "observed_byte_20009": 5,
+    "lives_bcd_20103": 2,
+    "energy_20105": 0,
+    "energy_depleted_flag_20414": 0,
+    "player_state_20408": 0,
+    "last_ay2_b_register_state_at_snapshot": {
+      "frame": 1379,
+      "tick": 1118417270,
+      "mixer": 252,
+      "volume_b": 8,
+      "noise_b_enabled_nonzero_volume": false
+    },
+    "energy_depleted_state": false
+  },
+  "post_depletion_ay2_mixer_or_volume_rows": 58,
+  "compiled_shared_source_pins": {
+    "rtl/alpha68kn_soundchips.sv": "5031188ac069c50e0deb4594947395b5440ac288e41f29c09fec8a80e1a45e37",
+    "rtl/vendor/jt12/hdl/jt03.v": "90e23e3bd6925062c1504cf3e554fd7c9e9fc0d5c3383026ddbb4a3f15637808",
+    "rtl/vendor/jt12/hdl/jt03_acc.v": "c0a24386702c6be50ae8ef622f351a919ceaab4a7fea74f012d887c0cc744256",
+    "rtl/vendor/jt12/hdl/jt12_csr.v": "95002e3cdd424de466243e2d4b0596dd28cb39f4300c5caa441fa1d5d6355429",
+    "rtl/vendor/jt12/hdl/jt12_div.v": "6ec575059aa4d2dcbb4384c913be31113967a09079b9bfb38e47afc6621ae87c",
+    "rtl/vendor/jt12/hdl/jt12_dout.v": "97ef1469e55604cdf19a3dd4c6d6816561c77c376b610a7f7285ac3ea0ee2715",
+    "rtl/vendor/jt12/hdl/jt12_eg.v": "1304b71730bf423a80d4bffcda316f94205f48de914037b332e49702fe8e44ad",
+    "rtl/vendor/jt12/hdl/jt12_eg_cnt.v": "82553d13d5c8e7973091cf2975488eb67a40645de1c9e9cfbf9f4c65dab40689",
+    "rtl/vendor/jt12/hdl/jt12_eg_comb.v": "b76f407e6cc453cb2adfe5d7e1bfbf14dd657df001ad4a3cef9f77f03efe9dac",
+    "rtl/vendor/jt12/hdl/jt12_eg_ctrl.v": "d06706f53f060e0ba0c6b62b5af115ea7d3119e2dc7a84ef0a01ff83841d1f53",
+    "rtl/vendor/jt12/hdl/jt12_eg_final.v": "917655582720361311658895f5beeb9a57df112623eddaa299254296e09237e1",
+    "rtl/vendor/jt12/hdl/jt12_eg_pure.v": "4462cfbb29749892999496be3a49132039002cab845730105c95fe8e816d7b6f",
+    "rtl/vendor/jt12/hdl/jt12_eg_step.v": "238da6f2955c398b7073242e3b6a2fa41ece80b7c45603bb234cfbfb131295d0",
+    "rtl/vendor/jt12/hdl/jt12_exprom.v": "fde1502e2b461c6487d67d29610069349ca60a1751c1a78f51a6b4cc0dcfa9cc",
+    "rtl/vendor/jt12/hdl/jt12_kon.v": "6424da40249e207ae59345d3da32da6b5a4f2e2d1409e39d5521b40eabb69369",
+    "rtl/vendor/jt12/hdl/jt12_lfo.v": "e1b13e5ddef2f84f6d2fa6f54f2feb996f1f5b713bbdac3ffdaf6e4b77db8cf3",
+    "rtl/vendor/jt12/hdl/jt12_logsin.v": "64e70df0139582b59e563b9b292f668c0dceb96c2101292a966c19ba4f74e51c",
+    "rtl/vendor/jt12/hdl/jt12_mmr.v": "019063a77e636053eebbc11b91c3e4903401330f05b86093750357bc5916fc47",
+    "rtl/vendor/jt12/hdl/jt12_mod.v": "0ec77a3ac2af12621c278512740ba1b7f17c18f19ea16747d6d31cc1fd9d9e17",
+    "rtl/vendor/jt12/hdl/jt12_op.v": "c187dc58534a4686e9e14c10b6da0fadbb09a43a08b254d855ef5f16c34d4417",
+    "rtl/vendor/jt12/hdl/jt12_pg.v": "5a66fa1f07fe8b09da329f6292f3d643031c153a79877d1a0f921deecf9a1419",
+    "rtl/vendor/jt12/hdl/jt12_pg_comb.v": "dfb01da96a74ac606a7bfdd50c21c2898d7ca9d43ed2dc5844aea907e4cbe1f0",
+    "rtl/vendor/jt12/hdl/jt12_pg_dt.v": "a17edbb2717255d923f609a8bf230ebbc5c9c47687de31880637ffc46a27e861",
+    "rtl/vendor/jt12/hdl/jt12_pg_inc.v": "3e60e02ef1ec489951502b0d0a0502b05309ef44c0239d00eeec9d8249e0f17f",
+    "rtl/vendor/jt12/hdl/jt12_pg_sum.v": "b28c64d784b3a3236b077a59c0fdcc80794cce0bb9f052622d4434d540b326b5",
+    "rtl/vendor/jt12/hdl/jt12_pm.v": "b386015d51dc3e627f037e79f4bcfb9634dff5eb1899ce8caec70a9e5544f046",
+    "rtl/vendor/jt12/hdl/jt12_reg.v": "816ba484f90d34f94507e27279e6c20e59ec56ab80172896aab46bc886a18a6f",
+    "rtl/vendor/jt12/hdl/jt12_reg_ch.v": "eb8536bc5ecf7d296f3f98c1b546cec53c4e7e46a090384198dc589733160621",
+    "rtl/vendor/jt12/hdl/jt12_sh.v": "c2e10923fbd5d8db1990f0e66eabc836ca79ffbdc59b79a58cade4d2b0842790",
+    "rtl/vendor/jt12/hdl/jt12_sh24.v": "be2c53adb5c097ee72f77d9a42ca4c437428a2d6e658f57b86f16b6378af9c10",
+    "rtl/vendor/jt12/hdl/jt12_sh_rst.v": "d35e1bb25ca9dac46a3950e950f28ad010757b50d868a0dea9cee40c4fc49dc2",
+    "rtl/vendor/jt12/hdl/jt12_single_acc.v": "c3f480d89287ff98099bc1fdfb3086498c52958ed873ec4c2d0cc4f3898c6ea1",
+    "rtl/vendor/jt12/hdl/jt12_sumch.v": "3e6a65b7d20425ebc59bf3b93ab419b3adc096055e06c335af5e3191fb793329",
+    "rtl/vendor/jt12/hdl/jt12_timers.v": "7d7f6ef591c51c17ec2260f159e7d8c6ce030888139e9338032f70e05ffcace0",
+    "rtl/vendor/jt12/hdl/jt12_top.v": "199dcfe54ba43ccf2e142eaa5ee82e0a63ba5fcfb5681b658b1fee1f5af72f3d",
+    "rtl/vendor/jt12/jt49/hdl/jt49.v": "69808b2f4343083ba187936af31e49a8344302e214fdb1bdeaf0fb92b0f8ced6",
+    "rtl/vendor/jt12/jt49/hdl/jt49_bus.v": "7db9d54660dd42e02ba3110ddefea922202ce275be8fb4c11bafe28e92d23d1c",
+    "rtl/vendor/jt12/jt49/hdl/jt49_cen.v": "30559e72ddc232fa1e438b927554a4e32923ba5e320b6d7806ce78d3c60110c2",
+    "rtl/vendor/jt12/jt49/hdl/jt49_div.v": "37f534e196e998b47e09fefc2ac6bfdaa062756193ef0212a4595c1a44b9d491",
+    "rtl/vendor/jt12/jt49/hdl/jt49_eg.v": "e6259c88aa71ac0ddf9b53314ae8338854ce07e76dcb718e2c1c99c9a84b17dc",
+    "rtl/vendor/jt12/jt49/hdl/jt49_exp.v": "313381b5de48b3f9f37117cc2e40295e17254315e30a50b009d7612295c29915",
+    "rtl/vendor/jt12/jt49/hdl/jt49_noise.v": "ae6f708cb1d119240c77231bc03edec1718547afc2049a59d6525a599844ca08",
+    "rtl/vendor/ay49/hdl/a68n_ay49.v": "249ee4651ccac08d4c07b75a2a86e19a25c536cc9218f58d081047402a94cbed",
+    "rtl/vendor/ay49/hdl/a68n_ay49_bus.v": "1b74e9b8f18cce2ac58c0ddf2336906fef59d52b5b157e3d61b29d16cfecb9de",
+    "rtl/vendor/ay49/hdl/a68n_ay49_cen.v": "b34a3b5257b68675363f4f75482e41b24e07db0e97da01e82dab2534a914c5cd",
+    "rtl/vendor/ay49/hdl/a68n_ay49_div.v": "9d506c7a18f7976753d1e1df2070dc3d695d77497ce8e127bd97005aa7664116",
+    "rtl/vendor/ay49/hdl/a68n_ay49_eg.v": "9c271face25b367f3e377007ce9c605cc3f4f5e69c40621f741aa52811f300b4",
+    "rtl/vendor/ay49/hdl/a68n_ay49_exp.v": "89b5816cc0aa34b271c351c6dd9d9ff0c2b1decf5676905eac50bb61e0261365",
+    "rtl/vendor/ay49/hdl/a68n_ay49_noise.v": "3fa40e9ac1c2d8340af251b53e16def5d66509868a9105e85d4cbde5a448d661"
+  },
+  "source_pin_mismatches": [],
+  "production_mask_source": {
+    "path": "D:\\Arcade\\AI\\aCORES\\Alpha68k N\\rtl\\vendor\\ay49\\hdl\\a68n_ay49.v",
+    "sha256": "249ee4651ccac08d4c07b75a2a86e19a25c536cc9218f58d081047402a94cbed",
+    "excerpts": [
+      {
+        "line": 174,
+        "text": "wire use_noB  = regarray[ 7][4];"
+      },
+      {
+        "line": 181,
+        "text": "    Bmix <= (noise|use_noB) & (bitB|regarray[7][1]);"
+      }
+    ],
+    "meaning": "Mixer bit4 forces the B-channel noise factor high, so the noise-generator bit cannot modulate B. Nonzero legitimate tone is allowed; no zero-channel PCM claim."
+  },
+  "receipt_sha256": {
+    "research\\kyros_death_marker_localization_v2.json": "eb47fa9f44ae1853064930670e91c5614014d62e19a86a7024cee335b944e87e",
+    "research\\kyros_combat_hud3301_exit.json": "f20f2c3ad3fd45b458c8f302868b5ff311409146090c32548816e7c64ab6a267",
+    "research\\kyros_combat_hud3301_sound_interleaving.json": "2dc6289cb63cec84e1940f17e9aca2f54b37e01eb5c3305c7b9e7d82bb80f069",
+    "research\\kyros_punch_noise_chip_contract_exit.json": "a023f9cfe2b19ad19ad797c0e3359d37b6d0206ce549f190b9bad4a15e104fbb",
+    "research\\kyros_combat_hud3301_inputs.sha256": "488902f171c36ca70f54e976bee7888b0cb135d73967ff845e7219e5e861604d"
+  },
+  "snapshot_sha256": {
+    "1260": "a0d0825bc7cb7532f186a78e221c196099db607a88c8b0eee3f05d6e454bdc20",
+    "1290": "2882053dfcb8163072c744f234a93d9215de3ff7b5e6b6f0e2b5c6a77cf51057",
+    "1380": "40eba9351b1d9814a96951a0b3887107c1ff181375dbac1e416d1a229c9422db"
+  },
+  "limits": [
+    "The first existing depletion window is qualified only at/after the observed1290 marker; exact depletion write tick is absent.",
+    "Source ROM proves byte20103 packed BCD lives,20105 energy,20414 energy-depletion flag. Byte20009 is not interpreted as game mode.",
+    "Second depletion window has later noise-enabled writes; retain this observation. Whole-tail noise silence is not a general requirement and that activity is not diagnosed as stale noise.",
+    "No direct isolated PCM from the CPU host, matched PCM phase, Japan or full B03 pass.",
+    "Existing global sound ordering/YM field-label differences and graphics failures are retained."
+  ]
+}

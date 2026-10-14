@@ -1,0 +1,95 @@
+{
+  "schema": "kyros_legal_restart_reference_v1",
+  "scope": "Pinned MAME 0.289 actual CPU legal-input death/restart oracle; native execution separately pending",
+  "game": "kyros",
+  "fields": 3901,
+  "in1_dip": 206,
+  "input_path": "D:\\Arcade\\AI\\aCORES\\Alpha68k N\\sim\\captures\\kyros\\idle_death_restart3901\\frame_states.csv",
+  "input_sha256": "6abf71c09432e72b22f26e9c0cf6f02fb29241811973d0cbcec98a63109a41d9",
+  "event_path": "D:\\Arcade\\AI\\aCORES\\Alpha68k N\\sim\\captures\\kyros\\idle_death_restart3901\\inputs.csv",
+  "event_sha256": "ef5aaed42776336222b3ebbb83e89248b439da8ec5446d019095d23d5a1b7ed2",
+  "canonical_display_transform": "rotate90",
+  "state_prefix_rows_exact": 3601,
+  "verification_path": "D:\\Arcade\\AI\\aCORES\\Alpha68k N\\research\\kyros_restart_acceptance\\verification.json",
+  "verification_sha256": "0b4e054649d1d9c2248a8ee8caf85fd4fb92d7648c0eed694c2bef41a9380206",
+  "actual_mame_pid": 52580,
+  "actual_terminal_exit": 0,
+  "terminal_path": "D:\\Arcade\\AI\\aCORES\\Alpha68k N\\research\\kyros_restart_acceptance\\exit.json",
+  "terminal_sha256": "d1655c84d14997a13be3c7eab08b166b1a7ecc09c8e658c147d7c2a06a0cca6f",
+  "finalizer_sha256": "588822814b1ae4f585bb406d32e1d9ed5c9e65b79bacc6d46031801d45d75481",
+  "markers": [
+    {
+      "field": 3360,
+      "label": "GAME OVER",
+      "observation": "First game has ended; actual displayed image matches retained original reference.",
+      "method": "Human visual inspection of actual captured PNG; no RAM semantic inference",
+      "png_path": "D:\\Arcade\\AI\\aCORES\\Alpha68k N\\sim\\captures\\kyros\\idle_death_restart3901\\frame_003360.png",
+      "canonical_display_path": "D:\\Arcade\\AI\\aCORES\\Alpha68k N\\sim\\captures\\kyros\\idle_death_restart3901\\frame_003360.display.rgb",
+      "png_sha256": "d6db442a3760741b1cd0e63d64184bdbeabc4eaba1324198ee0eda414d12a905",
+      "canonical_display_sha256": "c4e05887ec4a6998839c7ef5f3393870175cf8e565eccd83a071fb72aaef6e72"
+    },
+    {
+      "field": 3600,
+      "label": "Title",
+      "observation": "Return to title before the second legal coin/start sequence; original displayed image exact.",
+      "method": "Human visual inspection of actual captured PNG; no RAM semantic inference",
+      "png_path": "D:\\Arcade\\AI\\aCORES\\Alpha68k N\\sim\\captures\\kyros\\idle_death_restart3901\\frame_003600.png",
+      "canonical_display_path": "D:\\Arcade\\AI\\aCORES\\Alpha68k N\\sim\\captures\\kyros\\idle_death_restart3901\\frame_003600.display.rgb",
+      "png_sha256": "06f7de1726690fce7e821be0ea7b0a474755acd9573841ceb85aa090c8ccfa41",
+      "canonical_display_sha256": "3bcac5c304a6099c1684bffb103dc2964200a2616be78baa744dcf123d7f8e72"
+    },
+    {
+      "field": 3690,
+      "label": "Second stage introduction",
+      "observation": "Actual PNG shows 1 STAGE CASTLE SKETCH after the second start, score 0 and credit 0.",
+      "method": "Human visual inspection of actual captured PNG; no RAM semantic inference",
+      "png_path": "D:\\Arcade\\AI\\aCORES\\Alpha68k N\\sim\\captures\\kyros\\idle_death_restart3901\\frame_003690.png",
+      "canonical_display_path": "D:\\Arcade\\AI\\aCORES\\Alpha68k N\\sim\\captures\\kyros\\idle_death_restart3901\\frame_003690.display.rgb",
+      "png_sha256": "a737aadd5ec024d17b735efa86e2d156e088d8f20804149bb4526d900374fdee",
+      "canonical_display_sha256": "159db246e6c1ca749ddf242ec71367a07727892df17a5f760446eb58941b8cdd"
+    },
+    {
+      "field": 3740,
+      "label": "Transition",
+      "observation": "Black transition with HUD; the recorded right pulse does not prove player movement.",
+      "method": "Human visual inspection of actual captured PNG; no RAM semantic inference",
+      "png_path": "D:\\Arcade\\AI\\aCORES\\Alpha68k N\\sim\\captures\\kyros\\idle_death_restart3901\\frame_003740.png",
+      "canonical_display_path": "D:\\Arcade\\AI\\aCORES\\Alpha68k N\\sim\\captures\\kyros\\idle_death_restart3901\\frame_003740.display.rgb",
+      "png_sha256": "a737aadd5ec024d17b735efa86e2d156e088d8f20804149bb4526d900374fdee",
+      "canonical_display_sha256": "159db246e6c1ca749ddf242ec71367a07727892df17a5f760446eb58941b8cdd"
+    },
+    {
+      "field": 3770,
+      "label": "Transition",
+      "observation": "Black transition with HUD at the right-pulse release boundary.",
+      "method": "Human visual inspection of actual captured PNG; no RAM semantic inference",
+      "png_path": "D:\\Arcade\\AI\\aCORES\\Alpha68k N\\sim\\captures\\kyros\\idle_death_restart3901\\frame_003770.png",
+      "canonical_display_path": "D:\\Arcade\\AI\\aCORES\\Alpha68k N\\sim\\captures\\kyros\\idle_death_restart3901\\frame_003770.display.rgb",
+      "png_sha256": "a737aadd5ec024d17b735efa86e2d156e088d8f20804149bb4526d900374fdee",
+      "canonical_display_sha256": "159db246e6c1ca749ddf242ec71367a07727892df17a5f760446eb58941b8cdd"
+    },
+    {
+      "field": 3900,
+      "label": "Second live gameplay",
+      "observation": "Actual PNG shows the courtyard, player sprite and full green status bar after restart, score 0 and credit 0.",
+      "method": "Human visual inspection of actual captured PNG; no RAM semantic inference",
+      "png_path": "D:\\Arcade\\AI\\aCORES\\Alpha68k N\\sim\\captures\\kyros\\idle_death_restart3901\\frame_003900.png",
+      "canonical_display_path": "D:\\Arcade\\AI\\aCORES\\Alpha68k N\\sim\\captures\\kyros\\idle_death_restart3901\\frame_003900.display.rgb",
+      "png_sha256": "9b20a74011995ab3d34e7cfdc8ed611839cac4cce9fed04ce6c62e84bb605095",
+      "canonical_display_sha256": "c70ec6bd6464f4da16a10cbc23eb328327aea1a578a4089eade1ae6f6e39178f"
+    }
+  ],
+  "reference_restart_lifecycle_pass": true,
+  "native_restart_pass": false,
+  "full_P5_P7_pass": false,
+  "right_pulse_movement_proven": false,
+  "successful_jump": "unknown",
+  "enemy_hit": "unknown",
+  "pickup": "unknown",
+  "memory_semantics": "Snapshots remain unlabelled; no invented work-offset variables or CPU/RAM edits",
+  "limits": [
+    "The reference proves its own lifecycle; it does not substitute for merged native execution.",
+    "Right is applied during transition; successful motion must not be inferred.",
+    "Existing combat image failures and unresolved IRQ ordering remain unchanged."
+  ]
+}

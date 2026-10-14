@@ -1,0 +1,1539 @@
+{
+  "mame_version": "0289",
+  "profiles": {
+    "kyros": {
+      "name": "kyros",
+      "description": "Kyros",
+      "cloneof": null,
+      "sourcefile": "alpha/alpha68k_n.cpp",
+      "chips": [
+        {
+          "type": "cpu",
+          "tag": "maincpu",
+          "name": "Motorola MC68000",
+          "clock": "6000000"
+        },
+        {
+          "type": "cpu",
+          "tag": "audiocpu",
+          "name": "Zilog Z80",
+          "clock": "4000000"
+        },
+        {
+          "type": "audio",
+          "tag": "speaker",
+          "name": "Speaker"
+        },
+        {
+          "type": "audio",
+          "tag": "ym",
+          "name": "YM2203 OPN",
+          "clock": "2000000"
+        },
+        {
+          "type": "audio",
+          "tag": "aysnd1",
+          "name": "AY-3-8910A PSG",
+          "clock": "2000000"
+        },
+        {
+          "type": "audio",
+          "tag": "aysnd2",
+          "name": "AY-3-8910A PSG",
+          "clock": "2000000"
+        },
+        {
+          "type": "audio",
+          "tag": "dac",
+          "name": "8-Bit R-2R DAC"
+        }
+      ],
+      "display": {
+        "tag": "screen",
+        "type": "raster",
+        "rotate": "90",
+        "width": "256",
+        "height": "224",
+        "refresh": "59.185606",
+        "pixclock": "6000000",
+        "htotal": "384",
+        "hbend": "0",
+        "hbstart": "256",
+        "vtotal": "264",
+        "vbend": "16",
+        "vbstart": "240",
+        "flipx": "no"
+      },
+      "driver": {
+        "status": "good",
+        "emulation": "good",
+        "savestate": "supported",
+        "requiresartwork": "no",
+        "unofficial": "no",
+        "nosoundhardware": "no",
+        "incomplete": "no"
+      },
+      "input": {
+        "players": "2",
+        "coins": "2",
+        "service": "no",
+        "tilt": "no"
+      },
+      "controls": [
+        {
+          "type": "joy",
+          "player": "1",
+          "buttons": "2",
+          "ways": "8",
+          "reverse": "no"
+        },
+        {
+          "type": "joy",
+          "player": "2",
+          "buttons": "2",
+          "ways": "8",
+          "reverse": "no"
+        }
+      ],
+      "dips": [
+        {
+          "name": "Demo Sounds",
+          "tag": "IN1",
+          "mask": "1",
+          "values": [
+            {
+              "name": "Off",
+              "value": "1",
+              "default": "no"
+            },
+            {
+              "name": "On",
+              "value": "0",
+              "default": "yes"
+            }
+          ]
+        },
+        {
+          "name": "Coinage",
+          "tag": "IN1",
+          "mask": "14",
+          "values": [
+            {
+              "name": "A 1C/1C B 1C/1C",
+              "value": "14",
+              "default": "yes"
+            },
+            {
+              "name": "A 1C/2C B 2C/1C",
+              "value": "6",
+              "default": "no"
+            },
+            {
+              "name": "A 1C/3C B 3C/1C",
+              "value": "10",
+              "default": "no"
+            },
+            {
+              "name": "A 1C/4C B 4C/1C",
+              "value": "2",
+              "default": "no"
+            },
+            {
+              "name": "A 1C/5C B 5C/1C",
+              "value": "12",
+              "default": "no"
+            },
+            {
+              "name": "A 1C/6C B 6C/1C",
+              "value": "4",
+              "default": "no"
+            },
+            {
+              "name": "A 2C/3C B 7C/1C",
+              "value": "8",
+              "default": "no"
+            },
+            {
+              "name": "A 3C/2C B 8C/1C",
+              "value": "0",
+              "default": "no"
+            }
+          ]
+        },
+        {
+          "name": "Lives",
+          "tag": "IN1",
+          "mask": "48",
+          "values": [
+            {
+              "name": "3",
+              "value": "0",
+              "default": "yes"
+            },
+            {
+              "name": "4",
+              "value": "16",
+              "default": "no"
+            },
+            {
+              "name": "5",
+              "value": "32",
+              "default": "no"
+            },
+            {
+              "name": "6",
+              "value": "48",
+              "default": "no"
+            }
+          ]
+        },
+        {
+          "name": "Difficulty",
+          "tag": "IN1",
+          "mask": "64",
+          "values": [
+            {
+              "name": "Easy",
+              "value": "0",
+              "default": "yes"
+            },
+            {
+              "name": "Hard",
+              "value": "64",
+              "default": "no"
+            }
+          ]
+        },
+        {
+          "name": "Cabinet",
+          "tag": "IN1",
+          "mask": "128",
+          "values": [
+            {
+              "name": "Upright",
+              "value": "128",
+              "default": "yes"
+            },
+            {
+              "name": "Cocktail",
+              "value": "0",
+              "default": "no"
+            }
+          ]
+        }
+      ],
+      "roms": [
+        {
+          "name": "2.10c",
+          "size": "32768",
+          "crc": "4bd030b1",
+          "sha1": "e503dae8e12995ab0a551022a848a62315908e8b",
+          "region": "maincpu",
+          "offset": "0",
+          "status": "good",
+          "optional": "no"
+        },
+        {
+          "name": "1.13c",
+          "size": "32768",
+          "crc": "75cfbc5e",
+          "sha1": "2a70c56fd7192279157df8294743038a7ed7e68d",
+          "region": "maincpu",
+          "offset": "1",
+          "status": "good",
+          "optional": "no"
+        },
+        {
+          "name": "4.10b",
+          "size": "32768",
+          "crc": "be2626c2",
+          "sha1": "c3b01ec4b65172560a993b37421df6a61b780e43",
+          "region": "maincpu",
+          "offset": "8000",
+          "status": "good",
+          "optional": "no"
+        },
+        {
+          "name": "3.13b",
+          "size": "32768",
+          "crc": "fb25e71a",
+          "sha1": "fab8fcbd2c5a8600d6e8577de4875e409cad723b",
+          "region": "maincpu",
+          "offset": "8001",
+          "status": "good",
+          "optional": "no"
+        },
+        {
+          "name": "2s.1f",
+          "size": "16384",
+          "crc": "800ceb27",
+          "sha1": "4daa1b8adcad7a90cfd5d20704a7c431673c4995",
+          "region": "audiocpu",
+          "offset": "0",
+          "status": "good",
+          "optional": "no"
+        },
+        {
+          "name": "1s.1d",
+          "size": "32768",
+          "crc": "87d3e719",
+          "sha1": "4b8b1b600c7c1de3a77030001e7e6f0ff118f294",
+          "region": "audiocpu",
+          "offset": "4000",
+          "status": "good",
+          "optional": "no"
+        },
+        {
+          "name": "kyros_68705u3.bin",
+          "size": "4096",
+          "crc": "c20880b7",
+          "sha1": "b041c36cbc4f348d74e0548df5cb14727f2d353b",
+          "region": "mcu",
+          "offset": "0",
+          "status": "good",
+          "optional": "no"
+        },
+        {
+          "name": "kyros_mcu.bin",
+          "size": "2048",
+          "crc": "3a902a19",
+          "sha1": "af1be8894c899b27b1106663ffaf2ab43fa1cdaa",
+          "status": "baddump",
+          "region": "mcu",
+          "offset": "800",
+          "optional": "no"
+        },
+        {
+          "name": "8.9pr",
+          "size": "32768",
+          "crc": "c5290944",
+          "sha1": "ec97482dc59220002780ae4d02be4cd172cf65ac",
+          "region": "sprites",
+          "offset": "0",
+          "status": "good",
+          "optional": "no"
+        },
+        {
+          "name": "11.11m",
+          "size": "32768",
+          "crc": "fbd44f1e",
+          "sha1": "d095544ea76674a7ad17c1b8c88614e65890281c",
+          "region": "sprites",
+          "offset": "8000",
+          "status": "good",
+          "optional": "no"
+        },
+        {
+          "name": "12.11n",
+          "size": "32768",
+          "crc": "10fed501",
+          "sha1": "71c0b4b94f86046745105307938f6e2c5661e2a1",
+          "region": "sprites",
+          "offset": "10000",
+          "status": "good",
+          "optional": "no"
+        },
+        {
+          "name": "9.9s",
+          "size": "32768",
+          "crc": "dd40ca33",
+          "sha1": "91a1d8b6b69fb0d27ed315cd2591f352360bc8e7",
+          "region": "sprites",
+          "offset": "18000",
+          "status": "good",
+          "optional": "no"
+        },
+        {
+          "name": "13.11p",
+          "size": "32768",
+          "crc": "e6a02030",
+          "sha1": "0de58f8cc69dc76d4b0a45fba04972634a4021a6",
+          "region": "sprites",
+          "offset": "20000",
+          "status": "good",
+          "optional": "no"
+        },
+        {
+          "name": "14.11r",
+          "size": "32768",
+          "crc": "722ad23a",
+          "sha1": "0e1be976c5a406e33236def5a0dce73911ebac28",
+          "region": "sprites",
+          "offset": "28000",
+          "status": "good",
+          "optional": "no"
+        },
+        {
+          "name": "15.3t",
+          "size": "32768",
+          "crc": "045fdda4",
+          "sha1": "ac25368e446e6dcfb3ed244e7d6d699f917c202d",
+          "region": "sprites",
+          "offset": "30000",
+          "status": "good",
+          "optional": "no"
+        },
+        {
+          "name": "17.7t",
+          "size": "32768",
+          "crc": "7618ec00",
+          "sha1": "7346ba41fd2b04e404225726ede2e42e62ca7901",
+          "region": "sprites",
+          "offset": "38000",
+          "status": "good",
+          "optional": "no"
+        },
+        {
+          "name": "18.9t",
+          "size": "32768",
+          "crc": "0ee74171",
+          "sha1": "1fda8a1066eb7dafeaeffebfe718b408b34f1767",
+          "region": "sprites",
+          "offset": "40000",
+          "status": "good",
+          "optional": "no"
+        },
+        {
+          "name": "16.5t",
+          "size": "32768",
+          "crc": "2cf14824",
+          "sha1": "07f6b232c4ca6c42b3f75443b0328653f5a3f71d",
+          "region": "sprites",
+          "offset": "48000",
+          "status": "good",
+          "optional": "no"
+        },
+        {
+          "name": "19.11t",
+          "size": "32768",
+          "crc": "4f336306",
+          "sha1": "83e0c021d2732d3199c70ac433a31863075a5a72",
+          "region": "sprites",
+          "offset": "50000",
+          "status": "good",
+          "optional": "no"
+        },
+        {
+          "name": "20.13t",
+          "size": "32768",
+          "crc": "a165d06b",
+          "sha1": "ef7f38a71c2f3fc836b28f0eac1c14a3877f0802",
+          "region": "sprites",
+          "offset": "58000",
+          "status": "good",
+          "optional": "no"
+        },
+        {
+          "name": "mb7114l.5r",
+          "size": "256",
+          "crc": "3628bf36",
+          "sha1": "33b7b873a6e5da59f535d754f8c8257c0f4d0a31",
+          "region": "proms",
+          "offset": "0",
+          "status": "good",
+          "optional": "no"
+        },
+        {
+          "name": "mb7114l.4r",
+          "size": "256",
+          "crc": "850704e4",
+          "sha1": "8a9da9efc7bc6a037d4cd27152b853a7839ccd67",
+          "region": "proms",
+          "offset": "100",
+          "status": "good",
+          "optional": "no"
+        },
+        {
+          "name": "mb7114l.6r",
+          "size": "256",
+          "crc": "a54f60d7",
+          "sha1": "af039dee847913cb79f85d7abf4846322bba2e5b",
+          "region": "proms",
+          "offset": "200",
+          "status": "good",
+          "optional": "no"
+        },
+        {
+          "name": "mb7114l.5p",
+          "size": "256",
+          "crc": "1cc53765",
+          "sha1": "2b665f3e24ddb3ab591273f027ff7740f1c97e27",
+          "region": "clut_proms",
+          "offset": "100",
+          "status": "good",
+          "optional": "no"
+        },
+        {
+          "name": "mb7114l.6p",
+          "size": "256",
+          "crc": "b0d6971f",
+          "sha1": "4aa2e9a89f9ea7487433e54ef4aa95a632477c4f",
+          "region": "clut_proms",
+          "offset": "0",
+          "status": "good",
+          "optional": "no"
+        },
+        {
+          "name": "0.1t",
+          "size": "8192",
+          "crc": "5d0acb4c",
+          "sha1": "52fcdcb2bf6d6ada04aa447b5526c39848bf587f",
+          "region": "color_proms",
+          "offset": "0",
+          "status": "good",
+          "optional": "no"
+        }
+      ],
+      "raw_raster": {
+        "pixel_clock_hz": 6000000,
+        "htotal": 384,
+        "vtotal": 264,
+        "x_first": 0,
+        "x_last_exclusive": 256,
+        "y_first": 16,
+        "y_last_exclusive": 240
+      },
+      "interrupts": {
+        "main_irq1": "vblank",
+        "main_irq2": "60 Hz compatibility tick",
+        "sound_irq0": "vblank",
+        "sound_nmi_hz": 4000
+      },
+      "graphics": {
+        "sentinel_tile": 32,
+        "bankshift": 13,
+        "bank_count": 8,
+        "tile_pixels": [
+          8,
+          8
+        ],
+        "bpp": 3,
+        "strip_groups": [
+          [
+            2,
+            2048
+          ],
+          [
+            3,
+            3072
+          ],
+          [
+            1,
+            1024
+          ]
+        ]
+      },
+      "mcu": {
+        "mode": "MAME compatibility HLE initially; full U3 firmware experiment staged",
+        "id": 18,
+        "coin_ids": [
+          34,
+          34
+        ],
+        "physical_clock_qualified": false
+      }
+    },
+    "kyrosj": {
+      "name": "kyrosj",
+      "description": "Kyros no Yakata (Japan)",
+      "cloneof": "kyros",
+      "sourcefile": "alpha/alpha68k_n.cpp",
+      "chips": [
+        {
+          "type": "cpu",
+          "tag": "maincpu",
+          "name": "Motorola MC68000",
+          "clock": "6000000"
+        },
+        {
+          "type": "cpu",
+          "tag": "audiocpu",
+          "name": "Zilog Z80",
+          "clock": "4000000"
+        },
+        {
+          "type": "audio",
+          "tag": "speaker",
+          "name": "Speaker"
+        },
+        {
+          "type": "audio",
+          "tag": "ym",
+          "name": "YM2203 OPN",
+          "clock": "2000000"
+        },
+        {
+          "type": "audio",
+          "tag": "aysnd1",
+          "name": "AY-3-8910A PSG",
+          "clock": "2000000"
+        },
+        {
+          "type": "audio",
+          "tag": "aysnd2",
+          "name": "AY-3-8910A PSG",
+          "clock": "2000000"
+        },
+        {
+          "type": "audio",
+          "tag": "dac",
+          "name": "8-Bit R-2R DAC"
+        }
+      ],
+      "display": {
+        "tag": "screen",
+        "type": "raster",
+        "rotate": "90",
+        "width": "256",
+        "height": "224",
+        "refresh": "59.185606",
+        "pixclock": "6000000",
+        "htotal": "384",
+        "hbend": "0",
+        "hbstart": "256",
+        "vtotal": "264",
+        "vbend": "16",
+        "vbstart": "240",
+        "flipx": "no"
+      },
+      "driver": {
+        "status": "good",
+        "emulation": "good",
+        "savestate": "supported",
+        "requiresartwork": "no",
+        "unofficial": "no",
+        "nosoundhardware": "no",
+        "incomplete": "no"
+      },
+      "input": {
+        "players": "2",
+        "coins": "2",
+        "service": "no",
+        "tilt": "no"
+      },
+      "controls": [
+        {
+          "type": "joy",
+          "player": "1",
+          "buttons": "2",
+          "ways": "8",
+          "reverse": "no"
+        },
+        {
+          "type": "joy",
+          "player": "2",
+          "buttons": "2",
+          "ways": "8",
+          "reverse": "no"
+        }
+      ],
+      "dips": [
+        {
+          "name": "Demo Sounds",
+          "tag": "IN1",
+          "mask": "1",
+          "values": [
+            {
+              "name": "Off",
+              "value": "1",
+              "default": "no"
+            },
+            {
+              "name": "On",
+              "value": "0",
+              "default": "yes"
+            }
+          ]
+        },
+        {
+          "name": "Coinage",
+          "tag": "IN1",
+          "mask": "14",
+          "values": [
+            {
+              "name": "A 1C/1C B 1C/1C",
+              "value": "14",
+              "default": "yes"
+            },
+            {
+              "name": "A 1C/2C B 2C/1C",
+              "value": "6",
+              "default": "no"
+            },
+            {
+              "name": "A 1C/3C B 3C/1C",
+              "value": "10",
+              "default": "no"
+            },
+            {
+              "name": "A 1C/4C B 4C/1C",
+              "value": "2",
+              "default": "no"
+            },
+            {
+              "name": "A 1C/5C B 5C/1C",
+              "value": "12",
+              "default": "no"
+            },
+            {
+              "name": "A 1C/6C B 6C/1C",
+              "value": "4",
+              "default": "no"
+            },
+            {
+              "name": "A 2C/3C B 7C/1C",
+              "value": "8",
+              "default": "no"
+            },
+            {
+              "name": "A 3C/2C B 8C/1C",
+              "value": "0",
+              "default": "no"
+            }
+          ]
+        },
+        {
+          "name": "Lives",
+          "tag": "IN1",
+          "mask": "48",
+          "values": [
+            {
+              "name": "3",
+              "value": "0",
+              "default": "yes"
+            },
+            {
+              "name": "4",
+              "value": "16",
+              "default": "no"
+            },
+            {
+              "name": "5",
+              "value": "32",
+              "default": "no"
+            },
+            {
+              "name": "6",
+              "value": "48",
+              "default": "no"
+            }
+          ]
+        },
+        {
+          "name": "Difficulty",
+          "tag": "IN1",
+          "mask": "64",
+          "values": [
+            {
+              "name": "Easy",
+              "value": "0",
+              "default": "yes"
+            },
+            {
+              "name": "Hard",
+              "value": "64",
+              "default": "no"
+            }
+          ]
+        },
+        {
+          "name": "Cabinet",
+          "tag": "IN1",
+          "mask": "128",
+          "values": [
+            {
+              "name": "Upright",
+              "value": "128",
+              "default": "yes"
+            },
+            {
+              "name": "Cocktail",
+              "value": "0",
+              "default": "no"
+            }
+          ]
+        }
+      ],
+      "roms": [
+        {
+          "name": "2j.10c",
+          "size": "32768",
+          "crc": "b324c11b",
+          "sha1": "9330ee0db8555a3623118c7bc5363b4f6fa87dbc",
+          "region": "maincpu",
+          "offset": "0",
+          "status": "good",
+          "optional": "no"
+        },
+        {
+          "name": "1j.13c",
+          "size": "32768",
+          "crc": "8496241b",
+          "sha1": "474cdce735dcc2ff2111ae2f4cd11c0d27a4b4fc",
+          "region": "maincpu",
+          "offset": "1",
+          "status": "good",
+          "optional": "no"
+        },
+        {
+          "name": "4.10a",
+          "size": "32768",
+          "crc": "0187f59d",
+          "sha1": "3bc1b811cb29aa33c38bc8c76e066c8b37104167",
+          "region": "maincpu",
+          "offset": "8000",
+          "status": "good",
+          "optional": "no"
+        },
+        {
+          "name": "3.13a",
+          "size": "32768",
+          "crc": "ab97941d",
+          "sha1": "014a55540e1777de5bee23e59773dbbd7efa8f91",
+          "region": "maincpu",
+          "offset": "8001",
+          "status": "good",
+          "optional": "no"
+        },
+        {
+          "name": "2s.1f",
+          "merge": "2s.1f",
+          "size": "16384",
+          "crc": "800ceb27",
+          "sha1": "4daa1b8adcad7a90cfd5d20704a7c431673c4995",
+          "region": "audiocpu",
+          "offset": "0",
+          "status": "good",
+          "optional": "no"
+        },
+        {
+          "name": "1s.1d",
+          "merge": "1s.1d",
+          "size": "32768",
+          "crc": "87d3e719",
+          "sha1": "4b8b1b600c7c1de3a77030001e7e6f0ff118f294",
+          "region": "audiocpu",
+          "offset": "4000",
+          "status": "good",
+          "optional": "no"
+        },
+        {
+          "name": "kyros_68705u3.bin",
+          "merge": "kyros_68705u3.bin",
+          "size": "4096",
+          "crc": "c20880b7",
+          "sha1": "b041c36cbc4f348d74e0548df5cb14727f2d353b",
+          "status": "baddump",
+          "region": "mcu",
+          "offset": "0",
+          "optional": "no"
+        },
+        {
+          "name": "kyros_mcu.bin",
+          "merge": "kyros_mcu.bin",
+          "size": "2048",
+          "crc": "3a902a19",
+          "sha1": "af1be8894c899b27b1106663ffaf2ab43fa1cdaa",
+          "status": "baddump",
+          "region": "mcu",
+          "offset": "800",
+          "optional": "no"
+        },
+        {
+          "name": "8.9r",
+          "size": "32768",
+          "crc": "d8203284",
+          "sha1": "7dede410239be6b674644fa76c91dd01837f841f",
+          "region": "sprites",
+          "offset": "0",
+          "status": "good",
+          "optional": "no"
+        },
+        {
+          "name": "11.12m",
+          "size": "32768",
+          "crc": "a2f9738c",
+          "sha1": "31be81274bf70674bf0c32fcddbacf0f58d8f897",
+          "region": "sprites",
+          "offset": "8000",
+          "status": "good",
+          "optional": "no"
+        },
+        {
+          "name": "12.11n",
+          "merge": "12.11n",
+          "size": "32768",
+          "crc": "10fed501",
+          "sha1": "71c0b4b94f86046745105307938f6e2c5661e2a1",
+          "region": "sprites",
+          "offset": "10000",
+          "status": "good",
+          "optional": "no"
+        },
+        {
+          "name": "9j.9s",
+          "size": "32768",
+          "crc": "3e725349",
+          "sha1": "79c431d83a0f0d5e0d69086f54f6e60a42b69e14",
+          "region": "sprites",
+          "offset": "18000",
+          "status": "good",
+          "optional": "no"
+        },
+        {
+          "name": "13.11p",
+          "merge": "13.11p",
+          "size": "32768",
+          "crc": "e6a02030",
+          "sha1": "0de58f8cc69dc76d4b0a45fba04972634a4021a6",
+          "region": "sprites",
+          "offset": "20000",
+          "status": "good",
+          "optional": "no"
+        },
+        {
+          "name": "14.12r",
+          "size": "32768",
+          "crc": "39d07db9",
+          "sha1": "05c0785eea29bc6329892f1e8f0bd37327163080",
+          "region": "sprites",
+          "offset": "28000",
+          "status": "good",
+          "optional": "no"
+        },
+        {
+          "name": "15.3t",
+          "merge": "15.3t",
+          "size": "32768",
+          "crc": "045fdda4",
+          "sha1": "ac25368e446e6dcfb3ed244e7d6d699f917c202d",
+          "region": "sprites",
+          "offset": "30000",
+          "status": "good",
+          "optional": "no"
+        },
+        {
+          "name": "17.7t",
+          "merge": "17.7t",
+          "size": "32768",
+          "crc": "7618ec00",
+          "sha1": "7346ba41fd2b04e404225726ede2e42e62ca7901",
+          "region": "sprites",
+          "offset": "38000",
+          "status": "good",
+          "optional": "no"
+        },
+        {
+          "name": "18.9t",
+          "merge": "18.9t",
+          "size": "32768",
+          "crc": "0ee74171",
+          "sha1": "1fda8a1066eb7dafeaeffebfe718b408b34f1767",
+          "region": "sprites",
+          "offset": "40000",
+          "status": "good",
+          "optional": "no"
+        },
+        {
+          "name": "16j.5t",
+          "size": "32768",
+          "crc": "e1566679",
+          "sha1": "3653c3160798bea203e1c7713043729b356a7358",
+          "region": "sprites",
+          "offset": "48000",
+          "status": "good",
+          "optional": "no"
+        },
+        {
+          "name": "19.11t",
+          "merge": "19.11t",
+          "size": "32768",
+          "crc": "4f336306",
+          "sha1": "83e0c021d2732d3199c70ac433a31863075a5a72",
+          "region": "sprites",
+          "offset": "50000",
+          "status": "good",
+          "optional": "no"
+        },
+        {
+          "name": "20j.13t",
+          "size": "32768",
+          "crc": "0624b4c0",
+          "sha1": "a8ebdb1f9b7fd0b78102b54523e8680aaa8bcf42",
+          "region": "sprites",
+          "offset": "58000",
+          "status": "good",
+          "optional": "no"
+        },
+        {
+          "name": "mb7114l.5r",
+          "merge": "mb7114l.5r",
+          "size": "256",
+          "crc": "3628bf36",
+          "sha1": "33b7b873a6e5da59f535d754f8c8257c0f4d0a31",
+          "region": "proms",
+          "offset": "0",
+          "status": "good",
+          "optional": "no"
+        },
+        {
+          "name": "mb7114l.4r",
+          "merge": "mb7114l.4r",
+          "size": "256",
+          "crc": "850704e4",
+          "sha1": "8a9da9efc7bc6a037d4cd27152b853a7839ccd67",
+          "region": "proms",
+          "offset": "100",
+          "status": "good",
+          "optional": "no"
+        },
+        {
+          "name": "mb7114l.6r",
+          "merge": "mb7114l.6r",
+          "size": "256",
+          "crc": "a54f60d7",
+          "sha1": "af039dee847913cb79f85d7abf4846322bba2e5b",
+          "region": "proms",
+          "offset": "200",
+          "status": "good",
+          "optional": "no"
+        },
+        {
+          "name": "mb7114l.5p",
+          "merge": "mb7114l.5p",
+          "size": "256",
+          "crc": "1cc53765",
+          "sha1": "2b665f3e24ddb3ab591273f027ff7740f1c97e27",
+          "region": "clut_proms",
+          "offset": "100",
+          "status": "good",
+          "optional": "no"
+        },
+        {
+          "name": "mb7114l.6p",
+          "merge": "mb7114l.6p",
+          "size": "256",
+          "crc": "b0d6971f",
+          "sha1": "4aa2e9a89f9ea7487433e54ef4aa95a632477c4f",
+          "region": "clut_proms",
+          "offset": "0",
+          "status": "good",
+          "optional": "no"
+        },
+        {
+          "name": "0j.1t",
+          "size": "8192",
+          "crc": "a34ecb29",
+          "sha1": "60a0b0cfcd2d9830bc112774bac700ded40d4afb",
+          "region": "color_proms",
+          "offset": "0",
+          "status": "good",
+          "optional": "no"
+        }
+      ],
+      "raw_raster": {
+        "pixel_clock_hz": 6000000,
+        "htotal": 384,
+        "vtotal": 264,
+        "x_first": 0,
+        "x_last_exclusive": 256,
+        "y_first": 16,
+        "y_last_exclusive": 240
+      },
+      "interrupts": {
+        "main_irq1": "vblank",
+        "main_irq2": "60 Hz compatibility tick",
+        "sound_irq0": "vblank",
+        "sound_nmi_hz": 4000
+      },
+      "graphics": {
+        "sentinel_tile": 32,
+        "bankshift": 13,
+        "bank_count": 8,
+        "tile_pixels": [
+          8,
+          8
+        ],
+        "bpp": 3,
+        "strip_groups": [
+          [
+            2,
+            2048
+          ],
+          [
+            3,
+            3072
+          ],
+          [
+            1,
+            1024
+          ]
+        ]
+      },
+      "mcu": {
+        "mode": "MAME compatibility HLE initially; full U3 firmware experiment staged",
+        "id": 18,
+        "coin_ids": [
+          34,
+          34
+        ],
+        "physical_clock_qualified": false
+      }
+    },
+    "sstingry": {
+      "name": "sstingry",
+      "description": "Super Stingray (Japan)",
+      "cloneof": null,
+      "sourcefile": "alpha/alpha68k_n.cpp",
+      "chips": [
+        {
+          "type": "cpu",
+          "tag": "maincpu",
+          "name": "Motorola MC68000",
+          "clock": "6000000"
+        },
+        {
+          "type": "cpu",
+          "tag": "audiocpu",
+          "name": "Zilog Z80",
+          "clock": "3579545"
+        },
+        {
+          "type": "cpu",
+          "tag": "alpha8511",
+          "name": "Intel 8748",
+          "clock": "9263750"
+        },
+        {
+          "type": "audio",
+          "tag": "speaker",
+          "name": "Speaker"
+        },
+        {
+          "type": "audio",
+          "tag": "ym",
+          "name": "YM2203 OPN",
+          "clock": "2000000"
+        },
+        {
+          "type": "audio",
+          "tag": "aysnd1",
+          "name": "AY-3-8910A PSG",
+          "clock": "2000000"
+        },
+        {
+          "type": "audio",
+          "tag": "aysnd2",
+          "name": "AY-3-8910A PSG",
+          "clock": "2000000"
+        },
+        {
+          "type": "audio",
+          "tag": "dac",
+          "name": "8-Bit R-2R DAC"
+        }
+      ],
+      "display": {
+        "tag": "screen",
+        "type": "raster",
+        "rotate": "90",
+        "width": "256",
+        "height": "224",
+        "refresh": "59.185606",
+        "pixclock": "6000000",
+        "htotal": "384",
+        "hbend": "0",
+        "hbstart": "256",
+        "vtotal": "264",
+        "vbend": "16",
+        "vbstart": "240",
+        "flipx": "no"
+      },
+      "driver": {
+        "status": "imperfect",
+        "emulation": "good",
+        "savestate": "supported",
+        "requiresartwork": "no",
+        "unofficial": "no",
+        "nosoundhardware": "no",
+        "incomplete": "no"
+      },
+      "input": {
+        "players": "2",
+        "coins": "2",
+        "service": "no",
+        "tilt": "no"
+      },
+      "controls": [
+        {
+          "type": "joy",
+          "player": "1",
+          "buttons": "2",
+          "ways": "8",
+          "reverse": "no"
+        },
+        {
+          "type": "joy",
+          "player": "2",
+          "buttons": "2",
+          "ways": "8",
+          "reverse": "no"
+        }
+      ],
+      "dips": [
+        {
+          "name": "Demo Sounds",
+          "tag": "IN1",
+          "mask": "1",
+          "values": [
+            {
+              "name": "Off",
+              "value": "0",
+              "default": "no"
+            },
+            {
+              "name": "On",
+              "value": "1",
+              "default": "yes"
+            }
+          ]
+        },
+        {
+          "name": "Coinage",
+          "tag": "IN1",
+          "mask": "14",
+          "values": [
+            {
+              "name": "A 1C/1C B 1C/1C",
+              "value": "0",
+              "default": "yes"
+            },
+            {
+              "name": "A 1C/2C B 2C/1C",
+              "value": "2",
+              "default": "no"
+            },
+            {
+              "name": "A 1C/3C B 3C/1C",
+              "value": "4",
+              "default": "no"
+            },
+            {
+              "name": "A 1C/4C B 4C/1C",
+              "value": "6",
+              "default": "no"
+            },
+            {
+              "name": "A 1C/5C B 5C/1C",
+              "value": "8",
+              "default": "no"
+            },
+            {
+              "name": "A 1C/6C B 6C/1C",
+              "value": "10",
+              "default": "no"
+            },
+            {
+              "name": "A 2C/3C B 7C/1C",
+              "value": "12",
+              "default": "no"
+            },
+            {
+              "name": "A 3C/2C B 8C/1C",
+              "value": "14",
+              "default": "no"
+            }
+          ]
+        },
+        {
+          "name": "Lives",
+          "tag": "IN1",
+          "mask": "48",
+          "values": [
+            {
+              "name": "3",
+              "value": "0",
+              "default": "yes"
+            },
+            {
+              "name": "4",
+              "value": "16",
+              "default": "no"
+            },
+            {
+              "name": "5",
+              "value": "32",
+              "default": "no"
+            },
+            {
+              "name": "6",
+              "value": "48",
+              "default": "no"
+            }
+          ]
+        },
+        {
+          "name": "Unused",
+          "tag": "IN1",
+          "mask": "64",
+          "values": [
+            {
+              "name": "Off",
+              "value": "0",
+              "default": "yes"
+            },
+            {
+              "name": "On",
+              "value": "64",
+              "default": "no"
+            }
+          ]
+        },
+        {
+          "name": "Cabinet",
+          "tag": "IN1",
+          "mask": "128",
+          "values": [
+            {
+              "name": "Upright",
+              "value": "0",
+              "default": "yes"
+            },
+            {
+              "name": "Cocktail",
+              "value": "128",
+              "default": "no"
+            }
+          ]
+        }
+      ],
+      "roms": [
+        {
+          "name": "ss_05.rom",
+          "size": "16384",
+          "crc": "bfb28d53",
+          "sha1": "64a1b8627529ed13074bb949cb104077eb3eac1f",
+          "region": "maincpu",
+          "offset": "0",
+          "status": "good",
+          "optional": "no"
+        },
+        {
+          "name": "ss_07.rom",
+          "size": "16384",
+          "crc": "eb1b65c5",
+          "sha1": "cffc4df82b7950358dd28f6a492e0aefaff73048",
+          "region": "maincpu",
+          "offset": "1",
+          "status": "good",
+          "optional": "no"
+        },
+        {
+          "name": "ss_04.rom",
+          "size": "16384",
+          "crc": "2e477a79",
+          "sha1": "0af9238979c8a740ba49776cd65ffbc024339621",
+          "region": "maincpu",
+          "offset": "8000",
+          "status": "good",
+          "optional": "no"
+        },
+        {
+          "name": "ss_06.rom",
+          "size": "16384",
+          "crc": "597620cb",
+          "sha1": "5549df4843e029df17ce5de2159cc82bd985804b",
+          "region": "maincpu",
+          "offset": "8001",
+          "status": "good",
+          "optional": "no"
+        },
+        {
+          "name": "ss_01.rom",
+          "size": "16384",
+          "crc": "fef09a92",
+          "sha1": "77b6aded1eed1bd5e6ffb25b56b62b10b7b9a304",
+          "region": "audiocpu",
+          "offset": "0",
+          "status": "good",
+          "optional": "no"
+        },
+        {
+          "name": "ss_02.rom",
+          "size": "16384",
+          "crc": "ab4e8c01",
+          "sha1": "d96e7f97945fff48fb7b4661fdb575ac7ff77445",
+          "region": "audiocpu",
+          "offset": "4000",
+          "status": "good",
+          "optional": "no"
+        },
+        {
+          "name": "d8748.bin",
+          "size": "1024",
+          "crc": "7fcbfc30",
+          "sha1": "6d087a3d44e475b6c8260a5134952097f26459b7",
+          "region": "alpha8511",
+          "offset": "0",
+          "status": "good",
+          "optional": "no"
+        },
+        {
+          "name": "ss_12.rom",
+          "size": "16384",
+          "crc": "74caa9e9",
+          "sha1": "9f0874b2fcdf45acb941bd56b44bf2b9b08641e9",
+          "region": "sprites",
+          "offset": "0",
+          "status": "good",
+          "optional": "no"
+        },
+        {
+          "name": "ss_08.rom",
+          "size": "16384",
+          "crc": "32368925",
+          "sha1": "af26f73d33936410063de3164ec80f45bed487c7",
+          "region": "sprites",
+          "offset": "8000",
+          "status": "good",
+          "optional": "no"
+        },
+        {
+          "name": "ss_13.rom",
+          "size": "16384",
+          "crc": "13da6203",
+          "sha1": "afa778c26da1adfdc8b2e2a1c7b2b46944b5d008",
+          "region": "sprites",
+          "offset": "10000",
+          "status": "good",
+          "optional": "no"
+        },
+        {
+          "name": "ss_10.rom",
+          "size": "16384",
+          "crc": "2903234a",
+          "sha1": "552295ec60469227883eafb6756c86abc20455b5",
+          "region": "sprites",
+          "offset": "18000",
+          "status": "good",
+          "optional": "no"
+        },
+        {
+          "name": "ss_11.rom",
+          "size": "16384",
+          "crc": "d134302e",
+          "sha1": "4c020ff41458c738596ab7a094d4a33a6dda64bf",
+          "region": "sprites",
+          "offset": "20000",
+          "status": "good",
+          "optional": "no"
+        },
+        {
+          "name": "ss_09.rom",
+          "size": "16384",
+          "crc": "6f9d938a",
+          "sha1": "eb6934f8eaa7b22441ec4470280f228fe5f134a3",
+          "region": "sprites",
+          "offset": "28000",
+          "status": "good",
+          "optional": "no"
+        },
+        {
+          "name": "ic92",
+          "size": "256",
+          "crc": "e7ce1179",
+          "sha1": "36835c46c1c3f820df39c59c16c362db07b32dc9",
+          "region": "proms",
+          "offset": "0",
+          "status": "good",
+          "optional": "no"
+        },
+        {
+          "name": "ic93",
+          "size": "256",
+          "crc": "9af8a375",
+          "sha1": "abb8b094a2df41acea688f87004207dc35233db5",
+          "region": "proms",
+          "offset": "100",
+          "status": "good",
+          "optional": "no"
+        },
+        {
+          "name": "ic91",
+          "size": "256",
+          "crc": "c3965079",
+          "sha1": "6b1f22afd2a849f0003ddcad344079e8043681f9",
+          "region": "proms",
+          "offset": "200",
+          "status": "good",
+          "optional": "no"
+        },
+        {
+          "name": "ssprom2.bin",
+          "size": "256",
+          "crc": "c2205b71",
+          "sha1": "a7db60ac7d559fe53a35264fab17f1d5e48d3f10",
+          "region": "clut_proms",
+          "offset": "100",
+          "status": "good",
+          "optional": "no"
+        },
+        {
+          "name": "ssprom1.bin",
+          "size": "256",
+          "crc": "1003186c",
+          "sha1": "e50b60036d6b32a4d524c92d35c4d9901ee7ec0e",
+          "region": "clut_proms",
+          "offset": "0",
+          "status": "good",
+          "optional": "no"
+        }
+      ],
+      "raw_raster": {
+        "pixel_clock_hz": 6000000,
+        "htotal": 384,
+        "vtotal": 264,
+        "x_first": 0,
+        "x_last_exclusive": 256,
+        "y_first": 16,
+        "y_last_exclusive": 240
+      },
+      "interrupts": {
+        "main_irq1": "vblank",
+        "main_irq2": "MCU firmware",
+        "sound_irq0": "vblank",
+        "sound_nmi_hz": 4000
+      },
+      "graphics": {
+        "sentinel_tile": 64,
+        "bankshift": 0,
+        "bank_count": 4,
+        "tile_pixels": [
+          8,
+          8
+        ],
+        "bpp": 3,
+        "strip_groups": [
+          [
+            2,
+            2048
+          ],
+          [
+            3,
+            3072
+          ],
+          [
+            1,
+            1024
+          ]
+        ]
+      },
+      "mcu": {
+        "mode": "8748 firmware",
+        "oscillator_hz": 9263750,
+        "internal_divisor": 15,
+        "physical_clock_qualified": false
+      }
+    }
+  }
+}

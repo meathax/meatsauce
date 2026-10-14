@@ -1,0 +1,100 @@
+{
+  "scope": "Initial unmodified-tool full-wrapper preflight result; findings remain open",
+  "source_hash": "74a18aabb26321bd",
+  "raw_run": ".preflight/runs/20261009-130234",
+  "raw_report_sha256": "a1c1c7986cedc5489b20f9213f886366b4a63cb23c7ff533612d7001c2f41831",
+  "cases": 4,
+  "passing_profiles": [
+    "board-s1",
+    "board-s2"
+  ],
+  "failing_profiles": [
+    "hostile-s1",
+    "hostile-s2"
+  ],
+  "findings": [
+    {
+      "id": "F-001",
+      "text": "# F-001: Boot depends on the power-up value of emu.pll_locked\n\nSeverity: blocker. Boot-ladder rung: Reset. Class: `powerup.boot_depends_on_powerup`.\nSeen in runs: hostile-s1, hostile-s2.\n\n## On real hardware\n\nBoots on some power-ups or some builds, black or garbage on others.\n\n## What the twin saw\n\nThe same core and ROM give different results depending only on the random power-up values of registers with no reset. Quartus may give those registers any power-up value (ALLOW_POWER_UP_DONT_CARE is ON). Bisection (bisection over 771 registers in 19 runs) keeps the random power-up value for one half of the registers at a time; the table below lists the registers that alone reproduce the failure.\n\n## Root cause\n\n- how_found: bisection over 771 registers in 19 runs\n| Register | Source | Bits |\n| --- | --- | --- |\n| `emu.pll_locked` | `?` | 1 |\n\n## Evidence\n\n```json\n{\n \"passing_runs\": [\n  \"board-s1\",\n  \"board-s2\"\n ],\n \"failing_runs\": [\n  \"hostile-s1\",\n  \"hostile-s2\"\n ],\n \"outcomes\": {\n  \"board-s1\": \"picture\",\n  \"board-s2\": \"picture\",\n  \"hostile-s1\": \"black\",\n  \"hostile-s2\": \"black\"\n }\n}\n```\n\n## Fix\n\nGive the named registers a reset value or an initial value.\n\n## Background and standard fix\n\n**Why simulation hides it.** Verilator and most simulators start every register at zero. On the FPGA a register with no reset and no initial value powers up at whatever level Quartus finds convenient: the MiSTer template sets `ALLOW_POWER_UP_DONT_CARE ON`, which lets Quartus pick per register, and the choice can change from one build to the next. A core that only works when some register starts at zero boots on one RBF and not the next, or boots on cold power-on but not after loading from the menu.\n\n**How Preflight models it.** The `hostile` power-up profile gives every register with no declared value a random start value, with several seeds. Block RAM starts at zero (Cyclone V M10K contents are cleared at configuration), as on hardware. When boots differ between seeds, bisection keeps the random value for half of the registers at a time until the register that breaks the boot is left.\n\n**Standard fix.** Give the named register a defined state: clear it in the reset branch of its always block, and, if it must be valid before the first reset (for example state machines that run while the core is held in reset), also declare it with an initial value (`reg [1:0] state = 0;`). Quartus 17 uses declared initial values as the power-up level.\n\n**Watch out for.** Registers that are reset by a reset that is itself derived from them; counters used to generate the reset; and reset release that is not synchronised to the clock that uses it.\n\n## Verify\n\n`preflight verify F-001`: reruns only the runs that showed this finding.\n",
+      "sha256": "e5e87568f9cbc31ad703854e13f5f57d19fec59e1f0ff3d06942941c7c0e04c8"
+    },
+    {
+      "id": "F-002",
+      "text": "# F-002: The picture stays black after the boot\n\nSeverity: blocker. Boot-ladder rung: Picture. Class: `picture.black`.\nSeen in runs: hostile-s1, hostile-s2.\n\n## On real hardware\n\nBlack screen.\n\n## What the twin saw\n\nAll 20 saved frames after the boot are black.\n\n## Background and standard fix\n\n**What this means.** The picture itself is wrong (black, one colour, or noise) while the earlier rungs passed. Preflight then reruns the case with one board condition changed at a time (SDRAM answering a clock earlier or later, ideal SDRAM timing, zeroed SDRAM, a slower firmware, all registers zero at power-up). If one of those makes the picture appear, the related finding names the cause and the line. If none does, the fault is in the core's logic rather than in its interaction with the board: compare with MAME (`preflight trace cpu` and the mister-mame-diff workflow).\n\n## Verify\n\n`preflight verify F-002`: reruns only the runs that showed this finding.\n",
+      "sha256": "e0baa68f4a568c1f84c5416731f0497f270aeaffea349a6435f3c5d68aace877"
+    }
+  ],
+  "minimal_native_probe": {
+    "scope": "Minimal PLL lock-driver probe with the actual Preflight native compiler",
+    "native_version": "rev vUNKNOWN-built20260906",
+    "cases": [
+      {
+        "random_reset_mode": 0,
+        "seed": 1,
+        "original_count": 5050,
+        "single_driver_count": 5050,
+        "expected_count": 5050
+      },
+      {
+        "random_reset_mode": 0,
+        "seed": 2,
+        "original_count": 5050,
+        "single_driver_count": 5050,
+        "expected_count": 5050
+      },
+      {
+        "random_reset_mode": 0,
+        "seed": 3,
+        "original_count": 5050,
+        "single_driver_count": 5050,
+        "expected_count": 5050
+      },
+      {
+        "random_reset_mode": 0,
+        "seed": 4,
+        "original_count": 5050,
+        "single_driver_count": 5050,
+        "expected_count": 5050
+      },
+      {
+        "random_reset_mode": 2,
+        "seed": 1,
+        "original_count": 5050,
+        "single_driver_count": 5050,
+        "expected_count": 5050
+      },
+      {
+        "random_reset_mode": 2,
+        "seed": 2,
+        "original_count": 5050,
+        "single_driver_count": 5050,
+        "expected_count": 5050
+      },
+      {
+        "random_reset_mode": 2,
+        "seed": 3,
+        "original_count": 5050,
+        "single_driver_count": 5050,
+        "expected_count": 5050
+      },
+      {
+        "random_reset_mode": 2,
+        "seed": 4,
+        "original_count": 5050,
+        "single_driver_count": 5050,
+        "expected_count": 5050
+      }
+    ],
+    "minimal_original_failure_reproduced": false,
+    "source_sha256": "778f5fc0280306779d7e22ba1d625b3b02d0d56cf5e1dd14cc920fd990313213",
+    "elf_or_pe_sha256": "1fc955869f4b578fd8f3286e9603d4c3948030dd5c45406dee4631b4e140924e",
+    "full_wrapper_findings_waived": false,
+    "complete_simulation_gate_pass": false
+  },
+  "complete_simulation_gate_pass": false,
+  "limits": [
+    "A driven PLL output is named as state; a source reset patch is not yet justified",
+    "The minimal mixed-driver probe does not reproduce the failure on either native or Ubuntu compiler",
+    "No finding has been waived; the full-wrapper model attribution experiment remains pending"
+  ]
+}

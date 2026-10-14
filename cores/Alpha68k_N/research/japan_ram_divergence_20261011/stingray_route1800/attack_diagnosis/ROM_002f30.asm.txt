@@ -1,0 +1,28 @@
+02f30: 41f9 0004 1800  lea     $41800.l, A0
+02f36: 203c 0040 0040  move.l  #$400040, D0
+02f3c: 20c0            move.l  D0, (A0)+
+02f3e: b1fc 0004 19ff  cmpa.l  #$419ff, A0
+02f44: 65f6            bcs     $2f3c
+02f46: 7801            moveq   #$1, D4
+02f48: 6100 0464       bsr     $33ae
+02f4c: 426e 0006       clr.w   ($6,A6)
+02f50: 4e40            trap    #$0
+02f52: 4bfa 0006       lea     ($2f5a,PC), A5
+02f56: 4efa 61be       jmp     ($9116,PC)
+02f5a: 7000            moveq   #$0, D0
+02f5c: 6100 e730       bsr     $168e
+02f60: 302e 0114       move.w  ($114,A6), D0
+02f64: b06e 0002       cmp.w   ($2,A6), D0
+02f68: 6738            beq     $2fa2
+02f6a: 302e 0002       move.w  ($2,A6), D0
+02f6e: 3d40 0114       move.w  D0, ($114,A6)
+02f72: 0240 000f       andi.w  #$f, D0
+02f76: 662a            bne     $2fa2
+02f78: 102e 0019       move.b  ($19,A6), D0
+02f7c: 6b0c            bmi     $2f8a
+02f7e: 5200            addq.b  #1, D0
+02f80: 1d40 0019       move.b  D0, ($19,A6)
+02f84: 0c00 0050       cmpi.b  #$50, D0
+02f88: 6518            bcs     $2fa2
+02f8a: 6100 0e44       bsr     $3dd0
+02f8e: 08ee 0002 010a  bset    #$2, ($10a,A6)

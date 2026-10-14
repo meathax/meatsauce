@@ -1,0 +1,58 @@
+{
+  "frozen_utc": "2026-10-10T18:05:58.196997+00:00",
+  "proposal_manifest": {
+    "path": "D:\\Arcade\\AI\\aCORES\\Alpha68k N\\research\\joined_rom_inference_v2\\import_manifest.json",
+    "sha256": "570678aef6836b63360fee6114461d12041c66abc14a00d3c149d6fe06231b20"
+  },
+  "source_extraction_actual_exit": 0,
+  "source_extraction_receipt": "1f1a0f",
+  "native_build_actual_exit": 0,
+  "native_build_receipt": "c2375e",
+  "native_build_command": [
+    "wsl.exe",
+    "-d",
+    "Ubuntu",
+    "--cd",
+    "D:\\vibes\\fpga\\temp\\alpha68kn_mcu_pair_20261011",
+    "--exec",
+    "verilator",
+    "--binary",
+    "--timing",
+    "--top-module",
+    "mcu_rom_pair_tb",
+    "--Mdir",
+    "build",
+    "--prefix",
+    "Vmcu_rom_pair_tb",
+    "mcu_rom_pair_tb.sv"
+  ],
+  "native_run_actual_exit": 0,
+  "native_run_receipt": "12dc54",
+  "native_run_command": [
+    "wsl.exe",
+    "-d",
+    "Ubuntu",
+    "--cd",
+    "D:\\vibes\\fpga\\temp\\alpha68kn_mcu_pair_20261011",
+    "--exec",
+    "./build/Vmcu_rom_pair_tb"
+  ],
+  "native_run_stdout": "MCU_ROM_PAIR_PASS checks=79875 loader_addresses=4096 data_words=65536 read_addresses=4096 odd_and_fff_wrap=1 old_data_collisions=1 debug_lane_order=1\n- mcu_rom_pair_tb.sv:82: Verilog $finish\n- S i m u l a t i o n   R e p o r t: Verilator 5.050 2026-07-01\n- Verilator: $finish at 240ns; walltime 0.031 s; speed 7.832 us/s\n- Verilator: cpu 0.031 s on 1 threads; allocated 7 MB\n",
+  "native_binary": {
+    "path": "D:\\vibes\\fpga\\temp\\alpha68kn_mcu_pair_20261011\\build\\Vmcu_rom_pair_tb",
+    "sha256": "b658e241ee939083a3ed2fb1b43461ad08d38d439c87c8d8e87c441e30926364",
+    "bytes": 241352
+  },
+  "source": {
+    "path": "D:\\vibes\\fpga\\temp\\alpha68kn_mcu_pair_20261011\\mcu_rom_pair_tb.sv",
+    "sha256": "5f2d4ed96f11e32ca9e5ce159e89a66515abd303febd3a786370deba2e6977c4"
+  },
+  "checks": 79875,
+  "failures_preserved": [
+    "c998f2 GNU Make rejects spaces",
+    "f26bf3 temp staging sandbox denial",
+    "66479a no staged runtime existed; compiler not executed"
+  ],
+  "scope_limit": "This paired smoke extracts storage declaration, effective loader range/lane writes, registered MCU read and debug packing. It does not instantiate T48/CPU/gameplay/framework and cannot qualify coupled MCU timing, physical mixed-port collisions, whole-board timing or final current-image gameplay.",
+  "no_map_fit_sta_or_rbf_launched_for_proposal": true
+}

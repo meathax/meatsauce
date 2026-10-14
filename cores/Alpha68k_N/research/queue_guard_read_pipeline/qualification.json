@@ -1,0 +1,2327 @@
+{
+  "pass": true,
+  "baseline_sha256": "9d979f3f7ec0e74693f3d6405fb98cd777c5153b6cb747e772a3da0154c5749e",
+  "candidate_sha256": "afcf3db289db892de176c233b411a267d1c687012e1334988a83ffd8b3efbf04",
+  "original_98_replayed": 98,
+  "checks": 155,
+  "global_deployment": false,
+  "results": [
+    {
+      "name": "fixed_fast_dev-fast",
+      "command": "& 'C:\\Users\\meath\\QuartusFast\\quartus-fast.ps1' 'build' '--project' 'D:\\Arcade\\AI\\aCORES\\Alpha68k N\\research\\quartus_check_current_stage\\Alpha68k_N.qpf' '--threads' '2' '--no-fallback' '--mode' 'dev-fast'",
+      "class": "unchanged",
+      "baseline": {},
+      "candidate": {}
+    },
+    {
+      "name": "fixed_fast_dev-safe",
+      "command": "& 'C:\\Users\\meath\\QuartusFast\\quartus-fast.ps1' 'build' '--project' 'D:\\Arcade\\AI\\aCORES\\Alpha68k N\\research\\quartus_check_current_stage\\Alpha68k_N.qpf' '--threads' '2' '--no-fallback' '--mode' 'dev-safe'",
+      "class": "unchanged",
+      "baseline": {},
+      "candidate": {}
+    },
+    {
+      "name": "fixed_fast_release",
+      "command": "& 'C:\\Users\\meath\\QuartusFast\\quartus-fast.ps1' 'build' '--project' 'D:\\Arcade\\AI\\aCORES\\Alpha68k N\\research\\quartus_check_current_stage\\Alpha68k_N.qpf' '--threads' '2' '--no-fallback' '--mode' 'release'",
+      "class": "unchanged",
+      "baseline": {},
+      "candidate": {}
+    },
+    {
+      "name": "fixed_fast_full_visible_review",
+      "command": "& 'C:\\Users\\meath\\QuartusFast\\quartus-fast.ps1' 'build' '--project' 'D:\\Arcade\\AI\\aCORES\\Alpha68k N\\research\\quartus_check_current_stage\\Alpha68k_N.qpf' '--threads' '2' '--no-fallback' '--allow-rbf'",
+      "class": "unchanged",
+      "baseline": {},
+      "candidate": {}
+    },
+    {
+      "name": "fixed_fast_check_flag",
+      "command": "& 'C:\\Users\\meath\\QuartusFast\\quartus-fast.ps1' 'build' '--project' 'D:\\Arcade\\AI\\aCORES\\Alpha68k N\\research\\quartus_check_current_stage\\Alpha68k_N.qpf' '--threads' '2' '--no-fallback' '--checks-only'",
+      "class": "unchanged",
+      "baseline": {
+        "hookSpecificOutput": {
+          "hookEventName": "PreToolUse",
+          "permissionDecision": "allow",
+          "permissionDecisionReason": "User-authorized analysis/synthesis/fit/STA check: direct, unqueued; no RBF assembly."
+        }
+      },
+      "candidate": {
+        "hookSpecificOutput": {
+          "hookEventName": "PreToolUse",
+          "permissionDecision": "allow",
+          "permissionDecisionReason": "User-authorized analysis/synthesis/fit/STA check: direct, unqueued; no RBF assembly."
+        }
+      }
+    },
+    {
+      "name": "literal_PowerShell_file",
+      "command": "& powershell.exe -NoProfile -File 'C:\\Users\\meath\\QuartusFast\\quartus-fast.ps1' 'build' '--project' 'D:\\Arcade\\AI\\aCORES\\Alpha68k N\\research\\quartus_check_current_stage\\Alpha68k_N.qpf' '--threads' '2' '--no-fallback'",
+      "class": "unchanged",
+      "baseline": {},
+      "candidate": {}
+    },
+    {
+      "name": "unknown_flag",
+      "command": "& 'C:\\Users\\meath\\QuartusFast\\quartus-fast.ps1' 'build' '--project' 'D:\\Arcade\\AI\\aCORES\\Alpha68k N\\research\\quartus_check_current_stage\\Alpha68k_N.qpf' '--threads' '2' '--no-fallback' '--eval' 'quartus_asm'",
+      "class": "unchanged",
+      "baseline": {
+        "hookSpecificOutput": {
+          "hookEventName": "PreToolUse",
+          "permissionDecision": "deny",
+          "permissionDecisionReason": "Unknown or duplicate QuartusFast flag Use the reviewed QuartusFast frontend for check-only work; full compiles require the shared queue and separate explicit RBF authorization."
+        }
+      },
+      "candidate": {
+        "hookSpecificOutput": {
+          "hookEventName": "PreToolUse",
+          "permissionDecision": "deny",
+          "permissionDecisionReason": "Unknown or duplicate QuartusFast flag Use the reviewed QuartusFast frontend for check-only work; full compiles require the shared queue and separate explicit RBF authorization."
+        }
+      }
+    },
+    {
+      "name": "duplicate_project",
+      "command": "& 'C:\\Users\\meath\\QuartusFast\\quartus-fast.ps1' 'build' '--project' 'D:\\Arcade\\AI\\aCORES\\Alpha68k N\\research\\quartus_check_current_stage\\Alpha68k_N.qpf' '--threads' '2' '--no-fallback' '--project' 'D:\\Arcade\\AI\\aCORES\\Alpha68k N\\research\\quartus_check_current_stage\\Alpha68k_N.qpf'",
+      "class": "unchanged",
+      "baseline": {
+        "hookSpecificOutput": {
+          "hookEventName": "PreToolUse",
+          "permissionDecision": "deny",
+          "permissionDecisionReason": "Unknown or duplicate QuartusFast flag Use the reviewed QuartusFast frontend for check-only work; full compiles require the shared queue and separate explicit RBF authorization."
+        }
+      },
+      "candidate": {
+        "hookSpecificOutput": {
+          "hookEventName": "PreToolUse",
+          "permissionDecision": "deny",
+          "permissionDecisionReason": "Unknown or duplicate QuartusFast flag Use the reviewed QuartusFast frontend for check-only work; full compiles require the shared queue and separate explicit RBF authorization."
+        }
+      }
+    },
+    {
+      "name": "missing_project",
+      "command": "& 'C:\\Users\\meath\\QuartusFast\\quartus-fast.ps1' 'build'",
+      "class": "unchanged",
+      "baseline": {
+        "hookSpecificOutput": {
+          "hookEventName": "PreToolUse",
+          "permissionDecision": "deny",
+          "permissionDecisionReason": "QuartusFast requires a literal absolute QPF path Use the reviewed QuartusFast frontend for check-only work; full compiles require the shared queue and separate explicit RBF authorization."
+        }
+      },
+      "candidate": {
+        "hookSpecificOutput": {
+          "hookEventName": "PreToolUse",
+          "permissionDecision": "deny",
+          "permissionDecisionReason": "QuartusFast requires a literal absolute QPF path Use the reviewed QuartusFast frontend for check-only work; full compiles require the shared queue and separate explicit RBF authorization."
+        }
+      }
+    },
+    {
+      "name": "relative_project",
+      "command": "& 'C:\\Users\\meath\\QuartusFast\\quartus-fast.ps1' 'build' '--project' 'file.qpf'",
+      "class": "unchanged",
+      "baseline": {
+        "hookSpecificOutput": {
+          "hookEventName": "PreToolUse",
+          "permissionDecision": "deny",
+          "permissionDecisionReason": "QuartusFast requires a literal absolute QPF path Use the reviewed QuartusFast frontend for check-only work; full compiles require the shared queue and separate explicit RBF authorization."
+        }
+      },
+      "candidate": {
+        "hookSpecificOutput": {
+          "hookEventName": "PreToolUse",
+          "permissionDecision": "deny",
+          "permissionDecisionReason": "QuartusFast requires a literal absolute QPF path Use the reviewed QuartusFast frontend for check-only work; full compiles require the shared queue and separate explicit RBF authorization."
+        }
+      }
+    },
+    {
+      "name": "wrong_extension",
+      "command": "& 'C:\\Users\\meath\\QuartusFast\\quartus-fast.ps1' 'build' '--project' 'D:\\file.tcl'",
+      "class": "unchanged",
+      "baseline": {
+        "hookSpecificOutput": {
+          "hookEventName": "PreToolUse",
+          "permissionDecision": "deny",
+          "permissionDecisionReason": "QuartusFast requires a literal absolute QPF path Use the reviewed QuartusFast frontend for check-only work; full compiles require the shared queue and separate explicit RBF authorization."
+        }
+      },
+      "candidate": {
+        "hookSpecificOutput": {
+          "hookEventName": "PreToolUse",
+          "permissionDecision": "deny",
+          "permissionDecisionReason": "QuartusFast requires a literal absolute QPF path Use the reviewed QuartusFast frontend for check-only work; full compiles require the shared queue and separate explicit RBF authorization."
+        }
+      }
+    },
+    {
+      "name": "invalid_threads",
+      "command": "& 'C:\\Users\\meath\\QuartusFast\\quartus-fast.ps1' 'build' '--project' 'D:\\Arcade\\AI\\aCORES\\Alpha68k N\\research\\quartus_check_current_stage\\Alpha68k_N.qpf' '--threads' '0'",
+      "class": "unchanged",
+      "baseline": {
+        "hookSpecificOutput": {
+          "hookEventName": "PreToolUse",
+          "permissionDecision": "deny",
+          "permissionDecisionReason": "Invalid QuartusFast --threads value Use the reviewed QuartusFast frontend for check-only work; full compiles require the shared queue and separate explicit RBF authorization."
+        }
+      },
+      "candidate": {
+        "hookSpecificOutput": {
+          "hookEventName": "PreToolUse",
+          "permissionDecision": "deny",
+          "permissionDecisionReason": "Invalid QuartusFast --threads value Use the reviewed QuartusFast frontend for check-only work; full compiles require the shared queue and separate explicit RBF authorization."
+        }
+      }
+    },
+    {
+      "name": "unknown_mode",
+      "command": "& 'C:\\Users\\meath\\QuartusFast\\quartus-fast.ps1' 'build' '--project' 'D:\\Arcade\\AI\\aCORES\\Alpha68k N\\research\\quartus_check_current_stage\\Alpha68k_N.qpf' '--threads' '2' '--no-fallback' '--mode' 'unchecked'",
+      "class": "unchanged",
+      "baseline": {
+        "hookSpecificOutput": {
+          "hookEventName": "PreToolUse",
+          "permissionDecision": "deny",
+          "permissionDecisionReason": "Unknown QuartusFast mode Use the reviewed QuartusFast frontend for check-only work; full compiles require the shared queue and separate explicit RBF authorization."
+        }
+      },
+      "candidate": {
+        "hookSpecificOutput": {
+          "hookEventName": "PreToolUse",
+          "permissionDecision": "deny",
+          "permissionDecisionReason": "Unknown QuartusFast mode Use the reviewed QuartusFast frontend for check-only work; full compiles require the shared queue and separate explicit RBF authorization."
+        }
+      }
+    },
+    {
+      "name": "conflicting_assembly",
+      "command": "& 'C:\\Users\\meath\\QuartusFast\\quartus-fast.ps1' 'build' '--project' 'D:\\Arcade\\AI\\aCORES\\Alpha68k N\\research\\quartus_check_current_stage\\Alpha68k_N.qpf' '--threads' '2' '--no-fallback' '--checks-only' '--allow-rbf'",
+      "class": "unchanged",
+      "baseline": {
+        "hookSpecificOutput": {
+          "hookEventName": "PreToolUse",
+          "permissionDecision": "deny",
+          "permissionDecisionReason": "Conflicting QuartusFast assembly/check flags Use the reviewed QuartusFast frontend for check-only work; full compiles require the shared queue and separate explicit RBF authorization."
+        }
+      },
+      "candidate": {
+        "hookSpecificOutput": {
+          "hookEventName": "PreToolUse",
+          "permissionDecision": "deny",
+          "permissionDecisionReason": "Conflicting QuartusFast assembly/check flags Use the reviewed QuartusFast frontend for check-only work; full compiles require the shared queue and separate explicit RBF authorization."
+        }
+      }
+    },
+    {
+      "name": "recipe_delegate",
+      "command": "& 'C:\\Users\\meath\\QuartusFast\\quartus-fast.ps1' 'run' '--recipe' 'unknown'",
+      "class": "unchanged",
+      "baseline": {
+        "hookSpecificOutput": {
+          "hookEventName": "PreToolUse",
+          "permissionDecision": "deny",
+          "permissionDecisionReason": "Complete QuartusFast RBF jobs require --allow-rbf and separate explicit user authorization Use the reviewed QuartusFast frontend for check-only work; full compiles require the shared queue and separate explicit RBF authorization."
+        }
+      },
+      "candidate": {
+        "hookSpecificOutput": {
+          "hookEventName": "PreToolUse",
+          "permissionDecision": "deny",
+          "permissionDecisionReason": "Complete QuartusFast RBF jobs require --allow-rbf and separate explicit user authorization Use the reviewed QuartusFast frontend for check-only work; full compiles require the shared queue and separate explicit RBF authorization."
+        }
+      }
+    },
+    {
+      "name": "noncanonical_fast",
+      "command": "& 'D:\\copy\\quartus-fast.ps1' 'build' '--project' 'D:\\Arcade\\AI\\aCORES\\Alpha68k N\\research\\quartus_check_current_stage\\Alpha68k_N.qpf' '--threads' '2' '--no-fallback'",
+      "class": "unchanged",
+      "baseline": {
+        "hookSpecificOutput": {
+          "hookEventName": "PreToolUse",
+          "permissionDecision": "deny",
+          "permissionDecisionReason": "Noncanonical QuartusFast frontend Use the reviewed QuartusFast frontend for check-only work; full compiles require the shared queue and separate explicit RBF authorization."
+        }
+      },
+      "candidate": {
+        "hookSpecificOutput": {
+          "hookEventName": "PreToolUse",
+          "permissionDecision": "deny",
+          "permissionDecisionReason": "Noncanonical QuartusFast frontend Use the reviewed QuartusFast frontend for check-only work; full compiles require the shared queue and separate explicit RBF authorization."
+        }
+      }
+    },
+    {
+      "name": "shell_chain",
+      "command": "& 'C:\\Users\\meath\\QuartusFast\\quartus-fast.ps1' 'build' '--project' 'D:\\Arcade\\AI\\aCORES\\Alpha68k N\\research\\quartus_check_current_stage\\Alpha68k_N.qpf' '--threads' '2' '--no-fallback'; quartus_asm Alpha68k_N",
+      "class": "unchanged",
+      "baseline": {
+        "hookSpecificOutput": {
+          "hookEventName": "PreToolUse",
+          "permissionDecision": "deny",
+          "permissionDecisionReason": "Compound, redirection or substitution syntax Use the reviewed QuartusFast frontend for check-only work; full compiles require the shared queue and separate explicit RBF authorization."
+        }
+      },
+      "candidate": {
+        "hookSpecificOutput": {
+          "hookEventName": "PreToolUse",
+          "permissionDecision": "deny",
+          "permissionDecisionReason": "Compound, redirection or substitution syntax Use the reviewed QuartusFast frontend for check-only work; full compiles require the shared queue and separate explicit RBF authorization."
+        }
+      }
+    },
+    {
+      "name": "dynamic_project",
+      "command": "& 'C:\\Users\\meath\\QuartusFast\\quartus-fast.ps1' build --project $project",
+      "class": "unchanged",
+      "baseline": {
+        "hookSpecificOutput": {
+          "hookEventName": "PreToolUse",
+          "permissionDecision": "deny",
+          "permissionDecisionReason": "Compound, redirection or substitution syntax Use the reviewed QuartusFast frontend for check-only work; full compiles require the shared queue and separate explicit RBF authorization."
+        }
+      },
+      "candidate": {
+        "hookSpecificOutput": {
+          "hookEventName": "PreToolUse",
+          "permissionDecision": "deny",
+          "permissionDecisionReason": "Compound, redirection or substitution syntax Use the reviewed QuartusFast frontend for check-only work; full compiles require the shared queue and separate explicit RBF authorization."
+        }
+      }
+    },
+    {
+      "name": "raw_asm",
+      "command": "& 'D:\\q17\\quartus\\bin64\\quartus_asm.exe' Alpha68k_N",
+      "class": "unchanged",
+      "baseline": {
+        "hookSpecificOutput": {
+          "hookEventName": "PreToolUse",
+          "permissionDecision": "deny",
+          "permissionDecisionReason": "Raw ASM/CPF/Quartus shell execution is not forwarded by the hook Use the reviewed QuartusFast frontend for check-only work; full compiles require the shared queue and separate explicit RBF authorization."
+        }
+      },
+      "candidate": {
+        "hookSpecificOutput": {
+          "hookEventName": "PreToolUse",
+          "permissionDecision": "deny",
+          "permissionDecisionReason": "Raw ASM/CPF/Quartus shell execution is not forwarded by the hook Use the reviewed QuartusFast frontend for check-only work; full compiles require the shared queue and separate explicit RBF authorization."
+        }
+      }
+    },
+    {
+      "name": "raw_cpf",
+      "command": "& 'D:\\q17\\quartus\\bin64\\quartus_cpf.exe' -c file.sof file.rbf",
+      "class": "unchanged",
+      "baseline": {
+        "hookSpecificOutput": {
+          "hookEventName": "PreToolUse",
+          "permissionDecision": "deny",
+          "permissionDecisionReason": "Raw ASM/CPF/Quartus shell execution is not forwarded by the hook Use the reviewed QuartusFast frontend for check-only work; full compiles require the shared queue and separate explicit RBF authorization."
+        }
+      },
+      "candidate": {
+        "hookSpecificOutput": {
+          "hookEventName": "PreToolUse",
+          "permissionDecision": "deny",
+          "permissionDecisionReason": "Raw ASM/CPF/Quartus shell execution is not forwarded by the hook Use the reviewed QuartusFast frontend for check-only work; full compiles require the shared queue and separate explicit RBF authorization."
+        }
+      }
+    },
+    {
+      "name": "raw_full_compile",
+      "command": "& 'D:\\q17\\quartus\\bin64\\quartus_sh.exe' --flow compile Alpha68k_N",
+      "class": "unchanged",
+      "baseline": {
+        "hookSpecificOutput": {
+          "hookEventName": "PreToolUse",
+          "permissionDecision": "deny",
+          "permissionDecisionReason": "Raw ASM/CPF/Quartus shell execution is not forwarded by the hook Use the reviewed QuartusFast frontend for check-only work; full compiles require the shared queue and separate explicit RBF authorization."
+        }
+      },
+      "candidate": {
+        "hookSpecificOutput": {
+          "hookEventName": "PreToolUse",
+          "permissionDecision": "deny",
+          "permissionDecisionReason": "Raw ASM/CPF/Quartus shell execution is not forwarded by the hook Use the reviewed QuartusFast frontend for check-only work; full compiles require the shared queue and separate explicit RBF authorization."
+        }
+      }
+    },
+    {
+      "name": "direct_worker",
+      "command": "& 'C:\\Users\\meath\\.claude\\skills\\mister-rbf-build\\scripts\\quartus_worker.ps1' -Action Start",
+      "class": "unchanged",
+      "baseline": {
+        "hookSpecificOutput": {
+          "hookEventName": "PreToolUse",
+          "permissionDecision": "deny",
+          "permissionDecisionReason": "Direct worker or noncanonical flow delegation is unsupported Use the reviewed QuartusFast frontend for check-only work; full compiles require the shared queue and separate explicit RBF authorization."
+        }
+      },
+      "candidate": {
+        "hookSpecificOutput": {
+          "hookEventName": "PreToolUse",
+          "permissionDecision": "deny",
+          "permissionDecisionReason": "Direct worker or noncanonical flow delegation is unsupported Use the reviewed QuartusFast frontend for check-only work; full compiles require the shared queue and separate explicit RBF authorization."
+        }
+      }
+    },
+    {
+      "name": "queue_namespace",
+      "command": "& 'C:\\Users\\meath\\.claude\\skills\\mister-rbf-build\\scripts\\quartus_flow.ps1' -Action Start -GlobalSlotRoot D:\\other",
+      "class": "unchanged",
+      "baseline": {
+        "hookSpecificOutput": {
+          "hookEventName": "PreToolUse",
+          "permissionDecision": "deny",
+          "permissionDecisionReason": "Queue namespace override Use the reviewed QuartusFast frontend for check-only work; full compiles require the shared queue and separate explicit RBF authorization."
+        }
+      },
+      "candidate": {
+        "hookSpecificOutput": {
+          "hookEventName": "PreToolUse",
+          "permissionDecision": "deny",
+          "permissionDecisionReason": "Queue namespace override Use the reviewed QuartusFast frontend for check-only work; full compiles require the shared queue and separate explicit RBF authorization."
+        }
+      }
+    },
+    {
+      "name": "separate_queue_fit",
+      "command": "& 'C:\\Users\\meath\\.claude\\skills\\mister-rbf-build\\scripts\\quartus_flow.ps1' -Action Start -Stage fit",
+      "class": "unchanged",
+      "baseline": {
+        "hookSpecificOutput": {
+          "hookEventName": "PreToolUse",
+          "permissionDecision": "deny",
+          "permissionDecisionReason": "Independent stage tasks are refused; use one full canonical compile Use the reviewed QuartusFast frontend for check-only work; full compiles require the shared queue and separate explicit RBF authorization."
+        }
+      },
+      "candidate": {
+        "hookSpecificOutput": {
+          "hookEventName": "PreToolUse",
+          "permissionDecision": "deny",
+          "permissionDecisionReason": "Independent stage tasks are refused; use one full canonical compile Use the reviewed QuartusFast frontend for check-only work; full compiles require the shared queue and separate explicit RBF authorization."
+        }
+      }
+    },
+    {
+      "name": "canonical_compile_visible",
+      "command": "& 'C:\\Users\\meath\\.claude\\skills\\mister-rbf-build\\scripts\\quartus_flow.ps1' -Action Start -Stage compile",
+      "class": "unchanged",
+      "baseline": {},
+      "candidate": {}
+    },
+    {
+      "name": "check_direct",
+      "command": "& 'D:\\q17\\quartus\\bin64\\quartus_fit.exe' Alpha68k_N",
+      "class": "unchanged",
+      "baseline": {
+        "hookSpecificOutput": {
+          "hookEventName": "PreToolUse",
+          "permissionDecision": "allow",
+          "permissionDecisionReason": "User-authorized analysis/synthesis/fit/STA check: direct, unqueued; no RBF assembly."
+        }
+      },
+      "candidate": {
+        "hookSpecificOutput": {
+          "hookEventName": "PreToolUse",
+          "permissionDecision": "allow",
+          "permissionDecisionReason": "User-authorized analysis/synthesis/fit/STA check: direct, unqueued; no RBF assembly."
+        }
+      }
+    },
+    {
+      "name": "encoded_fast",
+      "command": "powershell.exe -EncodedCommand JgAgACcAQwA6AFwAVQBzAGUAcgBzAFwAbQBlAGEAdABoAFwAUQB1AGEAcgB0AHUAcwBGAGEAcwB0AFwAcQB1AGEAcgB0AHUAcwAtAGYAYQBzAHQALgBwAHMAMQAnACAAJwBiAHUAaQBsAGQAJwAgACcALQAtAHAAcgBvAGoAZQBjAHQAJwAgACcARAA6AFwAQQByAGMAYQBkAGUAXABBAEkAXABhAEMATwBSAEUAUwBcAEEAbABwAGgAYQA2ADgAawAgAE4AXAByAGUAcwBlAGEAcgBjAGgAXABxAHUAYQByAHQAdQBzAF8AYwBoAGUAYwBrAF8AYwB1AHIAcgBlAG4AdABfAHMAdABhAGcAZQBcAEEAbABwAGgAYQA2ADgAawBfAE4ALgBxAHAAZgAnACAAJwAtAC0AdABoAHIAZQBhAGQAcwAnACAAJwAyACcAIAAnAC0ALQBuAG8ALQBmAGEAbABsAGIAYQBjAGsAJwA=",
+      "class": "unchanged",
+      "baseline": {
+        "hookSpecificOutput": {
+          "hookEventName": "PreToolUse",
+          "permissionDecision": "deny",
+          "permissionDecisionReason": "Encoded Quartus delegate is unsupported and must use the visible canonical flow Use the reviewed QuartusFast frontend for check-only work; full compiles require the shared queue and separate explicit RBF authorization."
+        }
+      },
+      "candidate": {
+        "hookSpecificOutput": {
+          "hookEventName": "PreToolUse",
+          "permissionDecision": "deny",
+          "permissionDecisionReason": "Encoded Quartus delegate is unsupported and must use the visible canonical flow Use the reviewed QuartusFast frontend for check-only work; full compiles require the shared queue and separate explicit RBF authorization."
+        }
+      }
+    },
+    {
+      "name": "name_kill",
+      "command": "Stop-Process -Name quartus*",
+      "class": "unchanged",
+      "baseline": {
+        "hookSpecificOutput": {
+          "hookEventName": "PreToolUse",
+          "permissionDecision": "deny",
+          "permissionDecisionReason": "Killing Quartus processes by name/wildcard is refused: it ends other sessions' queued builds. Stop your own build with the canonical flow -Action Stop, or kill one exact PID you own without naming Quartus Use the reviewed QuartusFast frontend for check-only work; full compiles require the shared queue and separate explicit RBF authorization."
+        }
+      },
+      "candidate": {
+        "hookSpecificOutput": {
+          "hookEventName": "PreToolUse",
+          "permissionDecision": "deny",
+          "permissionDecisionReason": "Killing Quartus processes by name/wildcard is refused: it ends other sessions' queued builds. Stop your own build with the canonical flow -Action Stop, or kill one exact PID you own without naming Quartus Use the reviewed QuartusFast frontend for check-only work; full compiles require the shared queue and separate explicit RBF authorization."
+        }
+      }
+    },
+    {
+      "name": "comment_tool_powershell",
+      "command": "powershell -Command \"& ('quartus'+'_asm') 'p'; # quartus_map\"",
+      "class": "unchanged",
+      "baseline": {
+        "hookSpecificOutput": {
+          "hookEventName": "PreToolUse",
+          "permissionDecision": "deny",
+          "permissionDecisionReason": "Delegated shell command has no literal -File Use the reviewed QuartusFast frontend for check-only work; full compiles require the shared queue and separate explicit RBF authorization."
+        }
+      },
+      "candidate": {
+        "hookSpecificOutput": {
+          "hookEventName": "PreToolUse",
+          "permissionDecision": "deny",
+          "permissionDecisionReason": "Delegated shell command has no literal -File Use the reviewed QuartusFast frontend for check-only work; full compiles require the shared queue and separate explicit RBF authorization."
+        }
+      }
+    },
+    {
+      "name": "comment_tool_python",
+      "command": "python -c 'import subprocess; subprocess.run([''quartus''+''_asm'',''p'']); # quartus_map'",
+      "class": "unchanged",
+      "baseline": {
+        "hookSpecificOutput": {
+          "hookEventName": "PreToolUse",
+          "permissionDecision": "deny",
+          "permissionDecisionReason": "Unknown executable delegate containing Quartus is unsupported Use the reviewed QuartusFast frontend for check-only work; full compiles require the shared queue and separate explicit RBF authorization."
+        }
+      },
+      "candidate": {
+        "hookSpecificOutput": {
+          "hookEventName": "PreToolUse",
+          "permissionDecision": "deny",
+          "permissionDecisionReason": "Unknown executable delegate containing Quartus is unsupported Use the reviewed QuartusFast frontend for check-only work; full compiles require the shared queue and separate explicit RBF authorization."
+        }
+      }
+    },
+    {
+      "name": "raw_script_equals",
+      "command": "& 'D:\\q17\\quartus\\bin64\\quartus_map.exe' --script=foo",
+      "class": "unchanged",
+      "baseline": {
+        "hookSpecificOutput": {
+          "hookEventName": "PreToolUse",
+          "permissionDecision": "deny",
+          "permissionDecisionReason": "Delegated operation on a check-only Quartus tool Use the reviewed QuartusFast frontend for check-only work; full compiles require the shared queue and separate explicit RBF authorization."
+        }
+      },
+      "candidate": {
+        "hookSpecificOutput": {
+          "hookEventName": "PreToolUse",
+          "permissionDecision": "deny",
+          "permissionDecisionReason": "Delegated operation on a check-only Quartus tool Use the reviewed QuartusFast frontend for check-only work; full compiles require the shared queue and separate explicit RBF authorization."
+        }
+      }
+    },
+    {
+      "name": "raw_eval_equals",
+      "command": "& 'D:\\q17\\quartus\\bin64\\quartus_sta.exe' --eval=foo",
+      "class": "unchanged",
+      "baseline": {
+        "hookSpecificOutput": {
+          "hookEventName": "PreToolUse",
+          "permissionDecision": "deny",
+          "permissionDecisionReason": "Delegated operation on a check-only Quartus tool Use the reviewed QuartusFast frontend for check-only work; full compiles require the shared queue and separate explicit RBF authorization."
+        }
+      },
+      "candidate": {
+        "hookSpecificOutput": {
+          "hookEventName": "PreToolUse",
+          "permissionDecision": "deny",
+          "permissionDecisionReason": "Delegated operation on a check-only Quartus tool Use the reviewed QuartusFast frontend for check-only work; full compiles require the shared queue and separate explicit RBF authorization."
+        }
+      }
+    },
+    {
+      "name": "flow_fast_assembly_delegate",
+      "command": "& 'C:\\Users\\meath\\.claude\\skills\\mister-rbf-build\\scripts\\quartus_flow.ps1' -Action Start -QuartusFast -AllowRbf",
+      "class": "unchanged",
+      "baseline": {
+        "hookSpecificOutput": {
+          "hookEventName": "PreToolUse",
+          "permissionDecision": "deny",
+          "permissionDecisionReason": "Unknown fast delegate on canonical queue flow Use the reviewed QuartusFast frontend for check-only work; full compiles require the shared queue and separate explicit RBF authorization."
+        }
+      },
+      "candidate": {
+        "hookSpecificOutput": {
+          "hookEventName": "PreToolUse",
+          "permissionDecision": "deny",
+          "permissionDecisionReason": "Unknown fast delegate on canonical queue flow Use the reviewed QuartusFast frontend for check-only work; full compiles require the shared queue and separate explicit RBF authorization."
+        }
+      }
+    },
+    {
+      "name": "raw_delegate_-t delegate.tcl",
+      "command": "& 'D:\\q17\\quartus\\bin64\\quartus_sta.exe' -t delegate.tcl",
+      "class": "unchanged",
+      "baseline": {
+        "hookSpecificOutput": {
+          "hookEventName": "PreToolUse",
+          "permissionDecision": "deny",
+          "permissionDecisionReason": "Delegated operation on a check-only Quartus tool Use the reviewed QuartusFast frontend for check-only work; full compiles require the shared queue and separate explicit RBF authorization."
+        }
+      },
+      "candidate": {
+        "hookSpecificOutput": {
+          "hookEventName": "PreToolUse",
+          "permissionDecision": "deny",
+          "permissionDecisionReason": "Delegated operation on a check-only Quartus tool Use the reviewed QuartusFast frontend for check-only work; full compiles require the shared queue and separate explicit RBF authorization."
+        }
+      }
+    },
+    {
+      "name": "raw_delegate_-t=delegate.tcl",
+      "command": "& 'D:\\q17\\quartus\\bin64\\quartus_sta.exe' -t=delegate.tcl",
+      "class": "unchanged",
+      "baseline": {
+        "hookSpecificOutput": {
+          "hookEventName": "PreToolUse",
+          "permissionDecision": "deny",
+          "permissionDecisionReason": "Delegated operation on a check-only Quartus tool Use the reviewed QuartusFast frontend for check-only work; full compiles require the shared queue and separate explicit RBF authorization."
+        }
+      },
+      "candidate": {
+        "hookSpecificOutput": {
+          "hookEventName": "PreToolUse",
+          "permissionDecision": "deny",
+          "permissionDecisionReason": "Delegated operation on a check-only Quartus tool Use the reviewed QuartusFast frontend for check-only work; full compiles require the shared queue and separate explicit RBF authorization."
+        }
+      }
+    },
+    {
+      "name": "raw_delegate_-s delegate.tcl",
+      "command": "& 'D:\\q17\\quartus\\bin64\\quartus_sta.exe' -s delegate.tcl",
+      "class": "unchanged",
+      "baseline": {
+        "hookSpecificOutput": {
+          "hookEventName": "PreToolUse",
+          "permissionDecision": "deny",
+          "permissionDecisionReason": "Delegated operation on a check-only Quartus tool Use the reviewed QuartusFast frontend for check-only work; full compiles require the shared queue and separate explicit RBF authorization."
+        }
+      },
+      "candidate": {
+        "hookSpecificOutput": {
+          "hookEventName": "PreToolUse",
+          "permissionDecision": "deny",
+          "permissionDecisionReason": "Delegated operation on a check-only Quartus tool Use the reviewed QuartusFast frontend for check-only work; full compiles require the shared queue and separate explicit RBF authorization."
+        }
+      }
+    },
+    {
+      "name": "raw_delegate_-s=delegate.tcl",
+      "command": "& 'D:\\q17\\quartus\\bin64\\quartus_sta.exe' -s=delegate.tcl",
+      "class": "unchanged",
+      "baseline": {
+        "hookSpecificOutput": {
+          "hookEventName": "PreToolUse",
+          "permissionDecision": "deny",
+          "permissionDecisionReason": "Delegated operation on a check-only Quartus tool Use the reviewed QuartusFast frontend for check-only work; full compiles require the shared queue and separate explicit RBF authorization."
+        }
+      },
+      "candidate": {
+        "hookSpecificOutput": {
+          "hookEventName": "PreToolUse",
+          "permissionDecision": "deny",
+          "permissionDecisionReason": "Delegated operation on a check-only Quartus tool Use the reviewed QuartusFast frontend for check-only work; full compiles require the shared queue and separate explicit RBF authorization."
+        }
+      }
+    },
+    {
+      "name": "raw_delegate_--tcl_eval delegate.tcl",
+      "command": "& 'D:\\q17\\quartus\\bin64\\quartus_sta.exe' --tcl_eval delegate.tcl",
+      "class": "unchanged",
+      "baseline": {
+        "hookSpecificOutput": {
+          "hookEventName": "PreToolUse",
+          "permissionDecision": "deny",
+          "permissionDecisionReason": "Delegated operation on a check-only Quartus tool Use the reviewed QuartusFast frontend for check-only work; full compiles require the shared queue and separate explicit RBF authorization."
+        }
+      },
+      "candidate": {
+        "hookSpecificOutput": {
+          "hookEventName": "PreToolUse",
+          "permissionDecision": "deny",
+          "permissionDecisionReason": "Delegated operation on a check-only Quartus tool Use the reviewed QuartusFast frontend for check-only work; full compiles require the shared queue and separate explicit RBF authorization."
+        }
+      }
+    },
+    {
+      "name": "raw_delegate_--tcl_eval=delegate.tcl",
+      "command": "& 'D:\\q17\\quartus\\bin64\\quartus_sta.exe' --tcl_eval=delegate.tcl",
+      "class": "unchanged",
+      "baseline": {
+        "hookSpecificOutput": {
+          "hookEventName": "PreToolUse",
+          "permissionDecision": "deny",
+          "permissionDecisionReason": "Delegated operation on a check-only Quartus tool Use the reviewed QuartusFast frontend for check-only work; full compiles require the shared queue and separate explicit RBF authorization."
+        }
+      },
+      "candidate": {
+        "hookSpecificOutput": {
+          "hookEventName": "PreToolUse",
+          "permissionDecision": "deny",
+          "permissionDecisionReason": "Delegated operation on a check-only Quartus tool Use the reviewed QuartusFast frontend for check-only work; full compiles require the shared queue and separate explicit RBF authorization."
+        }
+      }
+    },
+    {
+      "name": "raw_delegate_--tcl-eval delegate.tcl",
+      "command": "& 'D:\\q17\\quartus\\bin64\\quartus_sta.exe' --tcl-eval delegate.tcl",
+      "class": "unchanged",
+      "baseline": {
+        "hookSpecificOutput": {
+          "hookEventName": "PreToolUse",
+          "permissionDecision": "deny",
+          "permissionDecisionReason": "Delegated operation on a check-only Quartus tool Use the reviewed QuartusFast frontend for check-only work; full compiles require the shared queue and separate explicit RBF authorization."
+        }
+      },
+      "candidate": {
+        "hookSpecificOutput": {
+          "hookEventName": "PreToolUse",
+          "permissionDecision": "deny",
+          "permissionDecisionReason": "Delegated operation on a check-only Quartus tool Use the reviewed QuartusFast frontend for check-only work; full compiles require the shared queue and separate explicit RBF authorization."
+        }
+      }
+    },
+    {
+      "name": "raw_delegate_--tcl-eval=delegate.tcl",
+      "command": "& 'D:\\q17\\quartus\\bin64\\quartus_sta.exe' --tcl-eval=delegate.tcl",
+      "class": "unchanged",
+      "baseline": {
+        "hookSpecificOutput": {
+          "hookEventName": "PreToolUse",
+          "permissionDecision": "deny",
+          "permissionDecisionReason": "Delegated operation on a check-only Quartus tool Use the reviewed QuartusFast frontend for check-only work; full compiles require the shared queue and separate explicit RBF authorization."
+        }
+      },
+      "candidate": {
+        "hookSpecificOutput": {
+          "hookEventName": "PreToolUse",
+          "permissionDecision": "deny",
+          "permissionDecisionReason": "Delegated operation on a check-only Quartus tool Use the reviewed QuartusFast frontend for check-only work; full compiles require the shared queue and separate explicit RBF authorization."
+        }
+      }
+    },
+    {
+      "name": "raw_delegate_--shell delegate.tcl",
+      "command": "& 'D:\\q17\\quartus\\bin64\\quartus_sta.exe' --shell delegate.tcl",
+      "class": "unchanged",
+      "baseline": {
+        "hookSpecificOutput": {
+          "hookEventName": "PreToolUse",
+          "permissionDecision": "deny",
+          "permissionDecisionReason": "Delegated operation on a check-only Quartus tool Use the reviewed QuartusFast frontend for check-only work; full compiles require the shared queue and separate explicit RBF authorization."
+        }
+      },
+      "candidate": {
+        "hookSpecificOutput": {
+          "hookEventName": "PreToolUse",
+          "permissionDecision": "deny",
+          "permissionDecisionReason": "Delegated operation on a check-only Quartus tool Use the reviewed QuartusFast frontend for check-only work; full compiles require the shared queue and separate explicit RBF authorization."
+        }
+      }
+    },
+    {
+      "name": "raw_delegate_--shell=delegate.tcl",
+      "command": "& 'D:\\q17\\quartus\\bin64\\quartus_sta.exe' --shell=delegate.tcl",
+      "class": "unchanged",
+      "baseline": {
+        "hookSpecificOutput": {
+          "hookEventName": "PreToolUse",
+          "permissionDecision": "deny",
+          "permissionDecisionReason": "Delegated operation on a check-only Quartus tool Use the reviewed QuartusFast frontend for check-only work; full compiles require the shared queue and separate explicit RBF authorization."
+        }
+      },
+      "candidate": {
+        "hookSpecificOutput": {
+          "hookEventName": "PreToolUse",
+          "permissionDecision": "deny",
+          "permissionDecisionReason": "Delegated operation on a check-only Quartus tool Use the reviewed QuartusFast frontend for check-only work; full compiles require the shared queue and separate explicit RBF authorization."
+        }
+      }
+    },
+    {
+      "name": "queue_colon_namespace",
+      "command": "& 'C:\\Users\\meath\\.claude\\skills\\mister-rbf-build\\scripts\\quartus_flow.ps1' -Action Start -GlobalSlotRoot:D:\\other",
+      "class": "unchanged",
+      "baseline": {
+        "hookSpecificOutput": {
+          "hookEventName": "PreToolUse",
+          "permissionDecision": "deny",
+          "permissionDecisionReason": "Queue namespace override Use the reviewed QuartusFast frontend for check-only work; full compiles require the shared queue and separate explicit RBF authorization."
+        }
+      },
+      "candidate": {
+        "hookSpecificOutput": {
+          "hookEventName": "PreToolUse",
+          "permissionDecision": "deny",
+          "permissionDecisionReason": "Queue namespace override Use the reviewed QuartusFast frontend for check-only work; full compiles require the shared queue and separate explicit RBF authorization."
+        }
+      }
+    },
+    {
+      "name": "queue_abbreviated_namespace",
+      "command": "& 'C:\\Users\\meath\\.claude\\skills\\mister-rbf-build\\scripts\\quartus_flow.ps1' -Action Start -GlobalSl D:\\other",
+      "class": "unchanged",
+      "baseline": {
+        "hookSpecificOutput": {
+          "hookEventName": "PreToolUse",
+          "permissionDecision": "deny",
+          "permissionDecisionReason": "Queue namespace override Use the reviewed QuartusFast frontend for check-only work; full compiles require the shared queue and separate explicit RBF authorization."
+        }
+      },
+      "candidate": {
+        "hookSpecificOutput": {
+          "hookEventName": "PreToolUse",
+          "permissionDecision": "deny",
+          "permissionDecisionReason": "Queue namespace override Use the reviewed QuartusFast frontend for check-only work; full compiles require the shared queue and separate explicit RBF authorization."
+        }
+      }
+    },
+    {
+      "name": "queue_abbreviated_fit",
+      "command": "& 'C:\\Users\\meath\\.claude\\skills\\mister-rbf-build\\scripts\\quartus_flow.ps1' -Act Start -Sta fit",
+      "class": "unchanged",
+      "baseline": {
+        "hookSpecificOutput": {
+          "hookEventName": "PreToolUse",
+          "permissionDecision": "deny",
+          "permissionDecisionReason": "Independent stage tasks are refused; use one full canonical compile Use the reviewed QuartusFast frontend for check-only work; full compiles require the shared queue and separate explicit RBF authorization."
+        }
+      },
+      "candidate": {
+        "hookSpecificOutput": {
+          "hookEventName": "PreToolUse",
+          "permissionDecision": "deny",
+          "permissionDecisionReason": "Independent stage tasks are refused; use one full canonical compile Use the reviewed QuartusFast frontend for check-only work; full compiles require the shared queue and separate explicit RBF authorization."
+        }
+      }
+    },
+    {
+      "name": "queue_colon_fit",
+      "command": "& 'C:\\Users\\meath\\.claude\\skills\\mister-rbf-build\\scripts\\quartus_flow.ps1' -Action:Start -Stage:fit",
+      "class": "unchanged",
+      "baseline": {
+        "hookSpecificOutput": {
+          "hookEventName": "PreToolUse",
+          "permissionDecision": "deny",
+          "permissionDecisionReason": "Independent stage tasks are refused; use one full canonical compile Use the reviewed QuartusFast frontend for check-only work; full compiles require the shared queue and separate explicit RBF authorization."
+        }
+      },
+      "candidate": {
+        "hookSpecificOutput": {
+          "hookEventName": "PreToolUse",
+          "permissionDecision": "deny",
+          "permissionDecisionReason": "Independent stage tasks are refused; use one full canonical compile Use the reviewed QuartusFast frontend for check-only work; full compiles require the shared queue and separate explicit RBF authorization."
+        }
+      }
+    },
+    {
+      "name": "queue_colon_conversion",
+      "command": "& 'C:\\Users\\meath\\.claude\\skills\\mister-rbf-build\\scripts\\quartus_flow.ps1' -Action:ConvertRbf",
+      "class": "unchanged",
+      "baseline": {
+        "hookSpecificOutput": {
+          "hookEventName": "PreToolUse",
+          "permissionDecision": "deny",
+          "permissionDecisionReason": "RBF conversion requires the separately approved mister-rbf-build workflow; no hook forwarding Use the reviewed QuartusFast frontend for check-only work; full compiles require the shared queue and separate explicit RBF authorization."
+        }
+      },
+      "candidate": {
+        "hookSpecificOutput": {
+          "hookEventName": "PreToolUse",
+          "permissionDecision": "deny",
+          "permissionDecisionReason": "RBF conversion requires the separately approved mister-rbf-build workflow; no hook forwarding Use the reviewed QuartusFast frontend for check-only work; full compiles require the shared queue and separate explicit RBF authorization."
+        }
+      }
+    },
+    {
+      "name": "queue_abbreviated_compile",
+      "command": "& 'C:\\Users\\meath\\.claude\\skills\\mister-rbf-build\\scripts\\quartus_flow.ps1' -Act Start -Sta compile",
+      "class": "unchanged",
+      "baseline": {},
+      "candidate": {}
+    },
+    {
+      "name": "flow_abbreviated_fast",
+      "command": "& 'C:\\Users\\meath\\.claude\\skills\\mister-rbf-build\\scripts\\quartus_flow.ps1' -Action Start -QuartusF -AllowRbf",
+      "class": "unchanged",
+      "baseline": {
+        "hookSpecificOutput": {
+          "hookEventName": "PreToolUse",
+          "permissionDecision": "deny",
+          "permissionDecisionReason": "Unknown fast delegate on canonical queue flow Use the reviewed QuartusFast frontend for check-only work; full compiles require the shared queue and separate explicit RBF authorization."
+        }
+      },
+      "candidate": {
+        "hookSpecificOutput": {
+          "hookEventName": "PreToolUse",
+          "permissionDecision": "deny",
+          "permissionDecisionReason": "Unknown fast delegate on canonical queue flow Use the reviewed QuartusFast frontend for check-only work; full compiles require the shared queue and separate explicit RBF authorization."
+        }
+      }
+    },
+    {
+      "name": "readonly_Path_evidence",
+      "command": "python -X utf8 -c 'from pathlib import Path; root=Path(r''D:\\Arcade\\AI\\aCORES\\Alpha68k N''); lines=(root/''AGENTS.md'').read_text(encoding=''utf-8'').splitlines(); print(''\\n''.join(lines[:22])); print(''Quartus'');\nfor index,line in enumerate(lines):\n if ''Quartus'' in line or ''agent'' in line: print(index,line)\nfor p in [Path(r''D:\\Arcade\\AI\\aCORES\\Alpha68k N\\quartus_hold.json''),Path(r''D:\\Arcade\\AI\\aCORES\\meatsauce-alpha68kn\\cores\\Alpha68k_N\\quartus_hold.json'')]:\n if p.exists(): print(p.read_text())'",
+      "class": "unchanged",
+      "baseline": {},
+      "candidate": {}
+    },
+    {
+      "name": "readonly_exact_root_singlequoted",
+      "command": "python -X utf8 -c 'from pathlib import Path; p=Path(r''D:\\Arcade\\AI\\aCORES\\Alpha68k N''); f=p/''AGENTS.md''; lines=f.read_text(encoding=''utf-8'').splitlines(); print(''\\n''.join(str(i+1)+'':''+l[:750] for i,l in enumerate(lines) if i<22 or ''Quartus'' in l or ''agent'' in l)); print(''HOLD CONFIGS''); [(print(str(q)),print(q.read_text(encoding=''utf-8'')[:2000])) for b in [p,Path(r''D:\\Arcade\\AI\\aCORES\\meatsauce-alpha68kn\\cores\\Alpha68k_N'')] for q in [b/''quartus_hold.json''] if q.exists()]'",
+      "class": "unchanged",
+      "baseline": {},
+      "candidate": {}
+    },
+    {
+      "name": "readonly_exact_root_doublequoted",
+      "command": "python -X utf8 -c \"from pathlib import Path; p=Path(r'D:\\Arcade\\AI\\aCORES\\Alpha68k N'); f=p/'AGENTS.md'; lines=f.read_text(encoding='utf-8').splitlines(); print('\\n'.join(str(i+1)+':'+l[:750] for i,l in enumerate(lines) if i<22 or 'Quartus' in l or 'agent' in l)); print('HOLD CONFIGS'); [(print(str(q)),print(q.read_text(encoding='utf-8')[:2000])) for b in [p,Path(r'D:\\Arcade\\AI\\aCORES\\meatsauce-alpha68kn\\cores\\Alpha68k_N')] for q in [b/'quartus_hold.json'] if q.exists()]\"",
+      "class": "unchanged",
+      "baseline": {},
+      "candidate": {}
+    },
+    {
+      "name": "readonly_Quartus_literal",
+      "command": "python -X utf8 -c 'print(''Quartus'')'",
+      "class": "unchanged",
+      "baseline": {},
+      "candidate": {}
+    },
+    {
+      "name": "readonly_quartus_artifact_literal",
+      "command": "python -X utf8 -c 'print(''quartus_check_current_stage'')'",
+      "class": "unchanged",
+      "baseline": {},
+      "candidate": {}
+    },
+    {
+      "name": "subprocess_delegate",
+      "command": "python -X utf8 -c 'import subprocess; subprocess.run([''quartus_asm'',''x''])'",
+      "class": "unchanged",
+      "baseline": {
+        "hookSpecificOutput": {
+          "hookEventName": "PreToolUse",
+          "permissionDecision": "deny",
+          "permissionDecisionReason": "Unknown executable delegate containing Quartus is unsupported Use the reviewed QuartusFast frontend for check-only work; full compiles require the shared queue and separate explicit RBF authorization."
+        }
+      },
+      "candidate": {
+        "hookSpecificOutput": {
+          "hookEventName": "PreToolUse",
+          "permissionDecision": "deny",
+          "permissionDecisionReason": "Unknown executable delegate containing Quartus is unsupported Use the reviewed QuartusFast frontend for check-only work; full compiles require the shared queue and separate explicit RBF authorization."
+        }
+      }
+    },
+    {
+      "name": "os_delegate",
+      "command": "python -X utf8 -c 'import os; os.system(''quartus_sh --flow compile x'')'",
+      "class": "unchanged",
+      "baseline": {
+        "hookSpecificOutput": {
+          "hookEventName": "PreToolUse",
+          "permissionDecision": "deny",
+          "permissionDecisionReason": "Unknown executable delegate containing Quartus is unsupported Use the reviewed QuartusFast frontend for check-only work; full compiles require the shared queue and separate explicit RBF authorization."
+        }
+      },
+      "candidate": {
+        "hookSpecificOutput": {
+          "hookEventName": "PreToolUse",
+          "permissionDecision": "deny",
+          "permissionDecisionReason": "Unknown executable delegate containing Quartus is unsupported Use the reviewed QuartusFast frontend for check-only work; full compiles require the shared queue and separate explicit RBF authorization."
+        }
+      }
+    },
+    {
+      "name": "eval_delegate",
+      "command": "python -X utf8 -c 'eval(\"__import__(''os'').system(''quartus_asm x'')\")'",
+      "class": "unchanged",
+      "baseline": {
+        "hookSpecificOutput": {
+          "hookEventName": "PreToolUse",
+          "permissionDecision": "deny",
+          "permissionDecisionReason": "Unknown executable delegate containing Quartus is unsupported Use the reviewed QuartusFast frontend for check-only work; full compiles require the shared queue and separate explicit RBF authorization."
+        }
+      },
+      "candidate": {
+        "hookSpecificOutput": {
+          "hookEventName": "PreToolUse",
+          "permissionDecision": "deny",
+          "permissionDecisionReason": "Unknown executable delegate containing Quartus is unsupported Use the reviewed QuartusFast frontend for check-only work; full compiles require the shared queue and separate explicit RBF authorization."
+        }
+      }
+    },
+    {
+      "name": "exec_delegate",
+      "command": "python -X utf8 -c 'exec(\"import os; os.system(''quartus_asm x'')\")'",
+      "class": "unchanged",
+      "baseline": {
+        "hookSpecificOutput": {
+          "hookEventName": "PreToolUse",
+          "permissionDecision": "deny",
+          "permissionDecisionReason": "Unknown executable delegate containing Quartus is unsupported Use the reviewed QuartusFast frontend for check-only work; full compiles require the shared queue and separate explicit RBF authorization."
+        }
+      },
+      "candidate": {
+        "hookSpecificOutput": {
+          "hookEventName": "PreToolUse",
+          "permissionDecision": "deny",
+          "permissionDecisionReason": "Unknown executable delegate containing Quartus is unsupported Use the reviewed QuartusFast frontend for check-only work; full compiles require the shared queue and separate explicit RBF authorization."
+        }
+      }
+    },
+    {
+      "name": "Path_write",
+      "command": "python -X utf8 -c 'from pathlib import Path; Path(r''D:\\quartus_guard.txt'').write_text(''x'')'",
+      "class": "unchanged",
+      "baseline": {
+        "hookSpecificOutput": {
+          "hookEventName": "PreToolUse",
+          "permissionDecision": "deny",
+          "permissionDecisionReason": "Unknown executable delegate containing Quartus is unsupported Use the reviewed QuartusFast frontend for check-only work; full compiles require the shared queue and separate explicit RBF authorization."
+        }
+      },
+      "candidate": {
+        "hookSpecificOutput": {
+          "hookEventName": "PreToolUse",
+          "permissionDecision": "deny",
+          "permissionDecisionReason": "Unknown executable delegate containing Quartus is unsupported Use the reviewed QuartusFast frontend for check-only work; full compiles require the shared queue and separate explicit RBF authorization."
+        }
+      }
+    },
+    {
+      "name": "builtin_shadow",
+      "command": "python -X utf8 -c 'print=__import__(''os'').system; print(''quartus_asm x'')'",
+      "class": "unchanged",
+      "baseline": {
+        "hookSpecificOutput": {
+          "hookEventName": "PreToolUse",
+          "permissionDecision": "deny",
+          "permissionDecisionReason": "Unknown executable delegate containing Quartus is unsupported Use the reviewed QuartusFast frontend for check-only work; full compiles require the shared queue and separate explicit RBF authorization."
+        }
+      },
+      "candidate": {
+        "hookSpecificOutput": {
+          "hookEventName": "PreToolUse",
+          "permissionDecision": "deny",
+          "permissionDecisionReason": "Unknown executable delegate containing Quartus is unsupported Use the reviewed QuartusFast frontend for check-only work; full compiles require the shared queue and separate explicit RBF authorization."
+        }
+      }
+    },
+    {
+      "name": "Path_shadow",
+      "command": "python -X utf8 -c 'from pathlib import Path; Path=lambda x: __import__(''os'').system(x); Path(''quartus_asm x'')'",
+      "class": "unchanged",
+      "baseline": {
+        "hookSpecificOutput": {
+          "hookEventName": "PreToolUse",
+          "permissionDecision": "deny",
+          "permissionDecisionReason": "Unknown executable delegate containing Quartus is unsupported Use the reviewed QuartusFast frontend for check-only work; full compiles require the shared queue and separate explicit RBF authorization."
+        }
+      },
+      "candidate": {
+        "hookSpecificOutput": {
+          "hookEventName": "PreToolUse",
+          "permissionDecision": "deny",
+          "permissionDecisionReason": "Unknown executable delegate containing Quartus is unsupported Use the reviewed QuartusFast frontend for check-only work; full compiles require the shared queue and separate explicit RBF authorization."
+        }
+      }
+    },
+    {
+      "name": "dunder_traversal",
+      "command": "python -X utf8 -c 'from pathlib import Path; print(Path.__class__); print(''quartus_asm'')'",
+      "class": "unchanged",
+      "baseline": {
+        "hookSpecificOutput": {
+          "hookEventName": "PreToolUse",
+          "permissionDecision": "deny",
+          "permissionDecisionReason": "Unknown executable delegate containing Quartus is unsupported Use the reviewed QuartusFast frontend for check-only work; full compiles require the shared queue and separate explicit RBF authorization."
+        }
+      },
+      "candidate": {
+        "hookSpecificOutput": {
+          "hookEventName": "PreToolUse",
+          "permissionDecision": "deny",
+          "permissionDecisionReason": "Unknown executable delegate containing Quartus is unsupported Use the reviewed QuartusFast frontend for check-only work; full compiles require the shared queue and separate explicit RBF authorization."
+        }
+      }
+    },
+    {
+      "name": "dynamic_Path",
+      "command": "python -X utf8 -c 'from pathlib import Path; p=''D:\\quartus_guard.txt''; print(Path(p).read_text())'",
+      "class": "unchanged",
+      "baseline": {
+        "hookSpecificOutput": {
+          "hookEventName": "PreToolUse",
+          "permissionDecision": "deny",
+          "permissionDecisionReason": "Unknown executable delegate containing Quartus is unsupported Use the reviewed QuartusFast frontend for check-only work; full compiles require the shared queue and separate explicit RBF authorization."
+        }
+      },
+      "candidate": {
+        "hookSpecificOutput": {
+          "hookEventName": "PreToolUse",
+          "permissionDecision": "deny",
+          "permissionDecisionReason": "Unknown executable delegate containing Quartus is unsupported Use the reviewed QuartusFast frontend for check-only work; full compiles require the shared queue and separate explicit RBF authorization."
+        }
+      }
+    },
+    {
+      "name": "file_print",
+      "command": "python -X utf8 -c 'from pathlib import Path; print(''quartus_check'',file=Path(r''D:\\x''))'",
+      "class": "unchanged",
+      "baseline": {
+        "hookSpecificOutput": {
+          "hookEventName": "PreToolUse",
+          "permissionDecision": "deny",
+          "permissionDecisionReason": "Unknown executable delegate containing Quartus is unsupported Use the reviewed QuartusFast frontend for check-only work; full compiles require the shared queue and separate explicit RBF authorization."
+        }
+      },
+      "candidate": {
+        "hookSpecificOutput": {
+          "hookEventName": "PreToolUse",
+          "permissionDecision": "deny",
+          "permissionDecisionReason": "Unknown executable delegate containing Quartus is unsupported Use the reviewed QuartusFast frontend for check-only work; full compiles require the shared queue and separate explicit RBF authorization."
+        }
+      }
+    },
+    {
+      "name": "function_def",
+      "command": "python -X utf8 -c 'def run(): pass\nprint(''quartus_check'')'",
+      "class": "unchanged",
+      "baseline": {
+        "hookSpecificOutput": {
+          "hookEventName": "PreToolUse",
+          "permissionDecision": "deny",
+          "permissionDecisionReason": "Unknown executable delegate containing Quartus is unsupported Use the reviewed QuartusFast frontend for check-only work; full compiles require the shared queue and separate explicit RBF authorization."
+        }
+      },
+      "candidate": {
+        "hookSpecificOutput": {
+          "hookEventName": "PreToolUse",
+          "permissionDecision": "deny",
+          "permissionDecisionReason": "Unknown executable delegate containing Quartus is unsupported Use the reviewed QuartusFast frontend for check-only work; full compiles require the shared queue and separate explicit RBF authorization."
+        }
+      }
+    },
+    {
+      "name": "generator_exec",
+      "command": "python -X utf8 -c 'print(''''.join(str(eval(x)) for x in [''quartus_asm'']))'",
+      "class": "unchanged",
+      "baseline": {
+        "hookSpecificOutput": {
+          "hookEventName": "PreToolUse",
+          "permissionDecision": "deny",
+          "permissionDecisionReason": "Unknown executable delegate containing Quartus is unsupported Use the reviewed QuartusFast frontend for check-only work; full compiles require the shared queue and separate explicit RBF authorization."
+        }
+      },
+      "candidate": {
+        "hookSpecificOutput": {
+          "hookEventName": "PreToolUse",
+          "permissionDecision": "deny",
+          "permissionDecisionReason": "Unknown executable delegate containing Quartus is unsupported Use the reviewed QuartusFast frontend for check-only work; full compiles require the shared queue and separate explicit RBF authorization."
+        }
+      }
+    },
+    {
+      "name": "comprehension_write",
+      "command": "python -X utf8 -c 'from pathlib import Path; [p.write_text(''x'') for p in [Path(r''D:\\quartus_guard.txt'')]]'",
+      "class": "unchanged",
+      "baseline": {
+        "hookSpecificOutput": {
+          "hookEventName": "PreToolUse",
+          "permissionDecision": "deny",
+          "permissionDecisionReason": "Unknown executable delegate containing Quartus is unsupported Use the reviewed QuartusFast frontend for check-only work; full compiles require the shared queue and separate explicit RBF authorization."
+        }
+      },
+      "candidate": {
+        "hookSpecificOutput": {
+          "hookEventName": "PreToolUse",
+          "permissionDecision": "deny",
+          "permissionDecisionReason": "Unknown executable delegate containing Quartus is unsupported Use the reviewed QuartusFast frontend for check-only work; full compiles require the shared queue and separate explicit RBF authorization."
+        }
+      }
+    },
+    {
+      "name": "comprehension_subprocess",
+      "command": "python -X utf8 -c 'import subprocess; [subprocess.run([''quartus_asm'',''x'']) for x in [''a'']]'",
+      "class": "unchanged",
+      "baseline": {
+        "hookSpecificOutput": {
+          "hookEventName": "PreToolUse",
+          "permissionDecision": "deny",
+          "permissionDecisionReason": "Unknown executable delegate containing Quartus is unsupported Use the reviewed QuartusFast frontend for check-only work; full compiles require the shared queue and separate explicit RBF authorization."
+        }
+      },
+      "candidate": {
+        "hookSpecificOutput": {
+          "hookEventName": "PreToolUse",
+          "permissionDecision": "deny",
+          "permissionDecisionReason": "Unknown executable delegate containing Quartus is unsupported Use the reviewed QuartusFast frontend for check-only work; full compiles require the shared queue and separate explicit RBF authorization."
+        }
+      }
+    },
+    {
+      "name": "actual_readonly_queue_search",
+      "class": "original_typed_unchanged",
+      "command": "rg -n --max-count 8 --max-columns 220 'registry.*approval|registration.*pending|lease.*map|map.*lease|preassembly.*queue|All Quartus use is suspended|Quartus.*held|Quartus hold' AGENTS.md plan.md goal_prompt.md docs tools scripts quartus_hold.json",
+      "baseline": {},
+      "candidate": {}
+    },
+    {
+      "name": "quoted_tool_and_kill_data",
+      "class": "original_typed_unchanged",
+      "command": "rg 'quartus_asm|Stop-Process quartus*' AGENTS.md",
+      "baseline": {},
+      "candidate": {}
+    },
+    {
+      "name": "typed_python_evidence",
+      "class": "original_typed_unchanged",
+      "command": "python -c \"print('quartus_hold.json')\"",
+      "baseline": {},
+      "candidate": {}
+    },
+    {
+      "name": "raw_assembly",
+      "class": "original_typed_unchanged",
+      "command": "quartus_asm Alpha68k_N",
+      "baseline": {
+        "hookSpecificOutput": {
+          "hookEventName": "PreToolUse",
+          "permissionDecision": "deny",
+          "permissionDecisionReason": "Unsupported structured MCP Quartus execution Use the reviewed QuartusFast frontend for check-only work; full compiles require the shared queue and separate explicit RBF authorization."
+        }
+      },
+      "candidate": {
+        "hookSpecificOutput": {
+          "hookEventName": "PreToolUse",
+          "permissionDecision": "deny",
+          "permissionDecisionReason": "Unsupported structured MCP Quartus execution Use the reviewed QuartusFast frontend for check-only work; full compiles require the shared queue and separate explicit RBF authorization."
+        }
+      }
+    },
+    {
+      "name": "raw_full_compile",
+      "class": "original_typed_unchanged",
+      "command": "quartus_sh --flow compile Alpha68k_N",
+      "baseline": {
+        "hookSpecificOutput": {
+          "hookEventName": "PreToolUse",
+          "permissionDecision": "deny",
+          "permissionDecisionReason": "Unsupported structured MCP Quartus execution Use the reviewed QuartusFast frontend for check-only work; full compiles require the shared queue and separate explicit RBF authorization."
+        }
+      },
+      "candidate": {
+        "hookSpecificOutput": {
+          "hookEventName": "PreToolUse",
+          "permissionDecision": "deny",
+          "permissionDecisionReason": "Unsupported structured MCP Quartus execution Use the reviewed QuartusFast frontend for check-only work; full compiles require the shared queue and separate explicit RBF authorization."
+        }
+      }
+    },
+    {
+      "name": "typed_check_not_forwarded",
+      "class": "original_typed_unchanged",
+      "command": "quartus_fit Alpha68k_N",
+      "baseline": {
+        "hookSpecificOutput": {
+          "hookEventName": "PreToolUse",
+          "permissionDecision": "deny",
+          "permissionDecisionReason": "Unsupported structured MCP Quartus execution Use the reviewed QuartusFast frontend for check-only work; full compiles require the shared queue and separate explicit RBF authorization."
+        }
+      },
+      "candidate": {
+        "hookSpecificOutput": {
+          "hookEventName": "PreToolUse",
+          "permissionDecision": "deny",
+          "permissionDecisionReason": "Unsupported structured MCP Quartus execution Use the reviewed QuartusFast frontend for check-only work; full compiles require the shared queue and separate explicit RBF authorization."
+        }
+      }
+    },
+    {
+      "name": "unknown_mcp_reader",
+      "class": "original_typed_unchanged",
+      "command": "rg -n --max-count 8 --max-columns 220 'registry.*approval|registration.*pending|lease.*map|map.*lease|preassembly.*queue|All Quartus use is suspended|Quartus.*held|Quartus hold' AGENTS.md plan.md goal_prompt.md docs tools scripts quartus_hold.json",
+      "baseline": {
+        "hookSpecificOutput": {
+          "hookEventName": "PreToolUse",
+          "permissionDecision": "deny",
+          "permissionDecisionReason": "Unsupported structured MCP Quartus execution Use the reviewed QuartusFast frontend for check-only work; full compiles require the shared queue and separate explicit RBF authorization."
+        }
+      },
+      "candidate": {
+        "hookSpecificOutput": {
+          "hookEventName": "PreToolUse",
+          "permissionDecision": "deny",
+          "permissionDecisionReason": "Unsupported structured MCP Quartus execution Use the reviewed QuartusFast frontend for check-only work; full compiles require the shared queue and separate explicit RBF authorization."
+        }
+      }
+    },
+    {
+      "name": "wrong_action",
+      "class": "original_typed_unchanged",
+      "command": "rg -n --max-count 8 --max-columns 220 'registry.*approval|registration.*pending|lease.*map|map.*lease|preassembly.*queue|All Quartus use is suspended|Quartus.*held|Quartus hold' AGENTS.md plan.md goal_prompt.md docs tools scripts quartus_hold.json",
+      "baseline": {
+        "hookSpecificOutput": {
+          "hookEventName": "PreToolUse",
+          "permissionDecision": "deny",
+          "permissionDecisionReason": "Unsupported structured MCP Quartus execution Use the reviewed QuartusFast frontend for check-only work; full compiles require the shared queue and separate explicit RBF authorization."
+        }
+      },
+      "candidate": {
+        "hookSpecificOutput": {
+          "hookEventName": "PreToolUse",
+          "permissionDecision": "deny",
+          "permissionDecisionReason": "Unsupported structured MCP Quartus execution Use the reviewed QuartusFast frontend for check-only work; full compiles require the shared queue and separate explicit RBF authorization."
+        }
+      }
+    },
+    {
+      "name": "hidden_additional_args",
+      "class": "original_typed_unchanged",
+      "command": "rg -n --max-count 8 --max-columns 220 'registry.*approval|registration.*pending|lease.*map|map.*lease|preassembly.*queue|All Quartus use is suspended|Quartus.*held|Quartus hold' AGENTS.md plan.md goal_prompt.md docs tools scripts quartus_hold.json",
+      "baseline": {
+        "hookSpecificOutput": {
+          "hookEventName": "PreToolUse",
+          "permissionDecision": "deny",
+          "permissionDecisionReason": "Unsupported structured MCP Quartus execution Use the reviewed QuartusFast frontend for check-only work; full compiles require the shared queue and separate explicit RBF authorization."
+        }
+      },
+      "candidate": {
+        "hookSpecificOutput": {
+          "hookEventName": "PreToolUse",
+          "permissionDecision": "deny",
+          "permissionDecisionReason": "Unsupported structured MCP Quartus execution Use the reviewed QuartusFast frontend for check-only work; full compiles require the shared queue and separate explicit RBF authorization."
+        }
+      }
+    },
+    {
+      "name": "reader_chain",
+      "class": "original_typed_unchanged",
+      "command": "rg 'quartus_hold' AGENTS.md; quartus_asm x",
+      "baseline": {
+        "hookSpecificOutput": {
+          "hookEventName": "PreToolUse",
+          "permissionDecision": "deny",
+          "permissionDecisionReason": "Unsupported structured MCP Quartus execution Use the reviewed QuartusFast frontend for check-only work; full compiles require the shared queue and separate explicit RBF authorization."
+        }
+      },
+      "candidate": {
+        "hookSpecificOutput": {
+          "hookEventName": "PreToolUse",
+          "permissionDecision": "deny",
+          "permissionDecisionReason": "Unsupported structured MCP Quartus execution Use the reviewed QuartusFast frontend for check-only work; full compiles require the shared queue and separate explicit RBF authorization."
+        }
+      }
+    },
+    {
+      "name": "reader_preprocessor",
+      "class": "original_typed_unchanged",
+      "command": "rg --pre=quartus_asm x AGENTS.md",
+      "baseline": {
+        "hookSpecificOutput": {
+          "hookEventName": "PreToolUse",
+          "permissionDecision": "deny",
+          "permissionDecisionReason": "Unsupported structured MCP Quartus execution Use the reviewed QuartusFast frontend for check-only work; full compiles require the shared queue and separate explicit RBF authorization."
+        }
+      },
+      "candidate": {
+        "hookSpecificOutput": {
+          "hookEventName": "PreToolUse",
+          "permissionDecision": "deny",
+          "permissionDecisionReason": "Unsupported structured MCP Quartus execution Use the reviewed QuartusFast frontend for check-only work; full compiles require the shared queue and separate explicit RBF authorization."
+        }
+      }
+    },
+    {
+      "name": "reader_preprocessor_separate",
+      "class": "original_typed_unchanged",
+      "command": "rg --pre quartus_asm x AGENTS.md",
+      "baseline": {
+        "hookSpecificOutput": {
+          "hookEventName": "PreToolUse",
+          "permissionDecision": "deny",
+          "permissionDecisionReason": "Unsupported structured MCP Quartus execution Use the reviewed QuartusFast frontend for check-only work; full compiles require the shared queue and separate explicit RBF authorization."
+        }
+      },
+      "candidate": {
+        "hookSpecificOutput": {
+          "hookEventName": "PreToolUse",
+          "permissionDecision": "deny",
+          "permissionDecisionReason": "Unsupported structured MCP Quartus execution Use the reviewed QuartusFast frontend for check-only work; full compiles require the shared queue and separate explicit RBF authorization."
+        }
+      }
+    },
+    {
+      "name": "reader_substitution",
+      "class": "original_typed_unchanged",
+      "command": "rg $(quartus_asm x) AGENTS.md",
+      "baseline": {
+        "hookSpecificOutput": {
+          "hookEventName": "PreToolUse",
+          "permissionDecision": "deny",
+          "permissionDecisionReason": "Unsupported structured MCP Quartus execution Use the reviewed QuartusFast frontend for check-only work; full compiles require the shared queue and separate explicit RBF authorization."
+        }
+      },
+      "candidate": {
+        "hookSpecificOutput": {
+          "hookEventName": "PreToolUse",
+          "permissionDecision": "deny",
+          "permissionDecisionReason": "Unsupported structured MCP Quartus execution Use the reviewed QuartusFast frontend for check-only work; full compiles require the shared queue and separate explicit RBF authorization."
+        }
+      }
+    },
+    {
+      "name": "python_execution",
+      "class": "original_typed_unchanged",
+      "command": "python -c \"import os; os.system('quartus_asm x')\"",
+      "baseline": {
+        "hookSpecificOutput": {
+          "hookEventName": "PreToolUse",
+          "permissionDecision": "deny",
+          "permissionDecisionReason": "Unsupported structured MCP Quartus execution Use the reviewed QuartusFast frontend for check-only work; full compiles require the shared queue and separate explicit RBF authorization."
+        }
+      },
+      "candidate": {
+        "hookSpecificOutput": {
+          "hookEventName": "PreToolUse",
+          "permissionDecision": "deny",
+          "permissionDecisionReason": "Unsupported structured MCP Quartus execution Use the reviewed QuartusFast frontend for check-only work; full compiles require the shared queue and separate explicit RBF authorization."
+        }
+      }
+    },
+    {
+      "name": "original_boundary",
+      "command": "rg pattern file\nquartus_asm project",
+      "baseline": {
+        "hookSpecificOutput": {
+          "hookEventName": "PreToolUse",
+          "permissionDecision": "deny",
+          "permissionDecisionReason": "Unsupported structured MCP Quartus execution Use the reviewed QuartusFast frontend for check-only work; full compiles require the shared queue and separate explicit RBF authorization."
+        }
+      },
+      "candidate": {
+        "hookSpecificOutput": {
+          "hookEventName": "PreToolUse",
+          "permissionDecision": "deny",
+          "permissionDecisionReason": "Unsupported structured MCP Quartus execution Use the reviewed QuartusFast frontend for check-only work; full compiles require the shared queue and separate explicit RBF authorization."
+        }
+      }
+    },
+    {
+      "name": "original_boundary",
+      "command": "rg pattern file\nquartus_asm project",
+      "baseline": {
+        "hookSpecificOutput": {
+          "hookEventName": "PreToolUse",
+          "permissionDecision": "deny",
+          "permissionDecisionReason": "Multiple command lines are unsupported Use the reviewed QuartusFast frontend for check-only work; full compiles require the shared queue and separate explicit RBF authorization."
+        }
+      },
+      "candidate": {
+        "hookSpecificOutput": {
+          "hookEventName": "PreToolUse",
+          "permissionDecision": "deny",
+          "permissionDecisionReason": "Multiple command lines are unsupported Use the reviewed QuartusFast frontend for check-only work; full compiles require the shared queue and separate explicit RBF authorization."
+        }
+      }
+    },
+    {
+      "name": "original_boundary",
+      "command": "echo quartus_hold.json\nquartus_asm project",
+      "baseline": {
+        "hookSpecificOutput": {
+          "hookEventName": "PreToolUse",
+          "permissionDecision": "deny",
+          "permissionDecisionReason": "Unsupported structured MCP Quartus execution Use the reviewed QuartusFast frontend for check-only work; full compiles require the shared queue and separate explicit RBF authorization."
+        }
+      },
+      "candidate": {
+        "hookSpecificOutput": {
+          "hookEventName": "PreToolUse",
+          "permissionDecision": "deny",
+          "permissionDecisionReason": "Unsupported structured MCP Quartus execution Use the reviewed QuartusFast frontend for check-only work; full compiles require the shared queue and separate explicit RBF authorization."
+        }
+      }
+    },
+    {
+      "name": "original_boundary",
+      "command": "echo quartus_hold.json\nquartus_asm project",
+      "baseline": {
+        "hookSpecificOutput": {
+          "hookEventName": "PreToolUse",
+          "permissionDecision": "deny",
+          "permissionDecisionReason": "Multiple command lines are unsupported Use the reviewed QuartusFast frontend for check-only work; full compiles require the shared queue and separate explicit RBF authorization."
+        }
+      },
+      "candidate": {
+        "hookSpecificOutput": {
+          "hookEventName": "PreToolUse",
+          "permissionDecision": "deny",
+          "permissionDecisionReason": "Multiple command lines are unsupported Use the reviewed QuartusFast frontend for check-only work; full compiles require the shared queue and separate explicit RBF authorization."
+        }
+      }
+    },
+    {
+      "name": "original_boundary",
+      "command": "rg pattern file\rquartus_asm project",
+      "baseline": {
+        "hookSpecificOutput": {
+          "hookEventName": "PreToolUse",
+          "permissionDecision": "deny",
+          "permissionDecisionReason": "Unsupported structured MCP Quartus execution Use the reviewed QuartusFast frontend for check-only work; full compiles require the shared queue and separate explicit RBF authorization."
+        }
+      },
+      "candidate": {
+        "hookSpecificOutput": {
+          "hookEventName": "PreToolUse",
+          "permissionDecision": "deny",
+          "permissionDecisionReason": "Unsupported structured MCP Quartus execution Use the reviewed QuartusFast frontend for check-only work; full compiles require the shared queue and separate explicit RBF authorization."
+        }
+      }
+    },
+    {
+      "name": "original_boundary",
+      "command": "rg pattern file\rquartus_asm project",
+      "baseline": {
+        "hookSpecificOutput": {
+          "hookEventName": "PreToolUse",
+          "permissionDecision": "deny",
+          "permissionDecisionReason": "Multiple command lines are unsupported Use the reviewed QuartusFast frontend for check-only work; full compiles require the shared queue and separate explicit RBF authorization."
+        }
+      },
+      "candidate": {
+        "hookSpecificOutput": {
+          "hookEventName": "PreToolUse",
+          "permissionDecision": "deny",
+          "permissionDecisionReason": "Multiple command lines are unsupported Use the reviewed QuartusFast frontend for check-only work; full compiles require the shared queue and separate explicit RBF authorization."
+        }
+      }
+    },
+    {
+      "name": "original_boundary",
+      "command": "echo quartus_hold.json\rquartus_asm project",
+      "baseline": {
+        "hookSpecificOutput": {
+          "hookEventName": "PreToolUse",
+          "permissionDecision": "deny",
+          "permissionDecisionReason": "Unsupported structured MCP Quartus execution Use the reviewed QuartusFast frontend for check-only work; full compiles require the shared queue and separate explicit RBF authorization."
+        }
+      },
+      "candidate": {
+        "hookSpecificOutput": {
+          "hookEventName": "PreToolUse",
+          "permissionDecision": "deny",
+          "permissionDecisionReason": "Unsupported structured MCP Quartus execution Use the reviewed QuartusFast frontend for check-only work; full compiles require the shared queue and separate explicit RBF authorization."
+        }
+      }
+    },
+    {
+      "name": "original_boundary",
+      "command": "echo quartus_hold.json\rquartus_asm project",
+      "baseline": {
+        "hookSpecificOutput": {
+          "hookEventName": "PreToolUse",
+          "permissionDecision": "deny",
+          "permissionDecisionReason": "Multiple command lines are unsupported Use the reviewed QuartusFast frontend for check-only work; full compiles require the shared queue and separate explicit RBF authorization."
+        }
+      },
+      "candidate": {
+        "hookSpecificOutput": {
+          "hookEventName": "PreToolUse",
+          "permissionDecision": "deny",
+          "permissionDecisionReason": "Multiple command lines are unsupported Use the reviewed QuartusFast frontend for check-only work; full compiles require the shared queue and separate explicit RBF authorization."
+        }
+      }
+    },
+    {
+      "name": "original_boundary",
+      "command": "rg pattern file\r\nquartus_asm project",
+      "baseline": {
+        "hookSpecificOutput": {
+          "hookEventName": "PreToolUse",
+          "permissionDecision": "deny",
+          "permissionDecisionReason": "Unsupported structured MCP Quartus execution Use the reviewed QuartusFast frontend for check-only work; full compiles require the shared queue and separate explicit RBF authorization."
+        }
+      },
+      "candidate": {
+        "hookSpecificOutput": {
+          "hookEventName": "PreToolUse",
+          "permissionDecision": "deny",
+          "permissionDecisionReason": "Unsupported structured MCP Quartus execution Use the reviewed QuartusFast frontend for check-only work; full compiles require the shared queue and separate explicit RBF authorization."
+        }
+      }
+    },
+    {
+      "name": "original_boundary",
+      "command": "rg pattern file\r\nquartus_asm project",
+      "baseline": {
+        "hookSpecificOutput": {
+          "hookEventName": "PreToolUse",
+          "permissionDecision": "deny",
+          "permissionDecisionReason": "Multiple command lines are unsupported Use the reviewed QuartusFast frontend for check-only work; full compiles require the shared queue and separate explicit RBF authorization."
+        }
+      },
+      "candidate": {
+        "hookSpecificOutput": {
+          "hookEventName": "PreToolUse",
+          "permissionDecision": "deny",
+          "permissionDecisionReason": "Multiple command lines are unsupported Use the reviewed QuartusFast frontend for check-only work; full compiles require the shared queue and separate explicit RBF authorization."
+        }
+      }
+    },
+    {
+      "name": "original_boundary",
+      "command": "echo quartus_hold.json\r\nquartus_asm project",
+      "baseline": {
+        "hookSpecificOutput": {
+          "hookEventName": "PreToolUse",
+          "permissionDecision": "deny",
+          "permissionDecisionReason": "Unsupported structured MCP Quartus execution Use the reviewed QuartusFast frontend for check-only work; full compiles require the shared queue and separate explicit RBF authorization."
+        }
+      },
+      "candidate": {
+        "hookSpecificOutput": {
+          "hookEventName": "PreToolUse",
+          "permissionDecision": "deny",
+          "permissionDecisionReason": "Unsupported structured MCP Quartus execution Use the reviewed QuartusFast frontend for check-only work; full compiles require the shared queue and separate explicit RBF authorization."
+        }
+      }
+    },
+    {
+      "name": "original_boundary",
+      "command": "echo quartus_hold.json\r\nquartus_asm project",
+      "baseline": {
+        "hookSpecificOutput": {
+          "hookEventName": "PreToolUse",
+          "permissionDecision": "deny",
+          "permissionDecisionReason": "Multiple command lines are unsupported Use the reviewed QuartusFast frontend for check-only work; full compiles require the shared queue and separate explicit RBF authorization."
+        }
+      },
+      "candidate": {
+        "hookSpecificOutput": {
+          "hookEventName": "PreToolUse",
+          "permissionDecision": "deny",
+          "permissionDecisionReason": "Multiple command lines are unsupported Use the reviewed QuartusFast frontend for check-only work; full compiles require the shared queue and separate explicit RBF authorization."
+        }
+      }
+    },
+    {
+      "name": "original_quoted_multiline",
+      "command": "python -c \"from pathlib import Path; print('quartus_hold.json');\nprint('read only')\"",
+      "class": "unchanged"
+    },
+    {
+      "name": "original_direct_preprocessor",
+      "command": "rg --pre=quartus_asm x AGENTS.md",
+      "class": "unchanged"
+    },
+    {
+      "name": "original_direct_preprocessor",
+      "command": "rg --pre quartus_asm x AGENTS.md",
+      "class": "unchanged"
+    },
+    {
+      "name": "actual_bounded_file",
+      "command": "Get-Content -LiteralPath 'C:\\Users\\meath\\.claude\\skills\\mister-rbf-build\\scripts\\shared_quartus_queue_hook.py' | Select-Object -Skip 440 -First 70",
+      "carrier": "exec",
+      "read_exemption": true,
+      "baseline_read_exemption": false,
+      "output": {}
+    },
+    {
+      "name": "actual_bounded_file",
+      "command": "Get-Content -LiteralPath 'C:\\Users\\meath\\.claude\\skills\\mister-rbf-build\\scripts\\shared_quartus_queue_hook.py' | Select-Object -Skip 440 -First 70",
+      "carrier": "capsule",
+      "read_exemption": true,
+      "baseline_read_exemption": false,
+      "output": {}
+    },
+    {
+      "name": "cim_literal_filter",
+      "command": "Get-CimInstance -ClassName Win32_Process -Filter \"Name LIKE 'quartus%'\" | Select-Object ProcessId,ParentProcessId,Name,CommandLine | Format-List",
+      "carrier": "exec",
+      "read_exemption": true,
+      "baseline_read_exemption": false,
+      "output": {}
+    },
+    {
+      "name": "cim_literal_filter",
+      "command": "Get-CimInstance -ClassName Win32_Process -Filter \"Name LIKE 'quartus%'\" | Select-Object ProcessId,ParentProcessId,Name,CommandLine | Format-List",
+      "carrier": "capsule",
+      "read_exemption": true,
+      "baseline_read_exemption": false,
+      "output": {}
+    },
+    {
+      "name": "cim_filter_projection",
+      "command": "Get-CimInstance Win32_Process -Filter \"Name='quartus_map.exe'\" | Select-Object -Property ProcessId,CommandLine -First 4",
+      "carrier": "exec",
+      "read_exemption": true,
+      "baseline_read_exemption": false,
+      "output": {}
+    },
+    {
+      "name": "cim_filter_projection",
+      "command": "Get-CimInstance Win32_Process -Filter \"Name='quartus_map.exe'\" | Select-Object -Property ProcessId,CommandLine -First 4",
+      "carrier": "capsule",
+      "read_exemption": true,
+      "baseline_read_exemption": false,
+      "output": {}
+    },
+    {
+      "name": "cim_single",
+      "command": "Get-CimInstance Win32_Process -Filter \"Name='quartus_map.exe'\"",
+      "carrier": "exec",
+      "read_exemption": true,
+      "baseline_read_exemption": false,
+      "output": {}
+    },
+    {
+      "name": "cim_single",
+      "command": "Get-CimInstance Win32_Process -Filter \"Name='quartus_map.exe'\"",
+      "carrier": "capsule",
+      "read_exemption": true,
+      "baseline_read_exemption": false,
+      "output": {}
+    },
+    {
+      "name": "unbounded_file",
+      "command": "Get-Content -LiteralPath 'C:\\Users\\meath\\.claude\\skills\\mister-rbf-build\\scripts\\shared_quartus_queue_hook.py' | Select-Object -Skip 440",
+      "carrier": "exec",
+      "read_exemption": false,
+      "baseline_read_exemption": false,
+      "output": {}
+    },
+    {
+      "name": "unbounded_file",
+      "command": "Get-Content -LiteralPath 'C:\\Users\\meath\\.claude\\skills\\mister-rbf-build\\scripts\\shared_quartus_queue_hook.py' | Select-Object -Skip 440",
+      "carrier": "capsule",
+      "read_exemption": false,
+      "baseline_read_exemption": false,
+      "output": {
+        "hookSpecificOutput": {
+          "hookEventName": "PreToolUse",
+          "permissionDecision": "deny",
+          "permissionDecisionReason": "Unsupported structured MCP Quartus execution Use the reviewed QuartusFast frontend for check-only work; full compiles require the shared queue and separate explicit RBF authorization."
+        }
+      }
+    },
+    {
+      "name": "scriptblock",
+      "command": "Get-Content -LiteralPath 'C:\\Users\\meath\\.claude\\skills\\mister-rbf-build\\scripts\\shared_quartus_queue_hook.py' | Select-Object -Skip 440 -First 70 | ForEach-Object { quartus_asm }",
+      "carrier": "exec",
+      "read_exemption": false,
+      "baseline_read_exemption": false,
+      "output": {
+        "hookSpecificOutput": {
+          "hookEventName": "PreToolUse",
+          "permissionDecision": "deny",
+          "permissionDecisionReason": "Compound, redirection or substitution syntax Use the reviewed QuartusFast frontend for check-only work; full compiles require the shared queue and separate explicit RBF authorization."
+        }
+      }
+    },
+    {
+      "name": "scriptblock",
+      "command": "Get-Content -LiteralPath 'C:\\Users\\meath\\.claude\\skills\\mister-rbf-build\\scripts\\shared_quartus_queue_hook.py' | Select-Object -Skip 440 -First 70 | ForEach-Object { quartus_asm }",
+      "carrier": "capsule",
+      "read_exemption": false,
+      "baseline_read_exemption": false,
+      "output": {
+        "hookSpecificOutput": {
+          "hookEventName": "PreToolUse",
+          "permissionDecision": "deny",
+          "permissionDecisionReason": "Unsupported structured MCP Quartus execution Use the reviewed QuartusFast frontend for check-only work; full compiles require the shared queue and separate explicit RBF authorization."
+        }
+      }
+    },
+    {
+      "name": "calculated_property",
+      "command": "Get-Content -LiteralPath 'C:\\Users\\meath\\.claude\\skills\\mister-rbf-build\\scripts\\shared_quartus_queue_hook.py' | Select-Object -Property @{Name='quartus';Expression={1}}",
+      "carrier": "exec",
+      "read_exemption": false,
+      "baseline_read_exemption": false,
+      "output": {}
+    },
+    {
+      "name": "calculated_property",
+      "command": "Get-Content -LiteralPath 'C:\\Users\\meath\\.claude\\skills\\mister-rbf-build\\scripts\\shared_quartus_queue_hook.py' | Select-Object -Property @{Name='quartus';Expression={1}}",
+      "carrier": "capsule",
+      "read_exemption": false,
+      "baseline_read_exemption": false,
+      "output": {
+        "hookSpecificOutput": {
+          "hookEventName": "PreToolUse",
+          "permissionDecision": "deny",
+          "permissionDecisionReason": "Unsupported structured MCP Quartus execution Use the reviewed QuartusFast frontend for check-only work; full compiles require the shared queue and separate explicit RBF authorization."
+        }
+      }
+    },
+    {
+      "name": "write_stage",
+      "command": "Get-Content -LiteralPath 'C:\\Users\\meath\\.claude\\skills\\mister-rbf-build\\scripts\\shared_quartus_queue_hook.py' | Select-Object -Skip 440 -First 70 | Set-Content quartus.txt",
+      "carrier": "exec",
+      "read_exemption": false,
+      "baseline_read_exemption": false,
+      "output": {}
+    },
+    {
+      "name": "write_stage",
+      "command": "Get-Content -LiteralPath 'C:\\Users\\meath\\.claude\\skills\\mister-rbf-build\\scripts\\shared_quartus_queue_hook.py' | Select-Object -Skip 440 -First 70 | Set-Content quartus.txt",
+      "carrier": "capsule",
+      "read_exemption": false,
+      "baseline_read_exemption": false,
+      "output": {
+        "hookSpecificOutput": {
+          "hookEventName": "PreToolUse",
+          "permissionDecision": "deny",
+          "permissionDecisionReason": "Unsupported structured MCP Quartus execution Use the reviewed QuartusFast frontend for check-only work; full compiles require the shared queue and separate explicit RBF authorization."
+        }
+      }
+    },
+    {
+      "name": "substitution",
+      "command": "Get-Content -LiteralPath 'C:\\Users\\meath\\.claude\\skills\\mister-rbf-build\\scripts\\shared_quartus_queue_hook.py' | Select-Object -Skip $(quartus_asm) -First 70",
+      "carrier": "exec",
+      "read_exemption": false,
+      "baseline_read_exemption": false,
+      "output": {
+        "hookSpecificOutput": {
+          "hookEventName": "PreToolUse",
+          "permissionDecision": "deny",
+          "permissionDecisionReason": "Compound, redirection or substitution syntax Use the reviewed QuartusFast frontend for check-only work; full compiles require the shared queue and separate explicit RBF authorization."
+        }
+      }
+    },
+    {
+      "name": "substitution",
+      "command": "Get-Content -LiteralPath 'C:\\Users\\meath\\.claude\\skills\\mister-rbf-build\\scripts\\shared_quartus_queue_hook.py' | Select-Object -Skip $(quartus_asm) -First 70",
+      "carrier": "capsule",
+      "read_exemption": false,
+      "baseline_read_exemption": false,
+      "output": {
+        "hookSpecificOutput": {
+          "hookEventName": "PreToolUse",
+          "permissionDecision": "deny",
+          "permissionDecisionReason": "Unsupported structured MCP Quartus execution Use the reviewed QuartusFast frontend for check-only work; full compiles require the shared queue and separate explicit RBF authorization."
+        }
+      }
+    },
+    {
+      "name": "pipeline_background",
+      "command": "Get-Content -LiteralPath 'C:\\Users\\meath\\.claude\\skills\\mister-rbf-build\\scripts\\shared_quartus_queue_hook.py' | Select-Object -Skip 440 -First 70 & quartus_asm",
+      "carrier": "exec",
+      "read_exemption": false,
+      "baseline_read_exemption": false,
+      "output": {
+        "hookSpecificOutput": {
+          "hookEventName": "PreToolUse",
+          "permissionDecision": "deny",
+          "permissionDecisionReason": "Compound, redirection or substitution syntax Use the reviewed QuartusFast frontend for check-only work; full compiles require the shared queue and separate explicit RBF authorization."
+        }
+      }
+    },
+    {
+      "name": "pipeline_background",
+      "command": "Get-Content -LiteralPath 'C:\\Users\\meath\\.claude\\skills\\mister-rbf-build\\scripts\\shared_quartus_queue_hook.py' | Select-Object -Skip 440 -First 70 & quartus_asm",
+      "carrier": "capsule",
+      "read_exemption": false,
+      "baseline_read_exemption": false,
+      "output": {
+        "hookSpecificOutput": {
+          "hookEventName": "PreToolUse",
+          "permissionDecision": "deny",
+          "permissionDecisionReason": "Unsupported structured MCP Quartus execution Use the reviewed QuartusFast frontend for check-only work; full compiles require the shared queue and separate explicit RBF authorization."
+        }
+      }
+    },
+    {
+      "name": "remote_cim",
+      "command": "Get-CimInstance Win32_Process -ComputerName quartus_host | Format-List",
+      "carrier": "exec",
+      "read_exemption": false,
+      "baseline_read_exemption": false,
+      "output": {
+        "hookSpecificOutput": {
+          "hookEventName": "PreToolUse",
+          "permissionDecision": "deny",
+          "permissionDecisionReason": "Compound, redirection or substitution syntax Use the reviewed QuartusFast frontend for check-only work; full compiles require the shared queue and separate explicit RBF authorization."
+        }
+      }
+    },
+    {
+      "name": "remote_cim",
+      "command": "Get-CimInstance Win32_Process -ComputerName quartus_host | Format-List",
+      "carrier": "capsule",
+      "read_exemption": false,
+      "baseline_read_exemption": false,
+      "output": {
+        "hookSpecificOutput": {
+          "hookEventName": "PreToolUse",
+          "permissionDecision": "deny",
+          "permissionDecisionReason": "Unsupported structured MCP Quartus execution Use the reviewed QuartusFast frontend for check-only work; full compiles require the shared queue and separate explicit RBF authorization."
+        }
+      }
+    },
+    {
+      "name": "provider_cim",
+      "command": "Get-CimInstance Win32_Service -Filter \"Name='quartus'\" | Format-List",
+      "carrier": "exec",
+      "read_exemption": false,
+      "baseline_read_exemption": false,
+      "output": {}
+    },
+    {
+      "name": "provider_cim",
+      "command": "Get-CimInstance Win32_Service -Filter \"Name='quartus'\" | Format-List",
+      "carrier": "capsule",
+      "read_exemption": false,
+      "baseline_read_exemption": false,
+      "output": {}
+    },
+    {
+      "name": "method_cim",
+      "command": "Get-CimInstance Win32_Process -Filter \"Name='quartus'\" | Invoke-CimMethod -MethodName Terminate",
+      "carrier": "exec",
+      "read_exemption": false,
+      "baseline_read_exemption": false,
+      "output": {}
+    },
+    {
+      "name": "method_cim",
+      "command": "Get-CimInstance Win32_Process -Filter \"Name='quartus'\" | Invoke-CimMethod -MethodName Terminate",
+      "carrier": "capsule",
+      "read_exemption": false,
+      "baseline_read_exemption": false,
+      "output": {}
+    },
+    {
+      "name": "rg_pre",
+      "command": "rg --pre quartus_asm quartus",
+      "carrier": "exec",
+      "read_exemption": false,
+      "baseline_read_exemption": false,
+      "output": {
+        "hookSpecificOutput": {
+          "hookEventName": "PreToolUse",
+          "permissionDecision": "deny",
+          "permissionDecisionReason": "Unknown executable delegate containing Quartus is unsupported Use the reviewed QuartusFast frontend for check-only work; full compiles require the shared queue and separate explicit RBF authorization."
+        }
+      }
+    },
+    {
+      "name": "rg_pre",
+      "command": "rg --pre quartus_asm quartus",
+      "carrier": "capsule",
+      "read_exemption": false,
+      "baseline_read_exemption": false,
+      "output": {
+        "hookSpecificOutput": {
+          "hookEventName": "PreToolUse",
+          "permissionDecision": "deny",
+          "permissionDecisionReason": "Unsupported structured MCP Quartus execution Use the reviewed QuartusFast frontend for check-only work; full compiles require the shared queue and separate explicit RBF authorization."
+        }
+      }
+    },
+    {
+      "name": "rg_pre_equals",
+      "command": "rg --pre=quartus_asm quartus",
+      "carrier": "exec",
+      "read_exemption": false,
+      "baseline_read_exemption": false,
+      "output": {
+        "hookSpecificOutput": {
+          "hookEventName": "PreToolUse",
+          "permissionDecision": "deny",
+          "permissionDecisionReason": "Unknown executable delegate containing Quartus is unsupported Use the reviewed QuartusFast frontend for check-only work; full compiles require the shared queue and separate explicit RBF authorization."
+        }
+      }
+    },
+    {
+      "name": "rg_pre_equals",
+      "command": "rg --pre=quartus_asm quartus",
+      "carrier": "capsule",
+      "read_exemption": false,
+      "baseline_read_exemption": false,
+      "output": {
+        "hookSpecificOutput": {
+          "hookEventName": "PreToolUse",
+          "permissionDecision": "deny",
+          "permissionDecisionReason": "Unsupported structured MCP Quartus execution Use the reviewed QuartusFast frontend for check-only work; full compiles require the shared queue and separate explicit RBF authorization."
+        }
+      }
+    },
+    {
+      "name": "empty_stage",
+      "command": "Get-Content -LiteralPath 'C:\\Users\\meath\\.claude\\skills\\mister-rbf-build\\scripts\\shared_quartus_queue_hook.py' || Select-Object -Skip 440 -First 70",
+      "carrier": "exec",
+      "read_exemption": false,
+      "baseline_read_exemption": false,
+      "output": {}
+    },
+    {
+      "name": "empty_stage",
+      "command": "Get-Content -LiteralPath 'C:\\Users\\meath\\.claude\\skills\\mister-rbf-build\\scripts\\shared_quartus_queue_hook.py' || Select-Object -Skip 440 -First 70",
+      "carrier": "capsule",
+      "read_exemption": false,
+      "baseline_read_exemption": false,
+      "output": {
+        "hookSpecificOutput": {
+          "hookEventName": "PreToolUse",
+          "permissionDecision": "deny",
+          "permissionDecisionReason": "Unsupported structured MCP Quartus execution Use the reviewed QuartusFast frontend for check-only work; full compiles require the shared queue and separate explicit RBF authorization."
+        }
+      }
+    },
+    {
+      "name": "projection_alias",
+      "command": "Get-Content -LiteralPath 'C:\\Users\\meath\\.claude\\skills\\mister-rbf-build\\scripts\\shared_quartus_queue_hook.py' | select -Skip 440 -First 70",
+      "carrier": "exec",
+      "read_exemption": false,
+      "baseline_read_exemption": false,
+      "output": {}
+    },
+    {
+      "name": "projection_alias",
+      "command": "Get-Content -LiteralPath 'C:\\Users\\meath\\.claude\\skills\\mister-rbf-build\\scripts\\shared_quartus_queue_hook.py' | select -Skip 440 -First 70",
+      "carrier": "capsule",
+      "read_exemption": false,
+      "baseline_read_exemption": false,
+      "output": {
+        "hookSpecificOutput": {
+          "hookEventName": "PreToolUse",
+          "permissionDecision": "deny",
+          "permissionDecisionReason": "Unsupported structured MCP Quartus execution Use the reviewed QuartusFast frontend for check-only work; full compiles require the shared queue and separate explicit RBF authorization."
+        }
+      }
+    },
+    {
+      "name": "zero_bound",
+      "command": "Get-Content -LiteralPath 'C:\\Users\\meath\\.claude\\skills\\mister-rbf-build\\scripts\\shared_quartus_queue_hook.py' | Select-Object -Skip 440 -First 0",
+      "carrier": "exec",
+      "read_exemption": false,
+      "baseline_read_exemption": false,
+      "output": {}
+    },
+    {
+      "name": "zero_bound",
+      "command": "Get-Content -LiteralPath 'C:\\Users\\meath\\.claude\\skills\\mister-rbf-build\\scripts\\shared_quartus_queue_hook.py' | Select-Object -Skip 440 -First 0",
+      "carrier": "capsule",
+      "read_exemption": false,
+      "baseline_read_exemption": false,
+      "output": {
+        "hookSpecificOutput": {
+          "hookEventName": "PreToolUse",
+          "permissionDecision": "deny",
+          "permissionDecisionReason": "Unsupported structured MCP Quartus execution Use the reviewed QuartusFast frontend for check-only work; full compiles require the shared queue and separate explicit RBF authorization."
+        }
+      }
+    },
+    {
+      "name": "too_large_bound",
+      "command": "Get-Content -LiteralPath 'C:\\Users\\meath\\.claude\\skills\\mister-rbf-build\\scripts\\shared_quartus_queue_hook.py' | Select-Object -Skip 440 -First 10001",
+      "carrier": "exec",
+      "read_exemption": false,
+      "baseline_read_exemption": false,
+      "output": {}
+    },
+    {
+      "name": "too_large_bound",
+      "command": "Get-Content -LiteralPath 'C:\\Users\\meath\\.claude\\skills\\mister-rbf-build\\scripts\\shared_quartus_queue_hook.py' | Select-Object -Skip 440 -First 10001",
+      "carrier": "capsule",
+      "read_exemption": false,
+      "baseline_read_exemption": false,
+      "output": {
+        "hookSpecificOutput": {
+          "hookEventName": "PreToolUse",
+          "permissionDecision": "deny",
+          "permissionDecisionReason": "Unsupported structured MCP Quartus execution Use the reviewed QuartusFast frontend for check-only work; full compiles require the shared queue and separate explicit RBF authorization."
+        }
+      }
+    },
+    {
+      "name": "newline_'\\n'",
+      "command": "Get-Content -LiteralPath 'C:\\Users\\meath\\.claude\\skills\\mister-rbf-build\\scripts\\shared_quartus_queue_hook.py' | Select-Object -Skip 440 -First 70\nquartus_asm x",
+      "carrier": "exec",
+      "read_exemption": false,
+      "baseline_read_exemption": false,
+      "output": {
+        "hookSpecificOutput": {
+          "hookEventName": "PreToolUse",
+          "permissionDecision": "deny",
+          "permissionDecisionReason": "Compound, redirection or substitution syntax Use the reviewed QuartusFast frontend for check-only work; full compiles require the shared queue and separate explicit RBF authorization."
+        }
+      }
+    },
+    {
+      "name": "newline_'\\n'",
+      "command": "Get-Content -LiteralPath 'C:\\Users\\meath\\.claude\\skills\\mister-rbf-build\\scripts\\shared_quartus_queue_hook.py' | Select-Object -Skip 440 -First 70\nquartus_asm x",
+      "carrier": "capsule",
+      "read_exemption": false,
+      "baseline_read_exemption": false,
+      "output": {
+        "hookSpecificOutput": {
+          "hookEventName": "PreToolUse",
+          "permissionDecision": "deny",
+          "permissionDecisionReason": "Unsupported structured MCP Quartus execution Use the reviewed QuartusFast frontend for check-only work; full compiles require the shared queue and separate explicit RBF authorization."
+        }
+      }
+    },
+    {
+      "name": "newline_stage_'\\n'",
+      "command": "Get-Content -LiteralPath 'C:\\Users\\meath\\.claude\\skills\\mister-rbf-build\\scripts\\shared_quartus_queue_hook.py' |\n Select-Object -Skip 440 -First 70",
+      "carrier": "exec",
+      "read_exemption": false,
+      "baseline_read_exemption": false,
+      "output": {}
+    },
+    {
+      "name": "newline_stage_'\\n'",
+      "command": "Get-Content -LiteralPath 'C:\\Users\\meath\\.claude\\skills\\mister-rbf-build\\scripts\\shared_quartus_queue_hook.py' |\n Select-Object -Skip 440 -First 70",
+      "carrier": "capsule",
+      "read_exemption": false,
+      "baseline_read_exemption": false,
+      "output": {
+        "hookSpecificOutput": {
+          "hookEventName": "PreToolUse",
+          "permissionDecision": "deny",
+          "permissionDecisionReason": "Unsupported structured MCP Quartus execution Use the reviewed QuartusFast frontend for check-only work; full compiles require the shared queue and separate explicit RBF authorization."
+        }
+      }
+    },
+    {
+      "name": "newline_'\\r'",
+      "command": "Get-Content -LiteralPath 'C:\\Users\\meath\\.claude\\skills\\mister-rbf-build\\scripts\\shared_quartus_queue_hook.py' | Select-Object -Skip 440 -First 70\rquartus_asm x",
+      "carrier": "exec",
+      "read_exemption": false,
+      "baseline_read_exemption": false,
+      "output": {
+        "hookSpecificOutput": {
+          "hookEventName": "PreToolUse",
+          "permissionDecision": "deny",
+          "permissionDecisionReason": "Compound, redirection or substitution syntax Use the reviewed QuartusFast frontend for check-only work; full compiles require the shared queue and separate explicit RBF authorization."
+        }
+      }
+    },
+    {
+      "name": "newline_'\\r'",
+      "command": "Get-Content -LiteralPath 'C:\\Users\\meath\\.claude\\skills\\mister-rbf-build\\scripts\\shared_quartus_queue_hook.py' | Select-Object -Skip 440 -First 70\rquartus_asm x",
+      "carrier": "capsule",
+      "read_exemption": false,
+      "baseline_read_exemption": false,
+      "output": {
+        "hookSpecificOutput": {
+          "hookEventName": "PreToolUse",
+          "permissionDecision": "deny",
+          "permissionDecisionReason": "Unsupported structured MCP Quartus execution Use the reviewed QuartusFast frontend for check-only work; full compiles require the shared queue and separate explicit RBF authorization."
+        }
+      }
+    },
+    {
+      "name": "newline_stage_'\\r'",
+      "command": "Get-Content -LiteralPath 'C:\\Users\\meath\\.claude\\skills\\mister-rbf-build\\scripts\\shared_quartus_queue_hook.py' |\r Select-Object -Skip 440 -First 70",
+      "carrier": "exec",
+      "read_exemption": false,
+      "baseline_read_exemption": false,
+      "output": {}
+    },
+    {
+      "name": "newline_stage_'\\r'",
+      "command": "Get-Content -LiteralPath 'C:\\Users\\meath\\.claude\\skills\\mister-rbf-build\\scripts\\shared_quartus_queue_hook.py' |\r Select-Object -Skip 440 -First 70",
+      "carrier": "capsule",
+      "read_exemption": false,
+      "baseline_read_exemption": false,
+      "output": {
+        "hookSpecificOutput": {
+          "hookEventName": "PreToolUse",
+          "permissionDecision": "deny",
+          "permissionDecisionReason": "Unsupported structured MCP Quartus execution Use the reviewed QuartusFast frontend for check-only work; full compiles require the shared queue and separate explicit RBF authorization."
+        }
+      }
+    },
+    {
+      "name": "newline_'\\r\\n'",
+      "command": "Get-Content -LiteralPath 'C:\\Users\\meath\\.claude\\skills\\mister-rbf-build\\scripts\\shared_quartus_queue_hook.py' | Select-Object -Skip 440 -First 70\r\nquartus_asm x",
+      "carrier": "exec",
+      "read_exemption": false,
+      "baseline_read_exemption": false,
+      "output": {
+        "hookSpecificOutput": {
+          "hookEventName": "PreToolUse",
+          "permissionDecision": "deny",
+          "permissionDecisionReason": "Compound, redirection or substitution syntax Use the reviewed QuartusFast frontend for check-only work; full compiles require the shared queue and separate explicit RBF authorization."
+        }
+      }
+    },
+    {
+      "name": "newline_'\\r\\n'",
+      "command": "Get-Content -LiteralPath 'C:\\Users\\meath\\.claude\\skills\\mister-rbf-build\\scripts\\shared_quartus_queue_hook.py' | Select-Object -Skip 440 -First 70\r\nquartus_asm x",
+      "carrier": "capsule",
+      "read_exemption": false,
+      "baseline_read_exemption": false,
+      "output": {
+        "hookSpecificOutput": {
+          "hookEventName": "PreToolUse",
+          "permissionDecision": "deny",
+          "permissionDecisionReason": "Unsupported structured MCP Quartus execution Use the reviewed QuartusFast frontend for check-only work; full compiles require the shared queue and separate explicit RBF authorization."
+        }
+      }
+    },
+    {
+      "name": "newline_stage_'\\r\\n'",
+      "command": "Get-Content -LiteralPath 'C:\\Users\\meath\\.claude\\skills\\mister-rbf-build\\scripts\\shared_quartus_queue_hook.py' |\r\n Select-Object -Skip 440 -First 70",
+      "carrier": "exec",
+      "read_exemption": false,
+      "baseline_read_exemption": false,
+      "output": {}
+    },
+    {
+      "name": "newline_stage_'\\r\\n'",
+      "command": "Get-Content -LiteralPath 'C:\\Users\\meath\\.claude\\skills\\mister-rbf-build\\scripts\\shared_quartus_queue_hook.py' |\r\n Select-Object -Skip 440 -First 70",
+      "carrier": "capsule",
+      "read_exemption": false,
+      "baseline_read_exemption": false,
+      "output": {
+        "hookSpecificOutput": {
+          "hookEventName": "PreToolUse",
+          "permissionDecision": "deny",
+          "permissionDecisionReason": "Unsupported structured MCP Quartus execution Use the reviewed QuartusFast frontend for check-only work; full compiles require the shared queue and separate explicit RBF authorization."
+        }
+      }
+    },
+    {
+      "name": "quoted_multiline_python",
+      "command": "python -c 'print(\"quartus\")\nprint(\"data\")'",
+      "class": "unchanged",
+      "baseline": {},
+      "candidate": {}
+    },
+    {
+      "name": "legacy_reader_newline_'\\n'",
+      "command": "rg --max-count 1 quartus_hold.json .\nquartus_asm x",
+      "class": "unchanged",
+      "baseline": {
+        "hookSpecificOutput": {
+          "hookEventName": "PreToolUse",
+          "permissionDecision": "deny",
+          "permissionDecisionReason": "Multiple command lines are unsupported Use the reviewed QuartusFast frontend for check-only work; full compiles require the shared queue and separate explicit RBF authorization."
+        }
+      },
+      "candidate": {
+        "hookSpecificOutput": {
+          "hookEventName": "PreToolUse",
+          "permissionDecision": "deny",
+          "permissionDecisionReason": "Multiple command lines are unsupported Use the reviewed QuartusFast frontend for check-only work; full compiles require the shared queue and separate explicit RBF authorization."
+        }
+      }
+    },
+    {
+      "name": "legacy_reader_newline_'\\n'",
+      "command": "Get-Content -LiteralPath quartus_hold.json\nquartus_asm x",
+      "class": "unchanged",
+      "baseline": {
+        "hookSpecificOutput": {
+          "hookEventName": "PreToolUse",
+          "permissionDecision": "deny",
+          "permissionDecisionReason": "Multiple command lines are unsupported Use the reviewed QuartusFast frontend for check-only work; full compiles require the shared queue and separate explicit RBF authorization."
+        }
+      },
+      "candidate": {
+        "hookSpecificOutput": {
+          "hookEventName": "PreToolUse",
+          "permissionDecision": "deny",
+          "permissionDecisionReason": "Multiple command lines are unsupported Use the reviewed QuartusFast frontend for check-only work; full compiles require the shared queue and separate explicit RBF authorization."
+        }
+      }
+    },
+    {
+      "name": "legacy_reader_newline_'\\r'",
+      "command": "rg --max-count 1 quartus_hold.json .\rquartus_asm x",
+      "class": "unchanged",
+      "baseline": {
+        "hookSpecificOutput": {
+          "hookEventName": "PreToolUse",
+          "permissionDecision": "deny",
+          "permissionDecisionReason": "Multiple command lines are unsupported Use the reviewed QuartusFast frontend for check-only work; full compiles require the shared queue and separate explicit RBF authorization."
+        }
+      },
+      "candidate": {
+        "hookSpecificOutput": {
+          "hookEventName": "PreToolUse",
+          "permissionDecision": "deny",
+          "permissionDecisionReason": "Multiple command lines are unsupported Use the reviewed QuartusFast frontend for check-only work; full compiles require the shared queue and separate explicit RBF authorization."
+        }
+      }
+    },
+    {
+      "name": "legacy_reader_newline_'\\r'",
+      "command": "Get-Content -LiteralPath quartus_hold.json\rquartus_asm x",
+      "class": "unchanged",
+      "baseline": {
+        "hookSpecificOutput": {
+          "hookEventName": "PreToolUse",
+          "permissionDecision": "deny",
+          "permissionDecisionReason": "Multiple command lines are unsupported Use the reviewed QuartusFast frontend for check-only work; full compiles require the shared queue and separate explicit RBF authorization."
+        }
+      },
+      "candidate": {
+        "hookSpecificOutput": {
+          "hookEventName": "PreToolUse",
+          "permissionDecision": "deny",
+          "permissionDecisionReason": "Multiple command lines are unsupported Use the reviewed QuartusFast frontend for check-only work; full compiles require the shared queue and separate explicit RBF authorization."
+        }
+      }
+    },
+    {
+      "name": "legacy_reader_newline_'\\r\\n'",
+      "command": "rg --max-count 1 quartus_hold.json .\r\nquartus_asm x",
+      "class": "unchanged",
+      "baseline": {
+        "hookSpecificOutput": {
+          "hookEventName": "PreToolUse",
+          "permissionDecision": "deny",
+          "permissionDecisionReason": "Multiple command lines are unsupported Use the reviewed QuartusFast frontend for check-only work; full compiles require the shared queue and separate explicit RBF authorization."
+        }
+      },
+      "candidate": {
+        "hookSpecificOutput": {
+          "hookEventName": "PreToolUse",
+          "permissionDecision": "deny",
+          "permissionDecisionReason": "Multiple command lines are unsupported Use the reviewed QuartusFast frontend for check-only work; full compiles require the shared queue and separate explicit RBF authorization."
+        }
+      }
+    },
+    {
+      "name": "legacy_reader_newline_'\\r\\n'",
+      "command": "Get-Content -LiteralPath quartus_hold.json\r\nquartus_asm x",
+      "class": "unchanged",
+      "baseline": {
+        "hookSpecificOutput": {
+          "hookEventName": "PreToolUse",
+          "permissionDecision": "deny",
+          "permissionDecisionReason": "Multiple command lines are unsupported Use the reviewed QuartusFast frontend for check-only work; full compiles require the shared queue and separate explicit RBF authorization."
+        }
+      },
+      "candidate": {
+        "hookSpecificOutput": {
+          "hookEventName": "PreToolUse",
+          "permissionDecision": "deny",
+          "permissionDecisionReason": "Multiple command lines are unsupported Use the reviewed QuartusFast frontend for check-only work; full compiles require the shared queue and separate explicit RBF authorization."
+        }
+      }
+    }
+  ]
+}

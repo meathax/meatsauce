@@ -1,0 +1,16 @@
+{
+  "command": [
+    "python",
+    "-X",
+    "utf8",
+    "scripts/verify_long_gameplay_capture.py",
+    "D:\\Arcade\\AI\\aCORES\\Alpha68k N\\sim\\captures\\kyros\\idle_death7200_v2",
+    "D:\\Arcade\\AI\\aCORES\\Alpha68k N\\sim\\captures\\rtl\\kyros_idle_death3601",
+    "D:\\Arcade\\AI\\aCORES\\Alpha68k N\\research\\kyros_idle_death3601_exit.json",
+    "3601",
+    "D:\\Arcade\\AI\\aCORES\\Alpha68k N\\research\\kyros_idle_death3601_verification.json"
+  ],
+  "exit_code": 1,
+  "stdout": "{\"output\": \"D:\\\\Arcade\\\\AI\\\\aCORES\\\\Alpha68k N\\\\research\\\\kyros_idle_death3601_verification.json\", \"fields\": 3601, \"metrics_pass\": true, \"images\": 23, \"graphics_pass\": false, \"failures\": [{\"field\": 119, \"different_pixels\": null}, {\"field\": 179, \"different_pixels\": null}, {\"field\": 900, \"different_pixels\": 4}, {\"field\": 1799, \"different_pixels\": null}]}\n",
+  "stderr": ""
+}

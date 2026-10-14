@@ -1,0 +1,343 @@
+{
+  "schema": 1,
+  "run_id": "1791167666108639100",
+  "private_directory": "sim/obj_dir/boot_probe/activity/1791167666108639100",
+  "terminal_snapshot": true,
+  "structural_checks": "pass",
+  "activity_rows": 183,
+  "last_activity": {
+    "clock": "8999999999",
+    "instructions": "574870669",
+    "pc": "02085e52",
+    "sr": "00003000",
+    "sp": "021fc500",
+    "er": "00000fff",
+    "cache_enabled": "1",
+    "cache_hits": "692836093",
+    "cache_misses": "10997410",
+    "cache_invalidations": "1884",
+    "cp_transfers": "7",
+    "memory_requests": "884789973",
+    "mmio": "27712638",
+    "cpu_memory": "115165904",
+    "dma_memory": "0",
+    "gpu_memory": "527211831",
+    "spu_memory": "0",
+    "scanout_memory": "242412238",
+    "sound_mmio": "403",
+    "audio_samples": "4629629",
+    "audio_nonzero": "0",
+    "gpu_packets": "33560",
+    "gpu_pixels": "105981769",
+    "scanout_words": "242412238",
+    "raster_frames": "6290",
+    "active_pixels": "483194289",
+    "irq_acks": "60",
+    "architectural_accesses": "752281559",
+    "access_cycles": "3270039471",
+    "enabled_accesses": "740870059",
+    "enabled_cycles": "3178441199",
+    "disabled_accesses": "11411500",
+    "disabled_cycles": "91598272"
+  },
+  "recent_windows": [
+    {
+      "from_clock": 8800000000,
+      "to_clock": 8850000000,
+      "instructions": 2912487,
+      "system_clocks_per_instruction": 17.167458601531955,
+      "mean_architectural_access_latency": 4.045365898984257,
+      "architectural_wait_fraction": 0.30824248,
+      "pc_at_end": "02017c28",
+      "gpu_packets": 32776,
+      "raster_frames": 6186,
+      "scanout_reads": 238363164,
+      "audio_nonzero": 0
+    },
+    {
+      "from_clock": 8850000000,
+      "to_clock": 8900000000,
+      "instructions": 2997531,
+      "system_clocks_per_instruction": 16.680394631448348,
+      "mean_architectural_access_latency": 4.087641059568774,
+      "architectural_wait_fraction": 0.3164628,
+      "pc_at_end": "02017ae6",
+      "gpu_packets": 33003,
+      "raster_frames": 6221,
+      "scanout_reads": 239713351,
+      "audio_nonzero": 0
+    },
+    {
+      "from_clock": 8900000000,
+      "to_clock": 8950000000,
+      "instructions": 2999890,
+      "system_clocks_per_instruction": 16.667277800186007,
+      "mean_architectural_access_latency": 4.137602570871967,
+      "architectural_wait_fraction": 0.32002916,
+      "pc_at_end": "02085e4e",
+      "gpu_packets": 33288,
+      "raster_frames": 6255,
+      "scanout_reads": 241063336,
+      "audio_nonzero": 0
+    },
+    {
+      "from_clock": 8950000000,
+      "to_clock": 8999999999,
+      "instructions": 2982079,
+      "system_clocks_per_instruction": 16.76682576149056,
+      "mean_architectural_access_latency": 4.133780136980432,
+      "architectural_wait_fraction": 0.31840086636801734,
+      "pc_at_end": "02085e52",
+      "gpu_packets": 33560,
+      "raster_frames": 6290,
+      "scanout_reads": 242412238,
+      "audio_nonzero": 0
+    }
+  ],
+  "observed_state": {
+    "schema": 1,
+    "run_id": "1791167666108639100",
+    "natural_rtl_observation": true,
+    "restorable_checkpoint": false,
+    "clock": 8999999999,
+    "instructions": 574870669,
+    "reason": "clock_limit",
+    "pc": "02085e52",
+    "sr": "00003000",
+    "sp": "021fc500",
+    "er": "00000fff",
+    "registers": [
+      "00000001",
+      "030000a6",
+      "00000000",
+      "020c91ee",
+      "00000000",
+      "00000000",
+      "0000003c",
+      "020c91ec"
+    ],
+    "flash_bank": 2,
+    "cache_enabled": 1,
+    "cache_hits": 692836093,
+    "cache_misses": 10997410,
+    "cp_transfers": 7,
+    "gpu_packets": 33560,
+    "gpu_pixels": 105981769,
+    "raster_frames": 6290,
+    "gpu_trace_requests": 77859,
+    "video_trace_writes": 2065,
+    "concurrent_trace_writes": 2083,
+    "context_trace_closed": true,
+    "context_trace_scope": "reset_through_first_draw",
+    "cabinet_commands": 0,
+    "cabinet_releases": 0,
+    "cabinet_sequence": 0,
+    "cabinet_pins": {
+      "p1_p2_n": 4294967295,
+      "p3_p4_n": 4294967295,
+      "system_n": 255,
+      "dips_n": 255
+    },
+    "active_pixels": 483194289,
+    "irq_acks": 60,
+    "audio_samples": 4629629,
+    "audio_nonzero": 0,
+    "architectural_accesses": 752281559,
+    "access_cycles": 3270039471,
+    "enabled_accesses": 740870059,
+    "enabled_cycles": 3178441199,
+    "disabled_accesses": 11411500,
+    "disabled_cycles": 91598272,
+    "access_latency_histogram": [
+      0,
+      0,
+      0,
+      670107885,
+      1543509,
+      2047935,
+      5029603,
+      6276388,
+      7067590,
+      7693481,
+      8230596,
+      7139937,
+      7016124,
+      4328601,
+      3312428,
+      2678481,
+      2173399,
+      1741473,
+      1376310,
+      1078329,
+      852330,
+      691412,
+      596004,
+      528352,
+      475610,
+      432002,
+      391353,
+      350501,
+      311605,
+      271966,
+      234173,
+      198513,
+      167303,
+      143464,
+      128427,
+      123269,
+      127056,
+      138557,
+      157393,
+      180306,
+      207628,
+      237387,
+      266875,
+      293199,
+      319653,
+      338464,
+      353253,
+      357630,
+      356124,
+      346915,
+      328709,
+      305419,
+      277670,
+      247005,
+      216004,
+      186196,
+      157774,
+      134038,
+      113894,
+      99011,
+      88057,
+      80864,
+      77808,
+      1550317
+    ],
+    "latency_last_bucket": "63 or more clocks",
+    "interval_hot_pages": [
+      {
+        "page": "02085000",
+        "instructions": 2367749
+      },
+      {
+        "page": "02015000",
+        "instructions": 325977
+      },
+      {
+        "page": "02017000",
+        "instructions": 63221
+      },
+      {
+        "page": "02066000",
+        "instructions": 47327
+      },
+      {
+        "page": "02013000",
+        "instructions": 43725
+      },
+      {
+        "page": "02014000",
+        "instructions": 23160
+      },
+      {
+        "page": "0206c000",
+        "instructions": 17500
+      },
+      {
+        "page": "0205e000",
+        "instructions": 17245
+      },
+      {
+        "page": "02068000",
+        "instructions": 14770
+      },
+      {
+        "page": "0206d000",
+        "instructions": 13860
+      },
+      {
+        "page": "02081000",
+        "instructions": 10675
+      },
+      {
+        "page": "02082000",
+        "instructions": 7140
+      }
+    ],
+    "scanout_image_complete_frame": false,
+    "scanout_coordinates_clipped": false,
+    "scanout_rect": [
+      0,
+      0,
+      639,
+      239
+    ],
+    "memories_saved": true,
+    "complete_scanout": {
+      "width": 320,
+      "height": 240,
+      "completed": 6290,
+      "rejected": 12,
+      "start_clock": 8997329126,
+      "end_clock": 8998637894,
+      "image_saved": true
+    }
+  },
+  "terminal_memory_hashes": {
+    "workram.bin": {
+      "bytes": 8388608,
+      "sha256": "cb71cabac53df4bdfe24c4bc5f821e2e3817a675b3bc04e0b882ce9649be6292"
+    },
+    "texture.bin": {
+      "bytes": 8388608,
+      "sha256": "9e33975fca43da409d5dcfbe03d39a76d6ed60f64df0ae4712109df407229e48"
+    },
+    "framebuffer.bin": {
+      "bytes": 8388608,
+      "sha256": "230b657b43046d15996dbdee84efe688479ee30a36301d88cc926a0a9f086b00"
+    },
+    "nvram.bin": {
+      "bytes": 65536,
+      "sha256": "5b75f4c98b1c49a6dddfb12102eff4f660e5bd8e14bab4f6753fbf8994d58a73"
+    },
+    "reset_ram.bin": {
+      "bytes": 52,
+      "sha256": "fd0ce6a4e35f6dc66d796accba6b8efd1bc8b4637debb43b6fb054b88e8ed346"
+    }
+  },
+  "graphics_context_traces": {
+    "gpu_bus.csv": {
+      "records": 77859,
+      "bytes": 2802964,
+      "sha256": "2514cfeb48770f250b0ef9116a8be470b5a7b617cb0b51d755e8ffc5a2dd60d8"
+    },
+    "video_mmio.csv": {
+      "records": 2065,
+      "bytes": 68173,
+      "sha256": "30bf4c86d4a2b57b7d14f84b3fb7c2d445fc6fdde5e3b8d6b81af37f6d7aa664"
+    },
+    "concurrent_graphics_writes.csv": {
+      "records": 2083,
+      "bytes": 75028,
+      "sha256": "0b1992c61f59afdbd8e85f0ab2697105d4ecde8ac8e430ea63af9dab76cb2eff"
+    }
+  },
+  "complete_scanout_image": {
+    "available": true,
+    "width": 320,
+    "height": 240,
+    "start_clock": 8997329126,
+    "end_clock": 8998637894,
+    "bytes": 230415,
+    "sha256": "248955d53da048f244e8a2c103bd54b65184c083eab424d18589804d6cb59cb3"
+  },
+  "cabinet_input_history": {
+    "events": 0,
+    "commands": 0,
+    "releases": 0,
+    "bytes": 60,
+    "sha256": "b7b322820e6e3f1c46a0e2ed5f42c947062b6a0b31199438658fb9f8cf0c2284"
+  },
+  "acceptance": "natural RTL boot diagnostic only; does not prove attract/gameplay or physical memory timing"
+}

@@ -1,0 +1,254 @@
+{
+  "scope": "Native96000-sample SN capacitor/mode corpus with source-corrected float/PCM conversion.",
+  "receipt": {
+    "exit_code": 0,
+    "argv": [
+      "wsl.exe",
+      "-d",
+      "Ubuntu",
+      "--cd",
+      "D:\\Arcade\\AI\\aCORES\\sherrif",
+      "--exec",
+      "make",
+      "-C",
+      "sim",
+      "sn",
+      "BUILD=/mnt/d/Arcade/AI/aCORES/sherrif/_checks/sn-pcm-quantization-20261010/build",
+      "VFLAGS=-Wall -Wno-fatal --cc --exe --build -j 2 --threads 1 -I/mnt/d/Arcade/AI/aCORES/sherrif/rtl -CFLAGS \"-O2 -std=c++17\"",
+      "VERILATOR=/usr/local/bin/verilator"
+    ],
+    "started_utc": "2026-10-09T20:07:34.402755+00:00",
+    "finished_utc": "2026-10-09T20:07:46.434520+00:00",
+    "source_sha256": {
+      "rtl/sheriff_sn76477.sv": "e4be6daec69f507efaead7779a2fdd9fbebc9db72d942d07c45ac81ea36e1381",
+      "rtl/sheriff_sn_constants.svh": "8d36ae2502e3b69331bed1e5bd29af0c1cc660904dc0a8ba24e039ea2d46ec22",
+      "tools/generate_sheriff_sn.py": "8f60c6166d4a85df3a5abd3806de1a502bff1852e7b0e2efa9a29cc47704b8d8",
+      "sim/sn_qualification.cpp": "31891f45a52e82fce54e627ad71e77f32a4cbeeece34f137383292779a6112e8",
+      "sim/Makefile": "703a41ab9027211593a59b86e8c0b86570acf8a019f155687242a0f021ae6aee"
+    }
+  },
+  "samples": 96000,
+  "maximum_capacitor_error_volts": 2.84845e-06,
+  "noise_comparator_mismatches": 0,
+  "vco_comparator_mismatches": 0,
+  "PCM_RMS_error": 0.0,
+  "PCM_max_error": 0,
+  "changed_gain_words": [
+    {
+      "address": 9,
+      "old": -76,
+      "new": -75
+    },
+    {
+      "address": 10,
+      "old": -152,
+      "new": -151
+    },
+    {
+      "address": 12,
+      "old": -986,
+      "new": -985
+    },
+    {
+      "address": 14,
+      "old": -1289,
+      "new": -1288
+    },
+    {
+      "address": 15,
+      "old": -1441,
+      "new": -1440
+    },
+    {
+      "address": 16,
+      "old": -1668,
+      "new": -1667
+    },
+    {
+      "address": 17,
+      "old": -1820,
+      "new": -1819
+    },
+    {
+      "address": 19,
+      "old": -2123,
+      "new": -2122
+    },
+    {
+      "address": 22,
+      "old": -2578,
+      "new": -2577
+    },
+    {
+      "address": 24,
+      "old": -2957,
+      "new": -2956
+    },
+    {
+      "address": 26,
+      "old": -3336,
+      "new": -3335
+    },
+    {
+      "address": 27,
+      "old": -3488,
+      "new": -3487
+    },
+    {
+      "address": 29,
+      "old": -3867,
+      "new": -3866
+    },
+    {
+      "address": 31,
+      "old": -4246,
+      "new": -4245
+    },
+    {
+      "address": 34,
+      "old": -4701,
+      "new": -4700
+    },
+    {
+      "address": 36,
+      "old": -5080,
+      "new": -5079
+    },
+    {
+      "address": 38,
+      "old": -5459,
+      "new": -5458
+    },
+    {
+      "address": 41,
+      "old": -5914,
+      "new": -5913
+    },
+    {
+      "address": 43,
+      "old": -6369,
+      "new": -6368
+    },
+    {
+      "address": 73,
+      "old": 76,
+      "new": 75
+    },
+    {
+      "address": 75,
+      "old": 834,
+      "new": 833
+    },
+    {
+      "address": 77,
+      "old": 1441,
+      "new": 1440
+    },
+    {
+      "address": 79,
+      "old": 1744,
+      "new": 1743
+    },
+    {
+      "address": 81,
+      "old": 2199,
+      "new": 2198
+    },
+    {
+      "address": 83,
+      "old": 2502,
+      "new": 2501
+    },
+    {
+      "address": 88,
+      "old": 3488,
+      "new": 3487
+    },
+    {
+      "address": 92,
+      "old": 4322,
+      "new": 4321
+    },
+    {
+      "address": 94,
+      "old": 4701,
+      "new": 4700
+    },
+    {
+      "address": 98,
+      "old": 5535,
+      "new": 5534
+    },
+    {
+      "address": 100,
+      "old": 5812,
+      "new": 5811
+    },
+    {
+      "address": 101,
+      "old": 5812,
+      "new": 5811
+    },
+    {
+      "address": 102,
+      "old": 5812,
+      "new": 5811
+    },
+    {
+      "address": 103,
+      "old": 5812,
+      "new": 5811
+    },
+    {
+      "address": 104,
+      "old": 5812,
+      "new": 5811
+    },
+    {
+      "address": 105,
+      "old": 5812,
+      "new": 5811
+    },
+    {
+      "address": 106,
+      "old": 5812,
+      "new": 5811
+    },
+    {
+      "address": 107,
+      "old": 5812,
+      "new": 5811
+    },
+    {
+      "address": 108,
+      "old": 5812,
+      "new": 5811
+    }
+  ],
+  "added_registers": 0,
+  "added_clock_domains": 0,
+  "limitations": [
+    "Component corpus is not current full-gameplay audio or final integrated source qualification.",
+    "Q32 capacitor gain-boundary arithmetic remains unchanged; no fitted bias or delay.",
+    "DAC resampling and final mixed-stream quantization remain separate.",
+    "Exact-source fit/timing/resources remain unverified pending shared-queue admission."
+  ],
+  "evidence_sha256": {
+    "D:/Arcade/AI/aCORES/sherrif/tools/qualify_sn_pcm_quantization.py": "01032e96de9b3a438fbdbe4bae6d2459638eeae9e22a3cc7644365875b664c3c",
+    "rtl/sheriff_sn76477.sv": "e4be6daec69f507efaead7779a2fdd9fbebc9db72d942d07c45ac81ea36e1381",
+    "rtl/sheriff_sn_constants.svh": "8d36ae2502e3b69331bed1e5bd29af0c1cc660904dc0a8ba24e039ea2d46ec22",
+    "tools/generate_sheriff_sn.py": "8f60c6166d4a85df3a5abd3806de1a502bff1852e7b0e2efa9a29cc47704b8d8",
+    "sim/sn_qualification.cpp": "31891f45a52e82fce54e627ad71e77f32a4cbeeece34f137383292779a6112e8",
+    "sim/Makefile": "703a41ab9027211593a59b86e8c0b86570acf8a019f155687242a0f021ae6aee",
+    "_checks/sn-pcm-quantization-20261010/exit.json": "db0bc1d52b0759acc3ee80602be1ae8b7ca9dc8fe875f3768ea321b3bb7f94ce",
+    "_checks/sn-pcm-quantization-20261010/stdout.log": "9dce14c5c91ec87f637ac80d38d064cbb0cb0f69cd04b49b70e9e9571081a311",
+    "_checks/sn-pcm-quantization-20261010/stderr.log": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "_checks/sn-pcm-quantization-20261010/build/sn/Vsheriff_sn76477": "d4240a510bdb8532ec3052967d929e025836b54ada338b558c8e587e562b647e",
+    "_checks/sn-pcm-quantization-20261010/build/sn/qualification.csv": "df33d4133dec67e3744388486f25ec43758d295dc0326a5a6da905779fa392ca",
+    "D:/Arcade/AI/mame289/src/devices/sound/sn76477.cpp": "31f1a57922beda4e40775e648b2f7807834ab6085b235a2366f6d7a1f8d8bc8c",
+    "D:/Arcade/AI/mame289/src/emu/sound.cpp": "a1c9c5bc45468058f34572b5a4275238454e27f23c68d8062e677bc591f4271b"
+  },
+  "whole_sound_gate_pass": false,
+  "release_qualified": false,
+  "rbf_built": false
+}

@@ -1,0 +1,91 @@
+{
+  "schema": "alpha68kn.halt_board_source_review.v1",
+  "decision": "SOURCE PASS: exact board-only sampled HALT candidate; no actionable source objection.",
+  "candidate_sha256": "fa597906c96d15921b33df4fdd47b80c174419725243c4055e4b5be579932e10",
+  "ordinary_bus": "FX68K236 samples HALTn on phi1;2242 busAvail gates2330 canStart. S0/S2/S4 progress independent of HALT, with2337 DTACK/iStop termination; S6/SIDLE use canStart. Architectural wait occurs at2350 bus dependency, not by gating CPU phases.",
+  "rmc": "2328 rmcIdle requires SIDLE,AS low,isRmcReg;2330 explicitly bypasses busAvail.2397..2399 retains AS through read/idle. This preserves atomic continuation, not arbitrary new transactions. Bus RAM arbitration remains necessary.",
+  "sampling_limit": "At phi1, Halti and busPhase updates consume old registered values. An assertion coincident with S6 may admit one already-eligible normal request; it must drain and remain visible. Source review does not promise zero-time MAME scheduler equivalence or prove the natural command path hits that coincidence.",
+  "E_VPA": "Removing only MCU phase gating keeps E counter468..504 and VPA/iStop229..231/555..558 on normal enables; IACK source VPAn=!iack and DTACK inactive for IACK remain unchanged. No E-only split or donor retiming is needed for this proposal.",
+  "command_release_ownership": "MCU command asserts main_halt when effective control bit4; committed P2 bit4 clear releases it, bit5 emits IRQ2 and bit6 clear emits shared_write. Existing single48MHz-domain MCU write priority at board311..322 defers a colliding CPU work service. Physical HALT alone grants no FPGA RAM ownership; those guards are preserved.",
+  "compatibility": "For profiles0/1 is_stingray0 yields HALTn1; old MCU phase gate was false, so phase and enables are identical. Existing pause_game and held_reset/MCU reset behavior remain unchanged. Profile2 halt0 behavior unchanged.",
+  "comment_review": "Replace Physical MCU HALT with MCU HALT request in the comment so source does not assert original PCB wiring. This is editorial; no logic objection.",
+  "physical_reference": "Pinned NXP M68000 manual3.6/3.7 and table3-4 specify completing current bus on HALT and free-running E with CPU clock continuing. MAME INPUT_LINE_HALT establishes scheduler intent, not E-edge origin, real PCB wiring or electrical tri-state realization.",
+  "minimum_dynamic_checks": [
+    "Observe one genuine accepted MCU command through HALT assertion and one genuine P2 release; bind command_valid/control/main_halt, actual HALTn/Halti, phase enables, busPhase/canStart/AS/lane/address/data and accepted commits. No internal state forcing or timing offset fitting.",
+    "An already-started ordinary bus must reach its normal DTACK/VPA completion and deassert AS/DS exactly once. While sampled Halti is low, no new normal bus is permitted; pending bus metadata remains intact. Record a coincident S6 start using old Halti as an allowed sampled-boundary event, not an aborted cycle or hidden mismatch.",
+    "Verify cpu_phase advances modulo8 and enPhi1/2 at phases0/4 when MCU HALT holds and pause_game is false; E/eCntr retains six-low/four-high ten-CPU-clock cadence. VPA/rVMA/xVMA/iStop continue; next IRQ/IACK is observed with actual phase, without imposing MAME E-origin equality.",
+    "At MCU shared_write or release/shared_write, verify one MCU low-byte write with preserved high byte; colliding CPU work transaction is deferred by unchanged ram_bus_service ownership and completes once afterward. Trace actual guest RAM readers/data and retained IRQ2 delivery; HALT is not itself a substitute for RAM arbitration.",
+    "Exercise RMC read/idle/write continuation if that path is included in acceptance: rmcIdle may bypass busAvail while AS stays low, retaining atomicity. Do not assert the ordinary no-new-cycle rule during this explicit continuation. BERR retry is outside this image (BERRn tied high).",
+    "Preserve Kyros profiles0/1 HALTn1 and identical phase enables, plus genuine user/OSD/hiscore pause and reset gates. Use existing bounded overlap/feature fixtures; source equivalence is not a dynamic pass."
+  ],
+  "optional_corner_fixture": "A separate donor-only external HALTn pin-stimulus fixture can cover coincident S6 assertion/release if genuine MCU overlap does not. Run real FX68K with original ROM and ordinary bus, varying only the external HALT input; qualify sampled-interface behavior, not game fidelity/PCB timing. Do not add a long tuning replay or donor state force.",
+  "unproved": [
+    "Original PCB HALT versus external clock-gating wiring",
+    "work119/sprite600/RGB600 causal correction",
+    "Exact MAME time/initial E phase",
+    "Runtime, fitted timing, resource or current-image acceptance"
+  ],
+  "input_pins": [
+    {
+      "path": "D:\\Arcade\\AI\\aCORES\\Alpha68k N\\research\\japan_ram_divergence_20261011\\stingray_halt_board_proposal_v1\\import_manifest.json",
+      "bytes": 2363,
+      "sha256": "e5dbbe0cbf9591e9cae28231161491411577516d63011176cd3b6aadd6f047e2"
+    },
+    {
+      "path": "D:\\Arcade\\AI\\aCORES\\Alpha68k N\\research\\japan_ram_divergence_20261011\\stingray_halt_board_proposal_v1\\proposed_board.patch",
+      "bytes": 2253,
+      "sha256": "fa597906c96d15921b33df4fdd47b80c174419725243c4055e4b5be579932e10"
+    },
+    {
+      "path": "D:\\Arcade\\AI\\aCORES\\Alpha68k N\\research\\japan_ram_divergence_20261011\\stingray_halt_board_proposal_v1\\source_snippets.json",
+      "bytes": 23392,
+      "sha256": "58fd99bb2419bb384d2658e6451faebd170b2864c180642127e515f7aae32e44"
+    },
+    {
+      "path": "D:\\Arcade\\AI\\aCORES\\Alpha68k N\\research\\japan_ram_divergence_20261011\\stingray_halt_board_proposal_v1\\report.json",
+      "bytes": 4734,
+      "sha256": "34265fdfc288d22335dbdd0f198f814619afe3eb0150e97dc8b6d1e5180145d9"
+    },
+    {
+      "path": "D:\\Arcade\\AI\\aCORES\\Alpha68k N\\research\\japan_ram_divergence_20261011\\stingray_halt_e_source_contract_20261011\\import_manifest.json",
+      "bytes": 1848,
+      "sha256": "5ed03e4d3a90c86d5506749913ab6f49e47ac03bdc0acc65d10dee12da92159c"
+    },
+    {
+      "path": "D:\\Arcade\\AI\\aCORES\\Alpha68k N\\research\\japan_ram_divergence_20261011\\stingray_halt_e_source_contract_20261011\\selected_manual_pages.json",
+      "bytes": 12138,
+      "sha256": "02ae4f22182c187ff9c31b2dc8723118399be37f60924c63c013a5a2f2c7d518"
+    },
+    {
+      "path": "D:\\Arcade\\AI\\aCORES\\meatsauce-alpha68kn\\cores\\Alpha68k_N\\rtl\\alpha68kn_board.sv",
+      "bytes": 25556,
+      "sha256": "43b8c6e7600e4c4089f0d3c0e4a15637be8bfcbdd626ddd0bc0e222b7b1553ce"
+    },
+    {
+      "path": "D:\\Arcade\\AI\\aCORES\\meatsauce-alpha68kn\\cores\\Alpha68k_N\\rtl\\vendor\\fx68k\\fx68k.sv",
+      "bytes": 79694,
+      "sha256": "797566aa6c1dfb308d88a458550d55f86e0d023e670ab179cc39f594d9d4f73d"
+    },
+    {
+      "path": "D:\\Arcade\\AI\\aCORES\\meatsauce-alpha68kn\\cores\\Alpha68k_N\\rtl\\alpha68kn_mcu.sv",
+      "bytes": 3434,
+      "sha256": "2626a02c97db973f0935703685fced12a08525dcbc81a9bfc6bfb07dcfecac0c"
+    },
+    {
+      "path": "D:\\Arcade\\AI\\aCORES\\meatsauce-alpha68kn\\cores\\Alpha68k_N\\Alpha68k_N.sv",
+      "bytes": 16119,
+      "sha256": "894197513ff916c2df0bf8783bf0bfe0903a4bb577b7464b85e1356cf1c5da30"
+    },
+    {
+      "path": "D:\\Arcade\\AI\\mame289\\src\\mame\\alpha\\alpha68k_n.cpp",
+      "bytes": 43931,
+      "sha256": "5f9884076ea1b5c02d2169a58de5425ae5475a13a4f1438abae2e2b9f0fdab7d"
+    },
+    {
+      "path": "D:\\Arcade\\AI\\aCORES\\Alpha68k N\\research\\japan_ram_divergence_20261011\\stingray_halt_e_source_contract_20261011\\import_manifest.json",
+      "bytes": 1848,
+      "sha256": "5ed03e4d3a90c86d5506749913ab6f49e47ac03bdc0acc65d10dee12da92159c"
+    }
+  ],
+  "no_production_edits_builds_or_runtime": true
+}

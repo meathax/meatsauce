@@ -1,0 +1,18 @@
+{
+  "scope": "test-only MAME serial bodies and captured GPIO sequence under deterministic RTC seed; not full-board acceptance",
+  "source_sha256": "e1d4be800a5b373bdf56b7e9edb1fa04e1840c0ecb5c4ab7701ed9c6bcb002b6",
+  "generated_sha256": "80dff940b32e12a8864534ae9e56fe78c9c4c0e81499be825b64b528e10c0713",
+  "unchanged_function_bodies": [
+    "void ds1302_device::ce_w",
+    "void ds1302_device::load_shift_register",
+    "void ds1302_device::input_bit",
+    "void ds1302_device::output_bit",
+    "void ds1302_device::sclk_w",
+    "void ds1302_device::io_w",
+    "int ds1302_device::io_r"
+  ],
+  "gpio_capture": "D:/Arcade/AI/aCORES/BRAZZ/Arcade-CrystalSystem_MiSTer/sim/obj_dir/mame_capture/20261004_233613/mmio.csv",
+  "gpio_rows": 1746,
+  "gpio_sha256": "a8d27418a17abe1057d4aefabbc73321420007b12dfcba32aabc2901ce8bdb2b",
+  "physical_exceptions": "datasheet tests cover 12h, WP clear, atomic 8-byte clock burst and continuous read, which differ from MAME"
+}

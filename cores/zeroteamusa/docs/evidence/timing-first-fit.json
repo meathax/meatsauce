@@ -1,0 +1,197 @@
+{
+  "scope": "First current hardware synthesis/fit/STA baseline; timing is FAILED, not closed.",
+  "source_commit": "23b3cd3",
+  "fit_passed": true,
+  "device": "5CSEBA6U23I7",
+  "resources": {
+    "alms_used": 29055,
+    "alms_total": 41910,
+    "registers": 27919,
+    "block_memory_bits": 2709128,
+    "ram_blocks_used": 385,
+    "ram_blocks_total": 553,
+    "dsp_blocks_used": 50,
+    "dsp_blocks_total": 112,
+    "plls_used": 3
+  },
+  "sta_command_passed_but_timing_failed": true,
+  "timing_entries": [
+    {
+      "type": "Setup 'emu|pll|pll_inst|altera_pll_i|general[0].gpll~PLL_OUTPUT_COUNTER|divclk'",
+      "slack_ns": -33.472,
+      "tns_ns": -59473.965
+    },
+    {
+      "type": "Setup 'pll_hdmi|pll_hdmi_inst|altera_pll_i|cyclonev_pll|counter[0].output_counter|divclk'",
+      "slack_ns": 0.199,
+      "tns_ns": 0.0
+    },
+    {
+      "type": "Setup 'sysmem|fpga_interfaces|clocks_resets|h2f_user0_clk'",
+      "slack_ns": 3.085,
+      "tns_ns": 0.0
+    },
+    {
+      "type": "Setup 'spi_sck'",
+      "slack_ns": 6.447,
+      "tns_ns": 0.0
+    },
+    {
+      "type": "Setup 'FPGA_CLK1_50'",
+      "slack_ns": 8.521,
+      "tns_ns": 0.0
+    },
+    {
+      "type": "Setup 'FPGA_CLK2_50'",
+      "slack_ns": 13.079,
+      "tns_ns": 0.0
+    },
+    {
+      "type": "Setup 'pll_audio|pll_audio_inst|altera_pll_i|general[0].gpll~PLL_OUTPUT_COUNTER|divclk'",
+      "slack_ns": 15.325,
+      "tns_ns": 0.0
+    },
+    {
+      "type": "Hold 'pll_hdmi|pll_hdmi_inst|altera_pll_i|cyclonev_pll|counter[0].output_counter|divclk'",
+      "slack_ns": 0.179,
+      "tns_ns": 0.0
+    },
+    {
+      "type": "Hold 'emu|pll|pll_inst|altera_pll_i|general[0].gpll~PLL_OUTPUT_COUNTER|divclk'",
+      "slack_ns": 0.243,
+      "tns_ns": 0.0
+    },
+    {
+      "type": "Hold 'pll_audio|pll_audio_inst|altera_pll_i|general[0].gpll~PLL_OUTPUT_COUNTER|divclk'",
+      "slack_ns": 0.249,
+      "tns_ns": 0.0
+    },
+    {
+      "type": "Hold 'sysmem|fpga_interfaces|clocks_resets|h2f_user0_clk'",
+      "slack_ns": 0.313,
+      "tns_ns": 0.0
+    },
+    {
+      "type": "Hold 'spi_sck'",
+      "slack_ns": 0.356,
+      "tns_ns": 0.0
+    },
+    {
+      "type": "Hold 'FPGA_CLK1_50'",
+      "slack_ns": 0.403,
+      "tns_ns": 0.0
+    },
+    {
+      "type": "Hold 'FPGA_CLK2_50'",
+      "slack_ns": 0.417,
+      "tns_ns": 0.0
+    },
+    {
+      "type": "Recovery 'emu|pll|pll_inst|altera_pll_i|general[0].gpll~PLL_OUTPUT_COUNTER|divclk'",
+      "slack_ns": 1.708,
+      "tns_ns": 0.0
+    },
+    {
+      "type": "Recovery 'pll_hdmi|pll_hdmi_inst|altera_pll_i|cyclonev_pll|counter[0].output_counter|divclk'",
+      "slack_ns": 4.12,
+      "tns_ns": 0.0
+    },
+    {
+      "type": "Recovery 'sysmem|fpga_interfaces|clocks_resets|h2f_user0_clk'",
+      "slack_ns": 8.283,
+      "tns_ns": 0.0
+    },
+    {
+      "type": "Recovery 'FPGA_CLK1_50'",
+      "slack_ns": 17.069,
+      "tns_ns": 0.0
+    },
+    {
+      "type": "Removal 'emu|pll|pll_inst|altera_pll_i|general[0].gpll~PLL_OUTPUT_COUNTER|divclk'",
+      "slack_ns": 0.586,
+      "tns_ns": 0.0
+    },
+    {
+      "type": "Removal 'sysmem|fpga_interfaces|clocks_resets|h2f_user0_clk'",
+      "slack_ns": 0.888,
+      "tns_ns": 0.0
+    },
+    {
+      "type": "Removal 'pll_hdmi|pll_hdmi_inst|altera_pll_i|cyclonev_pll|counter[0].output_counter|divclk'",
+      "slack_ns": 1.235,
+      "tns_ns": 0.0
+    },
+    {
+      "type": "Removal 'FPGA_CLK1_50'",
+      "slack_ns": 1.55,
+      "tns_ns": 0.0
+    },
+    {
+      "type": "Minimum Pulse Width 'emu|pll|pll_inst|altera_pll_i|general[0].gpll~FRACTIONAL_PLL|vcoph[0]'",
+      "slack_ns": 1.041,
+      "tns_ns": 0.0
+    },
+    {
+      "type": "Minimum Pulse Width 'pll_hdmi|pll_hdmi_inst|altera_pll_i|cyclonev_pll|fpll_0|fpll|vcoph[0]'",
+      "slack_ns": 1.122,
+      "tns_ns": 0.0
+    },
+    {
+      "type": "Minimum Pulse Width 'pll_audio|pll_audio_inst|altera_pll_i|general[0].gpll~FRACTIONAL_PLL|vcoph[0]'",
+      "slack_ns": 1.196,
+      "tns_ns": 0.0
+    },
+    {
+      "type": "Minimum Pulse Width 'pll_hdmi|pll_hdmi_inst|altera_pll_i|cyclonev_pll|counter[0].output_counter|divclk'",
+      "slack_ns": 1.933,
+      "tns_ns": 0.0
+    },
+    {
+      "type": "Minimum Pulse Width 'sysmem|fpga_interfaces|clocks_resets|h2f_user0_clk'",
+      "slack_ns": 3.584,
+      "tns_ns": 0.0
+    },
+    {
+      "type": "Minimum Pulse Width 'emu|pll|pll_inst|altera_pll_i|general[0].gpll~PLL_OUTPUT_COUNTER|divclk'",
+      "slack_ns": 3.772,
+      "tns_ns": 0.0
+    },
+    {
+      "type": "Minimum Pulse Width 'spi_sck'",
+      "slack_ns": 4.26,
+      "tns_ns": 0.0
+    },
+    {
+      "type": "Minimum Pulse Width 'FPGA_CLK1_50'",
+      "slack_ns": 9.211,
+      "tns_ns": 0.0
+    },
+    {
+      "type": "Minimum Pulse Width 'FPGA_CLK2_50'",
+      "slack_ns": 9.213,
+      "tns_ns": 0.0
+    },
+    {
+      "type": "Minimum Pulse Width 'FPGA_CLK3_50'",
+      "slack_ns": 9.73,
+      "tns_ns": 0.0
+    },
+    {
+      "type": "Minimum Pulse Width 'pll_audio|pll_audio_inst|altera_pll_i|general[0].gpll~PLL_OUTPUT_COUNTER|divclk'",
+      "slack_ns": 18.915,
+      "tns_ns": 0.0
+    }
+  ],
+  "worst_setup_ns": -33.472,
+  "worst_path": {
+    "from": "V30 EU opc_reg[5]",
+    "to": "V30 EU r_kind[0]",
+    "setup_slack_ns": -33.472
+  },
+  "unconstrained_path_assessment": "pending",
+  "artifacts": {
+    "sim\\results\\timing\\single-cycle-ZeroTeam.fit.summary": "e469957bbd18f012b9968217591edc72eea8e5056970f3fe6069e8edb3adcfdb",
+    "sim\\results\\timing\\single-cycle-ZeroTeam.sta.rpt": "23c1734b8ac1c111b51e356625afcaf9d75416801da836d02d7e9d7716a63727",
+    "sim\\results\\timing\\single-cycle-ZeroTeam.sta.summary": "a5ad7aedec5e6542db9fc79dd031520195a6174c6494d0fae016d895ce7555f3"
+  }
+}

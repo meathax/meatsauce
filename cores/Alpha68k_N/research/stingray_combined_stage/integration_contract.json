@@ -1,0 +1,236 @@
+{
+  "schema": "sstingray_combined_private_candidate_v2",
+  "canonical_root": "D:\\Arcade\\AI\\aCORES\\meatsauce-alpha68kn\\cores\\Alpha68k_N",
+  "canonical_revision": "f3f54ef87d53b6c069b5e69098e3204d616ff023",
+  "source_pins": {
+    "rtl/alpha68kn_board.sv": "adff9fcb8c7018e8605c2b549e72dee36c0b29d892afbd7a145a778fca09e910",
+    "rtl/alpha68kn_system.sv": "ca909f97d09875ecfe98b92e04d5fbad343a2e6fed20c84542b4265eb5060152",
+    "rtl/alpha68kn_mcu.sv": "623e1c4c2ca319306887e9d76c1e24ac83adc5355165a618f703cee40e2186bd",
+    "rtl/vendor/fx68k/fx68k.sv": "797566aa6c1dfb308d88a458550d55f86e0d023e670ab179cc39f594d9d4f73d",
+    "rtl/vendor/t48/t48_core.v": "cd171c5c1cb044c50343387cf4b9b726c2795c4224d4265c4812921fe3d6b8fd",
+    "rtl/vendor/t48/SOURCE.json": "975d4a4747f5301f664dd65439c566f64de0fb9f5c52bba7b3a8bc66fdeb9691",
+    "rtl/vendor/t48/LICENSE.upstream": "f9870f7d47c16bec37e17b923440d4f0a274d7c409d9327d86e25a000e4bab27",
+    "files.qip": "826d76afdb60042064ec0c2fe6d6aa7d980ef81d6993b6f89932b14bb004e17f",
+    "sim/system_main.cpp": "f8d02e905e939246f59e371029ed4b25898d46c5f5b93f2708d5df5f37e498f7",
+    "sim/build_system.sh": "ebf2d5cefc6789b3a4e47c149834cb8b9352e359157468bb7aaeaa9a38c350dd",
+    "rom_layout.json": "c042082f05cca0bf9b1f26ebd5e849b6ded9eb3e78896e9d17e8cfb9014db539",
+    "board_profiles.json": "6cec31f7adc511fa4eff38f18beedc3a708d70a244c0dc6827e04e30b7a21a45",
+    "docs/STINGRAY_MCU_INTERFACE.md": "7ec1a90f029df72a54802a1a3a5f4e952dc8c64fcabae30559e0a102797dc815"
+  },
+  "MAME_driver": {
+    "path": "D:\\Arcade\\AI\\mame289\\src\\mame\\alpha\\alpha68k_n.cpp",
+    "sha256": "5f9884076ea1b5c02d2169a58de5425ae5475a13a4f1438abae2e2b9f0fdab7d",
+    "lines": "301-358 command/control;376-385 main;421-429 sound;735-772 clock/IRQ/audio"
+  },
+  "overlay": [
+    {
+      "path": "D:\\Arcade\\AI\\aCORES\\Alpha68k N\\research\\stingray_combined_stage\\candidate\\rtl\\alpha68kn_board.sv",
+      "target": "rtl/alpha68kn_board.sv",
+      "base_sha256": "adff9fcb8c7018e8605c2b549e72dee36c0b29d892afbd7a145a778fca09e910",
+      "candidate_sha256": "65abc024031683b20df2f0fea9aec3540af94cdcd52759d96e0602609c2212c8"
+    },
+    {
+      "path": "D:\\Arcade\\AI\\aCORES\\Alpha68k N\\research\\stingray_combined_stage\\candidate\\files.qip",
+      "target": "files.qip",
+      "base_sha256": "826d76afdb60042064ec0c2fe6d6aa7d980ef81d6993b6f89932b14bb004e17f",
+      "candidate_sha256": "6bcdd73143c2e0db50b3c92d7e206da437702df9e89e9462b07e146ee0a5bee0"
+    },
+    {
+      "path": "D:\\Arcade\\AI\\aCORES\\Alpha68k N\\research\\stingray_combined_stage\\candidate\\sim\\system_main.cpp",
+      "target": "sim/system_main.cpp",
+      "base_sha256": "f8d02e905e939246f59e371029ed4b25898d46c5f5b93f2708d5df5f37e498f7",
+      "candidate_sha256": "284292614a2608061f39c4e39d2780218f34744dd80203602dbc5501ad9469e1"
+    },
+    {
+      "path": "D:\\Arcade\\AI\\aCORES\\Alpha68k N\\research\\stingray_combined_stage\\candidate\\sim\\build_system.sh",
+      "target": "sim/build_system.sh",
+      "base_sha256": "ebf2d5cefc6789b3a4e47c149834cb8b9352e359157468bb7aaeaa9a38c350dd",
+      "candidate_sha256": "61ef9977369596edd9ed098b36324c74ff9519a56d636cc620780e2276b9de31"
+    }
+  ],
+  "patch_path": "D:\\Arcade\\AI\\aCORES\\Alpha68k N\\research\\stingray_combined_stage\\stingray_integration.patch",
+  "patch_sha256": "270235b9d7c494b166c8bdb57eed1e83fc2d70eff7600a53f0cb84e3daac0774",
+  "helper_sha256": "a494880354eeb73ade0f6249450e19e609d9843ed0a4a4f6fd9408486b3b8b77",
+  "static_checks": {
+    "canonical_source_bytes_unchanged": true,
+    "all4_overlay_sources_written": true,
+    "profile2_download_header_and_hash": true,
+    "clean1024_firmware_hash_and_payload_slot": true,
+    "MCU_input_ports_all_explicit": true,
+    "MCU_HALTN_single_step_input_not_misused": true,
+    "Kyros_HLE_disabled_only_for_profile2": true,
+    "no_strip_storage_or_renderer_port_change": true,
+    "MCU_closure_added_to_QIP_and_native_copy": true,
+    "profile2_native_requires_observed_ports": true,
+    "pause_MCUpulse_excludes_HS_port": true,
+    "profile2_pause_drain_initialized": true,
+    "generator_python_syntax": true
+  },
+  "loader": {
+    "download_path": "D:\\Arcade\\AI\\aCORES\\meatsauce-alpha68kn\\cores\\Alpha68k_N\\roms\\sstingry\\download.bin",
+    "sha256": "9c60564786045834e97f98350e8310ef37a6027dadecc31cf89f1fa8bfe4358d",
+    "bytes": 655360,
+    "profile": 2,
+    "transport": "First byteD7:0; main_rom swaps into big-endian68000 words; MCU bytes stayraw",
+    "mcu_base": 208896,
+    "mcu_capacity": 4096,
+    "firmware_path": "D:\\Arcade\\AI\\aCORES\\meatsauce-alpha68kn\\cores\\Alpha68k_N\\roms\\sstingry\\alpha8511.bin",
+    "firmware_sha256": "71b0ea0c83c962dcec11bf1336ef17d3c9efb34d4674c8c5be494b1c94c4348a",
+    "firmware_bytes": 1024,
+    "MCU_program_read": "One synchronous8bit read from existing mcu_rom; external program space remains wrapper-unmapped"
+  },
+  "clocks": {
+    "master_hz": 48000000,
+    "main_68000_hz": 6000000,
+    "sound_z80_hz": 3579545,
+    "sound_method": "Fractional integer sum+3579545 against48000000, frozen on pause/reset",
+    "MCU_xtal_hz": 9263750,
+    "MCU_method": "Reuse unchanged wrapper oscillator CE and donor xtal3 five-state execution; no extra divide15 or generated clock",
+    "sound_chips_hz": 2000000,
+    "NMI_hz": 4000
+  },
+  "command_contract": {
+    "range": "080000..0801ff",
+    "byte_lane": "LDS low only, MAMEumask00ff",
+    "address": "word index ma[8:1]",
+    "read_data_low": 0,
+    "write_data": "mdout[7:0]",
+    "read_mode": "mrw_n",
+    "trigger": "Actual accepted board transaction, no scripted MCU response"
+  },
+  "work_RAM_arbitration": {
+    "storage": "Existing split full-byte2048wordbanks and externalword22; no second RAM write port or new storagecopy",
+    "priority": "Actual wrapper shared_write owns this edge; colliding profile2CPU work transaction waits until following edge. Other CPU regions retain acceptance.",
+    "MCU_write": "Low byte only at zero-extended8bit wordaddress; high byte retained. Word22 routes externalregister; word29high shadow unaffected by lowwrites.",
+    "pause_hiscore": "Wrapper clock enables stop on pause; three master edges hold HS borrow while registered control/write drains. MCU pulse directly excludes HS port even if paused was already asserted. HS and CPU OLD_DATA/prior response hold remain existing paths; actual pause-pipeline timing still unqualified.",
+    "physical_priority_verified": false,
+    "paired_MAME_order_verified": false
+  },
+  "interrupts": {
+    "IRQ1": "Existingvblank HOLD/IACK unchanged",
+    "IRQ2": "Firmwarepulse HOLD untilIACK; no periodicKyros60Hz IRQ2 inprofile2; freshrequest wins same-edgeIACK",
+    "HALT": "HALTn is single-step in pinnedfx68k. Privatecandidate drains AS-low command cycle then freezes existingphase/enables whilemcu_main_halt andAS-high. This is a candidate boundary, not physical or MAME cutoff proof.",
+    "flip": "Actual MCU control_event updates boardflip, one additional board sampling edge; KyrosHLEflip unchanged"
+  },
+  "sound_map": "Profile2ROM0000..7fff,RAM8000..87ff,latchc100,clearc102,DACc104; Kyrosranges unchanged. Existing I/Ochips/mixerprofile retained.",
+  "harness": {
+    "host_target": "sim/system_main.cpp",
+    "accepts_profile2": true,
+    "requires_actual_port_trace": true,
+    "retained_input_candidates": [
+      {
+        "path": "D:\\Arcade\\AI\\aCORES\\meatsauce-alpha68kn\\cores\\Alpha68k_N\\sim\\captures\\sstingry\\attract\\frame_states.csv",
+        "sha256": "4e546640f76078caf5fd8c817f4e13b22c890a6a2b615abd36b8f3c7b41ad2f9",
+        "columns": [
+          "frame",
+          "screen_frame",
+          "main_pc",
+          "sound_pc",
+          "main_sr",
+          "in0",
+          "in1",
+          "in2",
+          "background"
+        ],
+        "initial_ports": {
+          "in0": "0",
+          "in1": "1",
+          "in2": "3"
+        },
+        "qualified_for_replay": false,
+        "limit": "Requires actual recording job/exe/ROM/source and full sequence qualification before launch"
+      },
+      {
+        "path": "D:\\Arcade\\AI\\aCORES\\meatsauce-alpha68kn\\cores\\Alpha68k_N\\sim\\captures\\sstingry\\gameplay\\frame_states.csv",
+        "sha256": "27233304a20b805df1b38cffb645a1e3808179f1fdfb6f84dc175bf2e1e005e6",
+        "columns": [
+          "frame",
+          "screen_frame",
+          "main_pc",
+          "sound_pc",
+          "main_sr",
+          "in0",
+          "in1",
+          "in2",
+          "background"
+        ],
+        "initial_ports": {
+          "in0": "0",
+          "in1": "1",
+          "in2": "3"
+        },
+        "qualified_for_replay": false,
+        "limit": "Requires actual recording job/exe/ROM/source and full sequence qualification before launch"
+      },
+      {
+        "path": "D:\\Arcade\\AI\\aCORES\\Alpha68k N\\sim\\captures\\sstingry\\attract\\frame_states.csv",
+        "sha256": "4e546640f76078caf5fd8c817f4e13b22c890a6a2b615abd36b8f3c7b41ad2f9",
+        "columns": [
+          "frame",
+          "screen_frame",
+          "main_pc",
+          "sound_pc",
+          "main_sr",
+          "in0",
+          "in1",
+          "in2",
+          "background"
+        ],
+        "initial_ports": {
+          "in0": "0",
+          "in1": "1",
+          "in2": "3"
+        },
+        "qualified_for_replay": false,
+        "limit": "Requires actual recording job/exe/ROM/source and full sequence qualification before launch"
+      },
+      {
+        "path": "D:\\Arcade\\AI\\aCORES\\Alpha68k N\\sim\\captures\\sstingry\\gameplay\\frame_states.csv",
+        "sha256": "27233304a20b805df1b38cffb645a1e3808179f1fdfb6f84dc175bf2e1e005e6",
+        "columns": [
+          "frame",
+          "screen_frame",
+          "main_pc",
+          "sound_pc",
+          "main_sr",
+          "in0",
+          "in1",
+          "in2",
+          "background"
+        ],
+        "initial_ports": {
+          "in0": "0",
+          "in1": "1",
+          "in2": "3"
+        },
+        "qualified_for_replay": false,
+        "limit": "Requires actual recording job/exe/ROM/source and full sequence qualification before launch"
+      }
+    ],
+    "prospective_command": "wsl.exe -d Ubuntu --cd CANONICAL_OR_REVIEWED_PRIVATE_ROOT --exec ./sim/build/alpha68kn_system_sim roms/sstingry/download.bin FIELDS OUTPUT attract --inputs QUALIFIED_STINGRAY_frame_states.csv",
+    "launch_authorized_by_this_task": false,
+    "note": "No guessedKyrosDIP, event-derivedsyntheticstate, or CPU/RAM seeding; same realCPU+renderer+SDRAM model harness"
+  },
+  "open_assumptions": [
+    "CoupledCPU HALT/DTACK recognition and AS-high freeze boundary need observed pairedMAME handshake; HALTn annotation alone does not qualify timing.",
+    "Shared-write collision priority/deferredDTACK is private scheduling, not measured PCB arbitration. Need command/release/sharedwrite/IRQ2 trace before integrationacceptance.",
+    "MCU wrapper output observation plus board sampling adds a boardedge; command/P2/BUS ordering and repeated identicalwrites need paired reference qualification.",
+    "Pause-drain depth follows the visible registered wrapper/board pipeline but needs coupled capture, including a pre-pause control strobe; no physical delay is claimed.",
+    "High command-read byteff is a candidate unmappedlane value; lowerbyte0 is sourced. Verify actual word/high-only accesses in the retained MAME trace.",
+    "MCU9.263750MHz physicalaccuracy remainsB10unqualified; candidate followsMAME. Existing B07firmware/probe does not prove full gameplay.",
+    "Retained Stingray input/reference capture schema/ROM/exe/epoch must be qualified before use. No combinedbuildorStingraysimulation hasrun.",
+    "Full soundeffects/PCM, palette/wrap/playercontrols, whole fittedresources/timing and Kyrosregression remainpending; no sourcecorrection is claimed from this stage."
+  ],
+  "acceptance_next": [
+    "Review thispatch/contract and baseline currentKyros simulation+fit; import only as a coherentparentphase.",
+    "Qualify one retained Stingray MAMEinput+ROM+source record; observe command/lowbyte/lane/control/HALT/IRQ2 boundaries.",
+    "Only afterparentauthorization buildone source-pinned combined candidate; use short authentic boot/handshake to findfirstdivergence, thenattract/coin/start/gameplay on sameexe.",
+    "Run affectedKyros shortregression once ifsharedRTLchanges; inspectM10Kinference thenfullQuartusFastmap/fit/STA withoutassembly; enforceallstrictcaps."
+  ],
+  "combined_build_pass": false,
+  "combined_simulation_pass": false,
+  "paired_MAME_pass": false,
+  "physical_fidelity_pass": false,
+  "resource_timing_pass": false,
+  "production_edited": false
+}

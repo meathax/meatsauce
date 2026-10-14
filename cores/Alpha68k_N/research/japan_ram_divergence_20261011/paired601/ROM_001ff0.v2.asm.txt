@@ -1,0 +1,11 @@
+01ff0: 1d40 000f  move.b  D0, ($f,A6)
+01ff4: 609a       bra     $1f90
+01ff6: 302e 0000  move.w  ($0,A6), D0
+01ffa: b06e 0000  cmp.w   ($0,A6), D0
+01ffe: 67fa       beq     $1ffa
+02000: 4e75       rts
+02002: 61f2       bsr     $1ff6
+02004: 51c9 fffc  dbra    D1, $2002
+02008: 4e75       rts
+0200a: c241       and.w   D1, D1
+0200c: 51c9 fffc  dbra    D1, $200a

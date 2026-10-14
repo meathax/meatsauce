@@ -1,0 +1,20 @@
+{
+  "command": [
+    "wsl.exe",
+    "-d",
+    "Ubuntu",
+    "--cd",
+    "D:\\Arcade\\AI\\aCORES\\Alpha68k N",
+    "--exec",
+    "./sim/build/alpha68kn_render_fixture_sim",
+    "roms/kyros/download.bin",
+    "sim/captures/kyros/gameplay/frame_000900.sprites.bin",
+    "38",
+    "sim/captures/renderer/kyros_frame900_mame",
+    "0",
+    "sim/captures/kyros/gameplay/frame_000900.display.rgb"
+  ],
+  "exit_code": 0,
+  "stdout": "{\"scope\":\"isolated strip/palette/SDRAM fixture; no CPU acceptance\",\"profile\":0,\"flip\":false,\"pixels\":57344,\"pixel_mismatches\":0,\"first_x\":0,\"first_y\":16,\"oracle_compared\":true,\"oracle_mismatches\":0,\"worst_line_cycles\":1511,\"completed_lines\":225,\"deadline_misses\":0,\"row_overflows\":0,\"banks_mask\":23,\"boundary_codes_mask\":1,\"color_ff_tiles\":0,\"read_pairs\":17920,\"result\":\"pass\"}\n",
+  "stderr": ""
+}

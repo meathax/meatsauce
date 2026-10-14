@@ -1,0 +1,54 @@
+set_global_assignment -name QIP_FILE rtl/pll.qip
+# The generated CPU PLL QIP contains a self-referential QIP_FILE entry that
+# Quartus 17.0 rejects as infinite recursion.  Its generated Verilog wrapper
+# is the actual synthesis input; retain the QIP/CMP/SOPCINFO files as provenance
+# but include the wrapper directly in this project manifest.
+set_global_assignment -name VERILOG_FILE rtl/irobot_cpu_pll.v
+set_global_assignment -name SYSTEMVERILOG_FILE rtl/irobot_rom_router.sv
+set_global_assignment -name SYSTEMVERILOG_FILE rtl/io/irobot_nvram_write_cdc.sv
+set_global_assignment -name SYSTEMVERILOG_FILE rtl/irobot_board.sv
+set_global_assignment -name VERILOG_FILE rtl/cpu/mc6809i.v
+set_global_assignment -name VERILOG_FILE rtl/cpu/mc6809e.v
+set_global_assignment -name SYSTEMVERILOG_FILE rtl/cpu/irobot_cpu.sv
+set_global_assignment -name SYSTEMVERILOG_FILE rtl/cpu/irobot_cpu_phases.sv
+set_global_assignment -name SYSTEMVERILOG_FILE rtl/cpu/irobot_async_byte_ram.sv
+set_global_assignment -name SYSTEMVERILOG_FILE rtl/cpu/irobot_mainboard.sv
+set_global_assignment -name SYSTEMVERILOG_FILE rtl/cpu/irobot_watchdog.sv
+set_global_assignment -name SYSTEMVERILOG_FILE rtl/cpu/irobot_interrupts.sv
+set_global_assignment -name SYSTEMVERILOG_FILE rtl/cpu/irobot_cpu_board.sv
+set_global_assignment -name SYSTEMVERILOG_FILE rtl/cpu/irobot_shared_window.sv
+set_global_assignment -name SYSTEMVERILOG_FILE rtl/io/pokey_sv.sv
+set_global_assignment -name SYSTEMVERILOG_FILE rtl/io/adc0809.sv
+set_global_assignment -name SYSTEMVERILOG_FILE rtl/io/x2212.sv
+set_global_assignment -name SYSTEMVERILOG_FILE rtl/io/quad_pokey.sv
+set_global_assignment -name SYSTEMVERILOG_FILE rtl/io/irobot_audio_mix.sv
+set_global_assignment -name SYSTEMVERILOG_FILE rtl/io/irobot_peripherals.sv
+set_global_assignment -name SYSTEMVERILOG_FILE rtl/io/irobot_controls.sv
+set_global_assignment -name SYSTEMVERILOG_FILE rtl/mathbox/am2901_slice.sv
+set_global_assignment -name SYSTEMVERILOG_FILE rtl/mathbox/am2901_quad.sv
+set_global_assignment -name SYSTEMVERILOG_FILE rtl/mathbox/mathbox_decode.sv
+set_global_assignment -name SYSTEMVERILOG_FILE rtl/mathbox/mathbox_sequencer.sv
+set_global_assignment -name SYSTEMVERILOG_FILE rtl/mathbox/irobot_math_memory.sv
+set_global_assignment -name SYSTEMVERILOG_FILE rtl/mathbox/irobot_mathbox_system.sv
+set_global_assignment -name SYSTEMVERILOG_FILE rtl/mathbox/irobot_mathbox.sv
+set_global_assignment -name SYSTEMVERILOG_FILE rtl/video/irobot_timing.sv
+set_global_assignment -name SYSTEMVERILOG_FILE rtl/video/irobot_palette.sv
+set_global_assignment -name SYSTEMVERILOG_FILE rtl/video/irobot_alpha.sv
+set_global_assignment -name SYSTEMVERILOG_FILE rtl/video/icy_point.sv
+set_global_assignment -name SYSTEMVERILOG_FILE rtl/video/icy_vector.sv
+set_global_assignment -name SYSTEMVERILOG_FILE rtl/video/icy_span.sv
+set_global_assignment -name SYSTEMVERILOG_FILE rtl/video/irobot_framebuffers.sv
+set_global_assignment -name SYSTEMVERILOG_FILE rtl/video/irobot_video_pipeline.sv
+set_global_assignment -name SYSTEMVERILOG_FILE rtl/video/irobot_commram.sv
+set_global_assignment -name SYSTEMVERILOG_FILE rtl/video/icy_object_fetch.sv
+set_global_assignment -name SYSTEMVERILOG_FILE rtl/video/icy_point_object.sv
+set_global_assignment -name SYSTEMVERILOG_FILE rtl/video/icy_vector_object.sv
+set_global_assignment -name SYSTEMVERILOG_FILE rtl/video/icy_polygon_object.sv
+set_global_assignment -name SYSTEMVERILOG_FILE rtl/video/icy.sv
+set_global_assignment -name SYSTEMVERILOG_FILE rtl/video/icy_run_control.sv
+# Third-party analog/CRT geometry stage, used by the emu shell only (not by the
+# simulation top irobot_core).  Provenance in SOURCES.md / LICENSES.md.
+set_global_assignment -name SYSTEMVERILOG_FILE rtl/video/crt_adjust.sv
+set_global_assignment -name SYSTEMVERILOG_FILE rtl/irobot_core.sv
+set_global_assignment -name SDC_FILE Arcade-I-Robot.sdc
+set_global_assignment -name SYSTEMVERILOG_FILE Arcade-I-Robot.sv

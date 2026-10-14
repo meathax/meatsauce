@@ -1,0 +1,1146 @@
+{
+  "scope": "Conditional related-Bandido LS174 control-pair and XOR clock derivation; no board transaction timing pass",
+  "sources": [
+    {
+      "path": "_checks/manuals/bandido-1980.pdf",
+      "url": "https://arcarc.xmission.com/PDF_Arcade_Manuals_and_Schematics/Bandido.pdf",
+      "pdf_pages": [
+        35,
+        36
+      ],
+      "sha256": "aa68eb8538e404c2ee1e02b7b47c0e40c62e9d9800cefcf22981c733c4b30224"
+    },
+    {
+      "path": "_checks/manuals/ti-sn74ls174.pdf",
+      "url": "https://www.ti.com/lit/ds/symlink/sn74ls174.pdf",
+      "pdf_page": 1,
+      "sha256": "0b4e9eef66c47dd2ab72b32b38ed21c350a1bc206e7dbb571a6d7e4c113886ee"
+    }
+  ],
+  "corrected_connections": {
+    "4F_1D": "Pin 3 receives 4F 2Q pin 5 feedback, not HREAD_n. The common feedback net also reaches 4T pin 4. HREAD_n separately enters 4T pin 5.",
+    "4F_2D": "Pin 4 tied high; 2Q pin 5 is the first capture flag.",
+    "4F_1Q": "Pin 2 drives RDY IN and 4T pin 1.",
+    "4T_clock": "LS86 pins 4/5 take 2Q/HREAD_n; output pin 6 routes to readback latch CLK pin 9.",
+    "4T_output3": "LS86 pin 1 from 1Q and pin 2 from 2Q; output pin 3 is their XOR.",
+    "4F_4G_CLR_n": "Both LS174 CLR pin 1 inputs share the cross-sheet RAMSTB_n net from 3F LS00 output 3. Page 35 also connects this net to READY 3D CLR pin 13; CPU WR RD and RDY IN are the separate neighboring cross-sheet nets."
+  },
+  "equations": {
+    "CLK": "HREAD_n XOR 2Q",
+    "1Q_next_on_CLK_rise": "old 2Q",
+    "2Q_next_on_CLK_rise": "1",
+    "RDY_IN": "1Q",
+    "4T_output3": "1Q XOR 2Q"
+  },
+  "control_capture_sequence_after_clear": [
+    "00: RDY_IN=0, XOR=0",
+    "01: RDY_IN=0, XOR=1",
+    "11: RDY_IN=1, XOR=0",
+    "11 on later captures until clear"
+  ],
+  "transition_cases": 16,
+  "transition_rows": [
+    {
+      "old_1Q": 0,
+      "old_2Q": 0,
+      "CLR_n": 0,
+      "CLK_rising": 0,
+      "new_1Q": 0,
+      "new_2Q": 0,
+      "RDY_IN": 0,
+      "4T_output3": 0
+    },
+    {
+      "old_1Q": 0,
+      "old_2Q": 0,
+      "CLR_n": 0,
+      "CLK_rising": 1,
+      "new_1Q": 0,
+      "new_2Q": 0,
+      "RDY_IN": 0,
+      "4T_output3": 0
+    },
+    {
+      "old_1Q": 0,
+      "old_2Q": 0,
+      "CLR_n": 1,
+      "CLK_rising": 0,
+      "new_1Q": 0,
+      "new_2Q": 0,
+      "RDY_IN": 0,
+      "4T_output3": 0
+    },
+    {
+      "old_1Q": 0,
+      "old_2Q": 0,
+      "CLR_n": 1,
+      "CLK_rising": 1,
+      "new_1Q": 0,
+      "new_2Q": 1,
+      "RDY_IN": 0,
+      "4T_output3": 1
+    },
+    {
+      "old_1Q": 0,
+      "old_2Q": 1,
+      "CLR_n": 0,
+      "CLK_rising": 0,
+      "new_1Q": 0,
+      "new_2Q": 0,
+      "RDY_IN": 0,
+      "4T_output3": 0
+    },
+    {
+      "old_1Q": 0,
+      "old_2Q": 1,
+      "CLR_n": 0,
+      "CLK_rising": 1,
+      "new_1Q": 0,
+      "new_2Q": 0,
+      "RDY_IN": 0,
+      "4T_output3": 0
+    },
+    {
+      "old_1Q": 0,
+      "old_2Q": 1,
+      "CLR_n": 1,
+      "CLK_rising": 0,
+      "new_1Q": 0,
+      "new_2Q": 1,
+      "RDY_IN": 0,
+      "4T_output3": 1
+    },
+    {
+      "old_1Q": 0,
+      "old_2Q": 1,
+      "CLR_n": 1,
+      "CLK_rising": 1,
+      "new_1Q": 1,
+      "new_2Q": 1,
+      "RDY_IN": 1,
+      "4T_output3": 0
+    },
+    {
+      "old_1Q": 1,
+      "old_2Q": 0,
+      "CLR_n": 0,
+      "CLK_rising": 0,
+      "new_1Q": 0,
+      "new_2Q": 0,
+      "RDY_IN": 0,
+      "4T_output3": 0
+    },
+    {
+      "old_1Q": 1,
+      "old_2Q": 0,
+      "CLR_n": 0,
+      "CLK_rising": 1,
+      "new_1Q": 0,
+      "new_2Q": 0,
+      "RDY_IN": 0,
+      "4T_output3": 0
+    },
+    {
+      "old_1Q": 1,
+      "old_2Q": 0,
+      "CLR_n": 1,
+      "CLK_rising": 0,
+      "new_1Q": 1,
+      "new_2Q": 0,
+      "RDY_IN": 1,
+      "4T_output3": 1
+    },
+    {
+      "old_1Q": 1,
+      "old_2Q": 0,
+      "CLR_n": 1,
+      "CLK_rising": 1,
+      "new_1Q": 0,
+      "new_2Q": 1,
+      "RDY_IN": 0,
+      "4T_output3": 1
+    },
+    {
+      "old_1Q": 1,
+      "old_2Q": 1,
+      "CLR_n": 0,
+      "CLK_rising": 0,
+      "new_1Q": 0,
+      "new_2Q": 0,
+      "RDY_IN": 0,
+      "4T_output3": 0
+    },
+    {
+      "old_1Q": 1,
+      "old_2Q": 1,
+      "CLR_n": 0,
+      "CLK_rising": 1,
+      "new_1Q": 0,
+      "new_2Q": 0,
+      "RDY_IN": 0,
+      "4T_output3": 0
+    },
+    {
+      "old_1Q": 1,
+      "old_2Q": 1,
+      "CLR_n": 1,
+      "CLK_rising": 0,
+      "new_1Q": 1,
+      "new_2Q": 1,
+      "RDY_IN": 1,
+      "4T_output3": 0
+    },
+    {
+      "old_1Q": 1,
+      "old_2Q": 1,
+      "CLR_n": 1,
+      "CLK_rising": 1,
+      "new_1Q": 1,
+      "new_2Q": 1,
+      "RDY_IN": 1,
+      "4T_output3": 0
+    }
+  ],
+  "initial_state_scenarios": 8,
+  "scenario_traces": [
+    {
+      "initial_state": {
+        "1Q": 0,
+        "2Q": 0,
+        "HREAD_n": 0
+      },
+      "events": [
+        {
+          "HREAD_n": 0,
+          "CLR_n": 0,
+          "capture": false,
+          "captures_since_clear": 0,
+          "1Q_RDY_IN": 0,
+          "2Q": 0,
+          "CLK_after_settling": 0,
+          "4T_output3": 0
+        },
+        {
+          "HREAD_n": 0,
+          "CLR_n": 1,
+          "capture": false,
+          "captures_since_clear": 0,
+          "1Q_RDY_IN": 0,
+          "2Q": 0,
+          "CLK_after_settling": 0,
+          "4T_output3": 0
+        },
+        {
+          "HREAD_n": 1,
+          "CLR_n": 1,
+          "capture": true,
+          "captures_since_clear": 1,
+          "1Q_RDY_IN": 0,
+          "2Q": 1,
+          "CLK_after_settling": 0,
+          "4T_output3": 1
+        },
+        {
+          "HREAD_n": 0,
+          "CLR_n": 1,
+          "capture": true,
+          "captures_since_clear": 2,
+          "1Q_RDY_IN": 1,
+          "2Q": 1,
+          "CLK_after_settling": 1,
+          "4T_output3": 0
+        },
+        {
+          "HREAD_n": 1,
+          "CLR_n": 1,
+          "capture": false,
+          "captures_since_clear": 2,
+          "1Q_RDY_IN": 1,
+          "2Q": 1,
+          "CLK_after_settling": 0,
+          "4T_output3": 0
+        },
+        {
+          "HREAD_n": 0,
+          "CLR_n": 1,
+          "capture": true,
+          "captures_since_clear": 3,
+          "1Q_RDY_IN": 1,
+          "2Q": 1,
+          "CLK_after_settling": 1,
+          "4T_output3": 0
+        },
+        {
+          "HREAD_n": 1,
+          "CLR_n": 1,
+          "capture": false,
+          "captures_since_clear": 3,
+          "1Q_RDY_IN": 1,
+          "2Q": 1,
+          "CLK_after_settling": 0,
+          "4T_output3": 0
+        },
+        {
+          "HREAD_n": 0,
+          "CLR_n": 1,
+          "capture": true,
+          "captures_since_clear": 4,
+          "1Q_RDY_IN": 1,
+          "2Q": 1,
+          "CLK_after_settling": 1,
+          "4T_output3": 0
+        },
+        {
+          "HREAD_n": 1,
+          "CLR_n": 1,
+          "capture": false,
+          "captures_since_clear": 4,
+          "1Q_RDY_IN": 1,
+          "2Q": 1,
+          "CLK_after_settling": 0,
+          "4T_output3": 0
+        },
+        {
+          "HREAD_n": 0,
+          "CLR_n": 1,
+          "capture": true,
+          "captures_since_clear": 5,
+          "1Q_RDY_IN": 1,
+          "2Q": 1,
+          "CLK_after_settling": 1,
+          "4T_output3": 0
+        }
+      ]
+    },
+    {
+      "initial_state": {
+        "1Q": 0,
+        "2Q": 0,
+        "HREAD_n": 1
+      },
+      "events": [
+        {
+          "HREAD_n": 1,
+          "CLR_n": 0,
+          "capture": false,
+          "captures_since_clear": 0,
+          "1Q_RDY_IN": 0,
+          "2Q": 0,
+          "CLK_after_settling": 1,
+          "4T_output3": 0
+        },
+        {
+          "HREAD_n": 1,
+          "CLR_n": 1,
+          "capture": false,
+          "captures_since_clear": 0,
+          "1Q_RDY_IN": 0,
+          "2Q": 0,
+          "CLK_after_settling": 1,
+          "4T_output3": 0
+        },
+        {
+          "HREAD_n": 0,
+          "CLR_n": 1,
+          "capture": false,
+          "captures_since_clear": 0,
+          "1Q_RDY_IN": 0,
+          "2Q": 0,
+          "CLK_after_settling": 0,
+          "4T_output3": 0
+        },
+        {
+          "HREAD_n": 1,
+          "CLR_n": 1,
+          "capture": true,
+          "captures_since_clear": 1,
+          "1Q_RDY_IN": 0,
+          "2Q": 1,
+          "CLK_after_settling": 0,
+          "4T_output3": 1
+        },
+        {
+          "HREAD_n": 0,
+          "CLR_n": 1,
+          "capture": true,
+          "captures_since_clear": 2,
+          "1Q_RDY_IN": 1,
+          "2Q": 1,
+          "CLK_after_settling": 1,
+          "4T_output3": 0
+        },
+        {
+          "HREAD_n": 1,
+          "CLR_n": 1,
+          "capture": false,
+          "captures_since_clear": 2,
+          "1Q_RDY_IN": 1,
+          "2Q": 1,
+          "CLK_after_settling": 0,
+          "4T_output3": 0
+        },
+        {
+          "HREAD_n": 0,
+          "CLR_n": 1,
+          "capture": true,
+          "captures_since_clear": 3,
+          "1Q_RDY_IN": 1,
+          "2Q": 1,
+          "CLK_after_settling": 1,
+          "4T_output3": 0
+        },
+        {
+          "HREAD_n": 1,
+          "CLR_n": 1,
+          "capture": false,
+          "captures_since_clear": 3,
+          "1Q_RDY_IN": 1,
+          "2Q": 1,
+          "CLK_after_settling": 0,
+          "4T_output3": 0
+        },
+        {
+          "HREAD_n": 0,
+          "CLR_n": 1,
+          "capture": true,
+          "captures_since_clear": 4,
+          "1Q_RDY_IN": 1,
+          "2Q": 1,
+          "CLK_after_settling": 1,
+          "4T_output3": 0
+        },
+        {
+          "HREAD_n": 1,
+          "CLR_n": 1,
+          "capture": false,
+          "captures_since_clear": 4,
+          "1Q_RDY_IN": 1,
+          "2Q": 1,
+          "CLK_after_settling": 0,
+          "4T_output3": 0
+        }
+      ]
+    },
+    {
+      "initial_state": {
+        "1Q": 0,
+        "2Q": 1,
+        "HREAD_n": 0
+      },
+      "events": [
+        {
+          "HREAD_n": 0,
+          "CLR_n": 0,
+          "capture": false,
+          "captures_since_clear": 0,
+          "1Q_RDY_IN": 0,
+          "2Q": 0,
+          "CLK_after_settling": 0,
+          "4T_output3": 0
+        },
+        {
+          "HREAD_n": 0,
+          "CLR_n": 1,
+          "capture": false,
+          "captures_since_clear": 0,
+          "1Q_RDY_IN": 0,
+          "2Q": 0,
+          "CLK_after_settling": 0,
+          "4T_output3": 0
+        },
+        {
+          "HREAD_n": 1,
+          "CLR_n": 1,
+          "capture": true,
+          "captures_since_clear": 1,
+          "1Q_RDY_IN": 0,
+          "2Q": 1,
+          "CLK_after_settling": 0,
+          "4T_output3": 1
+        },
+        {
+          "HREAD_n": 0,
+          "CLR_n": 1,
+          "capture": true,
+          "captures_since_clear": 2,
+          "1Q_RDY_IN": 1,
+          "2Q": 1,
+          "CLK_after_settling": 1,
+          "4T_output3": 0
+        },
+        {
+          "HREAD_n": 1,
+          "CLR_n": 1,
+          "capture": false,
+          "captures_since_clear": 2,
+          "1Q_RDY_IN": 1,
+          "2Q": 1,
+          "CLK_after_settling": 0,
+          "4T_output3": 0
+        },
+        {
+          "HREAD_n": 0,
+          "CLR_n": 1,
+          "capture": true,
+          "captures_since_clear": 3,
+          "1Q_RDY_IN": 1,
+          "2Q": 1,
+          "CLK_after_settling": 1,
+          "4T_output3": 0
+        },
+        {
+          "HREAD_n": 1,
+          "CLR_n": 1,
+          "capture": false,
+          "captures_since_clear": 3,
+          "1Q_RDY_IN": 1,
+          "2Q": 1,
+          "CLK_after_settling": 0,
+          "4T_output3": 0
+        },
+        {
+          "HREAD_n": 0,
+          "CLR_n": 1,
+          "capture": true,
+          "captures_since_clear": 4,
+          "1Q_RDY_IN": 1,
+          "2Q": 1,
+          "CLK_after_settling": 1,
+          "4T_output3": 0
+        },
+        {
+          "HREAD_n": 1,
+          "CLR_n": 1,
+          "capture": false,
+          "captures_since_clear": 4,
+          "1Q_RDY_IN": 1,
+          "2Q": 1,
+          "CLK_after_settling": 0,
+          "4T_output3": 0
+        },
+        {
+          "HREAD_n": 0,
+          "CLR_n": 1,
+          "capture": true,
+          "captures_since_clear": 5,
+          "1Q_RDY_IN": 1,
+          "2Q": 1,
+          "CLK_after_settling": 1,
+          "4T_output3": 0
+        }
+      ]
+    },
+    {
+      "initial_state": {
+        "1Q": 0,
+        "2Q": 1,
+        "HREAD_n": 1
+      },
+      "events": [
+        {
+          "HREAD_n": 1,
+          "CLR_n": 0,
+          "capture": false,
+          "captures_since_clear": 0,
+          "1Q_RDY_IN": 0,
+          "2Q": 0,
+          "CLK_after_settling": 1,
+          "4T_output3": 0
+        },
+        {
+          "HREAD_n": 1,
+          "CLR_n": 1,
+          "capture": false,
+          "captures_since_clear": 0,
+          "1Q_RDY_IN": 0,
+          "2Q": 0,
+          "CLK_after_settling": 1,
+          "4T_output3": 0
+        },
+        {
+          "HREAD_n": 0,
+          "CLR_n": 1,
+          "capture": false,
+          "captures_since_clear": 0,
+          "1Q_RDY_IN": 0,
+          "2Q": 0,
+          "CLK_after_settling": 0,
+          "4T_output3": 0
+        },
+        {
+          "HREAD_n": 1,
+          "CLR_n": 1,
+          "capture": true,
+          "captures_since_clear": 1,
+          "1Q_RDY_IN": 0,
+          "2Q": 1,
+          "CLK_after_settling": 0,
+          "4T_output3": 1
+        },
+        {
+          "HREAD_n": 0,
+          "CLR_n": 1,
+          "capture": true,
+          "captures_since_clear": 2,
+          "1Q_RDY_IN": 1,
+          "2Q": 1,
+          "CLK_after_settling": 1,
+          "4T_output3": 0
+        },
+        {
+          "HREAD_n": 1,
+          "CLR_n": 1,
+          "capture": false,
+          "captures_since_clear": 2,
+          "1Q_RDY_IN": 1,
+          "2Q": 1,
+          "CLK_after_settling": 0,
+          "4T_output3": 0
+        },
+        {
+          "HREAD_n": 0,
+          "CLR_n": 1,
+          "capture": true,
+          "captures_since_clear": 3,
+          "1Q_RDY_IN": 1,
+          "2Q": 1,
+          "CLK_after_settling": 1,
+          "4T_output3": 0
+        },
+        {
+          "HREAD_n": 1,
+          "CLR_n": 1,
+          "capture": false,
+          "captures_since_clear": 3,
+          "1Q_RDY_IN": 1,
+          "2Q": 1,
+          "CLK_after_settling": 0,
+          "4T_output3": 0
+        },
+        {
+          "HREAD_n": 0,
+          "CLR_n": 1,
+          "capture": true,
+          "captures_since_clear": 4,
+          "1Q_RDY_IN": 1,
+          "2Q": 1,
+          "CLK_after_settling": 1,
+          "4T_output3": 0
+        },
+        {
+          "HREAD_n": 1,
+          "CLR_n": 1,
+          "capture": false,
+          "captures_since_clear": 4,
+          "1Q_RDY_IN": 1,
+          "2Q": 1,
+          "CLK_after_settling": 0,
+          "4T_output3": 0
+        }
+      ]
+    },
+    {
+      "initial_state": {
+        "1Q": 1,
+        "2Q": 0,
+        "HREAD_n": 0
+      },
+      "events": [
+        {
+          "HREAD_n": 0,
+          "CLR_n": 0,
+          "capture": false,
+          "captures_since_clear": 0,
+          "1Q_RDY_IN": 0,
+          "2Q": 0,
+          "CLK_after_settling": 0,
+          "4T_output3": 0
+        },
+        {
+          "HREAD_n": 0,
+          "CLR_n": 1,
+          "capture": false,
+          "captures_since_clear": 0,
+          "1Q_RDY_IN": 0,
+          "2Q": 0,
+          "CLK_after_settling": 0,
+          "4T_output3": 0
+        },
+        {
+          "HREAD_n": 1,
+          "CLR_n": 1,
+          "capture": true,
+          "captures_since_clear": 1,
+          "1Q_RDY_IN": 0,
+          "2Q": 1,
+          "CLK_after_settling": 0,
+          "4T_output3": 1
+        },
+        {
+          "HREAD_n": 0,
+          "CLR_n": 1,
+          "capture": true,
+          "captures_since_clear": 2,
+          "1Q_RDY_IN": 1,
+          "2Q": 1,
+          "CLK_after_settling": 1,
+          "4T_output3": 0
+        },
+        {
+          "HREAD_n": 1,
+          "CLR_n": 1,
+          "capture": false,
+          "captures_since_clear": 2,
+          "1Q_RDY_IN": 1,
+          "2Q": 1,
+          "CLK_after_settling": 0,
+          "4T_output3": 0
+        },
+        {
+          "HREAD_n": 0,
+          "CLR_n": 1,
+          "capture": true,
+          "captures_since_clear": 3,
+          "1Q_RDY_IN": 1,
+          "2Q": 1,
+          "CLK_after_settling": 1,
+          "4T_output3": 0
+        },
+        {
+          "HREAD_n": 1,
+          "CLR_n": 1,
+          "capture": false,
+          "captures_since_clear": 3,
+          "1Q_RDY_IN": 1,
+          "2Q": 1,
+          "CLK_after_settling": 0,
+          "4T_output3": 0
+        },
+        {
+          "HREAD_n": 0,
+          "CLR_n": 1,
+          "capture": true,
+          "captures_since_clear": 4,
+          "1Q_RDY_IN": 1,
+          "2Q": 1,
+          "CLK_after_settling": 1,
+          "4T_output3": 0
+        },
+        {
+          "HREAD_n": 1,
+          "CLR_n": 1,
+          "capture": false,
+          "captures_since_clear": 4,
+          "1Q_RDY_IN": 1,
+          "2Q": 1,
+          "CLK_after_settling": 0,
+          "4T_output3": 0
+        },
+        {
+          "HREAD_n": 0,
+          "CLR_n": 1,
+          "capture": true,
+          "captures_since_clear": 5,
+          "1Q_RDY_IN": 1,
+          "2Q": 1,
+          "CLK_after_settling": 1,
+          "4T_output3": 0
+        }
+      ]
+    },
+    {
+      "initial_state": {
+        "1Q": 1,
+        "2Q": 0,
+        "HREAD_n": 1
+      },
+      "events": [
+        {
+          "HREAD_n": 1,
+          "CLR_n": 0,
+          "capture": false,
+          "captures_since_clear": 0,
+          "1Q_RDY_IN": 0,
+          "2Q": 0,
+          "CLK_after_settling": 1,
+          "4T_output3": 0
+        },
+        {
+          "HREAD_n": 1,
+          "CLR_n": 1,
+          "capture": false,
+          "captures_since_clear": 0,
+          "1Q_RDY_IN": 0,
+          "2Q": 0,
+          "CLK_after_settling": 1,
+          "4T_output3": 0
+        },
+        {
+          "HREAD_n": 0,
+          "CLR_n": 1,
+          "capture": false,
+          "captures_since_clear": 0,
+          "1Q_RDY_IN": 0,
+          "2Q": 0,
+          "CLK_after_settling": 0,
+          "4T_output3": 0
+        },
+        {
+          "HREAD_n": 1,
+          "CLR_n": 1,
+          "capture": true,
+          "captures_since_clear": 1,
+          "1Q_RDY_IN": 0,
+          "2Q": 1,
+          "CLK_after_settling": 0,
+          "4T_output3": 1
+        },
+        {
+          "HREAD_n": 0,
+          "CLR_n": 1,
+          "capture": true,
+          "captures_since_clear": 2,
+          "1Q_RDY_IN": 1,
+          "2Q": 1,
+          "CLK_after_settling": 1,
+          "4T_output3": 0
+        },
+        {
+          "HREAD_n": 1,
+          "CLR_n": 1,
+          "capture": false,
+          "captures_since_clear": 2,
+          "1Q_RDY_IN": 1,
+          "2Q": 1,
+          "CLK_after_settling": 0,
+          "4T_output3": 0
+        },
+        {
+          "HREAD_n": 0,
+          "CLR_n": 1,
+          "capture": true,
+          "captures_since_clear": 3,
+          "1Q_RDY_IN": 1,
+          "2Q": 1,
+          "CLK_after_settling": 1,
+          "4T_output3": 0
+        },
+        {
+          "HREAD_n": 1,
+          "CLR_n": 1,
+          "capture": false,
+          "captures_since_clear": 3,
+          "1Q_RDY_IN": 1,
+          "2Q": 1,
+          "CLK_after_settling": 0,
+          "4T_output3": 0
+        },
+        {
+          "HREAD_n": 0,
+          "CLR_n": 1,
+          "capture": true,
+          "captures_since_clear": 4,
+          "1Q_RDY_IN": 1,
+          "2Q": 1,
+          "CLK_after_settling": 1,
+          "4T_output3": 0
+        },
+        {
+          "HREAD_n": 1,
+          "CLR_n": 1,
+          "capture": false,
+          "captures_since_clear": 4,
+          "1Q_RDY_IN": 1,
+          "2Q": 1,
+          "CLK_after_settling": 0,
+          "4T_output3": 0
+        }
+      ]
+    },
+    {
+      "initial_state": {
+        "1Q": 1,
+        "2Q": 1,
+        "HREAD_n": 0
+      },
+      "events": [
+        {
+          "HREAD_n": 0,
+          "CLR_n": 0,
+          "capture": false,
+          "captures_since_clear": 0,
+          "1Q_RDY_IN": 0,
+          "2Q": 0,
+          "CLK_after_settling": 0,
+          "4T_output3": 0
+        },
+        {
+          "HREAD_n": 0,
+          "CLR_n": 1,
+          "capture": false,
+          "captures_since_clear": 0,
+          "1Q_RDY_IN": 0,
+          "2Q": 0,
+          "CLK_after_settling": 0,
+          "4T_output3": 0
+        },
+        {
+          "HREAD_n": 1,
+          "CLR_n": 1,
+          "capture": true,
+          "captures_since_clear": 1,
+          "1Q_RDY_IN": 0,
+          "2Q": 1,
+          "CLK_after_settling": 0,
+          "4T_output3": 1
+        },
+        {
+          "HREAD_n": 0,
+          "CLR_n": 1,
+          "capture": true,
+          "captures_since_clear": 2,
+          "1Q_RDY_IN": 1,
+          "2Q": 1,
+          "CLK_after_settling": 1,
+          "4T_output3": 0
+        },
+        {
+          "HREAD_n": 1,
+          "CLR_n": 1,
+          "capture": false,
+          "captures_since_clear": 2,
+          "1Q_RDY_IN": 1,
+          "2Q": 1,
+          "CLK_after_settling": 0,
+          "4T_output3": 0
+        },
+        {
+          "HREAD_n": 0,
+          "CLR_n": 1,
+          "capture": true,
+          "captures_since_clear": 3,
+          "1Q_RDY_IN": 1,
+          "2Q": 1,
+          "CLK_after_settling": 1,
+          "4T_output3": 0
+        },
+        {
+          "HREAD_n": 1,
+          "CLR_n": 1,
+          "capture": false,
+          "captures_since_clear": 3,
+          "1Q_RDY_IN": 1,
+          "2Q": 1,
+          "CLK_after_settling": 0,
+          "4T_output3": 0
+        },
+        {
+          "HREAD_n": 0,
+          "CLR_n": 1,
+          "capture": true,
+          "captures_since_clear": 4,
+          "1Q_RDY_IN": 1,
+          "2Q": 1,
+          "CLK_after_settling": 1,
+          "4T_output3": 0
+        },
+        {
+          "HREAD_n": 1,
+          "CLR_n": 1,
+          "capture": false,
+          "captures_since_clear": 4,
+          "1Q_RDY_IN": 1,
+          "2Q": 1,
+          "CLK_after_settling": 0,
+          "4T_output3": 0
+        },
+        {
+          "HREAD_n": 0,
+          "CLR_n": 1,
+          "capture": true,
+          "captures_since_clear": 5,
+          "1Q_RDY_IN": 1,
+          "2Q": 1,
+          "CLK_after_settling": 1,
+          "4T_output3": 0
+        }
+      ]
+    },
+    {
+      "initial_state": {
+        "1Q": 1,
+        "2Q": 1,
+        "HREAD_n": 1
+      },
+      "events": [
+        {
+          "HREAD_n": 1,
+          "CLR_n": 0,
+          "capture": false,
+          "captures_since_clear": 0,
+          "1Q_RDY_IN": 0,
+          "2Q": 0,
+          "CLK_after_settling": 1,
+          "4T_output3": 0
+        },
+        {
+          "HREAD_n": 1,
+          "CLR_n": 1,
+          "capture": false,
+          "captures_since_clear": 0,
+          "1Q_RDY_IN": 0,
+          "2Q": 0,
+          "CLK_after_settling": 1,
+          "4T_output3": 0
+        },
+        {
+          "HREAD_n": 0,
+          "CLR_n": 1,
+          "capture": false,
+          "captures_since_clear": 0,
+          "1Q_RDY_IN": 0,
+          "2Q": 0,
+          "CLK_after_settling": 0,
+          "4T_output3": 0
+        },
+        {
+          "HREAD_n": 1,
+          "CLR_n": 1,
+          "capture": true,
+          "captures_since_clear": 1,
+          "1Q_RDY_IN": 0,
+          "2Q": 1,
+          "CLK_after_settling": 0,
+          "4T_output3": 1
+        },
+        {
+          "HREAD_n": 0,
+          "CLR_n": 1,
+          "capture": true,
+          "captures_since_clear": 2,
+          "1Q_RDY_IN": 1,
+          "2Q": 1,
+          "CLK_after_settling": 1,
+          "4T_output3": 0
+        },
+        {
+          "HREAD_n": 1,
+          "CLR_n": 1,
+          "capture": false,
+          "captures_since_clear": 2,
+          "1Q_RDY_IN": 1,
+          "2Q": 1,
+          "CLK_after_settling": 0,
+          "4T_output3": 0
+        },
+        {
+          "HREAD_n": 0,
+          "CLR_n": 1,
+          "capture": true,
+          "captures_since_clear": 3,
+          "1Q_RDY_IN": 1,
+          "2Q": 1,
+          "CLK_after_settling": 1,
+          "4T_output3": 0
+        },
+        {
+          "HREAD_n": 1,
+          "CLR_n": 1,
+          "capture": false,
+          "captures_since_clear": 3,
+          "1Q_RDY_IN": 1,
+          "2Q": 1,
+          "CLK_after_settling": 0,
+          "4T_output3": 0
+        },
+        {
+          "HREAD_n": 0,
+          "CLR_n": 1,
+          "capture": true,
+          "captures_since_clear": 4,
+          "1Q_RDY_IN": 1,
+          "2Q": 1,
+          "CLK_after_settling": 1,
+          "4T_output3": 0
+        },
+        {
+          "HREAD_n": 1,
+          "CLR_n": 1,
+          "capture": false,
+          "captures_since_clear": 4,
+          "1Q_RDY_IN": 1,
+          "2Q": 1,
+          "CLK_after_settling": 0,
+          "4T_output3": 0
+        }
+      ]
+    }
+  ],
+  "viewport_recovery": [
+    {
+      "original": "_checks/manuals/bandido-page-36.png",
+      "box": [
+        620,
+        4320,
+        2050,
+        5050
+      ],
+      "viewport": "_checks/manuals/bandido-hread-d1-connected.png"
+    },
+    {
+      "original": "_checks/manuals/bandido-page-36.png",
+      "box": [
+        980,
+        4850,
+        2520,
+        5550
+      ],
+      "viewport": "_checks/manuals/bandido-handshake-bottom-connected.png"
+    },
+    {
+      "original": "_checks/manuals/bandido-page-36.png",
+      "box": [
+        1250,
+        5080,
+        1870,
+        5240
+      ],
+      "inspection_zoom": "4x nearest neighbor",
+      "viewport": "_checks/manuals/bandido-handshake-crossings-4x.png"
+    },
+    {
+      "original": "_checks/manuals/bandido-page-35.png",
+      "box": [
+        0,
+        4800,
+        5088,
+        6250
+      ],
+      "inspection_zoom": "1/2 scale",
+      "viewport": "_checks/manuals/bandido-bottom-nets-35.png"
+    },
+    {
+      "original": "_checks/manuals/bandido-page-36.png",
+      "box": [
+        0,
+        4800,
+        5088,
+        6250
+      ],
+      "inspection_zoom": "1/2 scale",
+      "viewport": "_checks/manuals/bandido-bottom-nets-36.png"
+    }
+  ],
+  "supersedes": "The earlier partial observation in sheriff_memory_primary_connections.json incorrectly assigned HREAD_n to 4F 1D. Complete connected viewports show the feedback connection.",
+  "limits": [
+    "CLR_n connectivity to RAMSTB_n is established on the related board. The external-event model does not generate STSTB or qualify asynchronous-clear pulse widths and READY 3D response, including overlapping low preset/clear.",
+    "Functional edge counting excludes real XOR/LS174 propagation, pulse-width/setup/hold limits and RC effects.",
+    "RAS/CAS/WE gating, address mux and which RAM byte is valid at each capture remain unqualified.",
+    "Related Bandido net applicability to Sheriff remains conditional.",
+    "No production READY, video, latch or clock RTL is changed and no MAME mismatch is waived."
+  ],
+  "physical_ram_schedule_qualified": false,
+  "production_rtl_changed": false,
+  "quartus_executed": false,
+  "script_sha256": "fe874552beae3779a0b72ed78276cf689a3f0845635463d49b2a840fe7c13e96"
+}

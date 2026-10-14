@@ -1,0 +1,182 @@
+{
+  "set": "zeroteam",
+  "mame_version": "0289",
+  "sprites_encrypted": true,
+  "source": "reference/mame/raiden2.cpp:2719",
+  "regions": {
+    "maincpu": {
+      "size": 1048576,
+      "fill": 0,
+      "operations": [
+        {
+          "kind": "ROM_LOAD32_BYTE",
+          "name": "seibu__1.u024.5k",
+          "offset": 0,
+          "size": 262144
+        },
+        {
+          "kind": "ROM_LOAD32_BYTE",
+          "name": "seibu__3.u023.6k",
+          "offset": 2,
+          "size": 262144
+        },
+        {
+          "kind": "ROM_LOAD32_BYTE",
+          "name": "seibu__2.u025.6l",
+          "offset": 1,
+          "size": 262144
+        },
+        {
+          "kind": "ROM_LOAD32_BYTE",
+          "name": "seibu__4.u026.5l",
+          "offset": 3,
+          "size": 262144
+        }
+      ],
+      "sha256": "9ff914f142474699925a8d362fd6d8962393c606d70f91d92979a0169dee2d2b"
+    },
+    "copx": {
+      "size": 262144,
+      "fill": 0,
+      "operations": [
+        {
+          "kind": "ROM_LOAD",
+          "name": "copx-d2.u0313.6n",
+          "offset": 0,
+          "size": 262144
+        }
+      ],
+      "sha256": "fb72435382cf822deed1e1434d9c5a34b61b3c3d83704eb21e1f70a15beaf936"
+    },
+    "audiocpu": {
+      "size": 131072,
+      "fill": 255,
+      "operations": [
+        {
+          "kind": "ROM_LOAD",
+          "name": "seibu__5.u1110.5b",
+          "offset": 0,
+          "size": 32768
+        },
+        {
+          "kind": "ROM_CONTINUE",
+          "offset": 65536,
+          "size": 32768
+        },
+        {
+          "kind": "ROM_COPY",
+          "source": "audiocpu",
+          "source_offset": 0,
+          "offset": 98304,
+          "size": 32768
+        }
+      ],
+      "sha256": "5266e60c07e6b86a17ce643ba8fc2624b23e6349895e64967a745dff68a45d67"
+    },
+    "chars": {
+      "size": 131072,
+      "fill": 0,
+      "operations": [
+        {
+          "kind": "ROM_LOAD16_BYTE",
+          "name": "seibu__7.u072.5s",
+          "offset": 0,
+          "size": 65536
+        },
+        {
+          "kind": "ROM_LOAD16_BYTE",
+          "name": "seibu__8.u077.5r",
+          "offset": 1,
+          "size": 65536
+        }
+      ],
+      "sha256": "56e72d85beaf40caa2bea3fc28b24440cbd87925efae53b911ce06a362f260e5"
+    },
+    "tiles": {
+      "size": 4194304,
+      "fill": 0,
+      "operations": [
+        {
+          "kind": "ROM_LOAD",
+          "name": "musha_back-1.u075.4s",
+          "offset": 0,
+          "size": 1048576
+        },
+        {
+          "kind": "ROM_LOAD",
+          "name": "musha_back-2.u0714.2s",
+          "offset": 1048576,
+          "size": 524288
+        }
+      ],
+      "sha256": "e5b59e785f8e63202f0dbc127931c0059c53b54d0c410a5cfaee6cfe106d53c9"
+    },
+    "sprites": {
+      "size": 8388608,
+      "fill": 255,
+      "operations": [
+        {
+          "kind": "ROM_LOAD32_WORD",
+          "name": "musha_obj-1.u0811.6f",
+          "offset": 0,
+          "size": 2097152
+        },
+        {
+          "kind": "ROM_LOAD32_WORD",
+          "name": "musha_obj-2.u082.5f",
+          "offset": 2,
+          "size": 2097152
+        }
+      ],
+      "sha256": "e55641fccf9c57da409e288c9630b84235ec9ea916992faf6f080c61bd959d9d"
+    },
+    "oki": {
+      "size": 1048576,
+      "fill": 0,
+      "operations": [
+        {
+          "kind": "ROM_LOAD",
+          "name": "seibu__6.u105.4a",
+          "offset": 0,
+          "size": 262144
+        }
+      ],
+      "sha256": "d41155b3b3d6423214b1fb5e7c7f478c4f2cba7f9c5baf16730638736ea9917b"
+    },
+    "pals": {
+      "size": 65536,
+      "fill": 0,
+      "operations": [
+        {
+          "kind": "ROM_LOAD",
+          "name": "v3c001.pal.u0310",
+          "offset": 0,
+          "size": 648,
+          "status": "nodump"
+        },
+        {
+          "kind": "ROM_LOAD",
+          "name": "v3c002.tibpal16l8-25.u0322",
+          "offset": 0,
+          "size": 648,
+          "status": "nodump"
+        },
+        {
+          "kind": "ROM_LOAD",
+          "name": "v3c003.ami18cv8p-15.u0619",
+          "offset": 0,
+          "size": 648,
+          "status": "nodump"
+        },
+        {
+          "kind": "ROM_LOAD",
+          "name": "v3c004x.ami18cv8pc-25.u0310",
+          "offset": 0,
+          "size": 648,
+          "status": "nodump"
+        }
+      ],
+      "sha256": "de2f256064a0af797747c2b97505dc0b9f3df0de4f489eac731c23ae9ca9cc31"
+    }
+  }
+}

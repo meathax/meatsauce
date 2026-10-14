@@ -1,0 +1,28 @@
+{
+  "scope": "Actual COP RTL on 78 observed US 3b30 operand/result cases, preceded by real angle operation",
+  "result": {
+    "cases": 78,
+    "different_results": 0,
+    "unexpected_distance_writes": 0
+  },
+  "first_observed_frame": 170,
+  "change": "3b30 selects the existing restoring-integer-square-root distance datapath; bit 7 still gates RAM writes",
+  "baseline_source_sha256": "d301976821db7c018331fb9ca15acada184e5357bf083196edab47501f3bb25e",
+  "sources": {
+    "rtl/Raiden2/Raiden2_cop3.sv": "e10f614782e8da15f1570bef604d05bdfa9c04b0226370a2e37d9ed0b6219f43",
+    "rtl/common/savestate.sv": "0a6a3634166ee9e664c993a7331d7f07a46b0360664e54977bf959a00a206839",
+    "rtl/common/savestate_ram.sv": "8ef9ed759ef2a85cce6f60590eecaf187ae1d6cb58691f40dd242dae0c4bfb2c",
+    "sim/zero_cop_math_top.sv": "7466eb1dbfd3b292394eae30c58173a7bffec6794a7c5bf69739c53bcdc99c62",
+    "sim/cop_math_main.cpp": "af16df446331c0b353e9c6cb663019d3c29820a27395124e4c517688c911d2d1",
+    "sim/run_cop_math.sh": "b9fbe32c3ed8851c5ccb055113938ea8e121743337ab7c749efb36df2f4fdff9",
+    "sim/mame/play.lua": "cb16a7c01abe5f63d95867a0d0722dfe085b50d33e4e594c9a344c079e154574"
+  },
+  "fixture_sha256": "26328d1628930c5e824ffc70569ac163ca8e5d3b39257c546a1ca255c8dca2b7",
+  "limits": [
+    "No main CPU runs in this narrow real-chip replay; full-board continuation is separate.",
+    "Replay source memory uses the production two-clock input latency; initial one-clock replay was corrected before this passing result.",
+    "MAME operand snapshots and readback values are the independent expected results; no host-side CPU/protection substitute.",
+    "Only the observed 3b30 cases and no-RAM-write behavior are covered; other COP operations and later gameplay remain pending.",
+    "Pre-fix live checkpoints after the first 3b30 call are diagnostically affected and must not be used as validated bring-up states."
+  ]
+}

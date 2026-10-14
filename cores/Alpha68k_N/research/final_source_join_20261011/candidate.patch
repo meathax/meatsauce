@@ -1,0 +1,429 @@
+--- a/docs/HACKS.md
++++ b/docs/HACKS.md
+@@ -12,3 +12,11 @@
+ No original-firmware or physical MCU timing claim follows from a MAME-compatible
+ result. B10/B12/B13/B14/B15 require the evidence described in `mamebug.md`; they
+ remain unresolved where physical board information is unavailable.
++
++## Proposed Stingray integration boundary
++
++The proposed profile2 path executes the authentic 1024-byte 8748 firmware rather than the Kyros compatibility callbacks. The T48 port observation fork exports architectural P2 write data because delayed physical pins lose the ready transition. Prior genuine-firmware component evidence does not establish current whole-game acceptance. MCU oscillator frequency, original PCB timing, analog audio and undocumented hardware remain explicit fidelity limits; no guessed PCB correction is claimed.
++
++The fx68k HALT pin is a single-step input. The board drains an accepted AS transaction, then holds its existing phase enables at AS-high while the MCU owns HALT. The physical/MAME timing equivalence of this boundary remains subject to coupled CPU evidence. No synthetic CPU/game action is added.
++
++The shared YM2203 SSG period-zero correction changes all profiles and requires final-source replay binding. It is not covered by the profile0/1 board-cone equivalence claim.
+--- a/docs/MAME_KLUDGES.md
++++ b/docs/MAME_KLUDGES.md
+@@ -0,0 +1,5 @@
++# Proposed MAME compatibility and limits — 2026-10-11
++
++Kyros/Japan use the existing MAME0.289 compatibility MCU; original undumped/partial Alpha8511 firmware is not fabricated. Stingray uses real T48 firmware and the existing pinned profile constants. Uncertain MCU clock and physical fidelity limits remain open as catalogued in mamebug.md. No new MAME bug closure is claimed here.
++
++Completed PNG texture/display RGB is the visible-frame oracle; post-swap diagnostic drawing-buffer RGB is a separate artifact. No mismatching pixel or RAM data is masked. Final CPU-consumed input phase and exact gameplay gates remain parent-owned; earlier callback-only phase inference must not be used as acceptance evidence.
+--- a/docs/STATE.md
++++ b/docs/STATE.md
+@@ -1,27 +1,9 @@
+-# Development state inventory
++# Proposed integrated state inventory — 2026-10-11
+ 
+-This is diagnostic access, not a shipped savestate feature.
++This staged candidate retains the real 68000/Z80, SDRAM graphics pipeline, PROM decode, AY/YM2203/DAC and framework interface. It is not a production acceptance receipt. Diagnostic state is not a shipped savestate feature.
+ 
+-The first board shell has 4096 bytes work/shared RAM, 8192 bytes strip RAM and
+-2048 bytes sound RAM, initialized once. Work/strip diagnostic reads are registered.
+-ROM contents come from the versioned loader contract and are not mutable gameplay
+-state. Graphics load transactions are forwarded to the future SDRAM controller;
+-PROM storage and complete download acknowledgements are not integrated yet.
++The board uses one 48 MHz game clock with enables. Kyros/Japan retain their existing CPU enable, memory, IRQ2, MCU compatibility and bus acceptance paths. Profile2 adds a rational 3,579,545 Hz Z80 enable and genuine T48 firmware MCU, rational MCU clock enables, low-byte shared RAM write arbitration, firmware IRQ2, flip and accepted-transaction HALT drain. The RAM address/data port serves MCU replies before conflicting main-CPU work accesses; hiscore borrow waits for the registered MCU write drain.
+ 
+-Persistent board state: CPU phase counters, raster x/y, independent 60 Hz main IRQ2
+-and 4 kHz sound NMI counters, pending interrupt flags, background word, native flip,
+-coin latch/deposit/credit registers, sound command/clear state and DAC value.
+-Bus completion flags ensure a stalled transaction commits once. Diagnostic counters
+-record main/sound buses, work/strip writes, MCU accesses, IRQ acknowledges and unmapped
+-accesses. fx68k/T80 internals retain their donor names and provenance. Full CPU/audio
+-serialization is not implemented or claimed.
++P2 transaction data comes from the donor's architectural latch at the already delayed enabled write observation. Physical P2 output remains unchanged. Sound ROM loader word address remains explicitly 15 bits; its extra diagnostic read exists only in Verilator. Registered CPU read and byte-lane timing remain unchanged.
+ 
+-The initial shell supports Kyros/Japan's compatibility MCU and sound bus only.
+-Stingray MCU/maps/fractional clocks, graphics drawing, audio chips, SDRAM controller,
+-framework integration and fitted resource/timing evidence remain pending.
+-
+-The simulator is pinned to installed Verilator 5.050. Three independent fx68k
+-signal structs are packed in the shared imported RTL to avoid a mixed-driver
+-diagnostic; provenance retains both hashes. Generated unique/priority-case checks
+-are disabled for the donor ALU's invalid intermediate reset control word. Explicit
+-assertions remain enabled. These accommodations do not establish ROM boot by themselves.
++Production ROM admission remains profiles0/1. A separate conditional patch enables profile2 only after the parent's genuine181 gameplay and wrapper gates. This candidate has no new build, replay, fit, timing, hardware or release qualification. Complete current-source acceptance and constraints remain parent-owned.
+--- a/donormap.md
++++ b/donormap.md
+@@ -183,3 +183,11 @@
+ bounded native diagnostic namespace. Physical HALT/arbitration/IRQ ordering
+ and full Stingray attract/gameplay remain unqualified; static/model cases do
+ not satisfy that boundary. See research/stingray_combined_stage/integration_contract.json.
++
++## Proposed final-source join — 2026-10-11
++
++This candidate adds `rtl/alpha68kn_mcu.sv` and `rtl/vendor/t48/t48_core.v` to files.qip. The donor remains JTFRAME revision548b87b32a1b528a16cb41f689accb179e85d1a8 / Arnim Laeuger T48. The fork retains enabled BUS/P2 decoder observations and additionally exports the architectural P2 latch; SOURCE.json and original LICENSE.upstream travel with it. No donor CPU/timer clock logic is changed by the P2 export.
++
++The board profile2 path integrates real firmware ROM, command byte, coin T0/T1, shared reply, firmware IRQ2, flip, rational enables and accepted-AS HALT drain. Kyros/Japan preserve their existing board functional cone. The shared nested JT49 divider removes period-zero constant output; its fork manifest binds baseline and proposed hashes. This shared sound correction applies to all profiles and needs current-source acceptance.
++
++These are staged proposals. The existing complete161-source fit does not include the new MCU/T48 assignments or changed board/divider/donor, and cannot qualify this image. Pinned sys remains external and unchanged. Profile2 production admission is a separate conditional patch, to apply only after genuine181 gameplay and realHPS wrapper qualification, followed by complete current-source timing/resource acceptance.
+--- a/files.qip
++++ b/files.qip
+@@ -21,3 +21,5 @@
+ set_global_assignment -name SYSTEMVERILOG_FILE rtl/vendor/mister_features/crt_adjust.sv
+ set_global_assignment -name SYSTEMVERILOG_FILE rtl/vendor/mister_features/crt_vsize.sv
+ set_global_assignment -name VERILOG_FILE rtl/vendor/mister_features/hiscore.v
++set_global_assignment -name SYSTEMVERILOG_FILE rtl/alpha68kn_mcu.sv
++set_global_assignment -name VERILOG_FILE rtl/vendor/t48/t48_core.v
+--- a/rtl/alpha68kn_board.sv
++++ b/rtl/alpha68kn_board.sv
+@@ -49,7 +49,16 @@
+     output logic [15:0] debug_rom_data
+ );
+     wire held_reset = reset | downloading;
+-    always @(posedge clk) paused<=pause_game && !held_reset;
++    wire is_stingray=profile==8'd2;
++    // Existing wrapper P2 observation and board write are registered stages.
++    // Hold the HS borrow through their pre-pause drain; guard the port directly too.
++    logic [1:0] sting_pause_drain=0;
++    always @(posedge clk) begin
++        if(held_reset || !is_stingray || !pause_game) sting_pause_drain<=0;
++        else if(sting_pause_drain!=3) sting_pause_drain<=sting_pause_drain+1'b1;
++        paused<=pause_game && !held_reset &&
++            (!is_stingray || (sting_pause_drain==3 && !sting_mcu_shared_write));
++    end
+     logic [2:0] phase,cpu_phase;
+     logic [3:0] zphase;
+     logic [19:0] irq2_count;
+@@ -57,7 +66,16 @@
+     logic [4:0] nmi_width;
+     logic irq1, irq2, sound_irq;
+     wire [2:0] level = irq2 ? 3'd2 : irq1 ? 3'd1 : 3'd0;
+-    wire ce_z80 = zphase == 0;
++    logic [25:0] sting_z_fraction=0;
++    wire [26:0] sting_z_sum={1'b0,sting_z_fraction}+27'd3579545;
++    wire ce_z80 = is_stingray ? sting_z_sum>=27'd48000000 : zphase==0;
++    always @(posedge clk) begin
++        if(held_reset || !is_stingray) sting_z_fraction<=0;
++        else if(!pause_game) begin
++            if(sting_z_sum>=27'd48000000) sting_z_fraction<=sting_z_sum-27'd48000000;
++            else sting_z_fraction<=sting_z_sum[25:0];
++        end
++    end
+     wire vblank_edge = ce_pix && x == 383 && y == 239;
+     assign ce_pix = phase == 0;
+     assign hblank = x >= 256;
+@@ -174,9 +192,32 @@
+     assign debug_main_attrs = {iack,mrw_n,muds_n,mlds_n};
+     assign debug_main_din = mdin;
+     assign debug_main_dout = mdout;
++    wire [11:0] sting_mcu_program_addr;
++    logic [7:0] sting_mcu_program_q=0;
++    wire sting_mcu_main_halt,sting_mcu_irq2,sting_mcu_shared_write,sting_mcu_flip;
++    wire sting_mcu_command_valid,sting_mcu_bus_event,sting_mcu_control_event;
++    wire [7:0] sting_mcu_shared_addr,sting_mcu_shared_data,sting_mcu_bus,sting_mcu_control;
++    wire [31:0] sting_mcu_oscillator_ticks,sting_mcu_core_ticks;
++    // fx68k HALTn is documented as single-step. Drain the accepted AS cycle,
++    // then freeze the existing phase/enables at AS-high. This P6 boundary
++    // requires a coupled-CPU trace before physical/MAME timing qualification.
++    wire sting_main_pause=is_stingray && sting_mcu_main_halt && mas_n;
++    always @(posedge clk) sting_mcu_program_q<=mcu_rom[sting_mcu_program_addr];
++    alpha68kn_mcu sting_mcu (
++        .clk(clk),.reset(held_reset || !is_stingray),.pause_game(pause_game),
++        .program_addr(sting_mcu_program_addr),.program_data(sting_mcu_program_q),
++        .command_valid(sting_mcu_command_valid),.command_read(mrw_n),
++        .command_addr(ma[8:1]),.command_data(mdout[7:0]),.coins_n(coins_n),
++        .main_halt(sting_mcu_main_halt),.irq2(sting_mcu_irq2),
++        .shared_write(sting_mcu_shared_write),.shared_addr(sting_mcu_shared_addr),
++        .shared_data(sting_mcu_shared_data),.flip(sting_mcu_flip),
++        .bus_data(sting_mcu_bus),.control(sting_mcu_control),
++        .bus_event(sting_mcu_bus_event),.control_event(sting_mcu_control_event),
++        .oscillator_ticks(sting_mcu_oscillator_ticks),.core_ticks(sting_mcu_core_ticks)
++    );
+     fx68k maincpu (
+         .clk(clk), .HALTn(1'b1), .extReset(held_reset), .pwrUp(held_reset),
+-        .enPhi1(cpu_phase==0 && !pause_game), .enPhi2(cpu_phase==4 && !pause_game),
++        .enPhi1(cpu_phase==0 && !pause_game && !sting_main_pause), .enPhi2(cpu_phase==4 && !pause_game && !sting_main_pause),
+         .eRWn(mrw_n), .ASn(mas_n), .LDSn(mlds_n), .UDSn(muds_n),
+         .E(), .VMAn(), .FC0(fc0), .FC1(fc1), .FC2(fc2),
+         .BGn(), .oRESETn(), .oHALTEDn(),
+@@ -212,10 +253,11 @@
+     always_ff @(posedge clk) begin
+         sound_rom_q <= sound_rom[za[15:1]];
+         sound_rom_lane_q <= za[0];
+-        sound_rom_selected_q <= !sound_io_rd && za < 'hc000;
++        sound_rom_selected_q <= !sound_io_rd && za < (is_stingray ? 16'h8000 : 16'hc000);
+         if (sound_io_rd) sound_nonrom_q <= sound_io_read_data;
+-        else if (za >= 'hc000 && za < 'hc800) sound_nonrom_q <= sound_ram[za[10:0]];
+-        else if (za == 'he000) sound_nonrom_q <= sound_latch;
++        else if ((is_stingray && za >= 'h8000 && za < 'h8800) ||
++                 (!is_stingray && za >= 'hc000 && za < 'hc800)) sound_nonrom_q <= sound_ram[za[10:0]];
++        else if (za == (is_stingray ? 16'hc100 : 16'he000)) sound_nonrom_q <= sound_latch;
+         else sound_nonrom_q <= 8'hff;
+     end
+     assign zdin = sound_rom_selected_q ?
+@@ -242,25 +284,31 @@
+         endcase
+     endfunction
+ 
+-    // Exact accepted edge; no CPU enable, AS, byte-strobe or DTACK change.
++    // Kyros accepted edge retained; profile2 work collision defers DTACK below.
++    // MCU control writes preserve the shared word's high byte. A real MCU
++    // write owns the single byte-bank write port for this master edge.
++    wire sting_mcu_work_service=is_stingray && !held_reset && sting_mcu_shared_write;
+     wire ram_bus_service=!held_reset && !pause_game && !mas_n && !bus_done
+         && (iack || !muds_n || !mlds_n)
+-        && (iack || maddr>=24'h020000 || main_rom_addr_q==ma[16:1]);
++        && (iack || maddr>=24'h020000 || main_rom_addr_q==ma[16:1])
++        && (!sting_mcu_work_service || iack || maddr<24'h020000 || maddr>=24'h021000);
++    assign sting_mcu_command_valid=is_stingray && ram_bus_service && !iack &&
++        maddr>=24'h080000 && maddr<24'h080200 && !mlds_n;
+     wire cpu_work_service=ram_bus_service && !iack && maddr>=24'h020000 && maddr<24'h021000;
+     wire cpu_strip_service=ram_bus_service && !iack && maddr>=24'h040000 && maddr<24'h042000;
+-    wire hs_work_service=!held_reset && pause_game && paused && hs_access
++    wire hs_work_service=!held_reset && pause_game && paused && hs_access && !sting_mcu_work_service
+         && hs_addr>=24'h020000 && hs_addr<24'h021000;
+-    wire hle_service=ram_bus_service && !iack && mrw_n && maddr>=24'h080000 && maddr<24'h080200;
++    wire hle_service=!is_stingray && ram_bus_service && !iack && mrw_n && maddr>=24'h080000 && maddr<24'h080200;
+     wire hle_coin=hle_service && ma[8:1]==8'h29 && !coin_latch && coins_n!=2'b11;
+     wire hle_low_write=hle_service && (ma[8:1]==8'h22 || ma[8:1]==8'hff || ma[8:1]==8'h29);
+-    wire [10:0] work_port_addr=hs_work_service ? hs_addr[11:1] :
++    wire [10:0] work_port_addr=sting_mcu_work_service ? {3'd0,sting_mcu_shared_addr} : hs_work_service ? hs_addr[11:1] :
+                              cpu_work_service ? ma[11:1] : {3'd0,ma[8:1]};
+     wire work_write_hi=(hs_work_service && hs_write && !hs_addr[0])
+                       || (cpu_work_service && !mrw_n && !muds_n);
+-    wire work_write_lo=(hs_work_service && hs_write && hs_addr[0])
++    wire work_write_lo=sting_mcu_work_service || (hs_work_service && hs_write && hs_addr[0])
+                       || (cpu_work_service && !mrw_n && !mlds_n) || hle_low_write;
+     wire [7:0] work_data_hi=hs_work_service ? hs_data_in : mdout[15:8];
+-    wire [7:0] work_data_lo=hs_work_service ? hs_data_in : cpu_work_service ? mdout[7:0] :
++    wire [7:0] work_data_lo=sting_mcu_work_service ? sting_mcu_shared_data : hs_work_service ? hs_data_in : cpu_work_service ? mdout[7:0] :
+                   ma[8:1]==8'h22 ? credits : ma[8:1]==8'hff ? 8'h12 : hle_coin ? 8'h22 : 8'h00;
+     // Write-only full-byte banks plus one selected synchronous read port.
+     // The cross-port old-data contract includes hiscore write/read and CPU DI.
+@@ -325,7 +373,7 @@
+             mcu_transactions<=0;irq1_acks<=0;irq2_acks<=0;unmapped_accesses<=0;
+         end else begin
+             phase <= phase+1'b1;
+-            if(!pause_game) cpu_phase<=cpu_phase+1'b1;
++            if(!pause_game && !sting_main_pause) cpu_phase<=cpu_phase+1'b1;
+             if(!pause_game) zphase <= zphase==11 ? 0 : zphase+1'b1;
+             if (ce_pix) begin
+                 if (x==383) begin x<=0;y<=y==263 ? 0 : y+1'b1; end
+@@ -333,8 +381,10 @@
+             end
+             if (!pause_game) begin
+             if (vblank_edge) begin irq1<=1;sound_irq<=1; end
+-            if (irq2_count==799999) begin irq2_count<=0;irq2<=1; end
+-            else irq2_count<=irq2_count+1'b1;
++            if (!is_stingray) begin
++                if (irq2_count==799999) begin irq2_count<=0;irq2<=1; end
++                else irq2_count<=irq2_count+1'b1;
++            end
+             if (nmi_width!=0) nmi_width<=nmi_width-1'b1;
+             if (nmi_count==11999) begin nmi_count<=0;nmi_width<=24; end
+             else nmi_count<=nmi_count+1'b1;
+@@ -350,8 +400,7 @@
+             if (mas_n) bus_done<=0;
+             // fx68k asserts AS before write byte strobes. Never acknowledge or
+             // commit that address-only phase; stack/data writes would be lost.
+-            else if (!bus_done && (iack || !muds_n || !mlds_n)
+-                && (iack || maddr>=24'h020000 || main_rom_addr_q==ma[16:1])) begin
++            else if (ram_bus_service) begin
+                 bus_done<=1;
+                 main_transactions<=main_transactions+1'b1;
+                 mdin_other<=16'hffff;response_kind<=0;
+@@ -372,8 +421,12 @@
+                         if (!mlds_n) background[7:0]<=mdout[7:0];
+                     end
+                 end else if (maddr >= 'h080000 && maddr < 'h080200) begin
+-                    mdin_other<=0;mcu_transactions<=mcu_transactions+1'b1;
+-                    if (!mrw_n) begin
++                    mdin_other<=is_stingray ? 16'hff00 : 16'd0;
++                    mcu_transactions<=mcu_transactions+1'b1;
++                    if(is_stingray) begin
++                        // Actual wrapper consumes the low-byte command pulse.
++                        // Upper-only accesses have no MCU side effect (umask00ff).
++                    end else if (!mrw_n) begin
+                         if (ma[8:1]=='h2d && !mlds_n) flip<=mdout[0];
+                     end else case(ma[8:1])
+                         'h22:begin end // full-byte storage service above
+@@ -405,15 +458,19 @@
+             else if (!zbus_done) begin
+                 zbus_done<=1;sound_transactions<=sound_transactions+1'b1;
+                 if (!zwr_n && !zmreq_n) begin
+-                    if (za >= 'hc000 && za < 'hc800) sound_ram[za[10:0]]<=zdout;
+-                    if (za=='he002) begin sound_latch<=0;sound_latch_pending<=0; end
+-                    if (za=='he004) begin dac<=zdout;sound_dac_wr<=1; end
++                    if ((is_stingray && za >= 'h8000 && za < 'h8800) ||
++                        (!is_stingray && za >= 'hc000 && za < 'hc800)) sound_ram[za[10:0]]<=zdout;
++                    if (za==(is_stingray ? 16'hc102 : 16'he002)) begin sound_latch<=0;sound_latch_pending<=0; end
++                    if (za==(is_stingray ? 16'hc104 : 16'he004)) begin dac<=zdout;sound_dac_wr<=1; end
+                 end
+                 if (!zwr_n && !ziorq_n) begin
+                     sound_io_wr<=1;sound_io_addr<=za[7:0];sound_io_data<=zdout;
+                 end
+             end
+             end
++            // Set wins over same-edge IACK: do not lose a fresh firmware IRQ2.
++            if(is_stingray && sting_mcu_irq2) irq2<=1;
++            if(is_stingray && sting_mcu_control_event) flip<=sting_mcu_flip;
+         end
+     end
+ endmodule
+--- a/rtl/alpha68kn_mcu.sv
++++ b/rtl/alpha68kn_mcu.sv
+@@ -27,7 +27,8 @@
+  reg interrupt_pending=0,read_mode=0;
+  reg [7:0] address_latch=0;
+  reg bus_pending=0,p2_pending=0;
+- wire [7:0] effective_control=p2_pending ? p2_out : control;
++ wire [7:0] p2_latched;
++  wire [7:0] effective_control=p2_pending ? p2_latched : control;
+  always @(posedge clk) begin
+    irq2<=0;shared_write<=0;bus_event<=0;control_event<=0;
+    if(reset) begin
+@@ -39,15 +40,15 @@
+      else oscillator_fraction<=oscillator_sum[25:0];
+      if(oscillator_ce) oscillator_ticks<=oscillator_ticks+1'b1;
+      if(core_ce) core_ticks<=core_ticks+1'b1;
+-     // Observe output pins one master tick after the real decoder write.
++     // Observe BUS pins and the committed P2 latch one master tick after the real decoder write.
+      bus_pending<=bus_we;p2_pending<=p2_we;
+      if(bus_pending) begin bus_data<=db_out;bus_event<=1;end
+      if(p2_pending) begin
+-       control<=p2_out;control_event<=1;
+-       if(!p2_out[4]) begin interrupt_pending<=0;main_halt<=0;end
+-       if(p2_out[5]) irq2<=1;
+-       if(!p2_out[6]) begin shared_write<=1;shared_addr<=address_latch;shared_data<=bus_data;end
+-       flip<=!p2_out[7];
++       control<=p2_latched;control_event<=1;
++       if(!p2_latched[4]) begin interrupt_pending<=0;main_halt<=0;end
++       if(p2_latched[5]) irq2<=1;
++       if(!p2_latched[6]) begin shared_write<=1;shared_addr<=address_latch;shared_data<=bus_data;end
++       flip<=!p2_latched[7];
+      end
+      if(command_valid) begin
+        address_latch<=command_addr;read_mode<=command_read;
+@@ -65,7 +66,7 @@
+    .dmem_addr_o(ram_addr),.dmem_we_o(ram_we),.dmem_data_o(ram_out),
+    .dmem_data_i(ram[ram_read_addr]),.pmem_addr_o(program_addr),.pmem_data_i(program_data),
+    .db_o(db_out),.p2_o(p2_out),.psen_n_o(psen_n),
+-   .alpha_bus_write_o(bus_we),.alpha_p2_write_o(p2_we),
++   .alpha_bus_write_o(bus_we),.alpha_p2_write_o(p2_we),.alpha_p2_latch_o(p2_latched),
+    .t0_o(),.t0_dir_o(),.rd_n_o(),.wr_n_o(),.ale_o(),.db_dir_o(),
+    .p2l_low_imp_o(),.p2h_low_imp_o(),.p1_o(),.p1_low_imp_o(),.prog_n_o()
+  );
+--- a/rtl/vendor/jt12/jt49/hdl/jt49_div.v
++++ b/rtl/vendor/jt12/jt49/hdl/jt49_div.v
+@@ -45,7 +45,7 @@
+     end else begin
+         count <=  count + one ;
+     end
+-    if(period==0) div<=0;
++    // Period zero toggles at the same cadence as period one.
+   end
+ end
+ 
+--- a/rtl/vendor/jt12/SSG_PERIOD_ZERO_FORK.json
++++ b/rtl/vendor/jt12/SSG_PERIOD_ZERO_FORK.json
+@@ -0,0 +1,10 @@
++{
++  "upstream": "https://github.com/jotego/jt12",
++  "jt12_revision": "dc9be7c1ff75 (full pin in donors.lock.json)",
++  "upstream_notice": "Original JT49 notices remain in the unchanged dependency closure.",
++  "path": "rtl/vendor/jt12/jt49/hdl/jt49_div.v",
++  "baseline_sha256": "37f534e196e998b47e09fefc2ac6bfdaa062756193ef0212a4595c1a44b9d491",
++  "candidate_sha256": "2c4e8f7924b89756c339d29b58e971238fdd8cbd8f23c64b8c9a78a6990dae4a",
++  "adaptation": "Remove forced constant output for period zero; zero follows the same toggle cadence as period one.",
++  "scope": "Shared sound behavior change for all profiles; finite prior private replay evidence requires final image binding."
++}
+--- a/rtl/vendor/t48/SOURCE.json
++++ b/rtl/vendor/t48/SOURCE.json
+@@ -1,10 +1,23 @@
+ {
+-  "donor": "jtcores",
+-  "revision": "548b87b32a1b528a16cb41f689accb179e85d1a8",
+-  "source_path": "modules/jtframe/hdl/cpu/t48/t48_core.v",
+-  "source_sha256": "8e8cb0a18e6f99c6da4ec258280294008ba1488c829d453846f24562d1010125",
+-  "path": "rtl/vendor/t48/t48_core.v",
+-  "sha256": "cd171c5c1cb044c50343387cf4b9b726c2795c4224d4265c4812921fe3d6b8fd",
+-  "bytes": 728188,
+-  "adaptation": "Expose enabled BUS/P2 decoder write strobes; retain CPU/timer logic; normalize text newlines; preserve original VHDL license. Trim blank lines at EOF."
++  "upstream": {
++    "donor": "jtcores",
++    "revision": "548b87b32a1b528a16cb41f689accb179e85d1a8",
++    "source_path": "modules/jtframe/hdl/cpu/t48/t48_core.v",
++    "source_sha256": "8e8cb0a18e6f99c6da4ec258280294008ba1488c829d453846f24562d1010125",
++    "path": "rtl/vendor/t48/t48_core.v",
++    "sha256": "cd171c5c1cb044c50343387cf4b9b726c2795c4224d4265c4812921fe3d6b8fd",
++    "bytes": 728188,
++    "adaptation": "Expose enabled BUS/P2 decoder write strobes; retain CPU/timer logic; normalize text newlines; preserve original VHDL license. Trim blank lines at EOF."
++  },
++  "baseline_staged_core_sha256": "c341c5845cc78c6c2e22936a143021d29ebd78f6ea42eed108925afc46fb32d5",
++  "candidate_core_sha256": "2ad3acf392e1deec18d5d7f2c8d878b33b00073c55a7c032cd0155dfac46bf6d",
++  "candidate_wrapper_sha256": "26614f565524e7dc136c3c898eb044807d22d2c6ce473dcc64d7f54258a97120",
++  "adaptation": "2026-10-11 Alpha68k N integration fork: export existing architectural P2 latch as enabled transaction data; consume it at existing delayed wrapper strobe. Preserve physical P2 pipeline, CPU/timer logic, clocks, ROM and original upstream license.",
++  "license_notice": {
++    "path": "D:\\Arcade\\AI\\aCORES\\Alpha68k N\\research\\stingray_game_divergence_20261011\\p2_candidate_qualification_v7\\LICENSE.upstream",
++    "sha256": "f9870f7d47c16bec37e17b923440d4f0a274d7c409d9327d86e25a000e4bab27"
++  },
++  "scope": "Staged conditional final-source join; not production integration or gameplay/timing acceptance.",
++  "sha256": "2ad3acf392e1deec18d5d7f2c8d878b33b00073c55a7c032cd0155dfac46bf6d",
++  "bytes": 743404
+ }
+--- a/rtl/vendor/t48/t48_core.v
++++ b/rtl/vendor/t48/t48_core.v
+@@ -628,6 +628,7 @@
+    input  [7:0] p2_i,
+    output [7:0] data_o,
+    output [7:0] p2_o,
++   output [7:0] p2_latch_o,
+    output p2l_low_imp_o,
+    output p2h_low_imp_o);
+   wire [7:0] p2_q;
+@@ -684,6 +685,10 @@
+   reg [7:0] n4798_q;
+   assign data_o = n4780_o;
+   assign p2_o = n4798_q;
++  // Alpha68k N donor integration fork, 2026-10-11: transaction-data export.
++  // Original T48 physical P2 output pipeline and license notices retained.
++  // Board handshake consumes the real enabled architectural port write.
++  assign p2_latch_o = p2_q;
+   assign p2l_low_imp_o = l_low_imp_del_q;
+   assign p2h_low_imp_o = h_low_imp_del_q;
+   /* p2.vhd:89:10  */
+@@ -13810,7 +13815,8 @@
+    output [7:0] dmem_data_o,
+    output [11:0] pmem_addr_o,
+    output alpha_bus_write_o,
+-   output alpha_p2_write_o);
++   output alpha_p2_write_o,
++    output [7:0] alpha_p2_latch_o);
+   wire [7:0] t48_data_s;
+   wire xtal_en_s;
+   // Observe real enabled decoder writes; no CPU/timer logic change.
+@@ -14778,6 +14784,7 @@
+     .p2_i(p2_i),
+     .data_o(use_p2_p2_b_data_o),
+     .p2_o(use_p2_p2_b_p2_o),
++    .p2_latch_o(alpha_p2_latch_o),
+     .p2l_low_imp_o(use_p2_p2_b_p2l_low_imp_o),
+     .p2h_low_imp_o(use_p2_p2_b_p2h_low_imp_o));
+   /* t48_core.vhd:587:28  */
+--- a/sim/coupled_observer.vlt
++++ b/sim/coupled_observer.vlt
+@@ -0,0 +1,11 @@
++`verilator_config
++public_flat_rd -module "alpha68kn_board" -var "sting_*"
++public_flat_rd -module "alpha68kn_board" -var "mas_n"
++public_flat_rd -module "alpha68kn_board" -var "bus_done"
++public_flat_rd -module "alpha68kn_board" -var "irq2"
++public_flat_rd -module "alpha68kn_board" -var "maddr"
++public_flat_rd -module "alpha68kn_board" -var "mrw_n"
++public_flat_rd -module "alpha68kn_board" -var "muds_n"
++public_flat_rd -module "alpha68kn_board" -var "mlds_n"
++public_flat_rd -module "alpha68kn_board" -var "mdout"
++public_flat_rd -module "alpha68kn_board" -var "cpu_phase"

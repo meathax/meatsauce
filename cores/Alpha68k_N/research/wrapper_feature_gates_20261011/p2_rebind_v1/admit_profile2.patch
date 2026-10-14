@@ -1,0 +1,11 @@
+--- canonical/Alpha68k_N.sv
++++ integration-candidate/Alpha68k_N.sv
+@@ -134,7 +134,7 @@
+             if(load_wr) begin
+                 if(board_load_addr==0) header_ok[0]<=board_load_data==16'h3641;
+                 if(board_load_addr==2) header_ok[1]<=board_load_data==16'h4e38;
+-                if(board_load_addr==4) header_ok[2]<=board_load_data[7:0]==1 && board_load_data[15:8]<=1;
++                if(board_load_addr==4) header_ok[2]<=board_load_data[7:0]==1 && board_load_data[15:8]<=2;
+                 if(board_load_addr==25'h9fffe) seen_end<=1;
+             end
+             if(!load && !gfx_busy && gfx_initialized && &header_ok && seen_end)

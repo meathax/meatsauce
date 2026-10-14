@@ -1,0 +1,65 @@
+{
+  "scope": "Frozen source and existing compact telemetry only; root documentation phase c5fe",
+  "dominant_wall_time_cost_measured": false,
+  "performance_optimization_applied": false,
+  "new_runtime_build_profiling_or_benchmark": false,
+  "live_worker_modified": false,
+  "Process_Lasso_settings_applied": false,
+  "source_findings": [
+    "Both frozen hosts already conditionally reevaluate only when SDRAM DQ changes after device.sample; skipping an unchanged third eval is not a new optimization.",
+    "Preserve both physical half-edge evals, the 10416/10417 ps timeInc sequence, guest CPU and clock-enable behavior, and physical SDRAM command servicing.",
+    "The CL2 pin model schedules at most one read per edge and completes due reads before new commands; the pending vector has at most two outstanding entries. Replacing it has no demonstrated performance benefit.",
+    "Audio observe executes after the real rising edge, but CSV emission is gated by audio_sample_ce or accepted sound writes.",
+    "Kyros HUD detailed processing is window gated; stack/register journaling is event gated. A large output file alone does not establish ongoing I/O dominance.",
+    "No source-only proof attributes CPU time among generated RTL eval, SDRAM servicing, observers and CSV formatting."
+  ],
+  "observations": {
+    "first_hit_1010": {
+      "actual_native_exit": 1,
+      "started_utc": "2026-10-10T19:55:09.880370+00:00",
+      "finished_utc": "2026-10-10T20:59:37.688926+00:00",
+      "wall_seconds": 3867.808556,
+      "requested_fields": 1010,
+      "seconds_per_requested_field": 3.829513421782178,
+      "limit": "Elapsed native run includes startup and terminal failure. It is not a successful fidelity or paired performance benchmark."
+    },
+    "Kyros_durable_progress_snapshot": {
+      "worker_started_utc": "2026-10-10T20:29:09.354923+00:00",
+      "stdout_mtime_utc_at_observation": "2026-10-10T21:14:20.218268+00:00",
+      "last_recorded_line": "frame=720 core=57344 vga=57344 main=16688151 misses=0",
+      "completed_fields": 721,
+      "elapsed_seconds_at_observation": 2710.863345,
+      "seconds_per_completed_field": 3.759865943134536,
+      "projected_total_hours_for_4401_fields": 4.6,
+      "limit": "Progress estimate based on a mutable stdout file's then-observed mtime, not terminal elapsed timing or current live status. Future dense observer windows and host contention can change throughput."
+    },
+    "stat_only_output_snapshot": {
+      "Kyros_stack_journal_bytes": 102984016,
+      "stack_journal_mtime_epoch": 1791665294.8419533,
+      "later_stdout_mtime_epoch": 1791666762.704089,
+      "Kyros_audio_bytes": 27405478,
+      "limit": "File metadata only; no huge journal read or tail rehash. These sizes do not prove a dominant cost."
+    }
+  },
+  "known_frozen_source_pins": [
+    {"path": "D:/Arcade/AI/aCORES/Alpha68k N/research/wrapper_feature_gates_20261011/current_kyros4401_native_v3/candidate/sim/kyros_main.cpp", "sha256": "19795d4580f7a2261e6a079b1ab1328e0b4b360fc7d1faf1d3790f636fd386de", "bytes": 29196},
+    {"path": "D:/Arcade/AI/aCORES/Alpha68k N/research/wrapper_feature_gates_20261011/stingray_first_hit_native_v2/candidate/sim/first_hit_main.cpp", "sha256": "3d62f8d37775d8167805e6719b309f0339334ff18bd50abe1f5d20e89aec75f3"},
+    {"path": "D:/Arcade/AI/aCORES/Alpha68k N/research/wrapper_feature_gates_20261011/current_kyros4401_native_v3/candidate/sim/sdram_model.h", "sha256": "380b036600d9a24e5a1a757a66e29d20a767589373f647efe39ea36e3f5384e9", "bytes": 2704},
+    {"path": "D:/Arcade/AI/aCORES/Alpha68k N/research/wrapper_feature_gates_20261011/current_kyros4401_native_v3/candidate/sim/kyros_passive_probes.h", "sha256": "23a050faf1206a49072c3caa11f0e3f8bfc7f60541c31e9c837ef0f9b91dc8a5", "bytes": 12983},
+    {"path": "D:/Arcade/AI/aCORES/Alpha68k N/research/wrapper_feature_gates_20261011/current_kyros4401_native_v3/candidate/sim/realemu_audio_recorder_v1.h", "sha256": "6cea05a30e3182060c7694b3985f0bf9f25f7f3ee9491f33b8d3573378e8dcfb", "bytes": 2086}
+  ],
+  "evidence_recovery": [
+    "D:/Arcade/AI/aCORES/Alpha68k N/research/wrapper_feature_gates_20261011/stingray_first_hit_native_v2/native1010_exit.json",
+    "D:/Arcade/AI/aCORES/Alpha68k N/research/wrapper_feature_gates_20261011/stingray_first_hit_native_v2/native_admission.json",
+    "D:/Arcade/AI/aCORES/Alpha68k N/research/wrapper_feature_gates_20261011/current_kyros4401_native_v3/native_runtime_admission.json",
+    "D:/Arcade/AI/aCORES/Alpha68k N/research/wrapper_feature_gates_20261011/current_kyros4401_native_v3/native4401_worker.json",
+    "D:/Arcade/AI/aCORES/Alpha68k N/research/wrapper_feature_gates_20261011/current_kyros4401_native_v3/preparation_manifest.json"
+  ],
+  "future_proposal_only": {
+    "when": "Next already-required host revision and native qualification; not the current live run",
+    "measure_first": "Attribute eval, SDRAM, observer and formatting CPU/wall costs with external sampling or coarse host-only counters. Avoid a timing call on every guest edge.",
+    "candidate": "If formatting is material, investigate reserved buffered CSV formatting while retaining identical rows, values, ordering and flush checkpoints.",
+    "acceptance": "A future paired timing comparison and evidence equivalence must precede any speedup claim. Retain actual clock/timeInc/CE/physical memory/real CPU and every applicable graphics, RAM, protocol and audio gate.",
+    "risks": "Instrumentation overhead, changed flush/recovery behavior, incomplete rows on failure, observer-state/generation loss and altered DQ settling. No semantic waiver or Process Lasso change is proposed."
+  }
+}

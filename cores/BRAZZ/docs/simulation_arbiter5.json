@@ -1,0 +1,51 @@
+{
+  "target": "arbiter5",
+  "acceptance": "unit verification",
+  "runtime": "native Windows PE / MSYS2 UCRT64",
+  "commands": [
+    [
+      "D:\\vibes\\fpga\\bin\\verilator.exe",
+      "--cc",
+      "--exe",
+      "--build",
+      "-j",
+      "4",
+      "-O3",
+      "--top-module",
+      "cs_bus_arbiter",
+      "--Mdir",
+      "R:/Verilator/CrystalSystem/tool-20261005T152249917Z-44832-517208125/obj_dir",
+      "-CFLAGS",
+      "-O2",
+      "-MAKEFLAGS",
+      "OPT_FAST=-O2",
+      "-MAKEFLAGS",
+      "OPT_GLOBAL=-O2",
+      "-Wno-fatal",
+      "-GCLIENTS=5",
+      "D:/Arcade/AI/aCORES/BRAZZ/Arcade-CrystalSystem_MiSTer/rtl/memory/cs_bus_arbiter.sv",
+      "D:/Arcade/AI/aCORES/BRAZZ/Arcade-CrystalSystem_MiSTer/sim/arbiter/five.cpp"
+    ],
+    [
+      "D:\\vibes\\fpga\\bin\\verilator.exe",
+      "sim",
+      "R:\\Verilator\\CrystalSystem\\tool-20261005T152249917Z-44832-517208125\\obj_dir\\Vcs_bus_arbiter.exe"
+    ]
+  ],
+  "exit_code": 0,
+  "run_seconds": 0.12025290000019595,
+  "sources": [
+    {
+      "path": "rtl/memory/cs_bus_arbiter.sv",
+      "sha256": "49f767c126f911a35f210e00ec112e3b92c125105fbe44847e6f55f93d8a6e5f"
+    },
+    {
+      "path": "sim/arbiter/five.cpp",
+      "sha256": "cb846bb80133975df4c8f715f617ecae5772e2c1f9d3d88a341b867c6196af1f"
+    }
+  ],
+  "workspace": "R:\\Verilator\\CrystalSystem\\tool-20261005T152249917Z-44832-517208125",
+  "stdout": "PASS arbiter5: 320 contended requests, 64/client; 155 sparse pointer/mask cases with locked grants and delayed/error replies\n",
+  "stderr": "",
+  "build_log": "sim\\obj_dir\\arbiter5\\build.log"
+}

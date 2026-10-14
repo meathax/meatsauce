@@ -1,0 +1,84 @@
+{
+  "scope": "one official MAME legal source route; no native qualification",
+  "files": [
+    {
+      "path": "D:\\Arcade\\AI\\aCORES\\Alpha68k N\\research\\audio_pickup_20261011\\opportunity_route_v14\\command.json",
+      "bytes": 1627,
+      "sha256": "2a9f444e0132add8350d05767e81f3a93ee56fcadb78be42f3fe1a722aecfdbc"
+    },
+    {
+      "path": "D:\\Arcade\\AI\\aCORES\\Alpha68k N\\research\\audio_pickup_20261011\\opportunity_route_v14\\opportunity.lua",
+      "bytes": 16275,
+      "sha256": "e8f8b58aaa26d23feb9b72b8ce0eb8ab0ef2a4000bd3392723f4e7d6b76f0ecc"
+    },
+    {
+      "path": "D:\\Arcade\\AI\\aCORES\\Alpha68k N\\research\\audio_pickup_20261011\\opportunity_route_v14\\preparation.json",
+      "bytes": 2938,
+      "sha256": "469e8b84cce89bfeb2462c7032827c3242b315ea1478b0b95c3651295d82f5b3"
+    },
+    {
+      "path": "D:\\Arcade\\AI\\aCORES\\Alpha68k N\\research\\audio_pickup_20261011\\opportunity_route_v14\\preparation_failures.json",
+      "bytes": 443,
+      "sha256": "619aef4f98cfe1644b7c5325bb9cd4841b5b9f40d8c06bb0acda3bf1029a5e1e"
+    },
+    {
+      "path": "D:\\Arcade\\AI\\aCORES\\Alpha68k N\\research\\audio_pickup_20261011\\opportunity_route_v14\\run_once.py",
+      "bytes": 3297,
+      "sha256": "66598a98460f30d10ac2024fefec7bae32641c332fc35ff6df36891a8aa4eeba"
+    },
+    {
+      "path": "D:\\Arcade\\AI\\aCORES\\Alpha68k N\\research\\audio_pickup_20261011\\opportunity_route_v14\\verify_preparation.py",
+      "bytes": 2992,
+      "sha256": "a03b11779c4e9c0355e00e54f7aabd00b0a2e2dbada8014a0dd10036fbd7cb54"
+    }
+  ],
+  "source_pins": [
+    {
+      "path": "D:\\Arcade\\AI\\aCORES\\Alpha68k N\\tools\\mame0289\\mame.exe",
+      "sha256": "af6966108d9b52c22465c6d50f4e5d50cc371b50f2d27dc443935f287aad37a3"
+    },
+    {
+      "path": "D:\\Arcade\\AI\\aCORES\\Alpha68k N\\roms\\kyros\\maincpu.bin",
+      "sha256": "6949ea5dc91dfced8c1afccbadee18c2e795ab38d8adbc3795f05a19b8f3b2b3"
+    },
+    {
+      "path": "D:\\Arcade\\AI\\aCORES\\Alpha68k N\\sim\\captures\\diagnostics\\kyros_rom_disassembly\\maincpu.asm",
+      "sha256": "da4e0ed81c446f9c77107fbac9e30f950d7e4cce20f2285fe78f14115f8d707d"
+    },
+    {
+      "path": "D:\\Arcade\\AI\\mame289\\src\\mame\\alpha\\alpha68k_n.cpp",
+      "sha256": "5f9884076ea1b5c02d2169a58de5425ae5475a13a4f1438abae2e2b9f0fdab7d"
+    },
+    {
+      "path": "D:\\Arcade\\AI\\mame289\\src\\frontend\\mame\\luaengine.cpp",
+      "sha256": "9e0dfa31b26a268dd41b26de9ec0b448d135a50516a137323eb71db30cd296a4"
+    },
+    {
+      "path": "D:\\Arcade\\AI\\mame289\\src\\frontend\\mame\\luaengine_mem.cpp",
+      "sha256": "a0a33d223269b72516e75a377ec3ed4c63fce7da116e172f2a842b83ffdee7ef"
+    },
+    {
+      "path": "D:\\Arcade\\AI\\aCORES\\Alpha68k N\\research\\audio_pickup_20261011\\opportunity_reference_v9\\opportunity.lua",
+      "sha256": "76c8a315bd6405639447e1cc6ebcd1758b22035c616bcc760c8553ca68a71658"
+    },
+    {
+      "path": "D:\\Arcade\\AI\\aCORES\\Alpha68k N\\research\\audio_pickup_20261011\\opportunity_reference_v9\\import_manifest.json",
+      "sha256": "7000eb3b125496cb0714687207aefacf3b2455d2ee66c9b6d3655730efde1434"
+    },
+    {
+      "path": "D:\\Arcade\\AI\\aCORES\\Alpha68k N\\research\\audio_pickup_20261011\\full_width_tile_path_v13\\import_manifest.json",
+      "sha256": "b9838a3bf9deb1358920162b9cb09653a298e7da12f158934c2a498e3f2dcdc5"
+    }
+  ],
+  "max_fields": 2104,
+  "bound_derivation": {
+    "genuine_v9_first_barrier_field": 1129,
+    "genuine_v9_95percent_movement_change_gap": 2,
+    "genuine_v9_max_gap_including_interruptions": 15,
+    "formula": "barrier_field + normal_movement_gap*461 + two_fields*11_handoffs + pickup30 + inclusive1",
+    "limits": "Static terrain only; dynamic collisions may stop earlier. Maximum observed interruption15 is not promoted to unrestricted traversal time. This finite bound is not an outcome prediction."
+  },
+  "guest_state_writes": 0,
+  "actions": "genuine coin120..126, start160..166; right-align actual xNibble10 from720; up+punch to genuine firstbarrier; eleven actual-coordinate V13 phases with punch; neutral candidate+30",
+  "decisive_preparation_verification": true
+}

@@ -1,0 +1,60 @@
+{
+  "scope": "Read-only actual CPU840 text/numeric state and visible first-stage frame; not effective combat or full gameplay proof",
+  "numeric": {
+    "cycle": 1456000000,
+    "itoa_low": 0,
+    "itoa_high": 0,
+    "itoa_mode": 2,
+    "bcd_pending": 0,
+    "digits": [
+      48,
+      32,
+      32,
+      32,
+      32,
+      32,
+      32,
+      32,
+      32,
+      0
+    ]
+  },
+  "numeric_value": 0,
+  "expected_digits": [
+    48,
+    32,
+    32,
+    32,
+    32,
+    32,
+    32,
+    32,
+    32,
+    0
+  ],
+  "numeric_commit_matches_value": true,
+  "reference_itoa_low_high_mode": [
+    0,
+    0,
+    2
+  ],
+  "text_live_different_words": 0,
+  "text_buffer_different_words": 0,
+  "first_text_differences": [],
+  "different_pixels": 67988,
+  "difference_bbox": [
+    0,
+    0,
+    320,
+    256
+  ],
+  "files_sha256": {
+    "sim\\results\\cop-rom-cpu-840-statenumeric.json": "c51a24b41d9d67886861e83402caa596f52d0bcf427f5114fa9e4bba3567d14e",
+    "sim\\results\\cop-rom-cpu-840-statetext.bin": "ebc27823bace041a104f5a7f23695171b09785735c28f82da5f9c61d1507a984",
+    "sim\\results\\cop-rom-cpu-840-statetextbuffer.bin": "ebc27823bace041a104f5a7f23695171b09785735c28f82da5f9c61d1507a984",
+    "sim\\results\\mame-play-840-combat-2p-cop-rom-840\\reference.png": "278cd727913a5d4ecc1963241a8905da5613f3013effb125e47490ca41b896b3",
+    "sim\\results\\cop-rom-cpu-840.png": "30985b1106938b9ef969f0b5ebf43aec158ab82ccbaf173772da9d9def867c5e"
+  },
+  "causes": "Not inferred from one snapshot; MAME physical requests have cached-input latency and checkpoint frame phases differ",
+  "source_model_note": "Historical native model before the blank-half sprite fix; snapshot is not gameplay-completion acceptance"
+}

@@ -1,0 +1,88 @@
+{
+  "kind": "MAME0.289-I8748-stock-Lua-callback-visibility-source-qualification",
+  "actual_exit_code": 0,
+  "runtime_or_build_or_guest_patch": false,
+  "binding_files_scanned": 5,
+  "checks": {
+    "direct_bus_and_port_callbacks": true,
+    "AS_IO_is_external_MOVX_path": true,
+    "P2_is_sampled_latch": true,
+    "public_line_or_devcb_binding_absent": true,
+    "manual_prior_manifest_matches": true
+  },
+  "source_pins": [
+    {
+      "path": "D:\\Arcade\\AI\\mame289\\src\\mame\\alpha\\alpha68k_n.cpp",
+      "sha256": "5f9884076ea1b5c02d2169a58de5425ae5475a13a4f1438abae2e2b9f0fdab7d",
+      "bytes": 43931
+    },
+    {
+      "path": "D:\\Arcade\\AI\\mame289\\src\\devices\\cpu\\mcs48\\mcs48.h",
+      "sha256": "6b3d88b6f2750f431aad6a76e012c9a96f90d7b0bc3c748c58132cf2e12ea701",
+      "bytes": 19909
+    },
+    {
+      "path": "D:\\Arcade\\AI\\mame289\\src\\devices\\cpu\\mcs48\\mcs48.cpp",
+      "sha256": "3d801e5e70843c8783a4f63d18576cec836bc9037165906402341ed9c320544a",
+      "bytes": 67104
+    },
+    {
+      "path": "D:\\Arcade\\AI\\mame289\\src\\frontend\\mame\\luaengine.cpp",
+      "sha256": "9e0dfa31b26a268dd41b26de9ec0b448d135a50516a137323eb71db30cd296a4",
+      "bytes": 96356
+    },
+    {
+      "path": "D:\\Arcade\\AI\\mame289\\src\\frontend\\mame\\luaengine_mem.cpp",
+      "sha256": "a0a33d223269b72516e75a377ec3ed4c63fce7da116e172f2a842b83ffdee7ef",
+      "bytes": 28498
+    },
+    {
+      "path": "D:\\Arcade\\AI\\mame289\\src\\emu\\diexec.cpp",
+      "sha256": "f4a1f9fb027848876bf4b8726cac760eebdcf9619c8d39348eaa6035b256918d",
+      "bytes": 23942
+    }
+  ],
+  "files": [
+    {
+      "path": "D:\\Arcade\\AI\\aCORES\\Alpha68k N\\research\\mame_cutoff_observer_stage\\mcu_lua_api_review1\\alpha68k_n.cpp.excerpt.txt",
+      "bytes": 2973,
+      "sha256": "99e99b0e78cd7d7c822256dcfdf54d194520c580aa15537df8e4e96fb435811c"
+    },
+    {
+      "path": "D:\\Arcade\\AI\\aCORES\\Alpha68k N\\research\\mame_cutoff_observer_stage\\mcu_lua_api_review1\\binding_absence_proof.json",
+      "bytes": 1255,
+      "sha256": "66237a101e31f901f7696764772d194119529ba4cc7446be8d3f449ad4ec6ab3"
+    },
+    {
+      "path": "D:\\Arcade\\AI\\aCORES\\Alpha68k N\\research\\mame_cutoff_observer_stage\\mcu_lua_api_review1\\diexec.cpp.excerpt.txt",
+      "bytes": 3350,
+      "sha256": "cebc2d87d7b7bc39a2d085b4655f3b12e88d047a53aeeecf2fb99a548e4f10d2"
+    },
+    {
+      "path": "D:\\Arcade\\AI\\aCORES\\Alpha68k N\\research\\mame_cutoff_observer_stage\\mcu_lua_api_review1\\luaengine.cpp.excerpt.txt",
+      "bytes": 3558,
+      "sha256": "3da710035ba0fb8e5b7c16220b0fb1f60c06ce9341035a9b078504152d32d14a"
+    },
+    {
+      "path": "D:\\Arcade\\AI\\aCORES\\Alpha68k N\\research\\mame_cutoff_observer_stage\\mcu_lua_api_review1\\luaengine_mem.cpp.excerpt.txt",
+      "bytes": 1464,
+      "sha256": "79e6a8a8a7b989fbe2ea17a039af864a39765139053ba95b15a4a565388fe47c"
+    },
+    {
+      "path": "D:\\Arcade\\AI\\aCORES\\Alpha68k N\\research\\mame_cutoff_observer_stage\\mcu_lua_api_review1\\mcs48.cpp.excerpt.txt",
+      "bytes": 3262,
+      "sha256": "b56dead53ce2da32216f0f8c9ed9cc019be9005a77c558129f578a5962c87b68"
+    },
+    {
+      "path": "D:\\Arcade\\AI\\aCORES\\Alpha68k N\\research\\mame_cutoff_observer_stage\\mcu_lua_api_review1\\mcs48.h.excerpt.txt",
+      "bytes": 1714,
+      "sha256": "d5d7ae4d2d07fe511fe4678d7d9f26401a55c344ac9d1d988fe5bdd684362c14"
+    },
+    {
+      "path": "D:\\Arcade\\AI\\aCORES\\Alpha68k N\\research\\mame_cutoff_observer_stage\\mcu_lua_api_review1\\report.md",
+      "bytes": 3569,
+      "sha256": "77a7a3cdb8809ca43f41d0f0cdc130553d61f11af40366b4fbcdb20719e136d9"
+    }
+  ],
+  "next_action": "Root decides whether an exact passive C++ callback/request/applied-input observer is needed; no job authorized by this report."
+}

@@ -1,0 +1,167 @@
+{
+  "resources": [
+    {
+      "resource": "ALMs",
+      "used": 18276,
+      "total": 41910,
+      "percent": 43.60773085182534,
+      "limit_percent": 80,
+      "pass": true,
+      "row": "; Logic utilization (in ALMs)     ; 18,276 / 41,910 ( 44 % )                    ;"
+    },
+    {
+      "resource": "LABs",
+      "used": 2949,
+      "total": 4191,
+      "percent": 70.36506800286328,
+      "limit_percent": 90,
+      "pass": true,
+      "row": "; Total LABs:  partially or completely used                   ; 2,949 / 4,191         ; 70 %  ;"
+    },
+    {
+      "resource": "M10K",
+      "used": 335,
+      "total": 553,
+      "percent": 60.57866184448463,
+      "limit_percent": 90,
+      "pass": true,
+      "row": "; M10K blocks                                                 ; 335 / 553             ; 61 %  ;"
+    },
+    {
+      "resource": "Block memory bits",
+      "used": 2470744,
+      "total": 5662720,
+      "percent": 43.63175293851718,
+      "limit_percent": 85,
+      "pass": true,
+      "row": "; Total block memory bits         ; 2,470,744 / 5,662,720 ( 44 % )              ;"
+    },
+    {
+      "resource": "DSP",
+      "used": 41,
+      "total": 112,
+      "percent": 36.607142857142854,
+      "limit_percent": 90,
+      "pass": true,
+      "row": "; Total DSP Blocks                ; 41 / 112 ( 37 % )                           ;"
+    },
+    {
+      "resource": "Peak interconnect",
+      "total_H_V_percent": [
+        30.7,
+        29.7,
+        34.0
+      ],
+      "percent": 34.0,
+      "limit_percent": 85,
+      "pass": true,
+      "row": "; Peak interconnect usage (total/H/V)                         ; 30.7% / 29.7% / 34.0% ;       ;"
+    },
+    {
+      "resource": "Average interconnect",
+      "total_H_V_percent": [
+        17.6,
+        18.0,
+        16.0
+      ],
+      "percent": 18.0,
+      "limit_percent": 60,
+      "pass": true,
+      "row": "; Average interconnect usage (total/H/V)                      ; 17.6% / 18.0% / 16.0% ;       ;"
+    }
+  ],
+  "physical_ALMs": {
+    "used": 22130,
+    "total": 41910,
+    "percent": 52.80362681937485,
+    "row": ";     [A] ALMs used in final placement [=a+b+c+d]             ; 22,130 / 41,910       ; 53 %  ;"
+  },
+  "implementation_memory_bits": {
+    "used": 3430400,
+    "total": 5662720,
+    "percent": 60.57866184448463
+  },
+  "program_bank_rows": [
+    "; emu:emu|alpha68kn_system:system|alpha68kn_board:board|altsyncram:mcu_rom_even_rtl_0|altsyncram_g9n1:auto_generated|ALTSYNCRAM                                                                                     ; AUTO       ; Simple Dual Port ; Single Clock ; 2048         ; 8            ; 2048         ; 8            ; yes                    ; no                      ; yes                    ; no                      ; 16384   ; 2048                        ; 8                           ; 2048                        ; 8                           ; 16384               ; 3           ; 0          ; None                                                   ; M10K_X58_Y21_N0, M10K_X58_Y20_N0, M10K_X58_Y19_N0                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                              ; Old data             ; New data        ; New data        ; Off      ; No                     ; No - Address Too Wide                       ;",
+    "; emu:emu|alpha68kn_system:system|alpha68kn_board:board|altsyncram:mcu_rom_odd_rtl_0|altsyncram_g9n1:auto_generated|ALTSYNCRAM                                                                                      ; AUTO       ; Simple Dual Port ; Single Clock ; 2048         ; 8            ; 2048         ; 8            ; yes                    ; no                      ; yes                    ; no                      ; 16384   ; 2048                        ; 8                           ; 2048                        ; 8                           ; 16384               ; 4           ; 0          ; None                                                   ; M10K_X58_Y21_N0, M10K_X58_Y20_N0, M10K_X58_Y19_N0, M10K_X58_Y22_N0                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                             ; Old data             ; New data        ; New data        ; Off      ; No                     ; No - Address Too Wide                       ;"
+  ],
+  "warning_counts_by_code": {
+    "20013": 2,
+    "21300": 1,
+    "292013": 1,
+    "15714": 1,
+    "177007": 1,
+    "332174": 1,
+    "332054": 1,
+    "176250": 1,
+    "176251": 1,
+    "171167": 1,
+    "169064": 1
+  },
+  "previous_warning_counts_by_code": {
+    "20013": 2,
+    "21300": 1,
+    "292013": 1,
+    "15714": 1,
+    "177007": 1,
+    "332174": 1,
+    "332054": 1,
+    "176250": 1,
+    "176251": 1,
+    "171167": 1,
+    "169064": 1
+  },
+  "map_warning_counts_by_code": {
+    "12364": 6290,
+    "125092": 5,
+    "10034": 7,
+    "10036": 19,
+    "10230": 71,
+    "276020": 3,
+    "10762": 120,
+    "10030": 18,
+    "10958": 12,
+    "10763": 2,
+    "10027": 1,
+    "12030": 1,
+    "14284": 3,
+    "330000": 1,
+    "276027": 5,
+    "20013": 6,
+    "12241": 1,
+    "13050": 1,
+    "13024": 1,
+    "21074": 1
+  },
+  "previous_map_warning_counts_by_code": {
+    "12364": 6290,
+    "125092": 5,
+    "10034": 7,
+    "10036": 19,
+    "10230": 71,
+    "276020": 3,
+    "10762": 120,
+    "10030": 18,
+    "10958": 12,
+    "10763": 2,
+    "10027": 1,
+    "12030": 1,
+    "14284": 3,
+    "330000": 1,
+    "276027": 5,
+    "20013": 6,
+    "12241": 1,
+    "13050": 1,
+    "13024": 1,
+    "21074": 1
+  },
+  "map_warning_count_deltas": {},
+  "map_delta_samples_bounded": [],
+  "previous_map_report": {
+    "path": "C:\\Users\\meath\\QuartusFast\\workspaces\\6ef88c102788d60a51b4\\78709b450ca351a8838c\\project\\output_files\\Alpha68k_N.map.rpt",
+    "bytes": 3929927,
+    "sha256": "d87681460737fc0e0da90e94e5dc0019a17d26285a8060e7cb323114d5a5acd5"
+  },
+  "critical_warnings": [],
+  "warning_review_limit": "Fit code/count inventory retains the previous framework/I/O/PLL warning review; map code/count deltas and bounded examples are retained for source classification. External I/O constraints and actual hardware crossings remain open."
+}

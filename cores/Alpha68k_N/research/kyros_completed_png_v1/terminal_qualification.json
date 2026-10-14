@@ -1,0 +1,2165 @@
+{
+  "scope": "Samefield native RGB versus source-pinned completed PNG and final work/strip arrays; no masked/shifted samples",
+  "oracle_qualification": {
+    "path": "D:\\Arcade\\AI\\aCORES\\Alpha68k N\\research\\kyros_completed_png_v1\\oracle_qualification.json",
+    "sha256": "76271dbedc352c12ad5341bc85487d25e3734261114b072f3f2773a84364a7e7",
+    "bytes": 119305
+  },
+  "actual_joined_job": {
+    "path": "D:\\Arcade\\AI\\aCORES\\Alpha68k N\\research\\kyros_joined_lifecycle_4401_v1_run_job.json",
+    "sha256": "ed5dd5fa041a8e3c3e46d7cd0c1298e69c391b7b613c21aeb8e1abc0ee1b1f9e",
+    "bytes": 17478
+  },
+  "actual_native_exit": 0,
+  "actual_native_exit_pin": {
+    "path": "D:\\Arcade\\AI\\aCORES\\Alpha68k N\\research\\kyros_joined_lifecycle_4401_v1_run_exit.json",
+    "sha256": "4db357623a0f6c0af1cfe22a117d199eddb11c43cbf9faa2ad631f4d573f26d1",
+    "bytes": 17614
+  },
+  "checked_native_common_targets": 49,
+  "pending_common_targets": [],
+  "unknown_reference_targets": [
+    1,
+    2,
+    3,
+    4,
+    5,
+    6,
+    7,
+    8,
+    9,
+    10,
+    11,
+    12,
+    13,
+    14,
+    15,
+    16,
+    60,
+    120,
+    150,
+    180,
+    210,
+    270,
+    300,
+    330,
+    390,
+    420,
+    450,
+    480,
+    510,
+    540,
+    570,
+    630,
+    660,
+    690,
+    750,
+    780,
+    810,
+    840,
+    870,
+    930,
+    990,
+    1020,
+    1050,
+    1080,
+    1110,
+    1140,
+    1170,
+    1230,
+    1260,
+    1290,
+    1320,
+    1350,
+    1380,
+    1410,
+    1470,
+    1500,
+    1530,
+    1560,
+    1590,
+    1620,
+    1650,
+    1710,
+    1740,
+    1770,
+    1800,
+    1830,
+    1860,
+    1890,
+    1950,
+    1980,
+    2010,
+    2040,
+    2070,
+    2100,
+    2130,
+    2190,
+    2220,
+    2250,
+    2280,
+    2310,
+    2340,
+    2370,
+    2430,
+    2460,
+    2490,
+    2520,
+    2550,
+    2580,
+    2610,
+    2670,
+    2700,
+    2730,
+    2760,
+    2790,
+    2820,
+    2850,
+    2910,
+    2940,
+    2970,
+    3000,
+    3030,
+    3060,
+    3090,
+    3150,
+    3180,
+    3210,
+    3240,
+    3270,
+    3300,
+    3330,
+    3390,
+    3420,
+    3450,
+    3480,
+    3510,
+    3540,
+    3570,
+    3870
+  ],
+  "results": [
+    {
+      "field": 0,
+      "native_RGB": {
+        "path": "D:\\Arcade\\AI\\aCORES\\Alpha68k N\\sim\\captures\\rtl\\kyros_joined_lifecycle_4401_v1\\frame_000000.rgb",
+        "sha256": "9a4b97b4b079955bac86930724c8bcdd30aba4732f1dcbcbac2ec270f5f5e485",
+        "bytes": 172032
+      },
+      "completed_PNG_RGB": {
+        "byte_exact": true,
+        "different_pixels": 0,
+        "bbox": null
+      },
+      "work": {
+        "byte_exact": true,
+        "different_bytes": 0,
+        "native": {
+          "path": "D:\\Arcade\\AI\\aCORES\\Alpha68k N\\sim\\captures\\rtl\\kyros_joined_lifecycle_4401_v1\\frame_000000.work.bin",
+          "sha256": "ad7facb2586fc6e966c004d7d1d16b024f5805ff7cb47c7a85dabd8b48892ca7",
+          "bytes": 4096
+        },
+        "reference": {
+          "path": "D:\\Arcade\\AI\\aCORES\\Alpha68k N\\sim\\captures\\kyros\\idle_death_restart_actions4401\\frame_000000.work.bin",
+          "sha256": "ad7facb2586fc6e966c004d7d1d16b024f5805ff7cb47c7a85dabd8b48892ca7",
+          "bytes": 4096
+        }
+      },
+      "sprites": {
+        "byte_exact": true,
+        "different_bytes": 0,
+        "native": {
+          "path": "D:\\Arcade\\AI\\aCORES\\Alpha68k N\\sim\\captures\\rtl\\kyros_joined_lifecycle_4401_v1\\frame_000000.sprites.bin",
+          "sha256": "9f1dcbc35c350d6027f98be0f5c8b43b42ca52b7604459c0c42be3aa88913d47",
+          "bytes": 8192
+        },
+        "reference": {
+          "path": "D:\\Arcade\\AI\\aCORES\\Alpha68k N\\sim\\captures\\kyros\\idle_death_restart_actions4401\\frame_000000.sprites.bin",
+          "sha256": "9f1dcbc35c350d6027f98be0f5c8b43b42ca52b7604459c0c42be3aa88913d47",
+          "bytes": 8192
+        }
+      }
+    },
+    {
+      "field": 30,
+      "native_RGB": {
+        "path": "D:\\Arcade\\AI\\aCORES\\Alpha68k N\\sim\\captures\\rtl\\kyros_joined_lifecycle_4401_v1\\frame_000030.rgb",
+        "sha256": "9a4b97b4b079955bac86930724c8bcdd30aba4732f1dcbcbac2ec270f5f5e485",
+        "bytes": 172032
+      },
+      "completed_PNG_RGB": {
+        "byte_exact": true,
+        "different_pixels": 0,
+        "bbox": null
+      },
+      "work": {
+        "byte_exact": true,
+        "different_bytes": 0,
+        "native": {
+          "path": "D:\\Arcade\\AI\\aCORES\\Alpha68k N\\sim\\captures\\rtl\\kyros_joined_lifecycle_4401_v1\\frame_000030.work.bin",
+          "sha256": "3c14726172174d1acec8efcf7f89238390d50de5898d9aa5c84e886ed003bfdd",
+          "bytes": 4096
+        },
+        "reference": {
+          "path": "D:\\Arcade\\AI\\aCORES\\Alpha68k N\\sim\\captures\\kyros\\idle_death_restart_actions4401\\frame_000030.work.bin",
+          "sha256": "3c14726172174d1acec8efcf7f89238390d50de5898d9aa5c84e886ed003bfdd",
+          "bytes": 4096
+        }
+      },
+      "sprites": {
+        "byte_exact": true,
+        "different_bytes": 0,
+        "native": {
+          "path": "D:\\Arcade\\AI\\aCORES\\Alpha68k N\\sim\\captures\\rtl\\kyros_joined_lifecycle_4401_v1\\frame_000030.sprites.bin",
+          "sha256": "9f1dcbc35c350d6027f98be0f5c8b43b42ca52b7604459c0c42be3aa88913d47",
+          "bytes": 8192
+        },
+        "reference": {
+          "path": "D:\\Arcade\\AI\\aCORES\\Alpha68k N\\sim\\captures\\kyros\\idle_death_restart_actions4401\\frame_000030.sprites.bin",
+          "sha256": "9f1dcbc35c350d6027f98be0f5c8b43b42ca52b7604459c0c42be3aa88913d47",
+          "bytes": 8192
+        }
+      }
+    },
+    {
+      "field": 90,
+      "native_RGB": {
+        "path": "D:\\Arcade\\AI\\aCORES\\Alpha68k N\\sim\\captures\\rtl\\kyros_joined_lifecycle_4401_v1\\frame_000090.rgb",
+        "sha256": "3bcac5c304a6099c1684bffb103dc2964200a2616be78baa744dcf123d7f8e72",
+        "bytes": 172032
+      },
+      "completed_PNG_RGB": {
+        "byte_exact": true,
+        "different_pixels": 0,
+        "bbox": null
+      },
+      "work": {
+        "byte_exact": true,
+        "different_bytes": 0,
+        "native": {
+          "path": "D:\\Arcade\\AI\\aCORES\\Alpha68k N\\sim\\captures\\rtl\\kyros_joined_lifecycle_4401_v1\\frame_000090.work.bin",
+          "sha256": "a7e8ad6207f23b5f74c03af30769ab2fdaf19585e5e4fd183c0ca2f05e923add",
+          "bytes": 4096
+        },
+        "reference": {
+          "path": "D:\\Arcade\\AI\\aCORES\\Alpha68k N\\sim\\captures\\kyros\\idle_death_restart_actions4401\\frame_000090.work.bin",
+          "sha256": "a7e8ad6207f23b5f74c03af30769ab2fdaf19585e5e4fd183c0ca2f05e923add",
+          "bytes": 4096
+        }
+      },
+      "sprites": {
+        "byte_exact": true,
+        "different_bytes": 0,
+        "native": {
+          "path": "D:\\Arcade\\AI\\aCORES\\Alpha68k N\\sim\\captures\\rtl\\kyros_joined_lifecycle_4401_v1\\frame_000090.sprites.bin",
+          "sha256": "1f49adf7c7afbfc4fe2f5598a0f360dadb6432f9158e802525d1621492056ac3",
+          "bytes": 8192
+        },
+        "reference": {
+          "path": "D:\\Arcade\\AI\\aCORES\\Alpha68k N\\sim\\captures\\kyros\\idle_death_restart_actions4401\\frame_000090.sprites.bin",
+          "sha256": "1f49adf7c7afbfc4fe2f5598a0f360dadb6432f9158e802525d1621492056ac3",
+          "bytes": 8192
+        }
+      }
+    },
+    {
+      "field": 119,
+      "native_RGB": {
+        "path": "D:\\Arcade\\AI\\aCORES\\Alpha68k N\\sim\\captures\\rtl\\kyros_joined_lifecycle_4401_v1\\frame_000119.rgb",
+        "sha256": "3bcac5c304a6099c1684bffb103dc2964200a2616be78baa744dcf123d7f8e72",
+        "bytes": 172032
+      },
+      "completed_PNG_RGB": {
+        "byte_exact": true,
+        "different_pixels": 0,
+        "bbox": null
+      },
+      "work": {
+        "byte_exact": true,
+        "different_bytes": 0,
+        "native": {
+          "path": "D:\\Arcade\\AI\\aCORES\\Alpha68k N\\sim\\captures\\rtl\\kyros_joined_lifecycle_4401_v1\\frame_000119.work.bin",
+          "sha256": "32fbb156b7c7d58f704e79d118840d6af0a804e945ab6160d1c9c096da9b3eff",
+          "bytes": 4096
+        },
+        "reference": {
+          "path": "D:\\Arcade\\AI\\aCORES\\Alpha68k N\\sim\\captures\\kyros\\idle_death_restart_actions4401\\frame_000119.work.bin",
+          "sha256": "32fbb156b7c7d58f704e79d118840d6af0a804e945ab6160d1c9c096da9b3eff",
+          "bytes": 4096
+        }
+      },
+      "sprites": {
+        "byte_exact": true,
+        "different_bytes": 0,
+        "native": {
+          "path": "D:\\Arcade\\AI\\aCORES\\Alpha68k N\\sim\\captures\\rtl\\kyros_joined_lifecycle_4401_v1\\frame_000119.sprites.bin",
+          "sha256": "1f49adf7c7afbfc4fe2f5598a0f360dadb6432f9158e802525d1621492056ac3",
+          "bytes": 8192
+        },
+        "reference": {
+          "path": "D:\\Arcade\\AI\\aCORES\\Alpha68k N\\sim\\captures\\kyros\\idle_death_restart_actions4401\\frame_000119.sprites.bin",
+          "sha256": "1f49adf7c7afbfc4fe2f5598a0f360dadb6432f9158e802525d1621492056ac3",
+          "bytes": 8192
+        }
+      }
+    },
+    {
+      "field": 179,
+      "native_RGB": {
+        "path": "D:\\Arcade\\AI\\aCORES\\Alpha68k N\\sim\\captures\\rtl\\kyros_joined_lifecycle_4401_v1\\frame_000179.rgb",
+        "sha256": "159db246e6c1ca749ddf242ec71367a07727892df17a5f760446eb58941b8cdd",
+        "bytes": 172032
+      },
+      "completed_PNG_RGB": {
+        "byte_exact": true,
+        "different_pixels": 0,
+        "bbox": null
+      },
+      "work": {
+        "byte_exact": true,
+        "different_bytes": 0,
+        "native": {
+          "path": "D:\\Arcade\\AI\\aCORES\\Alpha68k N\\sim\\captures\\rtl\\kyros_joined_lifecycle_4401_v1\\frame_000179.work.bin",
+          "sha256": "e1db108e08bb7a4b5b58c1f9902631e1d625a62bce9f3fde775778c51feaae69",
+          "bytes": 4096
+        },
+        "reference": {
+          "path": "D:\\Arcade\\AI\\aCORES\\Alpha68k N\\sim\\captures\\kyros\\idle_death_restart_actions4401\\frame_000179.work.bin",
+          "sha256": "e1db108e08bb7a4b5b58c1f9902631e1d625a62bce9f3fde775778c51feaae69",
+          "bytes": 4096
+        }
+      },
+      "sprites": {
+        "byte_exact": true,
+        "different_bytes": 0,
+        "native": {
+          "path": "D:\\Arcade\\AI\\aCORES\\Alpha68k N\\sim\\captures\\rtl\\kyros_joined_lifecycle_4401_v1\\frame_000179.sprites.bin",
+          "sha256": "3d8918435b6cf7e2132037e5f603e6f114428e7bd08b7455cb6de6aa077733c7",
+          "bytes": 8192
+        },
+        "reference": {
+          "path": "D:\\Arcade\\AI\\aCORES\\Alpha68k N\\sim\\captures\\kyros\\idle_death_restart_actions4401\\frame_000179.sprites.bin",
+          "sha256": "3d8918435b6cf7e2132037e5f603e6f114428e7bd08b7455cb6de6aa077733c7",
+          "bytes": 8192
+        }
+      }
+    },
+    {
+      "field": 240,
+      "native_RGB": {
+        "path": "D:\\Arcade\\AI\\aCORES\\Alpha68k N\\sim\\captures\\rtl\\kyros_joined_lifecycle_4401_v1\\frame_000240.rgb",
+        "sha256": "159db246e6c1ca749ddf242ec71367a07727892df17a5f760446eb58941b8cdd",
+        "bytes": 172032
+      },
+      "completed_PNG_RGB": {
+        "byte_exact": true,
+        "different_pixels": 0,
+        "bbox": null
+      },
+      "work": {
+        "byte_exact": false,
+        "different_bytes": 3,
+        "native": {
+          "path": "D:\\Arcade\\AI\\aCORES\\Alpha68k N\\sim\\captures\\rtl\\kyros_joined_lifecycle_4401_v1\\frame_000240.work.bin",
+          "sha256": "afa9d10a24bd9ecf960a2ebb58c0689cc430ba8e72cc07e06949ae7a98a59ffe",
+          "bytes": 4096
+        },
+        "reference": {
+          "path": "D:\\Arcade\\AI\\aCORES\\Alpha68k N\\sim\\captures\\kyros\\idle_death_restart_actions4401\\frame_000240.work.bin",
+          "sha256": "71ac12e00865b5eeb9b2bf4df8d4cc573618fb5672bc304f20c04536699179c6",
+          "bytes": 4096
+        }
+      },
+      "sprites": {
+        "byte_exact": true,
+        "different_bytes": 0,
+        "native": {
+          "path": "D:\\Arcade\\AI\\aCORES\\Alpha68k N\\sim\\captures\\rtl\\kyros_joined_lifecycle_4401_v1\\frame_000240.sprites.bin",
+          "sha256": "3d8918435b6cf7e2132037e5f603e6f114428e7bd08b7455cb6de6aa077733c7",
+          "bytes": 8192
+        },
+        "reference": {
+          "path": "D:\\Arcade\\AI\\aCORES\\Alpha68k N\\sim\\captures\\kyros\\idle_death_restart_actions4401\\frame_000240.sprites.bin",
+          "sha256": "3d8918435b6cf7e2132037e5f603e6f114428e7bd08b7455cb6de6aa077733c7",
+          "bytes": 8192
+        }
+      }
+    },
+    {
+      "field": 360,
+      "native_RGB": {
+        "path": "D:\\Arcade\\AI\\aCORES\\Alpha68k N\\sim\\captures\\rtl\\kyros_joined_lifecycle_4401_v1\\frame_000360.rgb",
+        "sha256": "c70ec6bd6464f4da16a10cbc23eb328327aea1a578a4089eade1ae6f6e39178f",
+        "bytes": 172032
+      },
+      "completed_PNG_RGB": {
+        "byte_exact": true,
+        "different_pixels": 0,
+        "bbox": null
+      },
+      "work": {
+        "byte_exact": false,
+        "different_bytes": 1,
+        "native": {
+          "path": "D:\\Arcade\\AI\\aCORES\\Alpha68k N\\sim\\captures\\rtl\\kyros_joined_lifecycle_4401_v1\\frame_000360.work.bin",
+          "sha256": "19aaae8722fe40c47915b9a184f188db9700208d66704d56627ce9e950a34a4f",
+          "bytes": 4096
+        },
+        "reference": {
+          "path": "D:\\Arcade\\AI\\aCORES\\Alpha68k N\\sim\\captures\\kyros\\idle_death_restart_actions4401\\frame_000360.work.bin",
+          "sha256": "5d4504d81b33bf584f0f31dd0701d8c964086e5e935d894f098790181bf6264a",
+          "bytes": 4096
+        }
+      },
+      "sprites": {
+        "byte_exact": true,
+        "different_bytes": 0,
+        "native": {
+          "path": "D:\\Arcade\\AI\\aCORES\\Alpha68k N\\sim\\captures\\rtl\\kyros_joined_lifecycle_4401_v1\\frame_000360.sprites.bin",
+          "sha256": "a7172c6445af5be50889e52765361e0da619f89683da49e82437573ab06508b7",
+          "bytes": 8192
+        },
+        "reference": {
+          "path": "D:\\Arcade\\AI\\aCORES\\Alpha68k N\\sim\\captures\\kyros\\idle_death_restart_actions4401\\frame_000360.sprites.bin",
+          "sha256": "a7172c6445af5be50889e52765361e0da619f89683da49e82437573ab06508b7",
+          "bytes": 8192
+        }
+      }
+    },
+    {
+      "field": 600,
+      "native_RGB": {
+        "path": "D:\\Arcade\\AI\\aCORES\\Alpha68k N\\sim\\captures\\rtl\\kyros_joined_lifecycle_4401_v1\\frame_000600.rgb",
+        "sha256": "870367cea2cc090698af979491e7a9c75e56ca3048a484753ad11186728f9bc8",
+        "bytes": 172032
+      },
+      "completed_PNG_RGB": {
+        "byte_exact": true,
+        "different_pixels": 0,
+        "bbox": null
+      },
+      "work": {
+        "byte_exact": false,
+        "different_bytes": 4,
+        "native": {
+          "path": "D:\\Arcade\\AI\\aCORES\\Alpha68k N\\sim\\captures\\rtl\\kyros_joined_lifecycle_4401_v1\\frame_000600.work.bin",
+          "sha256": "111b2e9173deb608895137fdd4eb7709b6543e3df6e61be98ed9b4c31884825a",
+          "bytes": 4096
+        },
+        "reference": {
+          "path": "D:\\Arcade\\AI\\aCORES\\Alpha68k N\\sim\\captures\\kyros\\idle_death_restart_actions4401\\frame_000600.work.bin",
+          "sha256": "6d68e84b6573289b9f2e663287e8e35703ae5812b32b196992e425b2417f6069",
+          "bytes": 4096
+        }
+      },
+      "sprites": {
+        "byte_exact": true,
+        "different_bytes": 0,
+        "native": {
+          "path": "D:\\Arcade\\AI\\aCORES\\Alpha68k N\\sim\\captures\\rtl\\kyros_joined_lifecycle_4401_v1\\frame_000600.sprites.bin",
+          "sha256": "e5278764380265c52fa179824aa7f940340123f17d548435f0c3f9d4ca30eb9a",
+          "bytes": 8192
+        },
+        "reference": {
+          "path": "D:\\Arcade\\AI\\aCORES\\Alpha68k N\\sim\\captures\\kyros\\idle_death_restart_actions4401\\frame_000600.sprites.bin",
+          "sha256": "e5278764380265c52fa179824aa7f940340123f17d548435f0c3f9d4ca30eb9a",
+          "bytes": 8192
+        }
+      }
+    },
+    {
+      "field": 720,
+      "native_RGB": {
+        "path": "D:\\Arcade\\AI\\aCORES\\Alpha68k N\\sim\\captures\\rtl\\kyros_joined_lifecycle_4401_v1\\frame_000720.rgb",
+        "sha256": "3e20d0d0dd1bd53ff514ec99556519ea5f8b2becba4d40a9be667bc302bd056a",
+        "bytes": 172032
+      },
+      "completed_PNG_RGB": {
+        "byte_exact": true,
+        "different_pixels": 0,
+        "bbox": null
+      },
+      "work": {
+        "byte_exact": false,
+        "different_bytes": 1,
+        "native": {
+          "path": "D:\\Arcade\\AI\\aCORES\\Alpha68k N\\sim\\captures\\rtl\\kyros_joined_lifecycle_4401_v1\\frame_000720.work.bin",
+          "sha256": "848e2d45ce6f8f0de1479217e58eec2808696db67b6298b0d1166f20de4e5e4a",
+          "bytes": 4096
+        },
+        "reference": {
+          "path": "D:\\Arcade\\AI\\aCORES\\Alpha68k N\\sim\\captures\\kyros\\idle_death_restart_actions4401\\frame_000720.work.bin",
+          "sha256": "4ad319843afa026b2960c06de8cd1a1dedaa4dd8b7ca8250a3479acf6a3c7582",
+          "bytes": 4096
+        }
+      },
+      "sprites": {
+        "byte_exact": true,
+        "different_bytes": 0,
+        "native": {
+          "path": "D:\\Arcade\\AI\\aCORES\\Alpha68k N\\sim\\captures\\rtl\\kyros_joined_lifecycle_4401_v1\\frame_000720.sprites.bin",
+          "sha256": "746342bb77fa309ed324c04b8e3dc02fc50fd2f8f78ea4eee9f92f1df897939d",
+          "bytes": 8192
+        },
+        "reference": {
+          "path": "D:\\Arcade\\AI\\aCORES\\Alpha68k N\\sim\\captures\\kyros\\idle_death_restart_actions4401\\frame_000720.sprites.bin",
+          "sha256": "746342bb77fa309ed324c04b8e3dc02fc50fd2f8f78ea4eee9f92f1df897939d",
+          "bytes": 8192
+        }
+      }
+    },
+    {
+      "field": 900,
+      "native_RGB": {
+        "path": "D:\\Arcade\\AI\\aCORES\\Alpha68k N\\sim\\captures\\rtl\\kyros_joined_lifecycle_4401_v1\\frame_000900.rgb",
+        "sha256": "b43a087b379af619d9a088795c0c3018f23dbfb324bb7937b82870020c3c9ef3",
+        "bytes": 172032
+      },
+      "completed_PNG_RGB": {
+        "byte_exact": false,
+        "different_pixels": 4,
+        "bbox": [
+          26,
+          19,
+          29,
+          19
+        ]
+      },
+      "work": {
+        "byte_exact": false,
+        "different_bytes": 1,
+        "native": {
+          "path": "D:\\Arcade\\AI\\aCORES\\Alpha68k N\\sim\\captures\\rtl\\kyros_joined_lifecycle_4401_v1\\frame_000900.work.bin",
+          "sha256": "a1f3d8713824f0d5e51304eb8277dbbb5fd1c80374d2d0ce64dfe41d1836af4d",
+          "bytes": 4096
+        },
+        "reference": {
+          "path": "D:\\Arcade\\AI\\aCORES\\Alpha68k N\\sim\\captures\\kyros\\idle_death_restart_actions4401\\frame_000900.work.bin",
+          "sha256": "3517c677b8d0121eb83d2c5312cf8fb15594c984f748bd8bf4f0a49c167dc2bf",
+          "bytes": 4096
+        }
+      },
+      "sprites": {
+        "byte_exact": true,
+        "different_bytes": 0,
+        "native": {
+          "path": "D:\\Arcade\\AI\\aCORES\\Alpha68k N\\sim\\captures\\rtl\\kyros_joined_lifecycle_4401_v1\\frame_000900.sprites.bin",
+          "sha256": "f80013b0ea6eae3bbacf239b6d833193e8b4ef0cc4f212eccfd8c71bcf3ad2ea",
+          "bytes": 8192
+        },
+        "reference": {
+          "path": "D:\\Arcade\\AI\\aCORES\\Alpha68k N\\sim\\captures\\kyros\\idle_death_restart_actions4401\\frame_000900.sprites.bin",
+          "sha256": "f80013b0ea6eae3bbacf239b6d833193e8b4ef0cc4f212eccfd8c71bcf3ad2ea",
+          "bytes": 8192
+        }
+      }
+    },
+    {
+      "field": 960,
+      "native_RGB": {
+        "path": "D:\\Arcade\\AI\\aCORES\\Alpha68k N\\sim\\captures\\rtl\\kyros_joined_lifecycle_4401_v1\\frame_000960.rgb",
+        "sha256": "750fc735e77ecfa74adfc2dbb90691a6b5fc623fc8a24feab9accc39c74ecce8",
+        "bytes": 172032
+      },
+      "completed_PNG_RGB": {
+        "byte_exact": true,
+        "different_pixels": 0,
+        "bbox": null
+      },
+      "work": {
+        "byte_exact": false,
+        "different_bytes": 1,
+        "native": {
+          "path": "D:\\Arcade\\AI\\aCORES\\Alpha68k N\\sim\\captures\\rtl\\kyros_joined_lifecycle_4401_v1\\frame_000960.work.bin",
+          "sha256": "4f876a11e425fb9e36dfdb0d64a15db3bfff1ddd23782de28ec87ce34a4f2d5f",
+          "bytes": 4096
+        },
+        "reference": {
+          "path": "D:\\Arcade\\AI\\aCORES\\Alpha68k N\\sim\\captures\\kyros\\idle_death_restart_actions4401\\frame_000960.work.bin",
+          "sha256": "c370071f224723a7c7df8c665fe9a6ec54ec75151aeedddbd029988c011531e0",
+          "bytes": 4096
+        }
+      },
+      "sprites": {
+        "byte_exact": true,
+        "different_bytes": 0,
+        "native": {
+          "path": "D:\\Arcade\\AI\\aCORES\\Alpha68k N\\sim\\captures\\rtl\\kyros_joined_lifecycle_4401_v1\\frame_000960.sprites.bin",
+          "sha256": "c2cd9ac8d0f13caa2ac235b83f1cfb34de522b2920a8bd9963144d705c1e1954",
+          "bytes": 8192
+        },
+        "reference": {
+          "path": "D:\\Arcade\\AI\\aCORES\\Alpha68k N\\sim\\captures\\kyros\\idle_death_restart_actions4401\\frame_000960.sprites.bin",
+          "sha256": "c2cd9ac8d0f13caa2ac235b83f1cfb34de522b2920a8bd9963144d705c1e1954",
+          "bytes": 8192
+        }
+      }
+    },
+    {
+      "field": 1200,
+      "native_RGB": {
+        "path": "D:\\Arcade\\AI\\aCORES\\Alpha68k N\\sim\\captures\\rtl\\kyros_joined_lifecycle_4401_v1\\frame_001200.rgb",
+        "sha256": "27a60231e794f756f39c29edef8c0d7f70c961f5b05fc4c1c60e6d67357d6aa6",
+        "bytes": 172032
+      },
+      "completed_PNG_RGB": {
+        "byte_exact": true,
+        "different_pixels": 0,
+        "bbox": null
+      },
+      "work": {
+        "byte_exact": true,
+        "different_bytes": 0,
+        "native": {
+          "path": "D:\\Arcade\\AI\\aCORES\\Alpha68k N\\sim\\captures\\rtl\\kyros_joined_lifecycle_4401_v1\\frame_001200.work.bin",
+          "sha256": "b63125b5ef5f266ea697c88b6e290d666da755e137dfe4df1bb80fbc2cee2c97",
+          "bytes": 4096
+        },
+        "reference": {
+          "path": "D:\\Arcade\\AI\\aCORES\\Alpha68k N\\sim\\captures\\kyros\\idle_death_restart_actions4401\\frame_001200.work.bin",
+          "sha256": "b63125b5ef5f266ea697c88b6e290d666da755e137dfe4df1bb80fbc2cee2c97",
+          "bytes": 4096
+        }
+      },
+      "sprites": {
+        "byte_exact": true,
+        "different_bytes": 0,
+        "native": {
+          "path": "D:\\Arcade\\AI\\aCORES\\Alpha68k N\\sim\\captures\\rtl\\kyros_joined_lifecycle_4401_v1\\frame_001200.sprites.bin",
+          "sha256": "931bc0435d98af1bf95bea4ec209ea2bfa030586ac912e5687a67357096a4922",
+          "bytes": 8192
+        },
+        "reference": {
+          "path": "D:\\Arcade\\AI\\aCORES\\Alpha68k N\\sim\\captures\\kyros\\idle_death_restart_actions4401\\frame_001200.sprites.bin",
+          "sha256": "931bc0435d98af1bf95bea4ec209ea2bfa030586ac912e5687a67357096a4922",
+          "bytes": 8192
+        }
+      }
+    },
+    {
+      "field": 1440,
+      "native_RGB": {
+        "path": "D:\\Arcade\\AI\\aCORES\\Alpha68k N\\sim\\captures\\rtl\\kyros_joined_lifecycle_4401_v1\\frame_001440.rgb",
+        "sha256": "53ac0ad7af624cae4102ec0ec76dde06582fa353186c27d4461eb4175fb459d6",
+        "bytes": 172032
+      },
+      "completed_PNG_RGB": {
+        "byte_exact": true,
+        "different_pixels": 0,
+        "bbox": null
+      },
+      "work": {
+        "byte_exact": false,
+        "different_bytes": 1,
+        "native": {
+          "path": "D:\\Arcade\\AI\\aCORES\\Alpha68k N\\sim\\captures\\rtl\\kyros_joined_lifecycle_4401_v1\\frame_001440.work.bin",
+          "sha256": "97b3f88eb48564f430014c60c10ae6fe2ccc778418bf0ace920cadf35194e9cf",
+          "bytes": 4096
+        },
+        "reference": {
+          "path": "D:\\Arcade\\AI\\aCORES\\Alpha68k N\\sim\\captures\\kyros\\idle_death_restart_actions4401\\frame_001440.work.bin",
+          "sha256": "b36750eee46b250a626f130e8a45e5ab5719cfe0e66bf0ed388a9b442b3fa477",
+          "bytes": 4096
+        }
+      },
+      "sprites": {
+        "byte_exact": true,
+        "different_bytes": 0,
+        "native": {
+          "path": "D:\\Arcade\\AI\\aCORES\\Alpha68k N\\sim\\captures\\rtl\\kyros_joined_lifecycle_4401_v1\\frame_001440.sprites.bin",
+          "sha256": "5c067c1f215c4d1c8cd72da27c76d00b2d2225d311f499afa9158b985de0bc16",
+          "bytes": 8192
+        },
+        "reference": {
+          "path": "D:\\Arcade\\AI\\aCORES\\Alpha68k N\\sim\\captures\\kyros\\idle_death_restart_actions4401\\frame_001440.sprites.bin",
+          "sha256": "5c067c1f215c4d1c8cd72da27c76d00b2d2225d311f499afa9158b985de0bc16",
+          "bytes": 8192
+        }
+      }
+    },
+    {
+      "field": 1680,
+      "native_RGB": {
+        "path": "D:\\Arcade\\AI\\aCORES\\Alpha68k N\\sim\\captures\\rtl\\kyros_joined_lifecycle_4401_v1\\frame_001680.rgb",
+        "sha256": "00b0180bca574865564d36c14cd7bf55c7cd28856fd823be1128513589dd2172",
+        "bytes": 172032
+      },
+      "completed_PNG_RGB": {
+        "byte_exact": true,
+        "different_pixels": 0,
+        "bbox": null
+      },
+      "work": {
+        "byte_exact": true,
+        "different_bytes": 0,
+        "native": {
+          "path": "D:\\Arcade\\AI\\aCORES\\Alpha68k N\\sim\\captures\\rtl\\kyros_joined_lifecycle_4401_v1\\frame_001680.work.bin",
+          "sha256": "b52b497bdad899e0746eeff441b6233cec4a397ead04dcc3822580b60b0d6131",
+          "bytes": 4096
+        },
+        "reference": {
+          "path": "D:\\Arcade\\AI\\aCORES\\Alpha68k N\\sim\\captures\\kyros\\idle_death_restart_actions4401\\frame_001680.work.bin",
+          "sha256": "b52b497bdad899e0746eeff441b6233cec4a397ead04dcc3822580b60b0d6131",
+          "bytes": 4096
+        }
+      },
+      "sprites": {
+        "byte_exact": true,
+        "different_bytes": 0,
+        "native": {
+          "path": "D:\\Arcade\\AI\\aCORES\\Alpha68k N\\sim\\captures\\rtl\\kyros_joined_lifecycle_4401_v1\\frame_001680.sprites.bin",
+          "sha256": "37e10f37a6724835f461aaf1540645476cee82423d30907b9e907a18a320b294",
+          "bytes": 8192
+        },
+        "reference": {
+          "path": "D:\\Arcade\\AI\\aCORES\\Alpha68k N\\sim\\captures\\kyros\\idle_death_restart_actions4401\\frame_001680.sprites.bin",
+          "sha256": "37e10f37a6724835f461aaf1540645476cee82423d30907b9e907a18a320b294",
+          "bytes": 8192
+        }
+      }
+    },
+    {
+      "field": 1799,
+      "native_RGB": {
+        "path": "D:\\Arcade\\AI\\aCORES\\Alpha68k N\\sim\\captures\\rtl\\kyros_joined_lifecycle_4401_v1\\frame_001799.rgb",
+        "sha256": "4e21447d446d4c9673e3b103e06918e35fd6cbd31afe8a7caeb1b2da9877572d",
+        "bytes": 172032
+      },
+      "completed_PNG_RGB": {
+        "byte_exact": true,
+        "different_pixels": 0,
+        "bbox": null
+      },
+      "work": {
+        "byte_exact": true,
+        "different_bytes": 0,
+        "native": {
+          "path": "D:\\Arcade\\AI\\aCORES\\Alpha68k N\\sim\\captures\\rtl\\kyros_joined_lifecycle_4401_v1\\frame_001799.work.bin",
+          "sha256": "4124cded4d7842c219c342133d604386450bfbb176803424dec4f3c6c485c665",
+          "bytes": 4096
+        },
+        "reference": {
+          "path": "D:\\Arcade\\AI\\aCORES\\Alpha68k N\\sim\\captures\\kyros\\idle_death_restart_actions4401\\frame_001799.work.bin",
+          "sha256": "4124cded4d7842c219c342133d604386450bfbb176803424dec4f3c6c485c665",
+          "bytes": 4096
+        }
+      },
+      "sprites": {
+        "byte_exact": true,
+        "different_bytes": 0,
+        "native": {
+          "path": "D:\\Arcade\\AI\\aCORES\\Alpha68k N\\sim\\captures\\rtl\\kyros_joined_lifecycle_4401_v1\\frame_001799.sprites.bin",
+          "sha256": "2814720c34e7f8d87025b440f2e4c4777926be2d59f3e1e2de51dbf8c8dbec28",
+          "bytes": 8192
+        },
+        "reference": {
+          "path": "D:\\Arcade\\AI\\aCORES\\Alpha68k N\\sim\\captures\\kyros\\idle_death_restart_actions4401\\frame_001799.sprites.bin",
+          "sha256": "2814720c34e7f8d87025b440f2e4c4777926be2d59f3e1e2de51dbf8c8dbec28",
+          "bytes": 8192
+        }
+      }
+    },
+    {
+      "field": 1920,
+      "native_RGB": {
+        "path": "D:\\Arcade\\AI\\aCORES\\Alpha68k N\\sim\\captures\\rtl\\kyros_joined_lifecycle_4401_v1\\frame_001920.rgb",
+        "sha256": "eb6f8e02a9840b458f0710cfa9d8773ab2f892b3b7d6a98f8a633996a5c369de",
+        "bytes": 172032
+      },
+      "completed_PNG_RGB": {
+        "byte_exact": true,
+        "different_pixels": 0,
+        "bbox": null
+      },
+      "work": {
+        "byte_exact": false,
+        "different_bytes": 1,
+        "native": {
+          "path": "D:\\Arcade\\AI\\aCORES\\Alpha68k N\\sim\\captures\\rtl\\kyros_joined_lifecycle_4401_v1\\frame_001920.work.bin",
+          "sha256": "d737c27fcae7f2ea114a224621e79f006d6636a5d29f73db2d30e015b67eeee8",
+          "bytes": 4096
+        },
+        "reference": {
+          "path": "D:\\Arcade\\AI\\aCORES\\Alpha68k N\\sim\\captures\\kyros\\idle_death_restart_actions4401\\frame_001920.work.bin",
+          "sha256": "8ebf6ec4948313c93dea972609066f500f36fb7d08429d4d149de39dcee4f697",
+          "bytes": 4096
+        }
+      },
+      "sprites": {
+        "byte_exact": true,
+        "different_bytes": 0,
+        "native": {
+          "path": "D:\\Arcade\\AI\\aCORES\\Alpha68k N\\sim\\captures\\rtl\\kyros_joined_lifecycle_4401_v1\\frame_001920.sprites.bin",
+          "sha256": "7a537aa0650b6d44a45a28f3d07d830ec281b5fd59d08a28f433ac86bc324389",
+          "bytes": 8192
+        },
+        "reference": {
+          "path": "D:\\Arcade\\AI\\aCORES\\Alpha68k N\\sim\\captures\\kyros\\idle_death_restart_actions4401\\frame_001920.sprites.bin",
+          "sha256": "7a537aa0650b6d44a45a28f3d07d830ec281b5fd59d08a28f433ac86bc324389",
+          "bytes": 8192
+        }
+      }
+    },
+    {
+      "field": 2160,
+      "native_RGB": {
+        "path": "D:\\Arcade\\AI\\aCORES\\Alpha68k N\\sim\\captures\\rtl\\kyros_joined_lifecycle_4401_v1\\frame_002160.rgb",
+        "sha256": "751895b84ff3cfeda772862063129d12c0317d11d9c9bc9f552bb69b5aa0fad8",
+        "bytes": 172032
+      },
+      "completed_PNG_RGB": {
+        "byte_exact": true,
+        "different_pixels": 0,
+        "bbox": null
+      },
+      "work": {
+        "byte_exact": false,
+        "different_bytes": 2,
+        "native": {
+          "path": "D:\\Arcade\\AI\\aCORES\\Alpha68k N\\sim\\captures\\rtl\\kyros_joined_lifecycle_4401_v1\\frame_002160.work.bin",
+          "sha256": "10aca025bd699cbe917e794c864eb0b4e26b5ee9e6482fafda6a29f423bb6d96",
+          "bytes": 4096
+        },
+        "reference": {
+          "path": "D:\\Arcade\\AI\\aCORES\\Alpha68k N\\sim\\captures\\kyros\\idle_death_restart_actions4401\\frame_002160.work.bin",
+          "sha256": "2e165cd889326160762e75529bfcaaac9002e59792c697ef1994b80b3354f4af",
+          "bytes": 4096
+        }
+      },
+      "sprites": {
+        "byte_exact": true,
+        "different_bytes": 0,
+        "native": {
+          "path": "D:\\Arcade\\AI\\aCORES\\Alpha68k N\\sim\\captures\\rtl\\kyros_joined_lifecycle_4401_v1\\frame_002160.sprites.bin",
+          "sha256": "07ccc4af1b29837b6a4354797c221287cba8c015dd7851321c3e8239357bf20a",
+          "bytes": 8192
+        },
+        "reference": {
+          "path": "D:\\Arcade\\AI\\aCORES\\Alpha68k N\\sim\\captures\\kyros\\idle_death_restart_actions4401\\frame_002160.sprites.bin",
+          "sha256": "07ccc4af1b29837b6a4354797c221287cba8c015dd7851321c3e8239357bf20a",
+          "bytes": 8192
+        }
+      }
+    },
+    {
+      "field": 2400,
+      "native_RGB": {
+        "path": "D:\\Arcade\\AI\\aCORES\\Alpha68k N\\sim\\captures\\rtl\\kyros_joined_lifecycle_4401_v1\\frame_002400.rgb",
+        "sha256": "76d09f178f791555d5b8ea1f3454bbd588212f9b9dc1029d2db9f40a542cce2e",
+        "bytes": 172032
+      },
+      "completed_PNG_RGB": {
+        "byte_exact": true,
+        "different_pixels": 0,
+        "bbox": null
+      },
+      "work": {
+        "byte_exact": false,
+        "different_bytes": 1,
+        "native": {
+          "path": "D:\\Arcade\\AI\\aCORES\\Alpha68k N\\sim\\captures\\rtl\\kyros_joined_lifecycle_4401_v1\\frame_002400.work.bin",
+          "sha256": "53a1e63b84c4b925d31c9f72652710bc206e63582e0adff9d0eb2188eafd610e",
+          "bytes": 4096
+        },
+        "reference": {
+          "path": "D:\\Arcade\\AI\\aCORES\\Alpha68k N\\sim\\captures\\kyros\\idle_death_restart_actions4401\\frame_002400.work.bin",
+          "sha256": "ce8eb2edc7227b44c4f8854d8b1237e391a92dc20022996a41471d71799c50c6",
+          "bytes": 4096
+        }
+      },
+      "sprites": {
+        "byte_exact": true,
+        "different_bytes": 0,
+        "native": {
+          "path": "D:\\Arcade\\AI\\aCORES\\Alpha68k N\\sim\\captures\\rtl\\kyros_joined_lifecycle_4401_v1\\frame_002400.sprites.bin",
+          "sha256": "5d97abe6860f9bd9d6223076c679075d736367ab39ecc902cdfcefb24a689197",
+          "bytes": 8192
+        },
+        "reference": {
+          "path": "D:\\Arcade\\AI\\aCORES\\Alpha68k N\\sim\\captures\\kyros\\idle_death_restart_actions4401\\frame_002400.sprites.bin",
+          "sha256": "5d97abe6860f9bd9d6223076c679075d736367ab39ecc902cdfcefb24a689197",
+          "bytes": 8192
+        }
+      }
+    },
+    {
+      "field": 2640,
+      "native_RGB": {
+        "path": "D:\\Arcade\\AI\\aCORES\\Alpha68k N\\sim\\captures\\rtl\\kyros_joined_lifecycle_4401_v1\\frame_002640.rgb",
+        "sha256": "9abdda8f8b67552cefea0d795ed35f6a05c3cf9b22810887c3f782ef65f89f54",
+        "bytes": 172032
+      },
+      "completed_PNG_RGB": {
+        "byte_exact": true,
+        "different_pixels": 0,
+        "bbox": null
+      },
+      "work": {
+        "byte_exact": false,
+        "different_bytes": 1,
+        "native": {
+          "path": "D:\\Arcade\\AI\\aCORES\\Alpha68k N\\sim\\captures\\rtl\\kyros_joined_lifecycle_4401_v1\\frame_002640.work.bin",
+          "sha256": "f5617f1b214295a18cef56c1b59f3db2cfdd5fd654466d242d556ab883838992",
+          "bytes": 4096
+        },
+        "reference": {
+          "path": "D:\\Arcade\\AI\\aCORES\\Alpha68k N\\sim\\captures\\kyros\\idle_death_restart_actions4401\\frame_002640.work.bin",
+          "sha256": "259ce645f3932a27bdb15f3eeda2ccbbb71b772cb5dbd99755208806dfa60e43",
+          "bytes": 4096
+        }
+      },
+      "sprites": {
+        "byte_exact": true,
+        "different_bytes": 0,
+        "native": {
+          "path": "D:\\Arcade\\AI\\aCORES\\Alpha68k N\\sim\\captures\\rtl\\kyros_joined_lifecycle_4401_v1\\frame_002640.sprites.bin",
+          "sha256": "9a818896b89df72c863498651fc73c3481676a608cbaaeaf2167a91334f4c239",
+          "bytes": 8192
+        },
+        "reference": {
+          "path": "D:\\Arcade\\AI\\aCORES\\Alpha68k N\\sim\\captures\\kyros\\idle_death_restart_actions4401\\frame_002640.sprites.bin",
+          "sha256": "9a818896b89df72c863498651fc73c3481676a608cbaaeaf2167a91334f4c239",
+          "bytes": 8192
+        }
+      }
+    },
+    {
+      "field": 2880,
+      "native_RGB": {
+        "path": "D:\\Arcade\\AI\\aCORES\\Alpha68k N\\sim\\captures\\rtl\\kyros_joined_lifecycle_4401_v1\\frame_002880.rgb",
+        "sha256": "fd9aef8aa81c3aea6774e619394a9d893f8779fc51f31e49f53e1b2725c698b1",
+        "bytes": 172032
+      },
+      "completed_PNG_RGB": {
+        "byte_exact": true,
+        "different_pixels": 0,
+        "bbox": null
+      },
+      "work": {
+        "byte_exact": false,
+        "different_bytes": 2,
+        "native": {
+          "path": "D:\\Arcade\\AI\\aCORES\\Alpha68k N\\sim\\captures\\rtl\\kyros_joined_lifecycle_4401_v1\\frame_002880.work.bin",
+          "sha256": "3bd481845629a73fd187f19b0bfa9181d41d4a1f548a96b5cb17354a8078f522",
+          "bytes": 4096
+        },
+        "reference": {
+          "path": "D:\\Arcade\\AI\\aCORES\\Alpha68k N\\sim\\captures\\kyros\\idle_death_restart_actions4401\\frame_002880.work.bin",
+          "sha256": "fd0fd57e0bfbce7ca30bc750a331b0eddac524a55e5e197574f4f16e5852e1ba",
+          "bytes": 4096
+        }
+      },
+      "sprites": {
+        "byte_exact": true,
+        "different_bytes": 0,
+        "native": {
+          "path": "D:\\Arcade\\AI\\aCORES\\Alpha68k N\\sim\\captures\\rtl\\kyros_joined_lifecycle_4401_v1\\frame_002880.sprites.bin",
+          "sha256": "3ee3fef962f245c06f11d991052fec87297684ffc209dcc10f08a1312fec214c",
+          "bytes": 8192
+        },
+        "reference": {
+          "path": "D:\\Arcade\\AI\\aCORES\\Alpha68k N\\sim\\captures\\kyros\\idle_death_restart_actions4401\\frame_002880.sprites.bin",
+          "sha256": "3ee3fef962f245c06f11d991052fec87297684ffc209dcc10f08a1312fec214c",
+          "bytes": 8192
+        }
+      }
+    },
+    {
+      "field": 3120,
+      "native_RGB": {
+        "path": "D:\\Arcade\\AI\\aCORES\\Alpha68k N\\sim\\captures\\rtl\\kyros_joined_lifecycle_4401_v1\\frame_003120.rgb",
+        "sha256": "95b2fd8f6d8af7268e5fa739cfdfaf6c96c4ba0ace2973a66a8dcce59c477a7e",
+        "bytes": 172032
+      },
+      "completed_PNG_RGB": {
+        "byte_exact": true,
+        "different_pixels": 0,
+        "bbox": null
+      },
+      "work": {
+        "byte_exact": false,
+        "different_bytes": 3,
+        "native": {
+          "path": "D:\\Arcade\\AI\\aCORES\\Alpha68k N\\sim\\captures\\rtl\\kyros_joined_lifecycle_4401_v1\\frame_003120.work.bin",
+          "sha256": "5f2e7cdd05caa42666979f8e0d4bfd4984b67c198e26dd50b3659f4e3712eda4",
+          "bytes": 4096
+        },
+        "reference": {
+          "path": "D:\\Arcade\\AI\\aCORES\\Alpha68k N\\sim\\captures\\kyros\\idle_death_restart_actions4401\\frame_003120.work.bin",
+          "sha256": "16be576396c26e550517b9094882b93c2d52f7aca85fbf5c35578fd6d83305c5",
+          "bytes": 4096
+        }
+      },
+      "sprites": {
+        "byte_exact": true,
+        "different_bytes": 0,
+        "native": {
+          "path": "D:\\Arcade\\AI\\aCORES\\Alpha68k N\\sim\\captures\\rtl\\kyros_joined_lifecycle_4401_v1\\frame_003120.sprites.bin",
+          "sha256": "d2520a07b2d9ffb71fe10446ba08e2dbd0de5708d54cdecb17e1c0bbcddbce96",
+          "bytes": 8192
+        },
+        "reference": {
+          "path": "D:\\Arcade\\AI\\aCORES\\Alpha68k N\\sim\\captures\\kyros\\idle_death_restart_actions4401\\frame_003120.sprites.bin",
+          "sha256": "d2520a07b2d9ffb71fe10446ba08e2dbd0de5708d54cdecb17e1c0bbcddbce96",
+          "bytes": 8192
+        }
+      }
+    },
+    {
+      "field": 3360,
+      "native_RGB": {
+        "path": "D:\\Arcade\\AI\\aCORES\\Alpha68k N\\sim\\captures\\rtl\\kyros_joined_lifecycle_4401_v1\\frame_003360.rgb",
+        "sha256": "c4e05887ec4a6998839c7ef5f3393870175cf8e565eccd83a071fb72aaef6e72",
+        "bytes": 172032
+      },
+      "completed_PNG_RGB": {
+        "byte_exact": true,
+        "different_pixels": 0,
+        "bbox": null
+      },
+      "work": {
+        "byte_exact": false,
+        "different_bytes": 1,
+        "native": {
+          "path": "D:\\Arcade\\AI\\aCORES\\Alpha68k N\\sim\\captures\\rtl\\kyros_joined_lifecycle_4401_v1\\frame_003360.work.bin",
+          "sha256": "b45babe171aea3b8bc09d3b19c719fcd26df169cee1384d5b639a9c02b55e0e9",
+          "bytes": 4096
+        },
+        "reference": {
+          "path": "D:\\Arcade\\AI\\aCORES\\Alpha68k N\\sim\\captures\\kyros\\idle_death_restart_actions4401\\frame_003360.work.bin",
+          "sha256": "378c27206f9fc4a75e3fef24b9a6b5f75ba82ed9489ad104128ed33470e45099",
+          "bytes": 4096
+        }
+      },
+      "sprites": {
+        "byte_exact": true,
+        "different_bytes": 0,
+        "native": {
+          "path": "D:\\Arcade\\AI\\aCORES\\Alpha68k N\\sim\\captures\\rtl\\kyros_joined_lifecycle_4401_v1\\frame_003360.sprites.bin",
+          "sha256": "b8feb93772f32ca88cb8e6225610790ad3d4b746aa01c402184f020ba56746cf",
+          "bytes": 8192
+        },
+        "reference": {
+          "path": "D:\\Arcade\\AI\\aCORES\\Alpha68k N\\sim\\captures\\kyros\\idle_death_restart_actions4401\\frame_003360.sprites.bin",
+          "sha256": "b8feb93772f32ca88cb8e6225610790ad3d4b746aa01c402184f020ba56746cf",
+          "bytes": 8192
+        }
+      }
+    },
+    {
+      "field": 3600,
+      "native_RGB": {
+        "path": "D:\\Arcade\\AI\\aCORES\\Alpha68k N\\sim\\captures\\rtl\\kyros_joined_lifecycle_4401_v1\\frame_003600.rgb",
+        "sha256": "3bcac5c304a6099c1684bffb103dc2964200a2616be78baa744dcf123d7f8e72",
+        "bytes": 172032
+      },
+      "completed_PNG_RGB": {
+        "byte_exact": true,
+        "different_pixels": 0,
+        "bbox": null
+      },
+      "work": {
+        "byte_exact": false,
+        "different_bytes": 38,
+        "native": {
+          "path": "D:\\Arcade\\AI\\aCORES\\Alpha68k N\\sim\\captures\\rtl\\kyros_joined_lifecycle_4401_v1\\frame_003600.work.bin",
+          "sha256": "946c44f396e6fffccc156fa38a98fc6234ba73ebe79d71b7bf2dea803b9ce01c",
+          "bytes": 4096
+        },
+        "reference": {
+          "path": "D:\\Arcade\\AI\\aCORES\\Alpha68k N\\sim\\captures\\kyros\\idle_death_restart_actions4401\\frame_003600.work.bin",
+          "sha256": "cc4999d9264a5dfa06306194e7cf392f4c9bfc669add05e83dfea7fa3bdb748d",
+          "bytes": 4096
+        }
+      },
+      "sprites": {
+        "byte_exact": true,
+        "different_bytes": 0,
+        "native": {
+          "path": "D:\\Arcade\\AI\\aCORES\\Alpha68k N\\sim\\captures\\rtl\\kyros_joined_lifecycle_4401_v1\\frame_003600.sprites.bin",
+          "sha256": "643fd49a4b7d9b0ebde777298d02de9a43a12ed0d824d7b066fe66266f7d57fa",
+          "bytes": 8192
+        },
+        "reference": {
+          "path": "D:\\Arcade\\AI\\aCORES\\Alpha68k N\\sim\\captures\\kyros\\idle_death_restart_actions4401\\frame_003600.sprites.bin",
+          "sha256": "643fd49a4b7d9b0ebde777298d02de9a43a12ed0d824d7b066fe66266f7d57fa",
+          "bytes": 8192
+        }
+      }
+    },
+    {
+      "field": 3630,
+      "native_RGB": {
+        "path": "D:\\Arcade\\AI\\aCORES\\Alpha68k N\\sim\\captures\\rtl\\kyros_joined_lifecycle_4401_v1\\frame_003630.rgb",
+        "sha256": "a80db47afa6b5d44d191dd458fb9852b5466c12f50040eb557edad3320ee8ec1",
+        "bytes": 172032
+      },
+      "completed_PNG_RGB": {
+        "byte_exact": true,
+        "different_pixels": 0,
+        "bbox": null
+      },
+      "work": {
+        "byte_exact": true,
+        "different_bytes": 0,
+        "native": {
+          "path": "D:\\Arcade\\AI\\aCORES\\Alpha68k N\\sim\\captures\\rtl\\kyros_joined_lifecycle_4401_v1\\frame_003630.work.bin",
+          "sha256": "1433dad3d2a6158d9275bcde23fa84c85ec889f957d12f1fd7a0092a2ae1fa64",
+          "bytes": 4096
+        },
+        "reference": {
+          "path": "D:\\Arcade\\AI\\aCORES\\Alpha68k N\\sim\\captures\\kyros\\idle_death_restart_actions4401\\frame_003630.work.bin",
+          "sha256": "1433dad3d2a6158d9275bcde23fa84c85ec889f957d12f1fd7a0092a2ae1fa64",
+          "bytes": 4096
+        }
+      },
+      "sprites": {
+        "byte_exact": true,
+        "different_bytes": 0,
+        "native": {
+          "path": "D:\\Arcade\\AI\\aCORES\\Alpha68k N\\sim\\captures\\rtl\\kyros_joined_lifecycle_4401_v1\\frame_003630.sprites.bin",
+          "sha256": "004e1d9149c35f58b338e67349682dee8a8db6ae589db1d812347f28daeb93aa",
+          "bytes": 8192
+        },
+        "reference": {
+          "path": "D:\\Arcade\\AI\\aCORES\\Alpha68k N\\sim\\captures\\kyros\\idle_death_restart_actions4401\\frame_003630.sprites.bin",
+          "sha256": "004e1d9149c35f58b338e67349682dee8a8db6ae589db1d812347f28daeb93aa",
+          "bytes": 8192
+        }
+      }
+    },
+    {
+      "field": 3660,
+      "native_RGB": {
+        "path": "D:\\Arcade\\AI\\aCORES\\Alpha68k N\\sim\\captures\\rtl\\kyros_joined_lifecycle_4401_v1\\frame_003660.rgb",
+        "sha256": "214c833ba333eedad4bdb686a879b9e8eea3e8cda36f0f991125cf8c53e44744",
+        "bytes": 172032
+      },
+      "completed_PNG_RGB": {
+        "byte_exact": true,
+        "different_pixels": 0,
+        "bbox": null
+      },
+      "work": {
+        "byte_exact": false,
+        "different_bytes": 1,
+        "native": {
+          "path": "D:\\Arcade\\AI\\aCORES\\Alpha68k N\\sim\\captures\\rtl\\kyros_joined_lifecycle_4401_v1\\frame_003660.work.bin",
+          "sha256": "01e27cb84384e8241ad4160f0c884c70ba1bc1feee69cb1f912d622cca331637",
+          "bytes": 4096
+        },
+        "reference": {
+          "path": "D:\\Arcade\\AI\\aCORES\\Alpha68k N\\sim\\captures\\kyros\\idle_death_restart_actions4401\\frame_003660.work.bin",
+          "sha256": "2bb274daa017348ff7774fe5188b43b29cb8ac9f51f3945d53cb0491e5b01da3",
+          "bytes": 4096
+        }
+      },
+      "sprites": {
+        "byte_exact": true,
+        "different_bytes": 0,
+        "native": {
+          "path": "D:\\Arcade\\AI\\aCORES\\Alpha68k N\\sim\\captures\\rtl\\kyros_joined_lifecycle_4401_v1\\frame_003660.sprites.bin",
+          "sha256": "4a08dd2fa6ceb70df313d2743645ae7ea454fb1c32325540fddd1889cddf7b08",
+          "bytes": 8192
+        },
+        "reference": {
+          "path": "D:\\Arcade\\AI\\aCORES\\Alpha68k N\\sim\\captures\\kyros\\idle_death_restart_actions4401\\frame_003660.sprites.bin",
+          "sha256": "4a08dd2fa6ceb70df313d2743645ae7ea454fb1c32325540fddd1889cddf7b08",
+          "bytes": 8192
+        }
+      }
+    },
+    {
+      "field": 3690,
+      "native_RGB": {
+        "path": "D:\\Arcade\\AI\\aCORES\\Alpha68k N\\sim\\captures\\rtl\\kyros_joined_lifecycle_4401_v1\\frame_003690.rgb",
+        "sha256": "159db246e6c1ca749ddf242ec71367a07727892df17a5f760446eb58941b8cdd",
+        "bytes": 172032
+      },
+      "completed_PNG_RGB": {
+        "byte_exact": true,
+        "different_pixels": 0,
+        "bbox": null
+      },
+      "work": {
+        "byte_exact": true,
+        "different_bytes": 0,
+        "native": {
+          "path": "D:\\Arcade\\AI\\aCORES\\Alpha68k N\\sim\\captures\\rtl\\kyros_joined_lifecycle_4401_v1\\frame_003690.work.bin",
+          "sha256": "8eccb32623cdf2e1c7a79e4084253bdbc807ddcd8776437f8c7f837e02d62450",
+          "bytes": 4096
+        },
+        "reference": {
+          "path": "D:\\Arcade\\AI\\aCORES\\Alpha68k N\\sim\\captures\\kyros\\idle_death_restart_actions4401\\frame_003690.work.bin",
+          "sha256": "8eccb32623cdf2e1c7a79e4084253bdbc807ddcd8776437f8c7f837e02d62450",
+          "bytes": 4096
+        }
+      },
+      "sprites": {
+        "byte_exact": true,
+        "different_bytes": 0,
+        "native": {
+          "path": "D:\\Arcade\\AI\\aCORES\\Alpha68k N\\sim\\captures\\rtl\\kyros_joined_lifecycle_4401_v1\\frame_003690.sprites.bin",
+          "sha256": "3d8918435b6cf7e2132037e5f603e6f114428e7bd08b7455cb6de6aa077733c7",
+          "bytes": 8192
+        },
+        "reference": {
+          "path": "D:\\Arcade\\AI\\aCORES\\Alpha68k N\\sim\\captures\\kyros\\idle_death_restart_actions4401\\frame_003690.sprites.bin",
+          "sha256": "3d8918435b6cf7e2132037e5f603e6f114428e7bd08b7455cb6de6aa077733c7",
+          "bytes": 8192
+        }
+      }
+    },
+    {
+      "field": 3720,
+      "native_RGB": {
+        "path": "D:\\Arcade\\AI\\aCORES\\Alpha68k N\\sim\\captures\\rtl\\kyros_joined_lifecycle_4401_v1\\frame_003720.rgb",
+        "sha256": "65e4f9c57a5dc7c50703a27234b3d97932b2ce8bbcdb5382b7c0b7c88fd7fa3d",
+        "bytes": 172032
+      },
+      "completed_PNG_RGB": {
+        "byte_exact": true,
+        "different_pixels": 0,
+        "bbox": null
+      },
+      "work": {
+        "byte_exact": true,
+        "different_bytes": 0,
+        "native": {
+          "path": "D:\\Arcade\\AI\\aCORES\\Alpha68k N\\sim\\captures\\rtl\\kyros_joined_lifecycle_4401_v1\\frame_003720.work.bin",
+          "sha256": "08937aa310060f2e25c4faedd0affe6d2b27d57270e971b6b085a6612a6d138e",
+          "bytes": 4096
+        },
+        "reference": {
+          "path": "D:\\Arcade\\AI\\aCORES\\Alpha68k N\\sim\\captures\\kyros\\idle_death_restart_actions4401\\frame_003720.work.bin",
+          "sha256": "08937aa310060f2e25c4faedd0affe6d2b27d57270e971b6b085a6612a6d138e",
+          "bytes": 4096
+        }
+      },
+      "sprites": {
+        "byte_exact": true,
+        "different_bytes": 0,
+        "native": {
+          "path": "D:\\Arcade\\AI\\aCORES\\Alpha68k N\\sim\\captures\\rtl\\kyros_joined_lifecycle_4401_v1\\frame_003720.sprites.bin",
+          "sha256": "9eeea1305044837cad5af8d720c1e4307b3af34b6371371168ad978dcf1b49f6",
+          "bytes": 8192
+        },
+        "reference": {
+          "path": "D:\\Arcade\\AI\\aCORES\\Alpha68k N\\sim\\captures\\kyros\\idle_death_restart_actions4401\\frame_003720.sprites.bin",
+          "sha256": "9eeea1305044837cad5af8d720c1e4307b3af34b6371371168ad978dcf1b49f6",
+          "bytes": 8192
+        }
+      }
+    },
+    {
+      "field": 3750,
+      "native_RGB": {
+        "path": "D:\\Arcade\\AI\\aCORES\\Alpha68k N\\sim\\captures\\rtl\\kyros_joined_lifecycle_4401_v1\\frame_003750.rgb",
+        "sha256": "65e4f9c57a5dc7c50703a27234b3d97932b2ce8bbcdb5382b7c0b7c88fd7fa3d",
+        "bytes": 172032
+      },
+      "completed_PNG_RGB": {
+        "byte_exact": true,
+        "different_pixels": 0,
+        "bbox": null
+      },
+      "work": {
+        "byte_exact": false,
+        "different_bytes": 1,
+        "native": {
+          "path": "D:\\Arcade\\AI\\aCORES\\Alpha68k N\\sim\\captures\\rtl\\kyros_joined_lifecycle_4401_v1\\frame_003750.work.bin",
+          "sha256": "fc3a78f8c57557b0f5526bb2337e48c8ebb2ae90ed438872686efb687f454aab",
+          "bytes": 4096
+        },
+        "reference": {
+          "path": "D:\\Arcade\\AI\\aCORES\\Alpha68k N\\sim\\captures\\kyros\\idle_death_restart_actions4401\\frame_003750.work.bin",
+          "sha256": "e3648afad7004a1a1fc9a02a79aa21598de3f9842aefd7527eef0f4ca9acc335",
+          "bytes": 4096
+        }
+      },
+      "sprites": {
+        "byte_exact": true,
+        "different_bytes": 0,
+        "native": {
+          "path": "D:\\Arcade\\AI\\aCORES\\Alpha68k N\\sim\\captures\\rtl\\kyros_joined_lifecycle_4401_v1\\frame_003750.sprites.bin",
+          "sha256": "9eeea1305044837cad5af8d720c1e4307b3af34b6371371168ad978dcf1b49f6",
+          "bytes": 8192
+        },
+        "reference": {
+          "path": "D:\\Arcade\\AI\\aCORES\\Alpha68k N\\sim\\captures\\kyros\\idle_death_restart_actions4401\\frame_003750.sprites.bin",
+          "sha256": "9eeea1305044837cad5af8d720c1e4307b3af34b6371371168ad978dcf1b49f6",
+          "bytes": 8192
+        }
+      }
+    },
+    {
+      "field": 3780,
+      "native_RGB": {
+        "path": "D:\\Arcade\\AI\\aCORES\\Alpha68k N\\sim\\captures\\rtl\\kyros_joined_lifecycle_4401_v1\\frame_003780.rgb",
+        "sha256": "65e4f9c57a5dc7c50703a27234b3d97932b2ce8bbcdb5382b7c0b7c88fd7fa3d",
+        "bytes": 172032
+      },
+      "completed_PNG_RGB": {
+        "byte_exact": true,
+        "different_pixels": 0,
+        "bbox": null
+      },
+      "work": {
+        "byte_exact": false,
+        "different_bytes": 1,
+        "native": {
+          "path": "D:\\Arcade\\AI\\aCORES\\Alpha68k N\\sim\\captures\\rtl\\kyros_joined_lifecycle_4401_v1\\frame_003780.work.bin",
+          "sha256": "22033a189ee8bcce95590667e24cbe5275ffd63b3cd65de77f169353f8542f5f",
+          "bytes": 4096
+        },
+        "reference": {
+          "path": "D:\\Arcade\\AI\\aCORES\\Alpha68k N\\sim\\captures\\kyros\\idle_death_restart_actions4401\\frame_003780.work.bin",
+          "sha256": "bc3ce6d7b6970dc3559025021ece539ab230880464d47c42e1556c049b57509f",
+          "bytes": 4096
+        }
+      },
+      "sprites": {
+        "byte_exact": true,
+        "different_bytes": 0,
+        "native": {
+          "path": "D:\\Arcade\\AI\\aCORES\\Alpha68k N\\sim\\captures\\rtl\\kyros_joined_lifecycle_4401_v1\\frame_003780.sprites.bin",
+          "sha256": "9eeea1305044837cad5af8d720c1e4307b3af34b6371371168ad978dcf1b49f6",
+          "bytes": 8192
+        },
+        "reference": {
+          "path": "D:\\Arcade\\AI\\aCORES\\Alpha68k N\\sim\\captures\\kyros\\idle_death_restart_actions4401\\frame_003780.sprites.bin",
+          "sha256": "9eeea1305044837cad5af8d720c1e4307b3af34b6371371168ad978dcf1b49f6",
+          "bytes": 8192
+        }
+      }
+    },
+    {
+      "field": 3810,
+      "native_RGB": {
+        "path": "D:\\Arcade\\AI\\aCORES\\Alpha68k N\\sim\\captures\\rtl\\kyros_joined_lifecycle_4401_v1\\frame_003810.rgb",
+        "sha256": "3246babe9a469ed27de8b8b621a89f7058947d302a95d6de217ef570c95b8616",
+        "bytes": 172032
+      },
+      "completed_PNG_RGB": {
+        "byte_exact": true,
+        "different_pixels": 0,
+        "bbox": null
+      },
+      "work": {
+        "byte_exact": false,
+        "different_bytes": 1,
+        "native": {
+          "path": "D:\\Arcade\\AI\\aCORES\\Alpha68k N\\sim\\captures\\rtl\\kyros_joined_lifecycle_4401_v1\\frame_003810.work.bin",
+          "sha256": "cf221bbea0aa31506525e5c90efafa017a205cc17e461b25d4ab5c09813da003",
+          "bytes": 4096
+        },
+        "reference": {
+          "path": "D:\\Arcade\\AI\\aCORES\\Alpha68k N\\sim\\captures\\kyros\\idle_death_restart_actions4401\\frame_003810.work.bin",
+          "sha256": "cd07dcb055772fa7052923060aa4d6d04adc095b75ad62f73e6f84422b48a490",
+          "bytes": 4096
+        }
+      },
+      "sprites": {
+        "byte_exact": true,
+        "different_bytes": 0,
+        "native": {
+          "path": "D:\\Arcade\\AI\\aCORES\\Alpha68k N\\sim\\captures\\rtl\\kyros_joined_lifecycle_4401_v1\\frame_003810.sprites.bin",
+          "sha256": "8bbc359436ed118f31745ea2ac16ecfa061b7588bec43d5a18b597de4c7190f2",
+          "bytes": 8192
+        },
+        "reference": {
+          "path": "D:\\Arcade\\AI\\aCORES\\Alpha68k N\\sim\\captures\\kyros\\idle_death_restart_actions4401\\frame_003810.sprites.bin",
+          "sha256": "8bbc359436ed118f31745ea2ac16ecfa061b7588bec43d5a18b597de4c7190f2",
+          "bytes": 8192
+        }
+      }
+    },
+    {
+      "field": 3840,
+      "native_RGB": {
+        "path": "D:\\Arcade\\AI\\aCORES\\Alpha68k N\\sim\\captures\\rtl\\kyros_joined_lifecycle_4401_v1\\frame_003840.rgb",
+        "sha256": "c70ec6bd6464f4da16a10cbc23eb328327aea1a578a4089eade1ae6f6e39178f",
+        "bytes": 172032
+      },
+      "completed_PNG_RGB": {
+        "byte_exact": true,
+        "different_pixels": 0,
+        "bbox": null
+      },
+      "work": {
+        "byte_exact": false,
+        "different_bytes": 1,
+        "native": {
+          "path": "D:\\Arcade\\AI\\aCORES\\Alpha68k N\\sim\\captures\\rtl\\kyros_joined_lifecycle_4401_v1\\frame_003840.work.bin",
+          "sha256": "0b4fe7ff8068434cc556aa7f4b24604259c5a6080e605cc5ce16197d25f86650",
+          "bytes": 4096
+        },
+        "reference": {
+          "path": "D:\\Arcade\\AI\\aCORES\\Alpha68k N\\sim\\captures\\kyros\\idle_death_restart_actions4401\\frame_003840.work.bin",
+          "sha256": "9979b0473b214478f8885ce6c0a3991c9aadf8fde176c7ef0368863e5a5e9ea0",
+          "bytes": 4096
+        }
+      },
+      "sprites": {
+        "byte_exact": true,
+        "different_bytes": 0,
+        "native": {
+          "path": "D:\\Arcade\\AI\\aCORES\\Alpha68k N\\sim\\captures\\rtl\\kyros_joined_lifecycle_4401_v1\\frame_003840.sprites.bin",
+          "sha256": "a7172c6445af5be50889e52765361e0da619f89683da49e82437573ab06508b7",
+          "bytes": 8192
+        },
+        "reference": {
+          "path": "D:\\Arcade\\AI\\aCORES\\Alpha68k N\\sim\\captures\\kyros\\idle_death_restart_actions4401\\frame_003840.sprites.bin",
+          "sha256": "a7172c6445af5be50889e52765361e0da619f89683da49e82437573ab06508b7",
+          "bytes": 8192
+        }
+      }
+    },
+    {
+      "field": 3900,
+      "native_RGB": {
+        "path": "D:\\Arcade\\AI\\aCORES\\Alpha68k N\\sim\\captures\\rtl\\kyros_joined_lifecycle_4401_v1\\frame_003900.rgb",
+        "sha256": "c70ec6bd6464f4da16a10cbc23eb328327aea1a578a4089eade1ae6f6e39178f",
+        "bytes": 172032
+      },
+      "completed_PNG_RGB": {
+        "byte_exact": true,
+        "different_pixels": 0,
+        "bbox": null
+      },
+      "work": {
+        "byte_exact": false,
+        "different_bytes": 1,
+        "native": {
+          "path": "D:\\Arcade\\AI\\aCORES\\Alpha68k N\\sim\\captures\\rtl\\kyros_joined_lifecycle_4401_v1\\frame_003900.work.bin",
+          "sha256": "523cfa49da078004a14817bbc4cdaf0e10a8ec4995648fd5c538a312514844b4",
+          "bytes": 4096
+        },
+        "reference": {
+          "path": "D:\\Arcade\\AI\\aCORES\\Alpha68k N\\sim\\captures\\kyros\\idle_death_restart_actions4401\\frame_003900.work.bin",
+          "sha256": "4371e4d3e9a92ae028d80afa6b0e2f6927148e77940c1e31e73f175d815b5afa",
+          "bytes": 4096
+        }
+      },
+      "sprites": {
+        "byte_exact": true,
+        "different_bytes": 0,
+        "native": {
+          "path": "D:\\Arcade\\AI\\aCORES\\Alpha68k N\\sim\\captures\\rtl\\kyros_joined_lifecycle_4401_v1\\frame_003900.sprites.bin",
+          "sha256": "a7172c6445af5be50889e52765361e0da619f89683da49e82437573ab06508b7",
+          "bytes": 8192
+        },
+        "reference": {
+          "path": "D:\\Arcade\\AI\\aCORES\\Alpha68k N\\sim\\captures\\kyros\\idle_death_restart_actions4401\\frame_003900.sprites.bin",
+          "sha256": "a7172c6445af5be50889e52765361e0da619f89683da49e82437573ab06508b7",
+          "bytes": 8192
+        }
+      }
+    },
+    {
+      "field": 3930,
+      "native_RGB": {
+        "path": "D:\\Arcade\\AI\\aCORES\\Alpha68k N\\sim\\captures\\rtl\\kyros_joined_lifecycle_4401_v1\\frame_003930.rgb",
+        "sha256": "9a774e8ed2e75f7638878e0ad0cbb2fc5b3a8d11b9f9a4cb7fa94566170ca271",
+        "bytes": 172032
+      },
+      "completed_PNG_RGB": {
+        "byte_exact": true,
+        "different_pixels": 0,
+        "bbox": null
+      },
+      "work": {
+        "byte_exact": false,
+        "different_bytes": 2,
+        "native": {
+          "path": "D:\\Arcade\\AI\\aCORES\\Alpha68k N\\sim\\captures\\rtl\\kyros_joined_lifecycle_4401_v1\\frame_003930.work.bin",
+          "sha256": "2c9a298fcec708cedd85127d889cfd5c6dbbff39c5817cbbd9fcebbcfce32bf0",
+          "bytes": 4096
+        },
+        "reference": {
+          "path": "D:\\Arcade\\AI\\aCORES\\Alpha68k N\\sim\\captures\\kyros\\idle_death_restart_actions4401\\frame_003930.work.bin",
+          "sha256": "36c7482084d12947dfb42920c05ae2e547298075d7fd60948092134091b409e2",
+          "bytes": 4096
+        }
+      },
+      "sprites": {
+        "byte_exact": true,
+        "different_bytes": 0,
+        "native": {
+          "path": "D:\\Arcade\\AI\\aCORES\\Alpha68k N\\sim\\captures\\rtl\\kyros_joined_lifecycle_4401_v1\\frame_003930.sprites.bin",
+          "sha256": "a70ab742c0f533bdabb55925012476a67950e893509df1678f37f820c4496ef4",
+          "bytes": 8192
+        },
+        "reference": {
+          "path": "D:\\Arcade\\AI\\aCORES\\Alpha68k N\\sim\\captures\\kyros\\idle_death_restart_actions4401\\frame_003930.sprites.bin",
+          "sha256": "a70ab742c0f533bdabb55925012476a67950e893509df1678f37f820c4496ef4",
+          "bytes": 8192
+        }
+      }
+    },
+    {
+      "field": 3960,
+      "native_RGB": {
+        "path": "D:\\Arcade\\AI\\aCORES\\Alpha68k N\\sim\\captures\\rtl\\kyros_joined_lifecycle_4401_v1\\frame_003960.rgb",
+        "sha256": "8ab114ca0653affc522a28c4ffb3879b00b7ec1eb3286dfc2103bcf7140528cc",
+        "bytes": 172032
+      },
+      "completed_PNG_RGB": {
+        "byte_exact": true,
+        "different_pixels": 0,
+        "bbox": null
+      },
+      "work": {
+        "byte_exact": false,
+        "different_bytes": 2,
+        "native": {
+          "path": "D:\\Arcade\\AI\\aCORES\\Alpha68k N\\sim\\captures\\rtl\\kyros_joined_lifecycle_4401_v1\\frame_003960.work.bin",
+          "sha256": "f43739347f018e88cab8481c0322e21d2221828d94e040f02294184bb94b3776",
+          "bytes": 4096
+        },
+        "reference": {
+          "path": "D:\\Arcade\\AI\\aCORES\\Alpha68k N\\sim\\captures\\kyros\\idle_death_restart_actions4401\\frame_003960.work.bin",
+          "sha256": "be2c79c20fd41b94d6b0b982db0f431b33911f23dfc30fccef8104bda3af7165",
+          "bytes": 4096
+        }
+      },
+      "sprites": {
+        "byte_exact": true,
+        "different_bytes": 0,
+        "native": {
+          "path": "D:\\Arcade\\AI\\aCORES\\Alpha68k N\\sim\\captures\\rtl\\kyros_joined_lifecycle_4401_v1\\frame_003960.sprites.bin",
+          "sha256": "91f8f6aa81d6dc42af5917f070c61ad2defcf6c981435789bcb4ecd98c225122",
+          "bytes": 8192
+        },
+        "reference": {
+          "path": "D:\\Arcade\\AI\\aCORES\\Alpha68k N\\sim\\captures\\kyros\\idle_death_restart_actions4401\\frame_003960.sprites.bin",
+          "sha256": "91f8f6aa81d6dc42af5917f070c61ad2defcf6c981435789bcb4ecd98c225122",
+          "bytes": 8192
+        }
+      }
+    },
+    {
+      "field": 3990,
+      "native_RGB": {
+        "path": "D:\\Arcade\\AI\\aCORES\\Alpha68k N\\sim\\captures\\rtl\\kyros_joined_lifecycle_4401_v1\\frame_003990.rgb",
+        "sha256": "8ab114ca0653affc522a28c4ffb3879b00b7ec1eb3286dfc2103bcf7140528cc",
+        "bytes": 172032
+      },
+      "completed_PNG_RGB": {
+        "byte_exact": true,
+        "different_pixels": 0,
+        "bbox": null
+      },
+      "work": {
+        "byte_exact": false,
+        "different_bytes": 2,
+        "native": {
+          "path": "D:\\Arcade\\AI\\aCORES\\Alpha68k N\\sim\\captures\\rtl\\kyros_joined_lifecycle_4401_v1\\frame_003990.work.bin",
+          "sha256": "5d217eee25be4d36f60d9711d9130dac31706854b264b53c74d8de3099f53078",
+          "bytes": 4096
+        },
+        "reference": {
+          "path": "D:\\Arcade\\AI\\aCORES\\Alpha68k N\\sim\\captures\\kyros\\idle_death_restart_actions4401\\frame_003990.work.bin",
+          "sha256": "d33a952fc3392f8b7791799736df65d26c4cf566183414a0dc51b09fefb59be5",
+          "bytes": 4096
+        }
+      },
+      "sprites": {
+        "byte_exact": true,
+        "different_bytes": 0,
+        "native": {
+          "path": "D:\\Arcade\\AI\\aCORES\\Alpha68k N\\sim\\captures\\rtl\\kyros_joined_lifecycle_4401_v1\\frame_003990.sprites.bin",
+          "sha256": "91f8f6aa81d6dc42af5917f070c61ad2defcf6c981435789bcb4ecd98c225122",
+          "bytes": 8192
+        },
+        "reference": {
+          "path": "D:\\Arcade\\AI\\aCORES\\Alpha68k N\\sim\\captures\\kyros\\idle_death_restart_actions4401\\frame_003990.sprites.bin",
+          "sha256": "91f8f6aa81d6dc42af5917f070c61ad2defcf6c981435789bcb4ecd98c225122",
+          "bytes": 8192
+        }
+      }
+    },
+    {
+      "field": 4020,
+      "native_RGB": {
+        "path": "D:\\Arcade\\AI\\aCORES\\Alpha68k N\\sim\\captures\\rtl\\kyros_joined_lifecycle_4401_v1\\frame_004020.rgb",
+        "sha256": "8ab114ca0653affc522a28c4ffb3879b00b7ec1eb3286dfc2103bcf7140528cc",
+        "bytes": 172032
+      },
+      "completed_PNG_RGB": {
+        "byte_exact": true,
+        "different_pixels": 0,
+        "bbox": null
+      },
+      "work": {
+        "byte_exact": false,
+        "different_bytes": 1,
+        "native": {
+          "path": "D:\\Arcade\\AI\\aCORES\\Alpha68k N\\sim\\captures\\rtl\\kyros_joined_lifecycle_4401_v1\\frame_004020.work.bin",
+          "sha256": "47ddc1b1ffd6e42547faaea79d9ab3c4eb538f791df5f59b6835b15bfa9dca4e",
+          "bytes": 4096
+        },
+        "reference": {
+          "path": "D:\\Arcade\\AI\\aCORES\\Alpha68k N\\sim\\captures\\kyros\\idle_death_restart_actions4401\\frame_004020.work.bin",
+          "sha256": "cdf1835ba597628bbf7877af91ee871e3b8906282b08c6db71c7267518f730f9",
+          "bytes": 4096
+        }
+      },
+      "sprites": {
+        "byte_exact": true,
+        "different_bytes": 0,
+        "native": {
+          "path": "D:\\Arcade\\AI\\aCORES\\Alpha68k N\\sim\\captures\\rtl\\kyros_joined_lifecycle_4401_v1\\frame_004020.sprites.bin",
+          "sha256": "91f8f6aa81d6dc42af5917f070c61ad2defcf6c981435789bcb4ecd98c225122",
+          "bytes": 8192
+        },
+        "reference": {
+          "path": "D:\\Arcade\\AI\\aCORES\\Alpha68k N\\sim\\captures\\kyros\\idle_death_restart_actions4401\\frame_004020.sprites.bin",
+          "sha256": "91f8f6aa81d6dc42af5917f070c61ad2defcf6c981435789bcb4ecd98c225122",
+          "bytes": 8192
+        }
+      }
+    },
+    {
+      "field": 4050,
+      "native_RGB": {
+        "path": "D:\\Arcade\\AI\\aCORES\\Alpha68k N\\sim\\captures\\rtl\\kyros_joined_lifecycle_4401_v1\\frame_004050.rgb",
+        "sha256": "5717f8bf1af42e37bdaab093c7fd36541b4daca516763b009b3b2f3583bcb810",
+        "bytes": 172032
+      },
+      "completed_PNG_RGB": {
+        "byte_exact": true,
+        "different_pixels": 0,
+        "bbox": null
+      },
+      "work": {
+        "byte_exact": false,
+        "different_bytes": 1,
+        "native": {
+          "path": "D:\\Arcade\\AI\\aCORES\\Alpha68k N\\sim\\captures\\rtl\\kyros_joined_lifecycle_4401_v1\\frame_004050.work.bin",
+          "sha256": "57c2ff1ebe07ebe329cbd32998e6a99d64cfff002322c5e3bcd0140f4017b2ac",
+          "bytes": 4096
+        },
+        "reference": {
+          "path": "D:\\Arcade\\AI\\aCORES\\Alpha68k N\\sim\\captures\\kyros\\idle_death_restart_actions4401\\frame_004050.work.bin",
+          "sha256": "636dc8b0a30f6aa62fee64e4107fdd114c039b9652019e4d4075469827904039",
+          "bytes": 4096
+        }
+      },
+      "sprites": {
+        "byte_exact": true,
+        "different_bytes": 0,
+        "native": {
+          "path": "D:\\Arcade\\AI\\aCORES\\Alpha68k N\\sim\\captures\\rtl\\kyros_joined_lifecycle_4401_v1\\frame_004050.sprites.bin",
+          "sha256": "fd2a0159c6d3e5fb431941b9eff9d487f2c76519a4c2b40b935aaeb766708321",
+          "bytes": 8192
+        },
+        "reference": {
+          "path": "D:\\Arcade\\AI\\aCORES\\Alpha68k N\\sim\\captures\\kyros\\idle_death_restart_actions4401\\frame_004050.sprites.bin",
+          "sha256": "fd2a0159c6d3e5fb431941b9eff9d487f2c76519a4c2b40b935aaeb766708321",
+          "bytes": 8192
+        }
+      }
+    },
+    {
+      "field": 4080,
+      "native_RGB": {
+        "path": "D:\\Arcade\\AI\\aCORES\\Alpha68k N\\sim\\captures\\rtl\\kyros_joined_lifecycle_4401_v1\\frame_004080.rgb",
+        "sha256": "53cef81ac915460e3b3f49af242d6727070ff5ab3ae100ee948707be2575fb85",
+        "bytes": 172032
+      },
+      "completed_PNG_RGB": {
+        "byte_exact": true,
+        "different_pixels": 0,
+        "bbox": null
+      },
+      "work": {
+        "byte_exact": false,
+        "different_bytes": 1,
+        "native": {
+          "path": "D:\\Arcade\\AI\\aCORES\\Alpha68k N\\sim\\captures\\rtl\\kyros_joined_lifecycle_4401_v1\\frame_004080.work.bin",
+          "sha256": "88b40e48e6232a23a91b8a4e4827f810fdf502b5873e4df2e3ef35883768a16e",
+          "bytes": 4096
+        },
+        "reference": {
+          "path": "D:\\Arcade\\AI\\aCORES\\Alpha68k N\\sim\\captures\\kyros\\idle_death_restart_actions4401\\frame_004080.work.bin",
+          "sha256": "b66bb50cdd65abcbb50351b113748fbb1cc31b8b20094d10e22fab2eda38d399",
+          "bytes": 4096
+        }
+      },
+      "sprites": {
+        "byte_exact": true,
+        "different_bytes": 0,
+        "native": {
+          "path": "D:\\Arcade\\AI\\aCORES\\Alpha68k N\\sim\\captures\\rtl\\kyros_joined_lifecycle_4401_v1\\frame_004080.sprites.bin",
+          "sha256": "f6382624b626e8502b834f27489190e5a4c211e781befc2add292984cecce677",
+          "bytes": 8192
+        },
+        "reference": {
+          "path": "D:\\Arcade\\AI\\aCORES\\Alpha68k N\\sim\\captures\\kyros\\idle_death_restart_actions4401\\frame_004080.sprites.bin",
+          "sha256": "f6382624b626e8502b834f27489190e5a4c211e781befc2add292984cecce677",
+          "bytes": 8192
+        }
+      }
+    },
+    {
+      "field": 4110,
+      "native_RGB": {
+        "path": "D:\\Arcade\\AI\\aCORES\\Alpha68k N\\sim\\captures\\rtl\\kyros_joined_lifecycle_4401_v1\\frame_004110.rgb",
+        "sha256": "870367cea2cc090698af979491e7a9c75e56ca3048a484753ad11186728f9bc8",
+        "bytes": 172032
+      },
+      "completed_PNG_RGB": {
+        "byte_exact": true,
+        "different_pixels": 0,
+        "bbox": null
+      },
+      "work": {
+        "byte_exact": true,
+        "different_bytes": 0,
+        "native": {
+          "path": "D:\\Arcade\\AI\\aCORES\\Alpha68k N\\sim\\captures\\rtl\\kyros_joined_lifecycle_4401_v1\\frame_004110.work.bin",
+          "sha256": "64917701d25c63d9327b358b304536696d3263a92af821475200d4589dfaa7a5",
+          "bytes": 4096
+        },
+        "reference": {
+          "path": "D:\\Arcade\\AI\\aCORES\\Alpha68k N\\sim\\captures\\kyros\\idle_death_restart_actions4401\\frame_004110.work.bin",
+          "sha256": "64917701d25c63d9327b358b304536696d3263a92af821475200d4589dfaa7a5",
+          "bytes": 4096
+        }
+      },
+      "sprites": {
+        "byte_exact": true,
+        "different_bytes": 0,
+        "native": {
+          "path": "D:\\Arcade\\AI\\aCORES\\Alpha68k N\\sim\\captures\\rtl\\kyros_joined_lifecycle_4401_v1\\frame_004110.sprites.bin",
+          "sha256": "e5278764380265c52fa179824aa7f940340123f17d548435f0c3f9d4ca30eb9a",
+          "bytes": 8192
+        },
+        "reference": {
+          "path": "D:\\Arcade\\AI\\aCORES\\Alpha68k N\\sim\\captures\\kyros\\idle_death_restart_actions4401\\frame_004110.sprites.bin",
+          "sha256": "e5278764380265c52fa179824aa7f940340123f17d548435f0c3f9d4ca30eb9a",
+          "bytes": 8192
+        }
+      }
+    },
+    {
+      "field": 4140,
+      "native_RGB": {
+        "path": "D:\\Arcade\\AI\\aCORES\\Alpha68k N\\sim\\captures\\rtl\\kyros_joined_lifecycle_4401_v1\\frame_004140.rgb",
+        "sha256": "780227925ecd229efebe5f15c0e1603c95c3375e3b177a3246bcb046a8df65e2",
+        "bytes": 172032
+      },
+      "completed_PNG_RGB": {
+        "byte_exact": true,
+        "different_pixels": 0,
+        "bbox": null
+      },
+      "work": {
+        "byte_exact": false,
+        "different_bytes": 3,
+        "native": {
+          "path": "D:\\Arcade\\AI\\aCORES\\Alpha68k N\\sim\\captures\\rtl\\kyros_joined_lifecycle_4401_v1\\frame_004140.work.bin",
+          "sha256": "aaffce98c01c6d385c0a41e5e9024c4a6afa45f486d107a0a92ec85dcd2f25e2",
+          "bytes": 4096
+        },
+        "reference": {
+          "path": "D:\\Arcade\\AI\\aCORES\\Alpha68k N\\sim\\captures\\kyros\\idle_death_restart_actions4401\\frame_004140.work.bin",
+          "sha256": "39df598bfa1f600880cbb2607e41a9cf8f7484293389eab6b3ca50791502de14",
+          "bytes": 4096
+        }
+      },
+      "sprites": {
+        "byte_exact": true,
+        "different_bytes": 0,
+        "native": {
+          "path": "D:\\Arcade\\AI\\aCORES\\Alpha68k N\\sim\\captures\\rtl\\kyros_joined_lifecycle_4401_v1\\frame_004140.sprites.bin",
+          "sha256": "70c21c9e038ec526f7cee312a4b7b7cfcd8bd0551b2050575329811845a2c2e0",
+          "bytes": 8192
+        },
+        "reference": {
+          "path": "D:\\Arcade\\AI\\aCORES\\Alpha68k N\\sim\\captures\\kyros\\idle_death_restart_actions4401\\frame_004140.sprites.bin",
+          "sha256": "70c21c9e038ec526f7cee312a4b7b7cfcd8bd0551b2050575329811845a2c2e0",
+          "bytes": 8192
+        }
+      }
+    },
+    {
+      "field": 4170,
+      "native_RGB": {
+        "path": "D:\\Arcade\\AI\\aCORES\\Alpha68k N\\sim\\captures\\rtl\\kyros_joined_lifecycle_4401_v1\\frame_004170.rgb",
+        "sha256": "905b3376d8fa06809252327950b2990bbdbe99796553707b3ad6aee1dbc5131e",
+        "bytes": 172032
+      },
+      "completed_PNG_RGB": {
+        "byte_exact": true,
+        "different_pixels": 0,
+        "bbox": null
+      },
+      "work": {
+        "byte_exact": false,
+        "different_bytes": 2,
+        "native": {
+          "path": "D:\\Arcade\\AI\\aCORES\\Alpha68k N\\sim\\captures\\rtl\\kyros_joined_lifecycle_4401_v1\\frame_004170.work.bin",
+          "sha256": "bbedab19c3b79292516a19a933dd0acb5bc929fcdca8174aee43940b6cfa762c",
+          "bytes": 4096
+        },
+        "reference": {
+          "path": "D:\\Arcade\\AI\\aCORES\\Alpha68k N\\sim\\captures\\kyros\\idle_death_restart_actions4401\\frame_004170.work.bin",
+          "sha256": "78da18bdc75c44688b3928cbb4032a92f239018d1edf3f4e8adb0ba38dfaf0d3",
+          "bytes": 4096
+        }
+      },
+      "sprites": {
+        "byte_exact": true,
+        "different_bytes": 0,
+        "native": {
+          "path": "D:\\Arcade\\AI\\aCORES\\Alpha68k N\\sim\\captures\\rtl\\kyros_joined_lifecycle_4401_v1\\frame_004170.sprites.bin",
+          "sha256": "807d4db597a980c1be3127d8e1a177919dee0db7a88a41aa7253465a3889ff63",
+          "bytes": 8192
+        },
+        "reference": {
+          "path": "D:\\Arcade\\AI\\aCORES\\Alpha68k N\\sim\\captures\\kyros\\idle_death_restart_actions4401\\frame_004170.sprites.bin",
+          "sha256": "807d4db597a980c1be3127d8e1a177919dee0db7a88a41aa7253465a3889ff63",
+          "bytes": 8192
+        }
+      }
+    },
+    {
+      "field": 4200,
+      "native_RGB": {
+        "path": "D:\\Arcade\\AI\\aCORES\\Alpha68k N\\sim\\captures\\rtl\\kyros_joined_lifecycle_4401_v1\\frame_004200.rgb",
+        "sha256": "8d1a7199d0e311c74ba9ee7bf9af3790a67740a2ab91f28f090fa1cd7e08e4b7",
+        "bytes": 172032
+      },
+      "completed_PNG_RGB": {
+        "byte_exact": true,
+        "different_pixels": 0,
+        "bbox": null
+      },
+      "work": {
+        "byte_exact": false,
+        "different_bytes": 2,
+        "native": {
+          "path": "D:\\Arcade\\AI\\aCORES\\Alpha68k N\\sim\\captures\\rtl\\kyros_joined_lifecycle_4401_v1\\frame_004200.work.bin",
+          "sha256": "58c1d032c53b028c914625e7c7b5ad91e324f3a623105b21b2f0a03ecf214c7a",
+          "bytes": 4096
+        },
+        "reference": {
+          "path": "D:\\Arcade\\AI\\aCORES\\Alpha68k N\\sim\\captures\\kyros\\idle_death_restart_actions4401\\frame_004200.work.bin",
+          "sha256": "16a9ec7dfe859281cf1b8348ac6ed677a257a25542cc52e5d8b4f61bbaf16c78",
+          "bytes": 4096
+        }
+      },
+      "sprites": {
+        "byte_exact": true,
+        "different_bytes": 0,
+        "native": {
+          "path": "D:\\Arcade\\AI\\aCORES\\Alpha68k N\\sim\\captures\\rtl\\kyros_joined_lifecycle_4401_v1\\frame_004200.sprites.bin",
+          "sha256": "57b54de6f5013b6c35079c47fba313d3c41be03f69016b910b86ad7d907fae6b",
+          "bytes": 8192
+        },
+        "reference": {
+          "path": "D:\\Arcade\\AI\\aCORES\\Alpha68k N\\sim\\captures\\kyros\\idle_death_restart_actions4401\\frame_004200.sprites.bin",
+          "sha256": "57b54de6f5013b6c35079c47fba313d3c41be03f69016b910b86ad7d907fae6b",
+          "bytes": 8192
+        }
+      }
+    },
+    {
+      "field": 4230,
+      "native_RGB": {
+        "path": "D:\\Arcade\\AI\\aCORES\\Alpha68k N\\sim\\captures\\rtl\\kyros_joined_lifecycle_4401_v1\\frame_004230.rgb",
+        "sha256": "ab8537fc4102c429855cbaebf6298bc76b5d71d14b8abe0418739f0ca36a9220",
+        "bytes": 172032
+      },
+      "completed_PNG_RGB": {
+        "byte_exact": true,
+        "different_pixels": 0,
+        "bbox": null
+      },
+      "work": {
+        "byte_exact": false,
+        "different_bytes": 1,
+        "native": {
+          "path": "D:\\Arcade\\AI\\aCORES\\Alpha68k N\\sim\\captures\\rtl\\kyros_joined_lifecycle_4401_v1\\frame_004230.work.bin",
+          "sha256": "a5bd4835058ba6d8040018f23c239c5e149a9344b4c362579f7ef23b531a6a4b",
+          "bytes": 4096
+        },
+        "reference": {
+          "path": "D:\\Arcade\\AI\\aCORES\\Alpha68k N\\sim\\captures\\kyros\\idle_death_restart_actions4401\\frame_004230.work.bin",
+          "sha256": "e5aa0c50be8d3f212e57d643d5d43ac1bac4dd7713f95d529be6fe12067ccf8a",
+          "bytes": 4096
+        }
+      },
+      "sprites": {
+        "byte_exact": true,
+        "different_bytes": 0,
+        "native": {
+          "path": "D:\\Arcade\\AI\\aCORES\\Alpha68k N\\sim\\captures\\rtl\\kyros_joined_lifecycle_4401_v1\\frame_004230.sprites.bin",
+          "sha256": "88e5a7b0c4bce39cb49de9418affbc8f21ae539d0f4da110eb86b604593f825c",
+          "bytes": 8192
+        },
+        "reference": {
+          "path": "D:\\Arcade\\AI\\aCORES\\Alpha68k N\\sim\\captures\\kyros\\idle_death_restart_actions4401\\frame_004230.sprites.bin",
+          "sha256": "88e5a7b0c4bce39cb49de9418affbc8f21ae539d0f4da110eb86b604593f825c",
+          "bytes": 8192
+        }
+      }
+    },
+    {
+      "field": 4260,
+      "native_RGB": {
+        "path": "D:\\Arcade\\AI\\aCORES\\Alpha68k N\\sim\\captures\\rtl\\kyros_joined_lifecycle_4401_v1\\frame_004260.rgb",
+        "sha256": "2051c02b9b4f8ca7bb6bdccaa6073f167350d4ada18ce1850f7372e1ebed271c",
+        "bytes": 172032
+      },
+      "completed_PNG_RGB": {
+        "byte_exact": true,
+        "different_pixels": 0,
+        "bbox": null
+      },
+      "work": {
+        "byte_exact": false,
+        "different_bytes": 1,
+        "native": {
+          "path": "D:\\Arcade\\AI\\aCORES\\Alpha68k N\\sim\\captures\\rtl\\kyros_joined_lifecycle_4401_v1\\frame_004260.work.bin",
+          "sha256": "c35d5315356d92936a2374c8edb52bc86638a177b84581a92c8362ea3ed6d1e7",
+          "bytes": 4096
+        },
+        "reference": {
+          "path": "D:\\Arcade\\AI\\aCORES\\Alpha68k N\\sim\\captures\\kyros\\idle_death_restart_actions4401\\frame_004260.work.bin",
+          "sha256": "51bd569a8f06ceb4b5dd0e2c7efc3069ee47faf7c5dbde733259eeb8eba416a9",
+          "bytes": 4096
+        }
+      },
+      "sprites": {
+        "byte_exact": true,
+        "different_bytes": 0,
+        "native": {
+          "path": "D:\\Arcade\\AI\\aCORES\\Alpha68k N\\sim\\captures\\rtl\\kyros_joined_lifecycle_4401_v1\\frame_004260.sprites.bin",
+          "sha256": "3b07f534f5683c1a30d80f6ab37c17cceb3a3d8717d662aca1ff7cbc4c77f608",
+          "bytes": 8192
+        },
+        "reference": {
+          "path": "D:\\Arcade\\AI\\aCORES\\Alpha68k N\\sim\\captures\\kyros\\idle_death_restart_actions4401\\frame_004260.sprites.bin",
+          "sha256": "3b07f534f5683c1a30d80f6ab37c17cceb3a3d8717d662aca1ff7cbc4c77f608",
+          "bytes": 8192
+        }
+      }
+    },
+    {
+      "field": 4290,
+      "native_RGB": {
+        "path": "D:\\Arcade\\AI\\aCORES\\Alpha68k N\\sim\\captures\\rtl\\kyros_joined_lifecycle_4401_v1\\frame_004290.rgb",
+        "sha256": "3274251d49d6633d31b57ec790f0687e00715bbb163380fef36f6749653a6a73",
+        "bytes": 172032
+      },
+      "completed_PNG_RGB": {
+        "byte_exact": true,
+        "different_pixels": 0,
+        "bbox": null
+      },
+      "work": {
+        "byte_exact": false,
+        "different_bytes": 2,
+        "native": {
+          "path": "D:\\Arcade\\AI\\aCORES\\Alpha68k N\\sim\\captures\\rtl\\kyros_joined_lifecycle_4401_v1\\frame_004290.work.bin",
+          "sha256": "9c9ca6f8aeff4232f500cf41317877c1d5128007458a42e6c7f4aa17ecf7b068",
+          "bytes": 4096
+        },
+        "reference": {
+          "path": "D:\\Arcade\\AI\\aCORES\\Alpha68k N\\sim\\captures\\kyros\\idle_death_restart_actions4401\\frame_004290.work.bin",
+          "sha256": "5d2bedd51c512b4b6bfe7ec7703f496985c530db635270fe1675b485dd5f2ed1",
+          "bytes": 4096
+        }
+      },
+      "sprites": {
+        "byte_exact": true,
+        "different_bytes": 0,
+        "native": {
+          "path": "D:\\Arcade\\AI\\aCORES\\Alpha68k N\\sim\\captures\\rtl\\kyros_joined_lifecycle_4401_v1\\frame_004290.sprites.bin",
+          "sha256": "43a0e7ae25c1330c7bbbac05f57b0959ad1b90f8e156304bc6faa04d2d3b73c1",
+          "bytes": 8192
+        },
+        "reference": {
+          "path": "D:\\Arcade\\AI\\aCORES\\Alpha68k N\\sim\\captures\\kyros\\idle_death_restart_actions4401\\frame_004290.sprites.bin",
+          "sha256": "43a0e7ae25c1330c7bbbac05f57b0959ad1b90f8e156304bc6faa04d2d3b73c1",
+          "bytes": 8192
+        }
+      }
+    },
+    {
+      "field": 4320,
+      "native_RGB": {
+        "path": "D:\\Arcade\\AI\\aCORES\\Alpha68k N\\sim\\captures\\rtl\\kyros_joined_lifecycle_4401_v1\\frame_004320.rgb",
+        "sha256": "8a37b94df3f8d44a7c59e0b0d0584cdbba228a34af127cc577e6e59af0728174",
+        "bytes": 172032
+      },
+      "completed_PNG_RGB": {
+        "byte_exact": true,
+        "different_pixels": 0,
+        "bbox": null
+      },
+      "work": {
+        "byte_exact": false,
+        "different_bytes": 3,
+        "native": {
+          "path": "D:\\Arcade\\AI\\aCORES\\Alpha68k N\\sim\\captures\\rtl\\kyros_joined_lifecycle_4401_v1\\frame_004320.work.bin",
+          "sha256": "29b19388eab3c4cf3ed5344d5f8d518568541ce729ae5a103e82b2917f09ddaf",
+          "bytes": 4096
+        },
+        "reference": {
+          "path": "D:\\Arcade\\AI\\aCORES\\Alpha68k N\\sim\\captures\\kyros\\idle_death_restart_actions4401\\frame_004320.work.bin",
+          "sha256": "7b2e27f1fd1799af9749b4f5ce637af1756a3e9ab5cf78b62e9fcaa0abe1c372",
+          "bytes": 4096
+        }
+      },
+      "sprites": {
+        "byte_exact": true,
+        "different_bytes": 0,
+        "native": {
+          "path": "D:\\Arcade\\AI\\aCORES\\Alpha68k N\\sim\\captures\\rtl\\kyros_joined_lifecycle_4401_v1\\frame_004320.sprites.bin",
+          "sha256": "0a265a7bf6b3482495bcafd62e8e2b6e591b7cc375f5deee3d19729fe902b690",
+          "bytes": 8192
+        },
+        "reference": {
+          "path": "D:\\Arcade\\AI\\aCORES\\Alpha68k N\\sim\\captures\\kyros\\idle_death_restart_actions4401\\frame_004320.sprites.bin",
+          "sha256": "0a265a7bf6b3482495bcafd62e8e2b6e591b7cc375f5deee3d19729fe902b690",
+          "bytes": 8192
+        }
+      }
+    },
+    {
+      "field": 4350,
+      "native_RGB": {
+        "path": "D:\\Arcade\\AI\\aCORES\\Alpha68k N\\sim\\captures\\rtl\\kyros_joined_lifecycle_4401_v1\\frame_004350.rgb",
+        "sha256": "22bfcad2a705592852f218e83595268a664485f755ac2717fe26f12b6ac961f7",
+        "bytes": 172032
+      },
+      "completed_PNG_RGB": {
+        "byte_exact": true,
+        "different_pixels": 0,
+        "bbox": null
+      },
+      "work": {
+        "byte_exact": false,
+        "different_bytes": 4,
+        "native": {
+          "path": "D:\\Arcade\\AI\\aCORES\\Alpha68k N\\sim\\captures\\rtl\\kyros_joined_lifecycle_4401_v1\\frame_004350.work.bin",
+          "sha256": "bf30f8bb766eb23b5dca3c674f38a8cafba72a854df88207b2b5fb3ecb227ab9",
+          "bytes": 4096
+        },
+        "reference": {
+          "path": "D:\\Arcade\\AI\\aCORES\\Alpha68k N\\sim\\captures\\kyros\\idle_death_restart_actions4401\\frame_004350.work.bin",
+          "sha256": "ea8ef0c3e2316d4a811280a47ed2c258eec7f2dbf5b08aa72b6a9c65d52c0ce4",
+          "bytes": 4096
+        }
+      },
+      "sprites": {
+        "byte_exact": true,
+        "different_bytes": 0,
+        "native": {
+          "path": "D:\\Arcade\\AI\\aCORES\\Alpha68k N\\sim\\captures\\rtl\\kyros_joined_lifecycle_4401_v1\\frame_004350.sprites.bin",
+          "sha256": "39197393aef093c237d590a13c2df67e712943b155469f007654039a19490619",
+          "bytes": 8192
+        },
+        "reference": {
+          "path": "D:\\Arcade\\AI\\aCORES\\Alpha68k N\\sim\\captures\\kyros\\idle_death_restart_actions4401\\frame_004350.sprites.bin",
+          "sha256": "39197393aef093c237d590a13c2df67e712943b155469f007654039a19490619",
+          "bytes": 8192
+        }
+      }
+    },
+    {
+      "field": 4380,
+      "native_RGB": {
+        "path": "D:\\Arcade\\AI\\aCORES\\Alpha68k N\\sim\\captures\\rtl\\kyros_joined_lifecycle_4401_v1\\frame_004380.rgb",
+        "sha256": "258ad7d366a33cada6b7b72023a94c9acf1ac089937cf291205d1fbc2b0f3301",
+        "bytes": 172032
+      },
+      "completed_PNG_RGB": {
+        "byte_exact": true,
+        "different_pixels": 0,
+        "bbox": null
+      },
+      "work": {
+        "byte_exact": false,
+        "different_bytes": 1,
+        "native": {
+          "path": "D:\\Arcade\\AI\\aCORES\\Alpha68k N\\sim\\captures\\rtl\\kyros_joined_lifecycle_4401_v1\\frame_004380.work.bin",
+          "sha256": "0e3c5699c39a9cd936183a173985ae603386fd44bbb8b9aaa6124dac0262aac4",
+          "bytes": 4096
+        },
+        "reference": {
+          "path": "D:\\Arcade\\AI\\aCORES\\Alpha68k N\\sim\\captures\\kyros\\idle_death_restart_actions4401\\frame_004380.work.bin",
+          "sha256": "6ab2f67c566a2dc5d8d8b9f00a7ddb48e529f6f53ca078b73d08171df15ce032",
+          "bytes": 4096
+        }
+      },
+      "sprites": {
+        "byte_exact": true,
+        "different_bytes": 0,
+        "native": {
+          "path": "D:\\Arcade\\AI\\aCORES\\Alpha68k N\\sim\\captures\\rtl\\kyros_joined_lifecycle_4401_v1\\frame_004380.sprites.bin",
+          "sha256": "66132e3da31dc8b1592894c4616836bd861b920927891b15643fce616b3961b4",
+          "bytes": 8192
+        },
+        "reference": {
+          "path": "D:\\Arcade\\AI\\aCORES\\Alpha68k N\\sim\\captures\\kyros\\idle_death_restart_actions4401\\frame_004380.sprites.bin",
+          "sha256": "66132e3da31dc8b1592894c4616836bd861b920927891b15643fce616b3961b4",
+          "bytes": 8192
+        }
+      }
+    },
+    {
+      "field": 4400,
+      "native_RGB": {
+        "path": "D:\\Arcade\\AI\\aCORES\\Alpha68k N\\sim\\captures\\rtl\\kyros_joined_lifecycle_4401_v1\\frame_004400.rgb",
+        "sha256": "d015ca764fddf64c71021c1e0213c1729c78db04bdca62f8340cce198fe8568f",
+        "bytes": 172032
+      },
+      "completed_PNG_RGB": {
+        "byte_exact": false,
+        "different_pixels": 8,
+        "bbox": [
+          26,
+          8,
+          29,
+          15
+        ]
+      },
+      "work": {
+        "byte_exact": false,
+        "different_bytes": 1,
+        "native": {
+          "path": "D:\\Arcade\\AI\\aCORES\\Alpha68k N\\sim\\captures\\rtl\\kyros_joined_lifecycle_4401_v1\\frame_004400.work.bin",
+          "sha256": "e72ac0cb3d52001c0e181c7dd43f4e52e01f0063e814bcc8e29ea0bc761fd06a",
+          "bytes": 4096
+        },
+        "reference": {
+          "path": "D:\\Arcade\\AI\\aCORES\\Alpha68k N\\sim\\captures\\kyros\\idle_death_restart_actions4401\\frame_004400.work.bin",
+          "sha256": "91b22073cb9612df1a0fb1411193c5538843de35cd3f154c8543b3dd74e07c8d",
+          "bytes": 4096
+        }
+      },
+      "sprites": {
+        "byte_exact": true,
+        "different_bytes": 0,
+        "native": {
+          "path": "D:\\Arcade\\AI\\aCORES\\Alpha68k N\\sim\\captures\\rtl\\kyros_joined_lifecycle_4401_v1\\frame_004400.sprites.bin",
+          "sha256": "d55cfc7d071b106248f8c693a0fb527ae9e50850f77e9920bffc6e4dff842713",
+          "bytes": 8192
+        },
+        "reference": {
+          "path": "D:\\Arcade\\AI\\aCORES\\Alpha68k N\\sim\\captures\\kyros\\idle_death_restart_actions4401\\frame_004400.sprites.bin",
+          "sha256": "d55cfc7d071b106248f8c693a0fb527ae9e50850f77e9920bffc6e4dff842713",
+          "bytes": 8192
+        }
+      }
+    }
+  ],
+  "every_available_completed_PNG_and_RAM_exact": false,
+  "all49_targets_completed": true,
+  "wholegraphics_audio_gameplay_pass": false
+}

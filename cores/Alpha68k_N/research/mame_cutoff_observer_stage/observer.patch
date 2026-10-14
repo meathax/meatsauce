@@ -1,0 +1,69 @@
+--- a/src/devices/cpu/m68000/m68000.h
++++ b/src/devices/cpu/m68000/m68000.h
+@@ -215,6 +215,8 @@
+ 	virtual void update_user_super();
+ 
+ 	// update needed stuff on interrupt level switch
++	void irq_cutoff_observe(const char *event);
++	u64 m_irq_observe_sequence = 0;
+ 	void update_interrupt();
+ 
+ 	// dispatch instruction
+--- a/src/devices/cpu/m68000/m68000.cpp
++++ b/src/devices/cpu/m68000/m68000.cpp
+@@ -352,6 +352,15 @@
+ 	state_add(M68K_USP, "USP", m_da[15]);
+ 	state_add(M68K_SP,  "SP", m_da[16]);
+ 
++	// Private diagnostic exports: getters only; no CPU-state imports.
++	state_add(0x10000, "IRQ_PENDING_STATE", m_int_next_state).readonly();
++	state_add(0x10001, "IRQ_NEXT_STATE", m_next_state).readonly();
++	state_add(0x10002, "IRQ_LEVEL", m_int_level).readonly();
++	state_add(0x10003, "IRQ_INST_STATE", m_inst_state).readonly();
++	state_add(0x10004, "IRQ_INST_SUBSTATE", m_inst_substate).readonly();
++	state_add(0x10005, "IRQ_IRD", m_ird).readonly();
++	state_add(0x10006, "IRQ_IRC", m_irc).readonly();
++
+ 	set_icountptr(m_icount);
+ }
+ 
+@@ -462,6 +471,7 @@
+ 		m_nmi_pending = true;
+ 
+ 	update_interrupt();
++	irq_cutoff_observe("input_applied");
+ }
+ 
+ void m68000_device::update_interrupt()
+@@ -542,3 +552,18 @@
+ 		return device_memory_interface::memory_translate(spacenum, intention, address, target_space);
+ }
+ 
++
++// Private observer: no cycle deduction, timer scheduling, bus or core-state writes.
++void m68000_device::irq_cutoff_observe(const char *event)
++{
++	const auto lt = local_time().as_ticks(48000000);
++	if (strcmp(tag(), ":maincpu") || !((lt >= 47847465 && lt <= 47851465) || (lt >= 47998000 && lt <= 48002000)))
++		return;
++	logerror("IRQ_CUTOFF,%llu,%s,%llu,%llu,%llu,%d,%u,%u,%u,%u,%u,%u,%u,%u,%u\n",
++		static_cast<unsigned long long>(++m_irq_observe_sequence), event,
++		static_cast<unsigned long long>(lt),
++		static_cast<unsigned long long>(machine().time().as_ticks(48000000)),
++		static_cast<unsigned long long>(total_cycles()), m_icount,
++		m_pc, m_ipc, m_ir, m_ird, m_irc, m_sr,
++		m_int_level, m_int_next_state, m_next_state);
++}
+--- a/src/devices/cpu/m68000/m68000gen.py
++++ b/src/devices/cpu/m68000/m68000gen.py
+@@ -1363,8 +1363,10 @@
+         code.append(["=", R.aobl, maybe_merge(abh, abl)])
+ 
+     if ir_to_ird:
++        code.append(["i", "irq_cutoff_observe(\"cutoff_before\");"])
+         code.append(["=", R.ird, R.ir])
+         code.append(["i", "if(m_next_state != S_TRACE) m_next_state = m_int_next_state;"])
++        code.append(["i", "irq_cutoff_observe(\"cutoff_after\");"])
+     elif micro & 0x00001:
+         code.append(["=", R.ir, R.irc])
+ 

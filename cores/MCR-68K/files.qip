@@ -1,0 +1,118 @@
+# Bally/Midway MCR-68000 ("MCR-68k") / Xenophobe project source manifest.
+#
+# Rewritten 2026-08-06 (Phase 5 integration pass) to list this project's
+# ACTUAL current source tree. Previously 100% stale content copied from the
+# Sega Y Board donor project (flagged repeatedly since Phase 2) -- every
+# entry below was cross-checked against this repo's real rtl/ layout and
+# against the three existing Verilator sim-harness build scripts
+# (sim/build_mcr68_headless.sh, build_mcr68_visual.sh,
+# build_mcr68_sound_headless.sh), which are this project's only proven
+# ground truth for "what actually elaborates together" absent a working
+# Quartus build.
+#
+# NOT included, deliberately (see each item's own header for why):
+#   - rtl/mem/yb_*_ref.sv, third_party/reference/yb_m68k.sv -- vendored
+#     READ-ONLY references this project's own modules were adapted FROM,
+#     never compiled directly (see C:\Users\meath\.claude\plans\
+#     you-a-makeing-a-fizzy-rabin.md's sources table).
+#   - third_party/Arcade-MCR3Mono_MiSTer/** -- the donor VHDL repo,
+#     vendored read-only per the plan ("VHDL... must be ported to
+#     SystemVerilog, not copied"); nothing under it is instantiated by any
+#     module in this project.
+#   - third_party/jtframe/cpu/jtframe_68kdtack*.v, jtframe_68kramcs.v --
+#     surveyed and referenced only in comments (rtl/cpu/mcr68_m68k.sv,
+#     rtl/mcr68_main_board.sv); this project's actual DTACK generator is
+#     hand-written in mcr68_main_board.sv, not an instantiation of these.
+#   - rtl/mcr68_mem_sim.sv and rtl/video/mcr68_gfx_rom_sim.sv -- host-file
+#     Verilator memories selected only by the SDRAM_ROM=0 simulation generate
+#     branches. The production top sets SDRAM_ROM=1, so listing these files
+#     would add no hardware logic and risks pulling simulation-only arrays into
+#     Quartus elaboration. Standalone Verilator harnesses compile them through
+#     their own source lists.
+
+set_global_assignment -name QIP_FILE sys/sys.qip
+
+set_global_assignment -name SYSTEMVERILOG_FILE Arcade-MCR68.sv
+
+# ---- main-board top-level integration ----
+set_global_assignment -name SYSTEMVERILOG_FILE rtl/mcr68_main_board.sv
+set_global_assignment -name SYSTEMVERILOG_FILE rtl/mcr68_addr_decode.sv
+set_global_assignment -name SYSTEMVERILOG_FILE rtl/mcr68_io.sv
+set_global_assignment -name SYSTEMVERILOG_FILE rtl/mcr68_mem_hw.sv
+set_global_assignment -name SYSTEMVERILOG_FILE rtl/mem/mcr68_nvram_bridge.sv
+
+# ---- CPU ----
+set_global_assignment -name SYSTEMVERILOG_FILE rtl/cpu/mcr68_m68k.sv
+set_global_assignment -name SYSTEMVERILOG_FILE rtl/cpu/fx68k.sv
+set_global_assignment -name SYSTEMVERILOG_FILE rtl/cpu/fx68kAlu_synth.sv
+set_global_assignment -name SYSTEMVERILOG_FILE rtl/cpu/uaddrPla_synth.sv
+set_global_assignment -name SYSTEMVERILOG_FILE rtl/cpu/ptm6840.sv
+
+# ---- SDRAM ROM subsystem (Phase 5 -- synthesis-target memory path) ----
+set_global_assignment -name SYSTEMVERILOG_FILE rtl/mem/yb_ascal_dual_ram.sv
+set_global_assignment -name SYSTEMVERILOG_FILE rtl/mem/mcr68_sdram.sv
+set_global_assignment -name SYSTEMVERILOG_FILE rtl/mem/mcr68_rom_loader.sv
+set_global_assignment -name SYSTEMVERILOG_FILE rtl/mem/mcr68_rom_fabric.sv
+set_global_assignment -name SYSTEMVERILOG_FILE rtl/mem/mcr68_rom_cache.sv
+
+# ---- video ----
+set_global_assignment -name SYSTEMVERILOG_FILE rtl/video/mcr68_video_timing.sv
+set_global_assignment -name SYSTEMVERILOG_FILE rtl/video/mcr68_video_scanout.sv
+set_global_assignment -name SYSTEMVERILOG_FILE rtl/video/mcr68_gfx_rom_sdram.sv
+set_global_assignment -name SYSTEMVERILOG_FILE rtl/video/mcr68_tilemap.sv
+set_global_assignment -name SYSTEMVERILOG_FILE rtl/video/mcr68_sprites.sv
+set_global_assignment -name SYSTEMVERILOG_FILE rtl/video/mcr68_colormix.sv
+
+# ---- sound board ("Sounds Good") ----
+set_global_assignment -name SYSTEMVERILOG_FILE rtl/snd/mcr68_sound_board.sv
+set_global_assignment -name SYSTEMVERILOG_FILE rtl/snd/sounds_good.sv
+# rtl/snd/mcr68_snd_mem_sim.sv is Verilator-only host-file memory.  Production
+# SDRAM_ROM=1 selects mcr68_snd_mem_hw.sv; keep the $fopen/$fread model out of
+# Quartus source closure, matching the main/gfx sim-memory exclusions above.
+set_global_assignment -name SYSTEMVERILOG_FILE rtl/snd/mcr68_snd_mem_hw.sv
+set_global_assignment -name SYSTEMVERILOG_FILE rtl/snd/mcr68_snd_dac.sv
+set_global_assignment -name SYSTEMVERILOG_FILE rtl/snd/pia6821.sv
+
+# ---- per-title profile descriptor (SEARCH_PATH so `include resolves) ----
+set_global_assignment -name SEARCH_PATH rtl
+
+# Package first -- every consumer imports it.
+set_global_assignment -name SYSTEMVERILOG_FILE rtl/mcr68_game_pkg.sv
+
+# ---- inputs (49-way joystick, per-title mapping) ----
+set_global_assignment -name SYSTEMVERILOG_FILE rtl/inputs/mcr68_joy49.sv
+set_global_assignment -name SYSTEMVERILOG_FILE rtl/inputs/mcr68_dip_config.sv
+set_global_assignment -name SYSTEMVERILOG_FILE rtl/inputs/mcr68_blasted_controls.sv
+set_global_assignment -name SYSTEMVERILOG_FILE rtl/inputs/mcr68_maintained_switch.sv
+set_global_assignment -name SYSTEMVERILOG_FILE rtl/inputs/mcr68_input_map.sv
+set_global_assignment -name SYSTEMVERILOG_FILE rtl/inputs/mcr68_input_frontend.sv
+set_global_assignment -name SYSTEMVERILOG_FILE rtl/inputs/pigskin_protect.sv
+
+# ---- 6809 (Williams S11 background) ----
+set_global_assignment -name SYSTEMVERILOG_FILE rtl/cpu/mc6809i.sv
+set_global_assignment -name SYSTEMVERILOG_FILE rtl/cpu/mc6809e.sv
+
+# NOTE: rtl/snd/williams_bg/williams_bg_mem_sim.sv
+# are deliberately EXCLUDED. They are $readmemh host-file memories for the
+# Verilator harnesses only (0x8000 and 0x80000 byte arrays); listing them here
+# made quartus_map attempt register-based RAM inference on them and fail with
+# Error (276003) "Cannot convert all sets of registers into RAM megafunctions".
+# The synthesis path uses the *_mem_hw.sv variants (SDRAM_ROM=1). Same policy
+# as the yb_*_ref.sv exclusions documented at the top of this file.
+# ---- Williams System 11 / S11C background sound board (Arch Rivals, Pigskin)
+# NOTE: pulls in IKAOPM (BSD-2-Clause) via rtl/snd/ym2151/ym2151.qip.
+# Provenance and the retained licence are under rtl/snd/ym2151/ikaopm/.
+set_global_assignment -name QIP_FILE rtl/snd/ym2151/ym2151.qip
+set_global_assignment -name SYSTEMVERILOG_FILE rtl/snd/williams_bg/hc55516.sv
+set_global_assignment -name SYSTEMVERILOG_FILE rtl/snd/williams_bg/williams_bg_biquad.sv
+set_global_assignment -name SYSTEMVERILOG_FILE rtl/snd/williams_bg/williams_bg_mixer.sv
+set_global_assignment -name SYSTEMVERILOG_FILE rtl/snd/williams_bg/williams_bg_mem_hw.sv
+set_global_assignment -name SYSTEMVERILOG_FILE rtl/snd/williams_bg/williams_bg.sv
+
+# ---- vendored jtframe modules actually instantiated (DAC output filter) ----
+set_global_assignment -name VERILOG_FILE third_party/jtframe/sound/jtframe_pole.v
+set_global_assignment -name VERILOG_FILE third_party/jtframe/sound/jtframe_dcrm.v
+set_global_assignment -name SYSTEMVERILOG_FILE rtl/core_video_pll.sv
+set_instance_assignment -name PLL_COMPENSATION_MODE DIRECT -to "*core_video_pll*|altera_pll:altera_pll_i*|*"
+set_instance_assignment -name PLL_AUTO_RESET ON -to "*core_video_pll*|altera_pll:altera_pll_i*|*"
+set_instance_assignment -name PLL_BANDWIDTH_PRESET AUTO -to "*core_video_pll*|altera_pll:altera_pll_i*|*"

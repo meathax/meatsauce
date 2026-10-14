@@ -1,0 +1,16 @@
+{
+  "actual_exit_code": 0,
+  "elapsed_seconds": 0.1134481430053711,
+  "args": [
+    "wsl.exe",
+    "-d",
+    "Ubuntu",
+    "--cd",
+    "D:\\Arcade\\AI\\aCORES\\Alpha68k N\\research\\wrapper_feature_gates_20261011\\p2_rebind_v1",
+    "--exec",
+    "/bin/bash",
+    "recover_packaging.sh"
+  ],
+  "log_sha256": "526fff11d9d5d227cb34defa27e947cfd8af3c2bc697e73e9d09531b472d0dfc",
+  "cause": "Original native build completed, but copying ELF to missing private obj directory failed. Recover the same object graph with make and create the private destination; no HDL/host edits or rerun gameplay. Original actual1 receipt retained."
+}

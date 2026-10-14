@@ -1,0 +1,13 @@
+
+STDERR
+Traceback (most recent call last):
+  File "D:\Arcade\AI\aCORES\Alpha68k N\research\mame_cutoff_observer_stage\vpa_overlay_recipe1\corrected_consumer1\qualifier.py", line 12, in <module>
+    a=json.loads((RECIPE/'admission.json').read_text());reference=Path(a['reference']);capture=Path(a['capture'])
+                 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^
+  File "D:/vibes/fpga/toolchains/msys64/ucrt64/lib/python3.14/pathlib/__init__.py", line 787, in read_text
+    with self.open(mode='r', encoding=encoding, errors=errors, newline=newline) as f:
+         ~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:/vibes/fpga/toolchains/msys64/ucrt64/lib/python3.14/pathlib/__init__.py", line 771, in open
+    return io.open(self, mode, buffering, encoding, errors, newline)
+           ~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+FileNotFoundError: [Errno 2] No such file or directory: 'D:/Arcade/AI/aCORES/Alpha68k N/research/mame_cutoff_observer_stage/vpa_overlay_recipe1/corrected_consumer1/vpa_overlay_recipe1/admission.json'

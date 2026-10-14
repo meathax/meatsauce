@@ -1,0 +1,171 @@
+{
+  "scope": "Terminal restart/cocktail native scanout diagnostics",
+  "hardware_revision": "0b24750fa6b395fc715844b9a36a2d1acca9bf03",
+  "elf": "sim/build/service-ce-final/board/Vn8080_board",
+  "captures": [
+    {
+      "name": "restart",
+      "frames": 7200,
+      "rtl_capture": "D:\\Arcade\\AI\\aCORES\\sherrif\\sim\\results\\restart-phase-ce-rtl",
+      "mame_capture": "D:\\Arcade\\AI\\aCORES\\sherrif\\sim\\results\\restart-mame",
+      "terminal": "frames=7200 writes=4907961 IRQ acknowledges=14248 address=21b7",
+      "native_frames_compared": 124,
+      "native_mismatch_pixels": 2,
+      "native_mismatches": [
+        {
+          "frame": 2760,
+          "mismatch_count": 1,
+          "first_mismatches": [
+            [
+              211,
+              29,
+              "00ffff",
+              "000000"
+            ]
+          ]
+        },
+        {
+          "frame": 6780,
+          "mismatch_count": 1,
+          "first_mismatches": [
+            [
+              95,
+              31,
+              "00ffff",
+              "000000"
+            ]
+          ]
+        }
+      ],
+      "end_frame_ram_mismatches": 59,
+      "end_frame_pixels_mismatches": 18,
+      "raw_output_sequence": {
+        "matching_prefix": 229905,
+        "mame_outputs": 507784,
+        "rtl_outputs": 507784,
+        "first_mame": [
+          [
+            5,
+            13
+          ],
+          [
+            4,
+            1
+          ],
+          [
+            4,
+            1
+          ],
+          [
+            4,
+            1
+          ],
+          [
+            5,
+            13
+          ]
+        ],
+        "first_rtl": [
+          [
+            4,
+            1
+          ],
+          [
+            5,
+            13
+          ],
+          [
+            4,
+            1
+          ],
+          [
+            4,
+            1
+          ],
+          [
+            5,
+            13
+          ]
+        ]
+      },
+      "evidence_sha256": {
+        "terminal-scanout.json": "29d68aa4f49be45b793f2e2b9db18ac0db67bb85ce1f9d0197db2d565efcd83e",
+        "terminal-checkpoints.json": "2966a0e2921178e1623deb4011ecb68e1d8c9cf5209ee2a127a825c638a45538",
+        "stdout.log": "7cd5f02e61b025b99409f3cdbb3211cbc11e2e2750067cf9f369ed58a10a41d6"
+      }
+    },
+    {
+      "name": "cocktail",
+      "frames": 6000,
+      "rtl_capture": "D:\\Arcade\\AI\\aCORES\\sherrif\\sim\\results\\cocktail-phase-ce-rtl",
+      "mame_capture": "D:\\Arcade\\AI\\aCORES\\sherrif\\sim\\results\\cocktail-mame",
+      "terminal": "frames=6000 writes=4090402 IRQ acknowledges=11787 address=a03",
+      "native_frames_compared": 104,
+      "native_mismatch_pixels": 0,
+      "native_mismatches": [],
+      "end_frame_ram_mismatches": 33,
+      "end_frame_pixels_mismatches": 20,
+      "raw_output_sequence": {
+        "matching_prefix": 121749,
+        "mame_outputs": 372316,
+        "rtl_outputs": 372316,
+        "first_mame": [
+          [
+            3,
+            27
+          ],
+          [
+            3,
+            199
+          ],
+          [
+            3,
+            2
+          ],
+          [
+            3,
+            0
+          ],
+          [
+            2,
+            3
+          ]
+        ],
+        "first_rtl": [
+          [
+            3,
+            110
+          ],
+          [
+            3,
+            166
+          ],
+          [
+            3,
+            2
+          ],
+          [
+            3,
+            0
+          ],
+          [
+            2,
+            6
+          ]
+        ]
+      },
+      "evidence_sha256": {
+        "terminal-scanout.json": "17fcfa6bfeb448e703d4dbec35c4b7c96bc8773029c192693ce8496a32c6cc86",
+        "terminal-checkpoints.json": "df1b060e06a792089e6cb715b99caea61761d827d3c0de4eed0568cfe4a9806c",
+        "stdout.log": "bf3a9e16bb0a409db2b84b70e05cbef05376814398d8b88b5228f45e564b6643"
+      }
+    }
+  ],
+  "complete_simulation_gate_pass": false,
+  "limits": [
+    "Two restart pixels remain unresolved; no tolerance or waiver is applied",
+    "Raw I/O sequences and end-frame snapshots retain their differences",
+    "These captures precede the downstream DAC mixer correction; they do not qualify final audio",
+    "MAME end-frame images and live scanout are separate observations"
+  ]
+}

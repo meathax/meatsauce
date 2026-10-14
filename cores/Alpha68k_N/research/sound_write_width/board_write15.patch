@@ -1,0 +1,11 @@
+--- D:\Arcade\AI\aCORES\meatsauce-alpha68kn\cores\Alpha68k_N\rtl\alpha68kn_board.sv
++++ private/board_write15.sv
+@@ -102,7 +102,7 @@
+             if (load_addr >= 'h00100 && load_addr < 'h20100)
+                 main_rom[(load_addr-'h00100)>>1] <= {load_data[7:0],load_data[15:8]};
+             if (load_addr >= 'h20100 && load_addr < 'h30100)
+-                sound_rom[(load_addr-'h20100)>>1] <= load_data;
++                sound_rom[15'((load_addr-'h20100)>>1)] <= load_data;
+             if (load_addr >= 'h30100 && load_addr < 'h30200) begin
+                 prom_r[load_addr[7:0]]<=load_data[7:0]; prom_r[load_addr[7:0]+8'd1]<=load_data[15:8];
+             end

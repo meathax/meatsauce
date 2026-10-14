@@ -1,0 +1,277 @@
+{
+  "scope": "One separately pinned verifier consumer correction against the completed720 capture, plus bounded offline loadedROM mapping. No replay, build, production source edit or acceptance loosening.",
+  "original_failure_import": {
+    "path": "D:\\Arcade\\AI\\aCORES\\Alpha68k N\\research\\remaining_gates_20261011\\japan_joined720\\import_manifest.json",
+    "sha256": "238bf75296e6d263d14e7ff8b415a2a8f128f7231127d6eb2ca568dd5b55218c",
+    "bytes": 53346
+  },
+  "original_diagnosis_import": {
+    "path": "D:\\Arcade\\AI\\aCORES\\Alpha68k N\\research\\remaining_gates_20261011\\japan_joined720\\supplement_import_manifest.json",
+    "sha256": "3248d170ae86ce7bc51df83e67a77d2e1e7da29691234dbe395589f29d6a12ce",
+    "bytes": 1764
+  },
+  "actual_native_exit": 0,
+  "actual_v2_verifier_exit": 1,
+  "checks_true": 15,
+  "checks_total": 17,
+  "failed_checks": [
+    "all18_full_RGB_work_strip_arrays_exact",
+    "all6_work_arrays_exact"
+  ],
+  "strict_joined_Japan_acceptance": false,
+  "domain_results": {
+    "RGB": {
+      "fields": 6,
+      "pass": true,
+      "different_bytes": [
+        {
+          "field": 0,
+          "count": 0
+        },
+        {
+          "field": 30,
+          "count": 0
+        },
+        {
+          "field": 90,
+          "count": 0
+        },
+        {
+          "field": 240,
+          "count": 0
+        },
+        {
+          "field": 360,
+          "count": 0
+        },
+        {
+          "field": 600,
+          "count": 0
+        }
+      ]
+    },
+    "strip": {
+      "fields": 6,
+      "pass": true,
+      "different_bytes": [
+        {
+          "field": 0,
+          "count": 0
+        },
+        {
+          "field": 30,
+          "count": 0
+        },
+        {
+          "field": 90,
+          "count": 0
+        },
+        {
+          "field": 240,
+          "count": 0
+        },
+        {
+          "field": 360,
+          "count": 0
+        },
+        {
+          "field": 600,
+          "count": 0
+        }
+      ]
+    },
+    "work": {
+      "fields": 6,
+      "pass": false,
+      "different_bytes": [
+        {
+          "field": 0,
+          "count": 0
+        },
+        {
+          "field": 30,
+          "count": 0
+        },
+        {
+          "field": 90,
+          "count": 0
+        },
+        {
+          "field": 240,
+          "count": 3
+        },
+        {
+          "field": 360,
+          "count": 1
+        },
+        {
+          "field": 600,
+          "count": 4
+        }
+      ]
+    },
+    "chip_registers": {
+      "reference_writes": 406,
+      "native_writes": 406,
+      "data_and_field_labels_exact": true
+    },
+    "DAC": {
+      "reference_writes": 29549,
+      "native_writes": 29549,
+      "ordered_data_exact": true
+    },
+    "main_sound_latches": {
+      "reference_writes": 9,
+      "native_writes": 9,
+      "ordered_data_exact": true
+    },
+    "source": {
+      "frozen_files": 75,
+      "same_ELF_ROM_inputs": true
+    },
+    "input": {
+      "same_original_ports_at_snapshot_boundary": true
+    },
+    "protocol": {
+      "native_exit0": true,
+      "fields": 720,
+      "contiguous": true,
+      "57344pixels_no_duplicates_deadlines_overflows_unmapped": true,
+      "worst_line_cycles": 2280
+    }
+  },
+  "small_import_files": [
+    {
+      "path": "D:\\Arcade\\AI\\aCORES\\Alpha68k N\\research\\remaining_gates_20261011\\prepare_verify_canonical_v2.py",
+      "sha256": "fac0941ac05e2bd1a615d807b76bf00ceecd47846758d0db50d50ecf1c22a929",
+      "bytes": 4534
+    },
+    {
+      "path": "D:\\Arcade\\AI\\aCORES\\Alpha68k N\\research\\remaining_gates_20261011\\verify_japan_canonical_v2.py",
+      "sha256": "87239cfa4d994652dacd5b594d0e88f3727ec28c1061281e5692a0b2524b9e89",
+      "bytes": 11232
+    },
+    {
+      "path": "D:\\Arcade\\AI\\aCORES\\Alpha68k N\\research\\remaining_gates_20261011\\map_japan_work_rom.py",
+      "sha256": "ca47c9b306fe5497cab99f57ce7f0b7ea1c689d00d19f45e613b5517c2b5a9c1",
+      "bytes": 5461
+    },
+    {
+      "path": "D:\\Arcade\\AI\\aCORES\\Alpha68k N\\research\\remaining_gates_20261011\\freeze_canonical_v2.py",
+      "sha256": "82cf1ffceb674f5fb957026199f0e665092563a14bdfbb8456f163bfaa4b48db",
+      "bytes": 4675
+    },
+    {
+      "path": "D:\\Arcade\\AI\\aCORES\\Alpha68k N\\research\\remaining_gates_20261011\\japan_joined720\\canonical_v2_preparation.json",
+      "sha256": "c8c4697db8de8c7b3931d9b995e784cb0b1c6a87134f912d76f2c0133033a7db",
+      "bytes": 5788
+    },
+    {
+      "path": "D:\\Arcade\\AI\\aCORES\\Alpha68k N\\research\\remaining_gates_20261011\\japan_joined720\\verification_canonical_v2_job.json",
+      "sha256": "2e302636562049cccbf11e1ba3571ffbac82a0b684fae15ccebdc0252c92490a",
+      "bytes": 559
+    },
+    {
+      "path": "D:\\Arcade\\AI\\aCORES\\Alpha68k N\\research\\remaining_gates_20261011\\japan_joined720\\verification_canonical_v2_exit.json",
+      "sha256": "19102ca7f69b20d415b2af5571ea774a0631b82b928b6ad1f2da2c56b99f9c1e",
+      "bytes": 161
+    },
+    {
+      "path": "D:\\Arcade\\AI\\aCORES\\Alpha68k N\\research\\remaining_gates_20261011\\japan_joined720\\verification_canonical_v2.log",
+      "sha256": "76557cfec20dfcca6d3f9142f85072b98324ecbedcff3dd168fcb0dec9136661",
+      "bytes": 209
+    },
+    {
+      "path": "D:\\Arcade\\AI\\aCORES\\Alpha68k N\\research\\remaining_gates_20261011\\japan_joined720\\verification_canonical_v2.json",
+      "sha256": "13ffda9d76c93ecc8ce8d5c1df954694965423b0afb477de33fff4b8e15e3aa7",
+      "bytes": 18466
+    },
+    {
+      "path": "D:\\Arcade\\AI\\aCORES\\Alpha68k N\\research\\remaining_gates_20261011\\japan_joined720\\work_ROM_candidates.json",
+      "sha256": "c98ecc9894e808e49da6cbd9170d27dbb9a9c1e832b989dbbaa81e0b84d326e6",
+      "bytes": 10708
+    },
+    {
+      "path": "D:\\Arcade\\AI\\aCORES\\Alpha68k N\\research\\remaining_gates_20261011\\japan_joined720\\work_difference_table.md",
+      "sha256": "dd68f066452e0952e0cc474b40d352ca728a2854f345c941991f36f7e581f04f",
+      "bytes": 701
+    }
+  ],
+  "canonical_reference_pins": [
+    {
+      "path": "D:\\Arcade\\AI\\aCORES\\Alpha68k N\\sim\\captures\\kyrosj\\gameplay\\frame_000000.png",
+      "sha256": "90d9ec75814724c7c9484a4a70eb59d4a56f33e7684cffd798187b5ff65b537d",
+      "bytes": 421
+    },
+    {
+      "path": "D:\\Arcade\\AI\\aCORES\\Alpha68k N\\sim\\captures\\kyrosj\\gameplay\\frame_000000.display.rgb",
+      "sha256": "9a4b97b4b079955bac86930724c8bcdd30aba4732f1dcbcbac2ec270f5f5e485",
+      "bytes": 172032
+    },
+    {
+      "path": "D:\\Arcade\\AI\\aCORES\\Alpha68k N\\sim\\captures\\kyrosj\\gameplay\\frame_000030.png",
+      "sha256": "90d9ec75814724c7c9484a4a70eb59d4a56f33e7684cffd798187b5ff65b537d",
+      "bytes": 421
+    },
+    {
+      "path": "D:\\Arcade\\AI\\aCORES\\Alpha68k N\\sim\\captures\\kyrosj\\gameplay\\frame_000030.display.rgb",
+      "sha256": "9a4b97b4b079955bac86930724c8bcdd30aba4732f1dcbcbac2ec270f5f5e485",
+      "bytes": 172032
+    },
+    {
+      "path": "D:\\Arcade\\AI\\aCORES\\Alpha68k N\\sim\\captures\\kyrosj\\gameplay\\frame_000090.png",
+      "sha256": "1afdb8470de0c28a01c900db6463d269f3f44ed4f54b74ab54badd3f69d26841",
+      "bytes": 2200
+    },
+    {
+      "path": "D:\\Arcade\\AI\\aCORES\\Alpha68k N\\sim\\captures\\kyrosj\\gameplay\\frame_000090.display.rgb",
+      "sha256": "597b7466c651ce13c6948134b3d586d62680f8fb85994fcbc7f2d047c07ce5bb",
+      "bytes": 172032
+    },
+    {
+      "path": "D:\\Arcade\\AI\\aCORES\\Alpha68k N\\sim\\captures\\kyrosj\\gameplay\\frame_000240.png",
+      "sha256": "1908e1e4dceff62c8439e724493e858d2282b6267662380e8ab380ad7b541a3c",
+      "bytes": 5478
+    },
+    {
+      "path": "D:\\Arcade\\AI\\aCORES\\Alpha68k N\\sim\\captures\\kyrosj\\gameplay\\frame_000240.display.rgb",
+      "sha256": "159db246e6c1ca749ddf242ec71367a07727892df17a5f760446eb58941b8cdd",
+      "bytes": 172032
+    },
+    {
+      "path": "D:\\Arcade\\AI\\aCORES\\Alpha68k N\\sim\\captures\\kyrosj\\gameplay\\frame_000360.png",
+      "sha256": "dffed40c773e0e466db05a1e40cad54e08b16e1ca19dd57cc20299f23d0f186e",
+      "bytes": 7581
+    },
+    {
+      "path": "D:\\Arcade\\AI\\aCORES\\Alpha68k N\\sim\\captures\\kyrosj\\gameplay\\frame_000360.display.rgb",
+      "sha256": "c70ec6bd6464f4da16a10cbc23eb328327aea1a578a4089eade1ae6f6e39178f",
+      "bytes": 172032
+    },
+    {
+      "path": "D:\\Arcade\\AI\\aCORES\\Alpha68k N\\sim\\captures\\kyrosj\\gameplay\\frame_000600.png",
+      "sha256": "62d24c629b33280dfd1beaa3b56ee623f40f811fa62e5841aeb019c112146881",
+      "bytes": 7349
+    },
+    {
+      "path": "D:\\Arcade\\AI\\aCORES\\Alpha68k N\\sim\\captures\\kyrosj\\gameplay\\frame_000600.display.rgb",
+      "sha256": "870367cea2cc090698af979491e7a9c75e56ca3048a484753ad11186728f9bc8",
+      "bytes": 172032
+    }
+  ],
+  "work_ROM_mapping": {
+    "loaded_mainROM_bytes_exact": true,
+    "candidate_call_return_matches": 0,
+    "actual_current_SP_known": false,
+    "proven_stale_stack": false
+  },
+  "limitations": [
+    "Button/input pulses do not prove every successful hit/pickup/jump or death/restart effect.",
+    "PCM phase equality is not required; capture is retained for mix/rate analysis.",
+    "IRQ/NMI source clock identities remain pinned; physical clock and full audio calibration are separate gates.",
+    "No actual A7 or accepted stack writes were recorded at240/360/600.",
+    "Raw32-bit values and preceding SR-shaped words do not establish a valid return or exception frame.",
+    "Exact call opcode candidates do not prove these bytes were executed; no RTL cause or acceptance mask follows.",
+    "Eight upper-workRAM byte differences remain open; they do not identify an RTL fault or establish stale-stack status. The original13of14 exit1 failure remains immutable."
+  ]
+}

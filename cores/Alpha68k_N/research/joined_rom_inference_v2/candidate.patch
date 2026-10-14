@@ -1,0 +1,66 @@
+--- baseline/alpha68kn_board.sv
++++ candidate/alpha68kn_board.sv
+@@ -101,7 +101,14 @@
+     assign hs_data_out=hs_read_active ? hs_current : hs_hold;
+     logic [7:0] sound_ram [0:2047];
+     logic [7:0] prom_r [0:255], prom_g [0:255], prom_b [0:255];
+-    logic [7:0] clut_rom [0:511], color_rom [0:8191], mcu_rom [0:4095];
++    logic [7:0] clut_rom [0:511], color_rom [0:8191];
++    // One write port per parity bank; together these retain all 4096 MCU bytes.
++    logic [7:0] mcu_rom_even [0:2047], mcu_rom_odd [0:2047];
++`ifdef VERILATOR
++    function automatic [7:0] mcu_debug_byte(input [11:0] addr);
++        mcu_debug_byte=addr[0] ? mcu_rom_odd[addr[11:1]] : mcu_rom_even[addr[11:1]];
++    endfunction
++`endif
+     wire [7:0] bg_index = background[7:0];
+     assign background_rgb = {prom_r[bg_index][3:0],prom_r[bg_index][3:0],
+         prom_g[bg_index][3:0],prom_g[bg_index][3:0],
+@@ -138,7 +145,13 @@
+                 color_rom[load_addr[12:0]-13'h1000+13'd1]<=load_data[15:8];
+             end
+             if (load_addr >= 'h33000 && load_addr < 'h34000) begin
+-                mcu_rom[load_addr[11:0]]<=load_data[7:0]; mcu_rom[load_addr[11:0]+12'd1]<=load_data[15:8];
++                if (load_addr[0]) begin
++                    mcu_rom_odd[load_addr[11:1]]<=load_data[7:0];
++                    mcu_rom_even[load_addr[11:1]+11'd1]<=load_data[15:8];
++                end else begin
++                    mcu_rom_even[load_addr[11:1]]<=load_data[7:0];
++                    mcu_rom_odd[load_addr[11:1]]<=load_data[15:8];
++                end
+             end
+             if (load_addr >= 'h40000 && load_addr < 'ha0000) begin
+                 gfx_load_wr <= 1;
+@@ -166,7 +179,7 @@
+             6:debug_rom_data<={clut_rom[debug_rom_addr[8:0]],clut_rom[debug_rom_addr[8:0]+9'd1]};
+             7:debug_rom_data<={color_rom[debug_rom_addr[12:0]],color_rom[debug_rom_addr[12:0]+13'd1]};
+ `ifdef VERILATOR
+-            8:debug_rom_data<={mcu_rom[debug_rom_addr[11:0]],mcu_rom[debug_rom_addr[11:0]+12'd1]};
++            8:debug_rom_data<={mcu_debug_byte(debug_rom_addr[11:0]),mcu_debug_byte(debug_rom_addr[11:0]+12'd1)};
+ `endif
+             default:debug_rom_data<=16'hffff;
+         endcase
+@@ -195,7 +208,9 @@
+     assign debug_main_din = mdin;
+     assign debug_main_dout = mdout;
+     wire [11:0] sting_mcu_program_addr;
+-    logic [7:0] sting_mcu_program_q=0;
++    logic [7:0] sting_mcu_even_q=0, sting_mcu_odd_q=0;
++    logic sting_mcu_program_odd_q=0;
++    wire [7:0] sting_mcu_program_q=sting_mcu_program_odd_q ? sting_mcu_odd_q : sting_mcu_even_q;
+     wire sting_mcu_main_halt,sting_mcu_irq2,sting_mcu_shared_write,sting_mcu_flip;
+     wire sting_mcu_command_valid,sting_mcu_bus_event,sting_mcu_control_event;
+     wire [7:0] sting_mcu_shared_addr,sting_mcu_shared_data,sting_mcu_bus,sting_mcu_control;
+@@ -204,7 +219,11 @@
+     // then freeze the existing phase/enables at AS-high. This P6 boundary
+     // requires a coupled-CPU trace before physical/MAME timing qualification.
+     wire sting_main_pause=is_stingray && sting_mcu_main_halt && mas_n;
+-    always @(posedge clk) sting_mcu_program_q<=mcu_rom[sting_mcu_program_addr];
++    always @(posedge clk) begin
++        sting_mcu_even_q<=mcu_rom_even[sting_mcu_program_addr[11:1]];
++        sting_mcu_odd_q<=mcu_rom_odd[sting_mcu_program_addr[11:1]];
++        sting_mcu_program_odd_q<=sting_mcu_program_addr[0];
++    end
+     alpha68kn_mcu sting_mcu (
+         .clk(clk),.reset(held_reset || !is_stingray),.pause_game(pause_game),
+         .program_addr(sting_mcu_program_addr),.program_data(sting_mcu_program_q),

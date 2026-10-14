@@ -1,0 +1,25 @@
+# Approximations and implementation status
+
+The real CPU/SoC/GPU/SPU/RTC RTL is implemented but full cold-boot/gameplay and timing acceptance remain open. The current implementation uses the exact MAME crysking protection halfword overlay because the original scratched cartridge MCU is unidentified and undumped. Preserve the unmodified source ROMs. Actual PIC recreation would require its model, firmware/protocol and timing evidence.
+
+Track future approximations here with affected behavior, evidence, reason and what would remove the approximation. Do not conceal missing blocks behind successful stubs. MAME's own quirks belong in `MAME_KLUDGES.md`.
+
+## Project-owned template timing/CDC overrides (2026-10-06)
+
+The pinned upstream `sys/` remains pristine. `rtl/mister/sys_project.qip` preserves upstream dependency/constraint selection except for the project-owned `sys_top.v` and `hps_io.sv` copies; the root QSF loads sys_project.tcl, which reads the pristine upstream pin Tcl and substitutes its one guarded QIP assignment before evaluation. Provenance and exact source hashes are in vendor_override_sources.json. These copies retain the original license notices and module names.
+
+`sys_top.v` adds one coherent HDMI pixel/control pipeline stage to shorten measured internal paths. `hps_io.sv` adds two preserved/nonmerged clk_100 synchronizer stages for timing-counter VS/HS/DE/HDMI VS before edge/count logic. The four asynchronous first-stage D inputs alone are cut in CrystalSystem.sdc; later stages stay timed. These are real implementation patches, not game emulation substitutes. Counter simulation passes624 VS/HS/HDMI period and DE-window checks across52 phase cases; fitted chain timing/metastability and whole-production closure remain required. Dynamic HPS video modes/configuration remain unqualified. The frozen active fit uses identical patched RTL bytes at their historical paths and is not restarted by relocation. A later source-selected analysis must qualify the project QIP before claiming current-source synthesis.
+
+## Video continuity and sync sanity (2026-10-06 audit)
+
+- `rtl/video/cs_video_hold.sv` keeps a fixed 455x262 / 320x240 raster (one enable per 12 clk, HS 60 px, VS 10 lines) running while the game CRTC is held in reset (`reset`, `!rom_ready`, `loading`). Without it direct video/scaler lost all sync during ROM load and resets. The hand-off to/from the game raster happens once on a fallback pixel boundary (one irregular interval; no effect in steady state). All outputs are registered; adds one clock of uniform video latency.
+- `vr0_crtc.sv`: the game's FWINB/field values placed VSYNC at line 237 (inside the 240-line picture). VSYNC is now clamped to start no earlier than the first blanked line. VS/HS pin placement and widths remain unverified provisional (see CRTC.md); MAME does not model them.
+- Scandoubler Fx is no longer forced to None/hidden under direct video; it is hidden only when HDMI rotation is active (rotation is bypassed in direct video).
+
+## VRender0 palette collision hack removed from the shipped core (2026-10-06, deliberate deviation from MAME)
+
+Behavior: `vr0_gpu` parameter `MAME_PALETTE_HACK` (default 0). MAME nudges a converted palette entry by one blue LSB when its RGB565 equals the RGB565 of the transparent colour while the full 32-bit entry differs, or equals the 0xecda "no transparency" sentinel; and it makes any 0xecda texel vanish even with transparency disabled. MAME's own comment calls this "most likely an artifact of not emulating the dither modes, and wrong anyway".
+Core (parameter 0): the palette stores the plain RGB565; a per-entry `palette_opaque` flag records MAME's collision condition (565 equal to the key, 32-bit entry not equal). A textured pixel is skipped iff packet bit 2 (transparency) is set, its RGB565 equals RGB565(trans colour) and it is not flagged opaque (16bpp texels have no flag). No 0xecda sentinel. Parameter 1 reproduces MAME exactly and is what `sim.py gpu` / `gpu_game` build against.
+Evidence (real MAME run, `scripts/mame_video_usage.py`, 9000 frames): the game hits the hack in 90,296 of 224,404 palette loads, always one entry: 0x010101 (palette indices 255/254/253/194, key 0x000000) in 89,940 loads, 0x00fe02fe (key magenta 0xff00ff) and 0x030302 in the rest. Game data stores near-black as 0x010101 rather than 0x000000, i.e. a 24-bit palette-vs-key compare makes it opaque; MAME instead draws 0x0001 (blue LSB). The game never enables dither (field 2 = disabled), so the dither-artifact explanation does not apply. This is an inference from the game data, not hardware proof (no datasheet found); effect: affected pixels become exact black/key-adjacent instead of 1 blue LSB off.
+Revert: build with `MAME_PALETTE_HACK=1`. Removal criterion: a hardware capture or datasheet showing the comparison happens in the RGB565 domain.
+Resource note: +256 flag bits (same structure as the existing palette array) and a 256:1 1-bit read registered at TEX_WAIT; the transparent test gains two gate inputs ahead of the FB_REQ command valid, no change to the shade/alpha/DSP stages. Quartus was not run.

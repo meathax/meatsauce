@@ -1,0 +1,91 @@
+{
+  "_comment": "Crystal System CPU address-space inventory from MAME 0.289. Generic capture/trace tools still need SE3208 adaptation. Select bounded snapshots/taps for each oracle capture; do not dump every region every frame.",
+  "cpu": ":maincpu",
+  "space": "program",
+  "bus_bytes": 4,
+  "big_endian": false,
+  "read": {
+    "workram": [
+      "0x02000000",
+      "0x027fffff"
+    ],
+    "textram": [
+      "0x03800000",
+      "0x03ffffff"
+    ],
+    "frameram": [
+      "0x04000000",
+      "0x047fffff"
+    ],
+    "nvram": [
+      "0x01400000",
+      "0x0140ffff"
+    ]
+  },
+  "wtap": {
+    "vregs": [
+      "0x03000000",
+      "0x030000ff"
+    ],
+    "crtc": [
+      "0x01803400",
+      "0x018037ff"
+    ],
+    "sound": [
+      "0x04800000",
+      "0x04800fff"
+    ],
+    "textram": [
+      "0x03800000",
+      "0x03ffffff"
+    ],
+    "frameram": [
+      "0x04000000",
+      "0x047fffff"
+    ]
+  },
+  "sweep": [
+    "vregs",
+    "crtc",
+    "sound",
+    "textram",
+    "frameram"
+  ],
+  "trace": {
+    "addr_hi": "0xffffffff",
+    "io": [
+      "0x01200000",
+      "0x01ffffff"
+    ],
+    "vectors": [
+      "0x00000000",
+      "0x000000ff"
+    ],
+    "rom": [
+      [
+        "0x00000000",
+        "0x0001ffff"
+      ],
+      [
+        "0x05000000",
+        "0x05ffffff"
+      ]
+    ],
+    "ram": [
+      [
+        "0x02000000",
+        "0x027fffff"
+      ],
+      [
+        "0x03800000",
+        "0x047fffff"
+      ]
+    ]
+  },
+  "inputs": {
+    "coin": "Coin 1",
+    "start": "1 Player Start",
+    "hold": "P1 Right",
+    "pulse": "P1 Button 1"
+  }
+}

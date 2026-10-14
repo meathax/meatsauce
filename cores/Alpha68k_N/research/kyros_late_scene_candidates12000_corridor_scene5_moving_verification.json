@@ -1,0 +1,753 @@
+{
+  "worker_pid": 32920,
+  "started": 1791578549.0000634,
+  "command": [
+    "D:\\Arcade\\AI\\aCORES\\Alpha68k N\\tools\\mame0289\\mame.exe",
+    "kyros",
+    "-rompath",
+    "D:\\Arcade\\AI\\aCORES\\Alpha68k N\\roms",
+    "-noreadconfig",
+    "-skip_gameinfo",
+    "-video",
+    "none",
+    "-sound",
+    "none",
+    "-nothrottle",
+    "-noautoframeskip",
+    "-frameskip",
+    "0",
+    "-autoboot_delay",
+    "0",
+    "-autoboot_script",
+    "D:\\Arcade\\AI\\aCORES\\Alpha68k N\\sim\\mame\\capture_late_scene_candidates.lua",
+    "-pluginspath",
+    "D:\\Arcade\\AI\\aCORES\\Alpha68k N\\tools\\mame0289\\plugins",
+    "-seconds_to_run",
+    "217",
+    "-snapshot_directory",
+    "D:\\Arcade\\AI\\aCORES\\Alpha68k N\\sim\\captures\\kyros\\late_scene_candidates12000_corridor_scene5_moving",
+    "-cfg_directory",
+    "D:\\Arcade\\AI\\aCORES\\Alpha68k N\\sim\\captures\\kyros\\late_scene_candidates12000_corridor_scene5_moving\\cfg",
+    "-nvram_directory",
+    "D:\\Arcade\\AI\\aCORES\\Alpha68k N\\sim\\captures\\kyros\\late_scene_candidates12000_corridor_scene5_moving\\nvram",
+    "-state_directory",
+    "D:\\Arcade\\AI\\aCORES\\Alpha68k N\\sim\\captures\\kyros\\late_scene_candidates12000_corridor_scene5_moving\\states"
+  ],
+  "source_parent": "1aecd8f93b50ab96fe2348971cfa68a9d666e7af",
+  "source_sha256": {
+    "sim\\mame\\capture_late_scene_candidates.lua": "7d44c76fb684a784e45f2604c5ab5e9c87346f98546a5566439231602da00301",
+    "scripts\\record_late_scene_candidates.py": "2ee4d88de7badaf8bb147968968c6769e2cddc8e80ddbf198146121ccee881a5",
+    "research/late_scene_cheat_historical_definitions.json": "987bcae0585dffef375f5a9b94afeecead4dbd36c4b10b6a390c5f54fcd86dbb"
+  },
+  "executable_sha256": "af6966108d9b52c22465c6d50f4e5d50cc371b50f2d27dc443935f287aad37a3",
+  "set": "kyros",
+  "frames": 12000,
+  "route": "corridor",
+  "scene": "candidate-5",
+  "resume_inputs": true,
+  "scope": "MAME scene discovery with explicit fixture RAM cheats; not real RTL gameplay or late-scene acceptance",
+  "mame_pid": 58200,
+  "exit_code": 0,
+  "ended": 1791578567.8391235,
+  "fixture_setup": {
+    "frame": 900,
+    "pc_before": 40596,
+    "sr": 8196,
+    "a6": 131072,
+    "sp": 135156,
+    "return_address": 40414,
+    "selector_before": 3,
+    "selector_after": 5,
+    "entry_pc": 6758,
+    "fixture_only": true
+  },
+  "artifacts": [
+    {
+      "path": "sim\\captures\\kyros\\late_scene_candidates12000_corridor_scene5_moving\\frame_000000.display.rgb",
+      "sha256": "9a4b97b4b079955bac86930724c8bcdd30aba4732f1dcbcbac2ec270f5f5e485"
+    },
+    {
+      "path": "sim\\captures\\kyros\\late_scene_candidates12000_corridor_scene5_moving\\frame_000000.png",
+      "sha256": "27ab769c7d70ea6f343800bcb8ecb87e43bccdec012c2a385047f8d01290b278"
+    },
+    {
+      "path": "sim\\captures\\kyros\\late_scene_candidates12000_corridor_scene5_moving\\frame_000000.sprites.bin",
+      "sha256": "9f1dcbc35c350d6027f98be0f5c8b43b42ca52b7604459c0c42be3aa88913d47"
+    },
+    {
+      "path": "sim\\captures\\kyros\\late_scene_candidates12000_corridor_scene5_moving\\frame_000000.work.bin",
+      "sha256": "ad7facb2586fc6e966c004d7d1d16b024f5805ff7cb47c7a85dabd8b48892ca7"
+    },
+    {
+      "path": "sim\\captures\\kyros\\late_scene_candidates12000_corridor_scene5_moving\\frame_000179.display.rgb",
+      "sha256": "159db246e6c1ca749ddf242ec71367a07727892df17a5f760446eb58941b8cdd"
+    },
+    {
+      "path": "sim\\captures\\kyros\\late_scene_candidates12000_corridor_scene5_moving\\frame_000179.png",
+      "sha256": "a737aadd5ec024d17b735efa86e2d156e088d8f20804149bb4526d900374fdee"
+    },
+    {
+      "path": "sim\\captures\\kyros\\late_scene_candidates12000_corridor_scene5_moving\\frame_000179.sprites.bin",
+      "sha256": "3d8918435b6cf7e2132037e5f603e6f114428e7bd08b7455cb6de6aa077733c7"
+    },
+    {
+      "path": "sim\\captures\\kyros\\late_scene_candidates12000_corridor_scene5_moving\\frame_000179.work.bin",
+      "sha256": "e1db108e08bb7a4b5b58c1f9902631e1d625a62bce9f3fde775778c51feaae69"
+    },
+    {
+      "path": "sim\\captures\\kyros\\late_scene_candidates12000_corridor_scene5_moving\\frame_000300.display.rgb",
+      "sha256": "7f943b9faa4dbf246526e278a9e1a4bce65587ac9c5d30cfbdd0517c922cddc0"
+    },
+    {
+      "path": "sim\\captures\\kyros\\late_scene_candidates12000_corridor_scene5_moving\\frame_000300.png",
+      "sha256": "2c588454f4d05e7d1859aed604d84e0376a3e8008d413e885052795914843390"
+    },
+    {
+      "path": "sim\\captures\\kyros\\late_scene_candidates12000_corridor_scene5_moving\\frame_000300.sprites.bin",
+      "sha256": "e3ea0214928e2e06aaf738f95d162a8edafc00dde9563a2d07c158ec98d28249"
+    },
+    {
+      "path": "sim\\captures\\kyros\\late_scene_candidates12000_corridor_scene5_moving\\frame_000300.work.bin",
+      "sha256": "2371ef23469ce081149a4306fad9eb160a14a9d20e0ef7a99ac05890491cb178"
+    },
+    {
+      "path": "sim\\captures\\kyros\\late_scene_candidates12000_corridor_scene5_moving\\frame_000600.display.rgb",
+      "sha256": "870367cea2cc090698af979491e7a9c75e56ca3048a484753ad11186728f9bc8"
+    },
+    {
+      "path": "sim\\captures\\kyros\\late_scene_candidates12000_corridor_scene5_moving\\frame_000600.png",
+      "sha256": "b9ca58fd5715b21891b77c6f42b068554c1ce96a41ceb2a07fde1b64075e00f0"
+    },
+    {
+      "path": "sim\\captures\\kyros\\late_scene_candidates12000_corridor_scene5_moving\\frame_000600.sprites.bin",
+      "sha256": "e5278764380265c52fa179824aa7f940340123f17d548435f0c3f9d4ca30eb9a"
+    },
+    {
+      "path": "sim\\captures\\kyros\\late_scene_candidates12000_corridor_scene5_moving\\frame_000600.work.bin",
+      "sha256": "4a6de710c9b3a96e7b1895ec6a98317511044658179a4b42509ff9a7b4c17dc9"
+    },
+    {
+      "path": "sim\\captures\\kyros\\late_scene_candidates12000_corridor_scene5_moving\\frame_000900.display.rgb",
+      "sha256": "58a03c095b36be4d22629b5c8df83b8c03e916cb46ff30a9e71d1e90040a4674"
+    },
+    {
+      "path": "sim\\captures\\kyros\\late_scene_candidates12000_corridor_scene5_moving\\frame_000900.png",
+      "sha256": "c456d450e20560a5bc6f8bb5eb2ae6e545e21662d3375e0b71ea4c8be4a526a4"
+    },
+    {
+      "path": "sim\\captures\\kyros\\late_scene_candidates12000_corridor_scene5_moving\\frame_000900.sprites.bin",
+      "sha256": "a234524dd4f00c82d55a86b1575dcf2f1cddb991b515a01ab278122340e5e22d"
+    },
+    {
+      "path": "sim\\captures\\kyros\\late_scene_candidates12000_corridor_scene5_moving\\frame_000900.work.bin",
+      "sha256": "604eb98df8f724a53bb890e45b87e5d976f35b15c241cbb46364dfcf9fa7b11d"
+    },
+    {
+      "path": "sim\\captures\\kyros\\late_scene_candidates12000_corridor_scene5_moving\\frame_001200.display.rgb",
+      "sha256": "d77720398dd7cc69531f87808bda9322def95001a43ac7bd6bf12aa2675b8840"
+    },
+    {
+      "path": "sim\\captures\\kyros\\late_scene_candidates12000_corridor_scene5_moving\\frame_001200.png",
+      "sha256": "73c77f2c7d0365a5e70b24dae16f20462a766b1676c514ee972614d7f55bbca0"
+    },
+    {
+      "path": "sim\\captures\\kyros\\late_scene_candidates12000_corridor_scene5_moving\\frame_001200.sprites.bin",
+      "sha256": "78268bfa6488f30f9d486cf91e3ef5e787a27b9c44fe21c251e02b33c52ff90a"
+    },
+    {
+      "path": "sim\\captures\\kyros\\late_scene_candidates12000_corridor_scene5_moving\\frame_001200.work.bin",
+      "sha256": "052bf675fa8b9d669fdf351e836595b6f3e50513e4093e74003ce736b1c9d487"
+    },
+    {
+      "path": "sim\\captures\\kyros\\late_scene_candidates12000_corridor_scene5_moving\\frame_001500.display.rgb",
+      "sha256": "b88c8c5d02e111bb9205b714e926ee219145cad969517779a65262f2b766ae47"
+    },
+    {
+      "path": "sim\\captures\\kyros\\late_scene_candidates12000_corridor_scene5_moving\\frame_001500.png",
+      "sha256": "4a5a5e331e32083151ea715b64434719cd46acd09ea9c22ca0c1c4cdcfcaa8cb"
+    },
+    {
+      "path": "sim\\captures\\kyros\\late_scene_candidates12000_corridor_scene5_moving\\frame_001500.sprites.bin",
+      "sha256": "a5d6c2e20bd50b43f8e86c5e6d203fd455e1e72162bc9892a5accfa2faf8e1cf"
+    },
+    {
+      "path": "sim\\captures\\kyros\\late_scene_candidates12000_corridor_scene5_moving\\frame_001500.work.bin",
+      "sha256": "d37fcc93d62bfdc1646c0d76b92dafbf28c1c594e546cc79dd51ca9b3514d0e3"
+    },
+    {
+      "path": "sim\\captures\\kyros\\late_scene_candidates12000_corridor_scene5_moving\\frame_001800.display.rgb",
+      "sha256": "88384256d2c364fbad159f7e24b1dc9e4c51fef606a863300b84b42e4dba5622"
+    },
+    {
+      "path": "sim\\captures\\kyros\\late_scene_candidates12000_corridor_scene5_moving\\frame_001800.png",
+      "sha256": "083bf35f49071c0ea2f1f2dcdefbf9a603733f3c560eadaf911a06226341cadb"
+    },
+    {
+      "path": "sim\\captures\\kyros\\late_scene_candidates12000_corridor_scene5_moving\\frame_001800.sprites.bin",
+      "sha256": "a9e3d42010a7780df084f49a39354aa473279ee62959e6ce57821b6585d4f791"
+    },
+    {
+      "path": "sim\\captures\\kyros\\late_scene_candidates12000_corridor_scene5_moving\\frame_001800.work.bin",
+      "sha256": "34db9a423a57ef98c1a7fdb5be632eca7200419addd24e73c707f658fb73da21"
+    },
+    {
+      "path": "sim\\captures\\kyros\\late_scene_candidates12000_corridor_scene5_moving\\frame_002100.display.rgb",
+      "sha256": "c1732a87c2787143987a5c2b809b51034a8741c6378dc57e821500ea3aa855e9"
+    },
+    {
+      "path": "sim\\captures\\kyros\\late_scene_candidates12000_corridor_scene5_moving\\frame_002100.png",
+      "sha256": "1743d83fbcecd23fcb53fcf025e35fd2e60c085f354bb7dea628292926570a6d"
+    },
+    {
+      "path": "sim\\captures\\kyros\\late_scene_candidates12000_corridor_scene5_moving\\frame_002100.sprites.bin",
+      "sha256": "8c4409fe588eeccca8432c8fe7de6ec6f4226470a51a93e3ec48aec2856e3e06"
+    },
+    {
+      "path": "sim\\captures\\kyros\\late_scene_candidates12000_corridor_scene5_moving\\frame_002100.work.bin",
+      "sha256": "e43584e19304891f624a9f95493849a6b805b47fd179f6a066fa666eca2de962"
+    },
+    {
+      "path": "sim\\captures\\kyros\\late_scene_candidates12000_corridor_scene5_moving\\frame_002400.display.rgb",
+      "sha256": "21c9e9b50b63067261466df1e819917c56366d7ec97bb7cf7b150e943ca0ebf1"
+    },
+    {
+      "path": "sim\\captures\\kyros\\late_scene_candidates12000_corridor_scene5_moving\\frame_002400.png",
+      "sha256": "6c3b4800197690bc4f28b177cfe278a6df0e8ce5b2bfa4a9c8a8f1dc68b37134"
+    },
+    {
+      "path": "sim\\captures\\kyros\\late_scene_candidates12000_corridor_scene5_moving\\frame_002400.sprites.bin",
+      "sha256": "79f61948e47f4453c959e24554457f5b3abf8085b3d8efff1eaf6b5a3b56f0d0"
+    },
+    {
+      "path": "sim\\captures\\kyros\\late_scene_candidates12000_corridor_scene5_moving\\frame_002400.work.bin",
+      "sha256": "e5d1271ac5e3962801cc57704d59071f1c5f2faeebe07c21b25fd2e1d018a5a1"
+    },
+    {
+      "path": "sim\\captures\\kyros\\late_scene_candidates12000_corridor_scene5_moving\\frame_002700.display.rgb",
+      "sha256": "0d2957f1605b15c78bd3da37c94562ad5eb3371b65597ad6bd058c62409dcad2"
+    },
+    {
+      "path": "sim\\captures\\kyros\\late_scene_candidates12000_corridor_scene5_moving\\frame_002700.png",
+      "sha256": "b8660e65a14dace46fb7d8d5cddf5304ede4a967fdc403c97fdedb49c03850d2"
+    },
+    {
+      "path": "sim\\captures\\kyros\\late_scene_candidates12000_corridor_scene5_moving\\frame_002700.sprites.bin",
+      "sha256": "58946cd4e52c15a836b1957b9ed39d908183bf40031cd66d1c664dcc6a2f0212"
+    },
+    {
+      "path": "sim\\captures\\kyros\\late_scene_candidates12000_corridor_scene5_moving\\frame_002700.work.bin",
+      "sha256": "43e3c042f39051be22c55ed437f2879b8a8a1a39d8f3fc09ae524b587ca5b4cd"
+    },
+    {
+      "path": "sim\\captures\\kyros\\late_scene_candidates12000_corridor_scene5_moving\\frame_003000.display.rgb",
+      "sha256": "d116ce7056eea0199b97a7bb058a9ec9a61cd2657ef3c20c8aa4d7b3f4875442"
+    },
+    {
+      "path": "sim\\captures\\kyros\\late_scene_candidates12000_corridor_scene5_moving\\frame_003000.png",
+      "sha256": "533c324939740ca232a0d4b8ac74790ba9c0720d44ff520ff6a913969ceb0d39"
+    },
+    {
+      "path": "sim\\captures\\kyros\\late_scene_candidates12000_corridor_scene5_moving\\frame_003000.sprites.bin",
+      "sha256": "8f05ab9bfcc64060d0b46c570376ea02a5ca73ec8c6ed1629073d4ef5d8010a0"
+    },
+    {
+      "path": "sim\\captures\\kyros\\late_scene_candidates12000_corridor_scene5_moving\\frame_003000.work.bin",
+      "sha256": "48d8f388804d577509d4c8da739147649d13410bc070ee9d491f3613e52cd5b2"
+    },
+    {
+      "path": "sim\\captures\\kyros\\late_scene_candidates12000_corridor_scene5_moving\\frame_003300.display.rgb",
+      "sha256": "c64ea7ba20568d663f09708a95b8a64ceacea0bbba6fe3567ae3c375e491021b"
+    },
+    {
+      "path": "sim\\captures\\kyros\\late_scene_candidates12000_corridor_scene5_moving\\frame_003300.png",
+      "sha256": "33110012ff10976ad189b7cd7b76b500b3f3270f29edd64794927003bd7291ad"
+    },
+    {
+      "path": "sim\\captures\\kyros\\late_scene_candidates12000_corridor_scene5_moving\\frame_003300.sprites.bin",
+      "sha256": "ac67aa43ac69cf0e7bcfe1c4eb762a409a209d0af2c274f3811daafb85743b54"
+    },
+    {
+      "path": "sim\\captures\\kyros\\late_scene_candidates12000_corridor_scene5_moving\\frame_003300.work.bin",
+      "sha256": "c8f1f07fc79ffa29aeacaac01f1b9c526b591c5ae834260cdecb039bfa0e33cb"
+    },
+    {
+      "path": "sim\\captures\\kyros\\late_scene_candidates12000_corridor_scene5_moving\\frame_003600.display.rgb",
+      "sha256": "d3c551150317fa38e86eed9fa47e8cb0fb81917d074f3622eb9398484720aea7"
+    },
+    {
+      "path": "sim\\captures\\kyros\\late_scene_candidates12000_corridor_scene5_moving\\frame_003600.png",
+      "sha256": "297ab864ead0df9a4bcdbf500ed0739004095058f8bb94612f57bb6a780e7dba"
+    },
+    {
+      "path": "sim\\captures\\kyros\\late_scene_candidates12000_corridor_scene5_moving\\frame_003600.sprites.bin",
+      "sha256": "b6622fbb35d00f9eec3e96c67ed45b778a8ee30ae2ca710674c66966704c5a9f"
+    },
+    {
+      "path": "sim\\captures\\kyros\\late_scene_candidates12000_corridor_scene5_moving\\frame_003600.work.bin",
+      "sha256": "7470ab22adb159d14d5ab24d6e93392261841e3eeea87c9c865781dfd0d3158d"
+    },
+    {
+      "path": "sim\\captures\\kyros\\late_scene_candidates12000_corridor_scene5_moving\\frame_003900.display.rgb",
+      "sha256": "4a2d3d4fc4fd1aca8a5577068203cc2b00bcd64499db9b90b6184bcf345a21fe"
+    },
+    {
+      "path": "sim\\captures\\kyros\\late_scene_candidates12000_corridor_scene5_moving\\frame_003900.png",
+      "sha256": "7c6e95934830b0a2a9e92babb7e144e4a9be266a3f3eb64034cdd3b718c21cfc"
+    },
+    {
+      "path": "sim\\captures\\kyros\\late_scene_candidates12000_corridor_scene5_moving\\frame_003900.sprites.bin",
+      "sha256": "de23ef8907e7159f79425820ea058164b0cd49951819c6abd0110333f0ecd39c"
+    },
+    {
+      "path": "sim\\captures\\kyros\\late_scene_candidates12000_corridor_scene5_moving\\frame_003900.work.bin",
+      "sha256": "83daa72e24ac25e27ed01190f762b1c980c3585486c7cb6b271f304513a52146"
+    },
+    {
+      "path": "sim\\captures\\kyros\\late_scene_candidates12000_corridor_scene5_moving\\frame_004200.display.rgb",
+      "sha256": "07efce9514a2824cc5c03c3e32cefbfb065d39c4b3633507abe14226535ab56e"
+    },
+    {
+      "path": "sim\\captures\\kyros\\late_scene_candidates12000_corridor_scene5_moving\\frame_004200.png",
+      "sha256": "d5c39a278a6404542b47f74782c0c920225721f02ef1e65edc36e0f99c43953d"
+    },
+    {
+      "path": "sim\\captures\\kyros\\late_scene_candidates12000_corridor_scene5_moving\\frame_004200.sprites.bin",
+      "sha256": "3419e7c3f49e1b763be836d9cc47879ec6448a126d10609d4ae8c5685d32e2de"
+    },
+    {
+      "path": "sim\\captures\\kyros\\late_scene_candidates12000_corridor_scene5_moving\\frame_004200.work.bin",
+      "sha256": "c399e96a393e12ae8f07b7f0fe876bdfe2e1fa48e9a186105b65d23358429885"
+    },
+    {
+      "path": "sim\\captures\\kyros\\late_scene_candidates12000_corridor_scene5_moving\\frame_004500.display.rgb",
+      "sha256": "8629139eac8efd67e88993d9b4fd6e91ac65968e0e87cbc66378d466e02f888a"
+    },
+    {
+      "path": "sim\\captures\\kyros\\late_scene_candidates12000_corridor_scene5_moving\\frame_004500.png",
+      "sha256": "7dde824bc3a6535782030d3479f189c97719c8335e0a5e154c5162d9d388a738"
+    },
+    {
+      "path": "sim\\captures\\kyros\\late_scene_candidates12000_corridor_scene5_moving\\frame_004500.sprites.bin",
+      "sha256": "c75f85b3654287aa01fce8704f17b0e833533a178f69c54a33a58ffb5cb4fec0"
+    },
+    {
+      "path": "sim\\captures\\kyros\\late_scene_candidates12000_corridor_scene5_moving\\frame_004500.work.bin",
+      "sha256": "1f60c2d0b21d5023b78cbd45df7bd8fdcfb30895dcd785b73353aeb2ec471add"
+    },
+    {
+      "path": "sim\\captures\\kyros\\late_scene_candidates12000_corridor_scene5_moving\\frame_004800.display.rgb",
+      "sha256": "d0e45750be2b3502a14e35d176bf0f77cc74c5ca43281ad88f235a55e994eb43"
+    },
+    {
+      "path": "sim\\captures\\kyros\\late_scene_candidates12000_corridor_scene5_moving\\frame_004800.png",
+      "sha256": "7af4ca174bdbfe5ed531bf68f859c47efa42649eeb6c5a86d95b4510c52a97ac"
+    },
+    {
+      "path": "sim\\captures\\kyros\\late_scene_candidates12000_corridor_scene5_moving\\frame_004800.sprites.bin",
+      "sha256": "69c259318b41cee334f321ff00e393e90fc987f3cb2ee58840a99b69606d3dfb"
+    },
+    {
+      "path": "sim\\captures\\kyros\\late_scene_candidates12000_corridor_scene5_moving\\frame_004800.work.bin",
+      "sha256": "f5c7da852f209d8951a54116669f45c57ff6ec933ed794be523dd911a338b44b"
+    },
+    {
+      "path": "sim\\captures\\kyros\\late_scene_candidates12000_corridor_scene5_moving\\frame_005100.display.rgb",
+      "sha256": "5fa9bdac04ab62465c6dcf7a3ca3872b5c8499fb078d17396d0009433bc79946"
+    },
+    {
+      "path": "sim\\captures\\kyros\\late_scene_candidates12000_corridor_scene5_moving\\frame_005100.png",
+      "sha256": "c890f4e147fcb2216d609a139868a804cce41578a3bea29d5dd974d917a5c8a8"
+    },
+    {
+      "path": "sim\\captures\\kyros\\late_scene_candidates12000_corridor_scene5_moving\\frame_005100.sprites.bin",
+      "sha256": "402202bd5b02e2ed2e4a49dd751743790254c81a9f850c75b4affc2c8bf1e1c8"
+    },
+    {
+      "path": "sim\\captures\\kyros\\late_scene_candidates12000_corridor_scene5_moving\\frame_005100.work.bin",
+      "sha256": "7bd63e80b8abaa4f72d67b4eff711adece8df6da9a460cc3741166c0b16833e4"
+    },
+    {
+      "path": "sim\\captures\\kyros\\late_scene_candidates12000_corridor_scene5_moving\\frame_005400.display.rgb",
+      "sha256": "a40d116972c80101b8b0e67e9e4e12590a3b7bc6cb7a0618a33151828c9d0286"
+    },
+    {
+      "path": "sim\\captures\\kyros\\late_scene_candidates12000_corridor_scene5_moving\\frame_005400.png",
+      "sha256": "3857d00e029e164ef108aec8707b3d0a5f2cfba7a184d3d7e7ed69129ef29186"
+    },
+    {
+      "path": "sim\\captures\\kyros\\late_scene_candidates12000_corridor_scene5_moving\\frame_005400.sprites.bin",
+      "sha256": "0bab5c8f8fa0ba5144376240ad6e48442d5f5bc2ed80897de1f148340e45ad31"
+    },
+    {
+      "path": "sim\\captures\\kyros\\late_scene_candidates12000_corridor_scene5_moving\\frame_005400.work.bin",
+      "sha256": "d6bee59b42645010fd1430745a62377d599913fe3fa08a46346e307769cf55d1"
+    },
+    {
+      "path": "sim\\captures\\kyros\\late_scene_candidates12000_corridor_scene5_moving\\frame_005700.display.rgb",
+      "sha256": "f3bbcd3e38be4cdbd73e451ebaf92dbc4cddc472ebae219702ac1f4e3f1b0061"
+    },
+    {
+      "path": "sim\\captures\\kyros\\late_scene_candidates12000_corridor_scene5_moving\\frame_005700.png",
+      "sha256": "b9aefc857d445466e6f77c46c8dd92fe44703832e9cb61333f1a221540346e9e"
+    },
+    {
+      "path": "sim\\captures\\kyros\\late_scene_candidates12000_corridor_scene5_moving\\frame_005700.sprites.bin",
+      "sha256": "68db00a62487ac37b93e91829320d07fda18af1f0671e742f24260dd948844cb"
+    },
+    {
+      "path": "sim\\captures\\kyros\\late_scene_candidates12000_corridor_scene5_moving\\frame_005700.work.bin",
+      "sha256": "f4841b58a32fe7cbc6476aab2e9d3f25113bed13f74ccf74002407cd723c2ac3"
+    },
+    {
+      "path": "sim\\captures\\kyros\\late_scene_candidates12000_corridor_scene5_moving\\frame_006000.display.rgb",
+      "sha256": "19ac7eb9d98c335ea74800511d6e21b542a31887aadf9957411a8e521afaa790"
+    },
+    {
+      "path": "sim\\captures\\kyros\\late_scene_candidates12000_corridor_scene5_moving\\frame_006000.png",
+      "sha256": "848932fad4091bb5a4131b0856cad7cae098df0b443b89409665fb1718a350c3"
+    },
+    {
+      "path": "sim\\captures\\kyros\\late_scene_candidates12000_corridor_scene5_moving\\frame_006000.sprites.bin",
+      "sha256": "45eebf9b3376e550b920be6c12011abded30371338db69394a32380684e05288"
+    },
+    {
+      "path": "sim\\captures\\kyros\\late_scene_candidates12000_corridor_scene5_moving\\frame_006000.work.bin",
+      "sha256": "9f7d7469b65d78f2fab59e3de5a2f38554c5cd20eafcc8863a8d585a8a9c72db"
+    },
+    {
+      "path": "sim\\captures\\kyros\\late_scene_candidates12000_corridor_scene5_moving\\frame_006300.display.rgb",
+      "sha256": "a040c4a6b4241fe8d326b30aeb24409c92134f03e74ae7b7eddb6950fddd4be4"
+    },
+    {
+      "path": "sim\\captures\\kyros\\late_scene_candidates12000_corridor_scene5_moving\\frame_006300.png",
+      "sha256": "f5cbc57dc1bb06376fde1d6c2a37612058b52bb48c6bde2b6cffef2b5d5b722f"
+    },
+    {
+      "path": "sim\\captures\\kyros\\late_scene_candidates12000_corridor_scene5_moving\\frame_006300.sprites.bin",
+      "sha256": "6d4c449be7b193261cc02d26e99e9461b3417529b6ada1ae0f63dfb008f42bf2"
+    },
+    {
+      "path": "sim\\captures\\kyros\\late_scene_candidates12000_corridor_scene5_moving\\frame_006300.work.bin",
+      "sha256": "9f32996281cd98a29a2a05e1f044c24ac59be986561696b735974406966bb425"
+    },
+    {
+      "path": "sim\\captures\\kyros\\late_scene_candidates12000_corridor_scene5_moving\\frame_006600.display.rgb",
+      "sha256": "b439937c5ee5bb174091755ffdf3d0bfb5fee45abecc682bd5cceac7223c9d89"
+    },
+    {
+      "path": "sim\\captures\\kyros\\late_scene_candidates12000_corridor_scene5_moving\\frame_006600.png",
+      "sha256": "6349152395f845ee5cf7d746991dfc1de28f340611682642db21b3e232502205"
+    },
+    {
+      "path": "sim\\captures\\kyros\\late_scene_candidates12000_corridor_scene5_moving\\frame_006600.sprites.bin",
+      "sha256": "c2501cf5c9e2014b44097a635b737237fa190d89bbee7b3134ccf597e24d87c0"
+    },
+    {
+      "path": "sim\\captures\\kyros\\late_scene_candidates12000_corridor_scene5_moving\\frame_006600.work.bin",
+      "sha256": "4ef27151c98ac82ba9fc00fc5f076fc59ac1d05f849bf779ea67f6232ca45615"
+    },
+    {
+      "path": "sim\\captures\\kyros\\late_scene_candidates12000_corridor_scene5_moving\\frame_006900.display.rgb",
+      "sha256": "7bf68b5bb048e6ac126d9a1381afddd1cbeb777fe949ef366e8640acc201531e"
+    },
+    {
+      "path": "sim\\captures\\kyros\\late_scene_candidates12000_corridor_scene5_moving\\frame_006900.png",
+      "sha256": "38a41e1fe0690ea0fa1da013611e130a6da7443fffa1bd79839a13482517da1c"
+    },
+    {
+      "path": "sim\\captures\\kyros\\late_scene_candidates12000_corridor_scene5_moving\\frame_006900.sprites.bin",
+      "sha256": "1c4d097fa53d25888ce2f9af4f0b71951ee9c0999c764bdd890cd65c9677d535"
+    },
+    {
+      "path": "sim\\captures\\kyros\\late_scene_candidates12000_corridor_scene5_moving\\frame_006900.work.bin",
+      "sha256": "862fcd63bd19b3abb21181d1a0a685cc21690ddeba46b5f1aacbdda0ae52cca0"
+    },
+    {
+      "path": "sim\\captures\\kyros\\late_scene_candidates12000_corridor_scene5_moving\\frame_007200.display.rgb",
+      "sha256": "8c435c6f5e65320d557e1b397c942b9ccd4b6e9076871f0a5c430947b206b21e"
+    },
+    {
+      "path": "sim\\captures\\kyros\\late_scene_candidates12000_corridor_scene5_moving\\frame_007200.png",
+      "sha256": "72b2e941852d6455e55d17f3ae99030c50c733f87bf79e121bfff0f20d3506f5"
+    },
+    {
+      "path": "sim\\captures\\kyros\\late_scene_candidates12000_corridor_scene5_moving\\frame_007200.sprites.bin",
+      "sha256": "8b8ba2c6896001f249c4ce5797a59e4b13fb2087e3e95ab4b3f3b14bfdd5c518"
+    },
+    {
+      "path": "sim\\captures\\kyros\\late_scene_candidates12000_corridor_scene5_moving\\frame_007200.work.bin",
+      "sha256": "c1e54a63ccc467f89f92d19a7e4c5a29c807a423a438950bf2da0b63a1627046"
+    },
+    {
+      "path": "sim\\captures\\kyros\\late_scene_candidates12000_corridor_scene5_moving\\frame_007500.display.rgb",
+      "sha256": "0918df322cec5090ec2f944503f095430461e39fe6a1aded1305abda0c55f5cc"
+    },
+    {
+      "path": "sim\\captures\\kyros\\late_scene_candidates12000_corridor_scene5_moving\\frame_007500.png",
+      "sha256": "11680e5db00daed43d9abc53f288e87ee8b2ef88207b08802d5ba69d7f181aeb"
+    },
+    {
+      "path": "sim\\captures\\kyros\\late_scene_candidates12000_corridor_scene5_moving\\frame_007500.sprites.bin",
+      "sha256": "9de9c05957d351d9d5880b52d87c7c55a1159dda77d299cc82e667c855330370"
+    },
+    {
+      "path": "sim\\captures\\kyros\\late_scene_candidates12000_corridor_scene5_moving\\frame_007500.work.bin",
+      "sha256": "33ea8c94db583037c04262940a25d16954679818be3e90d08e5e38473d2c0379"
+    },
+    {
+      "path": "sim\\captures\\kyros\\late_scene_candidates12000_corridor_scene5_moving\\frame_007800.display.rgb",
+      "sha256": "e28cf5b7211a9b919bbfd3ff2a062fa04332f1caaf87512ac78a14be87eb409d"
+    },
+    {
+      "path": "sim\\captures\\kyros\\late_scene_candidates12000_corridor_scene5_moving\\frame_007800.png",
+      "sha256": "23b33ed89fd96d96a7dabc1e3973aa366150d9b92bc9cf9652ad34236169ac1f"
+    },
+    {
+      "path": "sim\\captures\\kyros\\late_scene_candidates12000_corridor_scene5_moving\\frame_007800.sprites.bin",
+      "sha256": "dd40e2a183c1a2583467d033205973bb5a32ef4681f27ba6e4f80b6f91323fd9"
+    },
+    {
+      "path": "sim\\captures\\kyros\\late_scene_candidates12000_corridor_scene5_moving\\frame_007800.work.bin",
+      "sha256": "dae2cadefd7c8fa7146c651c83b3b5a10e6fb56cebd2f5ad13ce6b0a6f4c3223"
+    },
+    {
+      "path": "sim\\captures\\kyros\\late_scene_candidates12000_corridor_scene5_moving\\frame_008100.display.rgb",
+      "sha256": "ec9935ccbd0b515b8b6fb002d02379ed39ca31d761f06c1079d74e0cc3d8cea9"
+    },
+    {
+      "path": "sim\\captures\\kyros\\late_scene_candidates12000_corridor_scene5_moving\\frame_008100.png",
+      "sha256": "a1e20705d666e5d4d0d280128e15ef1bc384471c4411e0fb5603a63bea2fa9e1"
+    },
+    {
+      "path": "sim\\captures\\kyros\\late_scene_candidates12000_corridor_scene5_moving\\frame_008100.sprites.bin",
+      "sha256": "c21ea6d96033f96038ed83374cdb886d05ee1fe4e611880fd340357cb9241954"
+    },
+    {
+      "path": "sim\\captures\\kyros\\late_scene_candidates12000_corridor_scene5_moving\\frame_008100.work.bin",
+      "sha256": "50442f67aba5bd19584c2ae0dd84ec38fc2668bc1a7e87b638a28cec923a6ef5"
+    },
+    {
+      "path": "sim\\captures\\kyros\\late_scene_candidates12000_corridor_scene5_moving\\frame_008400.display.rgb",
+      "sha256": "658a09e1dd90b7588794a1f868056188609dc52f7ce123e826293f0fc4cbed58"
+    },
+    {
+      "path": "sim\\captures\\kyros\\late_scene_candidates12000_corridor_scene5_moving\\frame_008400.png",
+      "sha256": "b2e8140de262f7e18311e13218db798a02a28d230829678831b636942fdc928f"
+    },
+    {
+      "path": "sim\\captures\\kyros\\late_scene_candidates12000_corridor_scene5_moving\\frame_008400.sprites.bin",
+      "sha256": "82d468f3749c978ab9ef2cf631dd81e04f8e44a50c1639823326fc823dad59a0"
+    },
+    {
+      "path": "sim\\captures\\kyros\\late_scene_candidates12000_corridor_scene5_moving\\frame_008400.work.bin",
+      "sha256": "2fde273a15ef647940f97ef28b2aa59cb1c2daa730e21ca6cdf050422168eef4"
+    },
+    {
+      "path": "sim\\captures\\kyros\\late_scene_candidates12000_corridor_scene5_moving\\frame_008700.display.rgb",
+      "sha256": "a5c9bf85d6d3ae139ce2776400176bfa4d30729c80ca86ec6628c061197e08b0"
+    },
+    {
+      "path": "sim\\captures\\kyros\\late_scene_candidates12000_corridor_scene5_moving\\frame_008700.png",
+      "sha256": "d2c14c0149d8b3ca28891afb328f5e41752ec8265ed344f34675e8c3d4e53088"
+    },
+    {
+      "path": "sim\\captures\\kyros\\late_scene_candidates12000_corridor_scene5_moving\\frame_008700.sprites.bin",
+      "sha256": "99b9b67ed54ee11cc7554c65f1684f200bf4c4c66a83dfb777d59495877f4c72"
+    },
+    {
+      "path": "sim\\captures\\kyros\\late_scene_candidates12000_corridor_scene5_moving\\frame_008700.work.bin",
+      "sha256": "251a3e7efc8f94694a1ff7157b1aa5786e42271b570fb7756aa8bd0af9e6d56d"
+    },
+    {
+      "path": "sim\\captures\\kyros\\late_scene_candidates12000_corridor_scene5_moving\\frame_009000.display.rgb",
+      "sha256": "6f0a2134bee543a9bd45bff4ff7decda670d6dafbf67c72fb1365a9881187833"
+    },
+    {
+      "path": "sim\\captures\\kyros\\late_scene_candidates12000_corridor_scene5_moving\\frame_009000.png",
+      "sha256": "7220ef6ddb0d378a2866942d88d41bb5146790a73b74100c0054ec175acb2656"
+    },
+    {
+      "path": "sim\\captures\\kyros\\late_scene_candidates12000_corridor_scene5_moving\\frame_009000.sprites.bin",
+      "sha256": "1bb9ddb64576e32e0e191ce30210d86a5e7c6b2810186c4a634ccce3aa6842eb"
+    },
+    {
+      "path": "sim\\captures\\kyros\\late_scene_candidates12000_corridor_scene5_moving\\frame_009000.work.bin",
+      "sha256": "ac7134d08a21a8df1336aaefc27366cd9586e6e5d0431aa615fabaf9a723cdfa"
+    },
+    {
+      "path": "sim\\captures\\kyros\\late_scene_candidates12000_corridor_scene5_moving\\frame_009300.display.rgb",
+      "sha256": "10bcd4cdbb55434e34f1832a1953bd59ddce484f68961f76739fb6443c919665"
+    },
+    {
+      "path": "sim\\captures\\kyros\\late_scene_candidates12000_corridor_scene5_moving\\frame_009300.png",
+      "sha256": "c04567a25813068ea05c7e82a6dcc0ba40347763765d9c26b69889bd7cfbb716"
+    },
+    {
+      "path": "sim\\captures\\kyros\\late_scene_candidates12000_corridor_scene5_moving\\frame_009300.sprites.bin",
+      "sha256": "dd5e7b21e108c84dd2967d529b2943e37bd92403f8c726878be238720b8f7c1d"
+    },
+    {
+      "path": "sim\\captures\\kyros\\late_scene_candidates12000_corridor_scene5_moving\\frame_009300.work.bin",
+      "sha256": "32e189ea13cc40b326a0fa066ae30a63283c2896eebb72c488f1835f213e37a4"
+    },
+    {
+      "path": "sim\\captures\\kyros\\late_scene_candidates12000_corridor_scene5_moving\\frame_009600.display.rgb",
+      "sha256": "2ee6720bd1d7323d4ba8847b203118602341190a9082ad263ec84d5f5371b37a"
+    },
+    {
+      "path": "sim\\captures\\kyros\\late_scene_candidates12000_corridor_scene5_moving\\frame_009600.png",
+      "sha256": "265c3cca4cb60a2c035e1e886fefb48cb43db87b8d81ebf99ed4a5f7239daddb"
+    },
+    {
+      "path": "sim\\captures\\kyros\\late_scene_candidates12000_corridor_scene5_moving\\frame_009600.sprites.bin",
+      "sha256": "8de1707c14a1a0d0c8434f8ea02a073c02afade3688d2c6f46935e3e9d96e63c"
+    },
+    {
+      "path": "sim\\captures\\kyros\\late_scene_candidates12000_corridor_scene5_moving\\frame_009600.work.bin",
+      "sha256": "77cf7f79ba68c467a9ce5787137fc290990dfc5d9937ba37f0194faca3c167fc"
+    },
+    {
+      "path": "sim\\captures\\kyros\\late_scene_candidates12000_corridor_scene5_moving\\frame_009900.display.rgb",
+      "sha256": "94a48e14cdffe34f9c13a0a008032434a2da2c953404ae6cc7fec39af906a33c"
+    },
+    {
+      "path": "sim\\captures\\kyros\\late_scene_candidates12000_corridor_scene5_moving\\frame_009900.png",
+      "sha256": "241eec087eb38d15990830f23b2b41efe7e69e115d1fc448f1053340e7f0d218"
+    },
+    {
+      "path": "sim\\captures\\kyros\\late_scene_candidates12000_corridor_scene5_moving\\frame_009900.sprites.bin",
+      "sha256": "a5a6029d172157831797f0d2ff4f694f26a9039b3325ca635eeadd30a18ac696"
+    },
+    {
+      "path": "sim\\captures\\kyros\\late_scene_candidates12000_corridor_scene5_moving\\frame_009900.work.bin",
+      "sha256": "789e1be8f8548966e93b7654535628f366d6c83c1851414c866b5055dc32f407"
+    },
+    {
+      "path": "sim\\captures\\kyros\\late_scene_candidates12000_corridor_scene5_moving\\frame_010200.display.rgb",
+      "sha256": "f94e6478f9c54781f94f112be3aeec839524ea6981edd062ac8de188f5f57cd7"
+    },
+    {
+      "path": "sim\\captures\\kyros\\late_scene_candidates12000_corridor_scene5_moving\\frame_010200.png",
+      "sha256": "91b35ee8012a53bc918ddd25c470a3338474c7bc0705bf62ca1821ebfe3a87fb"
+    },
+    {
+      "path": "sim\\captures\\kyros\\late_scene_candidates12000_corridor_scene5_moving\\frame_010200.sprites.bin",
+      "sha256": "f2d9f8de5c12202c82d5661ea62a7754c66486f71077eeefe4d0c7f472d524ae"
+    },
+    {
+      "path": "sim\\captures\\kyros\\late_scene_candidates12000_corridor_scene5_moving\\frame_010200.work.bin",
+      "sha256": "4acca0dbf5c01688fb5cc1d3092ba96fca09c11251b0934411bef1d3b789c9cb"
+    },
+    {
+      "path": "sim\\captures\\kyros\\late_scene_candidates12000_corridor_scene5_moving\\frame_010500.display.rgb",
+      "sha256": "8bd2d5f7f022943069081ceb3ade47b0024ad781ad699ebfbd661ebd3a6bcea3"
+    },
+    {
+      "path": "sim\\captures\\kyros\\late_scene_candidates12000_corridor_scene5_moving\\frame_010500.png",
+      "sha256": "a095276e4698913bc0a83caf0a3bbb9492a5d82629cd91df28d3cb22a6f499cb"
+    },
+    {
+      "path": "sim\\captures\\kyros\\late_scene_candidates12000_corridor_scene5_moving\\frame_010500.sprites.bin",
+      "sha256": "d82feea534e4b32135e44d48508bd27cd4da7b055d12e3d623ada6c2a8667b48"
+    },
+    {
+      "path": "sim\\captures\\kyros\\late_scene_candidates12000_corridor_scene5_moving\\frame_010500.work.bin",
+      "sha256": "046ed2a87c14cfcd4172800b4a138162dc03d9d8f6b65015aa0b224aadfacaed"
+    },
+    {
+      "path": "sim\\captures\\kyros\\late_scene_candidates12000_corridor_scene5_moving\\frame_010800.display.rgb",
+      "sha256": "c6daf40c74ef334113408497beffcc66f1eaa630b02ba9c995b40e069702a0a6"
+    },
+    {
+      "path": "sim\\captures\\kyros\\late_scene_candidates12000_corridor_scene5_moving\\frame_010800.png",
+      "sha256": "c951406b9ddfb7794aec699a96734a8e3e657e43a6e60b3062a90adac67ddf87"
+    },
+    {
+      "path": "sim\\captures\\kyros\\late_scene_candidates12000_corridor_scene5_moving\\frame_010800.sprites.bin",
+      "sha256": "4f27bcae09f55349dac822ef03ff48fe5a406df33d07ff1adbce55ac4af64f51"
+    },
+    {
+      "path": "sim\\captures\\kyros\\late_scene_candidates12000_corridor_scene5_moving\\frame_010800.work.bin",
+      "sha256": "f6c3098a28c05cac676ffe0c9c9b37f7de0e4008bf71a9267e1c75924a842b34"
+    },
+    {
+      "path": "sim\\captures\\kyros\\late_scene_candidates12000_corridor_scene5_moving\\frame_011100.display.rgb",
+      "sha256": "b95af1f89edd977bf504504efe009d4f0bea1e0e5d96aee9679651742ceb753d"
+    },
+    {
+      "path": "sim\\captures\\kyros\\late_scene_candidates12000_corridor_scene5_moving\\frame_011100.png",
+      "sha256": "86f297028b3ae86d2f3142712a1fad34a38d691dc47ebcab7f80d7a3e7576810"
+    },
+    {
+      "path": "sim\\captures\\kyros\\late_scene_candidates12000_corridor_scene5_moving\\frame_011100.sprites.bin",
+      "sha256": "b9fb0970eaa382f1ec298b66f00d95f2388c5dd0b8a55e08e6b46906187abe8b"
+    },
+    {
+      "path": "sim\\captures\\kyros\\late_scene_candidates12000_corridor_scene5_moving\\frame_011100.work.bin",
+      "sha256": "95115b6dc7080f98612ff1cc24dff9d0d1ae7c2b30303756da9af35760577893"
+    },
+    {
+      "path": "sim\\captures\\kyros\\late_scene_candidates12000_corridor_scene5_moving\\frame_011400.display.rgb",
+      "sha256": "2ea2a32303dc700be524e4aa90274ea46299f1d51d8323c0b205b613763ee084"
+    },
+    {
+      "path": "sim\\captures\\kyros\\late_scene_candidates12000_corridor_scene5_moving\\frame_011400.png",
+      "sha256": "2227433ea4836563cdd8bc2c281def76f951bc15bdf294b6e06e3f94fabae579"
+    },
+    {
+      "path": "sim\\captures\\kyros\\late_scene_candidates12000_corridor_scene5_moving\\frame_011400.sprites.bin",
+      "sha256": "75bdb06f9031c182713e4fc7fdad4b097fdc67174b65f0cd6c7c4cc6c0f5bd01"
+    },
+    {
+      "path": "sim\\captures\\kyros\\late_scene_candidates12000_corridor_scene5_moving\\frame_011400.work.bin",
+      "sha256": "95bba823c90cd7909fd98d52c113f6b3c9face4f031586e9de8a1d473fba4680"
+    },
+    {
+      "path": "sim\\captures\\kyros\\late_scene_candidates12000_corridor_scene5_moving\\frame_011700.display.rgb",
+      "sha256": "103005757b99db4bf1446bff2a97c4543f7a5cfad3fdfd6488834a197fccfcd9"
+    },
+    {
+      "path": "sim\\captures\\kyros\\late_scene_candidates12000_corridor_scene5_moving\\frame_011700.png",
+      "sha256": "743891dbd8f94251fd83fcd4ff2b4839613a0da1a3ce7d1ef11bc61176f628b5"
+    },
+    {
+      "path": "sim\\captures\\kyros\\late_scene_candidates12000_corridor_scene5_moving\\frame_011700.sprites.bin",
+      "sha256": "833cef8fba330ea6c3abe357c171b94acb9882218468d7bb198de68960be2049"
+    },
+    {
+      "path": "sim\\captures\\kyros\\late_scene_candidates12000_corridor_scene5_moving\\frame_011700.work.bin",
+      "sha256": "96ceb719282b170be1e745e6168792e4bf1c3db6fa0535a3f010133875d9a546"
+    },
+    {
+      "path": "sim\\captures\\kyros\\late_scene_candidates12000_corridor_scene5_moving\\frame_011999.display.rgb",
+      "sha256": "68412fe08b9ddd68e392b1b827fb30ea417b5b3aef5bc7f9a1533baf3b351208"
+    },
+    {
+      "path": "sim\\captures\\kyros\\late_scene_candidates12000_corridor_scene5_moving\\frame_011999.png",
+      "sha256": "d40dea8d4f7812b88ac0cef0805df5dbaa556cbd1433e0b98bbc65d54da6438d"
+    },
+    {
+      "path": "sim\\captures\\kyros\\late_scene_candidates12000_corridor_scene5_moving\\frame_011999.sprites.bin",
+      "sha256": "e5b7714af454d652d9faf272f75dbe4ce8ae6c8852955af80188fdfb99360a41"
+    },
+    {
+      "path": "sim\\captures\\kyros\\late_scene_candidates12000_corridor_scene5_moving\\frame_011999.work.bin",
+      "sha256": "4096f37bb1676c21891d249d2b5a9bfcc6391c58bf1b7893f62a5cd8a0a50da0"
+    },
+    {
+      "path": "sim\\captures\\kyros\\late_scene_candidates12000_corridor_scene5_moving\\frame_states.csv",
+      "sha256": "44aef2d354ea55eeee4f8030117b341f18976f8de6b14fffea2f1c522bc57cc3"
+    }
+  ],
+  "checks": {
+    "exit_zero": true,
+    "completion_marker": true,
+    "no_lua_failure": true,
+    "guarded_scene_setup": true,
+    "all_frames_observed": true,
+    "expected_snapshot_count": true,
+    "complete_assets": true
+  },
+  "passed": true,
+  "wall_seconds": 19.54468584060669
+}

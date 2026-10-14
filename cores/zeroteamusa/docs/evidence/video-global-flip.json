@@ -1,0 +1,116 @@
+{
+  "scope": "Production renderer global flip, captured MAME state; component proof only",
+  "comparison": {
+    "scope": "Observed MAME RAM fixture in real video RTL; component only, not live CPU/gameplay proof",
+    "reference_transform": "rotate_180",
+    "actual_sha256": "67282c5a84368527e92de0d040d6ac74d9459388ccfa307334df73a107b5c2fe",
+    "reference_sha256": "17950fa8b0f8fc1fcc0043d9430c2728174c7f81b7a355e438665d7132f33174",
+    "source_inventory_sha256": "2bb342c0da38a03bdaf219153b89d334c675ddf616028366dd5914ed4ba68b11",
+    "model_binary_sha256": "866470043d2341e23f1021af479889a9a82dc04b540cfb7920e35781e618ae17",
+    "different_pixels": 0,
+    "first_two_columns": 0,
+    "remaining_columns": 0,
+    "bbox": null,
+    "column_counts": {},
+    "static_roi_differences": {
+      "building": 0,
+      "water": 0,
+      "logo": 0,
+      "hud": 0,
+      "ground": 0
+    },
+    "first_differences": [],
+    "renderer": {
+      "scope": "RTL rendering of captured early-boot buffers",
+      "pixel_period_system_clocks": 12,
+      "regular_pixel_period": true,
+      "pixels_per_frame": 81920,
+      "frame_period_system_clocks": 1732608,
+      "regular_frame_period": true,
+      "rom_requests": 117766,
+      "frames": 3
+    }
+  },
+  "source_stamp": {
+    "scope": "Component renderer only; observed MAME RAM fixture, no live CPU/gameplay proof",
+    "flip_screen": true,
+    "source_sha256": {
+      "rtl/Raiden2/Raiden2_video_timing.sv": "fdea2927c855323ecee8355cb3e4d87cd501d3b09bd0bc887cf8f21ec1d75112",
+      "rtl/Raiden2/Raiden2_text_renderer.sv": "d960cf15e114001d16ceb8e73268b20b838235f91b39e09ae885f29345489bd9",
+      "rtl/Raiden2/Raiden2_tile_layer.sv": "27822e11b4dd218ee5141ae905afc82b05687e3d9b25d83a24227ec111b851ed",
+      "rtl/Raiden2/Raiden2_sprite_renderer.sv": "576b3dbc72eeb0ef1028e9ccded783e4a824fe9bda09f142689a186254b1021f",
+      "rtl/Raiden2/spram_dp.sv": "0198377c8f888a03c02cd18c11f1943b0f7f0e98c3be97f21b2ad7b8edd1ca4c",
+      "rtl/Raiden2/tile_rom_arbiter.sv": "0f40d4390856ff4409e7b490f002683075ae0db2684d4167b40dc7ed6dccc621",
+      "rtl/Raiden2/raiden2_mixer.sv": "8e5f294808f7c89b76de2f90bd27a0ccde8291427037be600179b3273c265718",
+      "rtl/Raiden2/crypt/zeroteam_sprite_decrypt.sv": "41c15dcefaaed12b82f93ae92dccf6c6ddf27eccdc75f0b36c5ef76e851d5494",
+      "rtl/ZeroTeam_video.sv": "8854a27a7d1c342f2c6e72ed2c04a8ea34f711d5e92c57a56ee210408259da46",
+      "rtl/Raiden2/crypt/rotate_zt.hex": "bee636120930fa2e21b83650ab72ecb940ba519ca13e6cb1c452ed501c5fd5a7",
+      "rtl/Raiden2/crypt/x5_zt.hex": "6be2c23a7ee7430376686ff376b46a1169caa5fca33e5345c823b8f99bdc1d17",
+      "rtl/Raiden2/crypt/x11_zt.hex": "4637f6a47d30ff2c1341008f6e1c1fc3386507a7a0d24d76f2b36c6d5a68dd03",
+      "rtl/Raiden2/raiden2_blend.mem": "cfccbf898cba58a154b5354b85f5d1d0d318e2d50057650ed3ca628493d8a119",
+      "sim/zero_video_top.sv": "03883692376ccabd6c2bf4482e245e6983496fba22d5a454d497829f44821d6d",
+      "sim/video_main.cpp": "82921f44c81776301efd50e8474ec3ee75dd9f138f652366f705c1e8df606e51"
+    },
+    "fixture": {
+      "bg": {
+        "source": "/mnt/d/Arcade/AI/aCORES/zero/sim/results/mame-attract-599-buffered/bg_src.bin",
+        "bytes": 2048,
+        "sha256": "6b93b844c4131fde0e47474fb498ff1df0f5120e1b309a93c4518951e5d42205"
+      },
+      "mg": {
+        "source": "/mnt/d/Arcade/AI/aCORES/zero/sim/results/mame-attract-599-buffered/mg_src.bin",
+        "bytes": 2048,
+        "sha256": "24315b5a654bc9475c31b1a6d878511cc47cb52879035b184a849b3bc691c111"
+      },
+      "fg": {
+        "source": "/mnt/d/Arcade/AI/aCORES/zero/sim/results/mame-attract-599-buffered/fg_src.bin",
+        "bytes": 2048,
+        "sha256": "a68b9a0698113d7643bdf33dd6d25b8758dc35a870916054ae320955bf0b0922"
+      },
+      "text": {
+        "source": "/mnt/d/Arcade/AI/aCORES/zero/sim/results/mame-attract-599-buffered/text_src.bin",
+        "bytes": 4096,
+        "sha256": "6b4b7225d683d176e1a2c2df90943e851743fb3eb4b22063eb2422e303eda49c"
+      },
+      "sprite": {
+        "source": "/mnt/d/Arcade/AI/aCORES/zero/sim/results/mame-attract-599-buffered/sprite_buffer.bin",
+        "bytes": 4096,
+        "sha256": "d043784cf0b43bd41e5245ad675a0e54b8df41107fd0a35cb6325e88a8103e68"
+      },
+      "palette": {
+        "source": "/mnt/d/Arcade/AI/aCORES/zero/sim/results/mame-attract-599-buffered/pal_src.bin",
+        "bytes": 4096,
+        "sha256": "bd1c83e8be9cb1c3ada38c2a1c04410ec4f13bc80f8aabb82ba9059c379cb059"
+      }
+    },
+    "fixture_top_sha256": "226a625b505dece0958bac3087441c0258e3c3b362ace196826300bc46e6d22d",
+    "scrolls": {
+      "bg": [
+        112,
+        0
+      ],
+      "mg": [
+        1,
+        0
+      ],
+      "fg": [
+        1,
+        0
+      ]
+    },
+    "rom_regions": {
+      "audiocpu.bin": "5266e60c07e6b86a17ce643ba8fc2624b23e6349895e64967a745dff68a45d67",
+      "chars.bin": "56e72d85beaf40caa2bea3fc28b24440cbd87925efae53b911ce06a362f260e5",
+      "copx.bin": "fb72435382cf822deed1e1434d9c5a34b61b3c3d83704eb21e1f70a15beaf936",
+      "maincpu.bin": "9ff914f142474699925a8d362fd6d8962393c606d70f91d92979a0169dee2d2b",
+      "oki.bin": "d41155b3b3d6423214b1fb5e7c7f478c4f2cba7f9c5baf16730638736ea9917b",
+      "pals.bin": "de2f256064a0af797747c2b97505dc0b9f3df0de4f489eac731c23ae9ca9cc31",
+      "sprites.bin": "e55641fccf9c57da409e288c9630b84235ec9ea916992faf6f080c61bd959d9d",
+      "tiles.bin": "e5b59e785f8e63202f0dbc127931c0059c53b54d0c410a5cfaee6cfe106d53c9"
+    },
+    "diagnostic_variant": {},
+    "model_binary_sha256": "866470043d2341e23f1021af479889a9a82dc04b540cfb7920e35781e618ae17"
+  },
+  "expectation": "Every RGB pixel equals the unflipped MAME frame rotated 180 degrees; original image retained",
+  "remaining": "Fresh CPU gameplay acceptance and final hardware phase"
+}

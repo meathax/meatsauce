@@ -1,0 +1,7 @@
+{
+  "actual_exit": 1,
+  "scope": "source-only preparation, no build or guest run",
+  "error": "AssertionError at next_pc==data_out: MAMEprefetchPC is not nativeIACK savedPC transfer contract",
+  "failed_source_sha256": "d3a43aa69892f392a8c249dc162c78d398ed4c93207b8cae1ec80bad406d992f",
+  "fix": "Join orderedIACK address sequence only; join physicalstackwrite data explicitly and qualify differences"
+}

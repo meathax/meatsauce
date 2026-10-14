@@ -1,0 +1,271 @@
+{
+  "scope": "Read-only byte/context and consumer diagnosis. Original nativeexit0/verifierexit1 and 13of14 qualification failure remain immutable.",
+  "lineage_supplement": {
+    "path": "D:\\Arcade\\AI\\aCORES\\Alpha68k N\\research\\remaining_gates_20261011\\japan_joined720\\oracle_lineage_supplement.json",
+    "sha256": "ad1913efa7ca239f1c1bf83903f003d4e5f0d07629b0bfb3117979b38c725949",
+    "bytes": 21318
+  },
+  "original_failure_import": {
+    "path": "D:\\Arcade\\AI\\aCORES\\Alpha68k N\\research\\remaining_gates_20261011\\japan_joined720\\import_manifest.json",
+    "sha256": "238bf75296e6d263d14e7ff8b415a2a8f128f7231127d6eb2ca568dd5b55218c",
+    "bytes": 53346
+  },
+  "boot_ROM": {
+    "path": "D:\\Arcade\\AI\\aCORES\\Alpha68k N\\roms\\kyrosj\\maincpu.bin",
+    "sha256": "6fec354d3fd5d4d7a1347a6409793c53fed1bc23bc09efba8093377973378917",
+    "bytes": 131072
+  },
+  "reset_A7_hex": "0x020ff8",
+  "reset_PC_hex": "0x000400",
+  "explicit_A7_setup_sites": [
+    {
+      "ROM_address_hex": "0x000422",
+      "opcode_hex": "4ff900020ff8",
+      "operation": "LEA absolute0x020ff8,A7"
+    },
+    {
+      "ROM_address_hex": "0x009da8",
+      "opcode_hex": "4ff900020ff8",
+      "operation": "LEA absolute0x020ff8,A7"
+    },
+    {
+      "ROM_address_hex": "0x009db8",
+      "opcode_hex": "4ff900020ff8",
+      "operation": "LEA absolute0x020ff8,A7"
+    }
+  ],
+  "work_words": [
+    {
+      "field": 240,
+      "native": {
+        "path": "D:\\Arcade\\AI\\aCORES\\Alpha68k N\\research\\remaining_gates_20261011\\japan_joined720\\capture\\frame_000240.work.bin",
+        "sha256": "1ff622e4a7430d22cb84022658c54ff0f533d0db0a854fe55351558310c3b371",
+        "bytes": 4096
+      },
+      "MAME": {
+        "path": "D:\\Arcade\\AI\\aCORES\\Alpha68k N\\sim\\captures\\kyrosj\\gameplay\\frame_000240.work.bin",
+        "sha256": "e597360df8492d4bdba58f672219e5485b345f9988fb7ec18849ac15b8860b3a",
+        "bytes": 4096
+      },
+      "words": [
+        {
+          "word_address_hex": "0x020f7e",
+          "native_word_hex": "0706",
+          "MAME_word_hex": "0708",
+          "context_start_address_hex": "0x020f72",
+          "native_context_hex": "00200000ffff0000001c0002070600040702000059bc0001cad0",
+          "MAME_context_hex": "00200000ffff0000001c0002070800040702000059bc0001cad0",
+          "byte_differences": [
+            {
+              "offset": 3967,
+              "address_hex": "0x020f7f",
+              "native": 6,
+              "MAME": 8,
+              "native_word_hex": "0706",
+              "MAME_word_hex": "0708"
+            }
+          ],
+          "meaning": "Upper workRAM below verified reset A7. Exact active/stale stack or register meaning is not established: no SP or accepted stores to this address at this field were recorded."
+        },
+        {
+          "word_address_hex": "0x020f9c",
+          "native_word_hex": "0108",
+          "MAME_word_hex": "05a8",
+          "context_start_address_hex": "0x020f90",
+          "native_context_hex": "0001caaa0002000021080000010800000486010800b50102000c",
+          "MAME_context_hex": "0001caaa000200002108000005a800000486010800b50102000c",
+          "byte_differences": [
+            {
+              "offset": 3996,
+              "address_hex": "0x020f9c",
+              "native": 1,
+              "MAME": 5,
+              "native_word_hex": "0108",
+              "MAME_word_hex": "05a8"
+            },
+            {
+              "offset": 3997,
+              "address_hex": "0x020f9d",
+              "native": 8,
+              "MAME": 168,
+              "native_word_hex": "0108",
+              "MAME_word_hex": "05a8"
+            }
+          ],
+          "meaning": "Upper workRAM below verified reset A7. Exact active/stale stack or register meaning is not established: no SP or accepted stores to this address at this field were recorded."
+        }
+      ]
+    },
+    {
+      "field": 360,
+      "native": {
+        "path": "D:\\Arcade\\AI\\aCORES\\Alpha68k N\\research\\remaining_gates_20261011\\japan_joined720\\capture\\frame_000360.work.bin",
+        "sha256": "2823d18f2fe05f1715fd38e1bfac59582f59b3959c0b9ecf51c08f584355dc51",
+        "bytes": 4096
+      },
+      "MAME": {
+        "path": "D:\\Arcade\\AI\\aCORES\\Alpha68k N\\sim\\captures\\kyrosj\\gameplay\\frame_000360.work.bin",
+        "sha256": "e986577bfba8d95aa44c76fab75a388a80f2152fdb40fc889102e43f93eced9a",
+        "bytes": 4096
+      },
+      "words": [
+        {
+          "word_address_hex": "0x020fe2",
+          "native_word_hex": "1ffa",
+          "MAME_word_hex": "1ffe",
+          "context_start_address_hex": "0x020fd6",
+          "native_context_hex": "0000194e00020000200400001ffa000020040000181a000017aa",
+          "MAME_context_hex": "0000194e00020000200400001ffe000020040000181a000017aa",
+          "byte_differences": [
+            {
+              "offset": 4067,
+              "address_hex": "0x020fe3",
+              "native": 250,
+              "MAME": 254,
+              "native_word_hex": "1ffa",
+              "MAME_word_hex": "1ffe"
+            }
+          ],
+          "meaning": "Upper workRAM below verified reset A7. Exact active/stale stack or register meaning is not established: no SP or accepted stores to this address at this field were recorded."
+        }
+      ]
+    },
+    {
+      "field": 600,
+      "native": {
+        "path": "D:\\Arcade\\AI\\aCORES\\Alpha68k N\\research\\remaining_gates_20261011\\japan_joined720\\capture\\frame_000600.work.bin",
+        "sha256": "84b0b250f441c4ed64226dd1390afae8f847c6383c47ac4751a7365040bfafc4",
+        "bytes": 4096
+      },
+      "MAME": {
+        "path": "D:\\Arcade\\AI\\aCORES\\Alpha68k N\\sim\\captures\\kyrosj\\gameplay\\frame_000600.work.bin",
+        "sha256": "e217a99cc86d6665297168628f60c977efa8bca7a6f2cabd569ddcc68add924c",
+        "bytes": 4096
+      },
+      "words": [
+        {
+          "word_address_hex": "0x020f5e",
+          "native_word_hex": "0120",
+          "MAME_word_hex": "0100",
+          "context_start_address_hex": "0x020f52",
+          "native_context_hex": "0000000000000000000000000120000000e80000000000000020",
+          "MAME_context_hex": "0000000000000000000000000100000000e80000000000000000",
+          "byte_differences": [
+            {
+              "offset": 3935,
+              "address_hex": "0x020f5f",
+              "native": 32,
+              "MAME": 0,
+              "native_word_hex": "0120",
+              "MAME_word_hex": "0100"
+            }
+          ],
+          "meaning": "Upper workRAM below verified reset A7. Exact active/stale stack or register meaning is not established: no SP or accepted stores to this address at this field were recorded."
+        },
+        {
+          "word_address_hex": "0x020f6a",
+          "native_word_hex": "0020",
+          "MAME_word_hex": "0000",
+          "context_start_address_hex": "0x020f5e",
+          "native_context_hex": "0120000000e800000000000000200000ff78000000000000ff00",
+          "MAME_context_hex": "0100000000e800000000000000000000ff78000000000000ff00",
+          "byte_differences": [
+            {
+              "offset": 3947,
+              "address_hex": "0x020f6b",
+              "native": 32,
+              "MAME": 0,
+              "native_word_hex": "0020",
+              "MAME_word_hex": "0000"
+            }
+          ],
+          "meaning": "Upper workRAM below verified reset A7. Exact active/stale stack or register meaning is not established: no SP or accepted stores to this address at this field were recorded."
+        },
+        {
+          "word_address_hex": "0x020fa4",
+          "native_word_hex": "2100",
+          "MAME_word_hex": "2104",
+          "context_start_address_hex": "0x020f98",
+          "native_context_hex": "000209a4000035300002000021000000058a0000048600004010",
+          "MAME_context_hex": "000209a400003530000200002104000005900000048600004010",
+          "byte_differences": [
+            {
+              "offset": 4005,
+              "address_hex": "0x020fa5",
+              "native": 0,
+              "MAME": 4,
+              "native_word_hex": "2100",
+              "MAME_word_hex": "2104"
+            }
+          ],
+          "meaning": "Upper workRAM below verified reset A7. Exact active/stale stack or register meaning is not established: no SP or accepted stores to this address at this field were recorded."
+        },
+        {
+          "word_address_hex": "0x020fa8",
+          "native_word_hex": "058a",
+          "MAME_word_hex": "0590",
+          "context_start_address_hex": "0x020f9c",
+          "native_context_hex": "000035300002000021000000058a00000486000040100000ffff",
+          "MAME_context_hex": "000035300002000021040000059000000486000040100000ffff",
+          "byte_differences": [
+            {
+              "offset": 4009,
+              "address_hex": "0x020fa9",
+              "native": 138,
+              "MAME": 144,
+              "native_word_hex": "058a",
+              "MAME_word_hex": "0590"
+            }
+          ],
+          "meaning": "Upper workRAM below verified reset A7. Exact active/stale stack or register meaning is not established: no SP or accepted stores to this address at this field were recorded."
+        }
+      ]
+    }
+  ],
+  "consumer_defect": {
+    "responsible_file": "D:\\Arcade\\AI\\aCORES\\Alpha68k N\\research\\remaining_gates_20261011\\run_japan_joined720.py",
+    "responsible_function": "verify",
+    "problem": "RGB branch compares native field to MAME frame_N.rgb drawing buffer; authoritative contract requires frame_N.display.rgb decoded from completed PNG.",
+    "minimum_fix": "In a separately pinned verifier revision, choose suffix display.rgb only when comparing native RGB; retain work.bin and sprites.bin references unchanged and keep their mismatch gate false. Reuse the completed capture; no game replay or RTL change.",
+    "proof": "All six original/native RGB hashes and all six lossless completed-PNG normalizations match exactly. Field0 raw MAME drawing buffer differs from its displayed sidecar; the original qualification oracle hash matches display sidecar, not raw.",
+    "qualification_limit": "Correcting RGB oracle selection does not clear the 3/1/4 work-byte residuals or promote broad P7/P8 acceptance."
+  },
+  "known_residual_relation": "World1799 evidence decodes retained SR/PC at0x20fee and differs at0x20ff3 across adjacent wait-loop PCs. Japan residual addresses0x20f5f..0x20fe3 are different locations/fields, so that interpretation cannot be transferred. Only their upperRAM proximity to resetA7 is established.",
+  "native_observer": {
+    "source": {
+      "path": "D:\\Arcade\\AI\\aCORES\\Alpha68k N\\research\\stingray_combined_stage\\next_coupled_scope_v2\\source\\sim\\system_main.cpp",
+      "sha256": "f9b39cf42f6dee009ddcd49a9474dd8bb94a52f6fb217e8521611008c79f0232",
+      "bytes": 24559
+    },
+    "limitations": "Instruction observer records fields59..60 only (lines274..285). Full epoch stream selects IRQ/backdrop/latch/framecounter/message-strip writes (lines294..302), excluding these upper-workRAM addresses. General bus stream is capped to4096 samples plus2048 selected extras (lines287..293). No accepted-stack-write timing at240/360/600 follows from this capture."
+  },
+  "contract_pins": [
+    {
+      "path": "D:\\Arcade\\AI\\aCORES\\Alpha68k N\\scripts\\normalize_oracle_display.py",
+      "sha256": "1f5c549261d988bc21d56b3dc8a374a2bd9ba57f49d78251e5ec73f608eb5162",
+      "bytes": 2671
+    },
+    {
+      "path": "D:\\Arcade\\AI\\aCORES\\Alpha68k N\\scripts\\analyze_system_capture.py",
+      "sha256": "6143975cf81bce11a4bcc9eb5b32ff7274d8be379a8eb7b3e68f5ce2bbcb56a1",
+      "bytes": 4153
+    },
+    {
+      "path": "D:\\Arcade\\AI\\aCORES\\Alpha68k N\\docs\\REFERENCE_ORACLE.md",
+      "sha256": "d3daea54a4c58bf6e064293fba71d7620fd0a89a26f7b03393f4b3c41cdb4a80",
+      "bytes": 5422
+    },
+    {
+      "path": "D:\\Arcade\\AI\\aCORES\\Alpha68k N\\docs\\COMBAT_HUD_DIAGNOSIS.md",
+      "sha256": "c681bc67eecfca8b74df38d6a3cc653d3958f097ee8bfeb20905b76176968c3f",
+      "bytes": 10630
+    },
+    {
+      "path": "D:\\Arcade\\AI\\aCORES\\Alpha68k N\\research\\combat1799_stack_interpretation.json",
+      "sha256": "1860afac6b810958fc9d60bf3130400f14a6bce3b5a69d50a9f67e9e6a61b62b",
+      "bytes": 3754
+    }
+  ],
+  "no_RTL_fix_justified": true,
+  "next_work_diagnosis": "The existing IRQ/MAME investigators should decide whether source/boundary evidence can explain these atomic snapshots. A future focused observer would need actual A7 and accepted upperRAM writes at selected fields; none was launched or authorized by this diagnostic."
+}

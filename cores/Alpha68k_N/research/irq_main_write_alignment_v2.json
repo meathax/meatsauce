@@ -1,0 +1,661 @@
+{
+  "schema": 2,
+  "include_tiles": true,
+  "capture_scope": "work0x20000..0x20fff; optional positions/tiles0x40000..0x41fff matching frozen MAME tap",
+  "supersedes_unqualified_scope_receipt": "irq_main_write_alignment.json",
+  "scope": "Actual normalized work/optional position/tile-write bus sequence in retained fields59/60. Request-edge and MAME callback times remain different observer boundaries.",
+  "sources": [
+    {
+      "path": "D:\\Arcade\\AI\\aCORES\\Alpha68k N\\sim\\captures\\rtl\\kyros_instruction60_diagnostic\\instruction_events.csv",
+      "sha256": "951c7d91c10ac3c1c090dc1db94e38742f9e9ebf279b41cfcd25ba38084226bf"
+    },
+    {
+      "path": "D:\\Arcade\\AI\\aCORES\\Alpha68k N\\sim\\captures\\kyros\\reset_raster361_v4\\events.csv",
+      "sha256": "1d630ea6c3bf6173c4463c4d1ce2b6a302fd3351369acabcea99247b51455747"
+    }
+  ],
+  "native_writes": 10606,
+  "mame_writes": 10606,
+  "exact_matched_writes": 10598,
+  "equal_blocks": [
+    {
+      "count": 14,
+      "native_indices": [
+        1,
+        15
+      ],
+      "mame_indices": [
+        2,
+        16
+      ],
+      "offset_runs": [
+        {
+          "count": 14,
+          "native_minus_mame_ticks": -21,
+          "native_first": {
+            "field": 59,
+            "tick": 47849730,
+            "address": 135154,
+            "mask": 65535,
+            "value": 8192,
+            "pc_observed_after_request": 2132
+          },
+          "native_last": {
+            "field": 59,
+            "tick": 47850322,
+            "address": 135130,
+            "mask": 65535,
+            "value": 0,
+            "pc_observed_after_request": 1122
+          },
+          "mame_first": {
+            "field": 59,
+            "tick": 47849751,
+            "address": 135154,
+            "mask": 65535,
+            "value": 8192,
+            "instruction_pc": 2132,
+            "next_pc": 2136
+          },
+          "mame_last": {
+            "field": 59,
+            "tick": 47850343,
+            "address": 135130,
+            "mask": 65535,
+            "value": 0,
+            "instruction_pc": 1116,
+            "next_pc": 1122
+          }
+        }
+      ]
+    },
+    {
+      "count": 233,
+      "native_indices": [
+        16,
+        249
+      ],
+      "mame_indices": [
+        17,
+        250
+      ],
+      "offset_runs": [
+        {
+          "count": 233,
+          "native_minus_mame_ticks": -21,
+          "native_first": {
+            "field": 59,
+            "tick": 47850386,
+            "address": 135126,
+            "mask": 65535,
+            "value": 4,
+            "pc_observed_after_request": 1122
+          },
+          "native_last": {
+            "field": 59,
+            "tick": 47924002,
+            "address": 131082,
+            "mask": 255,
+            "value": 1,
+            "pc_observed_after_request": 1296
+          },
+          "mame_first": {
+            "field": 59,
+            "tick": 47850407,
+            "address": 135126,
+            "mask": 65535,
+            "value": 4,
+            "instruction_pc": 1116,
+            "next_pc": 1122
+          },
+          "mame_last": {
+            "field": 59,
+            "tick": 47924023,
+            "address": 131082,
+            "mask": 255,
+            "value": 1,
+            "instruction_pc": 1292,
+            "next_pc": 1296
+          }
+        }
+      ]
+    },
+    {
+      "count": 424,
+      "native_indices": [
+        250,
+        674
+      ],
+      "mame_indices": [
+        250,
+        674
+      ],
+      "offset_runs": [
+        {
+          "count": 424,
+          "native_minus_mame_ticks": 75,
+          "native_first": {
+            "field": 59,
+            "tick": 47925490,
+            "address": 266678,
+            "mask": 65535,
+            "value": 32,
+            "pc_observed_after_request": 2138
+          },
+          "native_last": {
+            "field": 59,
+            "tick": 47999938,
+            "address": 267524,
+            "mask": 65535,
+            "value": 32,
+            "pc_observed_after_request": 2138
+          },
+          "mame_first": {
+            "field": 59,
+            "tick": 47925415,
+            "address": 266678,
+            "mask": 65535,
+            "value": 32,
+            "instruction_pc": 2132,
+            "next_pc": 2138
+          },
+          "mame_last": {
+            "field": 59,
+            "tick": 47999863,
+            "address": 267524,
+            "mask": 65535,
+            "value": 32,
+            "instruction_pc": 2132,
+            "next_pc": 2138
+          }
+        }
+      ]
+    },
+    {
+      "count": 14,
+      "native_indices": [
+        675,
+        689
+      ],
+      "mame_indices": [
+        676,
+        690
+      ],
+      "offset_runs": [
+        {
+          "count": 14,
+          "native_minus_mame_ticks": -21,
+          "native_first": {
+            "field": 59,
+            "tick": 48000290,
+            "address": 135154,
+            "mask": 65535,
+            "value": 8192,
+            "pc_observed_after_request": 2132
+          },
+          "native_last": {
+            "field": 59,
+            "tick": 48000882,
+            "address": 135130,
+            "mask": 65535,
+            "value": 0,
+            "pc_observed_after_request": 1308
+          },
+          "mame_first": {
+            "field": 59,
+            "tick": 48000311,
+            "address": 135154,
+            "mask": 65535,
+            "value": 8192,
+            "instruction_pc": 2132,
+            "next_pc": 2136
+          },
+          "mame_last": {
+            "field": 59,
+            "tick": 48000903,
+            "address": 135130,
+            "mask": 65535,
+            "value": 0,
+            "instruction_pc": 1302,
+            "next_pc": 1308
+          }
+        }
+      ]
+    },
+    {
+      "count": 17,
+      "native_indices": [
+        690,
+        707
+      ],
+      "mame_indices": [
+        691,
+        708
+      ],
+      "offset_runs": [
+        {
+          "count": 17,
+          "native_minus_mame_ticks": -21,
+          "native_first": {
+            "field": 59,
+            "tick": 48000946,
+            "address": 135126,
+            "mask": 65535,
+            "value": 4,
+            "pc_observed_after_request": 1308
+          },
+          "native_last": {
+            "field": 59,
+            "tick": 48001458,
+            "address": 135094,
+            "mask": 65535,
+            "value": 0,
+            "pc_observed_after_request": 1308
+          },
+          "mame_first": {
+            "field": 59,
+            "tick": 48000967,
+            "address": 135126,
+            "mask": 65535,
+            "value": 4,
+            "instruction_pc": 1302,
+            "next_pc": 1308
+          },
+          "mame_last": {
+            "field": 59,
+            "tick": 48001479,
+            "address": 135094,
+            "mask": 65535,
+            "value": 0,
+            "instruction_pc": 1302,
+            "next_pc": 1308
+          }
+        }
+      ]
+    },
+    {
+      "count": 4847,
+      "native_indices": [
+        708,
+        5555
+      ],
+      "mame_indices": [
+        708,
+        5555
+      ],
+      "offset_runs": [
+        {
+          "count": 4847,
+          "native_minus_mame_ticks": 75,
+          "native_first": {
+            "field": 59,
+            "tick": 48003346,
+            "address": 267528,
+            "mask": 65535,
+            "value": 32,
+            "pc_observed_after_request": 2138
+          },
+          "native_last": {
+            "field": 59,
+            "tick": 48660290,
+            "address": 263854,
+            "mask": 65535,
+            "value": 32,
+            "pc_observed_after_request": 4912
+          },
+          "mame_first": {
+            "field": 59,
+            "tick": 48003271,
+            "address": 267528,
+            "mask": 65535,
+            "value": 32,
+            "instruction_pc": 2132,
+            "next_pc": 2138
+          },
+          "mame_last": {
+            "field": 59,
+            "tick": 48660215,
+            "address": 263854,
+            "mask": 65535,
+            "value": 32,
+            "instruction_pc": 4904,
+            "next_pc": 4912
+          }
+        }
+      ]
+    },
+    {
+      "count": 5049,
+      "native_indices": [
+        5557,
+        10606
+      ],
+      "mame_indices": [
+        5557,
+        10606
+      ],
+      "offset_runs": [
+        {
+          "count": 1,
+          "native_minus_mame_ticks": 75,
+          "native_first": {
+            "field": 60,
+            "tick": 48660642,
+            "address": 135150,
+            "mask": 65535,
+            "value": 4892,
+            "pc_observed_after_request": 4892
+          },
+          "native_last": {
+            "field": 60,
+            "tick": 48660642,
+            "address": 135150,
+            "mask": 65535,
+            "value": 4892,
+            "pc_observed_after_request": 4892
+          },
+          "mame_first": {
+            "field": 60,
+            "tick": 48660567,
+            "address": 135150,
+            "mask": 65535,
+            "value": 4892,
+            "instruction_pc": 4886,
+            "next_pc": 4892
+          },
+          "mame_last": {
+            "field": 60,
+            "tick": 48660567,
+            "address": 135150,
+            "mask": 65535,
+            "value": 4892,
+            "instruction_pc": 4886,
+            "next_pc": 4892
+          }
+        },
+        {
+          "count": 5048,
+          "native_minus_mame_ticks": 139,
+          "native_first": {
+            "field": 60,
+            "tick": 48660850,
+            "address": 135146,
+            "mask": 65535,
+            "value": 8192,
+            "pc_observed_after_request": 4892
+          },
+          "native_last": {
+            "field": 60,
+            "tick": 49471378,
+            "address": 265186,
+            "mask": 65535,
+            "value": 32,
+            "pc_observed_after_request": 110160
+          },
+          "mame_first": {
+            "field": 60,
+            "tick": 48660711,
+            "address": 135146,
+            "mask": 65535,
+            "value": 8192,
+            "instruction_pc": 4886,
+            "next_pc": 4892
+          },
+          "mame_last": {
+            "field": 60,
+            "tick": 49471239,
+            "address": 265186,
+            "mask": 65535,
+            "value": 32,
+            "instruction_pc": 110154,
+            "next_pc": 110160
+          }
+        }
+      ]
+    }
+  ],
+  "unequal_blocks": [
+    {
+      "kind": "replace",
+      "native_indices": [
+        0,
+        1
+      ],
+      "mame_indices": [
+        0,
+        2
+      ],
+      "native": [
+        {
+          "field": 59,
+          "tick": 47849586,
+          "address": 135158,
+          "mask": 65535,
+          "value": 2132,
+          "pc_observed_after_request": 2132
+        }
+      ],
+      "mame": [
+        {
+          "field": 59,
+          "tick": 47849495,
+          "address": 266676,
+          "mask": 65535,
+          "value": 32,
+          "instruction_pc": 2132,
+          "next_pc": 2138
+        },
+        {
+          "field": 59,
+          "tick": 47849607,
+          "address": 135158,
+          "mask": 65535,
+          "value": 2136,
+          "instruction_pc": 2132,
+          "next_pc": 2136
+        }
+      ]
+    },
+    {
+      "kind": "replace",
+      "native_indices": [
+        15,
+        16
+      ],
+      "mame_indices": [
+        16,
+        17
+      ],
+      "native": [
+        {
+          "field": 59,
+          "tick": 47850354,
+          "address": 135128,
+          "mask": 65535,
+          "value": 4532,
+          "pc_observed_after_request": 1122
+        }
+      ],
+      "mame": [
+        {
+          "field": 59,
+          "tick": 47850375,
+          "address": 135128,
+          "mask": 65535,
+          "value": 4534,
+          "instruction_pc": 1116,
+          "next_pc": 1122
+        }
+      ]
+    },
+    {
+      "kind": "delete",
+      "native_indices": [
+        249,
+        250
+      ],
+      "mame_indices": [
+        250,
+        250
+      ],
+      "native": [
+        {
+          "field": 59,
+          "tick": 47925314,
+          "address": 266676,
+          "mask": 65535,
+          "value": 32,
+          "pc_observed_after_request": 2138
+        }
+      ],
+      "mame": []
+    },
+    {
+      "kind": "replace",
+      "native_indices": [
+        674,
+        675
+      ],
+      "mame_indices": [
+        674,
+        676
+      ],
+      "native": [
+        {
+          "field": 59,
+          "tick": 48000130,
+          "address": 135158,
+          "mask": 65535,
+          "value": 2132,
+          "pc_observed_after_request": 2132
+        }
+      ],
+      "mame": [
+        {
+          "field": 59,
+          "tick": 48000039,
+          "address": 267526,
+          "mask": 65535,
+          "value": 32,
+          "instruction_pc": 2132,
+          "next_pc": 2138
+        },
+        {
+          "field": 59,
+          "tick": 48000151,
+          "address": 135158,
+          "mask": 65535,
+          "value": 2136,
+          "instruction_pc": 2132,
+          "next_pc": 2136
+        }
+      ]
+    },
+    {
+      "kind": "replace",
+      "native_indices": [
+        689,
+        690
+      ],
+      "mame_indices": [
+        690,
+        691
+      ],
+      "native": [
+        {
+          "field": 59,
+          "tick": 48000914,
+          "address": 135128,
+          "mask": 65535,
+          "value": 5382,
+          "pc_observed_after_request": 1308
+        }
+      ],
+      "mame": [
+        {
+          "field": 59,
+          "tick": 48000935,
+          "address": 135128,
+          "mask": 65535,
+          "value": 5384,
+          "instruction_pc": 1302,
+          "next_pc": 1308
+        }
+      ]
+    },
+    {
+      "kind": "delete",
+      "native_indices": [
+        707,
+        708
+      ],
+      "mame_indices": [
+        708,
+        708
+      ],
+      "native": [
+        {
+          "field": 59,
+          "tick": 48003170,
+          "address": 267526,
+          "mask": 65535,
+          "value": 32,
+          "pc_observed_after_request": 2138
+        }
+      ],
+      "mame": []
+    },
+    {
+      "kind": "replace",
+      "native_indices": [
+        5555,
+        5557
+      ],
+      "mame_indices": [
+        5555,
+        5557
+      ],
+      "native": [
+        {
+          "field": 60,
+          "tick": 48660498,
+          "address": 263856,
+          "mask": 65535,
+          "value": 32,
+          "pc_observed_after_request": 4894
+        },
+        {
+          "field": 60,
+          "tick": 48660530,
+          "address": 263858,
+          "mask": 65535,
+          "value": 32,
+          "pc_observed_after_request": 4894
+        }
+      ],
+      "mame": [
+        {
+          "field": 59,
+          "tick": 48660423,
+          "address": 263856,
+          "mask": 65535,
+          "value": 32,
+          "instruction_pc": 4886,
+          "next_pc": 4894
+        },
+        {
+          "field": 59,
+          "tick": 48660455,
+          "address": 263858,
+          "mask": 65535,
+          "value": 32,
+          "instruction_pc": 4886,
+          "next_pc": 4894
+        }
+      ]
+    }
+  ],
+  "B16_closure": false,
+  "timing_fix_established": false,
+  "whole_game_acceptance": false
+}

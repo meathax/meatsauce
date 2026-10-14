@@ -1,0 +1,68 @@
+{
+  "date": "2026-10-09",
+  "scope": "Sheriff controls, DIP port reads, native flip/cadence, frontend geometry, rotation, integer viewport and persistence protocol; not release acceptance",
+  "checks": {
+    "controls": "two players, independent aim, analog/keyboard/rotary/pause pass",
+    "dips": "256 real 8080 IN4 reads; wrapper mapping and named OSD/MRA controls inspected",
+    "service": "No cabinet service-menu input in MAME 0.289 Sheriff. EXP3 is diagnostic ROM enable, unused in parent ROM.",
+    "native_flip": "458752 active pixels checked over four user/game flip combinations; real 8080 OUT6, actual board renderer; sound ports isolated to zero in this unit fixture",
+    "rotation": "CCW and CW each 172032 stored pixels and 229376 accepted writes; CW extended stalls 4096/65536, 168010 stalled cycles, zero pixel errors, overflow or lost requests",
+    "integer_scale": "20 mode/orientation/resolution combinations at 1280x720 and 1920x1080; native DE unchanged, integer height/width and viewport bounds pass",
+    "crt": "neutral, positive/negative H-size, left/right H-position and up V-position pass; 4-5 fields per case, zero pixel errors",
+    "hiscore": "production 3-byte config, guarded restore, changed-score OSD-open upload request and payload pass; default autosave On",
+    "wrapper": "actual emu/HPS/board/sound/scaling/platform models lint exit 0 on Verilator 5.050; syntax-only HPS declaration compatibility; no PINNOTFOUND suppression"
+  },
+  "native_timing": {
+    "master_hz": 50400000,
+    "pixel_divisor": 10,
+    "pixel_hz": 5040000,
+    "htotal": 320,
+    "vtotal": 256,
+    "hertz": 61.5234375,
+    "horizontal_hz": 15750,
+    "frame_master_clocks": 819200,
+    "sync_positions": "H272..303, V248..251; original-PCB electrical positions/widths remain unqualified"
+  },
+  "simulation_compatibility": {
+    "screen_rotate": "Ignored platform copy hoists three initialized static counters; all widths, zero initializers and expressions retained. sys untouched.",
+    "scaling": "Namespaced copy of pinned video_freak/video_scale; exchanges measured dimensions for rotation and uses a consistent nonblocking saved-width assignment."
+  },
+  "remaining": [
+    "Quartus hold: fresh exact-source synthesis/fit/STA/resources deferred",
+    "No project RBF or new-source hardware qualification",
+    "Direct-video adapter/display stability, RGB/YPbPr/composite-sync and Y/C encoder output need hardware measurements",
+    "CRT vertical size remains unsupported; no invented OSD control",
+    "Physical native sync positions/polarities need board/display evidence",
+    "Other family profiles are still future implementation gates; Sheriff long gameplay divergence remains open"
+  ],
+  "rbf_assembled": false,
+  "sys_changed": false,
+  "source_sha256": {
+    "Nintendo8080.sv": "d089441e89e0335ebd0571596da62be6f1c626e8c6fc3a481401b29f558540c6",
+    "files.qip": "7e4ce4f41aca1a6ed462b5a0cbbc31faa2a3882f97c7ae576856b7a56caa7b3b",
+    "rtl/n8080_board.sv": "2022043c4178c8b6d11360ce43d2f6632a9cd128d6fdc67f108d5027f837a568",
+    "rtl/n8080_scaling.sv": "a8558fe29b657d10bd23dddf9336c94be2df9ecce2def9112eeef98670a3fb09",
+    "sim/rotation_qualification.cpp": "eff81f7b83069193c82bade436a29cac15dbd583525a78a2f1a6891baf6c6f0b",
+    "sim/scaling_qualification.cpp": "ce0c98ac7ab98a6cbff9496054afaa0b15dc65698617b24f6615bec13fb85007",
+    "sim/flip_qualification.cpp": "737ae3827b5881bbf015917b3cae88619f7238a532cbe55b477eec97a6dbc0be",
+    "sim/flip_sound_stubs.sv": "a23be28f46a1f1463e80e1924cb7807e8ff9bca60fe3c009c83ea896fbf8e469",
+    "sim/Makefile": "02a347ca603dc9f59b76dedb41d025ecffac5fb92e309143b02dfb66623fb670",
+    "tools/prepare_display_sim.py": "773be3ce325e43521307b1f5ca9f9c9ac60e8beef08d46e212c6922aa2f18adc",
+    "tools/qualify_display_features.py": "03eab988cdabe1319fcb198f1e16b9d7cf977475f050c3a16969c47003191fbd"
+  },
+  "logs_sha256": {
+    "sim/results/display-features-tests.log": "b50fbf841df44813e99f727e143e471728e08a9b709b465ba3d0676cae588123",
+    "sim/results/display-features-tests-final.log": "6aa974fcc686fa8291be2ce170a40c7423f767e99b77b010567c88b15ff63548",
+    "sim/results/display-features-verified.log": "ab867a02635e84cf4fbe3d65ee6372ce7b6a617e301fbc70a87414db92db4994",
+    "sim/results/display-features-scaling-flip.log": "5bd45afe17906d69d23224face33b921f0837adcbec3431582e9675cd13ef57a",
+    "sim/results/display-features-cw.log": "c64c44282aaf05305516da3b23786a8ae47d037956de3b443a90c2d27d3ef74a",
+    "sim/results/display-features-flip.log": "d0859ee447a8dcd5ba0bdbf9e19eccedcd971d7e3216c65ed1c5c75dc7bb7953",
+    "sim/results/display-features-crt.log": "80b5d7954e4fe552c3dd37ec6f2887a3ca4b2a8ecd36774d1711323c4b424b67",
+    "sim/results/display-features-emu-lint.log": "cd96778ed17b80420935b10bae680fe656d296f2613fc9ee0eed5fde1e558559"
+  },
+  "recovery_builds": [
+    "/mnt/r/Verilator/sherrif-display-20261009",
+    "/mnt/r/Verilator/sherrif-display-flip-scoped",
+    "sim/results/emu-lint/files.f"
+  ]
+}

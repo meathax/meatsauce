@@ -1,0 +1,41 @@
+02430: 0006 4e40            ori.b   #$40, D6
+02434: 5247                 addq.w  #1, D7
+02436: 0c47 0005            cmpi.w  #$5, D7
+0243a: 65ba                 bcs     $23f6
+0243c: 4e75                 rts
+0243e: 13fc 0030 000e 0000  move.b  #$30, $e0000.l
+02446: 426e 0006            clr.w   ($6,A6)
+0244a: 4e40                 trap    #$0
+0244c: 082e 0000 000a       btst    #$0, ($a,A6)
+02452: 6612                 bne     $2466
+02454: 13fc 0010 000e 0000  move.b  #$10, $e0000.l
+0245c: 426e 0006            clr.w   ($6,A6)
+02460: 4e40                 trap    #$0
+02462: 4efa f218            jmp     ($167c,PC)
+02466: 4a2e 005b            tst.b   ($5b,A6)
+0246a: 6650                 bne     $24bc
+0246c: 532e 000e            subq.b  #1, ($e,A6)
+02470: 0c2e ffff 000e       cmpi.b  #-$1, ($e,A6)
+02476: 671a                 beq     $2492
+02478: 0c2e ffff 000f       cmpi.b  #-$1, ($f,A6)
+0247e: 6700 f6aa            beq     $1b2a
+02482: 44fc 0000            move    #$0, CCR
+02486: 6100 f8ce            bsr     $1d56
+0248a: 422e 0014            clr.b   ($14,A6)
+0248e: 6000 f69a            bra     $1b2a
+02492: 41fa 0204            lea     ($2698,PC), A0
+02496: 43f9 0004 0cbe       lea     $40cbe.l, A1
+0249c: 4240                 clr.w   D0
+0249e: 4e41                 trap    #$1
+024a0: 3d7c 0080 081a       move.w  #$80, ($81a,A6)
+024a6: 3d7c 0040 0006       move.w  #$40, ($6,A6)
+024ac: 4e40                 trap    #$0
+024ae: 6100 00b8            bsr     $2568
+024b2: 0c2e ffff 000f       cmpi.b  #-$1, ($f,A6)
+024b8: 66c8                 bne     $2482
+024ba: 604e                 bra     $250a
+024bc: 532e 000f            subq.b  #1, ($f,A6)
+024c0: 0c2e ffff 000f       cmpi.b  #-$1, ($f,A6)
+024c6: 671a                 beq     $24e2
+024c8: 0c2e ffff 000e       cmpi.b  #-$1, ($e,A6)
+024ce: 6700 f65a            beq     $1b2a

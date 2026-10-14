@@ -1,0 +1,16 @@
+{
+  "reason": "stop owned current-system attempt: curve 5 import had no entries, causing silent YM SSG; source/evidence retained",
+  "targets": [
+    {
+      "pid": 125133,
+      "observed_cmdline": "/usr/bin/python3 /mnt/d/Arcade/AI/aCORES/Alpha68k N/sim/build/current_system_drive_worker.py ",
+      "signal": 15
+    },
+    {
+      "pid": 125540,
+      "observed_cmdline": "./alpha68kn_system_sim ../../roms/kyros/download.bin 720 ../captures/rtl/kyros_current720_drive_drive gameplay --inputs ../captures/kyros/gameplay/frame_states.csv ",
+      "signal": 15
+    }
+  ],
+  "time": 1791538532.626842
+}

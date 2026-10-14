@@ -1,0 +1,11 @@
+{
+  "all_4096_loader_start_addresses": 4096,
+  "all_65536_data_words": "Symbolic independent low/high lanes; no value-dependent transform",
+  "all_4096_program_addresses": 4096,
+  "total_program_storage_bits": 32768,
+  "registered_read_latency_cycles": 1,
+  "read_during_write_semantics": "Nonblocking RHS uses preedge contents in both original/banked RTL; hardware mixed-port collision qualification remains separate while CPU held reset during download.",
+  "program_initial_output": 0,
+  "guest_cone": "Same MCU input q value after each edge: bank read registers and address parity captured together, output mux selects old-data byte at captured address; no MCU/CPU clock/enable logic changed.",
+  "debug_case8": "VERILATOR only; two byte addresses and concatenation order retained."
+}

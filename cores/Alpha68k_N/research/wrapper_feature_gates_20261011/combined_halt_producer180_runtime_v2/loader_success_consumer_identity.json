@@ -1,0 +1,48 @@
+{
+  "scope": "Initial boot prefix and byte-identical consumer preparation only",
+  "prefix": {
+    "path": "D:\\Arcade\\AI\\aCORES\\Alpha68k N\\research\\wrapper_feature_gates_20261011\\combined_halt_producer180_runtime_v2\\initial_loader_success_prefix.txt",
+    "bytes": 310,
+    "sha256": "46f3523128f0a6243c872ff0f9baeb8d61f65aa68cc926dd06b2a52a2f8a50d5"
+  },
+  "loader_files": [
+    {
+      "path": "D:\\Arcade\\AI\\aCORES\\Alpha68k N\\research\\wrapper_feature_gates_20261011\\combined_halt_producer180_runtime_v2\\microrom.mem",
+      "bytes": 19456,
+      "sha256": "9d13082be0cf4b04bff887e6da23de84f9f2ee4321f3a2576b4f9540615dece6"
+    },
+    {
+      "path": "D:\\Arcade\\AI\\aCORES\\Alpha68k N\\research\\wrapper_feature_gates_20261011\\combined_halt_producer180_runtime_v2\\nanorom.mem",
+      "bytes": 23520,
+      "sha256": "b3998009fb10605e8468cddf22fdd799a9792ba86f449de2e30615cfcefbeece"
+    }
+  ],
+  "consumers": [
+    {
+      "path": "D:\\Arcade\\AI\\aCORES\\Alpha68k N\\research\\wrapper_feature_gates_20261011\\combined_halt_producer180_runtime_v2\\qualify_arrays_v2.py",
+      "bytes": 3654,
+      "sha256": "5f6b04b2308b0d140b4787df6dbd789a63f11e14c5f24f46ee91a2a2a462b38c"
+    },
+    {
+      "path": "D:\\Arcade\\AI\\aCORES\\Alpha68k N\\research\\wrapper_feature_gates_20261011\\combined_halt_producer180_runtime_v2\\qualify_latch119_v2.py",
+      "bytes": 5723,
+      "sha256": "0fe2c3de01563a526c5ab5ee1b6941c88743c2ad5b1853fde466be874eb43aaf"
+    },
+    {
+      "path": "D:\\Arcade\\AI\\aCORES\\Alpha68k N\\research\\wrapper_feature_gates_20261011\\combined_halt_producer180_runtime_v2\\consume_and_freeze_v2_once.py",
+      "bytes": 2047,
+      "sha256": "6e4e43cfb6357bde6e0b103141d3028cc6dc5cfb46d1e3477e09d5fadd267b2e"
+    }
+  ],
+  "consumer_parent_review": {
+    "path": "D:\\Arcade\\AI\\aCORES\\Alpha68k N\\research\\wrapper_feature_gates_20261011\\combined_halt_producer180_runtime_v1\\consumer_v2_review.json",
+    "bytes": 1859,
+    "sha256": "61fa623ccfb1ba0f303d368ae517d159b2348d593aa82c1425c72764e8c0be84"
+  },
+  "actual_consumer_AST_exit": 0,
+  "consumer_executed": false,
+  "limits": [
+    "Early CPU bus counters restored; HALT/latch/graphics119/179/runtime acceptance remains pending.",
+    "No livejournal access/control/flush or extra replay."
+  ]
+}

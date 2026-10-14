@@ -1,0 +1,39 @@
+{
+  "status": "PASS",
+  "acceptance": "Short timed physical-memory harness and checkpoint continuation; no game or physical timing closure acceptance",
+  "cold_path": "sim/obj_dir/boot_probe/activity/1791214459644340800/checkpoints/456789",
+  "restored_path": "sim/obj_dir/boot_probe/activity/1791214647563918900/checkpoints/456789",
+  "restore_clock": 123456,
+  "compare_clock": 456789,
+  "continuation_clocks": 333333,
+  "profile_name": "corner0_input_hold",
+  "profile_file": "sim/obj_dir/production/1791208327726062200/sdram_io_probe/profiles.txt",
+  "queued_dq_at_saved_checkpoints": 0,
+  "limits": "Queued-DQ/in-flight sound/attract/gameplay checkpoint acceptance remains; fitted SDRAM setup still fails at other endpoints.",
+  "files": [
+    {
+      "file": "rtl.bin",
+      "bytes": [
+        82126,
+        82126
+      ],
+      "sha256": [
+        "40abd2ba7f679f8a4816cfa37878499b4e1d168a816939429e56644557c2c79a",
+        "40abd2ba7f679f8a4816cfa37878499b4e1d168a816939429e56644557c2c79a"
+      ],
+      "equal": true
+    },
+    {
+      "file": "external.bin",
+      "bytes": [
+        112861761,
+        112861761
+      ],
+      "sha256": [
+        "02d1a898fba17882f97f0d601a188092a593c0cef6bc22a47d05ace3f0d7d4c7",
+        "02d1a898fba17882f97f0d601a188092a593c0cef6bc22a47d05ace3f0d7d4c7"
+      ],
+      "equal": true
+    }
+  ]
+}

@@ -1,0 +1,6 @@
+set_global_assignment -name SEARCH_PATH [file join $::quartus(qip_path) ""]
+set_global_assignment -name VERILOG_FILE [file join $::quartus(qip_path) joy_db15.v]
+set_global_assignment -name VERILOG_FILE [file join $::quartus(qip_path) jtframe_resync.v]
+set_global_assignment -name VERILOG_FILE [file join $::quartus(qip_path) jtframe_rpwp_ram.v]
+set_global_assignment -name VERILOG_FILE [file join $::quartus(qip_path) jtframe_linebuf.v]
+set_global_assignment -name VERILOG_FILE [file join $::quartus(qip_path) jtframe_hsize.v]

@@ -1,0 +1,21 @@
+{
+  "upstream": {
+    "donor": "jtcores",
+    "revision": "548b87b32a1b528a16cb41f689accb179e85d1a8",
+    "source_path": "modules/jtframe/hdl/cpu/t48/t48_core.v",
+    "source_sha256": "8e8cb0a18e6f99c6da4ec258280294008ba1488c829d453846f24562d1010125",
+    "path": "rtl/vendor/t48/t48_core.v",
+    "sha256": "cd171c5c1cb044c50343387cf4b9b726c2795c4224d4265c4812921fe3d6b8fd",
+    "bytes": 728188,
+    "adaptation": "Expose enabled BUS/P2 decoder write strobes; retain CPU/timer logic; normalize text newlines; preserve original VHDL license. Trim blank lines at EOF."
+  },
+  "baseline_staged_core_sha256": "c341c5845cc78c6c2e22936a143021d29ebd78f6ea42eed108925afc46fb32d5",
+  "candidate_core_sha256": "2ad3acf392e1deec18d5d7f2c8d878b33b00073c55a7c032cd0155dfac46bf6d",
+  "candidate_wrapper_sha256": "26614f565524e7dc136c3c898eb044807d22d2c6ce473dcc64d7f54258a97120",
+  "adaptation": "2026-10-11 Alpha68k N integration fork: export existing architectural P2 latch as enabled transaction data; consume it at existing delayed wrapper strobe. Preserve physical P2 pipeline, CPU/timer logic, clocks, ROM and original upstream license.",
+  "license_notice": {
+    "path": "D:\\Arcade\\AI\\aCORES\\Alpha68k N\\research\\stingray_game_divergence_20261011\\p2_candidate_qualification_v7\\LICENSE.upstream",
+    "sha256": "f9870f7d47c16bec37e17b923440d4f0a274d7c409d9327d86e25a000e4bab27"
+  },
+  "scope": "Review proposal only; not a production SOURCE.json update."
+}

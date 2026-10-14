@@ -1,0 +1,409 @@
+{
+  "scope": "Read-only local MAME0.289 source versus pinned fx68k semantics, linked to actual finite replay. No replay, CPU/clock/phase/storage edits or physical fix.",
+  "source_pins": [
+    {
+      "path": "D:\\Arcade\\AI\\mame289\\src\\mame\\alpha\\alpha68k_n.cpp",
+      "sha256": "5f9884076ea1b5c02d2169a58de5425ae5475a13a4f1438abae2e2b9f0fdab7d"
+    },
+    {
+      "path": "D:\\Arcade\\AI\\mame289\\src\\devices\\cpu\\m68000\\m68000.cpp",
+      "sha256": "ef095e786564a203b828ed8e1e517b6af2e0d8fd64090d432f8be67480a5fab3"
+    },
+    {
+      "path": "D:\\Arcade\\AI\\mame289\\src\\devices\\cpu\\m68000\\m68000gen.py",
+      "sha256": "0679ed7a9ceae276f67998832af0b998421f7792096ae4932c8cc6cb933e9d33"
+    },
+    {
+      "path": "D:\\Arcade\\AI\\mame289\\src\\devices\\cpu\\m68000\\m68000.lst",
+      "sha256": "87e58752f508f0eba81ca43fbd8f1b9b9ead70f9b08e11f697fc3f2c7c13c263"
+    },
+    {
+      "path": "D:\\Arcade\\AI\\mame289\\src\\devices\\cpu\\m68000\\m68000-sdf.cpp",
+      "sha256": "b46d977660c726d58509976d91d83cbf11682eb911032b807b0ee75ee7a1ca1c"
+    },
+    {
+      "path": "D:\\Arcade\\AI\\mame289\\src\\devices\\cpu\\m68000\\m68000-sdp.cpp",
+      "sha256": "4b6bbad93837777874fd0b182ad126598cd8d6f647f434f0d86c084180d1dad6"
+    },
+    {
+      "path": "D:\\Arcade\\AI\\mame289\\src\\devices\\cpu\\m68000\\m68000-sif.cpp",
+      "sha256": "dfffb724ca7a9a21b688bef7b9e3974742ab65c6c721aef2de890c52c19704c6"
+    },
+    {
+      "path": "D:\\Arcade\\AI\\mame289\\src\\devices\\cpu\\m68000\\m68000-sip.cpp",
+      "sha256": "5001731e1ba390f5ba76a7c2c0462f5165259d857d986803fba7e4dd120e2aa8"
+    },
+    {
+      "path": "D:\\Arcade\\AI\\aCORES\\Alpha68k N\\rtl\\vendor\\fx68k\\fx68k.sv",
+      "sha256": "797566aa6c1dfb308d88a458550d55f86e0d023e670ab179cc39f594d9d4f73d"
+    },
+    {
+      "path": "D:\\Arcade\\AI\\aCORES\\Alpha68k N\\rtl\\vendor\\fx68k\\microrom.mem",
+      "sha256": "9d13082be0cf4b04bff887e6da23de84f9f2ee4321f3a2576b4f9540615dece6"
+    }
+  ],
+  "evidence_pins": {
+    "actual_native_timeline": {
+      "path": "D:\\Arcade\\AI\\aCORES\\Alpha68k N\\research\\irq_ipl_recognition61_timeline.json",
+      "sha256": "e7cb77f271ca91accff37bffcb517c56ad2f1ac0f0f76a1f8838e8f450e80bfa"
+    },
+    "independent_mame_write_scope_review": {
+      "path": "D:\\Arcade\\AI\\aCORES\\Alpha68k N\\research\\irq_deferred_tile_write_review.json",
+      "sha256": "280988bf6dbf10d545c767eb9d85047be42a516128f2664c71ab2ba412d1d406"
+    }
+  },
+  "checks": {
+    "micro_rom_is_binary1024_words": true,
+    "all1024_micro_words_equal": true,
+    "original_finite_fidelity_preserved": true,
+    "known_relocated_writes_two": true,
+    "finite_stop_coverage_limit_preserved": true
+  },
+  "facts": [
+    {
+      "id": "actual_configured_cpu",
+      "source": "D:\\Arcade\\AI\\mame289\\src\\mame\\alpha\\alpha68k_n.cpp",
+      "lines": [
+        739,
+        779
+      ],
+      "fact": "Driver instantiates M68000 at6MHz for Kyros. m68000.cpp8 maps M68000 to m68000_device, not the separate Musashi device."
+    },
+    {
+      "id": "mame_input_priority",
+      "source": "D:\\Arcade\\AI\\mame289\\src\\devices\\cpu\\m68000\\m68000.cpp",
+      "lines": [
+        427,
+        464,
+        467,
+        474
+      ],
+      "fact": "execute_set_input updates prioritized m_int_level and immediately recomputes m_int_next_state against SR mask. No explicit two-Phi2 rIpl/iIpl synchronizer exists in this function."
+    },
+    {
+      "id": "mame_sample_cutoff",
+      "source": "D:\\Arcade\\AI\\mame289\\src\\devices\\cpu\\m68000\\m68000gen.py",
+      "lines": [
+        1365,
+        1369
+      ],
+      "fact": "Generator emits m_next_state=m_int_next_state when nanocode ir_to_ird is true. The alternate microbit0 branch transfers IRC to IR."
+    },
+    {
+      "id": "mame_movew_order",
+      "source": "D:\\Arcade\\AI\\mame289\\src\\devices\\cpu\\m68000\\m68000-sdf.cpp",
+      "lines": [
+        60354,
+        60364,
+        60379,
+        60384,
+        60404
+      ],
+      "fact": "Opcode30fc handler writes the destination at60364, then samples interrupt state at60382 with IR-to-IRD, updates postincrement at60383 and chooses interrupt/decode state at60404. Full/partial direct/MMU variants preserve this ordering."
+    },
+    {
+      "id": "mame_dbra_order",
+      "source": "D:\\Arcade\\AI\\mame289\\src\\devices\\cpu\\m68000\\m68000-sdf.cpp",
+      "lines": [
+        103038,
+        103040,
+        103069,
+        103077,
+        103103,
+        103111
+      ],
+      "fact": "DBRA generated branch paths sample interrupt state at their explicit IR-to-IRD points; this is not an arbitrary check solely at execute_run loop entry."
+    },
+    {
+      "id": "mame_stack_pc",
+      "source": "D:\\Arcade\\AI\\mame289\\src\\devices\\cpu\\m68000\\m68000-sdf.cpp",
+      "lines": [
+        739,
+        750,
+        768
+      ],
+      "fact": "Interrupt sequence begins by forming m_pc-2 and then writing exception state; a logged internal request PC alone is not an architectural dispatch timestamp."
+    },
+    {
+      "id": "fx_sampling",
+      "source": "D:\\Arcade\\AI\\aCORES\\Alpha68k N\\rtl\\vendor\\fx68k\\fx68k.sv",
+      "lines": [
+        214,
+        223,
+        438,
+        453
+      ],
+      "fact": "fx68k samples external IPL into rIpl then iIpl on Phi2, requires stability to set intPend, updates updIll at enT4 from microLatch0 and inl at enT1 when updIll."
+    },
+    {
+      "id": "fx_exception_cutoff",
+      "source": "D:\\Arcade\\AI\\aCORES\\Alpha68k N\\rtl\\vendor\\fx68k\\fx68k.sv",
+      "lines": [
+        317,
+        324,
+        2107,
+        2109,
+        2126,
+        2128,
+        2150,
+        2153
+      ],
+      "fact": "IR forwarding is at enT1; group1LatchEn=microLatch0 AND(microLatch1 OR NOT microLatch4). At enT3 the sequencer captures intPend into rInterrupt; rInterrupt selects interrupt microsequence."
+    }
+  ],
+  "actual_native_recognition": [
+    {
+      "tile_write": {
+        "tick": 47925314,
+        "frame": 59,
+        "raster_x": 265,
+        "raster_y": 0,
+        "address": 266676,
+        "iack": 0,
+        "rw": 0,
+        "uds_n": 0,
+        "lds_n": 0,
+        "data_out": 32,
+        "data_in_before": 20936,
+        "fc_after": 5,
+        "pc_after": 2138,
+        "ir_after": 20936,
+        "ird_after": 12540,
+        "phase_after": 2,
+        "cpu_phase_after": 2
+      },
+      "assertion": {
+        "tick": 47849465,
+        "frame": 58,
+        "irq": "irq1"
+      },
+      "recognition": {
+        "rIpl": {
+          "tick": 47849469,
+          "frame": 59,
+          "relative_to_assertion": 4,
+          "clks_before": 17,
+          "enPhi1": 0,
+          "enPhi2": 1,
+          "enT1": 0,
+          "enT4": 1,
+          "updIll_before": 0,
+          "microLatch_before": 6314,
+          "microLatch_bit0": 0,
+          "pc_before": 2138,
+          "pc_after": 2138
+        },
+        "iIpl": {
+          "tick": 47849477,
+          "frame": 59,
+          "relative_to_assertion": 12,
+          "clks_before": 17,
+          "enPhi1": 0,
+          "enPhi2": 1,
+          "enT1": 0,
+          "enT4": 0,
+          "updIll_before": 0,
+          "microLatch_before": 6314,
+          "microLatch_bit0": 0,
+          "pc_before": 2140,
+          "pc_after": 2140
+        },
+        "intPend": {
+          "tick": 47849485,
+          "frame": 59,
+          "relative_to_assertion": 20,
+          "clks_before": 17,
+          "enPhi1": 0,
+          "enPhi2": 1,
+          "enT1": 0,
+          "enT4": 1,
+          "updIll_before": 0,
+          "microLatch_before": 72001,
+          "microLatch_bit0": 1,
+          "pc_before": 2140,
+          "pc_after": 2140
+        },
+        "inl": {
+          "tick": 47849489,
+          "frame": 59,
+          "relative_to_assertion": 24,
+          "clks_before": 18,
+          "enPhi1": 1,
+          "enPhi2": 0,
+          "enT1": 1,
+          "enT4": 0,
+          "updIll_before": 1,
+          "microLatch_before": 72001,
+          "microLatch_bit0": 1,
+          "pc_before": 2140,
+          "pc_after": 2140
+        },
+        "Iac": {
+          "tick": 47849601,
+          "frame": 59,
+          "relative_to_assertion": 136,
+          "clks_before": 18,
+          "enPhi1": 1,
+          "enPhi2": 0,
+          "enT1": 1,
+          "enT4": 0,
+          "updIll_before": 0,
+          "microLatch_before": 107264,
+          "microLatch_bit0": 0,
+          "pc_before": 2132,
+          "pc_after": 2132
+        }
+      },
+      "iack": {
+        "tick": 47849609,
+        "frame": 59,
+        "address": 16777202,
+        "inl": 1
+      },
+      "write_after_iack_ticks": 75705
+    },
+    {
+      "tile_write": {
+        "tick": 48003170,
+        "frame": 59,
+        "raster_x": 13,
+        "raster_y": 26,
+        "address": 267526,
+        "iack": 0,
+        "rw": 0,
+        "uds_n": 0,
+        "lds_n": 0,
+        "data_out": 32,
+        "data_in_before": 20936,
+        "fc_after": 5,
+        "pc_after": 2138,
+        "ir_after": 20936,
+        "ird_after": 12540,
+        "phase_after": 2,
+        "cpu_phase_after": 2
+      },
+      "assertion": {
+        "tick": 48000000,
+        "frame": 59,
+        "irq": "irq2"
+      },
+      "recognition": {
+        "rIpl": {
+          "tick": 48000005,
+          "frame": 59,
+          "relative_to_assertion": 5,
+          "clks_before": 17,
+          "enPhi1": 0,
+          "enPhi2": 1,
+          "enT1": 0,
+          "enT4": 0,
+          "updIll_before": 0,
+          "microLatch_before": 77472,
+          "microLatch_bit0": 0,
+          "pc_before": 2138,
+          "pc_after": 2138
+        },
+        "iIpl": {
+          "tick": 48000013,
+          "frame": 59,
+          "relative_to_assertion": 13,
+          "clks_before": 17,
+          "enPhi1": 0,
+          "enPhi2": 1,
+          "enT1": 0,
+          "enT4": 1,
+          "updIll_before": 0,
+          "microLatch_before": 6314,
+          "microLatch_bit0": 0,
+          "pc_before": 2138,
+          "pc_after": 2138
+        },
+        "intPend": {
+          "tick": 48000021,
+          "frame": 59,
+          "relative_to_assertion": 21,
+          "clks_before": 17,
+          "enPhi1": 0,
+          "enPhi2": 1,
+          "enT1": 0,
+          "enT4": 0,
+          "updIll_before": 0,
+          "microLatch_before": 6314,
+          "microLatch_bit0": 0,
+          "pc_before": 2140,
+          "pc_after": 2140
+        },
+        "inl": {
+          "tick": 48000033,
+          "frame": 59,
+          "relative_to_assertion": 33,
+          "clks_before": 18,
+          "enPhi1": 1,
+          "enPhi2": 0,
+          "enT1": 1,
+          "enT4": 0,
+          "updIll_before": 1,
+          "microLatch_before": 72001,
+          "microLatch_bit0": 1,
+          "pc_before": 2140,
+          "pc_after": 2140
+        },
+        "Iac": {
+          "tick": 48000145,
+          "frame": 59,
+          "relative_to_assertion": 145,
+          "clks_before": 18,
+          "enPhi1": 1,
+          "enPhi2": 0,
+          "enT1": 1,
+          "enT4": 0,
+          "updIll_before": 0,
+          "microLatch_before": 107264,
+          "microLatch_bit0": 0,
+          "pc_before": 2132,
+          "pc_after": 2132
+        }
+      },
+      "iack": {
+        "tick": 48000153,
+        "frame": 59,
+        "address": 16777204,
+        "inl": 2
+      },
+      "write_after_iack_ticks": 3017
+    }
+  ],
+  "qualified_conclusions": [
+    "Actual capture and ROM semantics show MAME completed one additional30fc MOVE.W before each affected IRQ stack save, whereas native completes those tile writes after the handler. SavedPC854 versus858 and savedA0 lower by2 are consistent with that operation boundary.",
+    "MAME and fx68k have concretely different interrupt input/exception-latching mechanisms despite equal microcode words. These can plausibly produce software order differences without proving an RTL defect.",
+    "MAME0.289 is a microcode-derived CPU with resumable bus handlers, so a blanket claim of atomic instruction-only Musashi timing is incorrect for this driver."
+  ],
+  "ranked_remaining_unknowns": [
+    {
+      "rank": 1,
+      "question": "Was MAME m_int_next_state unavailable at the relevant DBRA IR-to-IRD snapshot, then accepted after MOVE.W?",
+      "status": "Strong concrete candidate; source shows the cutoff mechanism, but original Lua capture does not record m_int_next_state/m_next_state or snapshot execution time."
+    },
+    {
+      "rank": 2,
+      "question": "Which exact fx microaddress/enT3 group1 capture corresponds to the observed pending transition?",
+      "status": "Raw microLatch0x11941 equals MAME/ROM words at0xc7,0x100,0x133,0x2d8. DBRA context is consistent with0xc7, but the observer did not retain microaddress,enT3 or rInterrupt; raw word/PC alone is not unique proof."
+    },
+    {
+      "rank": 3,
+      "question": "How do timer-event placement, bus access scheduling and the existing relative request offsets place assertion around each cutoff?",
+      "status": "Original write alignment documents finite offsets; no simultaneous MAME internal sample trace establishes unique causal contribution."
+    },
+    {
+      "rank": 4,
+      "question": "Which implementation reproduces actual PCB MC68000 interrupt sampling and bus phasing?",
+      "status": "No relevant physical PCB waveform or verified primary hardware erratum establishes correctness or authorizes a phase/CPU patch."
+    }
+  ],
+  "minimal_next_evidence_if_needed": "Observe MAME internal m_int_next_state/m_next_state and the existing DBRA/MOVE IR-to-IRD cutoff only around the original two IRQs, preserving its captured writes and input prefix. For native, decode/observe enT3,rInterrupt,microaddress only if needed to distinguish the actual exception latch. Do not run a full gameplay replay merely to re-earn existing fidelity.",
+  "physical_cause_proven": false,
+  "RTL_defect_proven": false,
+  "MAME_bug_proven": false,
+  "B16_closed": false,
+  "timing_fix_proven": false
+}

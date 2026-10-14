@@ -1,0 +1,48 @@
+{
+  "scope": "Two explicit Ubuntu WSL shell exit cases; native receipt matches observed OS return. This does not retroactively supply the missing SN exit receipt or simulate host observation loss.",
+  "cases": [
+    {
+      "expected": 0,
+      "observed_wsl_exit": 0,
+      "persisted_native_exit": 0,
+      "receipt": "_checks/native-exit-receipt-20261010/exit-0.txt",
+      "receipt_sha256": "9a271f2a916b0b6ee6cecb2426f0b3206ef074578be55d9bc94f6f3fe3ab86aa",
+      "argv": [
+        "wsl.exe",
+        "-d",
+        "Ubuntu",
+        "--cd",
+        "D:\\Arcade\\AI\\aCORES\\sherrif",
+        "--exec",
+        "/bin/bash",
+        "/mnt/d/Arcade/AI/aCORES/sherrif/tools/run_native_with_receipt.sh",
+        "/mnt/d/Arcade/AI/aCORES/sherrif/_checks/native-exit-receipt-20261010/exit-0.txt",
+        "/bin/sh",
+        "-c",
+        "exit 0"
+      ]
+    },
+    {
+      "expected": 7,
+      "observed_wsl_exit": 7,
+      "persisted_native_exit": 7,
+      "receipt": "_checks/native-exit-receipt-20261010/exit-7.txt",
+      "receipt_sha256": "10159baf262b43a92d95db59dae1f72c645127301661e0a3ce4e38b295a97c58",
+      "argv": [
+        "wsl.exe",
+        "-d",
+        "Ubuntu",
+        "--cd",
+        "D:\\Arcade\\AI\\aCORES\\sherrif",
+        "--exec",
+        "/bin/bash",
+        "/mnt/d/Arcade/AI/aCORES/sherrif/tools/run_native_with_receipt.sh",
+        "/mnt/d/Arcade/AI/aCORES/sherrif/_checks/native-exit-receipt-20261010/exit-7.txt",
+        "/bin/sh",
+        "-c",
+        "exit 7"
+      ]
+    }
+  ],
+  "wrapper_sha256": "293e23e90f2232bedb27902c7cc00b0cb4053c0bc41da7afb10801514fc6db69"
+}

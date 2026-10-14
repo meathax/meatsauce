@@ -1,0 +1,121 @@
+{
+  "scope": "Primary Intel interrupt/READY ordering and current vm80a adapter source; no physical origin or replay qualification",
+  "primary": {
+    "url": "https://www.bitsavers.org/components/intel/MCS80/98-153B_Intel_8080_Microcomputer_Systems_Users_Manual_197509.pdf",
+    "local_pdf": "D:\\Arcade\\AI\\aCORES\\meatsauce\\cores\\sheriff\\_checks\\manuals\\intel-8080-user-manual-197509.pdf",
+    "sha256": "d5982f96536b1dbecbeff409d2370970638716296dce7b318624d86221597a9e",
+    "printed_pages": [
+      "2-5",
+      "2-11"
+    ],
+    "page_indices": [
+      18,
+      24
+    ],
+    "figure": "2-8 Interrupt Timing",
+    "views": {
+      "intel-page18.png": {
+        "page_index": 18,
+        "pixel_viewport": [
+          0,
+          0,
+          1196,
+          1576
+        ],
+        "sha256": "b77484ec639a641fd74c04c63931f6b0a932c31ad3b448533577a51db5d4cad3"
+      },
+      "intel-page24.png": {
+        "page_index": 24,
+        "pixel_viewport": [
+          0,
+          0,
+          1188,
+          1576
+        ],
+        "sha256": "64dba73af05266a88f482ca1cfb8d1d9626030773e54d625b24e5c027e43608e"
+      }
+    }
+  },
+  "source_sha256": {
+    "rtl/n8080_vm80a_ce.v": "55b1df11c49078ebbaaa7343c430129a1f8fa58076a077a2abd1c22cdfde851a",
+    "rtl/n8080_cpu.sv": "fd46ad43ceee26003b788b06bc5f79f0e85ca9d4e52a6bb0573077a1682286c8",
+    "rtl/n8080_interrupt_path.sv": "785587a27bbacb5c33204d1d1e1833ec27223c934af13797eedaec8a36f96c97",
+    "docs/FIRST_IRQ_BOUNDARY.md": "3a3babe1687481d7a1336bd331eb4646f45dd2749eee726e89ca86507035273e",
+    "docs/CPU_PHASE_ORIGIN.md": "6a36a1ca95ba8dce58f6123eef74d62739a23e7d2cabbaa8e1092df566cb831d",
+    "docs/evidence/sheriff_first_irq_boundary.json": "a824cf2673afb6428072a8e56945244efb4b95587dea43e1139c2d54d633f074",
+    "docs/evidence/sheriff_reset_startup.json": "adc4c70fc2e78f8b6af2ee2662584fd8b802687696dd93a45ef512bc10e75969"
+  },
+  "supported_physical_ordering": [
+    "INT is asynchronously presented; acceptance requires INTE high and phi2 in the last state of the completing instruction.",
+    "Figure2-8 illustrates internal request storage during the phi2 high interval; it does not support treating the MAME opcode callback as a pin edge.",
+    "The following interrupt M1 presents status INTA/D0 with SYNC; PC is presented but not incremented; externally supplied instruction is received during T3.",
+    "READY is checked during phi2 of T2/TW; exit from TW requires READY setup before phi2 falling, then advances at the next phi1 rise."
+  ],
+  "current_vm80a_equations": {
+    "interrupt_input": "on enabled master edges with f2: intr<=pin_int",
+    "eligible": "irq=intr & inte & ~reset & ~hold",
+    "last_state_bridge": "on f2: mstart<=~ms0 & ~ms1; on f1: inta<=1 when irq & ((tw & sy_hlta)|(mstart & ~id_eidi))",
+    "priority": "later f1 clear wins if ~intr | id_eidi | (t5 & id_rst)",
+    "enable": "on f2: t1f1 & id_eidi writes inte=i[3]; t1f1 & sy_inta clears inte",
+    "ready": "ready=pin_ready|((m4|m5)&id_dad); f2 chooses TW or T3 from T2f1/TWf1",
+    "phase_gates": "f1 phase0..4; f2 phase8..19; phase wraps24->0; all donor sequential storage shares !pause CE",
+    "production_ready": "n8080_cpu compatibility facade ties ready=1"
+  },
+  "source_lines": {
+    "rtl/n8080_vm80a_ce.v": [
+      "271-273",
+      "397-420",
+      "488-518"
+    ],
+    "rtl/n8080_cpu.sv": [
+      "15-37",
+      "39-48",
+      "64-69"
+    ]
+  },
+  "field66_source_projection": {
+    "request_tick": 54067200,
+    "ANA_T1_bus_tag_relative": -75,
+    "final_ANA_phi2_last_master_sample_relative": 12,
+    "RST_T1_bus_tag_relative": 25,
+    "observed_ACK_relative": 27,
+    "native_return_pc": "0ff3",
+    "mame_return_pc": "0fef",
+    "interpretation": "The request precedes the source-model final ANA phi2 gate closure; following phi1 qualifies interrupt start. This preserves the existing explanation and negative, rather than establishing absolute PCB phase."
+  },
+  "remaining_unknowns": [
+    "Exact Sheriff CPU revision and AC input setup/hold aperture versus this manufacturer timing illustration.",
+    "Electrical INTR/INTE/clock delays and the PCB request edge relative to the rounded adapter master grid.",
+    "Physical CPU reset release and common raster/counter origin; the retained phase7 result is a harness/source origin only.",
+    "Production memory facade still has READY high; source-qualified physical read/write READY service has not been connected.",
+    "Internal vm80a latches are not directly measured physical CPU nodes; gate-level ordering consistency is not a silicon equivalence proof."
+  ],
+  "no_offset_selected": true,
+  "physical_acceptance_origin_qualified": false,
+  "physical_ac_timing_qualified": false,
+  "mame_bug_claimed": false,
+  "native_test_executed": false,
+  "production_source_changed": false,
+  "recovery": "D:\\Arcade\\AI\\aCORES\\meatsauce\\cores\\sheriff\\_checks\\agent-cpu-irq-acceptance-20261010",
+  "runtime_receipts": {
+    "extract_selected": {
+      "exit_code": 0,
+      "exec_chunk": "21ca85"
+    },
+    "render_and_bind": {
+      "exit_code": 0,
+      "exec_chunk": "a7693d"
+    },
+    "initial_fitz": {
+      "exit_code": 1,
+      "exec_chunk": "13fbd5",
+      "reason": "Bundled fitz absent"
+    },
+    "initial_wsl_pdftotext": {
+      "exit_code": 1,
+      "exec_chunk": "3966d9",
+      "reason": "Ubuntu pdftotext absent"
+    }
+  },
+  "producer_sha256": "00019b978a666e6a7f8e538b7223fc31d1fab8290a4031eb2bf5f832989311bc"
+}

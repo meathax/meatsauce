@@ -1,0 +1,11 @@
+# Real NEC V25-compatible protection subsystem for ga2 / arabfgt.
+# The universal production QSF includes this QIP alongside the standard-board
+# peripherals and defines S32_UNIVERSAL/S32_V25_HW. Standalone verification
+# should define S32_UNIVERSAL (or S32_V25_HW) when exercising this path.
+set V25_QIP_DIR $::quartus(qip_path)
+
+set_global_assignment -name QIP_FILE [file join $V25_QIP_DIR s80x86 s80x86_files.qip]
+set_global_assignment -name SYSTEMVERILOG_FILE [file join $V25_QIP_DIR s32_v25_rom_cache.sv]
+set_global_assignment -name SYSTEMVERILOG_FILE [file join $V25_QIP_DIR s32_v25_cpu.sv]
+
+unset V25_QIP_DIR

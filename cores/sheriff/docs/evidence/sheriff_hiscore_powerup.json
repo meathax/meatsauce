@@ -1,0 +1,89 @@
+{
+  "scope": "Idle hiscore CPU-pause power-up initialization and production score-service regression.",
+  "change": "Initialize pause_cpu to 1'b0; active restore/extract pause logic unchanged.",
+  "qualification_receipt": {
+    "finished_utc": "2026-10-09T16:31:01.6527358Z",
+    "exit_code": 0,
+    "started_utc": "2026-10-09T16:30:49.1474632Z"
+  },
+  "real_cpu_test_logs": {
+    "original": "paused=1 configured=0 phase_updates=0 post_reset_reads=600",
+    "fixed": "paused=0 configured=0 phase_updates=800 post_reset_reads=6"
+  },
+  "restore_receipt": {
+    "exit_code": 0,
+    "check": "real modified hiscore production descriptor restore/autosave/upload"
+  },
+  "retained_kernel_snapshots": {
+    "baseline": {
+      "time_ps": "62061954360",
+      "pll_locked": "1",
+      "lock_time_reached": "1",
+      "rom_loaded": "1",
+      "reset_active": "0",
+      "hs_pause": "0",
+      "board_paused": "0",
+      "game_paused": "0",
+      "cpu_phase": "23",
+      "cpu_pc": "3469",
+      "phase_updates_after_rom_loaded": "2521363"
+    },
+    "initial-hs0": {
+      "time_ps": "62061954360",
+      "pll_locked": "1",
+      "lock_time_reached": "1",
+      "rom_loaded": "1",
+      "reset_active": "0",
+      "hs_pause": "0",
+      "board_paused": "0",
+      "game_paused": "0",
+      "cpu_phase": "23",
+      "cpu_pc": "3469",
+      "phase_updates_after_rom_loaded": "2521363"
+    },
+    "initial-hs1": {
+      "time_ps": "62061954360",
+      "pll_locked": "1",
+      "lock_time_reached": "1",
+      "rom_loaded": "1",
+      "reset_active": "0",
+      "hs_pause": "1",
+      "board_paused": "0",
+      "game_paused": "1",
+      "cpu_phase": "0",
+      "cpu_pc": "60263",
+      "phase_updates_after_rom_loaded": "0"
+    }
+  },
+  "evidence_sha256": {
+    "rtl/vendor/hiscore/hiscore.v": "bdacc524a90f721d59530a9f4abea0495fb40b8681445146e060d4b3db6ddd7d",
+    "D:/Arcade/AI/aCORES/sherrif/tools/record_hiscore_powerup.py": "33ce23db871147469d8a319b8810b0bee7592b96efac5a9fd0fa0b34d57764f2",
+    "_checks/hiscore-powerup-qualification-20261010/receipt.json": "7d57a88fa228abe4f05f0edcc6675db863100bb9bf4ca9d089e804e48e3112c5",
+    "_checks/hiscore-powerup-qualification-20261010/restore-receipt.json": "a9a1ba2777773d736ac3bbfec35202934e8a899f97a0de7cb2c64407e1cd72c5",
+    "_checks/hiscore-powerup-qualification-20261010/harness.cpp": "fd581df2ad51abea1cb5846f5e8b5a478ec03a95b25314296845524aa03455ea",
+    "_checks/hiscore-powerup-qualification-20261010/hiscore_powerup_tb.sv": "7d8d909d90fb0309e15331a49f81a67edfe4213aae26d7ef801a12e37f7e0555",
+    "_checks/hiscore-powerup-qualification-20261010/run.sh": "7aa99d9c085cc145c3a860f71d25b2ad300e2523b82a91cc7f63c873f9f42205",
+    "_checks/hiscore-powerup-qualification-20261010/hiscore_original.v": "668f30e01f0062e1fc120c9b1d6f7228dd428ede5943c2ff649ebfcb3364e697",
+    "_checks/hiscore-powerup-qualification-20261010/hiscore_fixed.v": "bdacc524a90f721d59530a9f4abea0495fb40b8681445146e060d4b3db6ddd7d",
+    "_checks/hiscore-powerup-qualification-20261010/run-original.log": "f7f614f18137b4f132e1e093df5f5c4cfcb62bb6e21a8c811dbaa2ac8d406756",
+    "_checks/hiscore-powerup-qualification-20261010/run-fixed.log": "90ac6791cfe299f4fb541ef1a7383433a8236656c9dc2e1cd89c337e27efa5ff",
+    "_checks/hiscore-powerup-qualification-20261010/restore.stdout.log": "0da2b0d2ffd6cfd45d1f868010a0616822c4e2e91ded94f4c85c37a00a461bc0",
+    "sim/hiscore_qualification.cpp": "f7578c52722dbc8140fcbcb776e9d3eef32c6af852fac0e96c6880a050129fe5",
+    "sim/results/mra/sheriff_hiscore.cfg": "4e66d2d00d11dce87d79393795442bff1cf8c19394ab836e13552adc840d9436",
+    "_checks/hiscore-pause-probe-20261010/cases-terminal.json": "a0dd65f30c98039cd1857f175566f216513e0926689f2e5d8177cd72cc536f83",
+    "_checks/hiscore-pause-probe-20261010/build-receipt.json": "6fd58ffdac3256effb2f4027c2cc804eaa8ddc87c66b17e2b620475888f880a2",
+    "_checks/hiscore-pause-probe-20261010/baseline/reset_timeline.csv": "48789c7b90c5224781f84661491a4eb651213925055ea5a486f37c48d8f1f327",
+    "_checks/hiscore-pause-probe-20261010/initial-hs0/reset_timeline.csv": "48789c7b90c5224781f84661491a4eb651213925055ea5a486f37c48d8f1f327",
+    "_checks/hiscore-pause-probe-20261010/initial-hs1/reset_timeline.csv": "78afb88cb122fd47868f224d4bc8d7f798c947215383a767d0b6ecb0217f1a09"
+  },
+  "scoped_fix_qualified": true,
+  "limitations": [
+    "Original post_reset_reads=600 counts a stuck level, not CPU transactions.",
+    "Retained-kernel baseline does not reproduce the original hostile black boot.",
+    "Original Preflight F-001/F-002 and full current wrapper qualification remain open.",
+    "Modified wrapper source still requires current fit/STA/resource reports."
+  ],
+  "original_preflight_failure_resolved": false,
+  "release_qualified": false,
+  "rbf_built": false
+}

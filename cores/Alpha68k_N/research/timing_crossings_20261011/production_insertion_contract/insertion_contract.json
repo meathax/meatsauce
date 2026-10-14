@@ -1,0 +1,51 @@
+{
+  "status": "prepare_only_reviewed_production_insertion_contract",
+  "source_sdc": "D:\\Arcade\\AI\\aCORES\\Alpha68k N\\research\\timing_crossings_20261011\\game_clock_group_candidate.sdc",
+  "canonical_destination_sdc": "D:\\Arcade\\AI\\aCORES\\meatsauce-alpha68kn\\cores\\Alpha68k_N\\constraints\\alpha68kn_game_groups.sdc",
+  "expected_sdc_sha256": "8ef8f941d4c769a0bca7fbafd5aeb04de2c8eee1e4ec4151c02732fdc61c0d8a",
+  "qsf_line_inserted": 79,
+  "qsf_exact_new_assignment": "set_global_assignment -name SDC_FILE constraints/alpha68kn_game_groups.sdc",
+  "qsf_anchor": "source files.qip",
+  "qsf_following_original_line": "set_instance_assignment -name PARTITION_HIERARCHY root_partition -to | -section_id Top",
+  "ordering": "sys/sys.tcl -> sys/sys.qip:3 sys_top.sdc; files.qip:18 Alpha68k_N.sdc; final direct game-groups assignment. Both original files derive PLL clocks before candidate native get_clocks guards.",
+  "pinned_canonical_inputs": [
+    {
+      "path": "D:\\Arcade\\AI\\aCORES\\meatsauce-alpha68kn\\cores\\Alpha68k_N\\Alpha68k_N.qsf",
+      "sha256": "7b560a94ac5eb7c4800ffbd0dc47940eb911862fa78b1d5ea4a603e3f7e8e7e6",
+      "bytes": 3849
+    },
+    {
+      "path": "D:\\Arcade\\AI\\aCORES\\meatsauce-alpha68kn\\cores\\Alpha68k_N\\Alpha68k_N.sdc",
+      "sha256": "89cb176f5eeb8c2adf59d758e56a605bd711631a4bccb92e77c77f995b62e71f",
+      "bytes": 72
+    },
+    {
+      "path": "D:\\Arcade\\AI\\aCORES\\meatsauce-alpha68kn\\cores\\Alpha68k_N\\sys\\sys_top.sdc",
+      "sha256": "0a5fa4015b82ad7ce38e56d1ae4aadea6209af59c5dd9eff56a11139cf16ce86",
+      "bytes": 3642
+    },
+    {
+      "path": "D:\\Arcade\\AI\\aCORES\\meatsauce-alpha68kn\\cores\\Alpha68k_N\\files.qip",
+      "sha256": "826d76afdb60042064ec0c2fe6d6aa7d980ef81d6993b6f89932b14bb004e17f",
+      "bytes": 1700
+    },
+    {
+      "path": "D:\\Arcade\\AI\\aCORES\\meatsauce-alpha68kn\\cores\\Alpha68k_N\\sys\\sys.tcl",
+      "sha256": "e9ab2b7c89b4347854810387550a65458aa3ec9de1bd26ad74328d73376f6a88",
+      "bytes": 11160
+    },
+    {
+      "path": "D:\\Arcade\\AI\\aCORES\\meatsauce-alpha68kn\\cores\\Alpha68k_N\\sys\\sys.qip",
+      "sha256": "ff265ba87bfa2922eb5870de27978b2dc55e32e1576d610e266ebffd6ec896d7",
+      "bytes": 3341
+    }
+  ],
+  "staged_qsf_sha256": "57c6729be203f2a8289534ad3e686d842add90fb11d8e75fd5526f3bf10bec31",
+  "patch_sha256": "3c80ef515b34293c40f1fb2d989726e33cbb4877c1cb64fea1bdbd7d3a5508e5",
+  "only_qsf_statement_added": true,
+  "original_sdc_and_framework_unchanged": true,
+  "canonical_edits_performed": false,
+  "compiler_jobs_launched": false,
+  "RBF": false,
+  "limit": "Root integration owner applies once. Check workspaces force RBF generation OFF; this prepare-only contract does not authorize assembly or qualify external I/O."
+}

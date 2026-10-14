@@ -1,0 +1,275 @@
+{
+  "scope": "Real fx68k/T80, live strip RAM, RTL renderer/palette/SDRAM controller; external SDRAM model only.",
+  "limits": "Boot/capture plumbing only. No audio-chip, gameplay, late-stage, or hardware acceptance implied.",
+  "checks": {
+    "process_exit_zero": true,
+    "all_frames_present": true,
+    "frame_sequence": true,
+    "complete_pixels": true,
+    "no_duplicate_pixels": true,
+    "no_renderer_deadlines": true,
+    "no_renderer_overflows": true,
+    "no_unmapped_cpu_access": true,
+    "real_cpu_transactions": true,
+    "final_capture_present": true,
+    "native_rgb_sizes": true
+  },
+  "passed": true,
+  "frames": 600,
+  "final_counters": {
+    "frame": "600",
+    "main_address": "13356",
+    "sound_address": "1202",
+    "main_transactions": "13886750",
+    "work_writes": "62018",
+    "strip_writes": "147081",
+    "mcu_transactions": "557",
+    "irq1_acks": "544",
+    "irq2_acks": "552",
+    "unmapped": "0",
+    "pixels": "57344",
+    "duplicates": "0",
+    "worst_line_cycles": "2280",
+    "completed_lines": "158376",
+    "deadline_misses": "0",
+    "row_overflows": "0"
+  },
+  "images": [
+    {
+      "path": "D:\\Arcade\\AI\\aCORES\\Alpha68k N\\sim\\captures\\rtl\\kyros_system600\\frame_000001.rgb",
+      "sha256": "9a4b97b4b079955bac86930724c8bcdd30aba4732f1dcbcbac2ec270f5f5e485",
+      "bytes": 172032
+    },
+    {
+      "path": "D:\\Arcade\\AI\\aCORES\\Alpha68k N\\sim\\captures\\rtl\\kyros_system600\\frame_000002.rgb",
+      "sha256": "9a4b97b4b079955bac86930724c8bcdd30aba4732f1dcbcbac2ec270f5f5e485",
+      "bytes": 172032
+    },
+    {
+      "path": "D:\\Arcade\\AI\\aCORES\\Alpha68k N\\sim\\captures\\rtl\\kyros_system600\\frame_000003.rgb",
+      "sha256": "9a4b97b4b079955bac86930724c8bcdd30aba4732f1dcbcbac2ec270f5f5e485",
+      "bytes": 172032
+    },
+    {
+      "path": "D:\\Arcade\\AI\\aCORES\\Alpha68k N\\sim\\captures\\rtl\\kyros_system600\\frame_000004.rgb",
+      "sha256": "9a4b97b4b079955bac86930724c8bcdd30aba4732f1dcbcbac2ec270f5f5e485",
+      "bytes": 172032
+    },
+    {
+      "path": "D:\\Arcade\\AI\\aCORES\\Alpha68k N\\sim\\captures\\rtl\\kyros_system600\\frame_000005.rgb",
+      "sha256": "9a4b97b4b079955bac86930724c8bcdd30aba4732f1dcbcbac2ec270f5f5e485",
+      "bytes": 172032
+    },
+    {
+      "path": "D:\\Arcade\\AI\\aCORES\\Alpha68k N\\sim\\captures\\rtl\\kyros_system600\\frame_000006.rgb",
+      "sha256": "9a4b97b4b079955bac86930724c8bcdd30aba4732f1dcbcbac2ec270f5f5e485",
+      "bytes": 172032
+    },
+    {
+      "path": "D:\\Arcade\\AI\\aCORES\\Alpha68k N\\sim\\captures\\rtl\\kyros_system600\\frame_000007.rgb",
+      "sha256": "9a4b97b4b079955bac86930724c8bcdd30aba4732f1dcbcbac2ec270f5f5e485",
+      "bytes": 172032
+    },
+    {
+      "path": "D:\\Arcade\\AI\\aCORES\\Alpha68k N\\sim\\captures\\rtl\\kyros_system600\\frame_000008.rgb",
+      "sha256": "9a4b97b4b079955bac86930724c8bcdd30aba4732f1dcbcbac2ec270f5f5e485",
+      "bytes": 172032
+    },
+    {
+      "path": "D:\\Arcade\\AI\\aCORES\\Alpha68k N\\sim\\captures\\rtl\\kyros_system600\\frame_000009.rgb",
+      "sha256": "9a4b97b4b079955bac86930724c8bcdd30aba4732f1dcbcbac2ec270f5f5e485",
+      "bytes": 172032
+    },
+    {
+      "path": "D:\\Arcade\\AI\\aCORES\\Alpha68k N\\sim\\captures\\rtl\\kyros_system600\\frame_000010.rgb",
+      "sha256": "9a4b97b4b079955bac86930724c8bcdd30aba4732f1dcbcbac2ec270f5f5e485",
+      "bytes": 172032
+    },
+    {
+      "path": "D:\\Arcade\\AI\\aCORES\\Alpha68k N\\sim\\captures\\rtl\\kyros_system600\\frame_000011.rgb",
+      "sha256": "9a4b97b4b079955bac86930724c8bcdd30aba4732f1dcbcbac2ec270f5f5e485",
+      "bytes": 172032
+    },
+    {
+      "path": "D:\\Arcade\\AI\\aCORES\\Alpha68k N\\sim\\captures\\rtl\\kyros_system600\\frame_000012.rgb",
+      "sha256": "9a4b97b4b079955bac86930724c8bcdd30aba4732f1dcbcbac2ec270f5f5e485",
+      "bytes": 172032
+    },
+    {
+      "path": "D:\\Arcade\\AI\\aCORES\\Alpha68k N\\sim\\captures\\rtl\\kyros_system600\\frame_000013.rgb",
+      "sha256": "9a4b97b4b079955bac86930724c8bcdd30aba4732f1dcbcbac2ec270f5f5e485",
+      "bytes": 172032
+    },
+    {
+      "path": "D:\\Arcade\\AI\\aCORES\\Alpha68k N\\sim\\captures\\rtl\\kyros_system600\\frame_000014.rgb",
+      "sha256": "9a4b97b4b079955bac86930724c8bcdd30aba4732f1dcbcbac2ec270f5f5e485",
+      "bytes": 172032
+    },
+    {
+      "path": "D:\\Arcade\\AI\\aCORES\\Alpha68k N\\sim\\captures\\rtl\\kyros_system600\\frame_000015.rgb",
+      "sha256": "9a4b97b4b079955bac86930724c8bcdd30aba4732f1dcbcbac2ec270f5f5e485",
+      "bytes": 172032
+    },
+    {
+      "path": "D:\\Arcade\\AI\\aCORES\\Alpha68k N\\sim\\captures\\rtl\\kyros_system600\\frame_000016.rgb",
+      "sha256": "9a4b97b4b079955bac86930724c8bcdd30aba4732f1dcbcbac2ec270f5f5e485",
+      "bytes": 172032
+    },
+    {
+      "path": "D:\\Arcade\\AI\\aCORES\\Alpha68k N\\sim\\captures\\rtl\\kyros_system600\\frame_000030.rgb",
+      "sha256": "9a4b97b4b079955bac86930724c8bcdd30aba4732f1dcbcbac2ec270f5f5e485",
+      "bytes": 172032,
+      "mame_diagnostic": {
+        "reference": "D:\\Arcade\\AI\\aCORES\\Alpha68k N\\sim\\captures\\kyros\\gameplay\\frame_000030.display.rgb",
+        "sha256": "9a4b97b4b079955bac86930724c8bcdd30aba4732f1dcbcbac2ec270f5f5e485",
+        "different_pixels": 0,
+        "scope": "Same frame labels; later CPU/event phase alignment requires separate evidence."
+      }
+    },
+    {
+      "path": "D:\\Arcade\\AI\\aCORES\\Alpha68k N\\sim\\captures\\rtl\\kyros_system600\\frame_000060.rgb",
+      "sha256": "d7a148761d2ee6bd35565a5ee9726655000d3723f0e19182dd3f6f67bfec3c8c",
+      "bytes": 172032
+    },
+    {
+      "path": "D:\\Arcade\\AI\\aCORES\\Alpha68k N\\sim\\captures\\rtl\\kyros_system600\\frame_000090.rgb",
+      "sha256": "3bcac5c304a6099c1684bffb103dc2964200a2616be78baa744dcf123d7f8e72",
+      "bytes": 172032,
+      "mame_diagnostic": {
+        "reference": "D:\\Arcade\\AI\\aCORES\\Alpha68k N\\sim\\captures\\kyros\\gameplay\\frame_000090.display.rgb",
+        "sha256": "3bcac5c304a6099c1684bffb103dc2964200a2616be78baa744dcf123d7f8e72",
+        "different_pixels": 0,
+        "scope": "Same frame labels; later CPU/event phase alignment requires separate evidence."
+      }
+    },
+    {
+      "path": "D:\\Arcade\\AI\\aCORES\\Alpha68k N\\sim\\captures\\rtl\\kyros_system600\\frame_000120.rgb",
+      "sha256": "3bcac5c304a6099c1684bffb103dc2964200a2616be78baa744dcf123d7f8e72",
+      "bytes": 172032
+    },
+    {
+      "path": "D:\\Arcade\\AI\\aCORES\\Alpha68k N\\sim\\captures\\rtl\\kyros_system600\\frame_000150.rgb",
+      "sha256": "f73d4774303b1ca5ec5994952927c0c83fde8c1c21f745ed1c856ebff5e7cdc2",
+      "bytes": 172032
+    },
+    {
+      "path": "D:\\Arcade\\AI\\aCORES\\Alpha68k N\\sim\\captures\\rtl\\kyros_system600\\frame_000180.rgb",
+      "sha256": "65e4f9c57a5dc7c50703a27234b3d97932b2ce8bbcdb5382b7c0b7c88fd7fa3d",
+      "bytes": 172032
+    },
+    {
+      "path": "D:\\Arcade\\AI\\aCORES\\Alpha68k N\\sim\\captures\\rtl\\kyros_system600\\frame_000210.rgb",
+      "sha256": "159db246e6c1ca749ddf242ec71367a07727892df17a5f760446eb58941b8cdd",
+      "bytes": 172032
+    },
+    {
+      "path": "D:\\Arcade\\AI\\aCORES\\Alpha68k N\\sim\\captures\\rtl\\kyros_system600\\frame_000240.rgb",
+      "sha256": "159db246e6c1ca749ddf242ec71367a07727892df17a5f760446eb58941b8cdd",
+      "bytes": 172032,
+      "mame_diagnostic": {
+        "reference": "D:\\Arcade\\AI\\aCORES\\Alpha68k N\\sim\\captures\\kyros\\gameplay\\frame_000240.display.rgb",
+        "sha256": "159db246e6c1ca749ddf242ec71367a07727892df17a5f760446eb58941b8cdd",
+        "different_pixels": 0,
+        "scope": "Same frame labels; later CPU/event phase alignment requires separate evidence."
+      }
+    },
+    {
+      "path": "D:\\Arcade\\AI\\aCORES\\Alpha68k N\\sim\\captures\\rtl\\kyros_system600\\frame_000270.rgb",
+      "sha256": "159db246e6c1ca749ddf242ec71367a07727892df17a5f760446eb58941b8cdd",
+      "bytes": 172032
+    },
+    {
+      "path": "D:\\Arcade\\AI\\aCORES\\Alpha68k N\\sim\\captures\\rtl\\kyros_system600\\frame_000300.rgb",
+      "sha256": "7f943b9faa4dbf246526e278a9e1a4bce65587ac9c5d30cfbdd0517c922cddc0",
+      "bytes": 172032
+    },
+    {
+      "path": "D:\\Arcade\\AI\\aCORES\\Alpha68k N\\sim\\captures\\rtl\\kyros_system600\\frame_000330.rgb",
+      "sha256": "c70ec6bd6464f4da16a10cbc23eb328327aea1a578a4089eade1ae6f6e39178f",
+      "bytes": 172032
+    },
+    {
+      "path": "D:\\Arcade\\AI\\aCORES\\Alpha68k N\\sim\\captures\\rtl\\kyros_system600\\frame_000360.rgb",
+      "sha256": "c70ec6bd6464f4da16a10cbc23eb328327aea1a578a4089eade1ae6f6e39178f",
+      "bytes": 172032,
+      "mame_diagnostic": {
+        "reference": "D:\\Arcade\\AI\\aCORES\\Alpha68k N\\sim\\captures\\kyros\\gameplay\\frame_000360.display.rgb",
+        "sha256": "c70ec6bd6464f4da16a10cbc23eb328327aea1a578a4089eade1ae6f6e39178f",
+        "different_pixels": 0,
+        "scope": "Same frame labels; later CPU/event phase alignment requires separate evidence."
+      }
+    },
+    {
+      "path": "D:\\Arcade\\AI\\aCORES\\Alpha68k N\\sim\\captures\\rtl\\kyros_system600\\frame_000390.rgb",
+      "sha256": "9a774e8ed2e75f7638878e0ad0cbb2fc5b3a8d11b9f9a4cb7fa94566170ca271",
+      "bytes": 172032
+    },
+    {
+      "path": "D:\\Arcade\\AI\\aCORES\\Alpha68k N\\sim\\captures\\rtl\\kyros_system600\\frame_000420.rgb",
+      "sha256": "548e79ae4b09aa7169811a125f4fe8e80e251f2b03c6110605f4a0b7a308c0a9",
+      "bytes": 172032
+    },
+    {
+      "path": "D:\\Arcade\\AI\\aCORES\\Alpha68k N\\sim\\captures\\rtl\\kyros_system600\\frame_000450.rgb",
+      "sha256": "c70ec6bd6464f4da16a10cbc23eb328327aea1a578a4089eade1ae6f6e39178f",
+      "bytes": 172032
+    },
+    {
+      "path": "D:\\Arcade\\AI\\aCORES\\Alpha68k N\\sim\\captures\\rtl\\kyros_system600\\frame_000480.rgb",
+      "sha256": "c70ec6bd6464f4da16a10cbc23eb328327aea1a578a4089eade1ae6f6e39178f",
+      "bytes": 172032
+    },
+    {
+      "path": "D:\\Arcade\\AI\\aCORES\\Alpha68k N\\sim\\captures\\rtl\\kyros_system600\\frame_000510.rgb",
+      "sha256": "8ab114ca0653affc522a28c4ffb3879b00b7ec1eb3286dfc2103bcf7140528cc",
+      "bytes": 172032
+    },
+    {
+      "path": "D:\\Arcade\\AI\\aCORES\\Alpha68k N\\sim\\captures\\rtl\\kyros_system600\\frame_000540.rgb",
+      "sha256": "3246babe9a469ed27de8b8b621a89f7058947d302a95d6de217ef570c95b8616",
+      "bytes": 172032
+    },
+    {
+      "path": "D:\\Arcade\\AI\\aCORES\\Alpha68k N\\sim\\captures\\rtl\\kyros_system600\\frame_000570.rgb",
+      "sha256": "53cef81ac915460e3b3f49af242d6727070ff5ab3ae100ee948707be2575fb85",
+      "bytes": 172032
+    },
+    {
+      "path": "D:\\Arcade\\AI\\aCORES\\Alpha68k N\\sim\\captures\\rtl\\kyros_system600\\frame_000600.rgb",
+      "sha256": "53cef81ac915460e3b3f49af242d6727070ff5ab3ae100ee948707be2575fb85",
+      "bytes": 172032,
+      "mame_diagnostic": {
+        "reference": "D:\\Arcade\\AI\\aCORES\\Alpha68k N\\sim\\captures\\kyros\\gameplay\\frame_000600.display.rgb",
+        "sha256": "870367cea2cc090698af979491e7a9c75e56ca3048a484753ad11186728f9bc8",
+        "different_pixels": 458,
+        "scope": "Same frame labels; later CPU/event phase alignment requires separate evidence."
+      }
+    }
+  ],
+  "exit_receipt": {
+    "command": [
+      "wsl.exe",
+      "-d",
+      "Ubuntu",
+      "--cd",
+      "D:\\Arcade\\AI\\aCORES\\Alpha68k N\\sim\\build",
+      "--exec",
+      "./alpha68kn_system_sim",
+      "../../roms/kyros/download.bin",
+      "600",
+      "../captures/rtl/kyros_system600",
+      "gameplay"
+    ],
+    "started": 1791512833.0386038,
+    "ended": 1791515183.5197418,
+    "exit_code": 0
+  },
+  "source_manifest": "D:\\Arcade\\AI\\aCORES\\Alpha68k N\\sim\\build\\system_inputs.sha256",
+  "source_manifest_sha256": "962ed15cd34fe0da1e2a4206c3cc8859e2ec12d24102cacde187d7f61c356244",
+  "evidence_sha256": {
+    "frames.csv": "3231de38e4674ae84aba823b98ed4214b76eab56212a815073388ffe035bc63f",
+    "bus.csv": "f559b05f4a8e2418c41ac2381026e8336012a62c2f383ec853189e3870102505",
+    "work.bin": "3b11d8059404dc52b11d9ede224b2a07d9d4dcd9d7fadb2fe720eca5d32a3650",
+    "sprites.bin": "f6382624b626e8502b834f27489190e5a4c211e781befc2add292984cecce677"
+  }
+}

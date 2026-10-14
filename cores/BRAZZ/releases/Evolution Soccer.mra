@@ -1,0 +1,50 @@
+<?xml version='1.0' encoding='utf-8'?>
+<misterromdescription>
+  <name>Evolution Soccer</name>
+  <setname>evosocc</setname>
+  <rbf>Arcade-CrystalSystem</rbf>
+  <mameversion>0289</mameversion>
+  <year>2001</year>
+  <manufacturer>Evoga / BrezzaSoft</manufacturer>
+  <category>Sports / Soccer</category>
+  <players>2</players>
+  <joystick>8-way</joystick>
+  <rotation>horizontal</rotation>
+  <resolution>15kHz</resolution>
+  <homebrew>no</homebrew>
+  <bootleg>no</bootleg>
+  <rom index="1">
+    <part>43 52 59 53 01 02 03 00 00 00 00 00 00 00 00 00</part>
+  </rom>
+  <rom index="0" zip="evosocc.zip|crysbios.zip" address="0x30000000">
+    <part name="bcsv0001u01" crc="2581a0ea" />
+    <part name="bcsv0001u02" crc="47ef1794" />
+    <part name="bcsv0001u03" crc="f396a2ec" offset="0x0" length="0x971058" />
+    <part>7C 90</part>
+    <part name="bcsv0001u03" crc="f396a2ec" offset="0x97105a" length="0x6" />
+    <part>01 90</part>
+    <part name="bcsv0001u03" crc="f396a2ec" offset="0x971062" length="0x282c" />
+    <part>FC 90</part>
+    <part>01 90</part>
+    <part name="bcsv0001u03" crc="f396a2ec" offset="0x973892" length="0x163e" />
+    <part>FC 90</part>
+    <part>01 90</part>
+    <part name="bcsv0001u03" crc="f396a2ec" offset="0x974ed4" length="0x3162" />
+    <part>0C 90</part>
+    <part>03 83</part>
+    <part name="bcsv0001u03" crc="f396a2ec" offset="0x97803a" length="0x687fc6" />
+    <part name="mx27l1000.u14" crc="beff39a9" />
+  </rom>
+  <nvram index="4" size="65536" />
+  <switches default="FF" base="0">
+    <dip name="Pause" bits="0" ids="On,Off" />
+    <dip name="Free Play" bits="1" ids="On,Off" />
+    <dip name="Unknown DSW 3" bits="2" ids="On,Off" />
+    <dip name="Unknown DSW 4" bits="3" ids="On,Off" />
+    <dip name="Unknown DSW 5" bits="4" ids="On,Off" />
+    <dip name="Unknown DSW 6" bits="5" ids="On,Off" />
+    <dip name="Unknown DSW 7" bits="6" ids="On,Off" />
+    <dip name="Test" bits="7" ids="On,Off" />
+  </switches>
+  <buttons names="Shoot/Pass/Slide,High Pass/Tackle,Turbo,Special,Start,Coin,Pause,Service Credit,Service Menu" default="A,B,X,Y,Start,Select,L,-,-" />
+</misterromdescription>

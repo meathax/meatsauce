@@ -1,0 +1,61 @@
+{
+  "scope": "Aggregate-only adjacent PROM pairs and retained CK/4-to-pixel scheduling; no native rerun or ROM bytes exported",
+  "private_asset": {
+    "parent_sha256": "082f0343064de9c9fc0c926aeae7d3414b7d890d3820c10899a37c64b80de997",
+    "prom_offset": "0x4400",
+    "prom_length": 1024,
+    "prom_sha1": "197eeb008c140558e7c1ab2b2bd0f6a27096877c",
+    "prom_crc32": "820f8cdd"
+  },
+  "even_odd_column_pairs": {
+    "pairs": 512,
+    "rgb_equal": 406,
+    "O4_equal": 408,
+    "both_equal": 336,
+    "all_rgb_equal_rows": 4,
+    "all_O4_equal_rows": 4
+  },
+  "odd_next_even_pairs_no_wrap": {
+    "pairs": 480,
+    "rgb_equal": 426,
+    "O4_equal": 432,
+    "both_equal": 380,
+    "all_rgb_equal_rows": 4,
+    "all_O4_equal_rows": 4
+  },
+  "odd_next_even_pairs_with_row_wrap": {
+    "pairs": 512,
+    "rgb_equal": 430,
+    "O4_equal": 464,
+    "both_equal": 384,
+    "all_rgb_equal_rows": 4,
+    "all_O4_equal_rows": 4
+  },
+  "timebase": {
+    "primary_net": "Counter and serializer common CK/4",
+    "mame_source": "n8080.cpp:1172: 20.160MHz crystal /4, 320 total horizontal pixel clocks",
+    "retained_native": "1280 common counter clocks = 1024 active +256 blank; 128 byte loads, first byte after8 active clocks",
+    "conclusion": "Existing source/native convention treats one common CK/4 counter enable as one pixel advance; no evidence supports dividing the corrected16-counter-clock capture period into8 pixels"
+  },
+  "address_order": {
+    "pre_capture": "phase15: H0=!4I_QD XOR F, thus H0=F; upper4J remains pre-edge",
+    "post_capture": "phase0: upper4J advances and H0 becomes!F; PROM address changes on the same edge",
+    "limit": "Pair equality alone cannot determine whether physical latch samples old or settled new PROM, nor align serializer fetch/output phase or MAME visible coordinates"
+  },
+  "mame_source_sha256": "b6e5356393e07f83f2842346cf530f84874978153f3ff5ba966daa8d6e209b6d",
+  "mame_excerpt_sha256": "88f014c334609115fbb1d4a963f9a5bdb25fae3532f1c903fbaf3dcead0197cd",
+  "source_sha256": {
+    "docs/evidence/sheriff_color_clock_review.json": "0fcd551d0aee068d1b8409424690000d575d7106e91157a122fe25ab82b02536",
+    "docs/evidence/sheriff_pio_counter_bridge.json": "bd82bec1f6afe4d4e896483b45a2a96a6486621253a02d08cbb171a5b69b505a",
+    "docs/evidence/sheriff_horizontal_video_path.json": "38aea45dc6cc72337b089227f1676d12232b1b2d6c5288f036675fcc52bb56cc",
+    "docs/evidence/sheriff_vertical_network.json": "b77e10b4cb26f76e624aa20828ef4782df2a8ef07991560b02022081ff167024",
+    "docs/evidence/sheriff_color_clock_native.json": "363ca883b889be755e9cf121fdcf11471aac216731ac5e95a322d175afc3d14f",
+    "rtl/n8080_video_path.sv": "0c309f47bbc43170b88f8165f3d9fb891aa26b2cf908eda55cbfa1cc1bf056f9"
+  },
+  "native_report_sha256": "363ca883b889be755e9cf121fdcf11471aac216731ac5e95a322d175afc3d14f",
+  "qualification": "Static even/odd PROM equality supports repeated8-pixel tile colors within16-pixel groups only if both planes match; exact physical addressing/capture/serializer alignment remains unqualified",
+  "production_modified": false,
+  "simulation_rerun": false,
+  "electrical_qualified": false,
+  "mame_raster_equivalence": false
+}

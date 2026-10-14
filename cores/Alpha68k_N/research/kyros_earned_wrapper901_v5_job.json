@@ -1,0 +1,46 @@
+{
+  "worker_pid": 18626,
+  "started": 1791590752.4179506,
+  "source_parent": "2156d55c1f90e7c68c840a5fd59090096acc3261",
+  "runner_sha256": "068af06d6b8c6e0aced23bd67250e6eeccf15404ccaa37be5c575a1a3fa5cc4c",
+  "source": {
+    "canonical_host": "sim/wrapper_main.cpp",
+    "canonical_host_sha256": "ba687d84a7e408cccf58a33cc71d6a0b2fd46d63bf70d251abe0b5965b674a0e",
+    "derived_host": "sim/captures/diagnostics/earned_wrapper_v5/wrapper_main.cpp",
+    "derived_host_sha256": "b7624a03353fe3ef70caa58f7a5baf8cbf1428db897febe92e3829a98508f6cf",
+    "canonical_builder_sha256": "c7b7153e82bb24246a81ede9365d1f9437d890d528e9d2519ad46ec4abab6a7f",
+    "derived_builder": "sim/captures/diagnostics/earned_wrapper_v5/build.sh",
+    "derived_builder_sha256": "0a7fe4b0b4cdbf05275140d869bf9a08a1fc1bb1296fdecc47d7010d35310ac7",
+    "scope": "Actual wrapper CPU gameplay via real HPS ports, real donor save, CPU reset clears score then real donor restore. No synthetic RAM writes. No production RTL changes; qualification pending.",
+    "generator_sha256": "d69a446c4b9204e45010b940b0fe90c59f97edd1a4eb6a08e14a99f3f282ab4b",
+    "derived_runner": "sim/captures/diagnostics/earned_wrapper_v5/runner.py",
+    "derived_runner_sha256": "068af06d6b8c6e0aced23bd67250e6eeccf15404ccaa37be5c575a1a3fa5cc4c",
+    "parent_source_sha256": "cbc441d17379cc57c0d43c3281e8d79eca4cafa8dc0f0a6300e0a72c3dc2e287",
+    "reset_probe_sha256": "a6d95ec51005aa3027f1b72ed2c2cea2ac51fc04d94c7e8da5db2be1733b172c",
+    "reset_limit_steps": 6000,
+    "reset_step_ticks": 20000,
+    "change": "Private host loads actual earned dump before reset release; observes CPU-cleared best; releases manual pause and waits for real donor completion. Donor validates configured markers. All178 restored bytes and earned best must match; production RTL unchanged.",
+    "failure_diagnosis_sha256": "6baba380158fa862c9afc16ca518bb703689f2bafcc61a6de861b491daf7b9c7"
+  },
+  "ports_sha256": "17378a389bf597a0fa659fea008728aef3e6e10fa59f8efc5867e16676ca09b2",
+  "scope": "Current real wrapper gameplay, actual CPU-earned score, real HPS donor upload, actual reset-cleared score and real HPS restore; no synthetic RAM writes; not a full-game/hardware qualification",
+  "build_pid": 18649,
+  "build_command": [
+    "bash",
+    "/mnt/d/Arcade/AI/aCORES/Alpha68k N/sim/captures/diagnostics/earned_wrapper_v5/build.sh"
+  ],
+  "executable_sha256": "51bec4444d92d4d25ad68183724be7e5bce35902f4638fc1810f4630c8a2cbbf",
+  "manifest_sha256": "71ebd8002455112461e1459b828ba11c54651b4f0c87815be8ba9259cdf1d6dc",
+  "rom_sha256": "5cf728d5d40e9be14a4a9c07792bab9f44404a75c2c2eed92124ff96ee9b5ef6",
+  "hiscore_config_sha256": "62f56ac9e7616de9f2451e8d0eeab61df63fab86fb8434e0b4e83c48ecdc7b22",
+  "simulation_pid": 19893,
+  "command": [
+    "/mnt/d/Arcade/AI/aCORES/Alpha68k N/sim/captures/rtl/kyros_earned_wrapper901_v5/alpha68kn_wrapper_earned_v5_sim",
+    "/mnt/d/Arcade/AI/aCORES/Alpha68k N/roms/kyros/download.bin",
+    "901",
+    "/mnt/d/Arcade/AI/aCORES/Alpha68k N/sim/captures/rtl/kyros_earned_wrapper901_v5",
+    "--earned-score",
+    "/mnt/d/Arcade/AI/aCORES/Alpha68k N/sim/captures/kyros/combat3600_v2/frame_states.csv"
+  ],
+  "run_started": 1791590876.9335318
+}

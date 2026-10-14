@@ -1,0 +1,168 @@
+{
+  "scope": "One finite authentic official MAME reference pilot; semantic/native qualification remains separate",
+  "actual_exit": {
+    "actual_native_exit_code": 0,
+    "complete_present": true,
+    "failure_present": false,
+    "native_acceptance": false
+  },
+  "complete": {
+    "fields": 2400,
+    "reason": "finite2400_without_qualified_pickup",
+    "queued53_field": -1,
+    "accepted53_field": -1,
+    "target_base": -1,
+    "state_writes": 0,
+    "pickup_candidate_observed": false,
+    "full_acceptance": false
+  },
+  "checks": {
+    "actual_MAME_exit_zero": true,
+    "Lua_complete_without_failure": true,
+    "finite_fields": true,
+    "all_field_labels_contiguous": true,
+    "eight_records_per_field": true,
+    "applied_tuple_per_field": true,
+    "legal_inputs_recorded": true,
+    "actual_CPU_input_reads_nonvacuous": false,
+    "source_pins_still_match": true
+  },
+  "counts": {
+    "states": 2400,
+    "actors": 19200,
+    "events": 0,
+    "inputs": 116,
+    "consumed_CPU_input_reads": 0,
+    "collision_reads": 3068,
+    "producer_writes": 0,
+    "ordinary_item_records": 0,
+    "ordinary_clear_writes": 0,
+    "score_writes": 0,
+    "queued53": 0,
+    "accepted_latch53": 0,
+    "sound_IO_DAC_events": 0,
+    "completed_PNGs": 3
+  },
+  "first_movement": {
+    "frame": "720",
+    "c0": "112",
+    "c1": "192",
+    "desired": "1",
+    "reason": "calibrate_axis_1",
+    "closest_item": "-1",
+    "closest_distance": "10000"
+  },
+  "ordinary_item_first_last": [],
+  "clear_writes": [],
+  "score_writes": [],
+  "queued53": [],
+  "accepted_latch53": [],
+  "collision_first_last": [
+    {
+      "frame": "723",
+      "screen_frame": "722",
+      "address": "132934",
+      "data": "8288",
+      "mask": "65280",
+      "pc": "21450",
+      "a0": "132192",
+      "a4": "132096",
+      "a5": "132910",
+      "d0": "112",
+      "d1": "1723",
+      "object_hex": "01288001000005020700000007461f3e00000000000000000000000000000000",
+      "time_seconds": "12",
+      "time_attoseconds": "217894499951128422"
+    },
+    {
+      "frame": "723",
+      "screen_frame": "722",
+      "address": "132934",
+      "data": "8288",
+      "mask": "255",
+      "pc": "21452",
+      "a0": "132192",
+      "a4": "132096",
+      "a5": "132910",
+      "d0": "80",
+      "d1": "1723",
+      "object_hex": "01288001000005020700000007461f3e00000000000000000000000000000000",
+      "time_seconds": "12",
+      "time_attoseconds": "217896499951128414"
+    },
+    {
+      "frame": "2213",
+      "screen_frame": "2212",
+      "address": "132902",
+      "data": "30884",
+      "mask": "65280",
+      "pc": "21450",
+      "a0": "132256",
+      "a4": "132096",
+      "a5": "132942",
+      "d0": "179",
+      "d1": "1628",
+      "object_hex": "0529800801000000000000ff07260b3e00000000000000001000100000e0e000",
+      "time_seconds": "37",
+      "time_attoseconds": "393003499850427986"
+    },
+    {
+      "frame": "2213",
+      "screen_frame": "2212",
+      "address": "132902",
+      "data": "30884",
+      "mask": "255",
+      "pc": "21452",
+      "a0": "132256",
+      "a4": "132096",
+      "a5": "132942",
+      "d0": "59",
+      "d1": "1628",
+      "object_hex": "0529800801000000000000ff07260b3e00000000000000001000100000e0e000",
+      "time_seconds": "37",
+      "time_attoseconds": "393005499850427978"
+    }
+  ],
+  "last_decisions": [
+    {
+      "frame": "2396",
+      "c0": "-1",
+      "c1": "-1",
+      "desired": "0",
+      "reason": "startup_wait",
+      "closest_item": "-1",
+      "closest_distance": "10000"
+    },
+    {
+      "frame": "2397",
+      "c0": "-1",
+      "c1": "-1",
+      "desired": "0",
+      "reason": "startup_wait",
+      "closest_item": "-1",
+      "closest_distance": "10000"
+    },
+    {
+      "frame": "2398",
+      "c0": "-1",
+      "c1": "-1",
+      "desired": "0",
+      "reason": "startup_wait",
+      "closest_item": "-1",
+      "closest_distance": "10000"
+    },
+    {
+      "frame": "2399",
+      "c0": "-1",
+      "c1": "-1",
+      "desired": "0",
+      "reason": "startup_wait",
+      "closest_item": "-1",
+      "closest_distance": "10000"
+    }
+  ],
+  "semantic_pickup_qualified": false,
+  "native_replay_qualified": false,
+  "full_acceptance": false,
+  "actual_analysis_exit_code": 1
+}

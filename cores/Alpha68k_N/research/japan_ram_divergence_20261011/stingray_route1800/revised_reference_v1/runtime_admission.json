@@ -1,0 +1,94 @@
+{
+  "time": "2026-10-10T19:03:28.758644+00:00",
+  "authority": "Root explicitly authorized ONE revised MAME-only Stingray route, max1800, actual position milestone and genuine lifecycle; coordinate audio_pickup before launch",
+  "manifest_sha256": "1aa767ef472ecb89403841d00a9a1d29b0b42ed45ada37c6dde9c3ec0cda5e31",
+  "source_and_ROM_CAS": [
+    {
+      "path": "D:\\Arcade\\AI\\aCORES\\Alpha68k N\\research\\japan_ram_divergence_20261011\\stingray_route1800\\revised_reference_v1\\official_revised1800.lua",
+      "bytes": 16694,
+      "sha256": "1f5d87fd2c9111e24b01e6369198bc7caf46f16e81898fad06dc27efc34f7a37"
+    },
+    {
+      "path": "D:\\Arcade\\AI\\aCORES\\Alpha68k N\\research\\japan_ram_divergence_20261011\\stingray_route1800\\revised_reference_v1\\commands.json",
+      "bytes": 1876,
+      "sha256": "34c1ee98bcf756cee60430158cff304d990517108ef6b375f49cee79b5a62714"
+    },
+    {
+      "path": "D:\\Arcade\\AI\\aCORES\\Alpha68k N\\research\\japan_ram_divergence_20261011\\stingray_route1800\\revised_reference_v1\\capture\\cfg\\sstingry.cfg",
+      "bytes": 903,
+      "sha256": "dc07e6a7dd72de43c30e815075fe94b807b629cb89fd6bdd8e46b3e6cf4e303b"
+    },
+    {
+      "path": "D:\\Arcade\\AI\\aCORES\\Alpha68k N\\roms\\sstingry.zip",
+      "bytes": 121285,
+      "sha256": "5df9aecf14c20971108e6afe9a861d11e05a10fabecca7f25bb698568d0abd79"
+    },
+    {
+      "path": "D:\\Arcade\\AI\\aCORES\\Alpha68k N\\roms\\sstingry\\download.bin",
+      "bytes": 655360,
+      "sha256": "9c60564786045834e97f98350e8310ef37a6027dadecc31cf89f1fa8bfe4358d"
+    },
+    {
+      "path": "D:\\Arcade\\AI\\aCORES\\Alpha68k N\\roms\\sstingry\\maincpu.bin",
+      "bytes": 131072,
+      "sha256": "c56ccc516654c507f0fc2d3168ac4ac58f26b15aabcac00e0516b302cc0c7f53"
+    },
+    {
+      "path": "D:\\Arcade\\AI\\aCORES\\Alpha68k N\\tools\\mame0289\\mame.exe",
+      "bytes": 316431360,
+      "sha256": "af6966108d9b52c22465c6d50f4e5d50cc371b50f2d27dc443935f287aad37a3"
+    },
+    {
+      "path": "D:\\Arcade\\AI\\aCORES\\Alpha68k N\\research\\japan_ram_divergence_20261011\\prepare_revised_stingray1800.py",
+      "bytes": 8673,
+      "sha256": "c366f5e8c1744b34c898ababdb980ae6e8da91fb9a955a2f0fc05efeb371841e"
+    }
+  ],
+  "owned_process_scan": {
+    "actual_exit": 0,
+    "stderr": "",
+    "rows": []
+  },
+  "argv": [
+    "D:\\Arcade\\AI\\aCORES\\Alpha68k N\\tools\\mame0289\\mame.exe",
+    "sstingry",
+    "-rompath",
+    "D:\\Arcade\\AI\\aCORES\\Alpha68k N\\roms",
+    "-noreadconfig",
+    "-skip_gameinfo",
+    "-video",
+    "none",
+    "-sound",
+    "none",
+    "-nothrottle",
+    "-noautoframeskip",
+    "-frameskip",
+    "0",
+    "-autoboot_delay",
+    "0",
+    "-autoboot_script",
+    "D:\\Arcade\\AI\\aCORES\\Alpha68k N\\research\\japan_ram_divergence_20261011\\stingray_route1800\\revised_reference_v1\\official_revised1800.lua",
+    "-pluginspath",
+    "D:\\Arcade\\AI\\aCORES\\Alpha68k N\\tools\\mame0289\\plugins",
+    "-seconds_to_run",
+    "45",
+    "-snapshot_directory",
+    "D:\\Arcade\\AI\\aCORES\\Alpha68k N\\research\\japan_ram_divergence_20261011\\stingray_route1800\\revised_reference_v1\\capture",
+    "-cfg_directory",
+    "D:\\Arcade\\AI\\aCORES\\Alpha68k N\\research\\japan_ram_divergence_20261011\\stingray_route1800\\revised_reference_v1\\capture\\cfg",
+    "-nvram_directory",
+    "D:\\Arcade\\AI\\aCORES\\Alpha68k N\\research\\japan_ram_divergence_20261011\\stingray_route1800\\revised_reference_v1\\capture\\nvram",
+    "-state_directory",
+    "D:\\Arcade\\AI\\aCORES\\Alpha68k N\\research\\japan_ram_divergence_20261011\\stingray_route1800\\revised_reference_v1\\capture\\states",
+    "-wavwrite",
+    "D:\\Arcade\\AI\\aCORES\\Alpha68k N\\research\\japan_ram_divergence_20261011\\stingray_route1800\\revised_reference_v1\\capture\\audio.wav"
+  ],
+  "env": {
+    "ALPHA_CAPTURE_DIR": "D:\\Arcade\\AI\\aCORES\\Alpha68k N\\research\\japan_ram_divergence_20261011\\stingray_route1800\\revised_reference_v1\\capture",
+    "ALPHA_CAPTURE_MODE": "gameplay",
+    "ALPHA_CAPTURE_FRAMES": "1800"
+  },
+  "no_native_runtime": true,
+  "no_guest_state_writes": true,
+  "supervisor_pid": 37044
+}

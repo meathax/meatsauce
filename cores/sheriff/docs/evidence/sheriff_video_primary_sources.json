@@ -1,0 +1,78 @@
+{
+  "scope": "Reviewed primary manual evidence for Sheriff physical bitmap serialization; derivation incomplete",
+  "sources": [
+    {
+      "title": "Nintendo Sheriff TWG-1 operation manual",
+      "url": "https://arcarc.xmission.com/PDF_Arcade_Manuals_and_Schematics/Sheriff.pdf",
+      "local_path": "_checks/manuals/sheriff-twg1.pdf",
+      "bytes": 512840,
+      "sha256": "2ce3578f2a6dda01313be947871d33678260870813933c76a44866cc9bd3ab78",
+      "pdf_pages": 8,
+      "reviewed_pages_one_based": [
+        6,
+        7,
+        8
+      ],
+      "known": [
+        "Page 6 TWG-CPU PI-500861: 4116 RAM, LS174 packages at 4F/4G and LS153 address muxes",
+        "Page 7 TWG-I/O PI-500932: package marked 198 at 1L, raster counters and PROMs",
+        "Page 8 TWG-SOU: 8035, external sound ROM and SN76477"
+      ]
+    },
+    {
+      "title": "Exidy Bandido operator's manual, January 1980",
+      "url": "https://arcarc.xmission.com/PDF_Arcade_Manuals_and_Schematics/Bandido.pdf",
+      "local_path": "_checks/manuals/bandido-1980.pdf",
+      "bytes": 4529740,
+      "sha256": "aa68eb8538e404c2ee1e02b7b47c0e40c62e9d9800cefcf22981c733c4b30224",
+      "pdf_pages": 40,
+      "reviewed_schematic_pages_one_based": [
+        33,
+        34,
+        35,
+        36
+      ],
+      "known": [
+        "I/O drawing 77-3367-11: 198 at 1L receives parallel P9 RD bus data",
+        "QA/QH connect through 11K NAND gates to the video path; CK and S0/S1 have connected timing/direction logic",
+        "CPU drawing 77-3366-11: eight 4116 DRAMs, 4F/4G read latches, LS153 muxes, CAS/RAS and READY circuitry"
+      ]
+    },
+    {
+      "title": "Texas Instruments TTL Data Book for Design Engineers, second edition, 1981",
+      "url": "https://bitsavers.org/components/ti/_dataBooks/1981_TI_The_TTL_Data_Book_For_Design_Engineers_2ed.pdf",
+      "local_path": "_checks/manuals/ti-ttl-databook-1981.pdf",
+      "bytes": 29954976,
+      "sha256": "5fd3dc58d4dd3558494289c756bfb16bfccc609964a32aa8ec1dfe6539ed9c74",
+      "pdf_pages": 835,
+      "reviewed_pages_one_based": [
+        13,
+        595
+      ],
+      "printed_device_page": "7-338",
+      "known": [
+        "Index identifies SN74198/SN74199 at 7-338",
+        "Manufacturer description and table define parallel load, hold, QA-to-QH shift right, QH-to-QA shift left, rising-edge clock and overriding clear",
+        "Mode inputs are changed while the physical clock is high"
+      ],
+      "inspection_limit": "Text inspected from the staged original PDF; bitmap extraction unavailable because jbig2dec is missing"
+    }
+  ],
+  "inferred": [
+    "Matching Sheriff CPU/I/O package locations support the related Bandido serializer topology, not complete board-revision identity"
+  ],
+  "unresolved": [
+    "Exact fitted 198 family suffix",
+    "Parallel-load phase, shift phase and normal/flip direction waveform",
+    "DRAM read-latch/address phase and visible raster origin",
+    "CPU-visible arbitration/READY timing",
+    "Whether the derived serializer changes either observed restart pixel corner"
+  ],
+  "current_implementation": "Continuously registered RAM byte with per-pixel bit selection",
+  "physical_byte_fetch_qualified": false,
+  "rtl_changed_for_this_finding": true,
+  "strict_graphics_gate_pass": false,
+  "copyrighted_manuals_committed": false,
+  "standalone_register_qualification": "docs/evidence/sheriff_video_register.json",
+  "production_board_changed_for_this_finding": false
+}

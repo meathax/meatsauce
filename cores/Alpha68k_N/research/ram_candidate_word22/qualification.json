@@ -1,0 +1,77 @@
+{
+  "scope": "Source-backed finite actualCPU fixture + replicated-strip structural/OLD_DATA miter + authentic isolated inference. Not final combined RTL gameplay or fitted resource/timing acceptance.",
+  "checks": {
+    "actual_fx68k_build0": true,
+    "actual_fx68k_fixture0": true,
+    "actual_cpu_8852_ticks_5187_readchecks": true,
+    "both_actual_coin_branches": true,
+    "explicit_DI_difference_preserved": true,
+    "explicit_manual_miter_checks_not_assert_gated": true,
+    "independent_OLD_DATA_contract0": true,
+    "board_variant_pin": true,
+    "probe_variant_pin": true,
+    "actual_probe_exit0": true,
+    "all_six_named_banks_inferred": true,
+    "actual_probe51regs163840bits": true,
+    "report_hash_exact": true,
+    "unchanged_work_process": true,
+    "unchanged_sound_read_process": true,
+    "physical_renderer_mirror_oldread": true
+  },
+  "finite_storage_contract_and_isolated_inference_pass": true,
+  "actualCPU_source": "alpha68kn_board.sv SHAb37fb0a6cc76e55a89f7379c0af2f1d8f4b0e3e20a38e21db75b12cdfc4e3462",
+  "final_board_source": "alpha68kn_board_replicated.sv SHA12623bf8bbd43396bb0af9096ca0eae91e871c67e2c802ffdcea33d6ab0fa47c",
+  "board_structural_join": "replicated_source_join.json SHA5a08e0c6ed6e22825238f17e3e014e1e78e270d659151ea78f771307e56675ae",
+  "actualCPU_fixture": {
+    "build_exit": 0,
+    "run_exit": 0,
+    "binary_sha256": "17c4a3f3a5038592ff592545692213d88a8c0f5e780b2505217a4e1178f6f1d5",
+    "checked_clock_edges": 8852,
+    "accepted_read_DI_checks": 5187,
+    "original_candidate_write_DI_difference_ticks": 24,
+    "both_coin_branches": 1,
+    "PC_and_all18register_pairs_compared_every_edge": true,
+    "original_failed_implicit_case_run": "verilator_run2_exit.json",
+    "runtime_workaround": "+verilator+noassert with explicit miter comparisons ungated"
+  },
+  "replicated_contract": {
+    "compile_exit": 0,
+    "run_exit": 0,
+    "edges": 8193,
+    "all4096copies_and_all2048work_equal": true,
+    "final_write_DI": "Restores legacy OLD_DATA; original candidate24differences do not apply to replicatedvariant; structural/finite contract proof rather than rerunning actualCPU on finalvariant."
+  },
+  "isolated_inference": {
+    "actual_exit": 0,
+    "actual_session": 85097,
+    "raw_logic_cells": 167,
+    "registers": 51,
+    "block_memory_bits": 163840,
+    "RAM_segments": 48,
+    "report_path": "D:\\Arcade\\AI\\aCORES\\Alpha68k N\\sim\\captures\\diagnostics\\work_strip_replicated_inference\\WorkStripReplicated.map.rpt",
+    "report_sha256": "243265aff8242a155ee0b2e1cfac8964e1ef80bf500866fc7bb4a65115d82187",
+    "source_sha256": "c1d07fbf558aa7cbabca0f764140a183970dced4d847f5029065307e61eab061"
+  },
+  "resource_delta": {
+    "extra_strip_block_memory_bits": 65536,
+    "final_fitted_M10K_delta": "unknown;48analysisRAMsegments is not a fitted M10K count"
+  },
+  "final_combined_realgame_pass": false,
+  "full_fitted_resource_pass": false,
+  "full_timing_pass": false,
+  "RBF_built": false,
+  "integration": {
+    "production_patch": "board_replicated.patch",
+    "host_patch": "host.patch",
+    "base_board_sha256": "1d96bcb640490b62fbe6f15a9dc0e4fcf8e80b496cc108f14bd91241eb85ca0c",
+    "base_host_sha256": "ac8fc5de33ba606dca879ecaa337e37d0cfee9f23c96125f4e2781ed7b776202",
+    "unconsumed_work_debug": "VERILATOR observation only; physical top196 output unused. Functional storage/latency/strip renderer identical across modes.",
+    "host_dump": "Combines full-byteprimarybanks, substitutes external word0x22; source ownership parent."
+  },
+  "limits": [
+    "ActualCPU instruction fixture is not a game replay or all-instruction proof.",
+    "Finalreplicatedboard is qualified by explicit sourceinduction + independent exactOLD_DATA model, joined to original actualCPUfixture; no silent finalexe substitution.",
+    "ActualQuartus isolated map does not close whole-design resource/timing gates.",
+    "Prior ternary andifelse inference failures remain immutable; no production changes made here."
+  ]
+}

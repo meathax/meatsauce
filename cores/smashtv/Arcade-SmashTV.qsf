@@ -1,0 +1,54 @@
+# --------------------------------------------------------------------------
+#
+# MiSTer project -- Smash T.V. (Midway Y-Unit)
+#
+# WARNING: Do not add files to the project in the Quartus IDE! It rewrites this
+# file. Add source files manually to files.qip. Device / pins / config come from
+# sys/sys.tcl (the MiSTer framework), exactly as the Sega System 32 core does.
+#
+# Build with Quartus Prime Lite (C:\intelFPGA_lite\17.1) -- the Standard edition
+# at D:\Q is unlicensed (Evaluation Mode) and refuses to emit Cyclone V bitstreams.
+#
+# --------------------------------------------------------------------------
+
+set_global_assignment -name TOP_LEVEL_ENTITY sys_top
+set_global_assignment -name PARTITION_NETLIST_TYPE SOURCE -section_id Top
+set_global_assignment -name PARTITION_FITTER_PRESERVATION_LEVEL PLACEMENT_AND_ROUTING -section_id Top
+set_global_assignment -name PARTITION_COLOR 16764057 -section_id Top
+
+set_global_assignment -name LAST_QUARTUS_VERSION "17.1.0 Lite Edition"
+
+set_global_assignment -name GENERATE_RBF_FILE ON
+set_global_assignment -name PROJECT_OUTPUT_DIRECTORY output_files
+set_global_assignment -name SAVE_DISK_SPACE OFF
+set_global_assignment -name SMART_RECOMPILE ON
+set_global_assignment -name MIN_CORE_JUNCTION_TEMP "-40"
+set_global_assignment -name MAX_CORE_JUNCTION_TEMP 100
+set_global_assignment -name POWER_PRESET_COOLING_SOLUTION "23 MM HEAT SINK WITH 200 LFPM AIRFLOW"
+set_global_assignment -name POWER_BOARD_THERMAL_MODEL "NONE (CONSERVATIVE)"
+set_global_assignment -name TIMEQUEST_MULTICORNER_ANALYSIS OFF
+
+# Fitter / optimization (mirrors the Sega System 32 core -- these help close the
+# 96 MHz render/SDRAM and scaler timing paths).
+set_global_assignment -name OPTIMIZE_POWER_DURING_FITTING OFF
+set_global_assignment -name FITTER_EFFORT "STANDARD FIT"
+set_global_assignment -name OPTIMIZATION_MODE "HIGH PERFORMANCE EFFORT"
+set_global_assignment -name ALLOW_POWER_UP_DONT_CARE ON
+set_global_assignment -name QII_AUTO_PACKED_REGISTERS NORMAL
+set_global_assignment -name SEED 2
+set_global_assignment -name NUM_PARALLEL_PROCESSORS 4
+
+# MiSTer framework options (save resources; safe for a fixed-res arcade core).
+set_global_assignment -name VERILOG_MACRO "MISTER_DOWNSCALE_NN=1"
+set_global_assignment -name VERILOG_MACRO "MISTER_DISABLE_ADAPTIVE=1"
+set_global_assignment -name VERILOG_MACRO "MISTER_DISABLE_YC=1"
+set_global_assignment -name VERILOG_MACRO "MISTER_DISABLE_ALSA=1"
+# DIAGNOSTIC: render the 34010 PC as 32 vertical bars instead of game video.
+
+set_global_assignment -name SEARCH_PATH rtl/cpu
+
+source sys/sys.tcl
+source sys/sys_analog.tcl
+source files.qip
+
+set_instance_assignment -name PARTITION_HIERARCHY root_partition -to | -section_id Top

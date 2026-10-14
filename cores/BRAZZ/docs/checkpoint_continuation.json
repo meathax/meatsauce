@@ -1,0 +1,28 @@
+{
+  "scope": "Native exact-source checkpoint round trip, early real BIOS only; not attract/gameplay checkpoint acceptance",
+  "exit_code": 0,
+  "source_identity": "8f0a2d5748bf8b1fe199667252b2cf16cf1c5ab08b71e384d6a7e33d8a4b3991",
+  "cold_run": "1791201524855070500",
+  "restored_run": "1791201620757422800",
+  "save_clock": 123456,
+  "compare_clock": 456789,
+  "continuation_clocks": 333333,
+  "initial_pending_bus": false,
+  "initial_irq_seen": false,
+  "complete_files": [
+    {
+      "name": "rtl.bin",
+      "bytes": 82116,
+      "byte_equal": true,
+      "sha256": "3f4197077ee7bcaaa36d7dc8435160f244a52e08d98306594e9f38d582fd2f68"
+    },
+    {
+      "name": "external.bin",
+      "bytes": 112856693,
+      "byte_equal": true,
+      "sha256": "854c87e405af3e637fd465c6e64e798dcf4887cef7d94a5c6d72051c1083be3e"
+    }
+  ],
+  "physical_ROM_loader_preserved": true,
+  "rbf_built": false
+}

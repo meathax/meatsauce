@@ -1,0 +1,25 @@
+{
+  "pid": 30160,
+  "worker_pid": 19892,
+  "command": [
+    "wsl.exe",
+    "-d",
+    "Ubuntu",
+    "--cd",
+    "D:\\Arcade\\AI\\aCORES\\Alpha68k N\\research\\stingray_combined_stage\\coupled_boot16\\source\\sim\\build",
+    "--exec",
+    "/bin/bash",
+    "-c",
+    "printf \"linux_pid=%s\\n\" \"$$\"; exec ./alpha68kn_system_sim \"$@\"",
+    "coupled_boot16",
+    "/mnt/d/Arcade/AI/aCORES/meatsauce-alpha68kn/cores/Alpha68k_N/roms/sstingry/download.bin",
+    "16",
+    "/mnt/d/Arcade/AI/aCORES/Alpha68k N/research/stingray_combined_stage/coupled_boot16/capture",
+    "attract",
+    "--inputs",
+    "/mnt/d/Arcade/AI/aCORES/Alpha68k N/research/stingray_combined_stage/coupled_boot16/actual_attract_inputs.csv"
+  ],
+  "started": 1791620281.5207016,
+  "source_pins_sha256": "aa85eb67c906bf9fdd73e607dc6b51ba36a4e64c0cef02bffb9dd8800c13f61f",
+  "reference_sha256": "711f0ef6792e0bea57ba246e975fbe4e971fbbd42f0c49d8eca3cee0e3201b6a"
+}

@@ -1,0 +1,9 @@
+# Remaining real profile2 transport/display acceptance
+
+One native Verilator build and one runtime completed with actual exits0/0. The private graph uses the reviewed P2 MCU/T48 pair, unchanged game board/clock/reset/framework and the approved `O5`→`H0O5` Aspect ratio menu fix with read-only simulation observer ports. No canonical source was edited by this task.
+
+All actual HPS configuration, mask, DIP and individual coin/player transfer checks passed. The real ROM image was paused; no scores or game states were seeded. The frozen image was nonuniform before full native180/CW/CCW pixel comparisons, so the display tests were not vacuous. Quarter-turn dimensions, addresses and all57344pixels passed for both directions. Integer geometry was1280x896; native/rotated/full-screen aspect matched the wrapper contract. Native, representative CRT H/V and positive Vsize each produced two measured output fields with the required cadence; gamma LUT programming produced RGB17/34/51 through actual native and HQ2x output, with4x HQ2x coverage and the CRT25 scanline flag. Direct Video masked HDMI/CRT Vsize controls and suppressed rotation DDR writes.
+
+`qualification.json` records actual extra master ticks and the64-field ceiling, compiler source hashes, ELF identity, actual exits and all limitations. Prior fourteen-check wrapper proofs and failed routing attempts remain untouched. Initial field0 retains57602 framework samples; native crops are57344, and later display mode checks use the existing four-field settling convention.
+
+DIP/coin/player transfer is not a claim that game software used those settings. Actual lives, cocktail/P2 behavior, real earned-score save/reset/restore and physical outputs/audio/timing remain separate. The proposed200-field game-effect pilot was neither built nor run. This feature evidence must be bound to the final joined source graph before release.

@@ -1,0 +1,39 @@
+{
+  "scope": "Conservative shared-enable timing exception proof, not sound or game acceptance",
+  "oscillator": {
+    "scope": "Production oscillator spacing, not sound/gameplay acceptance",
+    "cycles": 200000,
+    "pulses": 6877,
+    "minimum_gap": 26,
+    "maximum_gap": 54,
+    "pause_and_reset_exercised": true
+  },
+  "register_write_audit": {
+    "scoped": 50,
+    "branches": 6,
+    "reset_writes": 43,
+    "normal_writes_outside_ce": 0,
+    "no_falling_clock_processes": true
+  },
+  "constraints": {
+    "setup": 2,
+    "hold": 1,
+    "scope": "Only TV80 explicit CE state and register-bank pairs",
+    "external_interfaces_relaxed": false
+  },
+  "sta": {
+    "quartus_exit": 0,
+    "workflow_exit": 1,
+    "worst_core_setup_ns": -1.733,
+    "closure_established": false,
+    "next_path": "Work RAM readback to high-score FSM"
+  },
+  "sources": {
+    "ZeroTeam.sdc": "d36e0c4328e87b99ce5a2f1a7275283a3ca41bab5c8292e8ac12aa46b6538e2e",
+    "rtl/ZeroTeam_audio.sv": "bc062e4cbd1121bde0a17719a743af9d60b98335e670ce15bdab97079334e130",
+    "rtl/tv80/tv80_core.v": "bdf692f65c85e17123322739a6f73aa94e328c647520cea7ebe4950e2ab7b95a",
+    "rtl/tv80/tv80_reg.v": "e38fa80510f044c7f298b56d58c0d7fec4857e6e39e0efdac3f889da95b5e68c",
+    "sim/audio_ce_minimum.cpp": "6427a3ccf0d6fba99b96ceeef47a1818b5055d91636c598da79a3cfad49eef94",
+    "sim/audit_tv80_ce.py": "fc26a9decbb3a3f7117d3c42a656362d1736e93726f57b46e659c9a37a2f95d8"
+  }
+}

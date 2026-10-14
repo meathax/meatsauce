@@ -1,0 +1,57 @@
+{
+  "result": {
+    "scope": "real emu/HPS/CPU/video/audio/SDRAM with ideal PLL and explicit framework scope adapter",
+    "frames": 31,
+    "framework_settling_fields": 4,
+    "profile": 0,
+    "rom_words": 327680,
+    "wait_ticks": 2006830,
+    "main_transactions": 680456,
+    "unmapped": 0,
+    "deadlines": 0,
+    "overflows": 0,
+    "device_writes": 393216,
+    "device_reads": 1333248,
+    "refreshes": 91752,
+    "passed": true
+  },
+  "terminal": {
+    "started": 1791531122.933533,
+    "command": [
+      "./alpha68kn_wrapper_sim",
+      "../../roms/kyros/download.bin",
+      "31",
+      "../captures/rtl/kyros_wrapper_dip31"
+    ],
+    "executable_sha256": "343dd175ec068226223361673fd71332a403c5d49944ac51e9a9184b4bfa1704",
+    "worker_pid": 113059,
+    "simulation_pid": 113060,
+    "exit_code": 0,
+    "ended": 1791531210.3755922
+  },
+  "finite_comparisons": [
+    {
+      "file": "frame_000000.core.rgb",
+      "bytes": 172032,
+      "different_pixels": 0,
+      "rtl_sha256": "9a4b97b4b079955bac86930724c8bcdd30aba4732f1dcbcbac2ec270f5f5e485",
+      "mame_sha256": "9a4b97b4b079955bac86930724c8bcdd30aba4732f1dcbcbac2ec270f5f5e485"
+    },
+    {
+      "file": "frame_000030.core.rgb",
+      "bytes": 172032,
+      "different_pixels": 0,
+      "rtl_sha256": "9a4b97b4b079955bac86930724c8bcdd30aba4732f1dcbcbac2ec270f5f5e485",
+      "mame_sha256": "9a4b97b4b079955bac86930724c8bcdd30aba4732f1dcbcbac2ec270f5f5e485"
+    },
+    {
+      "file": "frame_000030.vga.rgb",
+      "bytes": 172032,
+      "different_pixels": 0,
+      "rtl_sha256": "9a4b97b4b079955bac86930724c8bcdd30aba4732f1dcbcbac2ec270f5f5e485",
+      "mame_sha256": "9a4b97b4b079955bac86930724c8bcdd30aba4732f1dcbcbac2ec270f5f5e485"
+    }
+  ],
+  "startup_vga_bytes": 172806,
+  "limits": "First four framework fields unqualified; ideal PLL, ready DDR and scope adapter; no Quartus/resource/hardware claim"
+}

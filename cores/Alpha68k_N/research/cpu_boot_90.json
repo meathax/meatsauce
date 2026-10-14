@@ -1,0 +1,36 @@
+{
+  "kind": "real CPU boot/strip/IRQ evidence; graphics acceptance pending",
+  "frames": 90,
+  "last": {
+    "frame": "89",
+    "main_address": "1252",
+    "sound_address": "516",
+    "main_transactions": "2015083",
+    "work_writes": "7776",
+    "strip_writes": "32234",
+    "mcu_transactions": "37",
+    "irq1_acks": "35",
+    "irq2_acks": "35",
+    "unmapped": "0"
+  },
+  "executable_sha256": "79049fa5b0687854b57e859bd7c968d662cb88cc781011142f95dd0b8b6db337",
+  "payload_sha256": "5cf728d5d40e9be14a4a9c07792bab9f44404a75c2c2eed92124ff96ee9b5ef6",
+  "artifacts": [
+    {
+      "path": "sim/captures/rtl/kyros_cpu90_strobes/bus.csv",
+      "sha256": "e6b55d5d2305b3664fcb33e25fd6f5efab2da6c2516c327cc4f466a89fb9c172"
+    },
+    {
+      "path": "sim/captures/rtl/kyros_cpu90_strobes/frames.csv",
+      "sha256": "1049e9c0ff169a7c8aff3c86830b31a8ace1e54602cebd838656cdfd46aa7350"
+    },
+    {
+      "path": "sim/captures/rtl/kyros_cpu90_strobes/sprites.bin",
+      "sha256": "1f49adf7c7afbfc4fe2f5598a0f360dadb6432f9158e802525d1621492056ac3"
+    },
+    {
+      "path": "sim/captures/rtl/kyros_cpu90_strobes/work.bin",
+      "sha256": "b832208cc0d7a530f90195c07366e9c572e17c6061ad4c2dd03791cf4f14ad36"
+    }
+  ]
+}

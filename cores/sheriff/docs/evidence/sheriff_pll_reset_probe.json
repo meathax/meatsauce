@@ -1,0 +1,444 @@
+{
+  "scope": "70ms diagnostic of retained Preflight compiled kernel and its real HPS download sequence; initial PLL-output perturbation only.",
+  "build_receipt": {
+    "inputs": {
+      "D:\\Arcade\\AI\\aCORES\\sherrif\\.preflight\\cache\\obj\\pf_state.o": "06ef10e023bac3df8d05954c5587940763d3503fe53f40a2d514a58010def80e",
+      "D:\\Arcade\\AI\\aCORES\\sherrif\\.preflight\\cache\\obj\\Vpf_tb.o": "752c72e33a48d12549cde978454d7d64f696c41135af3b81228498d93efa397d",
+      "D:\\Arcade\\AI\\aCORES\\sherrif\\.preflight\\cache\\obj\\Vpf_tb__ConstPool__0__Slow.o": "ed31e46fa8a7b3dcf61a50b41e812542da1aba7c841b53aa814058d4f963684a",
+      "D:\\Arcade\\AI\\aCORES\\sherrif\\.preflight\\cache\\obj\\Vpf_tb__Dpi.o": "1337570b8bd296b7504792e5196207b64288eb1fecf6a93c5d88f2eec044023c",
+      "D:\\Arcade\\AI\\aCORES\\sherrif\\.preflight\\cache\\obj\\Vpf_tb__Syms__Slow.o": "06b6563d1519d1532456eeb2c539079c7179e66842997acdf669b68089031a93",
+      "D:\\Arcade\\AI\\aCORES\\sherrif\\.preflight\\cache\\obj\\Vpf_tb___024root__0.o": "3602cf342e0e457245959e3c4b664036fd560d99e2f8eabc525fe16d95b3d1af",
+      "D:\\Arcade\\AI\\aCORES\\sherrif\\.preflight\\cache\\obj\\Vpf_tb___024root__0__Slow.o": "c3365f4db827febcb71f960ea4661154b533f3fced9352c5cfae15c207fcdede",
+      "D:\\Arcade\\AI\\aCORES\\sherrif\\.preflight\\cache\\obj\\Vpf_tb___024root__1.o": "3f3ba8242108341deaac066922e392773c6067b9d46a5b1c1d9287f0e5a024e2",
+      "D:\\Arcade\\AI\\aCORES\\sherrif\\.preflight\\cache\\obj\\Vpf_tb___024root__Slow.o": "53a750c88ba677e11d20a25caae2734923a6ff3d7e97e3c84219a9395827cfe4",
+      "_checks/pll-reset-probe-20261010/probe.cpp": "569209f3272575f4665fac9e2f9061225765448f6066d50c09e0267eeb6b0f3b",
+      "D:/Arcade/AI/MISTERDEBUG/board/harness.cpp": "0510289d91d8fa0f16b12ad186bf235b506c01aa33273e5e417c18eca7b477ea",
+      "D:/Arcade/AI/MISTERDEBUG/cells/altera_pll.sv": "e3fe67b20c881698a7cad8fd9d18813e9ec2b359ceb0e1aedc0b3d068355f41d",
+      ".preflight/cache/obj/Vpf_tb___024root.h": "0346f0a0df08140f70d58fe6e93d1cc562f9a34bf76dcf0c6cb99e359f7f4405",
+      "D:/Arcade/AI/MISTERDEBUG/.pixi/envs/default/Library/include/verilated.h": "0c59fdc1e76f63d8f77e92e8d715f582c036d5cf8f7c9653f05893a9ef2224e8",
+      "D:/Arcade/AI/MISTERDEBUG/.pixi/envs/default/Library/include/vltstd/svdpi.h": "478f1b254420b06f3827df55490a729ec76e106de626d8d0135c35dc37732ff6",
+      "D:/Arcade/AI/MISTERDEBUG/.pixi/envs/default/Library/include/verilated.cpp": "15f7c3b434f5292ae1339808e2f389651ff9c5e67b837218d85daf3f4e2808cd",
+      "D:/Arcade/AI/MISTERDEBUG/.pixi/envs/default/Library/include/verilated_dpi.cpp": "0d153d1640985d6488b12c516b8a96939b46ddcc080d8efaf12faafe3d26791a",
+      "D:/Arcade/AI/MISTERDEBUG/.pixi/envs/default/Library/include/verilated_timing.cpp": "a5aab8a27136a867634cdaa84e0dcefe4bb6dd26460720b75a8bf1b45361164d",
+      "D:/Arcade/AI/MISTERDEBUG/.pixi/envs/default/Library/include/verilated_threads.cpp": "fa179d4c223c110f6566837a55a522e7842b4ed68a33fd0bb910fc5be1df2ce3"
+    },
+    "exit_code": 0,
+    "finished_utc": "2026-10-09T15:55:31.8964240Z",
+    "arguments": [
+      "-O2",
+      "-std=c++20",
+      "-faligned-new",
+      "-fcoroutines",
+      "-ID:/Arcade/AI/MISTERDEBUG/.pixi/envs/default/Library/include",
+      "-ID:/Arcade/AI/MISTERDEBUG/.pixi/envs/default/Library/include/vltstd",
+      "-I.preflight/cache/obj",
+      "-DVERILATOR=1",
+      "-DVM_COVERAGE=0",
+      "-DVM_SC=0",
+      "-DVM_TIMING=1",
+      "-DVM_TRACE=0",
+      "-DVM_TRACE_FST=0",
+      "-DVM_TRACE_VCD=0",
+      "-DVM_TRACE_SAIF=0",
+      "-DVM_VPI=0",
+      "_checks/pll-reset-probe-20261010/probe.cpp",
+      "D:\\Arcade\\AI\\aCORES\\sherrif\\.preflight\\cache\\obj\\pf_state.o",
+      "D:\\Arcade\\AI\\aCORES\\sherrif\\.preflight\\cache\\obj\\Vpf_tb.o",
+      "D:\\Arcade\\AI\\aCORES\\sherrif\\.preflight\\cache\\obj\\Vpf_tb__ConstPool__0__Slow.o",
+      "D:\\Arcade\\AI\\aCORES\\sherrif\\.preflight\\cache\\obj\\Vpf_tb__Dpi.o",
+      "D:\\Arcade\\AI\\aCORES\\sherrif\\.preflight\\cache\\obj\\Vpf_tb__Syms__Slow.o",
+      "D:\\Arcade\\AI\\aCORES\\sherrif\\.preflight\\cache\\obj\\Vpf_tb___024root__0.o",
+      "D:\\Arcade\\AI\\aCORES\\sherrif\\.preflight\\cache\\obj\\Vpf_tb___024root__0__Slow.o",
+      "D:\\Arcade\\AI\\aCORES\\sherrif\\.preflight\\cache\\obj\\Vpf_tb___024root__1.o",
+      "D:\\Arcade\\AI\\aCORES\\sherrif\\.preflight\\cache\\obj\\Vpf_tb___024root__Slow.o",
+      "D:/Arcade/AI/MISTERDEBUG/.pixi/envs/default/Library/include/verilated.cpp",
+      "D:/Arcade/AI/MISTERDEBUG/.pixi/envs/default/Library/include/verilated_dpi.cpp",
+      "D:/Arcade/AI/MISTERDEBUG/.pixi/envs/default/Library/include/verilated_timing.cpp",
+      "D:/Arcade/AI/MISTERDEBUG/.pixi/envs/default/Library/include/verilated_threads.cpp",
+      "-pthread",
+      "-static-libgcc",
+      "-static-libstdc++",
+      "-o",
+      "_checks/pll-reset-probe-20261010/probe.exe"
+    ],
+    "started_utc": "2026-10-09T15:54:57.4382221Z",
+    "scope": "New diagnostic observer linked with retained Preflight objects and their bundled runtime; no production RTL edit"
+  },
+  "cases_terminal": {
+    "exit_code": 0,
+    "cases": [
+      {
+        "started_utc": "2026-10-09T15:58:45.983827+00:00",
+        "finished_utc": "2026-10-09T15:58:55.500349+00:00",
+        "exit_code": 0,
+        "rand_reset": 0,
+        "seed": 1,
+        "forced_pll_output_before_first_eval": 0,
+        "original_profile": "board-s1",
+        "configuration_sha256": {
+          "run.cfg": "6715e0d88a44a2f35e8b26b841b49ce4b53b0062d573413ad8b155ed61a9999d",
+          "boot.script": "286bf4805ce68c056c72c02714bc141223dbdf2e173409a65004b851b4ffd872"
+        },
+        "output": "_checks\\pll-reset-probe-20261010\\paired-mode0-seed1-pll0"
+      },
+      {
+        "started_utc": "2026-10-09T15:58:55.506897+00:00",
+        "finished_utc": "2026-10-09T15:59:05.261489+00:00",
+        "exit_code": 0,
+        "rand_reset": 0,
+        "seed": 1,
+        "forced_pll_output_before_first_eval": 1,
+        "original_profile": "board-s1",
+        "configuration_sha256": {
+          "run.cfg": "6715e0d88a44a2f35e8b26b841b49ce4b53b0062d573413ad8b155ed61a9999d",
+          "boot.script": "286bf4805ce68c056c72c02714bc141223dbdf2e173409a65004b851b4ffd872"
+        },
+        "output": "_checks\\pll-reset-probe-20261010\\paired-mode0-seed1-pll1"
+      },
+      {
+        "started_utc": "2026-10-09T15:59:05.266682+00:00",
+        "finished_utc": "2026-10-09T15:59:15.098428+00:00",
+        "exit_code": 0,
+        "rand_reset": 2,
+        "seed": 1,
+        "forced_pll_output_before_first_eval": 0,
+        "original_profile": "hostile-s1",
+        "configuration_sha256": {
+          "run.cfg": "6715e0d88a44a2f35e8b26b841b49ce4b53b0062d573413ad8b155ed61a9999d",
+          "boot.script": "286bf4805ce68c056c72c02714bc141223dbdf2e173409a65004b851b4ffd872"
+        },
+        "output": "_checks\\pll-reset-probe-20261010\\paired-mode2-seed1-pll0"
+      },
+      {
+        "started_utc": "2026-10-09T15:59:15.102935+00:00",
+        "finished_utc": "2026-10-09T15:59:25.198659+00:00",
+        "exit_code": 0,
+        "rand_reset": 2,
+        "seed": 1,
+        "forced_pll_output_before_first_eval": 1,
+        "original_profile": "hostile-s1",
+        "configuration_sha256": {
+          "run.cfg": "6715e0d88a44a2f35e8b26b841b49ce4b53b0062d573413ad8b155ed61a9999d",
+          "boot.script": "286bf4805ce68c056c72c02714bc141223dbdf2e173409a65004b851b4ffd872"
+        },
+        "output": "_checks\\pll-reset-probe-20261010\\paired-mode2-seed1-pll1"
+      },
+      {
+        "started_utc": "2026-10-09T15:59:25.214773+00:00",
+        "finished_utc": "2026-10-09T15:59:36.007320+00:00",
+        "exit_code": 0,
+        "rand_reset": 2,
+        "seed": 2,
+        "forced_pll_output_before_first_eval": 0,
+        "original_profile": "hostile-s2",
+        "configuration_sha256": {
+          "run.cfg": "78dba65428abcabc5e108b2eb52a377d84d78dd7296ec4ed953a5528fd06ed29",
+          "boot.script": "286bf4805ce68c056c72c02714bc141223dbdf2e173409a65004b851b4ffd872"
+        },
+        "output": "_checks\\pll-reset-probe-20261010\\paired-mode2-seed2-pll0"
+      },
+      {
+        "started_utc": "2026-10-09T15:59:36.011125+00:00",
+        "finished_utc": "2026-10-09T15:59:46.406564+00:00",
+        "exit_code": 0,
+        "rand_reset": 2,
+        "seed": 2,
+        "forced_pll_output_before_first_eval": 1,
+        "original_profile": "hostile-s2",
+        "configuration_sha256": {
+          "run.cfg": "78dba65428abcabc5e108b2eb52a377d84d78dd7296ec4ed953a5528fd06ed29",
+          "boot.script": "286bf4805ce68c056c72c02714bc141223dbdf2e173409a65004b851b4ffd872"
+        },
+        "output": "_checks\\pll-reset-probe-20261010\\paired-mode2-seed2-pll1"
+      }
+    ]
+  },
+  "probe_exe_sha256": "1f4b05b8b0674c93fde773d61c0a0da0e9543517527dbf8096c6b909f5745140",
+  "pairs": [
+    {
+      "rand_reset": 0,
+      "seed": 1,
+      "receipts": [
+        {
+          "started_utc": "2026-10-09T15:58:45.983827+00:00",
+          "finished_utc": "2026-10-09T15:58:55.500349+00:00",
+          "exit_code": 0,
+          "rand_reset": 0,
+          "seed": 1,
+          "forced_pll_output_before_first_eval": 0,
+          "original_profile": "board-s1",
+          "configuration_sha256": {
+            "run.cfg": "6715e0d88a44a2f35e8b26b841b49ce4b53b0062d573413ad8b155ed61a9999d",
+            "boot.script": "286bf4805ce68c056c72c02714bc141223dbdf2e173409a65004b851b4ffd872"
+          },
+          "output": "_checks\\pll-reset-probe-20261010\\paired-mode0-seed1-pll0"
+        },
+        {
+          "started_utc": "2026-10-09T15:58:55.506897+00:00",
+          "finished_utc": "2026-10-09T15:59:05.261489+00:00",
+          "exit_code": 0,
+          "rand_reset": 0,
+          "seed": 1,
+          "forced_pll_output_before_first_eval": 1,
+          "original_profile": "board-s1",
+          "configuration_sha256": {
+            "run.cfg": "6715e0d88a44a2f35e8b26b841b49ce4b53b0062d573413ad8b155ed61a9999d",
+            "boot.script": "286bf4805ce68c056c72c02714bc141223dbdf2e173409a65004b851b4ffd872"
+          },
+          "output": "_checks\\pll-reset-probe-20261010\\paired-mode0-seed1-pll1"
+        }
+      ],
+      "timeline": [
+        {
+          "time_ps": "0",
+          "pll_locked": "0",
+          "lock_time_reached": "0",
+          "rom_loaded": "0",
+          "reset_active": "1"
+        },
+        {
+          "time_ps": "100000000",
+          "pll_locked": "1",
+          "lock_time_reached": "1",
+          "rom_loaded": "0",
+          "reset_active": "1"
+        },
+        {
+          "time_ps": "12034920635",
+          "pll_locked": "1",
+          "lock_time_reached": "1",
+          "rom_loaded": "1",
+          "reset_active": "1"
+        },
+        {
+          "time_ps": "12061924603",
+          "pll_locked": "1",
+          "lock_time_reached": "1",
+          "rom_loaded": "1",
+          "reset_active": "0"
+        }
+      ],
+      "timeline_sha256": [
+        "dfd4db69f59d3c6bc3f3e945c4174648eaeb59927cce9faa7f44b99f9374fe47",
+        "dfd4db69f59d3c6bc3f3e945c4174648eaeb59927cce9faa7f44b99f9374fe47"
+      ],
+      "timelines_identical_with_initial_pll_0_or_1": true,
+      "early_image_count_each": 2,
+      "paired_image_hashes": [
+        {
+          "f000000.raw": "801108d590fe6a51b3c5a6e55b052e4f8862906d1cb62728d1472f3375d3fd02",
+          "r000000.raw": "8e999ececa7fe24fdbd2ef39fa3b27c904a3e24002e621aa2ae05dd6b81d24b7"
+        },
+        {
+          "f000000.raw": "801108d590fe6a51b3c5a6e55b052e4f8862906d1cb62728d1472f3375d3fd02",
+          "r000000.raw": "8e999ececa7fe24fdbd2ef39fa3b27c904a3e24002e621aa2ae05dd6b81d24b7"
+        }
+      ],
+      "paired_early_images_identical": true,
+      "stdout": [
+        "time_ps=70000000000 transitions=4 pll_locked=1 rom_loaded=1 reset_active=0 hps_ops=24 stop=0",
+        "time_ps=70000000000 transitions=4 pll_locked=1 rom_loaded=1 reset_active=0 hps_ops=24 stop=0"
+      ]
+    },
+    {
+      "rand_reset": 2,
+      "seed": 1,
+      "receipts": [
+        {
+          "started_utc": "2026-10-09T15:59:05.266682+00:00",
+          "finished_utc": "2026-10-09T15:59:15.098428+00:00",
+          "exit_code": 0,
+          "rand_reset": 2,
+          "seed": 1,
+          "forced_pll_output_before_first_eval": 0,
+          "original_profile": "hostile-s1",
+          "configuration_sha256": {
+            "run.cfg": "6715e0d88a44a2f35e8b26b841b49ce4b53b0062d573413ad8b155ed61a9999d",
+            "boot.script": "286bf4805ce68c056c72c02714bc141223dbdf2e173409a65004b851b4ffd872"
+          },
+          "output": "_checks\\pll-reset-probe-20261010\\paired-mode2-seed1-pll0"
+        },
+        {
+          "started_utc": "2026-10-09T15:59:15.102935+00:00",
+          "finished_utc": "2026-10-09T15:59:25.198659+00:00",
+          "exit_code": 0,
+          "rand_reset": 2,
+          "seed": 1,
+          "forced_pll_output_before_first_eval": 1,
+          "original_profile": "hostile-s1",
+          "configuration_sha256": {
+            "run.cfg": "6715e0d88a44a2f35e8b26b841b49ce4b53b0062d573413ad8b155ed61a9999d",
+            "boot.script": "286bf4805ce68c056c72c02714bc141223dbdf2e173409a65004b851b4ffd872"
+          },
+          "output": "_checks\\pll-reset-probe-20261010\\paired-mode2-seed1-pll1"
+        }
+      ],
+      "timeline": [
+        {
+          "time_ps": "0",
+          "pll_locked": "0",
+          "lock_time_reached": "0",
+          "rom_loaded": "0",
+          "reset_active": "1"
+        },
+        {
+          "time_ps": "100000000",
+          "pll_locked": "1",
+          "lock_time_reached": "1",
+          "rom_loaded": "0",
+          "reset_active": "1"
+        },
+        {
+          "time_ps": "12034920635",
+          "pll_locked": "1",
+          "lock_time_reached": "1",
+          "rom_loaded": "1",
+          "reset_active": "1"
+        },
+        {
+          "time_ps": "12061924603",
+          "pll_locked": "1",
+          "lock_time_reached": "1",
+          "rom_loaded": "1",
+          "reset_active": "0"
+        }
+      ],
+      "timeline_sha256": [
+        "dfd4db69f59d3c6bc3f3e945c4174648eaeb59927cce9faa7f44b99f9374fe47",
+        "dfd4db69f59d3c6bc3f3e945c4174648eaeb59927cce9faa7f44b99f9374fe47"
+      ],
+      "timelines_identical_with_initial_pll_0_or_1": true,
+      "early_image_count_each": 4,
+      "paired_image_hashes": [
+        {
+          "f000000.raw": "42ab13301baf633c48719df4870602a0198576f7feb97e028c3ba0672b8131d3",
+          "f000001.raw": "801108d590fe6a51b3c5a6e55b052e4f8862906d1cb62728d1472f3375d3fd02",
+          "r000000.raw": "a6a048c3668492c6c915dc201d55980530b503e827c1cc686f73d36d009229e8",
+          "r000001.raw": "8e999ececa7fe24fdbd2ef39fa3b27c904a3e24002e621aa2ae05dd6b81d24b7"
+        },
+        {
+          "f000000.raw": "42ab13301baf633c48719df4870602a0198576f7feb97e028c3ba0672b8131d3",
+          "f000001.raw": "801108d590fe6a51b3c5a6e55b052e4f8862906d1cb62728d1472f3375d3fd02",
+          "r000000.raw": "a6a048c3668492c6c915dc201d55980530b503e827c1cc686f73d36d009229e8",
+          "r000001.raw": "8e999ececa7fe24fdbd2ef39fa3b27c904a3e24002e621aa2ae05dd6b81d24b7"
+        }
+      ],
+      "paired_early_images_identical": true,
+      "stdout": [
+        "time_ps=70000000000 transitions=4 pll_locked=1 rom_loaded=1 reset_active=0 hps_ops=24 stop=0",
+        "time_ps=70000000000 transitions=4 pll_locked=1 rom_loaded=1 reset_active=0 hps_ops=24 stop=0"
+      ]
+    },
+    {
+      "rand_reset": 2,
+      "seed": 2,
+      "receipts": [
+        {
+          "started_utc": "2026-10-09T15:59:25.214773+00:00",
+          "finished_utc": "2026-10-09T15:59:36.007320+00:00",
+          "exit_code": 0,
+          "rand_reset": 2,
+          "seed": 2,
+          "forced_pll_output_before_first_eval": 0,
+          "original_profile": "hostile-s2",
+          "configuration_sha256": {
+            "run.cfg": "78dba65428abcabc5e108b2eb52a377d84d78dd7296ec4ed953a5528fd06ed29",
+            "boot.script": "286bf4805ce68c056c72c02714bc141223dbdf2e173409a65004b851b4ffd872"
+          },
+          "output": "_checks\\pll-reset-probe-20261010\\paired-mode2-seed2-pll0"
+        },
+        {
+          "started_utc": "2026-10-09T15:59:36.011125+00:00",
+          "finished_utc": "2026-10-09T15:59:46.406564+00:00",
+          "exit_code": 0,
+          "rand_reset": 2,
+          "seed": 2,
+          "forced_pll_output_before_first_eval": 1,
+          "original_profile": "hostile-s2",
+          "configuration_sha256": {
+            "run.cfg": "78dba65428abcabc5e108b2eb52a377d84d78dd7296ec4ed953a5528fd06ed29",
+            "boot.script": "286bf4805ce68c056c72c02714bc141223dbdf2e173409a65004b851b4ffd872"
+          },
+          "output": "_checks\\pll-reset-probe-20261010\\paired-mode2-seed2-pll1"
+        }
+      ],
+      "timeline": [
+        {
+          "time_ps": "0",
+          "pll_locked": "0",
+          "lock_time_reached": "0",
+          "rom_loaded": "0",
+          "reset_active": "1"
+        },
+        {
+          "time_ps": "100000000",
+          "pll_locked": "1",
+          "lock_time_reached": "1",
+          "rom_loaded": "0",
+          "reset_active": "1"
+        },
+        {
+          "time_ps": "12034920635",
+          "pll_locked": "1",
+          "lock_time_reached": "1",
+          "rom_loaded": "1",
+          "reset_active": "1"
+        },
+        {
+          "time_ps": "12061924603",
+          "pll_locked": "1",
+          "lock_time_reached": "1",
+          "rom_loaded": "1",
+          "reset_active": "0"
+        }
+      ],
+      "timeline_sha256": [
+        "dfd4db69f59d3c6bc3f3e945c4174648eaeb59927cce9faa7f44b99f9374fe47",
+        "dfd4db69f59d3c6bc3f3e945c4174648eaeb59927cce9faa7f44b99f9374fe47"
+      ],
+      "timelines_identical_with_initial_pll_0_or_1": true,
+      "early_image_count_each": 4,
+      "paired_image_hashes": [
+        {
+          "f000000.raw": "f4786a61ff738c8f2faea39006710cc8f49537e428f2d945b6610472bca5ea4d",
+          "f000001.raw": "801108d590fe6a51b3c5a6e55b052e4f8862906d1cb62728d1472f3375d3fd02",
+          "r000000.raw": "ace5d4aecfbe1633254a6963c593ae276f307fde10905c91dcea55be229e75b7",
+          "r000001.raw": "8e999ececa7fe24fdbd2ef39fa3b27c904a3e24002e621aa2ae05dd6b81d24b7"
+        },
+        {
+          "f000000.raw": "f4786a61ff738c8f2faea39006710cc8f49537e428f2d945b6610472bca5ea4d",
+          "f000001.raw": "801108d590fe6a51b3c5a6e55b052e4f8862906d1cb62728d1472f3375d3fd02",
+          "r000000.raw": "ace5d4aecfbe1633254a6963c593ae276f307fde10905c91dcea55be229e75b7",
+          "r000001.raw": "8e999ececa7fe24fdbd2ef39fa3b27c904a3e24002e621aa2ae05dd6b81d24b7"
+        }
+      ],
+      "paired_early_images_identical": true,
+      "stdout": [
+        "time_ps=70000000000 transitions=4 pll_locked=1 rom_loaded=1 reset_active=0 hps_ops=24 stop=0",
+        "time_ps=70000000000 transitions=4 pll_locked=1 rom_loaded=1 reset_active=0 hps_ops=24 stop=0"
+      ]
+    }
+  ],
+  "conclusion": "No early lock/reset/image sensitivity to the forced initial PLL output in these six scoped cases; do not add a second driver/initial value to the production PLL output.",
+  "observed_lock_time_ps": 100000000,
+  "observed_rom_loaded_time_ps": 12034920635,
+  "observed_reset_release_time_ps": 12061924603,
+  "original_hostile_failure_resolved": false,
+  "limitations": [
+    "Only70ms/24 of34 HPS operations; original120-field hostile black failure remains open.",
+    "Diagnostic uses retained legacy Preflight objects and matching bundled runtime flags, not a current-source release qualification.",
+    "Raw images are compared only within matched profile/seed pairs; board/hostile capture counts differ2 versus4 and are not aligned/resynchronized.",
+    "Reset timeline does not qualify physical PLL behavior, absolute CPU/raster phase or all power-up states.",
+    "No production RTL, sys, constraints, Quartus job, RBF or hardware deployment changed."
+  ],
+  "evidence_sha256": {
+    "D:/Arcade/AI/aCORES/sherrif/tools/record_pll_reset_probe.py": "b6c54d37db95624159039c0b8af069f4f3401c0692a8ad36659dff7bb2fcc591",
+    "_checks/pll-reset-probe-20261010/probe.cpp": "569209f3272575f4665fac9e2f9061225765448f6066d50c09e0267eeb6b0f3b",
+    "_checks/pll-reset-probe-20261010/build.ps1": "1f61a8a948a7b97580d9dd87e031445267db2dd2549edd26955829e29ec0e797",
+    "_checks/pll-reset-probe-20261010/run_cases.py": "696613752123a4f3d1fcb7312f9d6e0b9df6095d73779a6021fba328a4e847d6",
+    "_checks/pll-reset-probe-20261010/build-v5-receipt.json": "d6f6db7c4ad9feacd20725c9fb255bf09945dacf156c7dbfeb100f510d840346",
+    "_checks/pll-reset-probe-20261010/cases-terminal.json": "00d8c474e6b8e00aacf8d3f5c51fd7801690f13ee6a17393122d0032d60f8e2c"
+  },
+  "release_qualified": false,
+  "rbf_built": false
+}

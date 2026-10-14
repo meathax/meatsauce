@@ -1,0 +1,48 @@
+{
+  "scope": "Isolated master-clock sampled related-Bandido 4F/4G/4T and READY 3D model",
+  "connections": {
+    "capture_clock": "HREAD_n XOR Q2; 4F D1=old Q2, D2=1; Q1=RDY IN.",
+    "clear": "RAMSTB_n clears both LS174 data/flag latches and READY CLR.",
+    "READY": "LS74 D=NOT phi1 TTL; CLK=phi3 TTL; PREbar=RDY IN; CLRbar=RAMSTB_n; CPU uses Qbar."
+  },
+  "test": {
+    "build_exit": 0,
+    "test_exit": 0,
+    "explicit_function_cases": 22,
+    "covers": [
+      "00->01->11 flag feedback and data capture",
+      "Clear dominance and clear release while capture clock already high",
+      "Held-clock data retention and subsequent captures",
+      "READY Qbar clear/preset behavior, including both async controls low",
+      "Phi3 edge sampling, no phi1-only resampling, preset release with phi3 already high"
+    ],
+    "receipts": [
+      "_checks\\ram-readback-20261009\\build-receipt.json",
+      "_checks\\ram-readback-20261009\\test-receipt.json"
+    ]
+  },
+  "source_function_evidence": [
+    "docs/evidence/sheriff_ram_handshake.json",
+    "docs/evidence/sheriff_memory_mux_connections.json"
+  ],
+  "sha256": {
+    "rtl/n8080_ram_readback.sv": "72edd65085b4f11cc17be9fe3bc9952081885e1db6f863105c3a7ccc239ff891",
+    "sim/ram_readback.cpp": "1b306c10c7b1fb31bfc54aed8892a0fd83282be898c4094fcddf0055b8bd118f",
+    "docs/evidence/sheriff_ram_handshake.json": "0c230ed301a3687497a08e286c7ccc236481693a40466bc96bf1b213a000211e",
+    "docs/evidence/sheriff_memory_mux_connections.json": "e8d3b0dc241153398bc2a597765cacc336649253614547584827748e75890ccc",
+    "_checks\\ram-readback-20261009\\build-receipt.json": "3a664961a126d5fdda1193f236edd2d27253bf131b4c60e2154ddd728ac6da84",
+    "_checks\\ram-readback-20261009\\test-receipt.json": "67814d05e387ac5751c4961118f62c4794e6954db4c49eb1db91345156f9d8a7",
+    "D:\\Arcade\\AI\\aCORES\\sherrif\\tools\\record_ram_readback.py": "d7ae1cd32f702bb476cc2a6155b5527847b730d21a6d9833a9d117f2d4aebb4a"
+  },
+  "primitive_qualified_for_stated_model": true,
+  "integrated_in_board": false,
+  "physical_memory_timing_qualified": false,
+  "strict_graphics_gate_pass": false,
+  "quartus_executed": false,
+  "limits": [
+    "Inputs are pin levels sampled at the master clock; electrical pulse width, glitches and propagation are not modeled.",
+    "Simultaneous capture/preset-release/phi3 events require physical propagation qualification before integration.",
+    "No valid DRAM DO window, CPU wait count or absolute phase is established.",
+    "Exact Sheriff applicability of related Bandido connections remains conditional."
+  ]
+}

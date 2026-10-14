@@ -1,0 +1,94 @@
+{
+  "scope": "real CPU-only diagnostic; FF sound-chip readback; all901 main counters compared with full real-system gameplay",
+  "terminal": {
+    "started": 1791530581.1400108,
+    "command": [
+      "./alpha68kn_board_state_sim",
+      "../../roms/kyros/download.bin",
+      "901",
+      "../captures/rtl/kyros_board_state900_detached",
+      "../captures/kyros/gameplay/frame_states.csv"
+    ],
+    "executable_sha256": "ef308d22da27eb52d97a6498dea7ec853e26ae79d216cf74a4cbc0772be72755",
+    "worker_pid": 112971,
+    "simulation_pid": 112972,
+    "exit_code": 0,
+    "ended": 1791531949.8200886
+  },
+  "fields": 901,
+  "different_main_counter_values": 0,
+  "first_counter_differences": [],
+  "ram": {
+    "sprites": {
+      "bytes": 8192,
+      "different_words": 0,
+      "first_differences": [],
+      "rtl_sha256": "7b6abf06d1668cd9bbe521320f65ff39be5264b742f0c2ee2918e3e3b4bd9f6a",
+      "mame_sha256": "7b6abf06d1668cd9bbe521320f65ff39be5264b742f0c2ee2918e3e3b4bd9f6a"
+    },
+    "work": {
+      "bytes": 4096,
+      "different_words": 2,
+      "first_differences": [
+        {
+          "address": 3934,
+          "native": 288,
+          "mame": 256
+        },
+        {
+          "address": 4082,
+          "native": 40590,
+          "mame": 40594
+        }
+      ],
+      "rtl_sha256": "63384a04dd9ee0dfb7fe1618e8784a3170295b6f65a7adf9e9d288d7a2fc9bf1",
+      "mame_sha256": "e2f6fdd2a3799e977d650d08c2f380d5fc98604a458f6265cc46927808337adc"
+    }
+  },
+  "native_target_writes": [
+    {
+      "frame": "900",
+      "tick": "730142850",
+      "x": "273",
+      "y": "52",
+      "address": "265962",
+      "data": "20",
+      "uds_n": "0",
+      "lds_n": "0"
+    },
+    {
+      "frame": "900",
+      "tick": "730143154",
+      "x": "311",
+      "y": "52",
+      "address": "265962",
+      "data": "21",
+      "uds_n": "0",
+      "lds_n": "0"
+    }
+  ],
+  "mame_target_writes": [
+    {
+      "frame": "900",
+      "x": "275",
+      "y": "52",
+      "address": "265962",
+      "data": "20",
+      "mask": "65535",
+      "before": "20"
+    },
+    {
+      "frame": "900",
+      "x": "313",
+      "y": "52",
+      "address": "265962",
+      "data": "21",
+      "mask": "65535",
+      "before": "20"
+    }
+  ],
+  "original_atomic_image_different_pixels": 4,
+  "prewrite_fixture_zero_differences": true,
+  "native_word_after_visible_tile": true,
+  "limits": "No broad MAME_EXACT, physical PCB latch or fitted timing claim; work-RAM differences separately retained"
+}

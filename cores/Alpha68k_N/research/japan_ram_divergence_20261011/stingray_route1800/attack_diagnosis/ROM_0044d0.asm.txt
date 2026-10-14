@@ -1,0 +1,36 @@
+044d0: 3836 3004            move.w  ($4,A6,D3.w), D4
+044d4: 9840                 sub.w   D0, D4
+044d6: d841                 add.w   D1, D4
+044d8: d241                 add.w   D1, D1
+044da: b841                 cmp.w   D1, D4
+044dc: 651e                 bcs     $44fc
+044de: 321f                 move.w  (A7)+, D1
+044e0: 60c8                 bra     $44aa
+044e2: 0c01 ffff            cmpi.b  #-$1, D1
+044e6: 67f6                 beq     $44de
+044e8: 0c01 fffe            cmpi.b  #-$2, D1
+044ec: 67f0                 beq     $44de
+044ee: 60ee                 bra     $44de
+044f0: 7200                 moveq   #$0, D1
+044f2: 1236 3000            move.b  (A6,D3.w), D1
+044f6: 4a33 1000            tst.b   (A3,D1.w)
+044fa: 6fe2                 ble     $44de
+044fc: 321f                 move.w  (A7)+, D1
+044fe: 3f00                 move.w  D0, -(A7)
+04500: 7000                 moveq   #$0, D0
+04502: 1036 3000            move.b  (A6,D3.w), D0
+04506: d040                 add.w   D0, D0
+04508: 48a7 7d00            movem.w D1-D5/D7, -(A7)
+0450c: 48e7 00c0            movem.l A0-A1, -(A7)
+04510: 41fa 2d76            lea     ($7288,PC), A0
+04514: 3030 0000            move.w  (A0,D0.w), D0
+04518: 6100 d174            bsr     $168e
+0451c: 4cdf 0300            movem.l (A7)+, A0-A1
+04520: 4c9f 00be            movem.w (A7)+, D1-D5/D7
+04524: 301f                 move.w  (A7)+, D0
+04526: 5236 3007            addq.b  #1, ($7,A6,D3.w)
+0452a: 4a2e 0004            tst.b   ($4,A6)
+0452e: 6608                 bne     $4538
+04530: 13fc 0064 000e 0000  move.b  #$64, $e0000.l
+04538: 6000 fef2            bra     $442c
+0453c: 0000 0000            ori.b   #$0, D0

@@ -1,0 +1,39 @@
+<?xml version='1.0' encoding='utf-8'?>
+<misterromdescription>
+  <name>Office Yeoin Cheonha (version 1.2)</name>
+  <setname>officeye</setname>
+  <rbf>Arcade-CrystalSystem</rbf>
+  <mameversion>0289</mameversion>
+  <year>2001</year>
+  <manufacturer>Danbi</manufacturer>
+  <category>Party / Reaction</category>
+  <players>3</players>
+  <joystick>none</joystick>
+  <rotation>horizontal</rotation>
+  <resolution>15kHz</resolution>
+  <homebrew>no</homebrew>
+  <bootleg>no</bootleg>
+  <rom index="1">
+    <part>43 52 59 53 01 04 02 00 00 00 00 00 00 00 00 00</part>
+  </rom>
+  <rom index="3" zip="officeye.zip">
+    <part name="office_yeo_in_cheon_ha_pic16f84a.bin" crc="7561cdf5" />
+  </rom>
+  <rom index="0" zip="officeye.zip" address="0x30000000">
+    <part name="flash.u1" crc="d3f3eec4" />
+    <part name="flash.u2" crc="e4f85d0a" />
+    <part name="bios.u14" crc="ffc57e90" />
+  </rom>
+  <nvram index="4" size="65536" />
+  <switches default="FF" base="0">
+    <dip name="Pause" bits="0" ids="On,Off" />
+    <dip name="Free Play" bits="1" ids="On,Off" />
+    <dip name="Unknown DSW 3" bits="2" ids="On,Off" />
+    <dip name="Unknown DSW 4" bits="3" ids="On,Off" />
+    <dip name="Unknown DSW 5" bits="4" ids="On,Off" />
+    <dip name="Unknown DSW 6" bits="5" ids="On,Off" />
+    <dip name="Unknown DSW 7" bits="6" ids="On,Off" />
+    <dip name="Test" bits="7" ids="On,Off" />
+  </switches>
+  <buttons names="Red,Green,Blue,-,Start,Coin,Pause,Service Credit,Service Menu" default="A,B,X,-,Start,Select,L,-,-" />
+</misterromdescription>

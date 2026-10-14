@@ -1,0 +1,17 @@
+# Native and MAME common origin
+
+The measured initial50-clock tag gap has a source-defined initialization/event explanation. **The raster origins agree atx0/y240.** Native time0 follows physical-model external RESET release; MAME time0 starts a virtual instruction atPC0. This is not evidence to change CPU phase or waive field66/2760.
+
+The immutable cb67879 harness loads18432 bytes under reset, settles another1000 clocks, then releases reset before its tick0 loop. Its25-clock CPU divider runs during all19432 clocks, yielding phase7; raster reset separately holdsx0/y240/pixelphase0. The retained78-pin reset proof predicts nextphi1+18, recovery, M1phi1+43, SYNC+52 andDBIN+77. The observer’s T1tag+50 isSYNC−2/DBIN−27, not the physical M1phi1 edge. Intel’s reset figure supports recovery ordering and no universal50-clock release-to-tag delay.
+
+MAME0.289 screen source initializes vblank_start_time=0. With visiblebottom239, vpos returns(239+1+delta/scantime)%256; hpos isdelta/pixeltime, givingx0/y240 at time0. Sheriff config sets5.04MHz pixel clock,320×256 raster and visibley16–239. Its CPU reset setsPC0 and execute_run callsread_op/execute_one without an external-pin reset/recovery sequence. The exit0 reset capture observesPC0 at time0; the first five ordered native fetches retain approximately50 clocks of tag separation.
+
+Lua machine.time follows scheduler context: active timer callbacks use their expiration time; otherwise executing CPU callbacks useCPU local_time; outside both it uses globalbase time (schedule.cpp:329–338). Thus callback time, callback order, physicalphi1, SYNC/DBIN and the bus-derived tag are distinct events. The Lua beam helper derives position fromtime_until_pos at5.04MHz with nearest-pixel rounding; no fitted offset is selected. The snapshot/image pairing remains its separately qualified drawing-buffer convention.
+
+Capture provenance is bounded: the actual pixel capture records LuaSHA4ff1018e…3944773 and a null launcher hash. Thirteen retained script candidates and their raw/LF/CRLF variants did not recover that exact Lua. The fresh reset observerSHA5e214ec7…6665481 is recovered exactly throughLF normalization, with original bytes retained and both variants hashed. Current launcher’s autoboot_delay0, immediate start_capture and lack of a reset/rebase call are context only; they are not silently assigned to the unrecorded historical bootstrap.
+
+The smallest source-justified change is capture metadata: pin the exact Lua/launcher and record external release, realphi1/SYNC/DBIN, callback scheduler time and beam for paired events. Preserve native recovery and raw raster. No numeric timestamp, beam or CPU-phase correction is justified yet. Actual Sheriff CPU/reset/IRQ/raster phase and READY/RAM-service timing remain unknown; the initial semantic gap does not prove the sole cause of the later125-clock epoch separation.
+
+Complete source identities, coordinate equations, retained excerpts and recovery handles are in `docs/evidence/sheriff_common_origin.json`. Source-only producer `_checks/agent-common-origin-20261010/analyze.py` executes no simulator and leaves the first-pixel causal report unchanged.
+
+Contextual Lua/launcher bytes are frozen under `_checks/agent-common-origin-20261010/context-before-epoch-metadata/` before future observer edits. The consumed first-pixel report pins tracked LF SHA49187b27; retained original SHA9bb34068 remains explicitly bound under `_checks/service-firstpixel-parent-integration-20261010/`. This documentary recovery does not rerun the semantic producer.

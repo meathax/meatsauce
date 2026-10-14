@@ -1,0 +1,223 @@
+{
+  "verdict": "Unresolved pixel mismatch; no source-proven RTL defect or patch proposed.",
+  "source_records": [
+    {
+      "path": "D:\\Arcade\\AI\\aCORES\\meatsauce-alpha68kn\\cores\\Alpha68k_N\\rtl\\alpha68kn_renderer.sv",
+      "sha256": "53d16c6ff5d105a3643377c48c067452b3c83431fe4c159edceda7854a8b47bb",
+      "bytes": 8460,
+      "source_epoch": "6cafdc7d5edac7a5403ac7224b74c996921de966"
+    },
+    {
+      "path": "D:\\Arcade\\AI\\aCORES\\meatsauce-alpha68kn\\cores\\Alpha68k_N\\rtl\\alpha68kn_system.sv",
+      "sha256": "ca909f97d09875ecfe98b92e04d5fbad343a2e6fed20c84542b4265eb5060152",
+      "bytes": 7821,
+      "source_epoch": "6cafdc7d5edac7a5403ac7224b74c996921de966"
+    },
+    {
+      "path": "D:\\Arcade\\AI\\aCORES\\meatsauce-alpha68kn\\cores\\Alpha68k_N\\rtl\\alpha68kn_video_rom.sv",
+      "sha256": "0648d54a3ba282367d4136892b21e6cffed7a10cde64e6e794a6ef43ec26c996",
+      "bytes": 2982,
+      "source_epoch": "6cafdc7d5edac7a5403ac7224b74c996921de966"
+    },
+    {
+      "path": "D:\\Arcade\\AI\\aCORES\\meatsauce-alpha68kn\\cores\\Alpha68k_N\\rtl\\alpha68kn_board.sv",
+      "sha256": "43b8c6e7600e4c4089f0d3c0e4a15637be8bfcbdd626ddd0bc0e222b7b1553ce",
+      "bytes": 25556,
+      "source_epoch": "6cafdc7d5edac7a5403ac7224b74c996921de966"
+    },
+    {
+      "path": "D:\\Arcade\\AI\\aCORES\\meatsauce-alpha68kn\\cores\\Alpha68k_N\\Alpha68k_N.sv",
+      "sha256": "894197513ff916c2df0bf8783bf0bfe0903a4bb577b7464b85e1356cf1c5da30",
+      "bytes": 16119,
+      "source_epoch": "6cafdc7d5edac7a5403ac7224b74c996921de966"
+    },
+    {
+      "path": "D:\\Arcade\\AI\\aCORES\\meatsauce-alpha68kn\\cores\\Alpha68k_N\\sys\\arcade_video.v",
+      "sha256": "ce64cdd7f900ded7b9cd9aa728dab7383b7561cdc75dfe82ab23fe27a3d217d3",
+      "bytes": 8597,
+      "source_epoch": "6cafdc7d5edac7a5403ac7224b74c996921de966"
+    }
+  ],
+  "top_readonly_alias_binding": {
+    "canonical_path": "D:\\Arcade\\AI\\aCORES\\meatsauce-alpha68kn\\cores\\Alpha68k_N\\Alpha68k_N.sv",
+    "canonical_sha256": "894197513ff916c2df0bf8783bf0bfe0903a4bb577b7464b85e1356cf1c5da30",
+    "compiled_path": "D:\\Arcade\\AI\\aCORES\\Alpha68k N\\research\\wrapper_feature_gates_20261011\\unified_emu_admission_v5\\source\\Alpha68k_N.sv",
+    "compiled_sha256": "9e46264336f75e67cb133816b588ced37cc34e8369f55cd3d0c4866305f709f8",
+    "only_readonly_VERILATOR_port_alias_additions": true,
+    "removed_alias_lines": [
+      ",output wire SIM_PORT_ACCEPT,SIM_PORT_READ,SIM_BOARD_FLIP",
+      ",output wire [23:0] SIM_PORT_ADDR",
+      ",output wire [15:0] SIM_PORT_DATA,SIM_PORT_OUT",
+      ",output wire [3:0] SIM_PORT_ATTRS",
+      ",output wire SIM_DONOR_READ_INTENT,SIM_DONOR_WRITE_INTENT,SIM_DONOR_WRITE,SIM_HS_ACCESS,SIM_HS_COMMIT",
+      ",output wire [23:0] SIM_DONOR_ADDR",
+      ",output wire [7:0] SIM_DONOR_DATA",
+      "assign SIM_PORT_ACCEPT=system.board.ram_bus_service;",
+      "assign SIM_PORT_READ=system.board.mrw_n;",
+      "assign SIM_PORT_ADDR=system.board.maddr;",
+      "assign SIM_PORT_DATA=system.board.mdin;",
+      "assign SIM_PORT_OUT=system.board.mdout;",
+      "assign SIM_PORT_ATTRS={system.board.iack,system.board.mrw_n,system.board.muds_n,system.board.mlds_n};",
+      "assign SIM_BOARD_FLIP=system.board.flip;",
+      "assign SIM_DONOR_READ_INTENT=hs_read;",
+      "assign SIM_DONOR_WRITE_INTENT=hs_write_intent;",
+      "assign SIM_DONOR_WRITE=hs_write;",
+      "assign SIM_DONOR_ADDR=hs_addr;",
+      "assign SIM_DONOR_DATA=hs_to_ram;",
+      "assign SIM_HS_ACCESS=ram_hs_access;",
+      "assign SIM_HS_COMMIT=system.board.hs_work_service && system.board.hs_write && (system.board.work_write_hi || system.board.work_write_lo);"
+    ]
+  },
+  "existing_probe": {
+    "path": "D:\\Arcade\\AI\\aCORES\\Alpha68k N\\research\\wrapper_feature_gates_20261011\\current_kyros4401_native_v3\\candidate\\sim\\kyros_passive_probes.h",
+    "sha256": "23a050faf1206a49072c3caa11f0e3f8bfc7f60541c31e9c837ef0f9b91dc8a5"
+  },
+  "producer_proofs": [
+    {
+      "path": "D:\\Arcade\\AI\\aCORES\\Alpha68k N\\research\\japan_ram_divergence_20261011\\japan1201_whole_qualification_v2\\terminal_import_manifest.json",
+      "sha256": "896830265edb3a4934b0188fcda969294b52539d1a57742f5a161a488cdc4bfb",
+      "bytes": 5659
+    },
+    {
+      "path": "D:\\Arcade\\AI\\aCORES\\Alpha68k N\\research\\japan_ram_divergence_20261011\\japan1201_whole_qualification_v2\\qualification.json",
+      "sha256": "3a1e3b98e91d7d99900f0cb77d5154697b944df8a2c50270bedd86dc1a27898c",
+      "bytes": 61428
+    },
+    {
+      "path": "D:\\Arcade\\AI\\aCORES\\Alpha68k N\\research\\current_kyros4401_probe_contract_v1\\import_manifest.json",
+      "sha256": "7ebe33c07b5e2a7742ac005f44b3d96a267f2a748adc7282bbaa34d560be2d12",
+      "bytes": 764
+    },
+    {
+      "path": "D:\\Arcade\\AI\\aCORES\\Alpha68k N\\research\\timing_crossings_20261011\\kyros_adjudication_import_manifest.json",
+      "sha256": "f36f0ff11e10f7759071aeade3d8b8cdf0ec1ab8e6717228dba7028e11131817",
+      "bytes": 1733
+    },
+    {
+      "path": "D:\\Arcade\\AI\\aCORES\\Alpha68k N\\research\\timing_crossings_20261011\\kyros_stack_pixel_adjudication.md",
+      "sha256": "65d9c8e551051c13ea067a8f9125b6d313d7635d5714a97a547430cd83c41912",
+      "bytes": 9757
+    }
+  ],
+  "Japan900_compact_RGB_record": {
+    "field": 900,
+    "suffix": "rgb",
+    "native": {
+      "path": "D:\\Arcade\\AI\\aCORES\\Alpha68k N\\research\\wrapper_feature_gates_20261011\\unified_emu_admission_v5\\capture_kyrosj\\frame_000900.core.rgb",
+      "bytes": 172032,
+      "sha256": "304fcff084c2e5d5ff65125ca52921d133beb97638666815619f9bb124407dc0"
+    },
+    "oracle": {
+      "path": "D:\\Arcade\\AI\\aCORES\\Alpha68k N\\research\\japan_ram_divergence_20261011\\japan1201_whole_qualification_v2\\frame_000900.display.rgb",
+      "bytes": 172032,
+      "sha256": "cb4120b5a7eb5b9fe5071e4969e4d8a68988d79641081e02d5a6f151b82a7398"
+    },
+    "reference_PNG": {
+      "path": "D:\\Arcade\\AI\\aCORES\\Alpha68k N\\sim\\captures\\kyrosj\\gameplay\\frame_000900.png",
+      "bytes": 8657,
+      "sha256": "335ec0d7d3ce7c5d71bf8d31d3ed7ad31d3c8c4d8b95163b40b1c17f1a4ab601"
+    },
+    "different_bytes": 9,
+    "native_bytes": 172032,
+    "oracle_bytes": 172032,
+    "different_pixels": 4,
+    "bounding_box": [
+      26,
+      29,
+      8,
+      15
+    ],
+    "pixels": [
+      {
+        "x": 26,
+        "y": 8,
+        "native": "0000ff",
+        "oracle": "ff0000"
+      },
+      {
+        "x": 27,
+        "y": 8,
+        "native": "0000ff",
+        "oracle": "ff0000"
+      },
+      {
+        "x": 28,
+        "y": 8,
+        "native": "0000ff",
+        "oracle": "ff0000"
+      },
+      {
+        "x": 29,
+        "y": 15,
+        "native": "0000ff",
+        "oracle": "dd9966"
+      }
+    ]
+  },
+  "Japan900_sprite_record": {
+    "field": 900,
+    "suffix": "sprites.bin",
+    "native": {
+      "path": "D:\\Arcade\\AI\\aCORES\\Alpha68k N\\research\\wrapper_feature_gates_20261011\\unified_emu_admission_v5\\capture_kyrosj\\frame_000900.sprites.bin",
+      "bytes": 8192,
+      "sha256": "7b6abf06d1668cd9bbe521320f65ff39be5264b742f0c2ee2918e3e3b4bd9f6a"
+    },
+    "oracle": {
+      "path": "D:\\Arcade\\AI\\aCORES\\Alpha68k N\\sim\\captures\\kyrosj\\gameplay\\frame_000900.sprites.bin",
+      "bytes": 8192,
+      "sha256": "7b6abf06d1668cd9bbe521320f65ff39be5264b742f0c2ee2918e3e3b4bd9f6a"
+    },
+    "reference_PNG": null,
+    "different_bytes": 0,
+    "native_bytes": 8192,
+    "oracle_bytes": 8192,
+    "byte_offsets": []
+  },
+  "Japan900_owner_confirmed_pixels": [
+    {
+      "x": 26,
+      "y": 8,
+      "native_RGB": "0000ff",
+      "reference_RGB": "ff0000"
+    },
+    {
+      "x": 27,
+      "y": 8,
+      "native_RGB": "0000ff",
+      "reference_RGB": "ff0000"
+    },
+    {
+      "x": 28,
+      "y": 8,
+      "native_RGB": "0000ff",
+      "reference_RGB": "ff0000"
+    },
+    {
+      "x": 29,
+      "y": 15,
+      "native_RGB": "0000ff",
+      "reference_RGB": "dd9966"
+    }
+  ],
+  "checks": {
+    "game_RTL_framework_match_capture_closure_top_only_readonly_VERILATOR_aliases": true,
+    "linebuf_read_and_write_nonblocking_same_edge": true,
+    "writes_suppressed_at_line_start_and_next_line_bank": true,
+    "row_taken_transfers_queued_payload": true,
+    "color_synchronous_wait_stages_present": true,
+    "CLUT_lane_and_RGB_lane_registered": true,
+    "three_edge_coordinates_CE_match_RGB_stages": true,
+    "native_RGB_observation_before_framework": true,
+    "existing_probe_PRE_G1_and_row_taken_tags_present": true,
+    "existing_probe_shadow_reads_before_shadow_writes": true,
+    "existing_probe_field900_not_Japan_y8_15": true,
+    "frozen_Japan900_RGB_diff_and_sprite_match_preserved": true,
+    "current_World_capture_outcomes_not_read_or_inferred": true
+  },
+  "checks_passed": 13,
+  "checks_total": 13,
+  "current_World_qualification": "Not inspected; no transfer from historical counts.",
+  "Japan_display_winner_proven": false,
+  "B16_raw_difference_preserved": true,
+  "no_RTL_or_runtime_or_FPGA_or_canonical_or_Git_changes": true
+}

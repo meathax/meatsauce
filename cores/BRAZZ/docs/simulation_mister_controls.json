@@ -1,0 +1,51 @@
+{
+  "target": "mister_controls",
+  "acceptance": "unit verification",
+  "runtime": "native Windows PE / MSYS2 UCRT64",
+  "commands": [
+    [
+      "D:/vibes/fpga/bin/verilator.exe",
+      "--cc",
+      "--exe",
+      "--build",
+      "-j",
+      "4",
+      "-O3",
+      "--top-module",
+      "cs_mister_controls",
+      "--Mdir",
+      "R:/Verilator/CrystalSystem/tool-20261008T171910709Z-43592-60677421/obj_dir",
+      "-CFLAGS",
+      "-O2",
+      "-MAKEFLAGS",
+      "OPT_FAST=-O2",
+      "-MAKEFLAGS",
+      "OPT_GLOBAL=-O2",
+      "-Wno-fatal",
+      "D:/Arcade/AI/aCORES/BRAZZ/Arcade-CrystalSystem_MiSTer/rtl/board/cs_mister_controls.sv",
+      "D:/Arcade/AI/aCORES/BRAZZ/Arcade-CrystalSystem_MiSTer/sim/mister/controls.cpp"
+    ],
+    [
+      "D:/vibes/fpga/bin/verilator.exe",
+      "sim",
+      "R:/Verilator/CrystalSystem/tool-20261008T171910709Z-43592-60677421/obj_dir/Vcs_mister_controls.exe"
+    ]
+  ],
+  "exit_code": 0,
+  "run_seconds": 0.24583460000576451,
+  "sources": [
+    {
+      "path": "rtl/board/cs_mister_controls.sv",
+      "sha256": "ae2e3f4c80af5b5a9d7902d5b50dcee08ea851a7d52e2a8e6b20f4f470d69e6b"
+    },
+    {
+      "path": "sim/mister/controls.cpp",
+      "sha256": "dfea4643b0cace6179b47a9519dc99e8ff52a1d7c76b8256f904f0eb163e291e"
+    }
+  ],
+  "workspace": "R:/Verilator/CrystalSystem/tool-20261008T171910709Z-43592-60677421",
+  "timing_profile": null,
+  "stdout": "PASS controls: 362 checks; both players, button 4, DIPs, service/menu, pause/reset, test switch, officeye/urachamu three players, topbladv impulse coins\n",
+  "stderr": "",
+  "build_log": "sim/obj_dir/mister_controls/build.log"
+}

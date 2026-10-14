@@ -1,0 +1,15 @@
+01dc8: 0640 0020       addi.w  #$20, D0
+01dcc: 0641 0028       addi.w  #$28, D1
+01dd0: 4440            neg.w   D0
+01dd2: 4441            neg.w   D1
+01dd4: d06e 001c       add.w   ($1c,A6), D0
+01dd8: d26e 0012       add.w   ($12,A6), D1
+01ddc: 0240 00f8       andi.w  #$f8, D0
+01de0: 0241 00f8       andi.w  #$f8, D1
+01de4: e448            lsr.w   #2, D0
+01de6: e749            lsl.w   #3, D1
+01de8: d041            add.w   D1, D0
+01dea: 41f9 0004 1000  lea     $41000.l, A0
+01df0: 0240 07ff       andi.w  #$7ff, D0
+01df4: d0c0            adda.w  D0, A0
+01df6: 4e75            rts

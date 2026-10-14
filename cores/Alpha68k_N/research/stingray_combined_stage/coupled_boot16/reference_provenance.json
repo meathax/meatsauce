@@ -1,0 +1,112 @@
+{
+  "manifest_path": "D:\\Arcade\\AI\\aCORES\\meatsauce-alpha68kn\\cores\\Alpha68k_N\\sim\\captures\\sstingry\\attract\\manifest.json",
+  "manifest_sha256": "51c2189eb759f0833470086a143e18ed2290e83a3aba1a6d94d5552d0b8eca1c",
+  "checks": {
+    "set_mode": true,
+    "MAME_executable_hash": true,
+    "driver_hash": true,
+    "recording_script_hash": true,
+    "all_recorded_ROM_regions_match": true,
+    "selected_artifacts_match_manifest": true,
+    "actual_finite_completion": true,
+    "full1800_contiguous_input_rows": true,
+    "all_input_ports_match_attract_and_DIP": true,
+    "snapshot_input_ports_agree": true,
+    "no_attract_action_edges": true
+  },
+  "source_identity_pass": true,
+  "historical_actual_exit_code_recorded": false,
+  "completion_text": "frames=1800\nmode=attract\nlast_screen_frame=1799\n",
+  "exe_path": "D:\\Arcade\\AI\\aCORES\\Alpha68k N\\tools\\mame0289\\mame.exe",
+  "exe_sha256": "af6966108d9b52c22465c6d50f4e5d50cc371b50f2d27dc443935f287aad37a3",
+  "capture_script": "D:\\Arcade\\AI\\aCORES\\Alpha68k N\\sim\\mame\\capture.lua",
+  "capture_script_expected_sha256": "174ed050b8776e11745dfb0211ee42995e582c91f9a5f110665663f368ab8c6c",
+  "capture_script_actual_sha256": "174ed050b8776e11745dfb0211ee42995e582c91f9a5f110665663f368ab8c6c",
+  "ROM_regions": [
+    {
+      "path": "D:\\Arcade\\AI\\aCORES\\Alpha68k N\\roms\\sstingry\\maincpu.bin",
+      "sha256": "c56ccc516654c507f0fc2d3168ac4ac58f26b15aabcac00e0516b302cc0c7f53",
+      "pass": true
+    },
+    {
+      "path": "D:\\Arcade\\AI\\aCORES\\Alpha68k N\\roms\\sstingry\\audiocpu.bin",
+      "sha256": "e32fb53b6f852f7ec3ddfbd4a1ed02f244e8469070817c3586798599259c30d9",
+      "pass": true
+    },
+    {
+      "path": "D:\\Arcade\\AI\\aCORES\\Alpha68k N\\roms\\sstingry\\alpha8511.bin",
+      "sha256": "71b0ea0c83c962dcec11bf1336ef17d3c9efb34d4674c8c5be494b1c94c4348a",
+      "pass": true
+    },
+    {
+      "path": "D:\\Arcade\\AI\\aCORES\\Alpha68k N\\roms\\sstingry\\sprites.bin",
+      "sha256": "0e426186dd05420e2f82c3af20cb1a0152bb0fc27deb7f37cb87905c0858c6d6",
+      "pass": true
+    },
+    {
+      "path": "D:\\Arcade\\AI\\aCORES\\Alpha68k N\\roms\\sstingry\\proms.bin",
+      "sha256": "3cd5196154b6b02d7c9be4b4ee510ae8c1e0acb1142aea98e910862939663671",
+      "pass": true
+    },
+    {
+      "path": "D:\\Arcade\\AI\\aCORES\\Alpha68k N\\roms\\sstingry\\clut_proms.bin",
+      "sha256": "a2a48fa908655362f002c97beb5191958a842a3be3bd2c1535d38c13d4b75281",
+      "pass": true
+    }
+  ],
+  "artifacts": [
+    {
+      "path": "D:\\Arcade\\AI\\aCORES\\meatsauce-alpha68kn\\cores\\Alpha68k_N\\sim\\captures\\sstingry\\attract\\complete.txt",
+      "sha256": "5cd4accf094970e5b2b5b601f2011f84c2dd364f5f59469d0a3326fabf24b0e0",
+      "manifest_pinned": true,
+      "pass": true
+    },
+    {
+      "path": "D:\\Arcade\\AI\\aCORES\\meatsauce-alpha68kn\\cores\\Alpha68k_N\\sim\\captures\\sstingry\\attract\\events.csv",
+      "sha256": "27041623f1631cb5273beafe10eaa3b0c69fc671a701794e8bcf11bc872c48a2",
+      "manifest_pinned": true,
+      "pass": true
+    },
+    {
+      "path": "D:\\Arcade\\AI\\aCORES\\meatsauce-alpha68kn\\cores\\Alpha68k_N\\sim\\captures\\sstingry\\attract\\inputs.csv",
+      "sha256": "0d504027bea6e5f6b9e5647803c547d2953b4c69011dbe7ddee752defc6e90a1",
+      "manifest_pinned": true,
+      "pass": true
+    },
+    {
+      "path": "D:\\Arcade\\AI\\aCORES\\meatsauce-alpha68kn\\cores\\Alpha68k_N\\sim\\captures\\sstingry\\attract\\states.csv",
+      "sha256": "1dd0d7f8935105c61095f362cf914f2bb4f5722866a8234af3b56ed8246c5b44",
+      "manifest_pinned": true,
+      "pass": true
+    },
+    {
+      "path": "D:\\Arcade\\AI\\aCORES\\meatsauce-alpha68kn\\cores\\Alpha68k_N\\sim\\captures\\sstingry\\attract\\mame.log",
+      "sha256": "01732dbc4f09a2f7a463e693d8f48ba6789600ef3739a74ebc328160611e3af7",
+      "manifest_pinned": true,
+      "pass": true
+    }
+  ],
+  "input_path": "D:\\Arcade\\AI\\aCORES\\Alpha68k N\\research\\stingray_combined_stage\\coupled_boot16\\actual_attract_inputs.csv",
+  "input_sha256": "4e546640f76078caf5fd8c817f4e13b22c890a6a2b615abd36b8f3c7b41ad2f9",
+  "input_historical_manifest_pin": {
+    "path": "frame_states.csv",
+    "bytes": 60445,
+    "sha256": "4e546640f76078caf5fd8c817f4e13b22c890a6a2b615abd36b8f3c7b41ad2f9"
+  },
+  "event_columns": [
+    "frame",
+    "screen_frame",
+    "area",
+    "address",
+    "data",
+    "mask",
+    "vpos"
+  ],
+  "first16_command_samples": [],
+  "limits": [
+    "Retained manifest only exists after recorder success/completion, but no separate raw MAME process-exit receipt is retained.",
+    "CPU memory taps omit direct C++ MCU shared writes/control/HALT edges; commands alone cannot qualify coupled ordering.",
+    "Input trace may have been added after this original manifest; constant attract ports are independently checked against pinned snapshots/actions."
+  ],
+  "full_MCUpaired_order_pass": false
+}

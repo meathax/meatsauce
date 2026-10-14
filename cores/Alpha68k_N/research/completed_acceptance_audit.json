@@ -1,0 +1,121 @@
+{
+    "scope":  "Completed immutable receipt audit and staged canonical document update; no simulation rerun, source edit, Quartus, assembly, hardware or broad acceptance.",
+    "date":  "2026-10-10",
+    "canonical_game_root":  "D:\\Arcade\\AI\\aCORES\\meatsauce-alpha68kn\\cores\\Alpha68k_N",
+    "evidence_root":  "D:\\Arcade\\AI\\aCORES\\Alpha68k N",
+    "staged_root":  "D:\\Arcade\\AI\\aCORES\\Alpha68k N\\research\\acceptance_records_stage",
+    "earned":  {
+                   "fields":  901,
+                   "protocol_pass":  true,
+                   "checks_total":  17,
+                   "failed_checks":  [
+                                         "all_canonical_images_available"
+                                     ],
+                   "saved_sha256":  "24b3c8eec5546dd618d0c7bbb28efd145bcfd6495d838d26c6f9ca266755a783",
+                   "restored_sha256":  "24b3c8eec5546dd618d0c7bbb28efd145bcfd6495d838d26c6f9ca266755a783",
+                   "finite_feature_pass":  false,
+                   "canonical_graphics_pass":  false,
+                   "full_acceptance_pass":  false
+               },
+    "punch":  {
+                  "composition_pass":  true,
+                  "checks_total":  13,
+                  "failed_checks":  [
+
+                                    ],
+                  "full_B03_acceptance":  false,
+                  "whole_game_acceptance":  false,
+                  "global_order_equal":  true,
+                  "global_reference_writes":  2750,
+                  "global_rtl_writes":  2750,
+                  "chips":  {
+                                "AY1":  {
+                                            "reference_writes":  480,
+                                            "rtl_writes":  480,
+                                            "ordered_port_writes_equal":  true,
+                                            "decoded_register_data_equal":  true,
+                                            "field_label_differences":  0
+                                        },
+                                "AY2":  {
+                                            "reference_writes":  452,
+                                            "rtl_writes":  452,
+                                            "ordered_port_writes_equal":  true,
+                                            "decoded_register_data_equal":  true,
+                                            "field_label_differences":  0
+                                        },
+                                "YM2203":  {
+                                               "reference_writes":  1818,
+                                               "rtl_writes":  1818,
+                                               "ordered_port_writes_equal":  true,
+                                               "decoded_register_data_equal":  true,
+                                               "field_label_differences":  0
+                                           }
+                            },
+                  "metrics_pass":  true,
+                  "all_reference_images_available":  true,
+                  "canonical_graphics_pass":  false,
+                  "postcheck0_exit":  1,
+                  "postcheck1_exit":  0,
+                  "retained_graphics_failures":  [
+                                                     {
+                                                         "field":  60,
+                                                         "different_pixels":  20835
+                                                     },
+                                                     {
+                                                         "field":  900,
+                                                         "different_pixels":  4
+                                                     }
+                                                 ]
+              },
+    "files":  [
+                  {
+                      "relative_path":  "docs\\EARNED_SCORE_ACCEPTANCE.md",
+                      "canonical_before_sha256":  "dabde24798d1463ed32c87a447a09fd50e1ef482aefebc9b94d0e45c857203c6",
+                      "staged_sha256":  "70801efd2df29436c5653d97e8d37a938de3e15347c1ab14c754d1a7c456fad0"
+                  },
+                  {
+                      "relative_path":  "mamebug.md",
+                      "canonical_before_sha256":  "0913edfa559529aa180724200dc54890667afc889cb845845810c2013f510d6e",
+                      "staged_sha256":  "696dd4de74e6ac04aa7b2162185807f18e1e1ef3cfc623fa56cabcaf65de1320"
+                  },
+                  {
+                      "relative_path":  "docs\\bug_coverage.json",
+                      "canonical_before_sha256":  "82649c22c59879fead45707a5e89738afff4e384356057a8b0d627e07c3a12ec",
+                      "staged_sha256":  "168496757ad7a576e7cd92dc5fbed46b27a6bc3838785263b2ee45d9e7ec2d73"
+                  }
+              ],
+    "receipts":  [
+                     {
+                         "name":  "kyros_earned_wrapper901_v5_exit.json",
+                         "sha256":  "76154779fdc8af482d08c67ffe0fabc820799774991a02970ac87831d62a600a"
+                     },
+                     {
+                         "name":  "kyros_earned_wrapper901_v5_feature_terminal.json",
+                         "sha256":  "8266182a38e9f47633b0b572d854876a1980bb2f2e421490cc25cad8583a388a"
+                     },
+                     {
+                         "name":  "kyros_punch_release1081_native_exit.json",
+                         "sha256":  "ab15f1e85894c40476623768bb0ce4848d2e24de1d10a827a6de4f75cb12d41f"
+                     },
+                     {
+                         "name":  "kyros_punch_release1081_native_noise_cleanup.json",
+                         "sha256":  "a6dab8000ee89ff5d56f49ff3acaf6077ad74b1953b329eb33a6da974fc3caee"
+                     },
+                     {
+                         "name":  "kyros_punch_release1081_native_verification.json",
+                         "sha256":  "a2702c6a98bd84362452b2e9293afbdebac0418d94c1645c301820ad6e6efff3"
+                     },
+                     {
+                         "name":  "kyros_punch_release1081_native_sound_interleaving.json",
+                         "sha256":  "69110eb09b0b38dca38d868f85c9421b4cdab430b8df1061580bd0256ddd5318"
+                     },
+                     {
+                         "name":  "kyros_punch_release1081_native_check0_exit.json",
+                         "sha256":  "3cba8b2e5ff25550b79ecda5b798fd201974f59da4d3c40ce6cd7dba6f1195dc"
+                     },
+                     {
+                         "name":  "kyros_punch_release1081_native_check1_exit.json",
+                         "sha256":  "fc699c40639c1984ee75e6785396992132a2867957599d2d9de4b866840116bf"
+                     }
+                 ]
+}

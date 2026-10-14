@@ -1,0 +1,251 @@
+{
+  "actual_MAME_exit": 0,
+  "actual_supervisor_exit": 1,
+  "actual_terminal_consumer_exit": 1,
+  "semantic_checks": "10/16",
+  "lane_qualified": false,
+  "actual_causal_consumer_exit": 0,
+  "outcome": {
+    "fields": 3764,
+    "first_hit": 1008,
+    "rank_player": -1,
+    "rank_frame": -1,
+    "score1": 400,
+    "score2": 400,
+    "earned148": false,
+    "source_gameover": false,
+    "source_restart": false,
+    "stop_reason": "score_progress_unmet600_fields"
+  },
+  "causal_summary": {
+    "scope": "Read-only existing capture diagnosis; no route edit/runtime",
+    "outcome": {
+      "fields": 3764,
+      "first_hit": 1008,
+      "rank_player": -1,
+      "rank_frame": -1,
+      "score1": 400,
+      "score2": 400,
+      "earned148": false,
+      "source_gameover": false,
+      "source_restart": false,
+      "stop_reason": "score_progress_unmet600_fields"
+    },
+    "last_physical_score_frame": 3162,
+    "scoreless_fields": 601,
+    "interval": [
+      3163,
+      3763
+    ],
+    "action_counts": [
+      {
+        "turn": "255",
+        "phase": "LEFT_align_live_target",
+        "joystick0": "0",
+        "joystick1": "2",
+        "count": 269
+      },
+      {
+        "turn": "255",
+        "phase": "UP_approach_live_ray",
+        "joystick0": "0",
+        "joystick1": "8",
+        "count": 6
+      },
+      {
+        "turn": "255",
+        "phase": "RIGHT_align_live_target",
+        "joystick0": "0",
+        "joystick1": "1",
+        "count": 283
+      },
+      {
+        "turn": "255",
+        "phase": "UP_establish_heading0",
+        "joystick0": "0",
+        "joystick1": "8",
+        "count": 6
+      },
+      {
+        "turn": "255",
+        "phase": "UP_fire_live_award_target",
+        "joystick0": "0",
+        "joystick1": "24",
+        "count": 34
+      },
+      {
+        "turn": "255",
+        "phase": "alignment_deadlock_neutral_quarantine",
+        "joystick0": "0",
+        "joystick1": "0",
+        "count": 2
+      },
+      {
+        "turn": "255",
+        "phase": "LEFT_align_live_target",
+        "joystick0": "0",
+        "joystick1": "0",
+        "count": 1
+      }
+    ],
+    "guard_kind_counts": {
+      "new_approach": 8,
+      "alignment_progress": 4,
+      "unchanged_alignment_no_fire": 8,
+      "quarantine_alignment_deadlock": 2
+    },
+    "actual_causal_kind_counts": {
+      "actual_player_port_read": 466,
+      "actual_selected_control_commit": 466,
+      "actual_cached_control_consumption": 378,
+      "actual_movement_tile_read": 360,
+      "actual_collision_bitmap_read": 2486,
+      "actual_target_geometry_read": 2852,
+      "actual_world_X_commit": 189,
+      "actual_world_Y_commit": 189,
+      "actual_shot_state_commit": 12,
+      "actual_shot_coordinate_commit": 13,
+      "actual_shot_tile_read": 5,
+      "actual_shot_bitmap_read": 5
+    },
+    "actual_world_commits": 378,
+    "nonzero_world_commit_deltas": 129,
+    "qualified_port_reads": 466,
+    "shot_commit_counts": {
+      "16182": 1,
+      "16200": 1,
+      "16210": 1,
+      "16910": 5,
+      "16912": 5,
+      "17214": 5,
+      "17440": 1,
+      "16796": 4,
+      "17498": 1,
+      "17502": 1
+    },
+    "causal_observed_fields": 466,
+    "coverage_gaps": 135,
+    "limits": [
+      "Only actual source-defined commit lanes are physical-world evidence; muzzle alignment separate",
+      "Nearby request matches retain phase ambiguity, no universal callback offset",
+      "Tile/bitmap read counts cannot prove a collision branch",
+      "Missing observer rows do not prove no world/input/shot activity",
+      "Actual guard and input tapes establish host branches; no policy simulation",
+      "Postscan identity UNKNOWN; rank/native/RAM/persistence gates open"
+    ]
+  },
+  "quarantine_rows": [
+    {
+      "frame": "3430",
+      "player": "1",
+      "object": "8",
+      "type": "9",
+      "joystick": "2",
+      "kind": "quarantine_alignment_deadlock",
+      "windows": "3",
+      "expected": "0",
+      "world_valid": "true",
+      "expiry": "3686",
+      "world_x": "237",
+      "world_y": "175",
+      "align_dx": "48",
+      "align_dy": "26"
+    },
+    {
+      "frame": "3591",
+      "player": "1",
+      "object": "5",
+      "type": "9",
+      "joystick": "1",
+      "kind": "quarantine_alignment_deadlock",
+      "windows": "3",
+      "expected": "0",
+      "world_valid": "true",
+      "expiry": "3847",
+      "world_x": "237",
+      "world_y": "153",
+      "align_dx": "101",
+      "align_dy": "-17"
+    }
+  ],
+  "source_shot_edges": [
+    {
+      "frame": "3238",
+      "ticks48m": "2626317063",
+      "kind": "actual_shot_state_commit",
+      "address": "131364",
+      "data": "0",
+      "mask": "65280",
+      "CURPC": "16182",
+      "turn": "255",
+      "source_PC_hex": "0x3f36"
+    },
+    {
+      "frame": "3238",
+      "ticks48m": "2626317399",
+      "kind": "actual_shot_coordinate_commit",
+      "address": "133146",
+      "data": "24929",
+      "mask": "65280",
+      "CURPC": "16200",
+      "turn": "255",
+      "source_PC_hex": "0x3f48"
+    },
+    {
+      "frame": "3238",
+      "ticks48m": "2626317703",
+      "kind": "actual_shot_coordinate_commit",
+      "address": "133146",
+      "data": "26471",
+      "mask": "255",
+      "CURPC": "16210",
+      "turn": "255",
+      "source_PC_hex": "0x3f52"
+    },
+    {
+      "frame": "3242",
+      "ticks48m": "2629568567",
+      "kind": "actual_shot_state_commit",
+      "address": "131364",
+      "data": "771",
+      "mask": "65280",
+      "CURPC": "17440",
+      "turn": "255",
+      "source_PC_hex": "0x4420"
+    },
+    {
+      "frame": "3246",
+      "ticks48m": "2632805671",
+      "kind": "actual_shot_coordinate_commit",
+      "address": "133146",
+      "data": "61680",
+      "mask": "65535",
+      "CURPC": "17498",
+      "turn": "255",
+      "source_PC_hex": "0x445a"
+    },
+    {
+      "frame": "3246",
+      "ticks48m": "2632805847",
+      "kind": "actual_shot_state_commit",
+      "address": "131364",
+      "data": "0",
+      "mask": "65280",
+      "CURPC": "17502",
+      "turn": "255",
+      "source_PC_hex": "0x445e"
+    }
+  ],
+  "interpretation_limits": {
+    "scope": "Qualifies interpretation only; unchanged actual consumer/results retained",
+    "world_host_mirror_prepost_is_projected_write_data": true,
+    "world_later_independent_guest_read_not_captured": true,
+    "actual_port_reads_are_retained_CPU_consumption_events": true,
+    "raw_shot_source_writes_do_not_alone_prove_later_guest_RAM_read_or_retirement": true,
+    "collision_branch_unproven_from_counts": true,
+    "earlier_controller_no_fire_deadlock_does_not_explain_current_complete_interval": true,
+    "minimum_proved_causal_hypothesis": "Host zero-alignment policy escapes occurred, inputs/shot pipeline were sampled, yet no score award after3162; specific projectile geometry/terrain/target decision still needs ordered source-read/write ancestry within retained coverage. No route edit or new capture authorized."
+  },
+  "no_retry": true,
+  "no_new_game_or_route_edit": true
+}

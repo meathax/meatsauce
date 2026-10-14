@@ -1,0 +1,9 @@
+-- FM1208S FRAM default init = 0xFF blank, matching MAME taito_fx1b nvram DEFAULT_ALL_1
+-- and real RAMTRON FM1208S power-on (the M10K otherwise defaults to 0x00).
+WIDTH=32;
+DEPTH=256;
+ADDRESS_RADIX=HEX;
+DATA_RADIX=HEX;
+CONTENT BEGIN
+  [0..FF] : FFFFFFFF;
+END;

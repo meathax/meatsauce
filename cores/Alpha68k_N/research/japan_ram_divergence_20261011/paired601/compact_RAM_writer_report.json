@@ -1,0 +1,1087 @@
+{
+  "scope": "Qualified last-writer/currentA7/loadedROM source summary; strict RAM failure remains.",
+  "strict_work_gate": false,
+  "original_invariants_pass": true,
+  "paired_RGB_strip_exact": true,
+  "actual_native_exit": 0,
+  "actual_MAME_exit": 0,
+  "actual_verifier_exit": 1,
+  "words": [
+    {
+      "field": 240,
+      "address_hex": "0x020f7e",
+      "words": [
+        "0706",
+        "0708"
+      ],
+      "native_snapshot": {
+        "A7": "00020fe4",
+        "USP": "00000000",
+        "SSP": "00020fe4",
+        "SR": "2004",
+        "PC": "01caf0"
+      },
+      "MAME_snapshot": {
+        "A7": "00020fe4",
+        "USP": "00000000",
+        "SSP": "00020fe4",
+        "SR": "2004",
+        "PC": "01caee"
+      },
+      "both_words_below_present_A7": true,
+      "A7_selection_proven": true,
+      "lanes": [
+        {
+          "lane": "lo",
+          "native_last_writer": {
+            "row": 26984,
+            "field": 217,
+            "tick": 176000914,
+            "addr": "020f7e",
+            "lanes": [
+              1,
+              1
+            ],
+            "data": "0712/0706",
+            "A7": "00020f98/00020f98",
+            "PC": "000518/000518",
+            "IR": "48e7",
+            "IRD": "48e7",
+            "SR": "2208",
+            "transaction": [
+              4998166,
+              4998167
+            ]
+          },
+          "MAME_last_writer": {
+            "row": 27938,
+            "field": 217,
+            "time": 176000935,
+            "addr": "020f7e",
+            "mask": "ffff",
+            "data": "0708",
+            "A7": "00020f98",
+            "PC": "000518",
+            "CURPC": "000512",
+            "IR": "48e7",
+            "SR": "2208"
+          },
+          "last_lane_writes_produce_retained_different_bytes": true,
+          "native_true_lane_commit_has_one_accepted_transaction": true,
+          "MAME_writer_CURPC_ROM_hex": "48e7fffe1039000800531039",
+          "MAME_IR_equals_CURPC_ROM_word": true,
+          "native_prefetch_ROM_window": {
+            "start": 1292,
+            "hex": "4cdf7fff4e7348e7fffe1039000800531039000200530c00"
+          },
+          "native_raw_reads_after_lane_write": 1,
+          "native_recent_upperRAM_reads": [
+            {
+              "row": 26871,
+              "field": 216,
+              "tick": 175202490,
+              "addr": "020f7e",
+              "lanes": [
+                0,
+                0
+              ],
+              "data": "0712/0712",
+              "A7": "00020f5c/00020f5c",
+              "PC": "000534/000534",
+              "IR": "4e73",
+              "IRD": "4cdf",
+              "SR": "2209",
+              "transaction": [
+                4975068,
+                4975069
+              ]
+            },
+            {
+              "row": 27019,
+              "field": 217,
+              "tick": 176002490,
+              "addr": "020f7e",
+              "lanes": [
+                0,
+                0
+              ],
+              "data": "0706/0706",
+              "A7": "00020f5c/00020f5c",
+              "PC": "000534/000534",
+              "IR": "4e73",
+              "IRD": "4cdf",
+              "SR": "2209",
+              "transaction": [
+                4998215,
+                4998216
+              ]
+            }
+          ],
+          "MAME_qualified_guest_reads_after_lane_write": 1,
+          "MAME_last_guest_reads": [
+            {
+              "row": 27973,
+              "field": 217,
+              "time": 176002519,
+              "addr": "020f7e",
+              "mask": "ffff",
+              "data": "0708",
+              "A7": "00020f5c",
+              "PC": "000534",
+              "CURPC": "00052e",
+              "IR": "4e73",
+              "SR": "2209",
+              "CURPC_ROM_hex": "4cdf7fff4e7341f900020700"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "field": 240,
+      "address_hex": "0x020f9c",
+      "words": [
+        "0108",
+        "05a8"
+      ],
+      "native_snapshot": {
+        "A7": "00020fe4",
+        "USP": "00000000",
+        "SSP": "00020fe4",
+        "SR": "2004",
+        "PC": "01caf0"
+      },
+      "MAME_snapshot": {
+        "A7": "00020fe4",
+        "USP": "00000000",
+        "SSP": "00020fe4",
+        "SR": "2004",
+        "PC": "01caee"
+      },
+      "both_words_below_present_A7": true,
+      "A7_selection_proven": true,
+      "lanes": [
+        {
+          "lane": "hi",
+          "native_last_writer": {
+            "row": 27117,
+            "field": 218,
+            "tick": 176801618,
+            "addr": "020f9c",
+            "lanes": [
+              1,
+              1
+            ],
+            "data": "05a6/0108",
+            "A7": "00020fd8/00020fd8",
+            "PC": "000518/000518",
+            "IR": "48e7",
+            "IRD": "48e7",
+            "SR": "2204",
+            "transaction": [
+              5021330,
+              5021331
+            ]
+          },
+          "MAME_last_writer": {
+            "row": 27923,
+            "field": 217,
+            "time": 176000119,
+            "addr": "020f9c",
+            "mask": "ffff",
+            "data": "05a8",
+            "A7": "00020f9e",
+            "PC": "0005a8",
+            "CURPC": "0005a6",
+            "IR": "92fc",
+            "SR": "2208"
+          },
+          "last_lane_writes_produce_retained_different_bytes": true,
+          "native_true_lane_commit_has_one_accepted_transaction": true,
+          "MAME_writer_CURPC_ROM_hex": "544892fc004051cfffa84e75",
+          "MAME_IR_equals_CURPC_ROM_word": false,
+          "native_prefetch_ROM_window": {
+            "start": 1292,
+            "hex": "4cdf7fff4e7348e7fffe1039000800531039000200530c00"
+          },
+          "native_raw_reads_after_lane_write": 1,
+          "native_recent_upperRAM_reads": [
+            {
+              "row": 27035,
+              "field": 217,
+              "tick": 176003034,
+              "addr": "020f9c",
+              "lanes": [
+                0,
+                0
+              ],
+              "data": "05a6/05a6",
+              "A7": "00020f98/00020f98",
+              "PC": "000534/000534",
+              "IR": "4e73",
+              "IRD": "4e73",
+              "SR": "2209",
+              "transaction": [
+                4998232,
+                4998233
+              ]
+            },
+            {
+              "row": 27118,
+              "field": 218,
+              "tick": 176802106,
+              "addr": "020f9c",
+              "lanes": [
+                0,
+                0
+              ],
+              "data": "0108/0108",
+              "A7": "00020f9c/00020f9c",
+              "PC": "000534/000534",
+              "IR": "4e73",
+              "IRD": "4cdf",
+              "SR": "2209",
+              "transaction": [
+                5021345,
+                5021346
+              ]
+            }
+          ],
+          "MAME_qualified_guest_reads_after_lane_write": 1,
+          "MAME_last_guest_reads": [
+            {
+              "row": 27989,
+              "field": 217,
+              "time": 176003063,
+              "addr": "020f9c",
+              "mask": "ffff",
+              "data": "05a8",
+              "A7": "00020f9e",
+              "PC": "000534",
+              "CURPC": "000532",
+              "IR": "4e73",
+              "SR": "2209",
+              "CURPC_ROM_hex": "4e7341f90002070043f90004"
+            }
+          ]
+        },
+        {
+          "lane": "lo",
+          "native_last_writer": {
+            "row": 27117,
+            "field": 218,
+            "tick": 176801618,
+            "addr": "020f9c",
+            "lanes": [
+              1,
+              1
+            ],
+            "data": "05a6/0108",
+            "A7": "00020fd8/00020fd8",
+            "PC": "000518/000518",
+            "IR": "48e7",
+            "IRD": "48e7",
+            "SR": "2204",
+            "transaction": [
+              5021330,
+              5021331
+            ]
+          },
+          "MAME_last_writer": {
+            "row": 27923,
+            "field": 217,
+            "time": 176000119,
+            "addr": "020f9c",
+            "mask": "ffff",
+            "data": "05a8",
+            "A7": "00020f9e",
+            "PC": "0005a8",
+            "CURPC": "0005a6",
+            "IR": "92fc",
+            "SR": "2208"
+          },
+          "last_lane_writes_produce_retained_different_bytes": true,
+          "native_true_lane_commit_has_one_accepted_transaction": true,
+          "MAME_writer_CURPC_ROM_hex": "544892fc004051cfffa84e75",
+          "MAME_IR_equals_CURPC_ROM_word": false,
+          "native_prefetch_ROM_window": {
+            "start": 1292,
+            "hex": "4cdf7fff4e7348e7fffe1039000800531039000200530c00"
+          },
+          "native_raw_reads_after_lane_write": 1,
+          "native_recent_upperRAM_reads": [
+            {
+              "row": 27035,
+              "field": 217,
+              "tick": 176003034,
+              "addr": "020f9c",
+              "lanes": [
+                0,
+                0
+              ],
+              "data": "05a6/05a6",
+              "A7": "00020f98/00020f98",
+              "PC": "000534/000534",
+              "IR": "4e73",
+              "IRD": "4e73",
+              "SR": "2209",
+              "transaction": [
+                4998232,
+                4998233
+              ]
+            },
+            {
+              "row": 27118,
+              "field": 218,
+              "tick": 176802106,
+              "addr": "020f9c",
+              "lanes": [
+                0,
+                0
+              ],
+              "data": "0108/0108",
+              "A7": "00020f9c/00020f9c",
+              "PC": "000534/000534",
+              "IR": "4e73",
+              "IRD": "4cdf",
+              "SR": "2209",
+              "transaction": [
+                5021345,
+                5021346
+              ]
+            }
+          ],
+          "MAME_qualified_guest_reads_after_lane_write": 1,
+          "MAME_last_guest_reads": [
+            {
+              "row": 27989,
+              "field": 217,
+              "time": 176003063,
+              "addr": "020f9c",
+              "mask": "ffff",
+              "data": "05a8",
+              "A7": "00020f9e",
+              "PC": "000534",
+              "CURPC": "000532",
+              "IR": "4e73",
+              "SR": "2209",
+              "CURPC_ROM_hex": "4e7341f90002070043f90004"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "field": 360,
+      "address_hex": "0x020fe2",
+      "words": [
+        "1ffa",
+        "1ffe"
+      ],
+      "native_snapshot": {
+        "A7": "00020fe4",
+        "USP": "00000000",
+        "SSP": "00020fe4",
+        "SR": "2004",
+        "PC": "001ffc"
+      },
+      "MAME_snapshot": {
+        "A7": "00020fe4",
+        "USP": "00000000",
+        "SSP": "00020fe4",
+        "SR": "2004",
+        "PC": "002000"
+      },
+      "both_words_below_present_A7": true,
+      "A7_selection_proven": true,
+      "lanes": [
+        {
+          "lane": "lo",
+          "native_last_writer": {
+            "row": 48770,
+            "field": 360,
+            "tick": 291963026,
+            "addr": "020fe2",
+            "lanes": [
+              1,
+              1
+            ],
+            "data": "1ffe/1ffa",
+            "A7": "00020fe4/00020fe4",
+            "PC": "001ffa/001ffa",
+            "IR": "b06e",
+            "IRD": "b06e",
+            "SR": "2104",
+            "transaction": [
+              8331845,
+              8331846
+            ]
+          },
+          "MAME_last_writer": {
+            "row": 49694,
+            "field": 360,
+            "time": 291962983,
+            "addr": "020fe2",
+            "mask": "ffff",
+            "data": "1ffe",
+            "A7": "00020fe4",
+            "PC": "001ffe",
+            "CURPC": "001ffa",
+            "IR": "67fa",
+            "SR": "2104"
+          },
+          "last_lane_writes_produce_retained_different_bytes": true,
+          "native_true_lane_commit_has_one_accepted_transaction": true,
+          "MAME_writer_CURPC_ROM_hex": "b06e000067fa4e7561f251c9",
+          "MAME_IR_equals_CURPC_ROM_word": false,
+          "native_prefetch_ROM_window": {
+            "start": 8174,
+            "hex": "81011d40000f609a302e0000b06e000067fa4e7561f251c9"
+          },
+          "native_raw_reads_after_lane_write": 1,
+          "native_recent_upperRAM_reads": [
+            {
+              "row": 48765,
+              "field": 359,
+              "tick": 291230730,
+              "addr": "020fe2",
+              "lanes": [
+                0,
+                0
+              ],
+              "data": "1ffe/1ffe",
+              "A7": "00020fde/00020fde",
+              "PC": "000512/000512",
+              "IR": "4e73",
+              "IRD": "4e73",
+              "SR": "2104",
+              "transaction": [
+                8311043,
+                8311044
+              ]
+            },
+            {
+              "row": 48913,
+              "field": 360,
+              "tick": 292041674,
+              "addr": "020fe2",
+              "lanes": [
+                0,
+                0
+              ],
+              "data": "1ffa/1ffa",
+              "A7": "00020fde/00020fde",
+              "PC": "000512/000512",
+              "IR": "4e73",
+              "IRD": "4e73",
+              "SR": "2100",
+              "transaction": [
+                8334199,
+                8334200
+              ]
+            }
+          ],
+          "MAME_qualified_guest_reads_after_lane_write": 1,
+          "MAME_last_guest_reads": [
+            {
+              "row": 49835,
+              "field": 360,
+              "time": 292041703,
+              "addr": "020fe2",
+              "mask": "ffff",
+              "data": "1ffe",
+              "A7": "00020fe4",
+              "PC": "000512",
+              "CURPC": "000510",
+              "IR": "4e73",
+              "SR": "2100",
+              "CURPC_ROM_hex": "4e7348e7fffe103900080053"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "field": 600,
+      "address_hex": "0x020f5e",
+      "words": [
+        "0120",
+        "0100"
+      ],
+      "native_snapshot": {
+        "A7": "00020ff0",
+        "USP": "00000000",
+        "SSP": "00020ff0",
+        "SR": "2004",
+        "PC": "0033fe"
+      },
+      "MAME_snapshot": {
+        "A7": "00020ff0",
+        "USP": "00000000",
+        "SSP": "00020ff0",
+        "SR": "2004",
+        "PC": "0033fe"
+      },
+      "both_words_below_present_A7": true,
+      "A7_selection_proven": true,
+      "lanes": [
+        {
+          "lane": "lo",
+          "native_last_writer": {
+            "row": 71022,
+            "field": 508,
+            "tick": 412001506,
+            "addr": "020f5e",
+            "lanes": [
+              1,
+              1
+            ],
+            "data": "0140/0120",
+            "A7": "00020f98/00020f98",
+            "PC": "000518/000518",
+            "IR": "48e7",
+            "IRD": "48e7",
+            "SR": "2200",
+            "transaction": [
+              11759475,
+              11759476
+            ]
+          },
+          "MAME_last_writer": {
+            "row": 71902,
+            "field": 508,
+            "time": 412001447,
+            "addr": "020f5e",
+            "mask": "ffff",
+            "data": "0100",
+            "A7": "00020f98",
+            "PC": "000518",
+            "CURPC": "000512",
+            "IR": "48e7",
+            "SR": "2208"
+          },
+          "last_lane_writes_produce_retained_different_bytes": true,
+          "native_true_lane_commit_has_one_accepted_transaction": true,
+          "MAME_writer_CURPC_ROM_hex": "48e7fffe1039000800531039",
+          "MAME_IR_equals_CURPC_ROM_word": true,
+          "native_prefetch_ROM_window": {
+            "start": 1292,
+            "hex": "4cdf7fff4e7348e7fffe1039000800531039000200530c00"
+          },
+          "native_raw_reads_after_lane_write": 1,
+          "native_recent_upperRAM_reads": [
+            {
+              "row": 70877,
+              "field": 507,
+              "tick": 411201978,
+              "addr": "020f5e",
+              "lanes": [
+                0,
+                0
+              ],
+              "data": "0140/0140",
+              "A7": "00020f5c/00020f5c",
+              "PC": "000534/000534",
+              "IR": "4e73",
+              "IRD": "4cdf",
+              "SR": "2209",
+              "transaction": [
+                11736665,
+                11736666
+              ]
+            },
+            {
+              "row": 71025,
+              "field": 508,
+              "tick": 412002058,
+              "addr": "020f5e",
+              "lanes": [
+                0,
+                0
+              ],
+              "data": "0120/0120",
+              "A7": "00020f5c/00020f5c",
+              "PC": "000534/000534",
+              "IR": "4e73",
+              "IRD": "4cdf",
+              "SR": "2209",
+              "transaction": [
+                11759492,
+                11759493
+              ]
+            }
+          ],
+          "MAME_qualified_guest_reads_after_lane_write": 1,
+          "MAME_last_guest_reads": [
+            {
+              "row": 71905,
+              "field": 508,
+              "time": 412002007,
+              "addr": "020f5e",
+              "mask": "ffff",
+              "data": "0100",
+              "A7": "00020f5c",
+              "PC": "000534",
+              "CURPC": "00052e",
+              "IR": "4e73",
+              "SR": "2209",
+              "CURPC_ROM_hex": "4cdf7fff4e7341f900020700"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "field": 600,
+      "address_hex": "0x020f6a",
+      "words": [
+        "0020",
+        "0000"
+      ],
+      "native_snapshot": {
+        "A7": "00020ff0",
+        "USP": "00000000",
+        "SSP": "00020ff0",
+        "SR": "2004",
+        "PC": "0033fe"
+      },
+      "MAME_snapshot": {
+        "A7": "00020ff0",
+        "USP": "00000000",
+        "SSP": "00020ff0",
+        "SR": "2004",
+        "PC": "0033fe"
+      },
+      "both_words_below_present_A7": true,
+      "A7_selection_proven": true,
+      "lanes": [
+        {
+          "lane": "lo",
+          "native_last_writer": {
+            "row": 81936,
+            "field": 581,
+            "tick": 471201426,
+            "addr": "020f6a",
+            "lanes": [
+              1,
+              1
+            ],
+            "data": "0000/0020",
+            "A7": "00020fa4/00020fa4",
+            "PC": "000518/000518",
+            "IR": "48e7",
+            "IRD": "48e7",
+            "SR": "2200",
+            "transaction": [
+              13449817,
+              13449818
+            ]
+          },
+          "MAME_last_writer": {
+            "row": 82669,
+            "field": 581,
+            "time": 471201447,
+            "addr": "020f6a",
+            "mask": "ffff",
+            "data": "0000",
+            "A7": "00020fa4",
+            "PC": "000518",
+            "CURPC": "000512",
+            "IR": "48e7",
+            "SR": "2204"
+          },
+          "last_lane_writes_produce_retained_different_bytes": true,
+          "native_true_lane_commit_has_one_accepted_transaction": true,
+          "MAME_writer_CURPC_ROM_hex": "48e7fffe1039000800531039",
+          "MAME_IR_equals_CURPC_ROM_word": true,
+          "native_prefetch_ROM_window": {
+            "start": 1292,
+            "hex": "4cdf7fff4e7348e7fffe1039000800531039000200530c00"
+          },
+          "native_raw_reads_after_lane_write": 1,
+          "native_recent_upperRAM_reads": [
+            {
+              "row": 81795,
+              "field": 580,
+              "tick": 470401978,
+              "addr": "020f6a",
+              "lanes": [
+                0,
+                0
+              ],
+              "data": "0000/0000",
+              "A7": "00020f68/00020f68",
+              "PC": "000534/000534",
+              "IR": "4e73",
+              "IRD": "4cdf",
+              "SR": "2209",
+              "transaction": [
+                13427010,
+                13427011
+              ]
+            },
+            {
+              "row": 81939,
+              "field": 581,
+              "tick": 471201978,
+              "addr": "020f6a",
+              "lanes": [
+                0,
+                0
+              ],
+              "data": "0020/0020",
+              "A7": "00020f68/00020f68",
+              "PC": "000534/000534",
+              "IR": "4e73",
+              "IRD": "4cdf",
+              "SR": "2209",
+              "transaction": [
+                13449834,
+                13449835
+              ]
+            }
+          ],
+          "MAME_qualified_guest_reads_after_lane_write": 1,
+          "MAME_last_guest_reads": [
+            {
+              "row": 82672,
+              "field": 581,
+              "time": 471202007,
+              "addr": "020f6a",
+              "mask": "ffff",
+              "data": "0000",
+              "A7": "00020f68",
+              "PC": "000534",
+              "CURPC": "00052e",
+              "IR": "4e73",
+              "SR": "2209",
+              "CURPC_ROM_hex": "4cdf7fff4e7341f900020700"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "field": 600,
+      "address_hex": "0x020fa4",
+      "words": [
+        "2100",
+        "2104"
+      ],
+      "native_snapshot": {
+        "A7": "00020ff0",
+        "USP": "00000000",
+        "SSP": "00020ff0",
+        "SR": "2004",
+        "PC": "0033fe"
+      },
+      "MAME_snapshot": {
+        "A7": "00020ff0",
+        "USP": "00000000",
+        "SSP": "00020ff0",
+        "SR": "2004",
+        "PC": "0033fe"
+      },
+      "both_words_below_present_A7": true,
+      "A7_selection_proven": true,
+      "lanes": [
+        {
+          "lane": "lo",
+          "native_last_writer": {
+            "row": 81906,
+            "field": 581,
+            "tick": 471200290,
+            "addr": "020fa4",
+            "lanes": [
+              1,
+              1
+            ],
+            "data": "2104/2100",
+            "A7": "00020fa4/00020fa4",
+            "PC": "00058a/00058a",
+            "IR": "ffff",
+            "IRD": "ffff",
+            "SR": "2200",
+            "transaction": [
+              13449782,
+              13449783
+            ]
+          },
+          "MAME_last_writer": {
+            "row": 82639,
+            "field": 581,
+            "time": 471200311,
+            "addr": "020fa4",
+            "mask": "ffff",
+            "data": "2104",
+            "A7": "00020fa4",
+            "PC": "000590",
+            "CURPC": "00058e",
+            "IR": "001a",
+            "SR": "2204"
+          },
+          "last_lane_writes_produce_retained_different_bytes": true,
+          "native_true_lane_commit_has_one_accepted_transaction": true,
+          "MAME_writer_CURPC_ROM_hex": "101012280001b500b701d02a",
+          "MAME_IR_equals_CURPC_ROM_word": false,
+          "native_prefetch_ROM_window": {
+            "start": 1406,
+            "hex": "d02a0002d22a00031340000413410005101012280001b500"
+          },
+          "native_raw_reads_after_lane_write": 2,
+          "native_recent_upperRAM_reads": [
+            {
+              "row": 81825,
+              "field": 580,
+              "tick": 470402970,
+              "addr": "020fa4",
+              "lanes": [
+                0,
+                0
+              ],
+              "data": "2104/2104",
+              "A7": "00020fa4/00020fa4",
+              "PC": "000534/000534",
+              "IR": "4e73",
+              "IRD": "4e73",
+              "SR": "2209",
+              "transaction": [
+                13427041,
+                13427042
+              ]
+            },
+            {
+              "row": 81968,
+              "field": 581,
+              "tick": 471202906,
+              "addr": "020fa4",
+              "lanes": [
+                0,
+                0
+              ],
+              "data": "2100/2100",
+              "A7": "00020f68/00020f68",
+              "PC": "000534/000534",
+              "IR": "4e73",
+              "IRD": "4cdf",
+              "SR": "2209",
+              "transaction": [
+                13449863,
+                13449864
+              ]
+            },
+            {
+              "row": 81969,
+              "field": 581,
+              "tick": 471202970,
+              "addr": "020fa4",
+              "lanes": [
+                0,
+                0
+              ],
+              "data": "2100/2100",
+              "A7": "00020fa4/00020fa4",
+              "PC": "000534/000534",
+              "IR": "4e73",
+              "IRD": "4e73",
+              "SR": "2209",
+              "transaction": [
+                13449865,
+                13449866
+              ]
+            }
+          ],
+          "MAME_qualified_guest_reads_after_lane_write": 2,
+          "MAME_last_guest_reads": [
+            {
+              "row": 82701,
+              "field": 581,
+              "time": 471202935,
+              "addr": "020fa4",
+              "mask": "ffff",
+              "data": "2104",
+              "A7": "00020f68",
+              "PC": "000534",
+              "CURPC": "00052e",
+              "IR": "4e73",
+              "SR": "2209",
+              "CURPC_ROM_hex": "4cdf7fff4e7341f900020700"
+            },
+            {
+              "row": 82702,
+              "field": 581,
+              "time": 471202999,
+              "addr": "020fa4",
+              "mask": "ffff",
+              "data": "2104",
+              "A7": "00020fa4",
+              "PC": "000534",
+              "CURPC": "000532",
+              "IR": "4e73",
+              "SR": "2209",
+              "CURPC_ROM_hex": "4e7341f90002070043f90004"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "field": 600,
+      "address_hex": "0x020fa8",
+      "words": [
+        "058a",
+        "0590"
+      ],
+      "native_snapshot": {
+        "A7": "00020ff0",
+        "USP": "00000000",
+        "SSP": "00020ff0",
+        "SR": "2004",
+        "PC": "0033fe"
+      },
+      "MAME_snapshot": {
+        "A7": "00020ff0",
+        "USP": "00000000",
+        "SSP": "00020ff0",
+        "SR": "2004",
+        "PC": "0033fe"
+      },
+      "both_words_below_present_A7": true,
+      "A7_selection_proven": true,
+      "lanes": [
+        {
+          "lane": "lo",
+          "native_last_writer": {
+            "row": 81904,
+            "field": 581,
+            "tick": 471200114,
+            "addr": "020fa8",
+            "lanes": [
+              1,
+              1
+            ],
+            "data": "05a6/058a",
+            "A7": "00020faa/00020faa",
+            "PC": "00058a/00058a",
+            "IR": "1341",
+            "IRD": "1341",
+            "SR": "2200",
+            "transaction": [
+              13449780,
+              13449781
+            ]
+          },
+          "MAME_last_writer": {
+            "row": 82638,
+            "field": 581,
+            "time": 471200135,
+            "addr": "020fa8",
+            "mask": "ffff",
+            "data": "0590",
+            "A7": "00020faa",
+            "PC": "000590",
+            "CURPC": "00058e",
+            "IR": "1228",
+            "SR": "2204"
+          },
+          "last_lane_writes_produce_retained_different_bytes": true,
+          "native_true_lane_commit_has_one_accepted_transaction": true,
+          "MAME_writer_CURPC_ROM_hex": "101012280001b500b701d02a",
+          "MAME_IR_equals_CURPC_ROM_word": false,
+          "native_prefetch_ROM_window": {
+            "start": 1406,
+            "hex": "d02a0002d22a00031340000413410005101012280001b500"
+          },
+          "native_raw_reads_after_lane_write": 1,
+          "native_recent_upperRAM_reads": [
+            {
+              "row": 81827,
+              "field": 580,
+              "tick": 470403034,
+              "addr": "020fa8",
+              "lanes": [
+                0,
+                0
+              ],
+              "data": "05a6/05a6",
+              "A7": "00020fa4/00020fa4",
+              "PC": "000534/000534",
+              "IR": "4e73",
+              "IRD": "4e73",
+              "SR": "2209",
+              "transaction": [
+                13427043,
+                13427044
+              ]
+            },
+            {
+              "row": 81971,
+              "field": 581,
+              "tick": 471203034,
+              "addr": "020fa8",
+              "lanes": [
+                0,
+                0
+              ],
+              "data": "058a/058a",
+              "A7": "00020fa4/00020fa4",
+              "PC": "000534/000534",
+              "IR": "4e73",
+              "IRD": "4e73",
+              "SR": "2209",
+              "transaction": [
+                13449867,
+                13449868
+              ]
+            }
+          ],
+          "MAME_qualified_guest_reads_after_lane_write": 1,
+          "MAME_last_guest_reads": [
+            {
+              "row": 82704,
+              "field": 581,
+              "time": 471203063,
+              "addr": "020fa8",
+              "mask": "ffff",
+              "data": "0590",
+              "A7": "00020faa",
+              "PC": "000534",
+              "CURPC": "000532",
+              "IR": "4e73",
+              "SR": "2209",
+              "CURPC_ROM_hex": "4e7341f90002070043f90004"
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "source_pins": [
+    {
+      "path": "D:\\Arcade\\AI\\aCORES\\Alpha68k N\\research\\japan_ram_divergence_20261011\\paired601\\verification.json",
+      "bytes": 130549,
+      "sha256": "d7d2beb1756ade4218658f68fb1e0d55f54958dbd3c9473c5ea8d180fa5fc28f"
+    },
+    {
+      "path": "D:\\Arcade\\AI\\aCORES\\Alpha68k N\\research\\japan_ram_divergence_20261011\\paired601\\snapshot_read_annotation.json",
+      "bytes": 20617,
+      "sha256": "31cabd8a90a033e9d60cdcc79bb31f20e105393e28de59d34dde253b6049223d"
+    },
+    {
+      "path": "D:\\Arcade\\AI\\aCORES\\Alpha68k N\\roms\\kyrosj\\maincpu.bin",
+      "bytes": 131072,
+      "sha256": "6fec354d3fd5d4d7a1347a6409793c53fed1bc23bc09efba8093377973378917"
+    },
+    {
+      "path": "D:\\Arcade\\AI\\aCORES\\Alpha68k N\\roms\\kyrosj\\download.bin",
+      "bytes": 655360,
+      "sha256": "07d3dbbbc22d8ba039fbbf105106bc54d484d2868b930b0eaef7a49317bea20d"
+    },
+    {
+      "path": "D:\\Arcade\\AI\\aCORES\\Alpha68k N\\research\\japan_ram_divergence_20261011\\summarize_paired601.py",
+      "bytes": 5907,
+      "sha256": "d460ab027f4d6167d84e00e727b9210b2a1d50e0e8a864dfe5de022df5ddbb06"
+    }
+  ],
+  "pending": "Decode source-backed write and later guest-read instructions before any popped/stale claim. No CPU timing fix or ignored byte is justified by address/A7 alone."
+}

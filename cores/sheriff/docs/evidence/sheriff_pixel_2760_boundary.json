@@ -1,0 +1,288 @@
+{
+  "scope": "Measured write timing at one native raster pixel; diagnostic only",
+  "frame": 2760,
+  "x": 211,
+  "y": 29,
+  "address": 17338,
+  "sample_tick": 2260318918,
+  "mame_capture": "sim\\results\\pixel-2760-irq-before-mame",
+  "rtl_capture": "sim\\results\\restart-phase-ce-rtl",
+  "mame_writes": [
+    {
+      "tick": 2260318924.9966245,
+      "delta_from_sample": 6.99662446975708,
+      "data": 125,
+      "pc": 4792,
+      "local_instruction_candidates": [
+        {
+          "address": 4791,
+          "instruction": "MOV M,A",
+          "t_states": 7
+        }
+      ]
+    }
+  ],
+  "rtl_writes": [
+    {
+      "tick": 2260318744,
+      "delta_from_sample": -174,
+      "data": 125,
+      "master_clock_mod25": 19
+    }
+  ],
+  "preceding_irq_stack_windows": {
+    "vblank": {
+      "edge": 2260172800,
+      "mame": [
+        {
+          "tick": 2260173249.996581,
+          "delta_from_edge": 449.9965810775757,
+          "address": 32761,
+          "data": 33,
+          "pc": 8565
+        },
+        {
+          "tick": 2260173249.996581,
+          "delta_from_edge": 449.9965810775757,
+          "address": 32760,
+          "data": 117,
+          "pc": 8565
+        },
+        {
+          "tick": 2260173524.9966207,
+          "delta_from_edge": 724.9966206550598,
+          "address": 32759,
+          "data": 13,
+          "pc": 17
+        },
+        {
+          "tick": 2260173524.9966207,
+          "delta_from_edge": 724.9966206550598,
+          "address": 32758,
+          "data": 22,
+          "pc": 17
+        },
+        {
+          "tick": 2260173799.9966106,
+          "delta_from_edge": 999.9966106414795,
+          "address": 32757,
+          "data": 97,
+          "pc": 18
+        },
+        {
+          "tick": 2260173799.9966106,
+          "delta_from_edge": 999.9966106414795,
+          "address": 32756,
+          "data": 12,
+          "pc": 18
+        },
+        {
+          "tick": 2260174074.9966,
+          "delta_from_edge": 1274.996600151062,
+          "address": 32755,
+          "data": 16,
+          "pc": 19
+        },
+        {
+          "tick": 2260174074.9966,
+          "delta_from_edge": 1274.996600151062,
+          "address": 32754,
+          "data": 5,
+          "pc": 19
+        }
+      ],
+      "rtl": [
+        {
+          "tick": 2260172394,
+          "delta_from_edge": -406,
+          "address": 32763,
+          "data": 5
+        },
+        {
+          "tick": 2260172469,
+          "delta_from_edge": -331,
+          "address": 32762,
+          "data": 156
+        },
+        {
+          "tick": 2260172994,
+          "delta_from_edge": 194,
+          "address": 32761,
+          "data": 33
+        },
+        {
+          "tick": 2260173069,
+          "delta_from_edge": 269,
+          "address": 32760,
+          "data": 120
+        },
+        {
+          "tick": 2260173269,
+          "delta_from_edge": 469,
+          "address": 32759,
+          "data": 97
+        },
+        {
+          "tick": 2260173344,
+          "delta_from_edge": 544,
+          "address": 32758,
+          "data": 22
+        },
+        {
+          "tick": 2260173544,
+          "delta_from_edge": 744,
+          "address": 32757,
+          "data": 97
+        },
+        {
+          "tick": 2260173619,
+          "delta_from_edge": 819,
+          "address": 32756,
+          "data": 12
+        },
+        {
+          "tick": 2260173819,
+          "delta_from_edge": 1019,
+          "address": 32755,
+          "data": 16
+        },
+        {
+          "tick": 2260173894,
+          "delta_from_edge": 1094,
+          "address": 32754,
+          "data": 5
+        },
+        {
+          "tick": 2260174094,
+          "delta_from_edge": 1294,
+          "address": 32753,
+          "data": 96
+        },
+        {
+          "tick": 2260174169,
+          "delta_from_edge": 1369,
+          "address": 32752,
+          "data": 10
+        }
+      ]
+    },
+    "previous_mid_screen": {
+      "edge": 2259814400,
+      "mame": [],
+      "rtl": [
+        {
+          "tick": 2259814619,
+          "delta_from_edge": 219,
+          "address": 32761,
+          "data": 10
+        },
+        {
+          "tick": 2259814694,
+          "delta_from_edge": 294,
+          "address": 32760,
+          "data": 40
+        },
+        {
+          "tick": 2259814894,
+          "delta_from_edge": 494,
+          "address": 32759,
+          "data": 13
+        },
+        {
+          "tick": 2259814969,
+          "delta_from_edge": 569,
+          "address": 32758,
+          "data": 22
+        },
+        {
+          "tick": 2259815169,
+          "delta_from_edge": 769,
+          "address": 32757,
+          "data": 97
+        },
+        {
+          "tick": 2259815244,
+          "delta_from_edge": 844,
+          "address": 32756,
+          "data": 12
+        },
+        {
+          "tick": 2259815444,
+          "delta_from_edge": 1044,
+          "address": 32755,
+          "data": 16
+        },
+        {
+          "tick": 2259815519,
+          "delta_from_edge": 1119,
+          "address": 32754,
+          "data": 5
+        },
+        {
+          "tick": 2259815719,
+          "delta_from_edge": 1319,
+          "address": 32753,
+          "data": 96
+        },
+        {
+          "tick": 2259815794,
+          "delta_from_edge": 1394,
+          "address": 32752,
+          "data": 10
+        }
+      ]
+    }
+  },
+  "irq_return_boundaries": [
+    {
+      "irq": "vblank",
+      "mame": {
+        "pc": 8565,
+        "stack_write_ticks": [
+          2260173249.996581,
+          2260173249.996581
+        ]
+      },
+      "rtl": {
+        "pc": 8568,
+        "stack_write_ticks": [
+          2260172994,
+          2260173069
+        ]
+      },
+      "cause_qualified": false,
+      "instruction_at_mame_return": {
+        "address": 8565,
+        "instruction": "LDA address",
+        "length": 3,
+        "t_states": 13
+      },
+      "rtl_return_is_after_this_instruction": true
+    }
+  ],
+  "irq_call_candidates": [
+    {
+      "irq": "vblank",
+      "address": 1433,
+      "instruction": "CALL address",
+      "target": 8565,
+      "t_states": 17,
+      "program_read_ticks": [
+        2260172549.9966254,
+        2260172824.996615,
+        2260172824.996615
+      ],
+      "program_read_delta_from_irq": [
+        -250.0033745765686,
+        24.996614933013916,
+        24.996614933013916
+      ],
+      "cause_qualified": false
+    }
+  ],
+  "strict_graphics_gate_pass": false,
+  "limits": [
+    "Instruction candidates require source/PC validation before a timing classification",
+    "This report does not waive pixels or establish physical DRAM fetch timing"
+  ]
+}

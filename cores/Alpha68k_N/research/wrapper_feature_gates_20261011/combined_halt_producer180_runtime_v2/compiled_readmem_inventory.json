@@ -1,0 +1,41 @@
+{
+  "archive_pin": {
+    "path": "/mnt/d/Arcade/AI/aCORES/Alpha68k N/research/wrapper_feature_gates_20261011/combined_halt_producer180_compile_v2/generated_model.tar",
+    "bytes": 186757120,
+    "sha256": "178cac7826852a1eacfb5b7ce61fbb654281c4d07227ff530eef82d7bf61ae21"
+  },
+  "calls": [
+    {
+      "generated_source": "source/obj/Vemu___024root__0__Slow.cpp",
+      "call": "VL_READMEM_N(false, 17, 1024, 0, \"microrom.mem\"s\n                 ,  &(vlSelfRef.emu__DOT__system__DOT__board__DOT__maincpu__DOT__uRom__DOT__uRam)\n                 , 0, ~0ULL);",
+      "literal_runtime_paths": [
+        "microrom.mem"
+      ]
+    },
+    {
+      "generated_source": "source/obj/Vemu___024root__0__Slow.cpp",
+      "call": "VL_READMEM_N(false, 68, 336, 0, \"nanorom.mem\"s,  &(vlSelfRef.emu__DOT__system__DOT__board__DOT__maincpu__DOT__nanoRom__DOT__nRam)\n                 , 0, ~0ULL);",
+      "literal_runtime_paths": [
+        "nanorom.mem"
+      ]
+    }
+  ],
+  "all_runtime_paths": [
+    "microrom.mem",
+    "nanorom.mem"
+  ],
+  "runtime_cwd": "D:\\Arcade\\AI\\aCORES\\Alpha68k N\\research\\wrapper_feature_gates_20261011\\combined_halt_producer180_runtime_v2",
+  "files": [
+    {
+      "path": "D:\\Arcade\\AI\\aCORES\\Alpha68k N\\research\\wrapper_feature_gates_20261011\\combined_halt_producer180_runtime_v2\\microrom.mem",
+      "bytes": 19456,
+      "sha256": "9d13082be0cf4b04bff887e6da23de84f9f2ee4321f3a2576b4f9540615dece6"
+    },
+    {
+      "path": "D:\\Arcade\\AI\\aCORES\\Alpha68k N\\research\\wrapper_feature_gates_20261011\\combined_halt_producer180_runtime_v2\\nanorom.mem",
+      "bytes": 23520,
+      "sha256": "b3998009fb10605e8468cddf22fdd799a9792ba86f449de2e30615cfcefbeece"
+    }
+  ],
+  "game_executed": false
+}

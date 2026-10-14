@@ -1,0 +1,36 @@
+set_global_assignment -name SYSTEMVERILOG_FILE Arcade-YellowCab.sv
+set_global_assignment -name SYSTEMVERILOG_FILE rtl/yellowcab_core.sv
+set_global_assignment -name SYSTEMVERILOG_FILE rtl/mem/rom_map.sv
+set_global_assignment -name SYSTEMVERILOG_FILE rtl/mem/bram.sv
+set_global_assignment -name SYSTEMVERILOG_FILE rtl/mem/io_map.sv
+
+set_global_assignment -name QIP_FILE rtl/pll.qip
+set_global_assignment -name VERILOG_FILE rtl/pll.v
+
+set_global_assignment -name VERILOG_FILE rtl/cpu/CPU16.v
+set_global_assignment -name VERILOG_FILE rtl/cpu/mcpu.v
+set_global_assignment -name VERILOG_FILE rtl/cpu/acpu.v
+set_global_assignment -name VERILOG_FILE rtl/cpu/deco222_bitswap.v
+set_global_assignment -name VERILOG_FILE rtl/cpu/fast6502/cpu6502.v
+set_global_assignment -name VERILOG_FILE rtl/cpu/fast6502/ALU.v
+
+set_global_assignment -name VERILOG_FILE rtl/tools/clk_en.v
+set_global_assignment -name VERILOG_FILE rtl/pause.v
+
+set_global_assignment -name SYSTEMVERILOG_FILE rtl/video/gfx_decode.sv
+set_global_assignment -name SYSTEMVERILOG_FILE rtl/video/palette.sv
+set_global_assignment -name SYSTEMVERILOG_FILE rtl/video/video.sv
+set_global_assignment -name VERILOG_FILE rtl/video/hvgen.v
+
+set_global_assignment -name SYSTEMVERILOG_FILE rtl/sound/sound.sv
+set_global_assignment -name VERILOG_FILE rtl/sound/jt49/jt49.v
+set_global_assignment -name VERILOG_FILE rtl/sound/jt49/jt49_bus.v
+set_global_assignment -name VERILOG_FILE rtl/sound/jt49/jt49_cen.v
+set_global_assignment -name VERILOG_FILE rtl/sound/jt49/jt49_div.v
+set_global_assignment -name VERILOG_FILE rtl/sound/jt49/jt49_eg.v
+set_global_assignment -name VERILOG_FILE rtl/sound/jt49/jt49_exp.v
+set_global_assignment -name VERILOG_FILE rtl/sound/jt49/jt49_noise.v
+set_global_assignment -name VERILOG_FILE rtl/sound/jt49/filter/jt49_dcrm.v
+set_global_assignment -name VERILOG_FILE rtl/sound/jt49/filter/jt49_dcrm2.v
+set_global_assignment -name VERILOG_FILE rtl/sound/jt49/filter/jt49_dly.v
+set_global_assignment -name VERILOG_FILE rtl/sound/jt49/filter/jt49_mave.v

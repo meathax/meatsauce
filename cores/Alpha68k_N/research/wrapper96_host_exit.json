@@ -1,0 +1,24 @@
+{
+  "source_baseline": "693cfdf",
+  "worker_pid": 41700,
+  "started": 1791527550.5889444,
+  "scope": "real emu/HPS/game/framework; ideal PLL outputs and scope adapter",
+  "executable_sha256": "4b4c31b01a18ed40cba3a0d27a22408526775a01dd93712a53720944b7dc242f",
+  "inputs_manifest": "research/wrapper96_host_inputs.sha256",
+  "scope_adapter": "research/wrapper96_host_scope_adapter.json",
+  "frames": 96,
+  "command": [
+    "wsl.exe",
+    "-d",
+    "Ubuntu",
+    "--cd",
+    "D:\\Arcade\\AI\\aCORES\\Alpha68k N\\sim\\build",
+    "--exec",
+    "./alpha68kn_wrapper96_host_sim",
+    "../../roms/kyros/download.bin",
+    "96",
+    "../captures/rtl/kyros_wrapper96_host"
+  ],
+  "exit_code": 1,
+  "ended": 1791527571.853223
+}

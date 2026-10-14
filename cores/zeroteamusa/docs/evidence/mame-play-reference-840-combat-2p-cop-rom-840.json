@@ -1,0 +1,104 @@
+{
+  "set": "zeroteam",
+  "frame": 840,
+  "mame": "0.289",
+  "directory": "sim/results/mame-play-840-combat-2p-cop-rom-840",
+  "audio_capture": null,
+  "pristine_roms": true,
+  "known_reference_limitations": "MAME marks the target not working; sort/priority behavior is incomplete.",
+  "files": {
+    "bg_src.bin": {
+      "bytes": 2048,
+      "sha256": "bc22fba5a82766345a0954a9bfc8c23fc5fdf0a522d545d7979119da1d67a0a3"
+    },
+    "cop-events.csv": {
+      "bytes": 561252,
+      "sha256": "3d3882553911ae59d833134a01270dbd988f40ee1f1a62406f06d05c003310de"
+    },
+    "distance-cases.csv": {
+      "bytes": 4575,
+      "sha256": "215b6eb0ecba7227db44fb6d6ed94df63a4bec377849609d5b25d8bf03df64d1"
+    },
+    "fg_src.bin": {
+      "bytes": 2048,
+      "sha256": "da6da700e150c5c794ff0e339a2fbb054b4b720c8d9d9b5042e0377a317c9af4"
+    },
+    "input-events.csv": {
+      "bytes": 1398,
+      "sha256": "96a0391fa619c890dfe071faf7af074a80a8ec7e98a7a6a27e5f4ed89b25e8fc"
+    },
+    "ivt.bin": {
+      "bytes": 1024,
+      "sha256": "78bf4bbb8b9a02dee228a55426fde15a29d024bafa4779bbbfecf2ff2b6c650a"
+    },
+    "manifest.txt": {
+      "bytes": 53,
+      "sha256": "dcb908a1b0b86983674e0d691c7568ba9a3486820f4a2f40381d23d58df31d0b"
+    },
+    "mg_src.bin": {
+      "bytes": 2048,
+      "sha256": "bc8d3d5e99ed899c6b9bc6ea5bb34d09deaa3771e49f9c7aa2fe0aff40a8a06f"
+    },
+    "pal_src.bin": {
+      "bytes": 4096,
+      "sha256": "25ae7d414be627c1d7cb56cda888d2aa4cd38486c533e98a71a076f1778f57a0"
+    },
+    "reference.png": {
+      "bytes": 17283,
+      "sha256": "278cd727913a5d4ecc1963241a8905da5613f3013effb125e47490ca41b896b3"
+    },
+    "reg_cop.bin": {
+      "bytes": 512,
+      "sha256": "1f0f87245e6041c9394af215595497dc286d36698cdb85e276893d48ca4d23f7"
+    },
+    "reg_crtc.bin": {
+      "bytes": 64,
+      "sha256": "9f49cf588d112d229cae0f12f53902b2192b3e7afe1e2d02f4bf527a941d04bd"
+    },
+    "reg_sound.bin": {
+      "bytes": 32,
+      "sha256": "2385e91faf7619c457a25077843823afc5d9d7f6e3fad04bb974d004ce7a8ce5"
+    },
+    "reg_sprite_key.bin": {
+      "bytes": 192,
+      "sha256": "68f6aa1b1c6a9569902121365885a9235221b561ad8b22b0c7ef064525afd29e"
+    },
+    "sound-events.csv": {
+      "bytes": 504291,
+      "sha256": "456578450647c42bd8b071e107c9d692cdb306b8d50b6f6c7073dbf5ef827470"
+    },
+    "sprite_buffer.bin": {
+      "bytes": 4096,
+      "sha256": "527913e87e4addf02acd9e90c9532bf5aa4dea6199b2db7d3e51fda6681499db"
+    },
+    "sprite_buffer_source.txt": {
+      "bytes": 31,
+      "sha256": "fd90f475d5f75d2efe2ce6cb7f2f6003f0d5b2ca12b04f3be29d2035f3126279"
+    },
+    "sprite_src.bin": {
+      "bytes": 4096,
+      "sha256": "527913e87e4addf02acd9e90c9532bf5aa4dea6199b2db7d3e51fda6681499db"
+    },
+    "text_src.bin": {
+      "bytes": 4096,
+      "sha256": "ebc27823bace041a104f5a7f23695171b09785735c28f82da5f9c61d1507a984"
+    },
+    "upper_work.bin": {
+      "bytes": 65536,
+      "sha256": "2209568135c08fe73b4638ed61232676fb46332ca08b3ba54b4ee9c0a850ffce"
+    },
+    "work.bin": {
+      "bytes": 45056,
+      "sha256": "a8e5a07141316f195a354c711077facb61d83b3a96ae76b358eb2fc99e22a43c"
+    }
+  },
+  "helper_hashes": {
+    "capture.lua": "2ca5dec0556980de2ff63846afbf789d19bfe49c6dde2ac5bf7ae0a6d4bd0eea",
+    "run.lua": "4fafce6e4c7549c54ec4e955b1cded95b5d73417dfe254734d0e765be536952a"
+  },
+  "input_schedule": "sim/inputs/combat-2p.csv",
+  "input_sha256": "0ba2005d190fe435a5add3ce754fd032c5063cd583fbab65f664e7218868467d",
+  "playback_sha256": "ffbcdd332dc7cfef38d12b4be164e90860940cef707fe74cfb0e80d64e709808",
+  "input_delivery": "Physical ioport fields only; no game RAM, ROM or CPU writes",
+  "sprite_render_source": "Buffered sprite device m_buffered; read-only emu.item export"
+}

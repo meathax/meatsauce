@@ -1,0 +1,223 @@
+{
+  "scope": "Original-index event-to-output DAC diagnostics, full shared prefix; no game/audio substitution.",
+  "source_rate_hz": 1536000,
+  "output_rate_hz": 48000,
+  "source_divide": 33,
+  "gain": 0.15,
+  "source_derived_render_cadence_hz": 50,
+  "first_render_samples": 961,
+  "subsequent_render_samples": 960,
+  "update_rule": "Nonzero timestamp: floor(time*source_rate)+1, from sound_stream::update and DAC set_value; zero-time step at0.",
+  "timestamp_note": "MAME integer seconds and attoseconds; source indices calculated with exact integer arithmetic.",
+  "precision_capture_receipt": {
+    "receipt": {
+      "exit_code": 0,
+      "started_utc": "2026-10-09T19:27:56.223236+00:00",
+      "finished_utc": "2026-10-09T19:28:08.049557+00:00",
+      "process_id": 53640,
+      "frames_requested": 1201,
+      "features": {
+        "sound_probe": true,
+        "exact_attotime": true,
+        "lua_sha256": "2f181e4231f8fa4dc7b09846cabd2bafc308dc42ad0223e8b8d241209626b789",
+        "canonical_lua_sha256": "5e214ec7ed3dbf63c7550f87ebf6e967ea4e52688500e30923db5b50b6665481",
+        "producer_sha256": "2a583267202d51d88c601b75c337364a879724eec978bf5955cc145040bc9204",
+        "mame_binary_sha256": "af6966108d9b52c22465c6d50f4e5d50cc371b50f2d27dc443935f287aad37a3",
+        "input_sha256": "15e27f7747d95c53762259b136b7b8aeff7e8a7c24dcf75ac81edad85456db3d"
+      }
+    },
+    "observer_unchanged": {
+      "io.csv": true,
+      "audio.wav": true,
+      "states.csv": true
+    },
+    "sound_rows": 1332,
+    "original_sound_columns_unchanged": true,
+    "canonical_lua_unchanged": true,
+    "evidence_sha256": {
+      "_checks/sound-pin-precision-20261010/observer.lua": "2f181e4231f8fa4dc7b09846cabd2bafc308dc42ad0223e8b8d241209626b789",
+      "D:/Arcade/AI/aCORES/sherrif/sim/results/current-sound-precision-1201-mame-20261010/exit.json": "c211b073542d0112de6413f6ecacba044d60346fb4a3a225d99b08849f5721d9",
+      "D:/Arcade/AI/aCORES/sherrif/sim/results/current-sound-precision-1201-mame-20261010/sound_pins.csv": "dd09569cfa0d8733fa5b8ae5d7a8ccebad1aa9208241b41a06165bf90bc9efd3",
+      "D:/Arcade/AI/aCORES/sherrif/sim/results/current-sound-precision-1201-mame-20261010/capture_features.json": "ecf98f05b8663e641c1acfb2d9ea02ea41a66062b41c505d6eda97284eb8d2da"
+    },
+    "game_state_forced": false,
+    "release_qualified": false,
+    "rbf_built": false
+  },
+  "native_samples": 937008,
+  "reference_samples": 936961,
+  "common_prefix": 936961,
+  "first_native_nonzero_SN_sample": 780617,
+  "first_reference_non_DAC_PCM_sample": 780617,
+  "native_SN_vs_reference_PCM_residual": {
+    "samples": 936961,
+    "RMS_error": 96.59108540543929,
+    "max_error": 6444,
+    "nonzero_samples": 25600,
+    "first_difference": {
+      "sample": 780619,
+      "actual": -152,
+      "expected": -151
+    }
+  },
+  "first_SN_residual_difference_exceeding1LSB": {
+    "sample": 781185,
+    "native_SN": -5231,
+    "reference_PCM_residual": -5079
+  },
+  "SN_onset_context": [
+    {
+      "sample": 780613,
+      "native_SN": 0,
+      "reference_PCM_residual": 0
+    },
+    {
+      "sample": 780614,
+      "native_SN": 0,
+      "reference_PCM_residual": 0
+    },
+    {
+      "sample": 780615,
+      "native_SN": 0,
+      "reference_PCM_residual": 0
+    },
+    {
+      "sample": 780616,
+      "native_SN": 0,
+      "reference_PCM_residual": 0
+    },
+    {
+      "sample": 780617,
+      "native_SN": 227,
+      "reference_PCM_residual": 227
+    },
+    {
+      "sample": 780618,
+      "native_SN": 227,
+      "reference_PCM_residual": 227
+    },
+    {
+      "sample": 780619,
+      "native_SN": -152,
+      "reference_PCM_residual": -151
+    },
+    {
+      "sample": 780620,
+      "native_SN": 227,
+      "reference_PCM_residual": 227
+    },
+    {
+      "sample": 780621,
+      "native_SN": 227,
+      "reference_PCM_residual": 227
+    },
+    {
+      "sample": 780622,
+      "native_SN": -152,
+      "reference_PCM_residual": -151
+    },
+    {
+      "sample": 780623,
+      "native_SN": -682,
+      "reference_PCM_residual": -682
+    },
+    {
+      "sample": 780624,
+      "native_SN": -682,
+      "reference_PCM_residual": -682
+    },
+    {
+      "sample": 780625,
+      "native_SN": -682,
+      "reference_PCM_residual": -682
+    },
+    {
+      "sample": 780626,
+      "native_SN": -682,
+      "reference_PCM_residual": -682
+    },
+    {
+      "sample": 780627,
+      "native_SN": -682,
+      "reference_PCM_residual": -682
+    },
+    {
+      "sample": 780628,
+      "native_SN": -682,
+      "reference_PCM_residual": -682
+    }
+  ],
+  "SN_reference_route": "MAME sound.cpp:637-641 bypasses resampling for equal-rate48kHz SN route.",
+  "raw_vs_reference": {
+    "samples": 936961,
+    "RMS_error": 351.31779211721164,
+    "max_error": 6444,
+    "nonzero_samples": 32886,
+    "first_difference": {
+      "sample": 0,
+      "actual": 4915,
+      "expected": 0
+    }
+  },
+  "mame_DAC_operator_vs_reference_before_native_SN": {
+    "samples": 780617,
+    "RMS_error": 0.0,
+    "max_error": 0,
+    "nonzero_samples": 0,
+    "first_difference": null
+  },
+  "native_DAC_operator_vs_mame_DAC_operator": {
+    "samples": 936961,
+    "RMS_error": 29.35011214562499,
+    "max_error": 4778,
+    "nonzero_samples": 5356,
+    "first_difference": {
+      "sample": 472880,
+      "actual": 5113,
+      "expected": 5119
+    }
+  },
+  "diagnostic_native_mix_projection_vs_reference": {
+    "samples": 936961,
+    "RMS_error": 100.95088664064082,
+    "max_error": 6444,
+    "nonzero_samples": 30049,
+    "first_difference": {
+      "sample": 472880,
+      "actual": 5113,
+      "expected": 5119
+    }
+  },
+  "fitted_parameters": false,
+  "sample_offset": 0,
+  "padding_applied": false,
+  "original_audio_unchanged": true,
+  "native_audio_replaced": false,
+  "evidence_sha256": {
+    "D:/Arcade/AI/aCORES/sherrif/tools/diagnose_dac_waveform_origin.py": "245389a6904b6ddaed0e973d233120028e87eb2e2fbf41ed8686438e60cf3b6c",
+    "docs/evidence/sheriff_current_sound_pins.json": "5ac24b0a684bdd5a151f6c6e2abab871ee15ceae21d13eef93b698070e2b02d8",
+    "_checks/sound-pin-precision-20261010/terminal.json": "13470a239ddbe477800ea217405bbf3e0255e6bffefc1a690967b389e4bb6674",
+    "sim/results/current-sound-precision-1201-mame-20261010/sound_pins.csv": "dd09569cfa0d8733fa5b8ae5d7a8ccebad1aa9208241b41a06165bf90bc9efd3",
+    "sim/results/current-gameplay-1201-rtl-20261010/sound.csv": "0feb543f27d5cf23424e36d713cd2fede639244edb49a0a0244010e6fc8eee82",
+    "sim/results/current-gameplay-1201-rtl-20261010/audio.raw": "b5f4bd4ead2aa9de288581e8d3c55bd3e2819543f4708a939f07e5604a1c746a",
+    "sim/results/current-sound-pins-1201-mame-20261010/sound_pins.csv": "587c4d0981430a6bed0fc09fa19b14000bcc30c9461e32234aadf2f02a063d00",
+    "sim/results/current-sound-pins-1201-mame-20261010/audio.wav": "543e0156a5809158c7789a84c4f47f511a7aaf12907e0e004425ce3651cf8faa"
+  },
+  "source_sha256": {
+    "D:/Arcade/AI/mame289/src/emu/sound.cpp": "a1c9c5bc45468058f34572b5a4275238454e27f23c68d8062e677bc591f4271b",
+    "D:/Arcade/AI/mame289/src/emu/sound.h": "24acf7c64db0fd773b9fb86582e84707c8701fba9337f44534dc4e1f5581c141",
+    "D:/Arcade/AI/mame289/src/emu/resampler.cpp": "5bb866d2233b2952be14d954359bbc3979cd4b001ddf2709459d3d7e7c29cb65",
+    "D:/Arcade/AI/mame289/src/devices/sound/dac.h": "7895524277cf00b6dd79e7ca2b89c488714c9a1e0f70ac955fe419ba45f4512c"
+  },
+  "limitations": [
+    "Projection is analytical evidence only; it is not the native produced waveform.",
+    "Native SN residual retains its original sample indices and quantization.",
+    "Reference PCM residual subtracts quantized DAC output; final mixer rounding can contribute1LSB and is not a direct SN-stream capture.",
+    "The before-native-SN scope is determined from native data, not an independent MAME SN-pin timestamp.",
+    "Render blocks use the source-derived fixed50Hz graph-update baseline; no private live render-call trace is asserted.",
+    "No claim of physical event timing, whole mixed sound or end-of-recording equivalence."
+  ],
+  "whole_sound_gate_pass": false,
+  "release_qualified": false,
+  "rbf_built": false
+}

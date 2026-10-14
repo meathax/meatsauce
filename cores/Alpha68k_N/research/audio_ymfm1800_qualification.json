@@ -1,0 +1,98 @@
+{
+  "result": {
+    "scope": "actual sound/mixer RTL replay of real CPU writes; no CPU/game acceptance",
+    "fields": 1800,
+    "profile": 0,
+    "samples": 1459814,
+    "applied_events": 37908,
+    "input_events": 37908,
+    "io_writes": 7088,
+    "dac_writes": 30820,
+    "ym_writes": 3848,
+    "ay1_writes": 1234,
+    "ay2_writes": 2006,
+    "clipped_samples": 0
+  },
+  "terminal": {
+    "worker_pid": 113854,
+    "started": 1791533194.4016442,
+    "command": [
+      "./alpha68kn_audio_replay_sim",
+      "../captures/rtl/kyros_portreplay1800/audio_events.csv",
+      "1800",
+      "0",
+      "../captures/audio/kyros_ymfm1800"
+    ],
+    "executable_sha256": "8700fe96f9f25cc41d0b4aaf5811f85c23ef79d54fafc24291a78e7bb0d0f68c",
+    "events_sha256": "c5f4d96bedb2a73b07cbfb9d7805fdb1a46eba1bca0051f826230b9ebc97ce67",
+    "simulation_pid": 113991,
+    "exit_code": 0,
+    "ended": 1791534100.7972593
+  },
+  "sample_minimum": -27444,
+  "sample_maximum": 14577,
+  "wav_sha256": "adb87a53e42fcefdcc04476ca6f3bb2b7745d0f55ac1213c82bd402226a4ee18",
+  "blocks": [
+    {
+      "seconds": [
+        0.1,
+        1
+      ],
+      "mean": -23348.0,
+      "ac_rms": 0.0,
+      "min": -23348,
+      "max": -23348
+    },
+    {
+      "seconds": [
+        2,
+        2.5
+      ],
+      "mean": -11225.973333333333,
+      "ac_rms": 2388.3624313091364,
+      "min": -20788,
+      "max": -820
+    },
+    {
+      "seconds": [
+        3,
+        4
+      ],
+      "mean": -11367.797333333334,
+      "ac_rms": 962.8139655507472,
+      "min": -18228,
+      "max": -5428
+    },
+    {
+      "seconds": [
+        10,
+        11
+      ],
+      "mean": -11060.0,
+      "ac_rms": 0.0,
+      "min": -11060,
+      "max": -11060
+    },
+    {
+      "seconds": [
+        20,
+        21
+      ],
+      "mean": -5580.874833333333,
+      "ac_rms": 2624.324501466991,
+      "min": -15321,
+      "max": 4172
+    },
+    {
+      "seconds": [
+        29,
+        30
+      ],
+      "mean": -5644.2508333333335,
+      "ac_rms": 2531.2897542144347,
+      "min": -12884,
+      "max": 5256
+    }
+  ],
+  "scope": "nominal mixer correction and actual sound RTL diagnostics; phase/curves/full game acceptance separate"
+}

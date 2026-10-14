@@ -1,0 +1,25 @@
+{
+  "result": "pass",
+  "host_pixel_checks": 76813,
+  "malformed_image_cases_rejected": 3,
+  "observer_original_rom_clock_limit": 3000000,
+  "matched_instructions": 166236,
+  "physical_requests": 278099,
+  "run_id": "1791150483528036000",
+  "scope": "Host-only complete scanout capture; no attract/gameplay or physical memory timing claim",
+  "sources": {
+    "sim/boot/frame_capture.hpp": "d8981793862b065937219b4c4a20645cb7db9525b85a015f555051c28c3f8dda",
+    "sim/boot/frame_capture_test.cpp": "8219fdf07d2cb98593888c2dc3c8d3e562286c473443c21207b48d847cbfca4e",
+    "sim/boot/boot_observer.hpp": "e4ae6138234d60e6c3f66bcdd1ea440365c7e30ca19a8f0466aef1f20eeb8bdc",
+    "scripts/boot_activity.py": "d148acb3d33b809b4e4c2ff6dafb2bdba27bd93d964e813415a4c0b70fbd3eee"
+  },
+  "complete_scanout": {
+    "width": 320,
+    "height": 240,
+    "completed": 2,
+    "rejected": 0,
+    "start_clock": 1430532,
+    "end_clock": 2739300,
+    "image_saved": true
+  }
+}

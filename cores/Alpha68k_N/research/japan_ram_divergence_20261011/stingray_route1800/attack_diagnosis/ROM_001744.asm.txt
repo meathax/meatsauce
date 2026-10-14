@@ -1,0 +1,54 @@
+01744: 202e 0020       move.l  ($20,A6), D0
+01748: 222e 0024       move.l  ($24,A6), D1
+0174c: b280            cmp.l   D0, D1
+0174e: 6502            bcs     $1752
+01750: 2001            move.l  D1, D0
+01752: 222e 0028       move.l  ($28,A6), D1
+01756: b280            cmp.l   D0, D1
+01758: 6404            bcc     $175e
+0175a: 2d40 0028       move.l  D0, ($28,A6)
+0175e: 41f9 0004 0f7a  lea     $40f7a.l, A0
+01764: 202e 0020       move.l  ($20,A6), D0
+01768: 4242            clr.w   D2
+0176a: 082e 0000 000a  btst    #$0, ($a,A6)
+01770: 6710            beq     $1782
+01772: 4a2e 005b       tst.b   ($5b,A6)
+01776: 660a            bne     $1782
+01778: 342e 0000       move.w  ($0,A6), D2
+0177c: 0242 000c       andi.w  #$c, D2
+01780: e74a            lsl.w   #3, D2
+01782: 612a            bsr     $17ae
+01784: 202e 0028       move.l  ($28,A6), D0
+01788: 5d48            subq.w  #6, A0
+0178a: 4242            clr.w   D2
+0178c: 6120            bsr     $17ae
+0178e: 202e 0024       move.l  ($24,A6), D0
+01792: 5d48            subq.w  #6, A0
+01794: 4242            clr.w   D2
+01796: 4a2e 005b       tst.b   ($5b,A6)
+0179a: 670a            beq     $17a6
+0179c: 342e 0000       move.w  ($0,A6), D2
+017a0: 0242 000c       andi.w  #$c, D2
+017a4: e74a            lsl.w   #3, D2
+017a6: 6106            bsr     $17ae
+017a8: 4cdf 010f       movem.l (A7)+, D0-D3/A0
+017ac: 4e75            rts
+017ae: 7200            moveq   #$0, D1
+017b0: 7605            moveq   #$5, D3
+017b2: e198            rol.l   #8, D0
+017b4: e998            rol.l   #4, D0
+017b6: 3200            move.w  D0, D1
+017b8: 0801 0010       btst    #$10, D1
+017bc: 660a            bne     $17c8
+017be: 0241 000f       andi.w  #$f, D1
+017c2: 671c            beq     $17e0
+017c4: 08c1 0010       bset    #$10, D1
+017c8: 0241 000f       andi.w  #$f, D1
+017cc: 0041 0030       ori.w   #$30, D1
+017d0: 1101            move.b  D1, -(A0)
+017d2: 1102            move.b  D2, -(A0)
+017d4: 51cb ffde       dbra    D3, $17b4
+017d8: 113c 0030       move.b  #$30, -(A0)
+017dc: 1102            move.b  D2, -(A0)
+017de: 4e75            rts
+017e0: 323c 0040       move.w  #$40, D1

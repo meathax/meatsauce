@@ -1,0 +1,78 @@
+{
+  "target": "gpu",
+  "acceptance": "unit verification",
+  "runtime": "native Windows PE / MSYS2 UCRT64",
+  "commands": [
+    [
+      "D:/vibes/fpga/bin/verilator.exe",
+      "--cc",
+      "--exe",
+      "--build",
+      "-j",
+      "4",
+      "-O3",
+      "--top-module",
+      "vr0_gpu",
+      "--Mdir",
+      "R:/Verilator/CrystalSystem/tool-20261008T171506417Z-51644-60433125/obj_dir",
+      "-CFLAGS",
+      "-O2",
+      "-MAKEFLAGS",
+      "OPT_FAST=-O2",
+      "-MAKEFLAGS",
+      "OPT_GLOBAL=-O2",
+      "-Wno-fatal",
+      "-GMAME_PALETTE_HACK=1",
+      "D:/Arcade/AI/aCORES/BRAZZ/Arcade-CrystalSystem_MiSTer/rtl/video/vr0_pixel_pkg.sv",
+      "D:/Arcade/AI/aCORES/BRAZZ/Arcade-CrystalSystem_MiSTer/rtl/cpu/se3208_bus_access.sv",
+      "D:/Arcade/AI/aCORES/BRAZZ/Arcade-CrystalSystem_MiSTer/rtl/video/vr0_gpu.sv",
+      "D:/Arcade/AI/aCORES/BRAZZ/Arcade-CrystalSystem_MiSTer/sim/video/gpu.cpp"
+    ],
+    [
+      "D:/vibes/fpga/bin/verilator.exe",
+      "sim",
+      "R:/Verilator/CrystalSystem/tool-20261008T171506417Z-51644-60433125/obj_dir/Vvr0_gpu.exe"
+    ]
+  ],
+  "exit_code": 0,
+  "run_seconds": 1.1051155000022845,
+  "sources": [
+    {
+      "path": "rtl/video/vr0_pixel_pkg.sv",
+      "sha256": "2494e80157a94fb6c8a47b340689204ce8441caa1a60daca2b0f52fdcac4fee0"
+    },
+    {
+      "path": "rtl/cpu/se3208_bus_access.sv",
+      "sha256": "2641c6117504736a27cf30b520a08dc96638e5bbbb6c68da70b6456c82477d2e"
+    },
+    {
+      "path": "rtl/video/vr0_gpu.sv",
+      "sha256": "718ee007d5046d4355d74ec232cc125b59aee4acf29620212d6f68677ca53335"
+    },
+    {
+      "path": "sim/video/gpu.cpp",
+      "sha256": "4223d21fbbb297d94e230a863110636eb60c7464109c3c6f4deb83c6e2cb7063"
+    },
+    {
+      "path": "sim/obj_dir/gpu_reference/vr0_gpu_reference.hpp",
+      "sha256": "f799c53f404bd96c4843a187fc50ad032b9ebd9b84c6a0760a9a5f2f3201022d"
+    },
+    {
+      "path": "scripts/gpu_reference.py",
+      "sha256": "401d485f9aead24e5f55a86539823222432d55e7bfdfd43e16abf4bfde86fcd3"
+    },
+    {
+      "path": "docs/reference/mame/src/devices/video/vrender0.cpp",
+      "sha256": "204d069888f07e85fa13dbcc52e8bfa9a37c9558ff155e0b565a69b351f24e46"
+    },
+    {
+      "path": "docs/reference/mame/src/devices/video/vrender0.h",
+      "sha256": "953b32782e50091e9bd16d6708c8c54ec94bc01d7daec52f5593759bf04831f6"
+    }
+  ],
+  "workspace": "R:/Verilator/CrystalSystem/tool-20261008T171506417Z-51644-60433125",
+  "timing_profile": null,
+  "stdout": "PASS GPU mid-frame vblank holds banks until sync flip: full 8 MiB matches MAME; 13002 writes\nPASS GPU: 640 MAME framebuffer comparisons; queue/MMIO/flips/fault; 13297 checks; 9605 bus requests; 6565 writes; 222240 clocks\n",
+  "stderr": "",
+  "build_log": "sim/obj_dir/gpu/build.log"
+}

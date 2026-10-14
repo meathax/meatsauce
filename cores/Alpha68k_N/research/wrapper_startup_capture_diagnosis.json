@@ -1,0 +1,10 @@
+{
+  "scope": "wrapper capture initialization, not a closed hardware startup gate",
+  "terminal": "research/wrapper96_host_exit.json",
+  "exit_code": 1,
+  "error": "framework field pixel overflow before first completed field",
+  "transport": "all 327680 words audited; joystick/start/coin and orientation commands passed; ROM gate released at tick3337909",
+  "harness_cause": "unconditional 256x224 buffer limit despite existing field>=4 framework qualification rule; startup output must be preserved, not truncated",
+  "fix": "collect actual VGA bytes dynamically within full raster bound, retain startup counts; strict core/VGA RGB and 57344-pixel comparison unchanged for every field>=4",
+  "next_job": "research/wrapper96_settle_job.json"
+}

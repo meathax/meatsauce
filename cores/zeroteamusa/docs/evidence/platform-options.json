@@ -1,0 +1,114 @@
+{
+  "scope": "Target MiSTer platform source and focused real RTL verification",
+  "mra_regions": {
+    "maincpu": {
+      "bytes": 1048576,
+      "sha256": "9ff914f142474699925a8d362fd6d8962393c606d70f91d92979a0169dee2d2b"
+    },
+    "chars": {
+      "bytes": 131072,
+      "sha256": "56e72d85beaf40caa2bea3fc28b24440cbd87925efae53b911ce06a362f260e5"
+    },
+    "tiles": {
+      "bytes": 4194304,
+      "sha256": "e5b59e785f8e63202f0dbc127931c0059c53b54d0c410a5cfaee6cfe106d53c9"
+    },
+    "oki": {
+      "bytes": 262144,
+      "sha256": "45f218137031fc177651e3140a7d02a893e429eb24c9c27db11f36dbc2f08bee"
+    },
+    "sprites": {
+      "bytes": 8388608,
+      "sha256": "e55641fccf9c57da409e288c9630b84235ec9ea916992faf6f080c61bd959d9d"
+    }
+  },
+  "physical_dip_bits": 24,
+  "rtl": {
+    "checks": 867529,
+    "failures": 0,
+    "frame_cycles": 1732608,
+    "refresh_hz": 55.40780141843972,
+    "highscore_bytes": 75,
+    "rotation_writes": 417
+  },
+  "inputs": {
+    "vectors": 30,
+    "failures": 0
+  },
+  "native_bridge_boot": {
+    "frames": 60,
+    "system_cycles": 103802941,
+    "memory_latency": 16,
+    "rom_reads": 4029920,
+    "cpu_writes": 102969,
+    "interrupts": 59,
+    "text_nonzero": 304,
+    "palette_nonzero": 14,
+    "failures": 0
+  },
+  "rotate_180": {
+    "scope": "Actual RTL 180-degree boot-logo rendering versus native pixels rotated 180 degrees",
+    "different_pixels": 0,
+    "width": 320,
+    "height": 256,
+    "native_sha256": "b55bea1c958ecad42c1a7c16600585bea0821d90ddd52300f290e0166f5c00e5",
+    "flipped_sha256": "9ff424d38bb4e475e0f8af5d3e0dc2499245e94a4210363616fb2a840a28ab65",
+    "limits": "Boot-logo fixture; does not cover every scrolling or sprite scene."
+  },
+  "lint_exceptions": [
+    "Intel PLL/DDR output primitives black-boxed",
+    "Legacy framework PROCASSWIRE and BLKANDNBLK compatibility diagnostics disabled"
+  ],
+  "source_sha256": {
+    "rtl/common/savestate.sv": "0a6a3634166ee9e664c993a7331d7f07a46b0360664e54977bf959a00a206839",
+    "rtl/common/savestate_ram.sv": "8ef9ed759ef2a85cce6f60590eecaf187ae1d6cb58691f40dd242dae0c4bfb2c",
+    "rtl/ucore/v30u_ss_pkg.sv": "c9d198f0cbead26f1f797468ef16b72f4cabf67f2fb58599cf0375b291a32aed",
+    "rtl/ucore/v30_core.sv": "a36bfa02b14466a3566fb966961cbcf5cfb345f262f89eee461be96af0744036",
+    "rtl/ucore/v30u_biu.sv": "5de2b78627d33cc04e43dfeca1feaf69906af2d3009a4a6631355f5b28882530",
+    "rtl/ucore/v30u_ucrom.sv": "1e9d3765a2e23bcff3adade741a544d72818baadfb532b9a32987aad435c8b98",
+    "rtl/ucore/v30u_eu.sv": "353d0adf1af2f177f5fffea4ee5e25ee0a3bc844aa99c3f7d47a252ac7197937",
+    "rtl/ucore/v30_bus_demux.sv": "322249cb3bb8f649fa3d8806ee4aa87bf15cfb206114919a6b7412febe9e7427",
+    "rtl/Raiden2/v30/cpu_v30_bridge.sv": "ffb5acaeb2da85825156c94d7bbee15f257843b2193e6d31c2a9e6d6323b107b",
+    "rtl/Raiden2/raiden2_addr_main.sv": "4b25051356fb47a44bcb9020e65aa83c97f776a1a06902a20a66a0146afdb6b3",
+    "rtl/Raiden2/raiden2_ce_gen.sv": "899eab1490e84adbeca43cdaeb2380e574f411b78a9cf345396c5c17cd2b6139",
+    "rtl/Raiden2/raiden2_sdram_bridge_cpu.sv": "8061a8523f061e2ac15776e6276f3c70166734badce8fd8973da629c3708fa53",
+    "rtl/Raiden2/raiden2_sprite_mainbus.sv": "a6aec852bc5ed1b47f8f8197abe6c7822ea086c3a52cacd3727930c89f37ba62",
+    "rtl/Raiden2/Raiden2_seibu_crtc.sv": "df082cf145a07b02437fa9e9c87228a24da3fff7e03baafe130336681cb3a526",
+    "rtl/Raiden2/Raiden2_cop3.sv": "e10f614782e8da15f1570bef604d05bdfa9c04b0226370a2e37d9ed0b6219f43",
+    "rtl/Raiden2/Raiden2_main_top.sv": "9de97a0220c51d1fd9ec2944cc438468664c0bfb07c43da4ff637900312d495a",
+    "rtl/Raiden2/Raiden2_video_timing.sv": "fdea2927c855323ecee8355cb3e4d87cd501d3b09bd0bc887cf8f21ec1d75112",
+    "rtl/Raiden2/Raiden2_text_renderer.sv": "d960cf15e114001d16ceb8e73268b20b838235f91b39e09ae885f29345489bd9",
+    "rtl/Raiden2/Raiden2_tile_layer.sv": "84c5f59252abeaaaec22bd20a72c004f02affb77c7ce40a1b642195232ca3668",
+    "rtl/Raiden2/Raiden2_sprite_renderer.sv": "33a5006fac919583f1e279d1a138736c016579c5659f9e900d641bb24285b71c",
+    "rtl/Raiden2/spram_dp.sv": "0198377c8f888a03c02cd18c11f1943b0f7f0e98c3be97f21b2ad7b8edd1ca4c",
+    "rtl/Raiden2/tile_rom_arbiter.sv": "0f40d4390856ff4409e7b490f002683075ae0db2684d4167b40dc7ed6dccc621",
+    "rtl/Raiden2/raiden2_mixer.sv": "577b15a049f183a69212928c03f0cf541ee50e901299978a5417a5009728b533",
+    "rtl/Raiden2/crypt/zeroteam_sprite_decrypt.sv": "41c15dcefaaed12b82f93ae92dccf6c6ddf27eccdc75f0b36c5ef76e851d5494",
+    "rtl/Raiden2/crt_adjust.sv": "e66c4bae75ca86606c134fa82e57f63274331422a2c8931188495dfeac5afc21",
+    "rtl/ZeroTeam_video.sv": "84a60d9a78f760d3c50e8c04590491f861fcf275adf14452ff60cec6fb5fb9fe",
+    "rtl/ZeroTeam_inputs.sv": "5525de22747a041bbe9a4f4b28026e4c10b2bd3ea83234351ca70ae4f2591a30",
+    "rtl/ZeroTeam_download.sv": "68458fd8b344e2ce7eed8b22b1ac16cf353f540a6aa73bb374bd51f75d7209ed",
+    "rtl/ZeroTeam_rom_bridge.sv": "0e6289383bcd6ae9085d0b51ed2ba45d7f29edd45015614f4a6bc726807a0086",
+    "rtl/ZeroTeam_rotation.sv": "662a19ad8a57c91f87927e9775ba9f2bc3d4abecde16079988f4a4cc7dfbc7e8",
+    "rtl/hiscore.v": "db314152e65b341f35bbb6229b24067b366a7ae59a265b81cd154fda6bffae05",
+    "rtl/sdram.sv": "5801022bd585532e5652769bdbe6400497c1f186da931a48aa66aa1356b6b18f",
+    "rtl/pll.v": "93fa74d8ff94a5f8946f13ad3b0b06fff866f7ecfedafa5750e4a4bd7ff3155a",
+    "ZeroTeam.sv": "0e47ad4832242212e0d1a0677c713128844e97ac08eaae891930a4cf6a273fb4",
+    "rtl/ZeroTeam_platform.svh": "3fa95af6599e87899d3803126360bf8cada7584678a2041af49d7fd02641269c",
+    "rtl/ZeroTeam_audio.sv": "c10f9a94d12c494438cb9451bd7dba67d44ab584dd8bfa22fd8e4a900c2765a1",
+    "rtl/ZeroTeam_audio.qip": "c585e2774474c7f0f3d1636c7a1682960f71ff86c8c4059640a6bf6ae7d55eac",
+    "releases/Zero Team USA (US).mra": "74b190756b07173206a307a4428e8ed2908863aca102e971eec25c07d0c5c035",
+    "rtl/pll/pll_0002.v": "09e4f6e3f077a047a0ddc4832b1aff289f7bb5cd506ec725e65508234dc33a90",
+    "sim/zero_platform_checks.sv": "4ca1cc421d8ca30fadb2c2e03c3a363c3e583e13630b833f8f63d9b427f8becf",
+    "sim/platform_checks.cpp": "5eeaae4a23e87faa2e3dc98944d4d0c35850049497c96a03bbe57b8ddd296e71",
+    "sim/zero_platform_boot.sv": "5b23f628934204aad2c58026daac2f66cb52e3ec1a21149b734a5ebb85cbc2ef",
+    "sim/platform_boot.cpp": "555d66882c39aa76b387860bfcb74c215709297a753d5a586a3a297ae0334d32",
+    "sim/zero_video_top.sv": "03883692376ccabd6c2bf4482e245e6983496fba22d5a454d497829f44821d6d",
+    "sim/video_main.cpp": "82921f44c81776301efd50e8474ec3ee75dd9f138f652366f705c1e8df606e51"
+  },
+  "limits": [
+    "No RBF build, placement/timing analysis or MiSTer hardware test.",
+    "Full gameplay and analog/direct-video/YC measurements remain release gates.",
+    "90-degree rotation uses the HDMI framebuffer; direct video uses native raster."
+  ]
+}

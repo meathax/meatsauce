@@ -1,0 +1,40 @@
+{
+  "status": "FAIL_AUDIO_DEADLINE",
+  "scope": "Historical host-loaded cold boot with discrete SDRAM returns; no gameplay or current pin timing acceptance",
+  "run_id": "1791198948410855200",
+  "clock": 8137175759,
+  "raster_frames": 5686,
+  "matched_instructions": 343875474,
+  "audio_samples": 4185790,
+  "audio_nonzero_samples": 21,
+  "cabinet_commands": 1,
+  "cabinet_releases": 0,
+  "failure": {
+    "fault": 0,
+    "underrun": 1,
+    "unsupported_modes": 0,
+    "unsupported_reverb": 0
+  },
+  "input_event": {
+    "clock": 8107500000,
+    "raster_frame": 5666,
+    "sequence": 1,
+    "system_n": 207,
+    "hold_requested_frames": 60
+  },
+  "evidence": [
+    {
+      "path": "docs/simulation_host_boot.json",
+      "sha256": "266bed1076bf1aad327b159ebdc6e0b000c8302b9aced046ab8c28c67ef88ea2"
+    },
+    {
+      "path": "sim/obj_dir/boot_probe/activity/1791198948410855200/cabinet_inputs.csv",
+      "sha256": "bfd2367f0a2756d13c3878c65d315caf204588ebecb0cf7f4b57c96df6336e27"
+    },
+    {
+      "path": "sim/obj_dir/boot_probe/activity/1791198948410855200/terminal/state.json",
+      "sha256": "72aca13d38cde2d5c0337cdfff4a846ea16ead12bc1ca822328b6f867aadbacb"
+    }
+  ],
+  "limits": "No original internal SPU/voice or waiting-client timeline was saved. Arbiter starvation is independently reproduced; causal repair and sound parity require a new qualified replay."
+}

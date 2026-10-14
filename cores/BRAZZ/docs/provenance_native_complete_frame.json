@@ -1,0 +1,44 @@
+{
+  "status": "PROVENANCE_PASS",
+  "game_acceptance": false,
+  "scope": "Actual native full-board emitted-word verification and complete-frame committed FIFO bank coverage; no MAME pixel comparison or hardware timing acceptance",
+  "run": "D:\\Arcade\\AI\\aCORES\\BRAZZ\\Arcade-CrystalSystem_MiSTer\\sim\\obj_dir\\boot_probe\\activity\\1791225574276266400",
+  "captured_clock": 150000000,
+  "complete_scanout": {
+    "width": 320,
+    "height": 240,
+    "completed": 104,
+    "rejected": 0,
+    "start_clock": 147343572,
+    "end_clock": 148652340,
+    "image_saved": true,
+    "source_kind": "actual pending scanout word and committed FIFO tag_base",
+    "unknown_source_pixels": 0,
+    "fifo_source_bases": [
+      {
+        "byte_offset": 0,
+        "pixels": 76800
+      }
+    ],
+    "source_map": "scanout_complete_fifo_sources.u32le",
+    "unknown_source_value": 4294967295
+  },
+  "artifact_directory": "D:\\Arcade\\AI\\aCORES\\BRAZZ\\Arcade-CrystalSystem_MiSTer\\sim\\obj_dir\\boot_probe\\activity\\1791225574276266400\\provenance_frame_150000000",
+  "files": [
+    {
+      "name": "state.json",
+      "bytes": 2030,
+      "sha256": "79885f192a4ab2d75342b3083ee3e7febcfba6f18864c27bff5d7b843455a19d"
+    },
+    {
+      "name": "scanout_complete.ppm",
+      "bytes": 230415,
+      "sha256": "953b329850dd3e92d3245e4b0019c8a5e704fff496a7ce682738486e6b852106"
+    },
+    {
+      "name": "scanout_complete_fifo_sources.u32le",
+      "bytes": 307200,
+      "sha256": "7818f5542a0404157573be6cffc0e0c8e68ce3c0f5d17d07ccdd9313fb700baf"
+    }
+  ]
+}

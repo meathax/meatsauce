@@ -1,0 +1,75 @@
+{
+  "prepared_utc": "2026-10-10T18:15:13.550691+00:00",
+  "stage": "Review-only exact mapped-database reuse plan",
+  "compiler_launched": false,
+  "command": [
+    "D:/q17/quartus/bin64/quartus_fit.exe",
+    "Alpha68k_N",
+    "-c",
+    "Alpha68k_N",
+    "--read_settings_files=on",
+    "--write_settings_files=off"
+  ],
+  "cwd": "C:\\Users\\meath\\QuartusFast\\workspaces\\6ef88c102788d60a51b4\\78709b450ca351a8838c\\project",
+  "qsf_sha256": "029436ac2cc7a389bd9b0bae4f2d89fef205a7318d0ff5abc5f988a5d254be5a",
+  "sdc_sha256": "8ef8f941d4c769a0bca7fbafd5aeb04de2c8eee1e4ec4151c02732fdc61c0d8a",
+  "source_pins_manifest": {
+    "path": "D:\\Arcade\\AI\\aCORES\\Alpha68k N\\research\\joined_rom_inference_v2\\map_qualification.json",
+    "sha256": "4f3a6d15a146a7b3d1880de0fdd7ba097bb2437c8c5429d9a37e1db991cfff6b",
+    "mapped_source_count": 160,
+    "origin_source_count": 161
+  },
+  "additional_native_root_inputs": [
+    {
+      "path": "C:\\Users\\meath\\QuartusFast\\workspaces\\6ef88c102788d60a51b4\\78709b450ca351a8838c\\project\\Alpha68k_N.qpf",
+      "sha256": "8554cfb7549f3d631c6ca5c8f574f60c1cbb58fc80c87491befdbb2efc703910",
+      "bytes": 57
+    },
+    {
+      "path": "C:\\Users\\meath\\QuartusFast\\workspaces\\6ef88c102788d60a51b4\\78709b450ca351a8838c\\project\\build_id.v",
+      "sha256": "d461c91b8835697a94f598222475f2544f8917de3d9f96c81b82d5cf8a830f63",
+      "bytes": 31
+    },
+    {
+      "path": "C:\\Users\\meath\\QuartusFast\\workspaces\\6ef88c102788d60a51b4\\78709b450ca351a8838c\\project\\microrom.mem",
+      "sha256": "9d13082be0cf4b04bff887e6da23de84f9f2ee4321f3a2576b4f9540615dece6",
+      "bytes": 19456
+    },
+    {
+      "path": "C:\\Users\\meath\\QuartusFast\\workspaces\\6ef88c102788d60a51b4\\78709b450ca351a8838c\\project\\nanorom.mem",
+      "sha256": "b3998009fb10605e8468cddf22fdd799a9792ba86f449de2e30615cfcefbeece",
+      "bytes": 23520
+    },
+    {
+      "path": "C:\\Users\\meath\\QuartusFast\\workspaces\\6ef88c102788d60a51b4\\78709b450ca351a8838c\\project\\game_clock_group_candidate.sdc",
+      "sha256": "8ef8f941d4c769a0bca7fbafd5aeb04de2c8eee1e4ec4151c02732fdc61c0d8a",
+      "bytes": 1279
+    }
+  ],
+  "database": "C:\\Users\\meath\\QuartusFast\\workspaces\\6ef88c102788d60a51b4\\78709b450ca351a8838c\\project\\db",
+  "reuse_actual_map": true,
+  "remap": false,
+  "settings": {
+    "fitter_effort": "STANDARD FIT",
+    "optimization_mode": "HIGH PERFORMANCE EFFORT",
+    "threads": 2,
+    "rbf_generation": "OFF"
+  },
+  "required_before_launch": [
+    "Root approval of qualified resource report and exact fit plan",
+    "Current production/v4 graph binding: HDL bytes equal except documented newline normalization; standalone SDC8ef equals reviewed production constraints file and assignment scope; framework unchanged",
+    "No existing owned fitter/STA using this database"
+  ],
+  "terminal_requirements": [
+    "Native fitter actual exit receipt and reports",
+    "All seven complete fitted resource limits",
+    "All eight actual operating-condition setup/hold/recovery/removal/pulse and game/audio same-clock details",
+    "Actual clock/group matches and unconstrained classification; reviewed critical warnings"
+  ],
+  "sta_collector": {
+    "path": "D:\\Arcade\\AI\\aCORES\\Alpha68k N\\research\\sound_write_width\\case2_fit_sta\\all-corners-detail.tcl",
+    "sha256": "ab3bffea354fa2dd1aa70cc98d8e128cd7c6bf64045c7b14e86e0f93bac02aab",
+    "new_tuple_guard_required": true
+  },
+  "rbf_assembly": false
+}

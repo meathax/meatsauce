@@ -1,0 +1,135 @@
+{
+  "schema": "kyros_restart_action_semantics_finite_v1",
+  "checks": {
+    "current_actual4401_rows": true,
+    "current_button2_only_control4281_4284": true,
+    "current_button1_only_control4341_4354": true,
+    "current_button2_release4285": true,
+    "current_button1_release4355": true,
+    "prior_isolated_button1_only711_724": true,
+    "prior_isolated_button1_release725": true,
+    "prior_actual_isolated_swing_image720_present": true
+  },
+  "finite_input_source_join_pass": true,
+  "scope": "Existing actual legal MAME observations and historical isolated punch evidence; no new replay or ROM-state injection",
+  "source_pins": {
+    "current_input": {
+      "path": "D:\\Arcade\\AI\\aCORES\\Alpha68k N\\sim\\captures\\kyros\\idle_death_restart_actions4401\\frame_states.csv",
+      "sha256": "69a65cae5a880a6354eeee8598d4de91c7c73844b459dc25bfb213eadf385c2d"
+    },
+    "current_legal_Lua": {
+      "path": "D:\\Arcade\\AI\\aCORES\\Alpha68k N\\research\\kyros_restart_actions4401\\capture_restart_actions.lua",
+      "sha256": "eaad695f2547d2fb2f801e623e04770d4a3a029047b017ccbb728f0c51426b8c"
+    },
+    "visible_movement": {
+      "path": "D:\\Arcade\\AI\\aCORES\\Alpha68k N\\research\\kyros_restart_actions4401\\visible_movement_qualification.json",
+      "sha256": "a220ac381f5a692f7324bac9a318fa9306adc05c270649c0e2b188b111ac5a7d"
+    },
+    "prior_isolated_Lua": {
+      "path": "D:\\Arcade\\AI\\aCORES\\Alpha68k N\\sim\\mame\\capture_punch_release1081.lua",
+      "sha256": "a2c6327072386de51e1124bb3f3f1ab4e674f92ffa4212e4cb9785af10ff9be8"
+    },
+    "prior_isolated_job": {
+      "path": "D:\\Arcade\\AI\\aCORES\\Alpha68k N\\research\\kyros_punch_release1081_job.json",
+      "sha256": "8537557090b455126f2b04d99f4842dc44bfd1fede41a57d2b7bfaede6f094e9"
+    },
+    "prior_isolated_cleanup": {
+      "path": "D:\\Arcade\\AI\\aCORES\\Alpha68k N\\research\\kyros_punch_release1081_cleanup_prefix.json",
+      "sha256": "c7ac5d70e07b183a04d3c089f0b1148e69a7e3f66494ff5a93e4e1cf54261f5d"
+    },
+    "prior_isolated_input": {
+      "path": "D:\\Arcade\\AI\\aCORES\\Alpha68k N\\sim\\captures\\kyros\\punch_release1081\\frame_states.csv",
+      "sha256": "b4f82ac2000e9294a8832c583548d89dd4d22bbb6accb97da271b54f7f33c052"
+    },
+    "prior_isolated_swing720": {
+      "path": "D:\\Arcade\\AI\\aCORES\\Alpha68k N\\sim\\captures\\kyros\\punch_release1081\\frame_000720.png",
+      "sha256": "e4ce13d28d827da181edcc1a6f71d4c648466012604abc2799acf90cb3be67a8"
+    },
+    "historical_action_audit": {
+      "path": "D:\\Arcade\\AI\\aCORES\\Alpha68k N\\research\\kyros_action_coverage_existing.json",
+      "sha256": "4a68fdcb2d9563cb737496553bdde63154fef883794f42a42109abf87b8ebe72"
+    },
+    "mame_driver": {
+      "path": "D:\\Arcade\\AI\\mame289\\src\\mame\\alpha\\alpha68k_n.cpp",
+      "sha256": "5f9884076ea1b5c02d2169a58de5425ae5475a13a4f1438abae2e2b9f0fdab7d"
+    },
+    "reviewer": {
+      "path": "D:\\Arcade\\AI\\aCORES\\Alpha68k N\\research\\kyros_restart_actions4401\\review_action_semantics.py",
+      "sha256": "9682b16d832c99e67355f9d96139ffe5e1070c615f9bc3460944e7821d9a7855"
+    }
+  },
+  "PCB_control_semantics": {
+    "right": "IN0mask4, MAME alpha68k_n.cpp577, Kyros active-high definition630",
+    "button1": "IN0mask16, MAME579/630; original isolated Lua110 uses only16 and actual720 shows swing, supporting established punch-control interpretation",
+    "button2": "IN0mask32, MAME580/630; generic BUTTON2 name alone does not prove jump dispatch or successful landing"
+  },
+  "historical_punch": {
+    "legal_actual_rows": [
+      711,
+      724
+    ],
+    "visual_swing_field": 720,
+    "AY2_B_noise_onset_field": 715,
+    "AY2_B_noise_cleanup_field": 733,
+    "enemy_hit_proven": false,
+    "current_executable_qualified": false
+  },
+  "current_button2_head_observations": [
+    {
+      "field": 4280,
+      "visually_identified_yellow_head_bounds": [
+        117,
+        196,
+        124,
+        201
+      ],
+      "png_sha256": "c14fd5826d88daa99bd59e6ecdc42aba650c2b195dd96cb70eb02b88935c5eb3"
+    },
+    {
+      "field": 4285,
+      "visually_identified_yellow_head_bounds": [
+        120,
+        193,
+        127,
+        198
+      ],
+      "png_sha256": "ac95dcfbd213d37592e08c1d61ae1d01acb5ff6812f937f5406dcdc45b2bf59c"
+    },
+    {
+      "field": 4290,
+      "visually_identified_yellow_head_bounds": [
+        125,
+        193,
+        132,
+        198
+      ],
+      "png_sha256": "d285c16a3c705f8ec38fa108eec7ef580949b34b645504bd8b8ce77254db735f"
+    }
+  ],
+  "current_visual_observations": {
+    "button2": "Short head rise4280\u21924285\u21924290 precedes horizontal fall4295 and observed loss of green health, near an enemy. This is compatible with jump followed by contact but does not establish successful jump/landing or causation from a qualified ROM dispatch.",
+    "button1": "Player and enemies remain clustered4340+; sprite changes are not independently attributable to the legal button1 pulse and do not prove a hit.",
+    "movement": "Separately qualified under legal right input; strict red-centroid classifier failure preserved in originalreceipt."
+  },
+  "ROM_qualified_button_dispatch": "Unknown: no exact existing action opcode/dispatch receipt was identified in the bounded inspected evidence; no arbitrary work offsets were labelled",
+  "successful_jump": "unknown",
+  "successful_punch_this_recording": "unknown",
+  "enemy_hit": "unknown",
+  "pickup": "unknown",
+  "current_native_actions_pass": false,
+  "full_P5_P7_pass": false,
+  "contact_sheets": [
+    {
+      "path": "D:\\Arcade\\AI\\aCORES\\Alpha68k N\\research\\kyros_restart_actions4401\\button2_actual_contact.png",
+      "sha256": "705bea6080b4b601601fbc0badda77fc14d74c68b6a158951491674d3e788501"
+    },
+    {
+      "path": "D:\\Arcade\\AI\\aCORES\\Alpha68k N\\research\\kyros_restart_actions4401\\button1_actual_contact.png",
+      "sha256": "47872d51285cdde35e16431498359bf79c3caf06a239bbb26a4b5564b1283263"
+    },
+    {
+      "path": "D:\\Arcade\\AI\\aCORES\\Alpha68k N\\research\\kyros_restart_actions4401\\movement_actual_contact.png",
+      "sha256": "0e0099673155181e640691f534aa4958277bfd9c9aae187f836edbf0a14c26c9"
+    }
+  ]
+}

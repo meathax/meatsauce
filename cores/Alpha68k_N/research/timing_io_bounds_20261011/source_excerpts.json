@@ -1,0 +1,2643 @@
+{
+  "Alpha68k_N.sdc": [
+    {
+      "start_line": 1,
+      "end_line": 4,
+      "lines": [
+        {
+          "line": 1,
+          "text": "derive_pll_clocks"
+        },
+        {
+          "line": 2,
+          "text": "derive_clock_uncertainty"
+        },
+        {
+          "line": 3,
+          "text": ""
+        },
+        {
+          "line": 4,
+          "text": "# core specific constraints"
+        }
+      ]
+    }
+  ],
+  "Alpha68k_N.sv": [
+    {
+      "start_line": 52,
+      "end_line": 74,
+      "lines": [
+        {
+          "line": 52,
+          "text": "    wire clk_sys,clk_sdram,locked;"
+        },
+        {
+          "line": 53,
+          "text": "`ifdef ALPHA_EMU_SIM"
+        },
+        {
+          "line": 54,
+          "text": "    // Ideal PLL output model only: real HPS/game/framework remain instantiated."
+        },
+        {
+          "line": 55,
+          "text": "    // The host supplies 48 MHz and the documented SDRAM half-cycle phase."
+        },
+        {
+          "line": 56,
+          "text": "    assign clk_sys=SIM_MASTER;assign clk_sdram=SIM_SDRAM;assign locked=SIM_LOCKED;"
+        },
+        {
+          "line": 57,
+          "text": "    // External HPS drives only these pins. A direct C++ assignment to the"
+        },
+        {
+          "line": 58,
+          "text": "    // inout port would be overwritten by the core's response drivers."
+        },
+        {
+          "line": 59,
+          "text": "    assign HPS_BUS[31:16]=SIM_HPS_HOST[31:16];"
+        },
+        {
+          "line": 60,
+          "text": "    assign HPS_BUS[35:33]=SIM_HPS_HOST[35:33];"
+        },
+        {
+          "line": 61,
+          "text": "    assign HPS_BUS[45:38]=SIM_HPS_HOST[45:38];"
+        },
+        {
+          "line": 62,
+          "text": "`else"
+        },
+        {
+          "line": 63,
+          "text": "    alpha68kn_pll pll(.refclk(CLK_50M),.rst(1'b0),"
+        },
+        {
+          "line": 64,
+          "text": "        .clk_sys(clk_sys),.clk_sdram(clk_sdram),.locked(locked));"
+        },
+        {
+          "line": 65,
+          "text": "`endif"
+        },
+        {
+          "line": 66,
+          "text": "    assign SDRAM_CLK=clk_sdram;"
+        },
+        {
+          "line": 67,
+          "text": "    reg [2:0] lock_sync=0,reset_sync=7;"
+        },
+        {
+          "line": 68,
+          "text": "    reg [13:0] power_wait=0;"
+        },
+        {
+          "line": 69,
+          "text": "    always @(posedge clk_sys) begin"
+        },
+        {
+          "line": 70,
+          "text": "        lock_sync<={lock_sync[1:0],locked};"
+        },
+        {
+          "line": 71,
+          "text": "        reset_sync<={reset_sync[1:0],RESET};"
+        },
+        {
+          "line": 72,
+          "text": "        if(!lock_sync[2]) power_wait<=0;"
+        },
+        {
+          "line": 73,
+          "text": "        else if(power_wait!=14'd10000) power_wait<=power_wait+1'b1;"
+        },
+        {
+          "line": 74,
+          "text": "    end"
+        }
+      ]
+    },
+    {
+      "start_line": 177,
+      "end_line": 209,
+      "lines": [
+        {
+          "line": 177,
+          "text": "    alpha68kn_system system ("
+        },
+        {
+          "line": 178,
+          "text": "        .clk(clk_sys),.cold_reset(cold_reset),.reset(game_reset),.downloading(load),"
+        },
+        {
+          "line": 179,
+          "text": "        .load_wr(load_wr),.load_addr(board_load_addr),.load_data(board_load_data),"
+        },
+        {
+          "line": 180,
+          "text": "        .pause_game(pause_game),.paused(paused),.rotate180(status[7]),"
+        },
+        {
+          "line": 181,
+          "text": "        .hs_access(ram_hs_access),.hs_addr(ram_hs_addr),"
+        },
+        {
+          "line": 182,
+          "text": "        .hs_write(ram_hs_write),.hs_data_in(ram_hs_data),.hs_data_out(hs_from_ram),"
+        },
+        {
+          "line": 183,
+          "text": "        .controls({p1,p0}),.dips(dip_switches),.coins_n({!joy1[7],!joy0[7]}),"
+        },
+        {
+          "line": 184,
+          "text": "        .profile(profile),.dac(dac),.load_wait(gfx_wait),.load_busy(gfx_busy),.initialized(gfx_initialized),"
+        },
+        {
+          "line": 185,
+          "text": "        .raw_ce(raw_ce),.raw_x(raw_x),.raw_y(raw_y),.raw_hblank(),.raw_vblank(),.raw_hs(),.raw_vs(),"
+        },
+        {
+          "line": 186,
+          "text": "        .video_ce(ce_pix),.video_rgb(game_rgb),.video_x(video_x),.video_y(video_y),"
+        },
+        {
+          "line": 187,
+          "text": "        .video_hblank(hblank),.video_vblank(vblank),.video_hs(hs),.video_vs(vs),"
+        },
+        {
+          "line": 188,
+          "text": "        .audio_sample(game_audio),.audio_sample_ce(),.audio_clipped_samples(),"
+        },
+        {
+          "line": 189,
+          "text": "        .ym_writes(),.ay1_writes(),.ay2_writes(),"
+        },
+        {
+          "line": 190,
+          "text": "        .sound_io_wr(),.sound_io_addr(),.sound_io_data(),"
+        },
+        {
+          "line": 191,
+          "text": "        .sound_io_rd(),.sound_io_read_addr(),.sound_io_read_data(),.sound_dac_wr(),"
+        },
+        {
+          "line": 192,
+          "text": "        .debug_main_addr(),.debug_sound_addr(),.debug_main_as_n(),.debug_main_attrs(),"
+        },
+        {
+          "line": 193,
+          "text": "        .debug_sound_attrs(),.debug_sound_din(),.debug_sound_dout(),"
+        },
+        {
+          "line": 194,
+          "text": "        .debug_main_din(),.debug_main_dout(),.main_transactions(main_tx),.sound_transactions(),"
+        },
+        {
+          "line": 195,
+          "text": "        .work_writes(),.strip_writes(),.mcu_transactions(),.irq1_acks(),.irq2_acks(),"
+        },
+        {
+          "line": 196,
+          "text": "        .unmapped_accesses(unmapped),.debug_word_addr(12'd0),.debug_work_data(),.debug_strip_data(),"
+        },
+        {
+          "line": 197,
+          "text": "        .debug_rom_kind(4'd0),.debug_rom_addr(16'd0),.debug_rom_data(),"
+        },
+        {
+          "line": 198,
+          "text": "        .worst_line_cycles(worst_line),.completed_lines(),.deadline_misses(deadlines),.row_overflows(overflows),"
+        },
+        {
+          "line": 199,
+          "text": "        .sdram_dq(SDRAM_DQ),"
+        },
+        {
+          "line": 200,
+          "text": "`ifdef VERILATOR"
+        },
+        {
+          "line": 201,
+          "text": "`ifdef ALPHA_EMU_SIM"
+        },
+        {
+          "line": 202,
+          "text": "        .sdram_din(SIM_SDRAM_DIN),"
+        },
+        {
+          "line": 203,
+          "text": "`else"
+        },
+        {
+          "line": 204,
+          "text": "        .sdram_din(),"
+        },
+        {
+          "line": 205,
+          "text": "`endif"
+        },
+        {
+          "line": 206,
+          "text": "`endif"
+        },
+        {
+          "line": 207,
+          "text": "        .sdram_a(SDRAM_A),.sdram_ba(SDRAM_BA),.sdram_dqml(SDRAM_DQML),.sdram_dqmh(SDRAM_DQMH),"
+        },
+        {
+          "line": 208,
+          "text": "        .sdram_nwe(SDRAM_nWE),.sdram_ncas(SDRAM_nCAS),.sdram_nras(SDRAM_nRAS),"
+        },
+        {
+          "line": 209,
+          "text": "        .sdram_ncs(SDRAM_nCS),.sdram_cke(SDRAM_CKE)"
+        }
+      ]
+    },
+    {
+      "start_line": 267,
+      "end_line": 300,
+      "lines": [
+        {
+          "line": 267,
+          "text": "    assign SIM_MAIN_TX=main_tx;assign SIM_UNMAPPED=unmapped;"
+        },
+        {
+          "line": 268,
+          "text": "    assign SIM_DEADLINES=deadlines;assign SIM_OVERFLOWS=overflows;assign SIM_WORST_LINE=worst_line;"
+        },
+        {
+          "line": 269,
+          "text": "`endif"
+        },
+        {
+          "line": 270,
+          "text": "    assign HDMI_FREEZE=0; assign HDMI_BLACKOUT=0; assign HDMI_BOB_DEINT=0;"
+        },
+        {
+          "line": 271,
+          "text": "    assign AUDIO_L=game_reset ? 16'd0 : game_audio;"
+        },
+        {
+          "line": 272,
+          "text": "    assign AUDIO_R=AUDIO_L; assign AUDIO_S=1; assign AUDIO_MIX=0;"
+        },
+        {
+          "line": 273,
+          "text": "    assign LED_USER=load; assign LED_POWER=0; assign LED_DISK=0; assign BUTTONS=0;"
+        },
+        {
+          "line": 274,
+          "text": "    assign ADC_BUS=4'bzzzz;"
+        },
+        {
+          "line": 275,
+          "text": "    assign SD_SCK=0; assign SD_MOSI=0; assign SD_CS=1;"
+        },
+        {
+          "line": 276,
+          "text": "    assign UART_RTS=0; assign UART_TXD=0; assign UART_DTR=0; assign USER_OUT=7'h7f;"
+        },
+        {
+          "line": 277,
+          "text": "`ifdef MISTER_FB"
+        },
+        {
+          "line": 278,
+          "text": "    // MAME ROT90 is clockwise. Board flip is already in the renderer."
+        },
+        {
+          "line": 279,
+          "text": "    screen_rotate rotation ("
+        },
+        {
+          "line": 280,
+          "text": "        .CLK_VIDEO(CLK_VIDEO),.CE_PIXEL(CE_PIXEL),.VGA_R(VGA_R),.VGA_G(VGA_G),.VGA_B(VGA_B),"
+        },
+        {
+          "line": 281,
+          "text": "        .VGA_HS(VGA_HS),.VGA_VS(VGA_VS),.VGA_DE(VGA_DE),"
+        },
+        {
+          "line": 282,
+          "text": "        .rotate_ccw(status[6]),.no_rotate(status[1] || direct_video),.flip(1'b0),.video_rotated(video_rotated),"
+        },
+        {
+          "line": 283,
+          "text": "        .FB_EN(FB_EN),.FB_FORMAT(FB_FORMAT),.FB_WIDTH(FB_WIDTH),.FB_HEIGHT(FB_HEIGHT),"
+        },
+        {
+          "line": 284,
+          "text": "        .FB_BASE(FB_BASE),.FB_STRIDE(FB_STRIDE),.FB_VBL(FB_VBL),.FB_LL(FB_LL),"
+        },
+        {
+          "line": 285,
+          "text": "        .DDRAM_CLK(DDRAM_CLK),.DDRAM_BUSY(DDRAM_BUSY),.DDRAM_BURSTCNT(DDRAM_BURSTCNT),"
+        },
+        {
+          "line": 286,
+          "text": "        .DDRAM_ADDR(DDRAM_ADDR),.DDRAM_DIN(DDRAM_DIN),.DDRAM_BE(DDRAM_BE),.DDRAM_WE(DDRAM_WE),.DDRAM_RD(DDRAM_RD)"
+        },
+        {
+          "line": 287,
+          "text": "    );"
+        },
+        {
+          "line": 288,
+          "text": "    assign FB_FORCE_BLANK=0;"
+        },
+        {
+          "line": 289,
+          "text": "`ifdef MISTER_FB_PALETTE"
+        },
+        {
+          "line": 290,
+          "text": "    assign FB_PAL_CLK=0; assign FB_PAL_ADDR=0; assign FB_PAL_DOUT=0; assign FB_PAL_WR=0;"
+        },
+        {
+          "line": 291,
+          "text": "`endif"
+        },
+        {
+          "line": 292,
+          "text": "`else"
+        },
+        {
+          "line": 293,
+          "text": "    assign video_rotated=0;"
+        },
+        {
+          "line": 294,
+          "text": "    assign DDRAM_CLK=clk_sys; assign DDRAM_BURSTCNT=0; assign DDRAM_ADDR=0;"
+        },
+        {
+          "line": 295,
+          "text": "    assign DDRAM_RD=0; assign DDRAM_DIN=0; assign DDRAM_BE=0; assign DDRAM_WE=0;"
+        },
+        {
+          "line": 296,
+          "text": "`endif"
+        },
+        {
+          "line": 297,
+          "text": "`ifdef MISTER_DUAL_SDRAM"
+        },
+        {
+          "line": 298,
+          "text": "    assign SDRAM2_CLK=1'bz; assign SDRAM2_A=13'bz; assign SDRAM2_BA=2'bz;"
+        },
+        {
+          "line": 299,
+          "text": "    assign SDRAM2_DQ=16'bz; assign SDRAM2_nCS=1'bz; assign SDRAM2_nCAS=1'bz;"
+        },
+        {
+          "line": 300,
+          "text": "    assign SDRAM2_nRAS=1'bz; assign SDRAM2_nWE=1'bz;"
+        }
+      ]
+    }
+  ],
+  "sys/sys_top.sdc": [
+    {
+      "start_line": 1,
+      "end_line": 39,
+      "lines": [
+        {
+          "line": 1,
+          "text": "# Specify root clocks"
+        },
+        {
+          "line": 2,
+          "text": "create_clock -period \"50.0 MHz\"  [get_ports FPGA_CLK1_50]"
+        },
+        {
+          "line": 3,
+          "text": "create_clock -period \"50.0 MHz\"  [get_ports FPGA_CLK2_50]"
+        },
+        {
+          "line": 4,
+          "text": "create_clock -period \"50.0 MHz\"  [get_ports FPGA_CLK3_50]"
+        },
+        {
+          "line": 5,
+          "text": "create_clock -period \"100.0 MHz\" [get_pins -compatibility_mode *|h2f_user0_clk] "
+        },
+        {
+          "line": 6,
+          "text": "create_clock -period \"100.0 MHz\" [get_pins -compatibility_mode spi|sclk_out] -name spi_sck"
+        },
+        {
+          "line": 7,
+          "text": "create_clock -period \"10.0 MHz\"  [get_pins -compatibility_mode hdmi_i2c|out_clk] -name hdmi_sck"
+        },
+        {
+          "line": 8,
+          "text": ""
+        },
+        {
+          "line": 9,
+          "text": "derive_pll_clocks"
+        },
+        {
+          "line": 10,
+          "text": "derive_clock_uncertainty"
+        },
+        {
+          "line": 11,
+          "text": ""
+        },
+        {
+          "line": 12,
+          "text": "# Decouple different clock groups (to simplify routing)"
+        },
+        {
+          "line": 13,
+          "text": "set_clock_groups -exclusive \\"
+        },
+        {
+          "line": 14,
+          "text": "   -group [get_clocks { *|pll|pll_inst|altera_pll_i|*[*].*|divclk}] \\"
+        },
+        {
+          "line": 15,
+          "text": "   -group [get_clocks { pll_hdmi|pll_hdmi_inst|altera_pll_i|*[0].*|divclk}] \\"
+        },
+        {
+          "line": 16,
+          "text": "   -group [get_clocks { pll_audio|pll_audio_inst|altera_pll_i|*[0].*|divclk}] \\"
+        },
+        {
+          "line": 17,
+          "text": "   -group [get_clocks { spi_sck}] \\"
+        },
+        {
+          "line": 18,
+          "text": "   -group [get_clocks { hdmi_sck}] \\"
+        },
+        {
+          "line": 19,
+          "text": "   -group [get_clocks { *|h2f_user0_clk}] \\"
+        },
+        {
+          "line": 20,
+          "text": "   -group [get_clocks { FPGA_CLK1_50 }] \\"
+        },
+        {
+          "line": 21,
+          "text": "   -group [get_clocks { FPGA_CLK2_50 }] \\"
+        },
+        {
+          "line": 22,
+          "text": "   -group [get_clocks { FPGA_CLK3_50 }]"
+        },
+        {
+          "line": 23,
+          "text": ""
+        },
+        {
+          "line": 24,
+          "text": "set_false_path -from [get_ports {KEY*}]"
+        },
+        {
+          "line": 25,
+          "text": "set_false_path -from [get_ports {BTN_*}]"
+        },
+        {
+          "line": 26,
+          "text": "set_false_path -to   [get_ports {LED_*}]"
+        },
+        {
+          "line": 27,
+          "text": "set_false_path -to   [get_ports {VGA_*}]"
+        },
+        {
+          "line": 28,
+          "text": "set_false_path -from [get_ports {VGA_EN}]"
+        },
+        {
+          "line": 29,
+          "text": "set_false_path -to   [get_ports {AUDIO_SPDIF}]"
+        },
+        {
+          "line": 30,
+          "text": "set_false_path -to   [get_ports {AUDIO_L}]"
+        },
+        {
+          "line": 31,
+          "text": "set_false_path -to   [get_ports {AUDIO_R}]"
+        },
+        {
+          "line": 32,
+          "text": "set_false_path -from {get_ports {SW[*]}}"
+        },
+        {
+          "line": 33,
+          "text": "set_false_path -to   {cfg[*]}"
+        },
+        {
+          "line": 34,
+          "text": "set_false_path -from {cfg[*]}"
+        },
+        {
+          "line": 35,
+          "text": "set_false_path -from {VSET[*]}"
+        },
+        {
+          "line": 36,
+          "text": "set_false_path -to   {wcalc[*] hcalc[*]}"
+        },
+        {
+          "line": 37,
+          "text": "set_false_path -to   {hdmi_width[*] hdmi_height[*]}"
+        },
+        {
+          "line": 38,
+          "text": "set_false_path -to   {deb_* btn_en btn_up}"
+        },
+        {
+          "line": 39,
+          "text": ""
+        }
+      ]
+    }
+  ],
+  "sys/sys_top.v": [
+    {
+      "start_line": 128,
+      "end_line": 175,
+      "lines": [
+        {
+          "line": 128,
+          "text": "wire SD_CS, SD_CLK, SD_MOSI, SD_MISO, SD_CD;"
+        },
+        {
+          "line": 129,
+          "text": ""
+        },
+        {
+          "line": 130,
+          "text": "`ifndef MISTER_DUAL_SDRAM"
+        },
+        {
+          "line": 131,
+          "text": "\twire   sd_cd       = SDCD_SPDIF & ~SW[2]; // SW[2]=ON workaround for faulty boards without SD card detect pin."
+        },
+        {
+          "line": 132,
+          "text": "\tassign SD_CD       = mcp_en ? mcp_sdcd : sd_cd;"
+        },
+        {
+          "line": 133,
+          "text": "\tassign SD_MISO     = SD_CD | (mcp_en ? SD_SPI_MISO : (VGA_EN | SDIO_DAT[0]));"
+        },
+        {
+          "line": 134,
+          "text": "\tassign SD_SPI_CS   = mcp_en ?  (mcp_sdcd  ? 1'bZ : SD_CS) : (sog & ~cs1 & ~VGA_EN) ? 1'b1 : 1'bZ;"
+        },
+        {
+          "line": 135,
+          "text": "\tassign SD_SPI_CLK  = (~mcp_en | mcp_sdcd) ? 1'bZ : SD_CLK;"
+        },
+        {
+          "line": 136,
+          "text": "\tassign SD_SPI_MOSI = (~mcp_en | mcp_sdcd) ? 1'bZ : SD_MOSI;"
+        },
+        {
+          "line": 137,
+          "text": "\tassign {SDIO_CLK,SDIO_CMD,SDIO_DAT} = av_dis ? 6'bZZZZZZ : (mcp_en | sd_cd) ? {vga_g,vga_r,vga_b} : {SD_CLK,SD_MOSI,SD_CS,3'bZZZ};"
+        },
+        {
+          "line": 138,
+          "text": "`else"
+        },
+        {
+          "line": 139,
+          "text": "\tassign SD_CD       = mcp_sdcd;"
+        },
+        {
+          "line": 140,
+          "text": "\tassign SD_MISO     = mcp_sdcd | SD_SPI_MISO;"
+        },
+        {
+          "line": 141,
+          "text": "\tassign SD_SPI_CS   = mcp_sdcd ? 1'bZ : SD_CS;"
+        },
+        {
+          "line": 142,
+          "text": "\tassign SD_SPI_CLK  = mcp_sdcd ? 1'bZ : SD_CLK;"
+        },
+        {
+          "line": 143,
+          "text": "\tassign SD_SPI_MOSI = mcp_sdcd ? 1'bZ : SD_MOSI;"
+        },
+        {
+          "line": 144,
+          "text": "`endif"
+        },
+        {
+          "line": 145,
+          "text": ""
+        },
+        {
+          "line": 146,
+          "text": "//////////////////////  LEDs/Buttons  ///////////////////////////////////"
+        },
+        {
+          "line": 147,
+          "text": ""
+        },
+        {
+          "line": 148,
+          "text": "reg [7:0] led_overtake = 0;"
+        },
+        {
+          "line": 149,
+          "text": "reg [7:0] led_state    = 0;"
+        },
+        {
+          "line": 150,
+          "text": ""
+        },
+        {
+          "line": 151,
+          "text": "wire led_p =  led_power[1] ? ~led_power[0] : 1'b0;"
+        },
+        {
+          "line": 152,
+          "text": "wire led_d =  led_disk[1]  ? ~led_disk[0]  : ~(led_disk[0] | gp_out[29]);"
+        },
+        {
+          "line": 153,
+          "text": "wire led_u = ~led_user;"
+        },
+        {
+          "line": 154,
+          "text": "wire led_locked;"
+        },
+        {
+          "line": 155,
+          "text": ""
+        },
+        {
+          "line": 156,
+          "text": "//LEDs on de10-nano board"
+        },
+        {
+          "line": 157,
+          "text": "assign LED = (led_overtake & led_state) | (~led_overtake & {1'b0,led_locked,1'b0, ~led_p, 1'b0, ~led_d, 1'b0, ~led_u});"
+        },
+        {
+          "line": 158,
+          "text": ""
+        },
+        {
+          "line": 159,
+          "text": "wire [2:0] mcp_btn;"
+        },
+        {
+          "line": 160,
+          "text": "wire       mcp_sdcd;"
+        },
+        {
+          "line": 161,
+          "text": "wire       mcp_en;"
+        },
+        {
+          "line": 162,
+          "text": "wire       mcp_mode;"
+        },
+        {
+          "line": 163,
+          "text": "mcp23009 mcp23009"
+        },
+        {
+          "line": 164,
+          "text": "("
+        },
+        {
+          "line": 165,
+          "text": "\t.clk(FPGA_CLK2_50),"
+        },
+        {
+          "line": 166,
+          "text": ""
+        },
+        {
+          "line": 167,
+          "text": "\t.btn(mcp_btn),"
+        },
+        {
+          "line": 168,
+          "text": "\t.led({led_p, led_d, led_u}),"
+        },
+        {
+          "line": 169,
+          "text": "\t.flg_sd_cd(mcp_sdcd),"
+        },
+        {
+          "line": 170,
+          "text": "\t.flg_present(mcp_en),"
+        },
+        {
+          "line": 171,
+          "text": "\t.flg_mode(mcp_mode),"
+        },
+        {
+          "line": 172,
+          "text": ""
+        },
+        {
+          "line": 173,
+          "text": "\t.scl(IO_SCL),"
+        },
+        {
+          "line": 174,
+          "text": "\t.sda(IO_SDA)"
+        },
+        {
+          "line": 175,
+          "text": ");"
+        }
+      ]
+    },
+    {
+      "start_line": 232,
+      "end_line": 285,
+      "lines": [
+        {
+          "line": 232,
+          "text": "// gp_in[31] = 0 - quick flag that FPGA is initialized (HPS reads 1 when FPGA is not in user mode)"
+        },
+        {
+          "line": 233,
+          "text": "//                 used to avoid lockups while JTAG loading"
+        },
+        {
+          "line": 234,
+          "text": "wire [31:0] gp_in = {1'b0, btn_user | btn[1], btn_osd | btn[0], io_dig, 7'd0, ~HDMI_TX_INT, io_ver, io_ack, io_wide, io_dout | io_dout_sys};"
+        },
+        {
+          "line": 235,
+          "text": "wire [31:0] gp_out;"
+        },
+        {
+          "line": 236,
+          "text": ""
+        },
+        {
+          "line": 237,
+          "text": "wire  [1:0] io_ver = 1; // 0 - obsolete. 1 - optimized HPS I/O. 2,3 - reserved for future."
+        },
+        {
+          "line": 238,
+          "text": "wire        io_wait;"
+        },
+        {
+          "line": 239,
+          "text": "wire        io_wide;"
+        },
+        {
+          "line": 240,
+          "text": "wire [15:0] io_dout;"
+        },
+        {
+          "line": 241,
+          "text": "wire [15:0] io_din = gp_outr[15:0];"
+        },
+        {
+          "line": 242,
+          "text": "wire        io_clk = gp_outr[17];"
+        },
+        {
+          "line": 243,
+          "text": "wire        io_ss0 = gp_outr[18];"
+        },
+        {
+          "line": 244,
+          "text": "wire        io_ss1 = gp_outr[19];"
+        },
+        {
+          "line": 245,
+          "text": "wire        io_ss2 = gp_outr[20];"
+        },
+        {
+          "line": 246,
+          "text": ""
+        },
+        {
+          "line": 247,
+          "text": "`ifndef MISTER_DEBUG_NOHDMI"
+        },
+        {
+          "line": 248,
+          "text": "\twire io_osd_hdmi = io_ss1 & ~io_ss0;"
+        },
+        {
+          "line": 249,
+          "text": "`endif"
+        },
+        {
+          "line": 250,
+          "text": ""
+        },
+        {
+          "line": 251,
+          "text": "wire io_fpga     = ~io_ss1 & io_ss0;"
+        },
+        {
+          "line": 252,
+          "text": "wire io_uio      = ~io_ss1 & io_ss2;"
+        },
+        {
+          "line": 253,
+          "text": ""
+        },
+        {
+          "line": 254,
+          "text": "reg  io_ack;"
+        },
+        {
+          "line": 255,
+          "text": "reg  rack;"
+        },
+        {
+          "line": 256,
+          "text": "wire io_strobe = ~rack & io_clk;"
+        },
+        {
+          "line": 257,
+          "text": ""
+        },
+        {
+          "line": 258,
+          "text": "always @(posedge clk_sys) begin"
+        },
+        {
+          "line": 259,
+          "text": "\tif(~(io_wait | vs_wait) | io_strobe) begin"
+        },
+        {
+          "line": 260,
+          "text": "\t\track <= io_clk;"
+        },
+        {
+          "line": 261,
+          "text": "\t\tio_ack <= rack;"
+        },
+        {
+          "line": 262,
+          "text": "\tend"
+        },
+        {
+          "line": 263,
+          "text": "end"
+        },
+        {
+          "line": 264,
+          "text": ""
+        },
+        {
+          "line": 265,
+          "text": "reg [31:0] gp_outr;"
+        },
+        {
+          "line": 266,
+          "text": "always @(posedge clk_sys) begin"
+        },
+        {
+          "line": 267,
+          "text": "\treg [31:0] gp_outd;"
+        },
+        {
+          "line": 268,
+          "text": "\tgp_outr <= gp_outd;"
+        },
+        {
+          "line": 269,
+          "text": "\tgp_outd <= gp_out;"
+        },
+        {
+          "line": 270,
+          "text": "end"
+        },
+        {
+          "line": 271,
+          "text": ""
+        },
+        {
+          "line": 272,
+          "text": "`ifdef MISTER_DUAL_SDRAM"
+        },
+        {
+          "line": 273,
+          "text": "\twire  [7:0] core_type  = 'hA8; // generic core, dual SDRAM."
+        },
+        {
+          "line": 274,
+          "text": "`else"
+        },
+        {
+          "line": 275,
+          "text": "\twire  [7:0] core_type  = 'hA4; // generic core."
+        },
+        {
+          "line": 276,
+          "text": "`endif"
+        },
+        {
+          "line": 277,
+          "text": ""
+        },
+        {
+          "line": 278,
+          "text": "// HPS will not communicate to core if magic is different"
+        },
+        {
+          "line": 279,
+          "text": "wire [31:0] core_magic = {24'h5CA623, core_type};"
+        },
+        {
+          "line": 280,
+          "text": ""
+        },
+        {
+          "line": 281,
+          "text": "cyclonev_hps_interface_mpu_general_purpose h2f_gp"
+        },
+        {
+          "line": 282,
+          "text": "("
+        },
+        {
+          "line": 283,
+          "text": "\t.gp_in({~gp_out[31] ? core_magic : gp_in}),"
+        },
+        {
+          "line": 284,
+          "text": "\t.gp_out(gp_out)"
+        },
+        {
+          "line": 285,
+          "text": ");"
+        }
+      ]
+    },
+    {
+      "start_line": 1129,
+      "end_line": 1139,
+      "lines": [
+        {
+          "line": 1129,
+          "text": "assign HDMI_I2C_SCL = hdmi_scl_en ? 1'b0 : 1'bZ;"
+        },
+        {
+          "line": 1130,
+          "text": "assign HDMI_I2C_SDA = hdmi_sda_en ? 1'b0 : 1'bZ;"
+        },
+        {
+          "line": 1131,
+          "text": ""
+        },
+        {
+          "line": 1132,
+          "text": "wire hdmi_scl_en, hdmi_sda_en;"
+        },
+        {
+          "line": 1133,
+          "text": "cyclonev_hps_interface_peripheral_i2c hdmi_i2c"
+        },
+        {
+          "line": 1134,
+          "text": "("
+        },
+        {
+          "line": 1135,
+          "text": "\t.out_clk(hdmi_scl_en),"
+        },
+        {
+          "line": 1136,
+          "text": "\t.scl(HDMI_I2C_SCL),"
+        },
+        {
+          "line": 1137,
+          "text": "\t.out_data(hdmi_sda_en),"
+        },
+        {
+          "line": 1138,
+          "text": "\t.sda(HDMI_I2C_SDA)"
+        },
+        {
+          "line": 1139,
+          "text": ");"
+        }
+      ]
+    },
+    {
+      "start_line": 1262,
+      "end_line": 1297,
+      "lines": [
+        {
+          "line": 1262,
+          "text": "wire hdmi_tx_clk;"
+        },
+        {
+          "line": 1263,
+          "text": "`ifndef MISTER_DEBUG_NOHDMI"
+        },
+        {
+          "line": 1264,
+          "text": "\tcyclonev_clkselect hdmi_clk_sw"
+        },
+        {
+          "line": 1265,
+          "text": "\t( "
+        },
+        {
+          "line": 1266,
+          "text": "\t\t.clkselect({1'b1, ~vga_fb & direct_video}),"
+        },
+        {
+          "line": 1267,
+          "text": "\t\t.inclk({clk_vid, hdmi_clk_out, 2'b00}),"
+        },
+        {
+          "line": 1268,
+          "text": "\t\t.outclk(hdmi_tx_clk)"
+        },
+        {
+          "line": 1269,
+          "text": "\t);"
+        },
+        {
+          "line": 1270,
+          "text": "`else"
+        },
+        {
+          "line": 1271,
+          "text": "\tassign hdmi_tx_clk = clk_vid;"
+        },
+        {
+          "line": 1272,
+          "text": "`endif"
+        },
+        {
+          "line": 1273,
+          "text": ""
+        },
+        {
+          "line": 1274,
+          "text": "altddio_out"
+        },
+        {
+          "line": 1275,
+          "text": "#("
+        },
+        {
+          "line": 1276,
+          "text": "\t.extend_oe_disable(\"OFF\"),"
+        },
+        {
+          "line": 1277,
+          "text": "\t.intended_device_family(\"Cyclone V\"),"
+        },
+        {
+          "line": 1278,
+          "text": "\t.invert_output(\"OFF\"),"
+        },
+        {
+          "line": 1279,
+          "text": "\t.lpm_hint(\"UNUSED\"),"
+        },
+        {
+          "line": 1280,
+          "text": "\t.lpm_type(\"altddio_out\"),"
+        },
+        {
+          "line": 1281,
+          "text": "\t.oe_reg(\"UNREGISTERED\"),"
+        },
+        {
+          "line": 1282,
+          "text": "\t.power_up_high(\"OFF\"),"
+        },
+        {
+          "line": 1283,
+          "text": "\t.width(1)"
+        },
+        {
+          "line": 1284,
+          "text": ")"
+        },
+        {
+          "line": 1285,
+          "text": "hdmiclk_ddr"
+        },
+        {
+          "line": 1286,
+          "text": "("
+        },
+        {
+          "line": 1287,
+          "text": "\t.datain_h(1'b0),"
+        },
+        {
+          "line": 1288,
+          "text": "\t.datain_l(1'b1),"
+        },
+        {
+          "line": 1289,
+          "text": "\t.outclock(hdmi_tx_clk),"
+        },
+        {
+          "line": 1290,
+          "text": "\t.dataout(HDMI_TX_CLK),"
+        },
+        {
+          "line": 1291,
+          "text": "\t.aclr(1'b0),"
+        },
+        {
+          "line": 1292,
+          "text": "\t.aset(1'b0),"
+        },
+        {
+          "line": 1293,
+          "text": "\t.oe(1'b1),"
+        },
+        {
+          "line": 1294,
+          "text": "\t.outclocken(1'b1),"
+        },
+        {
+          "line": 1295,
+          "text": "\t.sclr(1'b0),"
+        },
+        {
+          "line": 1296,
+          "text": "\t.sset(1'b0)"
+        },
+        {
+          "line": 1297,
+          "text": ");"
+        }
+      ]
+    },
+    {
+      "start_line": 1304,
+      "end_line": 1337,
+      "lines": [
+        {
+          "line": 1304,
+          "text": "always @(posedge hdmi_tx_clk) begin"
+        },
+        {
+          "line": 1305,
+          "text": "\treg [23:0] hdmi_dv_data;"
+        },
+        {
+          "line": 1306,
+          "text": "\treg        hdmi_dv_hs, hdmi_dv_vs, hdmi_dv_de;"
+        },
+        {
+          "line": 1307,
+          "text": ""
+        },
+        {
+          "line": 1308,
+          "text": "\treg hs,vs,de;"
+        },
+        {
+          "line": 1309,
+          "text": "\treg [23:0] d;"
+        },
+        {
+          "line": 1310,
+          "text": "\t"
+        },
+        {
+          "line": 1311,
+          "text": "\thdmi_dv_data <= dv_data;"
+        },
+        {
+          "line": 1312,
+          "text": "\thdmi_dv_hs   <= dv_hs;"
+        },
+        {
+          "line": 1313,
+          "text": "\thdmi_dv_vs   <= dv_vs;"
+        },
+        {
+          "line": 1314,
+          "text": "\thdmi_dv_de   <= dv_de;"
+        },
+        {
+          "line": 1315,
+          "text": "\t"
+        },
+        {
+          "line": 1316,
+          "text": "`ifndef MISTER_DEBUG_NOHDMI"
+        },
+        {
+          "line": 1317,
+          "text": "\ths <= (~vga_fb & direct_video) ? hdmi_dv_hs   : (direct_video & csync_en) ? hdmi_cs_osd : hdmi_hs_osd;"
+        },
+        {
+          "line": 1318,
+          "text": "\tvs <= (~vga_fb & direct_video) ? hdmi_dv_vs   : hdmi_vs_osd;"
+        },
+        {
+          "line": 1319,
+          "text": "\tde <= (~vga_fb & direct_video) ? hdmi_dv_de   : hdmi_de_osd;"
+        },
+        {
+          "line": 1320,
+          "text": "\td  <= (~vga_fb & direct_video) ? hdmi_dv_data : hdmi_data_osd;"
+        },
+        {
+          "line": 1321,
+          "text": "`else"
+        },
+        {
+          "line": 1322,
+          "text": "\ths <= hdmi_dv_hs;"
+        },
+        {
+          "line": 1323,
+          "text": "\tvs <= hdmi_dv_vs;"
+        },
+        {
+          "line": 1324,
+          "text": "\tde <= hdmi_dv_de;"
+        },
+        {
+          "line": 1325,
+          "text": "\td  <= hdmi_dv_data;"
+        },
+        {
+          "line": 1326,
+          "text": "`endif"
+        },
+        {
+          "line": 1327,
+          "text": ""
+        },
+        {
+          "line": 1328,
+          "text": "\thdmi_out_hs <= hs;"
+        },
+        {
+          "line": 1329,
+          "text": "\thdmi_out_vs <= vs;"
+        },
+        {
+          "line": 1330,
+          "text": "\thdmi_out_de <= de;"
+        },
+        {
+          "line": 1331,
+          "text": "\thdmi_out_d  <= d;"
+        },
+        {
+          "line": 1332,
+          "text": "end"
+        },
+        {
+          "line": 1333,
+          "text": ""
+        },
+        {
+          "line": 1334,
+          "text": "assign HDMI_TX_HS = hdmi_out_hs;"
+        },
+        {
+          "line": 1335,
+          "text": "assign HDMI_TX_VS = hdmi_out_vs;"
+        },
+        {
+          "line": 1336,
+          "text": "assign HDMI_TX_DE = hdmi_out_de;"
+        },
+        {
+          "line": 1337,
+          "text": "assign HDMI_TX_D  = hdmi_out_d;"
+        }
+      ]
+    },
+    {
+      "start_line": 1549,
+      "end_line": 1577,
+      "lines": [
+        {
+          "line": 1549,
+          "text": "\t\t\t\tline_cnt <= 0;"
+        },
+        {
+          "line": 1550,
+          "text": "\t\t\tend"
+        },
+        {
+          "line": 1551,
+          "text": "\t\tend"
+        },
+        {
+          "line": 1552,
+          "text": "\tend"
+        },
+        {
+          "line": 1553,
+          "text": ""
+        },
+        {
+          "line": 1554,
+          "text": "\tif(de_emu) hs_cnt <= 0;"
+        },
+        {
+          "line": 1555,
+          "text": "end"
+        },
+        {
+          "line": 1556,
+          "text": ""
+        },
+        {
+          "line": 1557,
+          "text": "/////////////////////////  Audio output  ////////////////////////////////"
+        },
+        {
+          "line": 1558,
+          "text": ""
+        },
+        {
+          "line": 1559,
+          "text": "assign SDCD_SPDIF = (mcp_en & ~spdif) ? 1'b0 : 1'bZ;"
+        },
+        {
+          "line": 1560,
+          "text": ""
+        },
+        {
+          "line": 1561,
+          "text": "`ifndef MISTER_DUAL_SDRAM"
+        },
+        {
+          "line": 1562,
+          "text": "\twire analog_l, analog_r;"
+        },
+        {
+          "line": 1563,
+          "text": ""
+        },
+        {
+          "line": 1564,
+          "text": "\tassign AUDIO_SPDIF = av_dis ? 1'bZ : (SW[0] | mcp_en) ? HDMI_LRCLK : spdif;"
+        },
+        {
+          "line": 1565,
+          "text": "\tassign AUDIO_R     = av_dis ? 1'bZ : (SW[0] | mcp_en) ? HDMI_I2S   : analog_r;"
+        },
+        {
+          "line": 1566,
+          "text": "\tassign AUDIO_L     = av_dis ? 1'bZ : (SW[0] | mcp_en) ? HDMI_SCLK  : analog_l;"
+        },
+        {
+          "line": 1567,
+          "text": "`endif"
+        },
+        {
+          "line": 1568,
+          "text": ""
+        },
+        {
+          "line": 1569,
+          "text": "assign HDMI_MCLK = clk_audio;"
+        },
+        {
+          "line": 1570,
+          "text": "wire clk_audio;"
+        },
+        {
+          "line": 1571,
+          "text": ""
+        },
+        {
+          "line": 1572,
+          "text": "pll_audio pll_audio"
+        },
+        {
+          "line": 1573,
+          "text": "("
+        },
+        {
+          "line": 1574,
+          "text": "\t.refclk(FPGA_CLK3_50),"
+        },
+        {
+          "line": 1575,
+          "text": "\t.rst(0),"
+        },
+        {
+          "line": 1576,
+          "text": "\t.outclk_0(clk_audio)"
+        },
+        {
+          "line": 1577,
+          "text": ");"
+        }
+      ]
+    },
+    {
+      "start_line": 1608,
+      "end_line": 1629,
+      "lines": [
+        {
+          "line": 1608,
+          "text": "\t.i2s_bclk(HDMI_SCLK),"
+        },
+        {
+          "line": 1609,
+          "text": "\t.i2s_lrclk(HDMI_LRCLK),"
+        },
+        {
+          "line": 1610,
+          "text": "\t.i2s_data(HDMI_I2S),"
+        },
+        {
+          "line": 1611,
+          "text": "`ifndef MISTER_DUAL_SDRAM"
+        },
+        {
+          "line": 1612,
+          "text": "\t.dac_l(analog_l),"
+        },
+        {
+          "line": 1613,
+          "text": "\t.dac_r(analog_r),"
+        },
+        {
+          "line": 1614,
+          "text": "`endif"
+        },
+        {
+          "line": 1615,
+          "text": "\t.spdif(spdif)"
+        },
+        {
+          "line": 1616,
+          "text": ");"
+        },
+        {
+          "line": 1617,
+          "text": ""
+        },
+        {
+          "line": 1618,
+          "text": ""
+        },
+        {
+          "line": 1619,
+          "text": "`ifndef MISTER_DISABLE_ALSA"
+        },
+        {
+          "line": 1620,
+          "text": "\twire aspi_sck,aspi_mosi,aspi_ss,aspi_miso;"
+        },
+        {
+          "line": 1621,
+          "text": "\tcyclonev_hps_interface_peripheral_spi_master spi"
+        },
+        {
+          "line": 1622,
+          "text": "\t("
+        },
+        {
+          "line": 1623,
+          "text": "\t\t.sclk_out(aspi_sck),"
+        },
+        {
+          "line": 1624,
+          "text": "\t\t.txd(aspi_mosi), // mosi"
+        },
+        {
+          "line": 1625,
+          "text": "\t\t.rxd(aspi_miso), // miso"
+        },
+        {
+          "line": 1626,
+          "text": ""
+        },
+        {
+          "line": 1627,
+          "text": "\t\t.ss_0_n(aspi_ss),"
+        },
+        {
+          "line": 1628,
+          "text": "\t\t.ss_in_n(1)"
+        },
+        {
+          "line": 1629,
+          "text": "\t);"
+        }
+      ]
+    },
+    {
+      "start_line": 1659,
+      "end_line": 1675,
+      "lines": [
+        {
+          "line": 1659,
+          "text": "////////////////  User I/O (USB 3.0 connector) /////////////////////////"
+        },
+        {
+          "line": 1660,
+          "text": ""
+        },
+        {
+          "line": 1661,
+          "text": "assign USER_IO[0] =                       !user_out[0]  ? 1'b0 : 1'bZ;"
+        },
+        {
+          "line": 1662,
+          "text": "assign USER_IO[1] =                       !user_out[1]  ? 1'b0 : 1'bZ;"
+        },
+        {
+          "line": 1663,
+          "text": "assign USER_IO[2] = !(SW[1] ? HDMI_I2S   : user_out[2]) ? 1'b0 : 1'bZ;"
+        },
+        {
+          "line": 1664,
+          "text": "assign USER_IO[3] =                       !user_out[3]  ? 1'b0 : 1'bZ;"
+        },
+        {
+          "line": 1665,
+          "text": "assign USER_IO[4] = !(SW[1] ? HDMI_SCLK  : user_out[4]) ? 1'b0 : 1'bZ;"
+        },
+        {
+          "line": 1666,
+          "text": "assign USER_IO[5] = !(SW[1] ? HDMI_LRCLK : user_out[5]) ? 1'b0 : 1'bZ;"
+        },
+        {
+          "line": 1667,
+          "text": "assign USER_IO[6] =                       !user_out[6]  ? 1'b0 : 1'bZ;"
+        },
+        {
+          "line": 1668,
+          "text": ""
+        },
+        {
+          "line": 1669,
+          "text": "assign user_in[0] =         USER_IO[0];"
+        },
+        {
+          "line": 1670,
+          "text": "assign user_in[1] =         USER_IO[1];"
+        },
+        {
+          "line": 1671,
+          "text": "assign user_in[2] = SW[1] | USER_IO[2];"
+        },
+        {
+          "line": 1672,
+          "text": "assign user_in[3] =         USER_IO[3];"
+        },
+        {
+          "line": 1673,
+          "text": "assign user_in[4] = SW[1] | USER_IO[4];"
+        },
+        {
+          "line": 1674,
+          "text": "assign user_in[5] = SW[1] | USER_IO[5];"
+        },
+        {
+          "line": 1675,
+          "text": "assign user_in[6] =         USER_IO[6];"
+        }
+      ]
+    },
+    {
+      "start_line": 1857,
+      "end_line": 1876,
+      "lines": [
+        {
+          "line": 1857,
+          "text": ""
+        },
+        {
+          "line": 1858,
+          "text": "\t.BUTTONS(btn),"
+        },
+        {
+          "line": 1859,
+          "text": "\t.OSD_STATUS(osd_status),"
+        },
+        {
+          "line": 1860,
+          "text": ""
+        },
+        {
+          "line": 1861,
+          "text": "\t.SD_SCK(SD_CLK),"
+        },
+        {
+          "line": 1862,
+          "text": "\t.SD_MOSI(SD_MOSI),"
+        },
+        {
+          "line": 1863,
+          "text": "\t.SD_MISO(SD_MISO),"
+        },
+        {
+          "line": 1864,
+          "text": "\t.SD_CS(SD_CS),"
+        },
+        {
+          "line": 1865,
+          "text": "\t.SD_CD(SD_CD),"
+        },
+        {
+          "line": 1866,
+          "text": ""
+        },
+        {
+          "line": 1867,
+          "text": "\t.UART_CTS(uart_rts),"
+        },
+        {
+          "line": 1868,
+          "text": "\t.UART_RTS(uart_cts),"
+        },
+        {
+          "line": 1869,
+          "text": "\t.UART_RXD(uart_txd),"
+        },
+        {
+          "line": 1870,
+          "text": "\t.UART_TXD(uart_rxd),"
+        },
+        {
+          "line": 1871,
+          "text": "\t.UART_DTR(uart_dsr),"
+        },
+        {
+          "line": 1872,
+          "text": "\t.UART_DSR(uart_dtr),"
+        },
+        {
+          "line": 1873,
+          "text": ""
+        },
+        {
+          "line": 1874,
+          "text": "\t.USER_OUT(user_out),"
+        },
+        {
+          "line": 1875,
+          "text": "\t.USER_IN(user_in)"
+        },
+        {
+          "line": 1876,
+          "text": ");"
+        }
+      ]
+    }
+  ],
+  "sys/mcp23009.sv": [
+    {
+      "start_line": 20,
+      "end_line": 41,
+      "lines": [
+        {
+          "line": 20,
+          "text": "reg        start = 0;"
+        },
+        {
+          "line": 21,
+          "text": "wire       ready;"
+        },
+        {
+          "line": 22,
+          "text": "wire       error;"
+        },
+        {
+          "line": 23,
+          "text": "reg        rw;"
+        },
+        {
+          "line": 24,
+          "text": "wire [7:0] dout;"
+        },
+        {
+          "line": 25,
+          "text": "reg [15:0] din;"
+        },
+        {
+          "line": 26,
+          "text": ""
+        },
+        {
+          "line": 27,
+          "text": "i2c #(50_000_000, 500_000) i2c"
+        },
+        {
+          "line": 28,
+          "text": "("
+        },
+        {
+          "line": 29,
+          "text": "\t.CLK(clk),"
+        },
+        {
+          "line": 30,
+          "text": "\t.START(start),"
+        },
+        {
+          "line": 31,
+          "text": "\t.READ(rw),"
+        },
+        {
+          "line": 32,
+          "text": "\t.I2C_ADDR('h20),"
+        },
+        {
+          "line": 33,
+          "text": "\t.I2C_WLEN(1),"
+        },
+        {
+          "line": 34,
+          "text": "\t.I2C_WDATA1(din[15:8]),"
+        },
+        {
+          "line": 35,
+          "text": "\t.I2C_WDATA2(din[7:0]),"
+        },
+        {
+          "line": 36,
+          "text": "\t.I2C_RDATA(dout),"
+        },
+        {
+          "line": 37,
+          "text": "\t.END(ready),"
+        },
+        {
+          "line": 38,
+          "text": "\t.ACK(error),"
+        },
+        {
+          "line": 39,
+          "text": "\t.I2C_SCL(scl),"
+        },
+        {
+          "line": 40,
+          "text": " \t.I2C_SDA(sda)"
+        },
+        {
+          "line": 41,
+          "text": ");"
+        }
+      ]
+    }
+  ],
+  "sys/i2c.v": [
+    {
+      "start_line": 22,
+      "end_line": 41,
+      "lines": [
+        {
+          "line": 22,
+          "text": "//\tClock Setting"
+        },
+        {
+          "line": 23,
+          "text": "parameter CLK_Freq = 50_000_000;\t//\t50 MHz"
+        },
+        {
+          "line": 24,
+          "text": "parameter I2C_Freq = 400_000;\t\t//\t400 KHz"
+        },
+        {
+          "line": 25,
+          "text": ""
+        },
+        {
+          "line": 26,
+          "text": "localparam I2C_FreqX2 = I2C_Freq*2;"
+        },
+        {
+          "line": 27,
+          "text": ""
+        },
+        {
+          "line": 28,
+          "text": "reg         I2C_CLOCK;"
+        },
+        {
+          "line": 29,
+          "text": "reg  [31:0] cnt;"
+        },
+        {
+          "line": 30,
+          "text": "wire [31:0] cnt_next = cnt + I2C_FreqX2;"
+        },
+        {
+          "line": 31,
+          "text": ""
+        },
+        {
+          "line": 32,
+          "text": "always @(posedge CLK) begin"
+        },
+        {
+          "line": 33,
+          "text": "\tcnt <= cnt_next;"
+        },
+        {
+          "line": 34,
+          "text": "\tif(cnt_next >= CLK_Freq) begin"
+        },
+        {
+          "line": 35,
+          "text": "\t\tcnt <= cnt_next - CLK_Freq;"
+        },
+        {
+          "line": 36,
+          "text": "\t\tI2C_CLOCK <= ~I2C_CLOCK;"
+        },
+        {
+          "line": 37,
+          "text": "\tend"
+        },
+        {
+          "line": 38,
+          "text": "end"
+        },
+        {
+          "line": 39,
+          "text": ""
+        },
+        {
+          "line": 40,
+          "text": "assign I2C_SCL = (SCLK | I2C_CLOCK) ? 1'bZ : 1'b0;"
+        },
+        {
+          "line": 41,
+          "text": "assign I2C_SDA = SDO[3] ? 1'bz : 1'b0;"
+        }
+      ]
+    },
+    {
+      "start_line": 59,
+      "end_line": 99,
+      "lines": [
+        {
+          "line": 59,
+          "text": "always @(posedge CLK) begin"
+        },
+        {
+          "line": 60,
+          "text": "\treg old_clk;"
+        },
+        {
+          "line": 61,
+          "text": "\treg old_st;"
+        },
+        {
+          "line": 62,
+          "text": "\treg rd,len;"
+        },
+        {
+          "line": 63,
+          "text": ""
+        },
+        {
+          "line": 64,
+          "text": "\told_clk <= I2C_CLOCK;"
+        },
+        {
+          "line": 65,
+          "text": "\told_st  <= START;"
+        },
+        {
+          "line": 66,
+          "text": "\t"
+        },
+        {
+          "line": 67,
+          "text": "\t// delay to make sure SDA changed while SCL is stabilized at low"
+        },
+        {
+          "line": 68,
+          "text": "\tif(old_clk && ~I2C_CLOCK && ~SD_COUNTER[5]) SDO[0] <= SD[SD_COUNTER[4:0]];"
+        },
+        {
+          "line": 69,
+          "text": "\tSDO[3:1] <= SDO[2:0];"
+        },
+        {
+          "line": 70,
+          "text": ""
+        },
+        {
+          "line": 71,
+          "text": "\tif(~old_st && START) begin"
+        },
+        {
+          "line": 72,
+          "text": "\t\tSCLK <= 1;"
+        },
+        {
+          "line": 73,
+          "text": "\t\tSDO  <= 4'b1111;"
+        },
+        {
+          "line": 74,
+          "text": "\t\tACK  <= 0;"
+        },
+        {
+          "line": 75,
+          "text": "\t\tEND  <= 0;"
+        },
+        {
+          "line": 76,
+          "text": "\t\trd   <= READ;"
+        },
+        {
+          "line": 77,
+          "text": "\t\tlen  <= I2C_WLEN;"
+        },
+        {
+          "line": 78,
+          "text": "\t\tif(READ) SD <= {2'b10, I2C_ADDR, 1'b1, 1'b1, 8'b11111111, 1'b1, 3'b011, 9'b111111111};"
+        },
+        {
+          "line": 79,
+          "text": "\t\t\telse  SD <= {2'b10, I2C_ADDR, 1'b0, 1'b1, I2C_WDATA1,  1'b1, I2C_WDATA2,  4'b1011};"
+        },
+        {
+          "line": 80,
+          "text": "\t\tSD_COUNTER <= 0;"
+        },
+        {
+          "line": 81,
+          "text": "\tend else begin"
+        },
+        {
+          "line": 82,
+          "text": "\t\tif(~old_clk && I2C_CLOCK && ~&SD_COUNTER) begin"
+        },
+        {
+          "line": 83,
+          "text": "\t\t\tSD_COUNTER <= SD_COUNTER + 6'd1;\t"
+        },
+        {
+          "line": 84,
+          "text": "\t\t\tcase(SD_COUNTER)"
+        },
+        {
+          "line": 85,
+          "text": "\t\t\t      01: SCLK <= 0;"
+        },
+        {
+          "line": 86,
+          "text": "\t\t\t      10: ACK  <= ACK | I2C_SDA;"
+        },
+        {
+          "line": 87,
+          "text": "\t\t\t      19: if(~rd) begin"
+        },
+        {
+          "line": 88,
+          "text": "\t\t\t\t\t\t\tACK <= ACK | I2C_SDA;"
+        },
+        {
+          "line": 89,
+          "text": "\t\t\t\t\t\t\tif(~len) SD_COUNTER <= 29;"
+        },
+        {
+          "line": 90,
+          "text": "\t\t\t\t\t\t end"
+        },
+        {
+          "line": 91,
+          "text": "\t\t\t\t\t20: if(rd)  SCLK <= 1;"
+        },
+        {
+          "line": 92,
+          "text": "\t\t\t\t\t23: if(rd)  END  <= 1;"
+        },
+        {
+          "line": 93,
+          "text": "\t\t\t      28: if(~rd) ACK  <= ACK | I2C_SDA;"
+        },
+        {
+          "line": 94,
+          "text": "\t\t\t      29: if(~rd) SCLK <= 1;"
+        },
+        {
+          "line": 95,
+          "text": "\t\t\t      32: if(~rd) END  <= 1;"
+        },
+        {
+          "line": 96,
+          "text": "\t\t\tendcase"
+        },
+        {
+          "line": 97,
+          "text": ""
+        },
+        {
+          "line": 98,
+          "text": "\t\t\tif(SD_COUNTER >= 11 && SD_COUNTER <= 18) rdata[SD_COUNTER[4:0]-11] <= I2C_SDA;"
+        },
+        {
+          "line": 99,
+          "text": "\t\tend"
+        }
+      ]
+    }
+  ],
+  "sys/i2s.v": [
+    {
+      "start_line": 19,
+      "end_line": 51,
+      "lines": [
+        {
+          "line": 19,
+          "text": "always @(posedge clk) begin"
+        },
+        {
+          "line": 20,
+          "text": "\treg  [7:0] bit_cnt;"
+        },
+        {
+          "line": 21,
+          "text": "\treg msclk;"
+        },
+        {
+          "line": 22,
+          "text": ""
+        },
+        {
+          "line": 23,
+          "text": "\treg [AUDIO_DW-1:0] left;"
+        },
+        {
+          "line": 24,
+          "text": "\treg [AUDIO_DW-1:0] right;"
+        },
+        {
+          "line": 25,
+          "text": ""
+        },
+        {
+          "line": 26,
+          "text": "\tif (reset) begin"
+        },
+        {
+          "line": 27,
+          "text": "\t\tbit_cnt <= 1;"
+        },
+        {
+          "line": 28,
+          "text": "\t\tlrclk   <= 1;"
+        },
+        {
+          "line": 29,
+          "text": "\t\tsclk    <= 1;"
+        },
+        {
+          "line": 30,
+          "text": "\t\tmsclk   <= 1;"
+        },
+        {
+          "line": 31,
+          "text": "\tend"
+        },
+        {
+          "line": 32,
+          "text": "\telse begin"
+        },
+        {
+          "line": 33,
+          "text": "\t\tsclk <= msclk;"
+        },
+        {
+          "line": 34,
+          "text": "\t\tif(ce) begin"
+        },
+        {
+          "line": 35,
+          "text": "\t\t\tmsclk <= ~msclk;"
+        },
+        {
+          "line": 36,
+          "text": "\t\t\tif(msclk) begin"
+        },
+        {
+          "line": 37,
+          "text": "\t\t\t\tif(bit_cnt >= AUDIO_DW) begin"
+        },
+        {
+          "line": 38,
+          "text": "\t\t\t\t\tbit_cnt <= 1;"
+        },
+        {
+          "line": 39,
+          "text": "\t\t\t\t\tlrclk <= ~lrclk;"
+        },
+        {
+          "line": 40,
+          "text": "\t\t\t\t\tif(lrclk) begin"
+        },
+        {
+          "line": 41,
+          "text": "\t\t\t\t\t\tleft  <= left_chan;"
+        },
+        {
+          "line": 42,
+          "text": "\t\t\t\t\t\tright <= right_chan;"
+        },
+        {
+          "line": 43,
+          "text": "\t\t\t\t\tend"
+        },
+        {
+          "line": 44,
+          "text": "\t\t\t\tend"
+        },
+        {
+          "line": 45,
+          "text": "\t\t\t\telse begin"
+        },
+        {
+          "line": 46,
+          "text": "\t\t\t\t\tbit_cnt <= bit_cnt + 1'd1;"
+        },
+        {
+          "line": 47,
+          "text": "\t\t\t\tend"
+        },
+        {
+          "line": 48,
+          "text": "\t\t\t\tsdata <= lrclk ? right[AUDIO_DW - bit_cnt] : left[AUDIO_DW - bit_cnt];"
+        },
+        {
+          "line": 49,
+          "text": "\t\t\tend"
+        },
+        {
+          "line": 50,
+          "text": "\t\tend"
+        },
+        {
+          "line": 51,
+          "text": "\tend"
+        }
+      ]
+    }
+  ],
+  "sys/audio_out.sv": [],
+  "rtl/alpha68kn_pll.sv": [
+    {
+      "start_line": 1,
+      "end_line": 13,
+      "lines": [
+        {
+          "line": 1,
+          "text": "// One 48 MHz game clock; output 1 only forwards a phase shifted SDRAM clock."
+        },
+        {
+          "line": 2,
+          "text": "module alpha68kn_pll(input wire refclk,rst, output wire clk_sys,clk_sdram,locked);"
+        },
+        {
+          "line": 3,
+          "text": "    wire [1:0] clocks;"
+        },
+        {
+          "line": 4,
+          "text": "    altera_pll #("
+        },
+        {
+          "line": 5,
+          "text": "        .fractional_vco_multiplier(\"false\"), .reference_clock_frequency(\"50.0 MHz\"),"
+        },
+        {
+          "line": 6,
+          "text": "        .operation_mode(\"direct\"), .number_of_clocks(2),"
+        },
+        {
+          "line": 7,
+          "text": "        .output_clock_frequency0(\"48.0 MHz\"), .phase_shift0(\"0 ps\"), .duty_cycle0(50),"
+        },
+        {
+          "line": 8,
+          "text": "        .output_clock_frequency1(\"48.0 MHz\"), .phase_shift1(\"10416 ps\"), .duty_cycle1(50),"
+        },
+        {
+          "line": 9,
+          "text": "        .pll_type(\"General\"), .pll_subtype(\"General\")"
+        },
+        {
+          "line": 10,
+          "text": "    ) pll (.refclk(refclk),.rst(rst),.outclk(clocks),.locked(locked),.fbclk(1'b0));"
+        },
+        {
+          "line": 11,
+          "text": "    assign clk_sys=clocks[0];"
+        },
+        {
+          "line": 12,
+          "text": "    assign clk_sdram=clocks[1];"
+        },
+        {
+          "line": 13,
+          "text": "endmodule"
+        }
+      ]
+    }
+  ],
+  "rtl/alpha68kn_gfxmem.sv": [
+    {
+      "start_line": 72,
+      "end_line": 95,
+      "lines": [
+        {
+          "line": 72,
+          "text": "                $fatal(1,\"invalid graphics download address\");"
+        },
+        {
+          "line": 73,
+          "text": "`endif"
+        },
+        {
+          "line": 74,
+          "text": "        end"
+        },
+        {
+          "line": 75,
+          "text": "    end"
+        },
+        {
+          "line": 76,
+          "text": "    jtframe_sdram64 #(.AW(22),.HF(0),.SHIFTED(0),"
+        },
+        {
+          "line": 77,
+          "text": "        .BA0_LEN(16),.BA1_LEN(16),.BA2_LEN(16),.BA3_LEN(16),.PROG_LEN(16),"
+        },
+        {
+          "line": 78,
+          "text": "        .BA0_WEN(0),.BA1_WEN(0),.BA2_WEN(0),.BA3_WEN(0),.RFSHCNT(9)"
+        },
+        {
+          "line": 79,
+          "text": "    ) controller ("
+        },
+        {
+          "line": 80,
+          "text": "        .rst(reset),.clk(clk),.init(init),"
+        },
+        {
+          "line": 81,
+          "text": "        .ba0_addr({4'd0,phy_read[18:1]}),.ba1_addr(22'd0),.ba2_addr(22'd0),.ba3_addr(22'd0),"
+        },
+        {
+          "line": 82,
+          "text": "        .rd({3'd0,read_req && !load_busy}),.wr(4'd0),"
+        },
+        {
+          "line": 83,
+          "text": "        .ba0_din(16'd0),.ba1_din(16'd0),.ba2_din(16'd0),.ba3_din(16'd0),"
+        },
+        {
+          "line": 84,
+          "text": "        .ba0_dsn(2'b11),.ba1_dsn(2'b11),.ba2_dsn(2'b11),.ba3_dsn(2'b11),"
+        },
+        {
+          "line": 85,
+          "text": "        .prog_en(load_busy),.prog_addr({4'd0,phy_byte[18:1]}),"
+        },
+        {
+          "line": 86,
+          "text": "        .prog_rd(1'b0),.prog_wr(prog_wr),.prog_din({byte_data,byte_data}),"
+        },
+        {
+          "line": 87,
+          "text": "        .prog_dsn(phy_byte[0] ? 2'b01 : 2'b10),.prog_ba(2'd0),"
+        },
+        {
+          "line": 88,
+          "text": "        .prog_dst(),.prog_dok(),.prog_rdy(prog_rdy),.prog_ack(prog_ack),"
+        },
+        {
+          "line": 89,
+          "text": "        .rfsh(refresh),.ack(ack),.dst(),.dok(),.rdy(rdy),.dout(read_data),"
+        },
+        {
+          "line": 90,
+          "text": "        .sdram_dq(sdram_dq),"
+        },
+        {
+          "line": 91,
+          "text": "`ifdef VERILATOR"
+        },
+        {
+          "line": 92,
+          "text": "        .sdram_din(sdram_din),"
+        },
+        {
+          "line": 93,
+          "text": "`endif"
+        },
+        {
+          "line": 94,
+          "text": "        .sdram_a(sdram_a),.sdram_ba(sdram_ba),.sdram_dqml(sdram_dqml),.sdram_dqmh(sdram_dqmh),"
+        },
+        {
+          "line": 95,
+          "text": "        .sdram_nwe(sdram_nwe),.sdram_ncas(sdram_ncas),.sdram_nras(sdram_nras),"
+        }
+      ]
+    }
+  ],
+  "rtl/vendor/jtframe_sdram/jtframe_sdram64.v": [
+    {
+      "start_line": 175,
+      "end_line": 221,
+      "lines": [
+        {
+          "line": 175,
+          "text": "reg  [15:0] dq_pad;"
+        },
+        {
+          "line": 176,
+          "text": "assign sdram_dq = dq_pad;"
+        },
+        {
+          "line": 177,
+          "text": "`endif"
+        },
+        {
+          "line": 178,
+          "text": ""
+        },
+        {
+          "line": 179,
+          "text": "always @(negedge clk) begin"
+        },
+        {
+          "line": 180,
+          "text": "    prog_rst  <= ~prog_en | init | rst;"
+        },
+        {
+          "line": 181,
+          "text": "    rfsh_rst  <= init | rst;"
+        },
+        {
+          "line": 182,
+          "text": "    other_rst <= prog_en | init | rst;"
+        },
+        {
+          "line": 183,
+          "text": "end"
+        },
+        {
+          "line": 184,
+          "text": ""
+        },
+        {
+          "line": 185,
+          "text": "assign din = (bg[3] && BA3_WEN) ? ba3_din :"
+        },
+        {
+          "line": 186,
+          "text": "             (bg[2] && BA2_WEN) ? ba2_din :"
+        },
+        {
+          "line": 187,
+          "text": "             (bg[1] && BA1_WEN) ? ba1_din : ba0_din;"
+        },
+        {
+          "line": 188,
+          "text": ""
+        },
+        {
+          "line": 189,
+          "text": "always @(posedge clk) begin"
+        },
+        {
+          "line": 190,
+          "text": "    dst      <= ba_dst;"
+        },
+        {
+          "line": 191,
+          "text": "    rdy      <= ba_rdy;"
+        },
+        {
+          "line": 192,
+          "text": "    all_dbusy    <= |ba_dbusy;"
+        },
+        {
+          "line": 193,
+          "text": "    all_dbusy64  <= |ba_dbusy64;"
+        },
+        {
+          "line": 194,
+          "text": "    dok      <= ba_dok;"
+        },
+        {
+          "line": 195,
+          "text": "    dout     <= sdram_dq;"
+        },
+        {
+          "line": 196,
+          "text": "    cmd      <= next_cmd;"
+        },
+        {
+          "line": 197,
+          "text": ""
+        },
+        {
+          "line": 198,
+          "text": "    // prog signals"
+        },
+        {
+          "line": 199,
+          "text": "    prog_dst <= pre_dst;"
+        },
+        {
+          "line": 200,
+          "text": "    prog_dok <= pre_dok;"
+        },
+        {
+          "line": 201,
+          "text": "    prog_rdy <= pre_rdy;"
+        },
+        {
+          "line": 202,
+          "text": "    prog_ack <= pre_ack;"
+        },
+        {
+          "line": 203,
+          "text": ""
+        },
+        {
+          "line": 204,
+          "text": "    sdram_ba      <= next_ba;"
+        },
+        {
+          "line": 205,
+          "text": "    sdram_a[10:0] <= next_a[10:0];"
+        },
+        {
+          "line": 206,
+          "text": ""
+        },
+        {
+          "line": 207,
+          "text": "    wr_l <= wr_aux & ~ba_rdy;"
+        },
+        {
+          "line": 208,
+          "text": ""
+        },
+        {
+          "line": 209,
+          "text": "`ifndef VERILATOR"
+        },
+        {
+          "line": 210,
+          "text": "    dq_pad <= wr_cycle ? (prog_en ? prog_din : din) : 16'hzzzz;"
+        },
+        {
+          "line": 211,
+          "text": "`else"
+        },
+        {
+          "line": 212,
+          "text": "    sdram_din <= prog_en ? prog_din : din;"
+        },
+        {
+          "line": 213,
+          "text": "`endif"
+        },
+        {
+          "line": 214,
+          "text": "    if( MISTER ) begin"
+        },
+        {
+          "line": 215,
+          "text": "        if( next_cmd==CMD_ACTIVE )"
+        },
+        {
+          "line": 216,
+          "text": "            sdram_a[12:11] <= next_a[12:11];"
+        },
+        {
+          "line": 217,
+          "text": "        else"
+        },
+        {
+          "line": 218,
+          "text": "            sdram_a[12:11] <= wr_cycle ? mask_mux : 2'd0;"
+        },
+        {
+          "line": 219,
+          "text": "    end else begin"
+        },
+        {
+          "line": 220,
+          "text": "        sdram_a[12:11] <= next_a[12:11];"
+        },
+        {
+          "line": 221,
+          "text": "        dqm <= wr_cycle ? mask_mux : 2'd0;"
+        }
+      ]
+    }
+  ],
+  "research/quartus_sdram_constraint_spec.md": [
+    {
+      "start_line": 1,
+      "end_line": 17,
+      "lines": [
+        {
+          "line": 1,
+          "text": "# Alpha68k N \u2014 SDRAM timing constraint specification"
+        },
+        {
+          "line": 2,
+          "text": ""
+        },
+        {
+          "line": 3,
+          "text": "This is a read-only specification. No Quartus run, SDC change or electrical timing pass is claimed."
+        },
+        {
+          "line": 4,
+          "text": ""
+        },
+        {
+          "line": 5,
+          "text": "The physical PLL produces related 48 MHz clocks at 0 ps and 10416 ps. The second clock drives SDRAM_CLK. The controller captures read DQ and registers commands/address/write DQ on the first clock\u2019s rising edge (jtframe_sdram64.v:189\u2013221). Its falling-edge logic at lines179\u2013183 changes reset qualifiers; it does not capture read DQ. The actual parameters are AW22/HF0/SHIFTED0, CL2 and burst 1. These facts do not identify an SDRAM part or speed grade."
+        },
+        {
+          "line": 6,
+          "text": ""
+        },
+        {
+          "line": 7,
+          "text": "The core SDC only derives clocks and uncertainty. The minimum correction scope is a verified forwarded clock reference at SDRAM_CLK and explicit maximum/minimum external delays for read DQ and address/control/write DQ/DQM outputs. Preserve the related PLL phase and ordinary opposite-edge paths. Do not add blanket false paths or a CL2-based multicycle."
+        },
+        {
+          "line": 8,
+          "text": ""
+        },
+        {
+          "line": 9,
+          "text": "Use FPGA SDRAM_CLK pad as the reference. Read maximum arrival is clock-flight(max) + device tAC(max) + read-data-flight(max). The minimum must account for the selected device\u2019s guaranteed hold and finite active-drive/release boundary. Output maximum is device tSU + data-flight(max) - clock-flight(min); output minimum is data-flight(min) - clock-flight(max) - device tH. These are symbolic derivations; every board/device parameter is currently unresolved. Do not substitute zero or values from another core."
+        },
+        {
+          "line": 10,
+          "text": ""
+        },
+        {
+          "line": 11,
+          "text": "The exact SDRAM module/part/speed grade, voltage/temperature/load conditions, clock/data trace bounds and fitted PLL/output-register details are needed before numerical constraints can be qualified. The JSON records source lines, hashes, unresolved parameters and command shapes."
+        },
+        {
+          "line": 12,
+          "text": ""
+        },
+        {
+          "line": 13,
+          "text": "After baseline fit, check real generated-clock/port collections, I/O register placement and unexplained SDRAM endpoints. Final checks must cover input/output setup and hold, ordinary opposite-edge paths, recovery/removal and pulse widths across required corners. The current simulation proves functional transfers; it does not supply those electrical bounds."
+        },
+        {
+          "line": 14,
+          "text": ""
+        },
+        {
+          "line": 15,
+          "text": "Quartus 17 requires explicit minimum and maximum input delays for separate hold/setup analysis: [official input-delay documentation](https://resources.altera.com/quartushelp/17.0/analyze/sta/sta_db_set_input_delay.htm)."
+        },
+        {
+          "line": 16,
+          "text": ""
+        },
+        {
+          "line": 17,
+          "text": "The framework\u2019s PLL clock-group wildcard uses a pll|pll_inst hierarchy. The custom core PLL uses a different instance hierarchy. Verify the actual fitted wildcard matches; template names alone do not prove which clocks were grouped."
+        }
+      ]
+    }
+  ],
+  "research/quartus_sdram_constraint_spec.json": [],
+  "Alpha68k_N.qsf": []
+}

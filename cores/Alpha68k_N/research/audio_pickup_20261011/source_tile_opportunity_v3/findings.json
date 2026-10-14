@@ -1,0 +1,1119 @@
+{
+  "scope": "Source-only, actual retained foreground snapshots and pinned ROM; no new pilot/native execution",
+  "retained_tile_opportunities": [
+    {
+      "field": 719,
+      "work20100_2011f": "000300030050008000000100ff00000000f0000003000000ff00000000000000",
+      "player_pointer": 1838,
+      "player_coord": [
+        112,
+        192
+      ],
+      "source_tile_pickup_opportunities": [],
+      "all_23xx_foreground": [
+        {
+          "address": 266262,
+          "tile": 9168
+        },
+        {
+          "address": 266326,
+          "tile": 9170
+        },
+        {
+          "address": 266534,
+          "tile": 9168
+        },
+        {
+          "address": 266598,
+          "tile": 9170
+        }
+      ],
+      "work20c40_20c5b": "00000000000000000000000000000000000000000000000000000000"
+    },
+    {
+      "field": 744,
+      "work20100_2011f": "000300030050008000000100ff00000000f0070003000000ff00000000000000",
+      "player_pointer": 1838,
+      "player_coord": [
+        112,
+        183
+      ],
+      "source_tile_pickup_opportunities": [],
+      "all_23xx_foreground": [
+        {
+          "address": 266262,
+          "tile": 9168
+        },
+        {
+          "address": 266326,
+          "tile": 9170
+        },
+        {
+          "address": 266534,
+          "tile": 9168
+        },
+        {
+          "address": 266598,
+          "tile": 9170
+        }
+      ],
+      "work20c40_20c5b": "00000000000000000000000000000000000000000000000000000000"
+    },
+    {
+      "field": 2399,
+      "work20100_2011f": "000300010000008000000100ff0000000100000003000000ff00000000000000",
+      "player_pointer": 0,
+      "player_coord": null,
+      "source_tile_pickup_opportunities": [],
+      "all_23xx_foreground": [],
+      "work20c40_20c5b": "00000000000000000000000000000000000000000000000000000000"
+    }
+  ],
+  "actual_transform_dispatch": [
+    {
+      "selector_high_nibble": 0,
+      "dispatch_address": 47864
+    },
+    {
+      "selector_high_nibble": 1,
+      "dispatch_address": 47792
+    },
+    {
+      "selector_high_nibble": 2,
+      "dispatch_address": 47864
+    },
+    {
+      "selector_high_nibble": 3,
+      "dispatch_address": 47792
+    },
+    {
+      "selector_high_nibble": 4,
+      "dispatch_address": 47942
+    },
+    {
+      "selector_high_nibble": 5,
+      "dispatch_address": 47852
+    },
+    {
+      "selector_high_nibble": 6,
+      "dispatch_address": 47942
+    },
+    {
+      "selector_high_nibble": 7,
+      "dispatch_address": 47852
+    },
+    {
+      "selector_high_nibble": 8,
+      "dispatch_address": 47948
+    },
+    {
+      "selector_high_nibble": 9,
+      "dispatch_address": 47858
+    },
+    {
+      "selector_high_nibble": 10,
+      "dispatch_address": 47360
+    },
+    {
+      "selector_high_nibble": 11,
+      "dispatch_address": 47360
+    },
+    {
+      "selector_high_nibble": 12,
+      "dispatch_address": 47360
+    },
+    {
+      "selector_high_nibble": 13,
+      "dispatch_address": 47360
+    },
+    {
+      "selector_high_nibble": 14,
+      "dispatch_address": 47360
+    },
+    {
+      "selector_high_nibble": 15,
+      "dispatch_address": 47360
+    }
+  ],
+  "source_instructions": [
+    {
+      "pc": 19266,
+      "opcode": "1d7cffff0911",
+      "instruction": "move.b  #$ff, ($911,A6)"
+    },
+    {
+      "pc": 20200,
+      "opcode": "1d7cffff0911",
+      "instruction": "move.b  #$ff, ($911,A6)"
+    },
+    {
+      "pc": 21138,
+      "opcode": "422e0346",
+      "instruction": "clr.b   ($346,A6)"
+    },
+    {
+      "pc": 21142,
+      "opcode": "1015",
+      "instruction": "move.b  (A5), D0"
+    },
+    {
+      "pc": 21144,
+      "opcode": "122d0001",
+      "instruction": "move.b  ($1,A5), D1"
+    },
+    {
+      "pc": 21148,
+      "opcode": "06000020",
+      "instruction": "addi.b  #$20, D0"
+    },
+    {
+      "pc": 21152,
+      "opcode": "0601001c",
+      "instruction": "addi.b  #$1c, D1"
+    },
+    {
+      "pc": 21156,
+      "opcode": "d02e0112",
+      "instruction": "add.b   ($112,A6), D0"
+    },
+    {
+      "pc": 21160,
+      "opcode": "142e0111",
+      "instruction": "move.b  ($111,A6), D2"
+    },
+    {
+      "pc": 21164,
+      "opcode": "0202000f",
+      "instruction": "andi.b  #$f, D2"
+    },
+    {
+      "pc": 21168,
+      "opcode": "9202",
+      "instruction": "sub.b   D2, D1"
+    },
+    {
+      "pc": 21170,
+      "opcode": "162e0111",
+      "instruction": "move.b  ($111,A6), D3"
+    },
+    {
+      "pc": 21174,
+      "opcode": "e80b",
+      "instruction": "lsr.b   #4, D3"
+    },
+    {
+      "pc": 21176,
+      "opcode": "e808",
+      "instruction": "lsr.b   #4, D0"
+    },
+    {
+      "pc": 21178,
+      "opcode": "e809",
+      "instruction": "lsr.b   #4, D1"
+    },
+    {
+      "pc": 21180,
+      "opcode": "9203",
+      "instruction": "sub.b   D3, D1"
+    },
+    {
+      "pc": 21182,
+      "opcode": "0240000f",
+      "instruction": "andi.w  #$f, D0"
+    },
+    {
+      "pc": 21186,
+      "opcode": "0241000f",
+      "instruction": "andi.w  #$f, D1"
+    },
+    {
+      "pc": 21190,
+      "opcode": "ef49",
+      "instruction": "lsl.w   #7, D1"
+    },
+    {
+      "pc": 21192,
+      "opcode": "e548",
+      "instruction": "lsl.w   #2, D0"
+    },
+    {
+      "pc": 21194,
+      "opcode": "9240",
+      "instruction": "sub.w   D0, D1"
+    },
+    {
+      "pc": 21196,
+      "opcode": "024107ff",
+      "instruction": "andi.w  #$7ff, D1"
+    },
+    {
+      "pc": 21200,
+      "opcode": "41f900041000",
+      "instruction": "lea     $41000.l, A0"
+    },
+    {
+      "pc": 21206,
+      "opcode": "d0c1",
+      "instruction": "adda.w  D1, A0"
+    },
+    {
+      "pc": 21208,
+      "opcode": "2d480340",
+      "instruction": "move.l  A0, ($340,A6)"
+    },
+    {
+      "pc": 21212,
+      "opcode": "02502fff",
+      "instruction": "andi.w  #$2fff, (A0)"
+    },
+    {
+      "pc": 21216,
+      "opcode": "3d500344",
+      "instruction": "move.w  (A0), ($344,A6)"
+    },
+    {
+      "pc": 47362,
+      "opcode": "4a2e0911",
+      "instruction": "tst.b   ($911,A6)"
+    },
+    {
+      "pc": 47366,
+      "opcode": "67f8",
+      "instruction": "beq     $b900"
+    },
+    {
+      "pc": 47368,
+      "opcode": "422e0911",
+      "instruction": "clr.b   ($911,A6)"
+    },
+    {
+      "pc": 47372,
+      "opcode": "082e0001040a",
+      "instruction": "btst    #$1, ($40a,A6)"
+    },
+    {
+      "pc": 47378,
+      "opcode": "66ec",
+      "instruction": "bne     $b900"
+    },
+    {
+      "pc": 47380,
+      "opcode": "4bf900020000",
+      "instruction": "lea     $20000.l, A5"
+    },
+    {
+      "pc": 47386,
+      "opcode": "daee040c",
+      "instruction": "adda.w  ($40c,A6), A5"
+    },
+    {
+      "pc": 47390,
+      "opcode": "61009972",
+      "instruction": "bsr     $5292"
+    },
+    {
+      "pc": 47394,
+      "opcode": "222e0340",
+      "instruction": "move.l  ($340,A6), D1"
+    },
+    {
+      "pc": 47398,
+      "opcode": "0281000007ff",
+      "instruction": "andi.l  #$7ff, D1"
+    },
+    {
+      "pc": 47404,
+      "opcode": "008100041000",
+      "instruction": "ori.l   #$41000, D1"
+    },
+    {
+      "pc": 47410,
+      "opcode": "08c10001",
+      "instruction": "bset    #$1, D1"
+    },
+    {
+      "pc": 47414,
+      "opcode": "08810006",
+      "instruction": "bclr    #$6, D1"
+    },
+    {
+      "pc": 47418,
+      "opcode": "2041",
+      "instruction": "movea.l D1, A0"
+    },
+    {
+      "pc": 47420,
+      "opcode": "2d410340",
+      "instruction": "move.l  D1, ($340,A6)"
+    },
+    {
+      "pc": 47424,
+      "opcode": "3010",
+      "instruction": "move.w  (A0), D0"
+    },
+    {
+      "pc": 47426,
+      "opcode": "04402300",
+      "instruction": "subi.w  #$2300, D0"
+    },
+    {
+      "pc": 47430,
+      "opcode": "0c400100",
+      "instruction": "cmpi.w  #$100, D0"
+    },
+    {
+      "pc": 47434,
+      "opcode": "65000012",
+      "instruction": "bcs     $b95e"
+    },
+    {
+      "pc": 47438,
+      "opcode": "3010",
+      "instruction": "move.w  (A0), D0"
+    },
+    {
+      "pc": 47440,
+      "opcode": "04400fb0",
+      "instruction": "subi.w  #$fb0, D0"
+    },
+    {
+      "pc": 47444,
+      "opcode": "0c400050",
+      "instruction": "cmpi.w  #$50, D0"
+    },
+    {
+      "pc": 47448,
+      "opcode": "64a6",
+      "instruction": "bcc     $b900"
+    },
+    {
+      "pc": 47450,
+      "opcode": "6000a4ec",
+      "instruction": "bra     $5e48"
+    },
+    {
+      "pc": 47454,
+      "opcode": "3200",
+      "instruction": "move.w  D0, D1"
+    },
+    {
+      "pc": 47456,
+      "opcode": "0c000040",
+      "instruction": "cmpi.b  #$40, D0"
+    },
+    {
+      "pc": 47460,
+      "opcode": "652a",
+      "instruction": "bcs     $b990"
+    },
+    {
+      "pc": 47462,
+      "opcode": "0c000070",
+      "instruction": "cmpi.b  #$70, D0"
+    },
+    {
+      "pc": 47466,
+      "opcode": "65000066",
+      "instruction": "bcs     $b9d2"
+    },
+    {
+      "pc": 47470,
+      "opcode": "0c0000c0",
+      "instruction": "cmpi.b  #-$40, D0"
+    },
+    {
+      "pc": 47474,
+      "opcode": "650000b2",
+      "instruction": "bcs     $ba26"
+    },
+    {
+      "pc": 47478,
+      "opcode": "0c0000d8",
+      "instruction": "cmpi.b  #-$28, D0"
+    },
+    {
+      "pc": 47482,
+      "opcode": "650001d8",
+      "instruction": "bcs     $bb54"
+    },
+    {
+      "pc": 47486,
+      "opcode": "0c0000f0",
+      "instruction": "cmpi.b  #-$10, D0"
+    },
+    {
+      "pc": 47490,
+      "opcode": "6500020a",
+      "instruction": "bcs     $bb8e"
+    },
+    {
+      "pc": 47494,
+      "opcode": "0c400100",
+      "instruction": "cmpi.w  #$100, D0"
+    },
+    {
+      "pc": 47498,
+      "opcode": "65000252",
+      "instruction": "bcs     $bbde"
+    },
+    {
+      "pc": 47502,
+      "opcode": "4e75",
+      "instruction": "rts"
+    },
+    {
+      "pc": 47504,
+      "opcode": "e648",
+      "instruction": "lsr.w   #3, D0"
+    },
+    {
+      "pc": 47506,
+      "opcode": "e348",
+      "instruction": "lsl.w   #1, D0"
+    },
+    {
+      "pc": 47508,
+      "opcode": "06400020",
+      "instruction": "addi.w  #$20, D0"
+    },
+    {
+      "pc": 47512,
+      "opcode": "41fa0e0a",
+      "instruction": "lea     ($c7a4,PC), A0"
+    },
+    {
+      "pc": 47516,
+      "opcode": "30300000",
+      "instruction": "move.w  (A0,D0.w), D0"
+    },
+    {
+      "pc": 47520,
+      "opcode": "206e0340",
+      "instruction": "movea.l ($340,A6), A0"
+    },
+    {
+      "pc": 47524,
+      "opcode": "4eb90000289c",
+      "instruction": "jsr     $289c.l"
+    },
+    {
+      "pc": 47530,
+      "opcode": "3008",
+      "instruction": "move.w  A0, D0"
+    },
+    {
+      "pc": 47532,
+      "opcode": "41ee0c40",
+      "instruction": "lea     ($c40,A6), A0"
+    },
+    {
+      "pc": 47536,
+      "opcode": "7202",
+      "instruction": "moveq   #$2, D1"
+    },
+    {
+      "pc": 47538,
+      "opcode": "b050",
+      "instruction": "cmp.w   (A0), D0"
+    },
+    {
+      "pc": 47540,
+      "opcode": "6706",
+      "instruction": "beq     $b9bc"
+    },
+    {
+      "pc": 47542,
+      "opcode": "5848",
+      "instruction": "addq.w  #4, A0"
+    },
+    {
+      "pc": 47544,
+      "opcode": "51c9fff8",
+      "instruction": "dbra    D1, $b9b2"
+    },
+    {
+      "pc": 47548,
+      "opcode": "4290",
+      "instruction": "clr.l   (A0)"
+    },
+    {
+      "pc": 47550,
+      "opcode": "1d7c0038035f",
+      "instruction": "move.b  #$38, ($35f,A6)"
+    },
+    {
+      "pc": 47556,
+      "opcode": "4e44",
+      "instruction": "trap    #$4"
+    },
+    {
+      "pc": 47558,
+      "opcode": "3d7c18000304",
+      "instruction": "move.w  #$1800, ($304,A6)"
+    },
+    {
+      "pc": 47564,
+      "opcode": "4ef900002af4",
+      "instruction": "jmp     $2af4.l"
+    },
+    {
+      "pc": 47570,
+      "opcode": "04400040",
+      "instruction": "subi.w  #$40, D0"
+    },
+    {
+      "pc": 47574,
+      "opcode": "e648",
+      "instruction": "lsr.w   #3, D0"
+    },
+    {
+      "pc": 47576,
+      "opcode": "e348",
+      "instruction": "lsl.w   #1, D0"
+    },
+    {
+      "pc": 47578,
+      "opcode": "06400020",
+      "instruction": "addi.w  #$20, D0"
+    },
+    {
+      "pc": 47582,
+      "opcode": "41fa0df4",
+      "instruction": "lea     ($c7d4,PC), A0"
+    },
+    {
+      "pc": 47586,
+      "opcode": "30300000",
+      "instruction": "move.w  (A0,D0.w), D0"
+    },
+    {
+      "pc": 47590,
+      "opcode": "206e0340",
+      "instruction": "movea.l ($340,A6), A0"
+    },
+    {
+      "pc": 47594,
+      "opcode": "4eb90000289c",
+      "instruction": "jsr     $289c.l"
+    },
+    {
+      "pc": 47600,
+      "opcode": "3008",
+      "instruction": "move.w  A0, D0"
+    },
+    {
+      "pc": 47602,
+      "opcode": "41ee0c40",
+      "instruction": "lea     ($c40,A6), A0"
+    },
+    {
+      "pc": 47606,
+      "opcode": "7202",
+      "instruction": "moveq   #$2, D1"
+    },
+    {
+      "pc": 47608,
+      "opcode": "b050",
+      "instruction": "cmp.w   (A0), D0"
+    },
+    {
+      "pc": 47610,
+      "opcode": "6706",
+      "instruction": "beq     $ba02"
+    },
+    {
+      "pc": 47612,
+      "opcode": "5848",
+      "instruction": "addq.w  #4, A0"
+    },
+    {
+      "pc": 47614,
+      "opcode": "51c9fff8",
+      "instruction": "dbra    D1, $b9f8"
+    },
+    {
+      "pc": 47618,
+      "opcode": "4290",
+      "instruction": "clr.l   (A0)"
+    },
+    {
+      "pc": 47620,
+      "opcode": "1d7c0053035f",
+      "instruction": "move.b  #$53, ($35f,A6)"
+    },
+    {
+      "pc": 47626,
+      "opcode": "4e44",
+      "instruction": "trap    #$4"
+    },
+    {
+      "pc": 47628,
+      "opcode": "2d7c000100000300",
+      "instruction": "move.l  #$10000, ($300,A6)"
+    },
+    {
+      "pc": 47636,
+      "opcode": "4eb900001f5c",
+      "instruction": "jsr     $1f5c.l"
+    },
+    {
+      "pc": 47642,
+      "opcode": "2d7c000100000370",
+      "instruction": "move.l  #$10000, ($370,A6)"
+    },
+    {
+      "pc": 47650,
+      "opcode": "60000966",
+      "instruction": "bra     $c38a"
+    },
+    {
+      "pc": 47654,
+      "opcode": "e648",
+      "instruction": "lsr.w   #3, D0"
+    },
+    {
+      "pc": 47656,
+      "opcode": "02400007",
+      "instruction": "andi.w  #$7, D0"
+    },
+    {
+      "pc": 47660,
+      "opcode": "e348",
+      "instruction": "lsl.w   #1, D0"
+    },
+    {
+      "pc": 47662,
+      "opcode": "06400020",
+      "instruction": "addi.w  #$20, D0"
+    },
+    {
+      "pc": 47666,
+      "opcode": "41f90000c804",
+      "instruction": "lea     $c804.l, A0"
+    },
+    {
+      "pc": 47672,
+      "opcode": "30300000",
+      "instruction": "move.w  (A0,D0.w), D0"
+    },
+    {
+      "pc": 47676,
+      "opcode": "206e0340",
+      "instruction": "movea.l ($340,A6), A0"
+    },
+    {
+      "pc": 47680,
+      "opcode": "4eb90000289c",
+      "instruction": "jsr     $289c.l"
+    },
+    {
+      "pc": 47686,
+      "opcode": "3008",
+      "instruction": "move.w  A0, D0"
+    },
+    {
+      "pc": 47688,
+      "opcode": "41ee0c58",
+      "instruction": "lea     ($c58,A6), A0"
+    },
+    {
+      "pc": 47692,
+      "opcode": "323c0000",
+      "instruction": "move.w  #$0, D1"
+    },
+    {
+      "pc": 47696,
+      "opcode": "b050",
+      "instruction": "cmp.w   (A0), D0"
+    },
+    {
+      "pc": 47698,
+      "opcode": "67000008",
+      "instruction": "beq     $ba5c"
+    },
+    {
+      "pc": 47702,
+      "opcode": "5848",
+      "instruction": "addq.w  #4, A0"
+    },
+    {
+      "pc": 47704,
+      "opcode": "51c9fff6",
+      "instruction": "dbra    D1, $ba50"
+    },
+    {
+      "pc": 47708,
+      "opcode": "4290",
+      "instruction": "clr.l   (A0)"
+    },
+    {
+      "pc": 47710,
+      "opcode": "1d7c0038035f",
+      "instruction": "move.b  #$38, ($35f,A6)"
+    },
+    {
+      "pc": 47716,
+      "opcode": "4e44",
+      "instruction": "trap    #$4"
+    },
+    {
+      "pc": 47718,
+      "opcode": "41ee0024",
+      "instruction": "lea     ($24,A6), A0"
+    },
+    {
+      "pc": 47722,
+      "opcode": "4a2e0015",
+      "instruction": "tst.b   ($15,A6)"
+    },
+    {
+      "pc": 47726,
+      "opcode": "67000004",
+      "instruction": "beq     $ba74"
+    },
+    {
+      "pc": 47730,
+      "opcode": "5848",
+      "instruction": "addq.w  #4, A0"
+    },
+    {
+      "pc": 47732,
+      "opcode": "10280002",
+      "instruction": "move.b  ($2,A0), D0"
+    },
+    {
+      "pc": 47736,
+      "opcode": "e848",
+      "instruction": "lsr.w   #4, D0"
+    },
+    {
+      "pc": 47738,
+      "opcode": "02800000000f",
+      "instruction": "andi.l  #$f, D0"
+    },
+    {
+      "pc": 47744,
+      "opcode": "e348",
+      "instruction": "lsl.w   #1, D0"
+    },
+    {
+      "pc": 47746,
+      "opcode": "41f90000ba90",
+      "instruction": "lea     $ba90.l, A0"
+    },
+    {
+      "pc": 47752,
+      "opcode": "30300000",
+      "instruction": "move.w  (A0,D0.w), D0"
+    },
+    {
+      "pc": 47756,
+      "opcode": "2040",
+      "instruction": "movea.l D0, A0"
+    },
+    {
+      "pc": 47758,
+      "opcode": "4ed0",
+      "instruction": "jmp     (A0)"
+    },
+    {
+      "pc": 47760,
+      "opcode": "baf8bab0",
+      "instruction": "cmpa.w  $bab0.w, A5"
+    },
+    {
+      "pc": 47764,
+      "opcode": "baf8bab0",
+      "instruction": "cmpa.w  $bab0.w, A5"
+    },
+    {
+      "pc": 47768,
+      "opcode": "bb46",
+      "instruction": "eor.w   D5, D6"
+    },
+    {
+      "pc": 47770,
+      "opcode": "baecbb46",
+      "instruction": "cmpa.w  (-$44ba,A4), A5"
+    },
+    {
+      "pc": 47774,
+      "opcode": "baecbb4c",
+      "instruction": "cmpa.w  (-$44b4,A4), A5"
+    },
+    {
+      "pc": 47778,
+      "opcode": "baf2b900",
+      "instruction": "cmpa.w  INVALID 32, A5"
+    },
+    {
+      "pc": 47782,
+      "opcode": "b900",
+      "instruction": "eor.b   D4, D0"
+    },
+    {
+      "pc": 47784,
+      "opcode": "b900",
+      "instruction": "eor.b   D4, D0"
+    },
+    {
+      "pc": 47786,
+      "opcode": "b900",
+      "instruction": "eor.b   D4, D0"
+    },
+    {
+      "pc": 47788,
+      "opcode": "b900",
+      "instruction": "eor.b   D4, D0"
+    },
+    {
+      "pc": 47790,
+      "opcode": "b900",
+      "instruction": "eor.b   D4, D0"
+    },
+    {
+      "pc": 47792,
+      "opcode": "103c0024",
+      "instruction": "move.b  #$24, D0"
+    },
+    {
+      "pc": 47796,
+      "opcode": "41ee0420",
+      "instruction": "lea     ($420,A6), A0"
+    },
+    {
+      "pc": 47800,
+      "opcode": "7e06",
+      "instruction": "moveq   #$6, D7"
+    },
+    {
+      "pc": 47802,
+      "opcode": "4a10",
+      "instruction": "tst.b   (A0)"
+    },
+    {
+      "pc": 47804,
+      "opcode": "67000020",
+      "instruction": "beq     $bade"
+    },
+    {
+      "pc": 47808,
+      "opcode": "4a280009",
+      "instruction": "tst.b   ($9,A0)"
+    },
+    {
+      "pc": 47812,
+      "opcode": "66000018",
+      "instruction": "bne     $bade"
+    },
+    {
+      "pc": 47816,
+      "opcode": "0c100011",
+      "instruction": "cmpi.b  #$11, (A0)"
+    },
+    {
+      "pc": 47820,
+      "opcode": "67000010",
+      "instruction": "beq     $bade"
+    },
+    {
+      "pc": 47824,
+      "opcode": "1080",
+      "instruction": "move.b  D0, (A0)"
+    },
+    {
+      "pc": 47826,
+      "opcode": "08a800030003",
+      "instruction": "bclr    #$3, ($3,A0)"
+    },
+    {
+      "pc": 47832,
+      "opcode": "117c0000000a",
+      "instruction": "move.b  #$0, ($a,A0)"
+    },
+    {
+      "pc": 47838,
+      "opcode": "d0fc0020",
+      "instruction": "adda.w  #$20, A0"
+    },
+    {
+      "pc": 47842,
+      "opcode": "51cfffd6",
+      "instruction": "dbra    D7, $baba"
+    },
+    {
+      "pc": 47846,
+      "opcode": "422e094d",
+      "instruction": "clr.b   ($94d,A6)"
+    },
+    {
+      "pc": 47850,
+      "opcode": "4e75",
+      "instruction": "rts"
+    },
+    {
+      "pc": 47852,
+      "opcode": "103c0025",
+      "instruction": "move.b  #$25, D0"
+    },
+    {
+      "pc": 47856,
+      "opcode": "60c2",
+      "instruction": "bra     $bab4"
+    },
+    {
+      "pc": 47858,
+      "opcode": "103c0023",
+      "instruction": "move.b  #$23, D0"
+    },
+    {
+      "pc": 47862,
+      "opcode": "60bc",
+      "instruction": "bra     $bab4"
+    },
+    {
+      "pc": 47864,
+      "opcode": "103c0003",
+      "instruction": "move.b  #$3, D0"
+    },
+    {
+      "pc": 47868,
+      "opcode": "41ee0420",
+      "instruction": "lea     ($420,A6), A0"
+    },
+    {
+      "pc": 47872,
+      "opcode": "7e06",
+      "instruction": "moveq   #$6, D7"
+    },
+    {
+      "pc": 47874,
+      "opcode": "4a10",
+      "instruction": "tst.b   (A0)"
+    },
+    {
+      "pc": 47876,
+      "opcode": "6700002a",
+      "instruction": "beq     $bb30"
+    },
+    {
+      "pc": 47880,
+      "opcode": "4a280009",
+      "instruction": "tst.b   ($9,A0)"
+    },
+    {
+      "pc": 47884,
+      "opcode": "66000022",
+      "instruction": "bne     $bb30"
+    },
+    {
+      "pc": 47888,
+      "opcode": "0c100011",
+      "instruction": "cmpi.b  #$11, (A0)"
+    },
+    {
+      "pc": 47892,
+      "opcode": "6700001a",
+      "instruction": "beq     $bb30"
+    },
+    {
+      "pc": 47896,
+      "opcode": "1080",
+      "instruction": "move.b  D0, (A0)"
+    },
+    {
+      "pc": 47898,
+      "opcode": "08a800030003",
+      "instruction": "bclr    #$3, ($3,A0)"
+    },
+    {
+      "pc": 47904,
+      "opcode": "317c05050006",
+      "instruction": "move.w  #$505, ($6,A0)"
+    },
+    {
+      "pc": 47910,
+      "opcode": "117c00070008",
+      "instruction": "move.b  #$7, ($8,A0)"
+    },
+    {
+      "pc": 47916,
+      "opcode": "4228000a",
+      "instruction": "clr.b   ($a,A0)"
+    },
+    {
+      "pc": 47920,
+      "opcode": "d0fc0020",
+      "instruction": "adda.w  #$20, A0"
+    },
+    {
+      "pc": 47924,
+      "opcode": "51cfffcc",
+      "instruction": "dbra    D7, $bb02"
+    },
+    {
+      "pc": 47928,
+      "opcode": "1d7c0064035f",
+      "instruction": "move.b  #$64, ($35f,A6)"
+    },
+    {
+      "pc": 47934,
+      "opcode": "4e44",
+      "instruction": "trap    #$4"
+    },
+    {
+      "pc": 47936,
+      "opcode": "422e094d",
+      "instruction": "clr.b   ($94d,A6)"
+    },
+    {
+      "pc": 47940,
+      "opcode": "4e75",
+      "instruction": "rts"
+    },
+    {
+      "pc": 47942,
+      "opcode": "103c000c",
+      "instruction": "move.b  #$c, D0"
+    },
+    {
+      "pc": 47946,
+      "opcode": "60b0",
+      "instruction": "bra     $bafc"
+    },
+    {
+      "pc": 47948,
+      "opcode": "103c0026",
+      "instruction": "move.b  #$26, D0"
+    },
+    {
+      "pc": 47952,
+      "opcode": "6000ff62",
+      "instruction": "bra     $bab4"
+    }
+  ],
+  "coverage_contract": [
+    {
+      "path": "D:\\Arcade\\AI\\aCORES\\meatsauce-alpha68kn\\cores\\Alpha68k_N\\plan.md",
+      "line": 101,
+      "text": "4. Replay the P1 action sequence once: punch swing/hit, jump, pickup, death, game-over/reset, sustained PSG/noise and DAC use. Compare command/latch/IRQ/NMI/register events and tone frequencies; capture a short WAV. This closes B03/B04/B05/B06/B13 together. Do not demand phase-identical MAME and JT PCM; reserve listening on MiSTer for P9."
+    },
+    {
+      "path": "D:\\Arcade\\AI\\aCORES\\meatsauce-alpha68kn\\cores\\Alpha68k_N\\mamebug.md",
+      "line": 105,
+      "text": "[MAME Testers 05959](https://mametesters.org/view.php?id=5959&nbn=3) lists missing punch swing/hit, jump and pickup effects. Regression: **0.144u2**; official fix: **0.164**. The report's repair replaces twice-per-second-frame periodic Z80 IRQ generation with the screen vblank IRQ. Its note suggests the same correction for Super Stingray."
+    },
+    {
+      "path": "D:\\Arcade\\AI\\aCORES\\meatsauce-alpha68kn\\cores\\Alpha68k_N\\mamebug.md",
+      "line": 113,
+      "text": "Use the **final 0.289** route balance, not the intermediate historical chip definitions: Kyros YM / AY1 / AY2 / DAC = **0.30 / 0.30 / 0.60 / 0.50**; Stingray = **0.30 / 0.30 / 0.45 / 0.50**. These are MAME route gains, not directly transferable integer multipliers for JT outputs of different widths. Calibrate FM/SSG/PSG scaling, sum in a wide signed accumulator, and saturate once at the output. Record clipping counts in the shared sound replay. Exact PCM identity is not an acceptance claim; register timing, tone rates, effect coverage and relative levels are."
+    }
+  ],
+  "required_semantic_gate": "B04 requires genuine pickup effect coverage; plan P5 action replay includes pickup. Qualified absence cannot close effect coverage. B03 concerns punch cleanup, release/death/reset and does not require ordinary item type20..25 specifically.",
+  "alternative_pickup_path": "b902 tests20911 flag, samples actualplayer5292 tile,2340<=tile<2370 dispatchb9d2. ba04 writes53 to2035f; subsequentscore10000 at20300/20370. This path clears4-byte record20c40..20c4b, not ordinary7-slot item.",
+  "ordinary_type24_25_producer": "ba66 reads active-player selection from20026 or2002a high nibble, tableba90 choosesbab0/baec. bab4 enumerates7 slots20420..204e0, skipsinactive/type11/byte9!=0, bad0 writes24/25 and clearscollisionflags+0a. It does not create a differentrecordbank.",
+  "generic_spawn_table_limit": "The prior256-entry10000 scan crossed the separate102f0 and10650 tables; apparent20..25 entries are not proven ordinaryspawn opportunities. Do not use source_opportunity_v1 table coincidences as route targets.",
+  "input_phase_limit": "Recorded first player type80/coord field294 does not prove controls were accepted then. Legal movement calibration from720 is actual; earlieractivationrequires genuine consumed-input/game-state evidence.",
+  "route_qualified": false,
+  "next_action": "If an actual2340..236f tile is retained, derive shortest legal geometry approach and verify health/flags/20911 consumerconditions. Otherwise no shortestpickup route is proven by these3 snapshots. Further observation must be specifically authorized and source-informed, not automaticextension."
+}

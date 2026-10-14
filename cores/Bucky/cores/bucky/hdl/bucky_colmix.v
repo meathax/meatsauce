@@ -1,0 +1,504 @@
+/*  This file is part of JTCORES.
+    JTCORES program is free software: you can redistribute it and/or modify
+    it under the terms of the GNU General Public License as published by
+    the Free Software Foundation, either version 3 of the License, or
+    (at your option) any later version.
+
+    JTCORES program is distributed in the hope that it will be useful,
+    but WITHOUT ANY WARRANTY; without even the implied warranty of
+    MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+    GNU General Public License for more details.
+
+    You should have received a copy of the GNU General Public License
+    along with JTCORES.  If not, see <http://www.gnu.org/licenses/>.
+
+    Author: Rafael Eduardo Paiva Feener. Copyright: Miki Saito
+    Version: 1.0
+    Date: 30-9-2024 */
+
+`ifndef BUCKY_TEST_PLUSARGS
+`ifdef SYNTHESIS
+`define BUCKY_TEST_PLUSARGS(arg) 1'b0
+`else
+`define BUCKY_TEST_PLUSARGS(arg) $test$plusargs(arg)
+`endif
+`endif
+
+module bucky_colmix(
+    input             rst,
+    input             clk,
+    input             pxl_cen,
+
+    // Base Video
+    input             lhbl,
+    input             lvbl,
+
+    // CPU interface
+    input             pcu_cs,
+    input             alpha_cs,   // K054338 regs 0x0ca000 (alpha + backdrop fill)
+    input             pal_cs,
+    input             cpu_we,
+    input      [15:0] cpu_dout,
+    input      [ 7:0] cpu_d8,
+    input      [ 1:0] cpu_dsn,
+    input      [13:1] cpu_addr,
+    output     [15:0] cpu_din,
+    output     [15:0] alpha_dout,
+    output      [ 7:0] pcu_dout,
+
+    // Final pixels (K056832: 4 capas de tile 8b {colnib[7:4],pen[3:0]} + sprites)
+    input      [ 7:0] lyrf_pxl,
+    input      [ 7:0] lyra_pxl,
+    input      [ 7:0] lyrb_pxl,
+    input      [ 7:0] lyrc_pxl,
+    // flag de MEZCLA por pixel (attr[2] del tile) de cada capa de scroll — ver ⚠️ EXCEPCIÓN del K054338
+    input      [ 1:0] lyra_mix, lyrb_mix, lyrc_mix,
+    input      [ 8:0] lyro_pxl,
+    input      [ 4:0] lyro_pri,
+
+    input      [ 1:0] shadow,
+    input      [ 2:0] dim,
+    input             dimmod,
+    input             dimpol,
+
+    output     [ 7:0] red,
+    output     [ 7:0] green,
+    output     [ 7:0] blue,
+    output            pal_wait,
+
+    // Debug
+    input      [11:0] ioctl_addr,
+    input             ioctl_ram,
+    output     [ 7:0] ioctl_din,
+    output     [ 7:0] dump_mmr,
+
+    input      [ 7:0] debug_bus
+);
+
+wire [ 7:0] pal_r, pal_g, pal_b;   // lectura vídeo: canales xRGB_888 (moomesa)
+wire [ 7:0] cr, cg, cb, cx;        // readback CPU (cx = byte 'x' de xRGB_888, ver u_pal_x)
+reg  [23:0] bgr;
+reg  [ 7:0] r8, b8, g8;
+wire [10:0] pal_addr;
+wire        shad, pcu_we, nc, k251_coln, brit_out, brit_back;
+// 053251 inputs
+wire [ 5:0] pri1;
+wire [ 8:0] ci0, ci1, ci2;
+wire [ 7:0] ci3, ci4;
+wire [ 1:0] shd_out, shd_in;
+wire [15:0] alpha_reg_dout;
+wire  [ 7:0] pcu_reg_dout;
+// K054338 alpha: 2ª instancia del K053251 ("back") + 2º puerto de paleta
+wire [10:0] cout_b;                 // color ganador SIN la capa frontal de scroll (=fondo del blend)
+wire        coln_b;                 // back transparente -> usar backdrop
+wire [ 7:0] pal_r2, pal_g2, pal_b2; // lectura de paleta del color "back"
+wire        front_a, front_b, front_c;   // one-hot: qué capa de scroll es la frontal (layer[2])
+reg  [ 5:0] pri_a, pri_b, pri_c;    // prioridades snoopeadas de CI2/CI3/CI4 (mmr 2/3/4)
+wire        do_blend;
+
+// Paleta xRGB_888 (GX173: 4096 entries -> 2 words/color @0x1b0000).
+// word par (cpu_addr[1]=0) low byte = R; word impar (cpu_addr[1]=1): high byte = G, low byte = B.
+// Idéntico a build_palette del golden (r=hi&0xff, g=lo>>8, b=lo&0xff) y al backdrop K054338 de abajo.
+wire [11:0] cpu_cidx = cpu_addr[13:2];   // índice de color (0..4095)
+wire        we_r = pal_cs & cpu_we & ~cpu_addr[1] & ~cpu_dsn[0];
+wire        we_g = pal_cs & cpu_we &  cpu_addr[1] & ~cpu_dsn[1];
+wire        we_b = pal_cs & cpu_we &  cpu_addr[1] & ~cpu_dsn[0];
+// ⚠ El byte 'x' de xRGB_888 (byte ALTO del word PAR) NO lo usa el vídeo... pero en la PLACA Bucky 0x1b0000 es
+// **RAM NORMAL de 16 bits**: lo que escribes, lo relees. Sin este banco se PERDIA (no habia `we` para el)
+// y `cpu_din` devolvia {8'h00, cr} -> una relectura de un word par NO casaba con lo escrito.
+// Consecuencia REAL (no teorica): el POST hace un test de RAM (escribe 5555/aaaa y relee) sobre la paleta
+// -> leia 0055/00aa -> **"RAM ... BAD"** en la pantalla de check. Ver HANDOFF sesion 7 §D (ya estaba
+// anotado como "diferencia real contra MAME -> vigilar") y sesion 10.
+// No afecta al video: `cx` solo sale por `cpu_din`, nunca por el camino RGB.
+wire        we_x = pal_cs & cpu_we & ~cpu_addr[1] & ~cpu_dsn[1];
+assign pcu_we    = pcu_cs & ~cpu_dsn[0] & cpu_we;
+assign cpu_din   = cpu_addr[1] ? {cg, cb} : {cx, cr};
+assign alpha_dout = alpha_reg_dout;
+assign pcu_dout   = pcu_reg_dout;
+assign ioctl_din = 8'd0;   // Scene-dump path is intentionally deferred; savestates are not in v1.
+
+`ifdef SIMULATION
+// Parent bring-up probe: the palette is the first point where valid tile
+// indices become visible RGB.  Keep this bounded and opt-in so normal tests
+// remain quiet and production RTL has no diagnostic state or behavior.
+integer pal_dbg_count;
+integer pal_nonzero_dbg_count;
+initial pal_dbg_count = 0;
+initial pal_nonzero_dbg_count = 0;
+always @(posedge clk) begin
+    if (`BUCKY_TEST_PLUSARGS("PALDIAG") && pal_cs && cpu_we &&
+        ((pal_dbg_count < 96) || (cpu_dout != 16'd0 && pal_nonzero_dbg_count < 64))) begin
+        $display("[PALWR] addr=%03x cidx=%03x dsn=%b din=%04x we=%b/%b/%b cpu_addr1=%b",
+                 cpu_addr, cpu_cidx, cpu_dsn, cpu_dout, we_r, we_g, we_b,
+                 cpu_addr[1]);
+        if (pal_dbg_count < 96) pal_dbg_count = pal_dbg_count + 1;
+        if (cpu_dout != 16'd0) pal_nonzero_dbg_count = pal_nonzero_dbg_count + 1;
+    end
+end
+`endif
+
+// Orden de precedencia en el pixel final: FIX (opaco) > blend alpha K054338 > backdrop > tile ganador.
+// Cuando alpha_en=0 -> do_blend=0 -> salida IDÉNTICA a la ruta validada (notspr 180/300/900).
+// (sesión 24) do_blend exige además `mix_front` (attr[2] del tile): solo se mezclan los tiles MARCADOS.
+// Un tile sin marcar sale OPACO aunque alpha_lv sea 0 — antes se suprimía la capa frontal entera y eso
+// borraba el cráter del attract (1200/1350), que es el bug de MAME. Ver el bloque ⭐⭐ del K054338.
+
+
+// 053251 wiring — mapeo REAL de moomesa (moo.cpp screen_update + k051_palette_index del golden):
+//   SPRITES = CI0 (colorbase get_palette_index(CI0)=idx0; prioridad DINAMICA por sprite via pri0,
+//     porque EXTEN[0]=0 -> el K053251 usa el input pri0). Antes estaban en CI1, donde EXTEN[1]=1 fuerza
+//     pri1=mmr[1]=0x3f (mas baja) -> el sprite SIEMPRE perdia y no componia. Cazado con run_vfull.
+//   CI1 = referencia de fondo (transparente aqui; su prioridad mmr[1] la fija el juego).
+//   capa a=CI2, capa b=CI3, capa c=CI4 (colorbase idx2/3/4, prioridad mmr[2/3/4]).
+// El FIX (colorbase fija 0x70) NO entra por el K053251 -> se SUPERPONE encima (mux pal_amux).
+// Nota: mover sprites CI1->CI0 NO afecta a notspr (sprites transparentes en ambos casos; tiles intactos).
+wire [ 5:0] pri0s = {lyro_pri,1'b0};    // prioridad dinamica del sprite (=(w6&0x3e0)>>4 del golden)
+assign pri1      = 6'h3f;               // ci1 sin usar (EXTEN[1]=1 -> el K053251 toma mmr[1] igualmente)
+assign ci0       =  lyro_pxl;           // SPRITES (CI0)
+assign ci1       =  9'd0;               // CI1 = fondo/referencia (transparente)
+assign ci2       = {1'b0, lyra_pxl};    // capa a (CI2)
+assign ci3       =  lyrb_pxl;           // capa b (CI3)
+assign ci4       =  lyrc_pxl;           // capa c (CI4)
+assign shad      = |shd_out;    // hay sombra si shd_out != 0 (el CUAL de los 3 se usa abajo)
+assign shd_in    =  shadow;
+
+// FIX superpuesto encima del K053251 (colorbase 0x70): pal = fix_opaco ? {3'b111,fix} : cout_k251.
+// lyrf_d = fix retrasado para alinear con la latencia del K053251 (~1 pxl_cen) — VALIDAR en full-core sim.
+// fix retrasado L=2 para IGUALAR la latencia del scroll a través del K053251 (validado sesión 3:
+// fix-only alineaba a +2 y scroll a +3 -> 1px de desfase relativo fix/scroll; con L=2 ambos a +3).
+wire [ 7:0] lyrf_d;
+wire        fix_op = |lyrf_d[3:0];
+wire [11:0] pal_amux = fix_op ? {1'b0,3'b111,lyrf_d} : {1'b0,pal_addr};
+jtframe_sh #(.W(8),.L(2)) u_fixdly(.clk(clk),.clk_en(pxl_cen),.din(lyrf_pxl),.drop(lyrf_d));
+
+// ---------------- K054338: registros (0x0ca000) + backdrop fill (+ alpha, parcial) ----------------
+reg  [15:0] k38[0:15];
+// K054338 page-1 sequencing: register accesses have a direct DTACK path,
+// while palette-RAM accesses are arbitrated against the pixel slot.  During
+// active display, hold a CPU palette cycle until the next pixel-enable pulse
+// unless REG15.D4 requests CPU priority.  Blank periods never wait.  This is
+// deliberately a slot-level model (rather than a guessed fixed delay); the
+// exact phase and alpha-dependent slot occupancy remain differential-test
+// targets against the PCB/MAME traces.
+wire k338_cpu_priority = k38[15][4];
+assign pal_wait = pal_cs && lhbl && lvbl && !k338_cpu_priority && !pxl_cen;
+// contador de bucle LOCAL en named block (`integer ai` dentro de `begin:k38_rst`): Verilog-2001 legal
+// (Quartus rechaza `for(int ai...)` en un .v -> error 10170; ver k056832, sesion 18). Sigue LOCAL ->
+// evita el latch del `integer` de modulo en el reset (sesion 16).
+always @(posedge clk, posedge rst) begin : k38_rst
+    integer ai;
+    if(rst) for(ai=0;ai<16;ai=ai+1) k38[ai]<=16'd0;
+    else if(alpha_cs & cpu_we) begin
+        if(!cpu_dsn[1]) k38[cpu_addr[4:1]][15:8] <= cpu_dout[15:8];
+        if(!cpu_dsn[0]) k38[cpu_addr[4:1]][ 7:0] <= cpu_dout[ 7:0];
+    end
+end
+`ifdef SIMULATION
+// Sonda SOLO-$display (no anade estado, no afecta a la sintesis ni a los checkpoints): que escribe el
+// juego en el registro de BRILLO del K054338 (reg 11 / reg 12). El frame 600 del sim sale ENTERO a
+// dac(golden,0x80) -> 16 de 18 clases de color coinciden exactamente con la golden de MAME escalada a
+// 0x80, o sea que estamos aplicando ganancia 0x80 a toda la pantalla. Falta saber si el juego pide
+// 0x80 de verdad o si es artefacto nuestro. Ver GAPS: brillo del K054338.
+always @(posedge clk) if( alpha_cs & cpu_we & (cpu_addr[4:1]==4'd11 || cpu_addr[4:1]==4'd12) )
+    $display("[K38BRI] reg%0d <= %04x dsn=%b", cpu_addr[4:1], cpu_dout, cpu_dsn);
+`endif
+
+// backdrop fill: bytes CRUDOS (sin paleta) R=k38[0][7:0], G=k38[1][15:8], B=k38[1][7:0].
+// la salida es {blue,green,red} -> ordenar {B,G,R}. Validado contra el golden (bgrgb).
+wire [23:0] bg_bgr   = { k38[1][7:0], k38[1][15:8], k38[0][7:0] };
+// alpha (K338): MIXPRI=k38[15][1] (enable), mixlv=k38[13][4:0], alpha_lv={mixlv,mixlv[4:2]}.
+//
+// ⭐⭐ AQUI SE ARREGLA UN BUG QUE MAME NUNCA RESOLVIO (sesion 24). Lee esto antes de tocar el blend.
+//
+// MAME (moo.cpp:377-385) decide la mezcla POR CAPA y se inventa el enable:
+//     m_alpha_enabled = ... & K338_CTL_MIXPRI;              // DUMMY  <- lo admite el propio MAME
+//     if (alpha > 0) tilemap_draw(layer[2], ...);           // con alpha==0 NO DIBUJA la capa entera
+// Con k38[13]=0 (alpha_lv=0) eso BORRA la capa frontal completa. En 1200/1350 esa capa lleva 6841 px:
+// EL CRATER del que sale la mesa -> en MAME la montaña sale flotando. Bug conocido y no resuelto
+// (moo.cpp:88-113 "needs a correct enable/disable bit in Moo (INTRO GFX MISSING and fog blocking
+// view)"; moomesa lleva MACHINE_IMPERFECT_GRAPHICS). MAME buscaba "un bit de control" y no lo hallaba.
+//
+// ✅ EL BIT NO ESTA EN NINGUN REGISTRO: ESTA EN EL ATRIBUTO DEL TILE, y MAME lo TIRA.
+//    moo.cpp:290  tile_callback:  color = m_layer_colorbase[layer] | (color >> 2 & 0x0f);
+//    El campo de color son 6 bits (colpre = attr[7:2]); MAME usa colpre[5:2] y DESCARTA colpre[1:0].
+//    MEDIDO: colpre[0] (= attr[2]) es el flag de mezcla POR TILE:
+//        attr[2]=0 -> tile OPACO (el blender no le aplica)
+//        attr[2]=1 -> tile MEZCLADO al nivel alpha_lv
+//    Con alpha_lv=0 UNA sola regla da las dos conductas que parecian contradictorias:
+//        * crater (1200/1350): 94% de sus px con attr[2]=0 -> opaco -> SE VE  (MAME lo perdia)
+//        * cortina de transicion (1030/1100): 100% attr[2]=1, un solo tile 0xF4 -> invisible (correcto;
+//          forzarla opaca deja la PANTALLA NEGRA en partida - fue mi primer intento, y estaba MAL)
+//    Por eso K054338 y K053251 son BIT-IDENTICOS entre ambas escenas: la info nunca estuvo ahi.
+//    El bit llega desde el K056832 por lyra_mix/lyrb_mix/lyrc_mix (line buffers 8->9b).
+//
+// Evidencia: placa real (sources/crater-captura.png) + `tools/cowboys_tilebits.py` (histograma de los
+// 2 bits descartados) + regresion golden en 15 escenas: 13 IDENTICAS a MAME, solo 1200/1350 cambian.
+// ⚠️ En 1200 y 1350 golden y RTL DIVERGEN DE MAME a proposito (~6400 px): ahi el oraculo es la PLACA,
+//    no MAME. NO lo "arregles" volviendo a casar con MAME. Ver HANDOFF "SESION 25" y GAPS C-17.
+// K338_CTL_MIXPRI = bit1 (k054338.h:19) es el "enable" de la mezcla alpha; moo.cpp:379 lee ese bit.
+// bit0 = K338_CTL_KILL es el enable de VIDEO y ya se consume aparte en bucky_k054338.v:132 (y la
+// salida se compuerta ademas con lvbl&lhbl), asi que usarlo aqui era redundante y dejaba la mezcla
+// SIEMPRE activa mientras hubiera video. El donante moomesa usaba [1] (cowboys_colmix.v:181) y el
+// comentario de arriba de este mismo fichero ya dice "MIXPRI=k38[15][1] (enable)": el codigo se
+// contradecia con su propio comentario.
+wire        alpha_en = k38[15][1];
+// flag de mezcla del pixel de la capa FRONTAL (la unica que el K054338 mezcla en moo)
+wire [ 1:0] mix_front = ({2{front_a}} & lyra_mix) | ({2{front_b}} & lyrb_mix) | ({2{front_c}} & lyrc_mix);
+
+// --- capa frontal (layer[2]) = la de scroll con MENOR prioridad (=frontmost en Konami) ---
+// Snoop de las prioridades CI2/CI3/CI4 escritas al K053251 (addr 2/3/4, din=cpu_dout[5:0]).
+always @(posedge clk, posedge rst) begin
+    if(rst) begin pri_a<=0; pri_b<=0; pri_c<=0; end
+    else if(pcu_we) case(cpu_addr[4:1])
+        4'd2: pri_a <= cpu_dout[5:0];
+        4'd3: pri_b <= cpu_dout[5:0];
+        4'd4: pri_c <= cpu_dout[5:0];
+        default:;
+    endcase
+end
+// Réplica EXACTA de konami_sortlayers3(layer=[a,b,c], pri): el índice 2 final = min prioridad.
+// (0=a/CI2, 1=b/CI3, 2=c/CI4). Sólo swap en '<' estricto, igual que el golden -> mismos empates.
+reg [1:0] sl0, sl1, sl2; reg [5:0] sp0, sp1, sp2;
+always @* begin
+    sl0=2'd0; sl1=2'd1; sl2=2'd2; sp0=pri_a; sp1=pri_b; sp2=pri_c;
+    if(sp0<sp1) begin {sp0,sp1}={sp1,sp0}; {sl0,sl1}={sl1,sl0}; end
+    if(sp0<sp2) begin {sp0,sp2}={sp2,sp0}; {sl0,sl2}={sl2,sl0}; end
+    if(sp1<sp2) begin {sp1,sp2}={sp2,sp1}; {sl1,sl2}={sl2,sl1}; end
+end
+assign front_a = sl2==2'd0;
+assign front_b = sl2==2'd1;
+assign front_c = sl2==2'd2;
+
+always @(posedge clk, posedge rst) begin
+    if( rst ) begin
+        bgr   <= 0;
+    end else begin
+        { b8, g8, r8 } <= { pal_b, pal_g, pal_r };   // xRGB_888 directo (sin conv58 5->8)
+        if( pxl_cen ) bgr <= { b8, g8, r8 };
+    end
+end
+
+k053251 u_k251(
+    .rst        ( rst       ),
+    .clk        ( clk       ),
+    .pxl_cen    ( pxl_cen   ),
+    // CPU interface
+    .cs         ( pcu_we    ),
+    .addr       (cpu_addr[4:1]),
+    .din        (cpu_dout[5:0]),
+    // explicit priorities
+    .sel        ( 1'b0      ),
+    .pri0       ( pri0s     ),   // sprites: prioridad dinamica por sprite
+    .pri1       ( pri1      ),
+    .pri2       ( 6'h3f     ),
+    // color inputs
+    .ci0        ( ci0       ),
+    .ci1        ( ci1       ),
+    .ci2        ( ci2       ),
+    .ci3        ( ci3       ),
+    .ci4        ( ci4       ),
+    // shadow
+    .shd_in     ( shd_in    ),
+    .shd_out    ( shd_out   ),
+    // dump to SD card
+    .ioctl_addr ( ioctl_ram ? ioctl_addr[3:0] : debug_bus[3:0] ),
+    .ioctl_din  ( dump_mmr  ),
+    .reg_dout   ( pcu_reg_dout ),
+
+    .cout       ( pal_addr  ),
+    .brit       ( brit_out  ),
+    .col_n      ( k251_coln )
+);
+
+// backdrop: si el ganador del K053251 es transparente Y el fix es transparente -> color de fondo.
+// Alineación con la latencia hacia bgr (VALIDADA en sim RGB, sesión 3): bgr(W)=palette[fix(W-2)] y
+// fix_op ya lleva +1 de lyrf_d -> fixop_a necesita L=1 (no L=2, que erosionaba 1px el borde inicial
+// de cada glifo del fix). El col_n del K053251 sí necesita L=2 (cout->paleta->bgr). Delays SEPARADOS.
+wire coln_a, fixop_a;
+jtframe_sh #(.W(1),.L(2)) u_colndly(.clk(clk),.clk_en(pxl_cen),.din(k251_coln),.drop(coln_a ));
+jtframe_sh #(.W(1),.L(1)) u_fopdly (.clk(clk),.clk_en(pxl_cen),.din(fix_op),   .drop(fixop_a));
+wire use_bg = coln_a & ~fixop_a;
+
+// Bucky = xRGB_888, 4096 colores, 2 words por color (@0x1b0000). Se guarda en 3 bancos
+// de 4096x8 (R,G,B) direccionados por índice de color: lectura por pal_amux (12b), escritura por
+// cpu_cidx=cpu_addr[13:2] con we por byte (we_r/we_g/we_b). Port1 = lectura vídeo; Port0 = CPU rw.
+jtframe_dual_ram #(.DW(8),.AW(12),.SIMFILE("pal_r.bin")) u_pal_r(
+    .clk0( clk ), .data0( cpu_dout[7:0]  ), .addr0( cpu_cidx ), .we0( we_r ), .q0( cr    ),
+    .clk1( clk ), .data1( 8'd0           ), .addr1( pal_amux ), .we1( 1'b0 ), .q1( pal_r )
+);
+jtframe_dual_ram #(.DW(8),.AW(12),.SIMFILE("pal_g.bin")) u_pal_g(
+    .clk0( clk ), .data0( cpu_dout[15:8] ), .addr0( cpu_cidx ), .we0( we_g ), .q0( cg    ),
+    .clk1( clk ), .data1( 8'd0           ), .addr1( pal_amux ), .we1( 1'b0 ), .q1( pal_g )
+);
+jtframe_dual_ram #(.DW(8),.AW(12),.SIMFILE("pal_b.bin")) u_pal_b(
+    .clk0( clk ), .data0( cpu_dout[7:0]  ), .addr0( cpu_cidx ), .we0( we_b ), .q0( cb    ),
+    .clk1( clk ), .data1( 8'd0           ), .addr1( pal_amux ), .we1( 1'b0 ), .q1( pal_b )
+);
+// 4º banco: el byte 'x' de xRGB_888. El VIDEO NO LO USA (no hay puerto 1) — existe solo para que una
+// relectura del word PAR devuelva lo que se escribio, como en la placa (RAM de 16 bits). Sin el, el test
+// de RAM del POST sobre la paleta da "BAD". No hay SIMFILE: los dumps del golden no llevan este byte.
+jtframe_dual_ram #(.DW(8),.AW(12)) u_pal_x(
+    .clk0( clk ), .data0( cpu_dout[15:8] ), .addr0( cpu_cidx ), .we0( we_x ), .q0( cx    ),
+    .clk1( clk ), .data1( 8'd0           ), .addr1( pal_amux ), .we1( 1'b0 ), .q1(       )
+);
+
+// ================= K054338 alpha blending =================
+// 2ª instancia del K053251 con la capa FRONTAL de scroll puesta a 0 (sprites CI0 intactos):
+//   cout_b = color que quedaría si la capa frontal (=alpha) no se dibujara = "fondo" del blend.
+// Si el ganador de la instancia A es un sprite o una capa trasera, quitar la frontal no cambia el
+// ganador -> cout_b==pal_addr -> NO se hace blend (sprites nunca se alpha-mezclan). Si el ganador es
+// la capa frontal, cout_b da lo de detrás y se mezcla. Réplica del compositing painter's de moo.cpp
+// screen_update. (sesión 24) Además el blend exige `mix_front` (attr[2] del tile) — ver ⭐⭐ K054338.
+wire [8:0] ci2b = front_a ? 9'd0 : ci2;
+wire [7:0] ci3b = front_b ? 8'd0 : ci3;
+wire [7:0] ci4b = front_c ? 8'd0 : ci4;
+wire [1:0] shd_out_b;
+
+k053251 u_k251_back(
+    .rst        ( rst       ),
+    .clk        ( clk       ),
+    .pxl_cen    ( pxl_cen   ),
+    .cs         ( pcu_we    ),
+    .addr       (cpu_addr[4:1]),
+    .din        (cpu_dout[5:0]),
+    .sel        ( 1'b0      ),
+    .pri0       ( pri0s     ),
+    .pri1       ( pri1      ),
+    .pri2       ( 6'h3f     ),
+    .ci0        ( ci0       ),   // sprites INTACTOS en la instancia back
+    .ci1        ( ci1       ),
+    .ci2        ( ci2b      ),   // capa frontal a 0 si es a/b/c
+    .ci3        ( ci3b      ),
+    .ci4        ( ci4b      ),
+    .shd_in     ( shd_in    ),
+    .shd_out    ( shd_out_b ),
+    .ioctl_addr ( 4'd0      ),
+    .ioctl_din  (           ),
+    .reg_dout   (           ),
+    .cout       ( cout_b    ),
+    .brit       ( brit_back ),
+    .col_n      ( coln_b    )
+);
+
+// 2º puerto de paleta: lee el color "back" en paralelo (mismos writes que el banco principal).
+jtframe_dual_ram #(.DW(8),.AW(12),.SIMFILE("pal_r.bin")) u_pal_r2(
+    .clk0( clk ), .data0( cpu_dout[7:0]  ), .addr0( cpu_cidx ), .we0( we_r ), .q0(         ),
+    .clk1( clk ), .data1( 8'd0           ), .addr1( {1'b0,cout_b} ), .we1( 1'b0 ), .q1( pal_r2 )
+);
+jtframe_dual_ram #(.DW(8),.AW(12),.SIMFILE("pal_g.bin")) u_pal_g2(
+    .clk0( clk ), .data0( cpu_dout[15:8] ), .addr0( cpu_cidx ), .we0( we_g ), .q0(         ),
+    .clk1( clk ), .data1( 8'd0           ), .addr1( {1'b0,cout_b} ), .we1( 1'b0 ), .q1( pal_g2 )
+);
+jtframe_dual_ram #(.DW(8),.AW(12),.SIMFILE("pal_b.bin")) u_pal_b2(
+    .clk0( clk ), .data0( cpu_dout[7:0]  ), .addr0( cpu_cidx ), .we0( we_b ), .q0(         ),
+    .clk1( clk ), .data1( 8'd0           ), .addr1( {1'b0,cout_b} ), .we1( 1'b0 ), .q1( pal_b2 )
+);
+
+// Cadena de latch del color back, IDÉNTICA en profundidad a la de bgr (pal->r8->bgr) para alinear.
+reg  [ 7:0] br8, bg8, bb8;
+reg  [23:0] back_bgr;
+always @(posedge clk, posedge rst) begin
+    if( rst ) begin { br8,bg8,bb8 } <= 0; back_bgr <= 0; end
+    else begin
+        { bb8, bg8, br8 } <= { pal_b2, pal_g2, pal_r2 };
+        if( pxl_cen ) back_bgr <= { bb8, bg8, br8 };   // sin shadow (back = capas traseras opacas)
+    end
+end
+
+// blend_en: alpha activo, ganador A opaco, y el ganador cambia al quitar la capa frontal
+// (=> el ganador ES la capa frontal alpha). do_blend además exige que el FIX no sea opaco (el fix
+// va siempre encima). Delay L=1: bgr/back_bgr van 1 periodo de pxl_cen por detrás de cout/pal_addr
+// (cadena pal->r8->bgr), así que la decisión (calculada en el stage de cout) se alinea con +1.
+// Validado en 1200: L=1 -> 0.0000% (L=2 dejaba residuo de 1px en el borde diagonal de la capa a).
+// `mix_front`: SOLO se mezclan los tiles marcados con attr[2]=1. Sin este termino, con alpha_lv=0 la
+// capa frontal entera desaparecia (= el bug del crater de MAME). Ver el bloque ⭐⭐ del K054338.
+wire       blend_en_now = alpha_en & (mix_front!=0) & ~k251_coln & (pal_addr != cout_b);
+wire       blend_en_a, colnb_a;
+wire [1:0] mix_front_a;
+jtframe_sh #(.W(2),.L(1)) u_mixdly(.clk(clk),.clk_en(pxl_cen),.din(mix_front),.drop(mix_front_a));
+jtframe_sh #(.W(1),.L(1)) u_blenddly(.clk(clk),.clk_en(pxl_cen),.din(blend_en_now),.drop(blend_en_a));
+jtframe_sh #(.W(1),.L(1)) u_colnbdly(.clk(clk),.clk_en(pxl_cen),.din(coln_b     ),.drop(colnb_a  ));
+assign do_blend = blend_en_a & ~fixop_a;
+
+// back = paleta[cout_b] o backdrop si el back es transparente.
+wire [23:0] back_sel   = colnb_a ? bg_bgr : back_bgr;
+
+
+// SiliconRE schematic-derived K054338. K053251 selects the front and back
+// palette colors; the physical MIX[1:0], SHD[1:0] and brightness control then
+// enter this final pipelined color-math stage.
+wire [23:0] k338_front = use_bg ? bg_bgr : bgr;
+wire [ 1:0] k338_mix   = do_blend ? mix_front_a : 2'd0;
+// El FIX se SUPERPONE por encima del K053251 (mux pal_amux): no participa en la
+// mezcla NI recibe la SOMBRA que el K053251 calcula para la capa que queda debajo.
+// SHD[1:0] pertenece al ganador del K053251; un pixel de FIX opaco tapa a ese
+// ganador, asi que la sombra deja de aplicarse igual que ya ocurre con MIX
+// (do_blend lleva `& ~fixop_a` desde la sesion 24).
+//
+// MEDIDO contra la placa y MAME (cutscene de intro, cajas de dialogo):
+//   texto FIX  pal 0x701 = f0ffff -> RTL daba b1bcba (caja 1) / 9e9e9e (caja 2)
+//   perfil FIX pal 0x702 = 585858 -> RTL daba 151717 (caja 1) / 000000 (caja 2)
+// Resolviendo las dos plumas a la vez: ganancia = 1.026 (=1, el brillo NO
+// interviene) y delta = -67 / -97 -> es EXACTAMENTE el sumador de sombra del
+// K054338. El interior de la caja SI es una region de sombra autentica
+// (cielo 26,9f,ff menos el mismo delta = lo que se ve en la placa: caja 1 azul,
+// caja 2 casi negra), por eso solo hay que excluir al FIX, no desactivar la
+// sombra. En la placa el texto sale BLANCO brillante sobre esa region.
+// Sintoma tambien visible sin ninguna caja: "PRESENTED BY KONAMI" del arranque
+// salia gris en vez de blanco.
+//
+// FASE: el K053251 registra cout/col_n/shd_out/brit en el MISMO flanco (fase P,
+// k053251.v:151-154), mientras que el color llega al K054338 un pxl_cen despues
+// (P+1): pal_addr -> RAM -> {b8,g8,r8} (cada clk) -> bgr (con pxl_cen). Por eso
+// TODOS los demas controles del K054338 se retrasan L=1 (u_mixdly, u_blenddly,
+// u_colnbdly). `shd_out` entraba CRUDO, o sea 1 px adelantado respecto al color
+// al que se le sumaba: la sombra salia corrida 1 px a la derecha. Se retrasa
+// aqui igual que sus hermanos y se compuerta ya alineada con `fixop_a` (P+1).
+// `brit_out` tiene el mismo desfase de 1 px; se deja como estaba a proposito,
+// porque no hay ninguna evidencia observada que lo respalde todavia y conviene
+// poder bisecar los dos cambios por separado.
+wire [ 1:0] shd_out_a;
+jtframe_sh #(.W(2),.L(1)) u_shddly(.clk(clk),.clk_en(pxl_cen),.din(shd_out),.drop(shd_out_a));
+wire [ 1:0] k338_shd   = fixop_a ? 2'd0 : shd_out_a;
+wire [23:0] k338_color;
+wire [ 7:0] k338_brightness;
+bucky_k054338 u_k054338(
+    .rst             ( rst              ),
+    .clk             ( clk              ),
+    .cen             ( pxl_cen          ),
+    .reg_cs          ( alpha_cs         ),
+    .reg_we          ( cpu_we           ),
+    .reg_addr        ( cpu_addr[4:1]    ),
+    .reg_din         ( cpu_dout         ),
+    .reg_dsn         ( cpu_dsn          ),
+    .reg_dout        ( alpha_reg_dout   ),
+    .front_bgr       ( k338_front       ),
+    .back_bgr        ( back_sel         ),
+    .mix_code        ( k338_mix         ),
+    .shadow_code     ( k338_shd         ),
+    .brightness_code ( {1'b0,brit_out}  ),
+    .color_bgr       ( k338_color       ),
+    .brightness      ( k338_brightness  )
+);
+
+// The physical chip sends brightness separately to the DAC. MiSTer has no
+// analog brightness pin, so reproduce that DAC multiplication digitally here.
+function [7:0] k338_dac_channel;
+    input [7:0] component;
+    input [7:0] gain;
+    reg [15:0] product;
+    reg [15:0] dac_sum;
+    begin
+        product = component * gain + 16'd127;
+        dac_sum = product + {8'd0,product[15:8]};
+        k338_dac_channel = dac_sum[15:8];
+    end
+endfunction
+wire [23:0] k338_dac_bgr = {
+    k338_dac_channel(k338_color[23:16],k338_brightness),
+    k338_dac_channel(k338_color[15: 8],k338_brightness),
+    k338_dac_channel(k338_color[ 7: 0],k338_brightness)
+};
+assign {blue,green,red} = (lvbl & lhbl) ? k338_dac_bgr : 24'd0;
+
+endmodule

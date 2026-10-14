@@ -1,0 +1,237 @@
+{
+  "scope": "Finite actual RTL CPU replay; every available canonical displayed image, without masks or frame shifts. Sampled images do not qualify unsampled frames, all effects, physical timing or whole-game correctness.",
+  "terminal_receipt": {
+    "worker_pid": 131142,
+    "started": 1791542893.606745,
+    "revision": "75fc12f01f3977d6289485f92d919c0d04d65dfd",
+    "command": [
+      "/mnt/d/Arcade/AI/aCORES/Alpha68k N/sim/build/kyros_idle_death3601_sim",
+      "/mnt/d/Arcade/AI/aCORES/Alpha68k N/roms/kyros/download.bin",
+      "3601",
+      "/mnt/d/Arcade/AI/aCORES/Alpha68k N/sim/captures/rtl/kyros_idle_death3601",
+      "gameplay",
+      "--inputs",
+      "/mnt/d/Arcade/AI/aCORES/Alpha68k N/sim/captures/kyros/idle_death7200_v2/frame_states.csv"
+    ],
+    "frames": 3601,
+    "executable_sha256": "54529234af5aa50cb1d486d8f037a7dd8496b0da0f83e399b0cf8eb2094498cf",
+    "rom_sha256": "5cf728d5d40e9be14a4a9c07792bab9f44404a75c2c2eed92124ff96ee9b5ef6",
+    "ports_sha256": "28d9997b99c38be08101c95da9f471f0da466f9cb3bfa4214754c243cc557ab5",
+    "rtl_manifest": "research/current_system720_curvefixed_inputs.sha256",
+    "source_equivalence": "research/ym_curve_whitespace_equivalence.json",
+    "reference": "research/kyros_idle_death7200_v2_exit.json",
+    "scope": "Real RTL CPUs and recorded legal ports; no game-memory patches",
+    "simulation_pid": 131144,
+    "exit_code": 0,
+    "ended": 1791554228.7030292
+  },
+  "reference": "D:\\Arcade\\AI\\aCORES\\Alpha68k N\\sim\\captures\\kyros\\idle_death7200_v2",
+  "capture": "D:\\Arcade\\AI\\aCORES\\Alpha68k N\\sim\\captures\\rtl\\kyros_idle_death3601",
+  "fields": 3601,
+  "metric_checks": {
+    "exit_zero": true,
+    "field_sequence": true,
+    "complete_unique_pixels": true,
+    "no_unmapped_or_renderer_failures": true,
+    "cpu_activity": true
+  },
+  "metrics_pass": true,
+  "worst_line_cycles": 2280,
+  "all_reference_images_available": false,
+  "canonical_graphics_pass": false,
+  "comparisons": [
+    {
+      "field": 0,
+      "available": true,
+      "reference_sha256": "9a4b97b4b079955bac86930724c8bcdd30aba4732f1dcbcbac2ec270f5f5e485",
+      "rtl_sha256": "9a4b97b4b079955bac86930724c8bcdd30aba4732f1dcbcbac2ec270f5f5e485",
+      "expected_bytes": 172032,
+      "observed_bytes": 172032,
+      "different_pixels": 0
+    },
+    {
+      "field": 30,
+      "available": true,
+      "reference_sha256": "9a4b97b4b079955bac86930724c8bcdd30aba4732f1dcbcbac2ec270f5f5e485",
+      "rtl_sha256": "9a4b97b4b079955bac86930724c8bcdd30aba4732f1dcbcbac2ec270f5f5e485",
+      "expected_bytes": 172032,
+      "observed_bytes": 172032,
+      "different_pixels": 0
+    },
+    {
+      "field": 90,
+      "available": true,
+      "reference_sha256": "3bcac5c304a6099c1684bffb103dc2964200a2616be78baa744dcf123d7f8e72",
+      "rtl_sha256": "3bcac5c304a6099c1684bffb103dc2964200a2616be78baa744dcf123d7f8e72",
+      "expected_bytes": 172032,
+      "observed_bytes": 172032,
+      "different_pixels": 0
+    },
+    {
+      "field": 119,
+      "available": false
+    },
+    {
+      "field": 179,
+      "available": false
+    },
+    {
+      "field": 240,
+      "available": true,
+      "reference_sha256": "159db246e6c1ca749ddf242ec71367a07727892df17a5f760446eb58941b8cdd",
+      "rtl_sha256": "159db246e6c1ca749ddf242ec71367a07727892df17a5f760446eb58941b8cdd",
+      "expected_bytes": 172032,
+      "observed_bytes": 172032,
+      "different_pixels": 0
+    },
+    {
+      "field": 360,
+      "available": true,
+      "reference_sha256": "c70ec6bd6464f4da16a10cbc23eb328327aea1a578a4089eade1ae6f6e39178f",
+      "rtl_sha256": "c70ec6bd6464f4da16a10cbc23eb328327aea1a578a4089eade1ae6f6e39178f",
+      "expected_bytes": 172032,
+      "observed_bytes": 172032,
+      "different_pixels": 0
+    },
+    {
+      "field": 600,
+      "available": true,
+      "reference_sha256": "870367cea2cc090698af979491e7a9c75e56ca3048a484753ad11186728f9bc8",
+      "rtl_sha256": "870367cea2cc090698af979491e7a9c75e56ca3048a484753ad11186728f9bc8",
+      "expected_bytes": 172032,
+      "observed_bytes": 172032,
+      "different_pixels": 0
+    },
+    {
+      "field": 720,
+      "available": true,
+      "reference_sha256": "3e20d0d0dd1bd53ff514ec99556519ea5f8b2becba4d40a9be667bc302bd056a",
+      "rtl_sha256": "3e20d0d0dd1bd53ff514ec99556519ea5f8b2becba4d40a9be667bc302bd056a",
+      "expected_bytes": 172032,
+      "observed_bytes": 172032,
+      "different_pixels": 0
+    },
+    {
+      "field": 900,
+      "available": true,
+      "reference_sha256": "c5230d8187eced2a62f51012401854d28e0baa7c687e8471c154450137bebed0",
+      "rtl_sha256": "b43a087b379af619d9a088795c0c3018f23dbfb324bb7937b82870020c3c9ef3",
+      "expected_bytes": 172032,
+      "observed_bytes": 172032,
+      "different_pixels": 4
+    },
+    {
+      "field": 960,
+      "available": true,
+      "reference_sha256": "750fc735e77ecfa74adfc2dbb90691a6b5fc623fc8a24feab9accc39c74ecce8",
+      "rtl_sha256": "750fc735e77ecfa74adfc2dbb90691a6b5fc623fc8a24feab9accc39c74ecce8",
+      "expected_bytes": 172032,
+      "observed_bytes": 172032,
+      "different_pixels": 0
+    },
+    {
+      "field": 1200,
+      "available": true,
+      "reference_sha256": "27a60231e794f756f39c29edef8c0d7f70c961f5b05fc4c1c60e6d67357d6aa6",
+      "rtl_sha256": "27a60231e794f756f39c29edef8c0d7f70c961f5b05fc4c1c60e6d67357d6aa6",
+      "expected_bytes": 172032,
+      "observed_bytes": 172032,
+      "different_pixels": 0
+    },
+    {
+      "field": 1440,
+      "available": true,
+      "reference_sha256": "53ac0ad7af624cae4102ec0ec76dde06582fa353186c27d4461eb4175fb459d6",
+      "rtl_sha256": "53ac0ad7af624cae4102ec0ec76dde06582fa353186c27d4461eb4175fb459d6",
+      "expected_bytes": 172032,
+      "observed_bytes": 172032,
+      "different_pixels": 0
+    },
+    {
+      "field": 1680,
+      "available": true,
+      "reference_sha256": "00b0180bca574865564d36c14cd7bf55c7cd28856fd823be1128513589dd2172",
+      "rtl_sha256": "00b0180bca574865564d36c14cd7bf55c7cd28856fd823be1128513589dd2172",
+      "expected_bytes": 172032,
+      "observed_bytes": 172032,
+      "different_pixels": 0
+    },
+    {
+      "field": 1799,
+      "available": false
+    },
+    {
+      "field": 1920,
+      "available": true,
+      "reference_sha256": "eb6f8e02a9840b458f0710cfa9d8773ab2f892b3b7d6a98f8a633996a5c369de",
+      "rtl_sha256": "eb6f8e02a9840b458f0710cfa9d8773ab2f892b3b7d6a98f8a633996a5c369de",
+      "expected_bytes": 172032,
+      "observed_bytes": 172032,
+      "different_pixels": 0
+    },
+    {
+      "field": 2160,
+      "available": true,
+      "reference_sha256": "751895b84ff3cfeda772862063129d12c0317d11d9c9bc9f552bb69b5aa0fad8",
+      "rtl_sha256": "751895b84ff3cfeda772862063129d12c0317d11d9c9bc9f552bb69b5aa0fad8",
+      "expected_bytes": 172032,
+      "observed_bytes": 172032,
+      "different_pixels": 0
+    },
+    {
+      "field": 2400,
+      "available": true,
+      "reference_sha256": "76d09f178f791555d5b8ea1f3454bbd588212f9b9dc1029d2db9f40a542cce2e",
+      "rtl_sha256": "76d09f178f791555d5b8ea1f3454bbd588212f9b9dc1029d2db9f40a542cce2e",
+      "expected_bytes": 172032,
+      "observed_bytes": 172032,
+      "different_pixels": 0
+    },
+    {
+      "field": 2640,
+      "available": true,
+      "reference_sha256": "9abdda8f8b67552cefea0d795ed35f6a05c3cf9b22810887c3f782ef65f89f54",
+      "rtl_sha256": "9abdda8f8b67552cefea0d795ed35f6a05c3cf9b22810887c3f782ef65f89f54",
+      "expected_bytes": 172032,
+      "observed_bytes": 172032,
+      "different_pixels": 0
+    },
+    {
+      "field": 2880,
+      "available": true,
+      "reference_sha256": "fd9aef8aa81c3aea6774e619394a9d893f8779fc51f31e49f53e1b2725c698b1",
+      "rtl_sha256": "fd9aef8aa81c3aea6774e619394a9d893f8779fc51f31e49f53e1b2725c698b1",
+      "expected_bytes": 172032,
+      "observed_bytes": 172032,
+      "different_pixels": 0
+    },
+    {
+      "field": 3120,
+      "available": true,
+      "reference_sha256": "95b2fd8f6d8af7268e5fa739cfdfaf6c96c4ba0ace2973a66a8dcce59c477a7e",
+      "rtl_sha256": "95b2fd8f6d8af7268e5fa739cfdfaf6c96c4ba0ace2973a66a8dcce59c477a7e",
+      "expected_bytes": 172032,
+      "observed_bytes": 172032,
+      "different_pixels": 0
+    },
+    {
+      "field": 3360,
+      "available": true,
+      "reference_sha256": "c4e05887ec4a6998839c7ef5f3393870175cf8e565eccd83a071fb72aaef6e72",
+      "rtl_sha256": "c4e05887ec4a6998839c7ef5f3393870175cf8e565eccd83a071fb72aaef6e72",
+      "expected_bytes": 172032,
+      "observed_bytes": 172032,
+      "different_pixels": 0
+    },
+    {
+      "field": 3600,
+      "available": true,
+      "reference_sha256": "3bcac5c304a6099c1684bffb103dc2964200a2616be78baa744dcf123d7f8e72",
+      "rtl_sha256": "3bcac5c304a6099c1684bffb103dc2964200a2616be78baa744dcf123d7f8e72",
+      "expected_bytes": 172032,
+      "observed_bytes": 172032,
+      "different_pixels": 0
+    }
+  ],
+  "ram_scope": "Only final unlabelled RTL RAM dumps available in these runs; no checkpoint RAM equivalence claimed."
+}

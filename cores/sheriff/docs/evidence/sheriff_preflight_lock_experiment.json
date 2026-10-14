@@ -1,0 +1,61 @@
+{
+  "experiment": {
+    "scope": "Private full-wrapper simulation model attribution experiment",
+    "change": "Remove the redundant initial assignment to locked; keep the initialized lock timer and combinational driver",
+    "original_model_sha256": "e3fe67b20c881698a7cad8fd9d18813e9ec2b359ceb0e1aedc0b3d068355f41d",
+    "experiment_model_sha256": "4909f79a7a3ae6355c4b149691e842d225c035361c2a88bab453803fbadfc5d4",
+    "core_rtl_changed": false,
+    "finding_waived": false,
+    "hardware_result": false,
+    "cli_arguments": [
+      "--repo",
+      "D:\\Arcade\\AI\\aCORES\\sherrif",
+      "--roms",
+      "D:\\Arcade\\AI\\MAME 0.289 ROMs (merged)",
+      "--foreground",
+      "--profile",
+      "hostile",
+      "--seeds",
+      "2",
+      "--frames",
+      "120",
+      "--no-diagnose",
+      "--force"
+    ]
+  },
+  "exit_code": 1,
+  "report_path": ".preflight\\runs\\20261009-135120\\report",
+  "report": "Preflight: Nintendo8080        FAIL\nFast run, 2 run(s) (hostile power-up; seeds 1..2), 455 s. Source 74a18aa.\n\nGame: Sheriff.mra\nVideo: 256x224, 15.75 kHz, 61.52 Hz, pixel clock 5.040 MHz\n\nBoot ladder\n  1 Clocks         ok           50.4 MHz\n  2 Reset          ok           held by reboot() for 2.0 ms, released at the firmware's first command\n  3 ROM download   ok           2 index(es), 18,456 bytes; ioctl_wait held 0 us\n  4 Memory         n/a          SDRAM not used\n  5 Core activity  risk         the picture never changes after boot\n  6 Video timing   ok           256x224, 15.75 kHz, 61.52 Hz, pixel clock 5.040 MHz\n  7 Picture        FAIL         black\n  8 Audio          ok           peak 4915, rms 3817.2\n  9 Inputs         risk         no visible response to coin/start\n 10 Stability      ok           2 runs agree\n\nFix first\n F-001  blocker  The picture stays black after the boot\n        On hardware: Black screen.\n        Details and fix steps: preflight explain F-001\n\nAlso found\n F-002  info     A framework file needed a Verilator-only syntax fix\n\nPictures\n .preflight/latest/contact.png   tile 2 is the first bad frame\n .preflight/latest/report.html\n\nNot checked in this run: timing after place-and-route (run --release)\n\nNext: read the dossier (preflight explain F-001), fix that one cause, then run: preflight verify F-001\n",
+  "findings": [
+    {
+      "class": "picture.black",
+      "severity": "blocker",
+      "rung": "Picture",
+      "title": "The picture stays black after the boot",
+      "runs": [
+        "hostile-s1",
+        "hostile-s2"
+      ],
+      "symptom": "Black screen.",
+      "detail": "All 20 saved frames after the boot are black.",
+      "id": "F-001",
+      "dossier": ".preflight/runs/20261009-135120/report/findings/F-001/README.md",
+      "verify": "preflight verify F-001"
+    },
+    {
+      "class": "build.compat_patch",
+      "severity": "info",
+      "rung": "Clocks",
+      "title": "A framework file needed a Verilator-only syntax fix",
+      "detail": "sys/hps_io.sv: kbd_*/mouse_* declarations moved before first use (Verilator syntax only)",
+      "id": "F-002",
+      "dossier": ".preflight/runs/20261009-135120/report/findings/F-002/README.md",
+      "verify": "preflight verify F-002"
+    }
+  ],
+  "outcome": "Both hostile seeds remain black after removing only the redundant initial locked assignment in a private model copy. This experiment does not resolve the original failure or qualify its cause. No installed model, board reset, PLL hardware or sys source was patched.",
+  "gates": {
+    "full_wrapper_boot": false,
+    "cause_qualified": false
+  }
+}

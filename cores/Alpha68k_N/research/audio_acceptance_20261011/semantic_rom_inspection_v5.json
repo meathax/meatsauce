@@ -1,0 +1,1069 @@
+{
+  "scope": "Pinned actual ROM opcode contexts and observed player RAM bytes; no action semantics inferred yet.",
+  "rom_sha256": "6949ea5dc91dfced8c1afccbadee18c2e795ab38d8adbc3795f05a19b8f3b2b3",
+  "disassembly_sha256": "da4e0ed81c446f9c77107fbac9e30f950d7e4cce20f2285fe78f14115f8d707d",
+  "contexts": {
+    "0x6f5e": [
+      {
+        "pc": 28454,
+        "hex": "0x6f26",
+        "instruction": "move.b  D6, D5",
+        "opcode": "1a06"
+      },
+      {
+        "pc": 28456,
+        "hex": "0x6f28",
+        "instruction": "add.b   ($3,A2), D6",
+        "opcode": "dc2a0003"
+      },
+      {
+        "pc": 28460,
+        "hex": "0x6f2c",
+        "instruction": "move.b  ($2,A1), D0",
+        "opcode": "10290002"
+      },
+      {
+        "pc": 28464,
+        "hex": "0x6f30",
+        "instruction": "sub.b   D5, D0",
+        "opcode": "9005"
+      },
+      {
+        "pc": 28466,
+        "hex": "0x6f32",
+        "instruction": "cmp.b   ($3,A1), D0",
+        "opcode": "b0290003"
+      },
+      {
+        "pc": 28470,
+        "hex": "0x6f36",
+        "instruction": "bcs     $6f4e",
+        "opcode": "6516"
+      },
+      {
+        "pc": 28472,
+        "hex": "0x6f38",
+        "instruction": "sub.b   ($2,A1), D6",
+        "opcode": "9c290002"
+      },
+      {
+        "pc": 28476,
+        "hex": "0x6f3c",
+        "instruction": "cmp.b   ($3,A1), D6",
+        "opcode": "bc290003"
+      },
+      {
+        "pc": 28480,
+        "hex": "0x6f40",
+        "instruction": "bcs     $6f4e",
+        "opcode": "650c"
+      },
+      {
+        "pc": 28482,
+        "hex": "0x6f42",
+        "instruction": "sub.b   ($2,A1), D5",
+        "opcode": "9a290002"
+      },
+      {
+        "pc": 28486,
+        "hex": "0x6f46",
+        "instruction": "cmp.b   ($3,A1), D5",
+        "opcode": "ba290003"
+      },
+      {
+        "pc": 28490,
+        "hex": "0x6f4a",
+        "instruction": "bcc     $6e5e",
+        "opcode": "6400ff12"
+      },
+      {
+        "pc": 28494,
+        "hex": "0x6f4e",
+        "instruction": "move.b  ($3,A5), D0",
+        "opcode": "102d0003"
+      },
+      {
+        "pc": 28498,
+        "hex": "0x6f52",
+        "instruction": "andi.b  #$7, D0",
+        "opcode": "02000007"
+      },
+      {
+        "pc": 28502,
+        "hex": "0x6f56",
+        "instruction": "bset    #$3, D0",
+        "opcode": "08c00003"
+      },
+      {
+        "pc": 28506,
+        "hex": "0x6f5a",
+        "instruction": "move.b  D0, ($11,A4)",
+        "opcode": "19400011"
+      },
+      {
+        "pc": 28510,
+        "hex": "0x6f5e",
+        "instruction": "move.b  #$58, ($35f,A6)",
+        "opcode": "1d7c0058035f"
+      },
+      {
+        "pc": 28516,
+        "hex": "0x6f64",
+        "instruction": "trap    #$4",
+        "opcode": "4e44"
+      },
+      {
+        "pc": 28518,
+        "hex": "0x6f66",
+        "instruction": "bsr     $2cc0",
+        "opcode": "6100bd58"
+      },
+      {
+        "pc": 28522,
+        "hex": "0x6f6a",
+        "instruction": "tst.b   ($91b,A6)",
+        "opcode": "4a2e091b"
+      },
+      {
+        "pc": 28526,
+        "hex": "0x6f6e",
+        "instruction": "beq     $6e5e",
+        "opcode": "6700feee"
+      },
+      {
+        "pc": 28530,
+        "hex": "0x6f72",
+        "instruction": "move.b  ($403,A6), ($3,A4)",
+        "opcode": "196e04030003"
+      },
+      {
+        "pc": 28536,
+        "hex": "0x6f78",
+        "instruction": "bset    #$3, ($3,A4)",
+        "opcode": "08ec00030003"
+      }
+    ],
+    "0x7816": [
+      {
+        "pc": 30674,
+        "hex": "0x77d2",
+        "instruction": "beq     $75ec",
+        "opcode": "6700fe18"
+      },
+      {
+        "pc": 30678,
+        "hex": "0x77d6",
+        "instruction": "tst.b   ($9,A4)",
+        "opcode": "4a2c0009"
+      },
+      {
+        "pc": 30682,
+        "hex": "0x77da",
+        "instruction": "bne     $75ec",
+        "opcode": "6600fe10"
+      },
+      {
+        "pc": 30686,
+        "hex": "0x77de",
+        "instruction": "andi.w  #$ff, D0",
+        "opcode": "024000ff"
+      },
+      {
+        "pc": 30690,
+        "hex": "0x77e2",
+        "instruction": "lsl.w   #2, D0",
+        "opcode": "e548"
+      },
+      {
+        "pc": 30692,
+        "hex": "0x77e4",
+        "instruction": "lea     $1162c.l, A2",
+        "opcode": "45f90001162c"
+      },
+      {
+        "pc": 30698,
+        "hex": "0x77ea",
+        "instruction": "adda.w  D0, A2",
+        "opcode": "d4c0"
+      },
+      {
+        "pc": 30700,
+        "hex": "0x77ec",
+        "instruction": "lea     $116f0.l, A0",
+        "opcode": "41f9000116f0"
+      },
+      {
+        "pc": 30706,
+        "hex": "0x77f2",
+        "instruction": "lea     ($400,A6), A3",
+        "opcode": "47ee0400"
+      },
+      {
+        "pc": 30710,
+        "hex": "0x77f6",
+        "instruction": "bsr     $74ae",
+        "opcode": "6100fcb6"
+      },
+      {
+        "pc": 30714,
+        "hex": "0x77fa",
+        "instruction": "tst.b   ($91a,A6)",
+        "opcode": "4a2e091a"
+      },
+      {
+        "pc": 30718,
+        "hex": "0x77fe",
+        "instruction": "beq     $75ec",
+        "opcode": "6700fdec"
+      },
+      {
+        "pc": 30722,
+        "hex": "0x7802",
+        "instruction": "bsr     $66d8",
+        "opcode": "6100eed4"
+      },
+      {
+        "pc": 30726,
+        "hex": "0x7806",
+        "instruction": "andi.w  #$7, D0",
+        "opcode": "02400007"
+      },
+      {
+        "pc": 30730,
+        "hex": "0x780a",
+        "instruction": "lea     $77ac.l, A0",
+        "opcode": "41f9000077ac"
+      },
+      {
+        "pc": 30736,
+        "hex": "0x7810",
+        "instruction": "move.b  (A0,D0.w), ($11,A4)",
+        "opcode": "197000000011"
+      },
+      {
+        "pc": 30742,
+        "hex": "0x7816",
+        "instruction": "move.b  #$58, ($35f,A6)",
+        "opcode": "1d7c0058035f"
+      },
+      {
+        "pc": 30748,
+        "hex": "0x781c",
+        "instruction": "trap    #$4",
+        "opcode": "4e44"
+      },
+      {
+        "pc": 30750,
+        "hex": "0x781e",
+        "instruction": "bsr     $2cc0",
+        "opcode": "6100b4a0"
+      },
+      {
+        "pc": 30754,
+        "hex": "0x7822",
+        "instruction": "tst.b   ($91b,A6)",
+        "opcode": "4a2e091b"
+      },
+      {
+        "pc": 30758,
+        "hex": "0x7826",
+        "instruction": "beq     $75ec",
+        "opcode": "6700fdc4"
+      },
+      {
+        "pc": 30762,
+        "hex": "0x782a",
+        "instruction": "move.b  ($11,A4), ($3,A4)",
+        "opcode": "196c00110003"
+      },
+      {
+        "pc": 30768,
+        "hex": "0x7830",
+        "instruction": "bset    #$3, ($3,A4)",
+        "opcode": "08ec00030003"
+      }
+    ],
+    "0xbd30": [
+      {
+        "pc": 48380,
+        "hex": "0xbcfc",
+        "instruction": "beq     $bd42",
+        "opcode": "6744"
+      },
+      {
+        "pc": 48382,
+        "hex": "0xbcfe",
+        "instruction": "bmi     $bd42",
+        "opcode": "6b42"
+      },
+      {
+        "pc": 48384,
+        "hex": "0xbd00",
+        "instruction": "cmpi.b  #$4, D0",
+        "opcode": "0c000004"
+      },
+      {
+        "pc": 48388,
+        "hex": "0xbd04",
+        "instruction": "bne     $bd10",
+        "opcode": "660a"
+      },
+      {
+        "pc": 48390,
+        "hex": "0xbd06",
+        "instruction": "bset    #$0, ($106,A6)",
+        "opcode": "08ee00000106"
+      },
+      {
+        "pc": 48396,
+        "hex": "0xbd0c",
+        "instruction": "bne     $bd42",
+        "opcode": "66000034"
+      },
+      {
+        "pc": 48400,
+        "hex": "0xbd10",
+        "instruction": "tst.b   ($1,A1,D1.w)",
+        "opcode": "4a311001"
+      },
+      {
+        "pc": 48404,
+        "hex": "0xbd14",
+        "instruction": "bpl     $bd1a",
+        "opcode": "6a04"
+      },
+      {
+        "pc": 48406,
+        "hex": "0xbd16",
+        "instruction": "clr.b   ($1,A3)",
+        "opcode": "422b0001"
+      },
+      {
+        "pc": 48410,
+        "hex": "0xbd1a",
+        "instruction": "addq.b  #7, D0",
+        "opcode": "5e00"
+      },
+      {
+        "pc": 48412,
+        "hex": "0xbd1c",
+        "instruction": "move.b  D0, ($951,A6)",
+        "opcode": "1d400951"
+      },
+      {
+        "pc": 48416,
+        "hex": "0xbd20",
+        "instruction": "move.l  A3, -(A7)",
+        "opcode": "2f0b"
+      },
+      {
+        "pc": 48418,
+        "hex": "0xbd22",
+        "instruction": "bsr     $bf76",
+        "opcode": "61000252"
+      },
+      {
+        "pc": 48422,
+        "hex": "0xbd26",
+        "instruction": "movea.l (A7)+, A3",
+        "opcode": "265f"
+      },
+      {
+        "pc": 48424,
+        "hex": "0xbd28",
+        "instruction": "tst.b   ($954,A6)",
+        "opcode": "4a2e0954"
+      },
+      {
+        "pc": 48428,
+        "hex": "0xbd2c",
+        "instruction": "beq     $bd42",
+        "opcode": "67000014"
+      },
+      {
+        "pc": 48432,
+        "hex": "0xbd30",
+        "instruction": "move.b  #$58, ($35f,A6)",
+        "opcode": "1d7c0058035f"
+      },
+      {
+        "pc": 48438,
+        "hex": "0xbd36",
+        "instruction": "trap    #$4",
+        "opcode": "4e44"
+      },
+      {
+        "pc": 48440,
+        "hex": "0xbd38",
+        "instruction": "andi.b  #$3, ($1,A3)",
+        "opcode": "022b00030001"
+      },
+      {
+        "pc": 48446,
+        "hex": "0xbd3e",
+        "instruction": "bne     $b900",
+        "opcode": "6600fbc0"
+      },
+      {
+        "pc": 48450,
+        "hex": "0xbd42",
+        "instruction": "move.b  ($3,A3), D1",
+        "opcode": "122b0003"
+      },
+      {
+        "pc": 48454,
+        "hex": "0xbd46",
+        "instruction": "andi.w  #$ff, D1",
+        "opcode": "024100ff"
+      },
+      {
+        "pc": 48458,
+        "hex": "0xbd4a",
+        "instruction": "move.w  #$500, D0",
+        "opcode": "303c0500"
+      }
+    ],
+    "0xbdaa": [
+      {
+        "pc": 48494,
+        "hex": "0xbd6e",
+        "instruction": "lsr.w   #1, D0",
+        "opcode": "e248"
+      },
+      {
+        "pc": 48496,
+        "hex": "0xbd70",
+        "instruction": "lea     ($c6e4,PC), A1",
+        "opcode": "43fa0972"
+      },
+      {
+        "pc": 48500,
+        "hex": "0xbd74",
+        "instruction": "move.w  ($8,A1,D0.w), D0",
+        "opcode": "30310008"
+      },
+      {
+        "pc": 48504,
+        "hex": "0xbd78",
+        "instruction": "jsr     $289c.l",
+        "opcode": "4eb90000289c"
+      },
+      {
+        "pc": 48510,
+        "hex": "0xbd7e",
+        "instruction": "move.b  #$ff, ($94d,A6)",
+        "opcode": "1d7cffff094d"
+      },
+      {
+        "pc": 48516,
+        "hex": "0xbd84",
+        "instruction": "clr.w   ($94e,A6)",
+        "opcode": "426e094e"
+      },
+      {
+        "pc": 48520,
+        "hex": "0xbd88",
+        "instruction": "clr.l   ($6d0,A6)",
+        "opcode": "42ae06d0"
+      },
+      {
+        "pc": 48524,
+        "hex": "0xbd8c",
+        "instruction": "clr.l   ($6d4,A6)",
+        "opcode": "42ae06d4"
+      },
+      {
+        "pc": 48528,
+        "hex": "0xbd90",
+        "instruction": "move.l  #$5000, ($300,A6)",
+        "opcode": "2d7c000050000300"
+      },
+      {
+        "pc": 48536,
+        "hex": "0xbd98",
+        "instruction": "jsr     $1f5c.l",
+        "opcode": "4eb900001f5c"
+      },
+      {
+        "pc": 48542,
+        "hex": "0xbd9e",
+        "instruction": "move.l  #$5000, ($370,A6)",
+        "opcode": "2d7c000050000370"
+      },
+      {
+        "pc": 48550,
+        "hex": "0xbda6",
+        "instruction": "bsr     $c38a",
+        "opcode": "610005e2"
+      },
+      {
+        "pc": 48554,
+        "hex": "0xbdaa",
+        "instruction": "move.b  #$58, ($35f,A6)",
+        "opcode": "1d7c0058035f"
+      },
+      {
+        "pc": 48560,
+        "hex": "0xbdb0",
+        "instruction": "trap    #$4",
+        "opcode": "4e44"
+      },
+      {
+        "pc": 48562,
+        "hex": "0xbdb2",
+        "instruction": "rts",
+        "opcode": "4e75"
+      },
+      {
+        "pc": 48564,
+        "hex": "0xbdb4",
+        "instruction": "subi.w  #$5a0, D0",
+        "opcode": "044005a0"
+      },
+      {
+        "pc": 48568,
+        "hex": "0xbdb8",
+        "instruction": "lsr.w   #2, D0",
+        "opcode": "e448"
+      }
+    ],
+    "0xbdcc": [
+      {
+        "pc": 48550,
+        "hex": "0xbda6",
+        "instruction": "bsr     $c38a",
+        "opcode": "610005e2"
+      },
+      {
+        "pc": 48554,
+        "hex": "0xbdaa",
+        "instruction": "move.b  #$58, ($35f,A6)",
+        "opcode": "1d7c0058035f"
+      },
+      {
+        "pc": 48560,
+        "hex": "0xbdb0",
+        "instruction": "trap    #$4",
+        "opcode": "4e44"
+      },
+      {
+        "pc": 48562,
+        "hex": "0xbdb2",
+        "instruction": "rts",
+        "opcode": "4e75"
+      },
+      {
+        "pc": 48564,
+        "hex": "0xbdb4",
+        "instruction": "subi.w  #$5a0, D0",
+        "opcode": "044005a0"
+      },
+      {
+        "pc": 48568,
+        "hex": "0xbdb8",
+        "instruction": "lsr.w   #2, D0",
+        "opcode": "e448"
+      },
+      {
+        "pc": 48570,
+        "hex": "0xbdba",
+        "instruction": "andi.w  #$fffe, D0",
+        "opcode": "0240fffe"
+      },
+      {
+        "pc": 48574,
+        "hex": "0xbdbe",
+        "instruction": "lea     ($c6fc,PC), A1",
+        "opcode": "43fa093c"
+      },
+      {
+        "pc": 48578,
+        "hex": "0xbdc2",
+        "instruction": "move.w  ($10,A1,D0.w), D0",
+        "opcode": "30310010"
+      },
+      {
+        "pc": 48582,
+        "hex": "0xbdc6",
+        "instruction": "jsr     $289c.l",
+        "opcode": "4eb90000289c"
+      },
+      {
+        "pc": 48588,
+        "hex": "0xbdcc",
+        "instruction": "move.b  #$58, ($35f,A6)",
+        "opcode": "1d7c0058035f"
+      },
+      {
+        "pc": 48594,
+        "hex": "0xbdd2",
+        "instruction": "trap    #$4",
+        "opcode": "4e44"
+      },
+      {
+        "pc": 48596,
+        "hex": "0xbdd4",
+        "instruction": "lea     ($c6c4,PC), A1",
+        "opcode": "43fa08ee"
+      },
+      {
+        "pc": 48600,
+        "hex": "0xbdd8",
+        "instruction": "lea     ($420,A6), A0",
+        "opcode": "41ee0420"
+      },
+      {
+        "pc": 48604,
+        "hex": "0xbddc",
+        "instruction": "moveq   #$7, D3",
+        "opcode": "7607"
+      }
+    ],
+    "0xbe42": [
+      {
+        "pc": 48670,
+        "hex": "0xbe1e",
+        "instruction": "dbra    D3, $be16",
+        "opcode": "51cbfff6"
+      },
+      {
+        "pc": 48674,
+        "hex": "0xbe22",
+        "instruction": "rts",
+        "opcode": "4e75"
+      },
+      {
+        "pc": 48676,
+        "hex": "0xbe24",
+        "instruction": "move.b  (A1), D1",
+        "opcode": "1211"
+      },
+      {
+        "pc": 48678,
+        "hex": "0xbe26",
+        "instruction": "beq     $b900",
+        "opcode": "6700fad8"
+      },
+      {
+        "pc": 48682,
+        "hex": "0xbe2a",
+        "instruction": "andi.w  #$3f, D1",
+        "opcode": "0241003f"
+      },
+      {
+        "pc": 48686,
+        "hex": "0xbe2e",
+        "instruction": "lsl.w   #3, D1",
+        "opcode": "e749"
+      },
+      {
+        "pc": 48688,
+        "hex": "0xbe30",
+        "instruction": "subi.b  #$8, D1",
+        "opcode": "04010008"
+      },
+      {
+        "pc": 48692,
+        "hex": "0xbe34",
+        "instruction": "lea     ($c714,PC), A2",
+        "opcode": "45fa08de"
+      },
+      {
+        "pc": 48696,
+        "hex": "0xbe38",
+        "instruction": "move.w  ($4,A2,D1.w), D0",
+        "opcode": "30321004"
+      },
+      {
+        "pc": 48700,
+        "hex": "0xbe3c",
+        "instruction": "jsr     $289c.l",
+        "opcode": "4eb90000289c"
+      },
+      {
+        "pc": 48706,
+        "hex": "0xbe42",
+        "instruction": "move.b  #$58, ($35f,A6)",
+        "opcode": "1d7c0058035f"
+      },
+      {
+        "pc": 48712,
+        "hex": "0xbe48",
+        "instruction": "trap    #$4",
+        "opcode": "4e44"
+      },
+      {
+        "pc": 48714,
+        "hex": "0xbe4a",
+        "instruction": "move.l  A1, -(A7)",
+        "opcode": "2f09"
+      },
+      {
+        "pc": 48716,
+        "hex": "0xbe4c",
+        "instruction": "move.l  #$5000, ($300,A6)",
+        "opcode": "2d7c000050000300"
+      },
+      {
+        "pc": 48724,
+        "hex": "0xbe54",
+        "instruction": "jsr     $1f5c.l",
+        "opcode": "4eb900001f5c"
+      }
+    ],
+    "0xf260": [
+      {
+        "pc": 61962,
+        "hex": "0xf20a",
+        "instruction": "jsr     $74ae.l",
+        "opcode": "4eb9000074ae"
+      },
+      {
+        "pc": 61968,
+        "hex": "0xf210",
+        "instruction": "tst.b   ($91a,A6)",
+        "opcode": "4a2e091a"
+      },
+      {
+        "pc": 61972,
+        "hex": "0xf214",
+        "instruction": "beq     $f26c",
+        "opcode": "67000056"
+      },
+      {
+        "pc": 61976,
+        "hex": "0xf218",
+        "instruction": "jsr     $66d8.l",
+        "opcode": "4eb9000066d8"
+      },
+      {
+        "pc": 61982,
+        "hex": "0xf21e",
+        "instruction": "andi.w  #$7, D0",
+        "opcode": "02400007"
+      },
+      {
+        "pc": 61986,
+        "hex": "0xf222",
+        "instruction": "lea     $77ac.l, A0",
+        "opcode": "41f9000077ac"
+      },
+      {
+        "pc": 61992,
+        "hex": "0xf228",
+        "instruction": "move.b  (A0,D0.w), ($11,A4)",
+        "opcode": "197000000011"
+      },
+      {
+        "pc": 61998,
+        "hex": "0xf22e",
+        "instruction": "jsr     $2cc0.l",
+        "opcode": "4eb900002cc0"
+      },
+      {
+        "pc": 62004,
+        "hex": "0xf234",
+        "instruction": "move.b  ($11,A4), ($3,A4)",
+        "opcode": "196c00110003"
+      },
+      {
+        "pc": 62010,
+        "hex": "0xf23a",
+        "instruction": "bset    #$3, ($3,A4)",
+        "opcode": "08ec00030003"
+      },
+      {
+        "pc": 62016,
+        "hex": "0xf240",
+        "instruction": "move.b  #$ff, ($9,A4)",
+        "opcode": "197cffff0009"
+      },
+      {
+        "pc": 62022,
+        "hex": "0xf246",
+        "instruction": "move.b  #$8, ($8,A4)",
+        "opcode": "197c00080008"
+      },
+      {
+        "pc": 62028,
+        "hex": "0xf24c",
+        "instruction": "ori.b   #$17, ($a,A4)",
+        "opcode": "002c0017000a"
+      },
+      {
+        "pc": 62034,
+        "hex": "0xf252",
+        "instruction": "move.b  #$80, ($2,A4)",
+        "opcode": "197c00800002"
+      },
+      {
+        "pc": 62040,
+        "hex": "0xf258",
+        "instruction": "cmpi.b  #$3, (A3)",
+        "opcode": "0c130003"
+      },
+      {
+        "pc": 62044,
+        "hex": "0xf25c",
+        "instruction": "bne     $f26c",
+        "opcode": "6600000e"
+      },
+      {
+        "pc": 62048,
+        "hex": "0xf260",
+        "instruction": "move.b  #$58, ($35f,A6)",
+        "opcode": "1d7c0058035f"
+      },
+      {
+        "pc": 62054,
+        "hex": "0xf266",
+        "instruction": "trap    #$4",
+        "opcode": "4e44"
+      },
+      {
+        "pc": 62056,
+        "hex": "0xf268",
+        "instruction": "bra     $f26c",
+        "opcode": "60000002"
+      },
+      {
+        "pc": 62060,
+        "hex": "0xf26c",
+        "instruction": "adda.w  #$20, A4",
+        "opcode": "d8fc0020"
+      },
+      {
+        "pc": 62064,
+        "hex": "0xf270",
+        "instruction": "dbra    D7, $f1e0",
+        "opcode": "51cfff6e"
+      },
+      {
+        "pc": 62068,
+        "hex": "0xf274",
+        "instruction": "rts",
+        "opcode": "4e75"
+      },
+      {
+        "pc": 62070,
+        "hex": "0xf276",
+        "instruction": "cmpi.b  #$2, ($8,A3)",
+        "opcode": "0c2b00020008"
+      }
+    ]
+  },
+  "refs": [
+    {
+      "pc": 20826,
+      "hex": "0x515a",
+      "instruction": "move.b  #$0, ($346,A6)",
+      "opcode": "1d7c00000346"
+    },
+    {
+      "pc": 20988,
+      "hex": "0x51fc",
+      "instruction": "move.b  #$ff, ($346,A6)",
+      "opcode": "1d7c00ff0346"
+    },
+    {
+      "pc": 21090,
+      "hex": "0x5262",
+      "instruction": "move.b  #$ff, ($346,A6)",
+      "opcode": "1d7c00ff0346"
+    },
+    {
+      "pc": 21228,
+      "hex": "0x52ec",
+      "instruction": "move.b  #$ff, ($346,A6)",
+      "opcode": "1d7c00ff0346"
+    },
+    {
+      "pc": 21236,
+      "hex": "0x52f4",
+      "instruction": "move.b  #$0, ($346,A6)",
+      "opcode": "1d7c00000346"
+    },
+    {
+      "pc": 21270,
+      "hex": "0x5316",
+      "instruction": "move.b  #$0, ($346,A6)",
+      "opcode": "1d7c00000346"
+    },
+    {
+      "pc": 21508,
+      "hex": "0x5404",
+      "instruction": "move.b  #$ff, ($346,A6)",
+      "opcode": "1d7c00ff0346"
+    },
+    {
+      "pc": 21590,
+      "hex": "0x5456",
+      "instruction": "move.b  #$58, ($35f,A6)",
+      "opcode": "1d7c0058035f"
+    },
+    {
+      "pc": 28510,
+      "hex": "0x6f5e",
+      "instruction": "move.b  #$58, ($35f,A6)",
+      "opcode": "1d7c0058035f"
+    },
+    {
+      "pc": 30742,
+      "hex": "0x7816",
+      "instruction": "move.b  #$58, ($35f,A6)",
+      "opcode": "1d7c0058035f"
+    },
+    {
+      "pc": 48432,
+      "hex": "0xbd30",
+      "instruction": "move.b  #$58, ($35f,A6)",
+      "opcode": "1d7c0058035f"
+    },
+    {
+      "pc": 48554,
+      "hex": "0xbdaa",
+      "instruction": "move.b  #$58, ($35f,A6)",
+      "opcode": "1d7c0058035f"
+    },
+    {
+      "pc": 48588,
+      "hex": "0xbdcc",
+      "instruction": "move.b  #$58, ($35f,A6)",
+      "opcode": "1d7c0058035f"
+    },
+    {
+      "pc": 48706,
+      "hex": "0xbe42",
+      "instruction": "move.b  #$58, ($35f,A6)",
+      "opcode": "1d7c0058035f"
+    },
+    {
+      "pc": 62048,
+      "hex": "0xf260",
+      "instruction": "move.b  #$58, ($35f,A6)",
+      "opcode": "1d7c0058035f"
+    }
+  ],
+  "snapshots": [
+    {
+      "namespace": "sim/captures/rtl/kyros_combat_hud3301",
+      "frame": 780,
+      "player400_420_hex": "802800000100000000000000072e0a3e0000d200000000000c000c0000e80000",
+      "sha256": "ea903f353dcdfb85cb468313682e798533657a1fc28cdaee56b9721dcc30a5e7"
+    },
+    {
+      "namespace": "sim/captures/rtl/kyros_combat_hud3301",
+      "frame": 810,
+      "player400_420_hex": "80280004020004030c000000072e0a3e0000f600000000000c000c00e8000000",
+      "sha256": "809e53b235db1e00cb2d79644b0803932844dc416584054a0dab869a5f032faa"
+    },
+    {
+      "namespace": "sim/captures/rtl/kyros_combat_hud3301",
+      "frame": 840,
+      "player400_420_hex": "8028000403000202030000000736093e00000800000000000c000c00e8000000",
+      "sha256": "a8f6edd93156257cd9cdc5dc490b5fa9775da602f4c604b7c1d035451cfd932c"
+    },
+    {
+      "namespace": "sim/captures/rtl/kyros_combat_hud3301",
+      "frame": 870,
+      "player400_420_hex": "8028004c03001003040003000736093e00001a00000000000f000f00e200c000",
+      "sha256": "bb068f5d0663701452f54861230817f6b5aa1842333bd63610a002d53ec687cc"
+    },
+    {
+      "namespace": "sim/captures/rtl/kyros_combat_hud3301",
+      "frame": 900,
+      "player400_420_hex": "80280000030004030c00000007461f3e00005000000000000c000c0000e80080",
+      "sha256": "e9853b040c7bd026f546b800e2ae8736e53fb0a5a4e914ecf729b19c78041371"
+    },
+    {
+      "namespace": "sim/captures/rtl/kyros_combat_hud3301",
+      "frame": 930,
+      "player400_420_hex": "80280000050002020300000007461f3e00006200000000000c000c0000e80080",
+      "sha256": "29430685ac03122fef99ec92af4c0820d7c6e93113c1ac484ae0e752fc89b089"
+    },
+    {
+      "namespace": "sim/captures/rtl/kyros_combat_hud3301",
+      "frame": 960,
+      "player400_420_hex": "80280000050000000000000007461f3e00008600000000000c000c0000e80080",
+      "sha256": "c2a5b3f031fa8e22a160e75ea892e133cc297405ddc0d2e2b87bd1f6213be8d5"
+    },
+    {
+      "namespace": "sim/captures/rtl/kyros_combat_hud3301",
+      "frame": 990,
+      "player400_420_hex": "80280000060004030200000007461f3e0000aa00000000000c000c0000e80080",
+      "sha256": "e2bb360c34be86f8668e9d06a5f1a74497063887d208f62f76f7dcbe9dec439d"
+    },
+    {
+      "namespace": "sim/captures/rtl/kyros_combat_hud3301",
+      "frame": 1020,
+      "player400_420_hex": "80280000070002020100000007561d3e0000bc00000000000c000c0000e80080",
+      "sha256": "4d22d85ef2d4590bfa0664a7f890f1b1e36679e19c203eff4ee75985aebf8c65"
+    },
+    {
+      "namespace": "sim/captures/rtl/kyros_combat_hud3301",
+      "frame": 1050,
+      "player400_420_hex": "80280048070010030400030007561d3e0000ce00000000000f000f0000e20040",
+      "sha256": "00ab2c7998df8907db97d47116f5b9f2ab011824fe80db1542964dbe7af23048"
+    },
+    {
+      "namespace": "sim/captures/rtl/kyros_combat_hud3301",
+      "frame": 1080,
+      "player400_420_hex": "802800000700040302000000075e1c3e00000400000000000c000c0000e80000",
+      "sha256": "053ca990f54b6e256d480d9ee43fb6d19c4e46b2999ed49430fb9fb7023aea41"
+    },
+    {
+      "namespace": "sim/captures/rtl/kyros_combat_hud3301",
+      "frame": 1110,
+      "player400_420_hex": "802800000700020201000000075e1c3e00001600000000000c000c0000e80000",
+      "sha256": "a348c2c6ddc0c44771a157bbd337ee6ffb3b17726095158c718dd62a9f2d0953"
+    },
+    {
+      "namespace": "sim/captures/rtl/kyros_combat_hud3301",
+      "frame": 1140,
+      "player400_420_hex": "802800000800000000000000075e1c3e00003a00000000000c000c0000e80000",
+      "sha256": "b93782e88fbe0bac761db7b57181354797206b98f69a61ccf6cd005ef218ef8d"
+    },
+    {
+      "namespace": "sim/captures/kyros/combat3600_clocked",
+      "frame": 780,
+      "player400_420_hex": "802800000100000000000000072e0a3e0000d200000000000c000c0000e80000",
+      "sha256": "ca0397cee8a5d9876cf21096524904bab058950b0ea17be7d5daa13e2d56a0c6"
+    },
+    {
+      "namespace": "sim/captures/kyros/combat3600_clocked",
+      "frame": 840,
+      "player400_420_hex": "8028000403000202030000000736093e00000800000000000c000c00e8000000",
+      "sha256": "15be96690e14083ef22963e03bddb8183fea32ea88f06079fe45fe21d4e3416c"
+    },
+    {
+      "namespace": "sim/captures/kyros/combat3600_clocked",
+      "frame": 900,
+      "player400_420_hex": "80280000030004030c00000007461f3e00005000000000000c000c0000e80080",
+      "sha256": "feb3c1be90479b8f453ceff97435a60cebbd64ad960d79ff617f384a588e2c86"
+    },
+    {
+      "namespace": "sim/captures/kyros/combat3600_clocked",
+      "frame": 960,
+      "player400_420_hex": "80280000050000000000000007461f3e00008600000000000c000c0000e80080",
+      "sha256": "b5641b62e81fdaaefe45eacb327051d1d1480ddef2133e8e41a29c958909b002"
+    },
+    {
+      "namespace": "sim/captures/kyros/combat3600_clocked",
+      "frame": 1020,
+      "player400_420_hex": "80280000070002020100000007561d3e0000bc00000000000c000c0000e80080",
+      "sha256": "1b57654c639354ade9ea4202844013c7001c5cd065417b499e313d3566be8998"
+    },
+    {
+      "namespace": "sim/captures/kyros/combat3600_clocked",
+      "frame": 1080,
+      "player400_420_hex": "802800000700040302000000075e1c3e00000400000000000c000c0000e80000",
+      "sha256": "6409fb330b809a375b2e997e5874b230cb9ea9bf011c477ab10ee6b6d71928fc"
+    },
+    {
+      "namespace": "sim/captures/kyros/combat3600_clocked",
+      "frame": 1140,
+      "player400_420_hex": "802800000800000000000000075e1c3e00003a00000000000c000c0000e80000",
+      "sha256": "bba16947a5c22df85ff33fbbc80c2aa70c5641c54027019500900864535ed71b"
+    }
+  ]
+}

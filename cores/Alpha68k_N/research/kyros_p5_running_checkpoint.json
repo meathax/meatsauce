@@ -1,0 +1,27 @@
+{
+  "native": {
+    "reset": {
+      "pid": 132355,
+      "live": true,
+      "command": "/mnt/d/Arcade/AI/aCORES/Alpha68k N/sim/build/kyros_warm_reset960_v2_sim /mnt/d/Arcade/AI/aCORES",
+      "fields": 399,
+      "reset_events": "frame,tick,phase,main_transactions,sound_transactions,ym_writes,dac,audio_sample,cold_reset,downloading\n300,244113401,before,6965517,5448103,42,152,-7988,0,0\n300,244113465,held,0,0,0,0,0,0,0\n"
+    },
+    "death": {
+      "pid": 131144,
+      "live": true,
+      "command": "/mnt/d/Arcade/AI/aCORES/Alpha68k N/sim/build/kyros_idle_death3601_sim /mnt/d/Arcade/AI/aCORES/A",
+      "fields": 1037,
+      "reset_events": null
+    }
+  },
+  "combat": {
+    "exit_code": 0,
+    "state_rows": 3600,
+    "reference_complete": true,
+    "lua_error": false,
+    "observed_dips": [
+      142
+    ]
+  }
+}

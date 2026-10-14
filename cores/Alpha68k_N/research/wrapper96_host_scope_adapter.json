@@ -1,0 +1,7 @@
+{
+  "scope": "temporary simulation source only; FPGA sys/ unchanged",
+  "original_sha256": "31ed2c917bd6680b4d60328e71a4f28015bd5fcec21e15b290eacec88971167d",
+  "adapted_sha256": "183a46fc94d4dde6e884b0dd6a2f5ea79e14f2d400af2426d8790241186f0a9d",
+  "change": "move existing R_in/G_in/B_in net declarations to module scope; preserve branch assignments/widths",
+  "limit": "does not qualify Quartus binding, timing, or hardware"
+}

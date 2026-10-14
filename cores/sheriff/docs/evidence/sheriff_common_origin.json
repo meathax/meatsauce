@@ -1,0 +1,354 @@
+{
+  "scope": "Source-only native/MAME epoch definitions; reuse retained reset observations, no offset choice or simulator",
+  "producer_sha256": "6fcc5689ca99acf8dcd5251e3d24cbeacd32e7431f925dae68cf55eadcce8d7e",
+  "native_model": {
+    "revision": "cb67879202407d2c9f98126fa76f2a1c2abe247d",
+    "source_sha256": {
+      "sim/board_harness.cpp": "6A603D1023FA81933B21A2AB30E50A26D701C0A382B260AF53DB53AF2637B93A",
+      "rtl/n8080_vm80a_ce.v": "55B1DF11C49078EBBAAA7343C430129A1F8FA58076A077A2ABD1C22CDFDE851A",
+      "_checks/physical-cpu-round2400-20261009/Vn8080_board": "518A6614F5D1B865378805A37AEEE5E7513747154E1F017CE906A10BF158C0DA",
+      "sim/inputs_rounds.csv": "614F4F312809039ED876DEDF5B80E856E8ED879F2C1BEC65650EA5A6210DDC9F",
+      "rtl/n8080_board.sv": "F70A5F758145C3F07D0B436EB4203EDBF3B99E58874D3932170FBB2D73E98BD6",
+      "rtl/n8080_cpu.sv": "9D7047AB0EDD7F46F9AA674D8820889164486DEA460639A11A79FF2DB6C865FF"
+    },
+    "source_recovery": "_checks/physical-cpu-phases-20261009/source-recovery.json",
+    "model_sha256": "518a6614f5d1b865378805a37aeee5e7513747154e1f017ce906a10bf158c0da",
+    "input_origin": "sim/inputs_restart.csv",
+    "frozen_input_sha256": "15e27f7747d95c53762259b136b7b8aeff7e8a7c24dcf75ac81edad85456db3d"
+  },
+  "source_sha256": {
+    "docs/evidence/sheriff_reset_startup.json": "adc4c70fc2e78f8b6af2ee2662584fd8b802687696dd93a45ef512bc10e75969",
+    "docs/evidence/sheriff_first_irq_boundary.json": "a824cf2673afb6428072a8e56945244efb4b95587dea43e1139c2d54d633f074",
+    "docs/evidence/sheriff_clock_restart2760.json": "e1682718bc61181691876f8286567d8e6b665ed9c649b870e5a0d26709299be3",
+    "docs/evidence/sheriff_first_pixel_causal_path.json": "49187b2782ae913c518f7a71e3bafb8320c966ecbc6806f91e8c0aa5212a370c",
+    "_checks/physical-cpu-restart-corners-20261009/model-source.json": "e9fa0abdaa37dafec06097c116982373ce41935938ef8d962adbf88c509c18c2",
+    "sim/results/pixel-2760-irq-before-mame/capture_features.json": "923de6d959d6e8ef6873c85f06ab181d98c267c9fd93c95d1b59f1f654805631",
+    "docs/CPU_RESET_ACCEPTANCE.md": "43d59ffb0b0a83fe5a745a4a6b57672ee27cf2268424910bab4a0ee38b03c453",
+    "docs/CPU_PHASE_ORIGIN.md": "6a36a1ca95ba8dce58f6123eef74d62739a23e7d2cabbaa8e1092df566cb831d",
+    "_checks/agent-common-origin-20261010/context-before-epoch-metadata/mame_capture.lua": "0bd1826f1d9d85458a04db071ec25c8c70366942d7563f35dbf5b3237aee4239",
+    "_checks/agent-common-origin-20261010/context-before-epoch-metadata/mame_capture.ps1": "3e30f4c21b2ebef8b34d687b130c43179f3f7e6ca84ba9ca4d7a20cd6f8f3526",
+    "_checks/service-firstpixel-parent-integration-20261010/sheriff_first_pixel_causal_path.json": "9bb34068fd87cc4000dffc8110026e624c107a6cfd3ac1058fada72a6e5098b2"
+  },
+  "source_sources": {
+    "sim/board_harness.cpp": {
+      "path": "_checks/physical-cpu-phases-20261009/sources/sim/board_harness.cpp",
+      "sha256": "6a603d1023fa81933b21a2ab30e50a26d701c0a382b260af53db53af2637b93a",
+      "native_model_source": true
+    },
+    "rtl/n8080_board.sv": {
+      "path": "_checks/physical-cpu-phases-20261009/sources/rtl/n8080_board.sv",
+      "sha256": "f70a5f758145c3f07d0b436eb4203edbf3b99e58874d3932170fbb2d73e98bd6",
+      "native_model_source": true
+    },
+    "rtl/n8080_cpu.sv": {
+      "path": "_checks/physical-cpu-phases-20261009/sources/rtl/n8080_cpu.sv",
+      "sha256": "9d7047ab0edd7f46f9aa674d8820889164486dea460639a11a79ff2db6c865ff",
+      "native_model_source": true
+    },
+    "rtl/n8080_vm80a_ce.v": {
+      "path": "_checks/physical-cpu-phases-20261009/sources/rtl/n8080_vm80a_ce.v",
+      "sha256": "55b1df11c49078ebbaaa7343c430129a1f8fa58076a077a2abd1c22cdfde851a",
+      "native_model_source": true
+    },
+    "mame-screen.cpp": {
+      "path": "D:\\Arcade\\AI\\mame289\\src\\emu\\screen.cpp",
+      "sha256": "63ca8b9e36a4481976f4f8d2923c5b10d86737ed06a42a8958358afa95e786dc",
+      "local_MAME_source": true
+    },
+    "mame-i8085.cpp": {
+      "path": "D:\\Arcade\\AI\\mame289\\src\\devices\\cpu\\i8085\\i8085.cpp",
+      "sha256": "eb478e899cc9f331c9e429f50095a37a25cf4400c87bad9184276f54280a3114",
+      "local_MAME_source": true
+    },
+    "mame-n8080.cpp": {
+      "path": "D:\\Arcade\\AI\\mame289\\src\\mame\\nintendo\\n8080.cpp",
+      "sha256": "b6e5356393e07f83f2842346cf530f84874978153f3ff5ba966daa8d6e209b6d",
+      "local_MAME_source": true
+    },
+    "mame-schedule.h": {
+      "path": "D:\\Arcade\\AI\\mame289\\src\\emu\\schedule.h",
+      "sha256": "9b692d9daf186817884ce18c2b0c62c5849065d6ebb9ace2d388b1d6ef46ef1d",
+      "local_MAME_source": true
+    },
+    "mame-schedule.cpp": {
+      "path": "D:\\Arcade\\AI\\mame289\\src\\emu\\schedule.cpp",
+      "sha256": "b6649000fe6668185ae6868bb9d439e8d8c540cb2d57366cbd62fadb55630513",
+      "local_MAME_source": true
+    },
+    "mame-diexec.cpp": {
+      "path": "D:\\Arcade\\AI\\mame289\\src\\emu\\diexec.cpp",
+      "sha256": "f4a1f9fb027848876bf4b8726cac760eebdcf9619c8d39348eaa6035b256918d",
+      "local_MAME_source": true
+    }
+  },
+  "excerpts": {
+    "sim/board_harness.cpp": {
+      "path": "_checks/agent-common-origin-20261010/sim_board_harness.cpp.excerpt.txt",
+      "sha256": "f1d405320838fad8d5a6608471fbdde78e4bd10cdb14ad59c7dd819bc7355044",
+      "source_ranges": [
+        [
+          35,
+          43
+        ],
+        [
+          74,
+          84
+        ]
+      ]
+    },
+    "rtl/n8080_board.sv": {
+      "path": "_checks/agent-common-origin-20261010/rtl_n8080_board.sv.excerpt.txt",
+      "sha256": "b345d2ffd7abfcecebce2d5cf05c557589d21360d2f75a68e0baea20e601e018",
+      "source_ranges": [
+        [
+          134,
+          151
+        ]
+      ]
+    },
+    "rtl/n8080_cpu.sv": {
+      "path": "_checks/agent-common-origin-20261010/rtl_n8080_cpu.sv.excerpt.txt",
+      "sha256": "b40a991e972df85a2444869131d323a132e5aaea4187d9880dcb428dccf1ff78",
+      "source_ranges": [
+        [
+          14,
+          23
+        ]
+      ]
+    },
+    "rtl/n8080_vm80a_ce.v": {
+      "path": "_checks/agent-common-origin-20261010/rtl_n8080_vm80a_ce.v.excerpt.txt",
+      "sha256": "e5e81c8c5db7622962a0365cdfcfa0f7dc04a2be4bcfa7108f96eea97a93c6e8",
+      "source_ranges": [
+        [
+          205,
+          210
+        ]
+      ]
+    },
+    "mame-screen.cpp": {
+      "path": "_checks/agent-common-origin-20261010/mame-screen.cpp.excerpt.txt",
+      "sha256": "c57623b8c16974f98f0d204cf137499fb98423dbd8d38a925706524f67e3df31",
+      "source_ranges": [
+        [
+          851,
+          860
+        ],
+        [
+          905,
+          909
+        ],
+        [
+          1545,
+          1558
+        ],
+        [
+          1566,
+          1580
+        ]
+      ]
+    },
+    "mame-i8085.cpp": {
+      "path": "_checks/agent-common-origin-20261010/mame-i8085.cpp.excerpt.txt",
+      "sha256": "3ddab06b155465c62bc136118b134a2fb34626b1cb66e04391c5e2eaa9014dd9",
+      "source_ranges": [
+        [
+          378,
+          388
+        ],
+        [
+          870,
+          889
+        ]
+      ]
+    },
+    "mame-n8080.cpp": {
+      "path": "_checks/agent-common-origin-20261010/mame-n8080.cpp.excerpt.txt",
+      "sha256": "66735dec3bb27d63b6137f0416c5940b75ebd1a03deed7e1233a1fd675abfdaa",
+      "source_ranges": [
+        [
+          1121,
+          1127
+        ],
+        [
+          1186,
+          1198
+        ]
+      ]
+    },
+    "mame-schedule.cpp": {
+      "path": "_checks/agent-common-origin-20261010/mame-schedule.cpp.excerpt.txt",
+      "sha256": "97b6e971ebea92bd1aa62aad60a6a7144cf8e1d1a030a88d66aaee1e67ba8769",
+      "source_ranges": [
+        [
+          329,
+          338
+        ]
+      ]
+    },
+    "mame-schedule-time": {
+      "path": "_checks/agent-common-origin-20261010/mame-schedule-time.excerpt.txt",
+      "sha256": "97b6e971ebea92bd1aa62aad60a6a7144cf8e1d1a030a88d66aaee1e67ba8769",
+      "source_lines": [
+        329,
+        330,
+        331,
+        332,
+        333,
+        334,
+        335,
+        336,
+        337,
+        338
+      ]
+    }
+  },
+  "native_origin": {
+    "definition": "Capture tick0 is the first labelled positive-edge sample after external reset is released, excluding ROM-load/reset clocks",
+    "ROM_load_clocks": 18432,
+    "reset_settle_clocks": 1000,
+    "excluded_clocks": 19432,
+    "CPU_counter_phase_at_release": 7,
+    "raster_at_release": {
+      "x": 0,
+      "y": 240,
+      "pixel_phase": 0
+    },
+    "first_phi1_after_release": 18,
+    "first_M1_phi1": 43,
+    "first_SYNC": 52,
+    "first_DBIN": 77,
+    "first_bus_derived_T1_tag": 50,
+    "tag_definition": "SYNC-2 or DBIN-27; tag is an observer convention, not the physical M1phi1 edge",
+    "reset_recovery": "Existing source model matches all78 startup pin samples and uniquely phase7; manufacturer Figure2-13 supports recovery ordering, not universal50-clock release-to-tag delay"
+  },
+  "reference_origin": {
+    "definition": "MAME emulated machine/scheduler time0, with virtual CPU resetPC0 and screen vblank start_time0; no native ROM-load/pin-reset interval is represented",
+    "raster_at_time0": {
+      "x": 0,
+      "y": 240,
+      "proof": "screen.cpp sets vblank_start_time0; vpos=(visible_bottom239+1+delta/scantime)%256 and hpos=delta/pixeltime"
+    },
+    "first_PC0_callback_master_ticks": "0",
+    "first_fetch_evidence": "Actual exit0 three-field reset capture; five ordered opcode fetches and same-observer preserved reference prefix",
+    "CPU_reset_source": "i8085.cpp:378-388 setsPC0; execute_run:870-889 executes read_op/execute_one without native external-reset recovery phases",
+    "callback_epoch": "scheduler time first returns active timer expiration time; absent timer callback it returns executing CPU local_time, otherwise global base time. Instruction/access callbacks are not physical SYNC/DBIN/WR/phi1 samples",
+    "beam_observer": "Lua derives beam from screen.time_until_pos at5.04MHz using nearest-pixel rounding, without an empirical origin offset"
+  },
+  "capture_source_recovery": {
+    "pixel_capture_Lua_sha256": "4ff1018ed88f85676dce594051bae41e8acb26cd7b05135d0e86046bb3944773",
+    "pixel_capture_launcher_sha256": null,
+    "reset_observer_Lua_sha256": "5e214ec7ed3dbf63c7550f87ebf6e967ea4e52688500e30923db5b50b6665481",
+    "bounded_candidate_count": 13,
+    "candidate_hashes": {
+      "_checks/0b24750fa6b3-20261009-095613/source/sim/mame_capture.lua": {
+        "raw": "be6452a9ad63cba6d4f13eb6336e9c79bfaa7bfbce78f627e5e6d8ac97a65e0f",
+        "LF": "a401f407654965ad86beadb5135745cadca7b6763b6d5cf92067f7ef82294926",
+        "CRLF": "be6452a9ad63cba6d4f13eb6336e9c79bfaa7bfbce78f627e5e6d8ac97a65e0f"
+      },
+      "_checks/9538653d8c36-20261010-121212-c7b56929/source/sim/mame_capture.lua": {
+        "raw": "0bd1826f1d9d85458a04db071ec25c8c70366942d7563f35dbf5b3237aee4239",
+        "LF": "0bd1826f1d9d85458a04db071ec25c8c70366942d7563f35dbf5b3237aee4239",
+        "CRLF": "97dc253184828ad353282d2a785182b1e35c9b40da3bca3a3f5f59c14048e710"
+      },
+      "_checks/1d2d3beec224-20261009-064104/source/sim/mame_capture.lua": {
+        "raw": "314f2279a6c3af497cc7ab2d5593661aaab1739d3ee8423aefd09c285b56d7eb",
+        "LF": "7bb82eae585e0e9a433cebc97186df0fcd36b3d9f2f285f1389dd68dbc5a04af",
+        "CRLF": "314f2279a6c3af497cc7ab2d5593661aaab1739d3ee8423aefd09c285b56d7eb"
+      },
+      "_checks/1c0e863386e5-20261009-075638/source/sim/mame_capture.lua": {
+        "raw": "be6452a9ad63cba6d4f13eb6336e9c79bfaa7bfbce78f627e5e6d8ac97a65e0f",
+        "LF": "a401f407654965ad86beadb5135745cadca7b6763b6d5cf92067f7ef82294926",
+        "CRLF": "be6452a9ad63cba6d4f13eb6336e9c79bfaa7bfbce78f627e5e6d8ac97a65e0f"
+      },
+      "_checks/b0443f5ab271-20261009-042553/source/sim/mame_capture.lua": {
+        "raw": "4b4967be4e11078a676e3d7971d1065c3896a4086c8e86214812b47fa620f2c3",
+        "LF": "43fa4d1abf83ed3f9c36a2652f8df2f290ecbfdb859e59e9be454f8f92499249",
+        "CRLF": "4b4967be4e11078a676e3d7971d1065c3896a4086c8e86214812b47fa620f2c3"
+      },
+      "_checks/74a70bfcefe6-20261009-030657/source/sim/mame_capture.lua": {
+        "raw": "4e55d8365c384f56015c11f9012014f40a2f4df7b1ee457f67dc071fa4bdfffb",
+        "LF": "b175217f0ed3215165f37c965530dcfa15b83ac473f9ccf60b760b8603f1b816",
+        "CRLF": "4e55d8365c384f56015c11f9012014f40a2f4df7b1ee457f67dc071fa4bdfffb"
+      },
+      "_checks/80639423a7a9-20261009-031108/source/sim/mame_capture.lua": {
+        "raw": "c06eef35556885823dd9eb28f1b97c46f74c9ca15af47322cc0dceda6b1a77d5",
+        "LF": "4cdc86a9b05ece90d3c757f1662919ba87169c485d4f8a8f7c80c91473b6b1f2",
+        "CRLF": "c06eef35556885823dd9eb28f1b97c46f74c9ca15af47322cc0dceda6b1a77d5"
+      },
+      "_checks/c288d988e9f3-20261009-025939/source/sim/mame_capture.lua": {
+        "raw": "1853898d348e0dd7a2fb2247e6121cf7505ac661a9f03807b110b8cf2911e372",
+        "LF": "25ebb1d3adffb5ca147f89d555a727030cfe801fbdc6799718a2e5b1cffcca1b",
+        "CRLF": "1853898d348e0dd7a2fb2247e6121cf7505ac661a9f03807b110b8cf2911e372"
+      },
+      "_checks/cdf27e02bcc0-20261009-113126/source/sim/mame_capture.lua": {
+        "raw": "904f31f7aa01cf5e715e2c98a1943b24c212b0d9c24e44e2ab2272e848094817",
+        "LF": "7a4e4929e51f29dfb5a4352a5a037695c9cee76a6ca9b0ac9c27808fc29b60cd",
+        "CRLF": "904f31f7aa01cf5e715e2c98a1943b24c212b0d9c24e44e2ab2272e848094817"
+      },
+      "_checks/f704e44884d8-20261009-063431/source/sim/mame_capture.lua": {
+        "raw": "314f2279a6c3af497cc7ab2d5593661aaab1739d3ee8423aefd09c285b56d7eb",
+        "LF": "7bb82eae585e0e9a433cebc97186df0fcd36b3d9f2f285f1389dd68dbc5a04af",
+        "CRLF": "314f2279a6c3af497cc7ab2d5593661aaab1739d3ee8423aefd09c285b56d7eb"
+      },
+      "_checks/agent-platform-check-66f53ed9-20261010/source/sim/mame_capture.lua": {
+        "raw": "0bd1826f1d9d85458a04db071ec25c8c70366942d7563f35dbf5b3237aee4239",
+        "LF": "0bd1826f1d9d85458a04db071ec25c8c70366942d7563f35dbf5b3237aee4239",
+        "CRLF": "97dc253184828ad353282d2a785182b1e35c9b40da3bca3a3f5f59c14048e710"
+      },
+      "_checks/f354ad7dacc0-20261009-233434/source/sim/mame_capture.lua": {
+        "raw": "49ec3b10ba1b03ca70fa2a0da5de8da6b7de5bcb0cabe2eb5251415a583ec941",
+        "LF": "5e214ec7ed3dbf63c7550f87ebf6e967ea4e52688500e30923db5b50b6665481",
+        "CRLF": "49ec3b10ba1b03ca70fa2a0da5de8da6b7de5bcb0cabe2eb5251415a583ec941"
+      },
+      "_checks/b233fd1643e9-20261009-051152/source/sim/mame_capture.lua": {
+        "raw": "314f2279a6c3af497cc7ab2d5593661aaab1739d3ee8423aefd09c285b56d7eb",
+        "LF": "7bb82eae585e0e9a433cebc97186df0fcd36b3d9f2f285f1389dd68dbc5a04af",
+        "CRLF": "314f2279a6c3af497cc7ab2d5593661aaab1739d3ee8423aefd09c285b56d7eb"
+      }
+    },
+    "matches": [
+      {
+        "path": "_checks/f354ad7dacc0-20261009-233434/source/sim/mame_capture.lua",
+        "variant": "LF",
+        "sha256": "5e214ec7ed3dbf63c7550f87ebf6e967ea4e52688500e30923db5b50b6665481"
+      }
+    ],
+    "pixel_Lua_recovered": false,
+    "recovered_snapshots": {
+      "5e214ec7ed3dbf63c7550f87ebf6e967ea4e52688500e30923db5b50b6665481": {
+        "path": "_checks/agent-common-origin-20261010/reset-observer.lua",
+        "sha256": "5e214ec7ed3dbf63c7550f87ebf6e967ea4e52688500e30923db5b50b6665481"
+      }
+    },
+    "current_scripts_qualified_for_historical_capture": false,
+    "limit": "Original pixel-capture Lua4ff hash was not found in retained candidates/raw/LF/CRLF; captured launcher hash null. Fresh reset observer5e recovered by LF line-ending normalization. Current bootstrap flags are source context only, not asserted as the unrecorded historical command."
+  },
+  "responsible_layer": {
+    "qualified_explanation": "Raster origins agree at0/240. Native tick0 denotes physical-model external reset release at dividerphase7 and includes recovery before M1; MAME time0 denotes virtual CPU instruction start. The measured initial50-clock bus-tag gap follows these differing initialization/event semantics.",
+    "not_established": "This does not prove native reset is faulty, a literal50-clock hardware CPU/beam offset, or the sole cause of field66 and later125-clock epoch differences.",
+    "smallest_source_justified_correction": "Preserve reset recovery and raw raster. Add explicit epoch/event metadata to future paired capture (external release, actual phi1/SYNC/DBIN, machine/scheduler callback time, beam at each event) and recover/pin the exact Lua/launcher. No numeric phase or timestamp correction is source-justified yet.",
+    "exact_unknown": "Actual Sheriff CPU/reset/IRQ/raster relative phase and memory READY/service timing; historical4ff Lua/bootstrap closure; instruction-to-pin mapping for identical-source paired events"
+  },
+  "existing_receipts": {
+    "native_reset_capture_exit": 0,
+    "MAME_reset_capture_exit": 0
+  },
+  "simulation_executed": false,
+  "RTL_changed": false,
+  "phase_offset_selected": false,
+  "pixel_causal_report_changed": false,
+  "physical_common_origin_qualified": false,
+  "strict_graphics_gate_pass": false,
+  "documentary_recovery": {
+    "context_sources": {
+      "sim/mame_capture.lua": "_checks/agent-common-origin-20261010/context-before-epoch-metadata/mame_capture.lua",
+      "tools/mame_capture.ps1": "_checks/agent-common-origin-20261010/context-before-epoch-metadata/mame_capture.ps1"
+    },
+    "original_firstpixel_export": "_checks/service-firstpixel-parent-integration-20261010/sheriff_first_pixel_causal_path.json",
+    "original_sha256": "9bb34068fd87cc4000dffc8110026e624c107a6cfd3ac1058fada72a6e5098b2",
+    "consumed_current_export": "docs/evidence/sheriff_first_pixel_causal_path.json",
+    "consumed_sha256": "49187b2782ae913c518f7a71e3bafb8320c966ecbc6806f91e8c0aa5212a370c",
+    "normalization": "CRLF to LF only, exports distinguished; semantic producer not rerun"
+  }
+}

@@ -1,0 +1,64 @@
+{
+  "scope": "Passive image/counter observations of exact frozen older RTL; not current model acceptance",
+  "model_binary_sha256": "13eaeabf04c600260c63d7c292c81db45481d4d02fef25ae951d19ca689cb19b",
+  "observations": [
+    {
+      "frame": 3360,
+      "mode": "2p",
+      "observed": "Natural move from first garage to next street; displayed P1 21790, P2 10880"
+    },
+    {
+      "frame": 3600,
+      "mode": "2p",
+      "observed": "Both players continue fighting in next street; native target terminal exit 0"
+    },
+    {
+      "frame": 3180,
+      "mode": "4p",
+      "observed": "Displayed P1 0, P2 5950, P3 5010, P4 4230; individual P1 scoring in this cabinet remains open"
+    },
+    {
+      "frame": 3420,
+      "mode": "no-input attract",
+      "observed": "Returned to Zero Team title"
+    },
+    {
+      "frame": 3900,
+      "mode": "no-input attract",
+      "observed": "Naturally entered forest attract segment after title; sound resumed"
+    }
+  ],
+  "evidence": {
+    "sim/results/hud-2p-3360.json": "7581c9e81838199428de147ed6c58f5a3aa797b5bec9678aa4332b97a75cfd2a",
+    "sim/results/hud-2p-3600.json": "79efc88b1e9db93e59e76e3ff2fc94a4ba70da03e1009e8d1d19e864b6f6f5df",
+    "sim/results/hud-4p-3180.json": "489ed02056158b8f018dac68815c36ba24593686ec2d22dd20c7aff29cfdd425",
+    "sim/results/hud-attract-3420.json": "a894e3e5eb6f307f6a3751c2f815759601dd67496f5ea7cbee941b8639af2fd3",
+    "sim/results/hud-attract-3900.json": "06db2e7c225f7ed30dfe09322e3201e6e73d86cb49a9b63f0a1de9f1d6060a20"
+  },
+  "full_natural_stage_clear_or_ending_proven": false,
+  "full_attract_sequence_repetition_proven": false,
+  "mame_4p_comparison": {
+    "version": "0.289",
+    "set": "zeroteam",
+    "frame": 3180,
+    "inputs_sha256": "3d2590cbb611e3ad27250f0d854a31c8a54bfcfa32f6851d651cfe2f4a558670",
+    "exit": 0,
+    "capture": "CORE_CAPTURE_OK",
+    "displayed_scores": [
+      5010,
+      210,
+      0,
+      2500
+    ],
+    "timer": 54,
+    "rtl_displayed_scores": [
+      0,
+      5950,
+      5010,
+      4230
+    ],
+    "rtl_timer": 54,
+    "exact_gameplay_match": false,
+    "interpretation": "Same physical schedule can leave one player at zero; slot and score differences remain unresolved. No port-mapping or timing cause inferred from images."
+  }
+}

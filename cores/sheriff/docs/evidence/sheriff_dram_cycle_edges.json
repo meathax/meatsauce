@@ -1,0 +1,1311 @@
+{
+  "scope": "Settled conditional related-Bandido DRAM and connected common-counter serializer clock edges; not exact Sheriff phase qualification.",
+  "crystal_frequency_hz": 20160000,
+  "period_crystal_edges": 64,
+  "rows": [
+    {
+      "crystal_edge": 128,
+      "cpu_WR_RD": 0,
+      "pre_counter": 0,
+      "post_counter": 1,
+      "pre_serial": 30,
+      "post_serial": 60,
+      "counter_clock_rise": true,
+      "candidate_pre7_clock": false,
+      "before": {
+        "HREAD_n": 1,
+        "COMADR_n": 1,
+        "raw_RAS_n": 1,
+        "raw_CAS_n": 0,
+        "RAS_n": 1,
+        "CAS_n": 1,
+        "selector": 0,
+        "disable": 1
+      },
+      "after": {
+        "HREAD_n": 1,
+        "COMADR_n": 1,
+        "raw_RAS_n": 0,
+        "raw_CAS_n": 1,
+        "RAS_n": 1,
+        "CAS_n": 1,
+        "selector": 0,
+        "disable": 1
+      },
+      "events": {
+        "RAS_n": false,
+        "CAS_n": false,
+        "RAS_n_rise": false,
+        "CAS_n_rise": false
+      }
+    },
+    {
+      "crystal_edge": 128,
+      "cpu_WR_RD": 1,
+      "pre_counter": 0,
+      "post_counter": 1,
+      "pre_serial": 30,
+      "post_serial": 60,
+      "counter_clock_rise": true,
+      "candidate_pre7_clock": false,
+      "before": {
+        "HREAD_n": 1,
+        "COMADR_n": 1,
+        "raw_RAS_n": 1,
+        "raw_CAS_n": 0,
+        "RAS_n": 1,
+        "CAS_n": 0,
+        "selector": 0,
+        "disable": 0
+      },
+      "after": {
+        "HREAD_n": 1,
+        "COMADR_n": 1,
+        "raw_RAS_n": 0,
+        "raw_CAS_n": 1,
+        "RAS_n": 0,
+        "CAS_n": 1,
+        "selector": 0,
+        "disable": 0
+      },
+      "events": {
+        "RAS_n": true,
+        "CAS_n": false,
+        "RAS_n_rise": false,
+        "CAS_n_rise": true
+      }
+    },
+    {
+      "crystal_edge": 132,
+      "cpu_WR_RD": 0,
+      "pre_counter": 1,
+      "post_counter": 2,
+      "pre_serial": 120,
+      "post_serial": 240,
+      "counter_clock_rise": true,
+      "candidate_pre7_clock": false,
+      "before": {
+        "HREAD_n": 1,
+        "COMADR_n": 0,
+        "raw_RAS_n": 0,
+        "raw_CAS_n": 1,
+        "RAS_n": 1,
+        "CAS_n": 1,
+        "selector": 1,
+        "disable": 1
+      },
+      "after": {
+        "HREAD_n": 1,
+        "COMADR_n": 0,
+        "raw_RAS_n": 0,
+        "raw_CAS_n": 1,
+        "RAS_n": 1,
+        "CAS_n": 1,
+        "selector": 1,
+        "disable": 1
+      },
+      "events": {
+        "RAS_n": false,
+        "CAS_n": false,
+        "RAS_n_rise": false,
+        "CAS_n_rise": false
+      }
+    },
+    {
+      "crystal_edge": 132,
+      "cpu_WR_RD": 1,
+      "pre_counter": 1,
+      "post_counter": 2,
+      "pre_serial": 120,
+      "post_serial": 240,
+      "counter_clock_rise": true,
+      "candidate_pre7_clock": false,
+      "before": {
+        "HREAD_n": 1,
+        "COMADR_n": 0,
+        "raw_RAS_n": 0,
+        "raw_CAS_n": 1,
+        "RAS_n": 0,
+        "CAS_n": 1,
+        "selector": 1,
+        "disable": 0
+      },
+      "after": {
+        "HREAD_n": 1,
+        "COMADR_n": 0,
+        "raw_RAS_n": 0,
+        "raw_CAS_n": 1,
+        "RAS_n": 0,
+        "CAS_n": 1,
+        "selector": 1,
+        "disable": 0
+      },
+      "events": {
+        "RAS_n": false,
+        "CAS_n": false,
+        "RAS_n_rise": false,
+        "CAS_n_rise": false
+      }
+    },
+    {
+      "crystal_edge": 136,
+      "cpu_WR_RD": 0,
+      "pre_counter": 2,
+      "post_counter": 3,
+      "pre_serial": 225,
+      "post_serial": 195,
+      "counter_clock_rise": true,
+      "candidate_pre7_clock": false,
+      "before": {
+        "HREAD_n": 1,
+        "COMADR_n": 0,
+        "raw_RAS_n": 0,
+        "raw_CAS_n": 1,
+        "RAS_n": 1,
+        "CAS_n": 1,
+        "selector": 1,
+        "disable": 1
+      },
+      "after": {
+        "HREAD_n": 1,
+        "COMADR_n": 0,
+        "raw_RAS_n": 0,
+        "raw_CAS_n": 0,
+        "RAS_n": 1,
+        "CAS_n": 1,
+        "selector": 1,
+        "disable": 1
+      },
+      "events": {
+        "RAS_n": false,
+        "CAS_n": false,
+        "RAS_n_rise": false,
+        "CAS_n_rise": false
+      }
+    },
+    {
+      "crystal_edge": 136,
+      "cpu_WR_RD": 1,
+      "pre_counter": 2,
+      "post_counter": 3,
+      "pre_serial": 225,
+      "post_serial": 195,
+      "counter_clock_rise": true,
+      "candidate_pre7_clock": false,
+      "before": {
+        "HREAD_n": 1,
+        "COMADR_n": 0,
+        "raw_RAS_n": 0,
+        "raw_CAS_n": 1,
+        "RAS_n": 0,
+        "CAS_n": 1,
+        "selector": 1,
+        "disable": 0
+      },
+      "after": {
+        "HREAD_n": 1,
+        "COMADR_n": 0,
+        "raw_RAS_n": 0,
+        "raw_CAS_n": 0,
+        "RAS_n": 0,
+        "CAS_n": 0,
+        "selector": 1,
+        "disable": 0
+      },
+      "events": {
+        "RAS_n": false,
+        "CAS_n": true,
+        "RAS_n_rise": false,
+        "CAS_n_rise": false
+      }
+    },
+    {
+      "crystal_edge": 140,
+      "cpu_WR_RD": 0,
+      "pre_counter": 3,
+      "post_counter": 4,
+      "pre_serial": 135,
+      "post_serial": 15,
+      "counter_clock_rise": true,
+      "candidate_pre7_clock": false,
+      "before": {
+        "HREAD_n": 1,
+        "COMADR_n": 1,
+        "raw_RAS_n": 0,
+        "raw_CAS_n": 0,
+        "RAS_n": 1,
+        "CAS_n": 1,
+        "selector": 0,
+        "disable": 1
+      },
+      "after": {
+        "HREAD_n": 0,
+        "COMADR_n": 1,
+        "raw_RAS_n": 1,
+        "raw_CAS_n": 0,
+        "RAS_n": 1,
+        "CAS_n": 0,
+        "selector": 2,
+        "disable": 0
+      },
+      "events": {
+        "RAS_n": false,
+        "CAS_n": true,
+        "RAS_n_rise": false,
+        "CAS_n_rise": false
+      }
+    },
+    {
+      "crystal_edge": 140,
+      "cpu_WR_RD": 1,
+      "pre_counter": 3,
+      "post_counter": 4,
+      "pre_serial": 135,
+      "post_serial": 15,
+      "counter_clock_rise": true,
+      "candidate_pre7_clock": false,
+      "before": {
+        "HREAD_n": 1,
+        "COMADR_n": 1,
+        "raw_RAS_n": 0,
+        "raw_CAS_n": 0,
+        "RAS_n": 0,
+        "CAS_n": 0,
+        "selector": 0,
+        "disable": 0
+      },
+      "after": {
+        "HREAD_n": 0,
+        "COMADR_n": 1,
+        "raw_RAS_n": 1,
+        "raw_CAS_n": 0,
+        "RAS_n": 1,
+        "CAS_n": 0,
+        "selector": 2,
+        "disable": 0
+      },
+      "events": {
+        "RAS_n": false,
+        "CAS_n": false,
+        "RAS_n_rise": true,
+        "CAS_n_rise": false
+      }
+    },
+    {
+      "crystal_edge": 144,
+      "cpu_WR_RD": 0,
+      "pre_counter": 4,
+      "post_counter": 5,
+      "pre_serial": 30,
+      "post_serial": 60,
+      "counter_clock_rise": true,
+      "candidate_pre7_clock": false,
+      "before": {
+        "HREAD_n": 0,
+        "COMADR_n": 1,
+        "raw_RAS_n": 1,
+        "raw_CAS_n": 0,
+        "RAS_n": 1,
+        "CAS_n": 0,
+        "selector": 2,
+        "disable": 0
+      },
+      "after": {
+        "HREAD_n": 0,
+        "COMADR_n": 1,
+        "raw_RAS_n": 0,
+        "raw_CAS_n": 1,
+        "RAS_n": 0,
+        "CAS_n": 1,
+        "selector": 2,
+        "disable": 0
+      },
+      "events": {
+        "RAS_n": true,
+        "CAS_n": false,
+        "RAS_n_rise": false,
+        "CAS_n_rise": true
+      }
+    },
+    {
+      "crystal_edge": 144,
+      "cpu_WR_RD": 1,
+      "pre_counter": 4,
+      "post_counter": 5,
+      "pre_serial": 30,
+      "post_serial": 60,
+      "counter_clock_rise": true,
+      "candidate_pre7_clock": false,
+      "before": {
+        "HREAD_n": 0,
+        "COMADR_n": 1,
+        "raw_RAS_n": 1,
+        "raw_CAS_n": 0,
+        "RAS_n": 1,
+        "CAS_n": 0,
+        "selector": 2,
+        "disable": 0
+      },
+      "after": {
+        "HREAD_n": 0,
+        "COMADR_n": 1,
+        "raw_RAS_n": 0,
+        "raw_CAS_n": 1,
+        "RAS_n": 0,
+        "CAS_n": 1,
+        "selector": 2,
+        "disable": 0
+      },
+      "events": {
+        "RAS_n": true,
+        "CAS_n": false,
+        "RAS_n_rise": false,
+        "CAS_n_rise": true
+      }
+    },
+    {
+      "crystal_edge": 148,
+      "cpu_WR_RD": 0,
+      "pre_counter": 5,
+      "post_counter": 6,
+      "pre_serial": 120,
+      "post_serial": 240,
+      "counter_clock_rise": true,
+      "candidate_pre7_clock": false,
+      "before": {
+        "HREAD_n": 0,
+        "COMADR_n": 0,
+        "raw_RAS_n": 0,
+        "raw_CAS_n": 1,
+        "RAS_n": 0,
+        "CAS_n": 1,
+        "selector": 3,
+        "disable": 0
+      },
+      "after": {
+        "HREAD_n": 0,
+        "COMADR_n": 0,
+        "raw_RAS_n": 0,
+        "raw_CAS_n": 1,
+        "RAS_n": 0,
+        "CAS_n": 1,
+        "selector": 3,
+        "disable": 0
+      },
+      "events": {
+        "RAS_n": false,
+        "CAS_n": false,
+        "RAS_n_rise": false,
+        "CAS_n_rise": false
+      }
+    },
+    {
+      "crystal_edge": 148,
+      "cpu_WR_RD": 1,
+      "pre_counter": 5,
+      "post_counter": 6,
+      "pre_serial": 120,
+      "post_serial": 240,
+      "counter_clock_rise": true,
+      "candidate_pre7_clock": false,
+      "before": {
+        "HREAD_n": 0,
+        "COMADR_n": 0,
+        "raw_RAS_n": 0,
+        "raw_CAS_n": 1,
+        "RAS_n": 0,
+        "CAS_n": 1,
+        "selector": 3,
+        "disable": 0
+      },
+      "after": {
+        "HREAD_n": 0,
+        "COMADR_n": 0,
+        "raw_RAS_n": 0,
+        "raw_CAS_n": 1,
+        "RAS_n": 0,
+        "CAS_n": 1,
+        "selector": 3,
+        "disable": 0
+      },
+      "events": {
+        "RAS_n": false,
+        "CAS_n": false,
+        "RAS_n_rise": false,
+        "CAS_n_rise": false
+      }
+    },
+    {
+      "crystal_edge": 152,
+      "cpu_WR_RD": 0,
+      "pre_counter": 6,
+      "post_counter": 7,
+      "pre_serial": 225,
+      "post_serial": 195,
+      "counter_clock_rise": true,
+      "candidate_pre7_clock": false,
+      "before": {
+        "HREAD_n": 0,
+        "COMADR_n": 0,
+        "raw_RAS_n": 0,
+        "raw_CAS_n": 1,
+        "RAS_n": 0,
+        "CAS_n": 1,
+        "selector": 3,
+        "disable": 0
+      },
+      "after": {
+        "HREAD_n": 0,
+        "COMADR_n": 0,
+        "raw_RAS_n": 0,
+        "raw_CAS_n": 0,
+        "RAS_n": 0,
+        "CAS_n": 0,
+        "selector": 3,
+        "disable": 0
+      },
+      "events": {
+        "RAS_n": false,
+        "CAS_n": true,
+        "RAS_n_rise": false,
+        "CAS_n_rise": false
+      }
+    },
+    {
+      "crystal_edge": 152,
+      "cpu_WR_RD": 1,
+      "pre_counter": 6,
+      "post_counter": 7,
+      "pre_serial": 225,
+      "post_serial": 195,
+      "counter_clock_rise": true,
+      "candidate_pre7_clock": false,
+      "before": {
+        "HREAD_n": 0,
+        "COMADR_n": 0,
+        "raw_RAS_n": 0,
+        "raw_CAS_n": 1,
+        "RAS_n": 0,
+        "CAS_n": 1,
+        "selector": 3,
+        "disable": 0
+      },
+      "after": {
+        "HREAD_n": 0,
+        "COMADR_n": 0,
+        "raw_RAS_n": 0,
+        "raw_CAS_n": 0,
+        "RAS_n": 0,
+        "CAS_n": 0,
+        "selector": 3,
+        "disable": 0
+      },
+      "events": {
+        "RAS_n": false,
+        "CAS_n": true,
+        "RAS_n_rise": false,
+        "CAS_n_rise": false
+      }
+    },
+    {
+      "crystal_edge": 156,
+      "cpu_WR_RD": 0,
+      "pre_counter": 7,
+      "post_counter": 8,
+      "pre_serial": 135,
+      "post_serial": 15,
+      "counter_clock_rise": true,
+      "candidate_pre7_clock": true,
+      "before": {
+        "HREAD_n": 0,
+        "COMADR_n": 1,
+        "raw_RAS_n": 0,
+        "raw_CAS_n": 0,
+        "RAS_n": 0,
+        "CAS_n": 0,
+        "selector": 2,
+        "disable": 0
+      },
+      "after": {
+        "HREAD_n": 1,
+        "COMADR_n": 1,
+        "raw_RAS_n": 1,
+        "raw_CAS_n": 0,
+        "RAS_n": 1,
+        "CAS_n": 1,
+        "selector": 0,
+        "disable": 1
+      },
+      "events": {
+        "RAS_n": false,
+        "CAS_n": false,
+        "RAS_n_rise": true,
+        "CAS_n_rise": true
+      }
+    },
+    {
+      "crystal_edge": 156,
+      "cpu_WR_RD": 1,
+      "pre_counter": 7,
+      "post_counter": 8,
+      "pre_serial": 135,
+      "post_serial": 15,
+      "counter_clock_rise": true,
+      "candidate_pre7_clock": true,
+      "before": {
+        "HREAD_n": 0,
+        "COMADR_n": 1,
+        "raw_RAS_n": 0,
+        "raw_CAS_n": 0,
+        "RAS_n": 0,
+        "CAS_n": 0,
+        "selector": 2,
+        "disable": 0
+      },
+      "after": {
+        "HREAD_n": 1,
+        "COMADR_n": 1,
+        "raw_RAS_n": 1,
+        "raw_CAS_n": 0,
+        "RAS_n": 1,
+        "CAS_n": 0,
+        "selector": 0,
+        "disable": 0
+      },
+      "events": {
+        "RAS_n": false,
+        "CAS_n": false,
+        "RAS_n_rise": true,
+        "CAS_n_rise": false
+      }
+    },
+    {
+      "crystal_edge": 160,
+      "cpu_WR_RD": 0,
+      "pre_counter": 8,
+      "post_counter": 9,
+      "pre_serial": 30,
+      "post_serial": 60,
+      "counter_clock_rise": true,
+      "candidate_pre7_clock": false,
+      "before": {
+        "HREAD_n": 1,
+        "COMADR_n": 1,
+        "raw_RAS_n": 1,
+        "raw_CAS_n": 0,
+        "RAS_n": 1,
+        "CAS_n": 1,
+        "selector": 0,
+        "disable": 1
+      },
+      "after": {
+        "HREAD_n": 1,
+        "COMADR_n": 1,
+        "raw_RAS_n": 0,
+        "raw_CAS_n": 1,
+        "RAS_n": 1,
+        "CAS_n": 1,
+        "selector": 0,
+        "disable": 1
+      },
+      "events": {
+        "RAS_n": false,
+        "CAS_n": false,
+        "RAS_n_rise": false,
+        "CAS_n_rise": false
+      }
+    },
+    {
+      "crystal_edge": 160,
+      "cpu_WR_RD": 1,
+      "pre_counter": 8,
+      "post_counter": 9,
+      "pre_serial": 30,
+      "post_serial": 60,
+      "counter_clock_rise": true,
+      "candidate_pre7_clock": false,
+      "before": {
+        "HREAD_n": 1,
+        "COMADR_n": 1,
+        "raw_RAS_n": 1,
+        "raw_CAS_n": 0,
+        "RAS_n": 1,
+        "CAS_n": 0,
+        "selector": 0,
+        "disable": 0
+      },
+      "after": {
+        "HREAD_n": 1,
+        "COMADR_n": 1,
+        "raw_RAS_n": 0,
+        "raw_CAS_n": 1,
+        "RAS_n": 0,
+        "CAS_n": 1,
+        "selector": 0,
+        "disable": 0
+      },
+      "events": {
+        "RAS_n": true,
+        "CAS_n": false,
+        "RAS_n_rise": false,
+        "CAS_n_rise": true
+      }
+    },
+    {
+      "crystal_edge": 164,
+      "cpu_WR_RD": 0,
+      "pre_counter": 9,
+      "post_counter": 10,
+      "pre_serial": 120,
+      "post_serial": 240,
+      "counter_clock_rise": true,
+      "candidate_pre7_clock": false,
+      "before": {
+        "HREAD_n": 1,
+        "COMADR_n": 0,
+        "raw_RAS_n": 0,
+        "raw_CAS_n": 1,
+        "RAS_n": 1,
+        "CAS_n": 1,
+        "selector": 1,
+        "disable": 1
+      },
+      "after": {
+        "HREAD_n": 1,
+        "COMADR_n": 0,
+        "raw_RAS_n": 0,
+        "raw_CAS_n": 1,
+        "RAS_n": 1,
+        "CAS_n": 1,
+        "selector": 1,
+        "disable": 1
+      },
+      "events": {
+        "RAS_n": false,
+        "CAS_n": false,
+        "RAS_n_rise": false,
+        "CAS_n_rise": false
+      }
+    },
+    {
+      "crystal_edge": 164,
+      "cpu_WR_RD": 1,
+      "pre_counter": 9,
+      "post_counter": 10,
+      "pre_serial": 120,
+      "post_serial": 240,
+      "counter_clock_rise": true,
+      "candidate_pre7_clock": false,
+      "before": {
+        "HREAD_n": 1,
+        "COMADR_n": 0,
+        "raw_RAS_n": 0,
+        "raw_CAS_n": 1,
+        "RAS_n": 0,
+        "CAS_n": 1,
+        "selector": 1,
+        "disable": 0
+      },
+      "after": {
+        "HREAD_n": 1,
+        "COMADR_n": 0,
+        "raw_RAS_n": 0,
+        "raw_CAS_n": 1,
+        "RAS_n": 0,
+        "CAS_n": 1,
+        "selector": 1,
+        "disable": 0
+      },
+      "events": {
+        "RAS_n": false,
+        "CAS_n": false,
+        "RAS_n_rise": false,
+        "CAS_n_rise": false
+      }
+    },
+    {
+      "crystal_edge": 168,
+      "cpu_WR_RD": 0,
+      "pre_counter": 10,
+      "post_counter": 11,
+      "pre_serial": 225,
+      "post_serial": 195,
+      "counter_clock_rise": true,
+      "candidate_pre7_clock": false,
+      "before": {
+        "HREAD_n": 1,
+        "COMADR_n": 0,
+        "raw_RAS_n": 0,
+        "raw_CAS_n": 1,
+        "RAS_n": 1,
+        "CAS_n": 1,
+        "selector": 1,
+        "disable": 1
+      },
+      "after": {
+        "HREAD_n": 1,
+        "COMADR_n": 0,
+        "raw_RAS_n": 0,
+        "raw_CAS_n": 0,
+        "RAS_n": 1,
+        "CAS_n": 1,
+        "selector": 1,
+        "disable": 1
+      },
+      "events": {
+        "RAS_n": false,
+        "CAS_n": false,
+        "RAS_n_rise": false,
+        "CAS_n_rise": false
+      }
+    },
+    {
+      "crystal_edge": 168,
+      "cpu_WR_RD": 1,
+      "pre_counter": 10,
+      "post_counter": 11,
+      "pre_serial": 225,
+      "post_serial": 195,
+      "counter_clock_rise": true,
+      "candidate_pre7_clock": false,
+      "before": {
+        "HREAD_n": 1,
+        "COMADR_n": 0,
+        "raw_RAS_n": 0,
+        "raw_CAS_n": 1,
+        "RAS_n": 0,
+        "CAS_n": 1,
+        "selector": 1,
+        "disable": 0
+      },
+      "after": {
+        "HREAD_n": 1,
+        "COMADR_n": 0,
+        "raw_RAS_n": 0,
+        "raw_CAS_n": 0,
+        "RAS_n": 0,
+        "CAS_n": 0,
+        "selector": 1,
+        "disable": 0
+      },
+      "events": {
+        "RAS_n": false,
+        "CAS_n": true,
+        "RAS_n_rise": false,
+        "CAS_n_rise": false
+      }
+    },
+    {
+      "crystal_edge": 172,
+      "cpu_WR_RD": 0,
+      "pre_counter": 11,
+      "post_counter": 12,
+      "pre_serial": 135,
+      "post_serial": 15,
+      "counter_clock_rise": true,
+      "candidate_pre7_clock": false,
+      "before": {
+        "HREAD_n": 1,
+        "COMADR_n": 1,
+        "raw_RAS_n": 0,
+        "raw_CAS_n": 0,
+        "RAS_n": 1,
+        "CAS_n": 1,
+        "selector": 0,
+        "disable": 1
+      },
+      "after": {
+        "HREAD_n": 0,
+        "COMADR_n": 1,
+        "raw_RAS_n": 1,
+        "raw_CAS_n": 0,
+        "RAS_n": 1,
+        "CAS_n": 0,
+        "selector": 2,
+        "disable": 0
+      },
+      "events": {
+        "RAS_n": false,
+        "CAS_n": true,
+        "RAS_n_rise": false,
+        "CAS_n_rise": false
+      }
+    },
+    {
+      "crystal_edge": 172,
+      "cpu_WR_RD": 1,
+      "pre_counter": 11,
+      "post_counter": 12,
+      "pre_serial": 135,
+      "post_serial": 15,
+      "counter_clock_rise": true,
+      "candidate_pre7_clock": false,
+      "before": {
+        "HREAD_n": 1,
+        "COMADR_n": 1,
+        "raw_RAS_n": 0,
+        "raw_CAS_n": 0,
+        "RAS_n": 0,
+        "CAS_n": 0,
+        "selector": 0,
+        "disable": 0
+      },
+      "after": {
+        "HREAD_n": 0,
+        "COMADR_n": 1,
+        "raw_RAS_n": 1,
+        "raw_CAS_n": 0,
+        "RAS_n": 1,
+        "CAS_n": 0,
+        "selector": 2,
+        "disable": 0
+      },
+      "events": {
+        "RAS_n": false,
+        "CAS_n": false,
+        "RAS_n_rise": true,
+        "CAS_n_rise": false
+      }
+    },
+    {
+      "crystal_edge": 176,
+      "cpu_WR_RD": 0,
+      "pre_counter": 12,
+      "post_counter": 13,
+      "pre_serial": 30,
+      "post_serial": 60,
+      "counter_clock_rise": true,
+      "candidate_pre7_clock": false,
+      "before": {
+        "HREAD_n": 0,
+        "COMADR_n": 1,
+        "raw_RAS_n": 1,
+        "raw_CAS_n": 0,
+        "RAS_n": 1,
+        "CAS_n": 0,
+        "selector": 2,
+        "disable": 0
+      },
+      "after": {
+        "HREAD_n": 0,
+        "COMADR_n": 1,
+        "raw_RAS_n": 0,
+        "raw_CAS_n": 1,
+        "RAS_n": 0,
+        "CAS_n": 1,
+        "selector": 2,
+        "disable": 0
+      },
+      "events": {
+        "RAS_n": true,
+        "CAS_n": false,
+        "RAS_n_rise": false,
+        "CAS_n_rise": true
+      }
+    },
+    {
+      "crystal_edge": 176,
+      "cpu_WR_RD": 1,
+      "pre_counter": 12,
+      "post_counter": 13,
+      "pre_serial": 30,
+      "post_serial": 60,
+      "counter_clock_rise": true,
+      "candidate_pre7_clock": false,
+      "before": {
+        "HREAD_n": 0,
+        "COMADR_n": 1,
+        "raw_RAS_n": 1,
+        "raw_CAS_n": 0,
+        "RAS_n": 1,
+        "CAS_n": 0,
+        "selector": 2,
+        "disable": 0
+      },
+      "after": {
+        "HREAD_n": 0,
+        "COMADR_n": 1,
+        "raw_RAS_n": 0,
+        "raw_CAS_n": 1,
+        "RAS_n": 0,
+        "CAS_n": 1,
+        "selector": 2,
+        "disable": 0
+      },
+      "events": {
+        "RAS_n": true,
+        "CAS_n": false,
+        "RAS_n_rise": false,
+        "CAS_n_rise": true
+      }
+    },
+    {
+      "crystal_edge": 180,
+      "cpu_WR_RD": 0,
+      "pre_counter": 13,
+      "post_counter": 14,
+      "pre_serial": 120,
+      "post_serial": 240,
+      "counter_clock_rise": true,
+      "candidate_pre7_clock": false,
+      "before": {
+        "HREAD_n": 0,
+        "COMADR_n": 0,
+        "raw_RAS_n": 0,
+        "raw_CAS_n": 1,
+        "RAS_n": 0,
+        "CAS_n": 1,
+        "selector": 3,
+        "disable": 0
+      },
+      "after": {
+        "HREAD_n": 0,
+        "COMADR_n": 0,
+        "raw_RAS_n": 0,
+        "raw_CAS_n": 1,
+        "RAS_n": 0,
+        "CAS_n": 1,
+        "selector": 3,
+        "disable": 0
+      },
+      "events": {
+        "RAS_n": false,
+        "CAS_n": false,
+        "RAS_n_rise": false,
+        "CAS_n_rise": false
+      }
+    },
+    {
+      "crystal_edge": 180,
+      "cpu_WR_RD": 1,
+      "pre_counter": 13,
+      "post_counter": 14,
+      "pre_serial": 120,
+      "post_serial": 240,
+      "counter_clock_rise": true,
+      "candidate_pre7_clock": false,
+      "before": {
+        "HREAD_n": 0,
+        "COMADR_n": 0,
+        "raw_RAS_n": 0,
+        "raw_CAS_n": 1,
+        "RAS_n": 0,
+        "CAS_n": 1,
+        "selector": 3,
+        "disable": 0
+      },
+      "after": {
+        "HREAD_n": 0,
+        "COMADR_n": 0,
+        "raw_RAS_n": 0,
+        "raw_CAS_n": 1,
+        "RAS_n": 0,
+        "CAS_n": 1,
+        "selector": 3,
+        "disable": 0
+      },
+      "events": {
+        "RAS_n": false,
+        "CAS_n": false,
+        "RAS_n_rise": false,
+        "CAS_n_rise": false
+      }
+    },
+    {
+      "crystal_edge": 184,
+      "cpu_WR_RD": 0,
+      "pre_counter": 14,
+      "post_counter": 15,
+      "pre_serial": 225,
+      "post_serial": 195,
+      "counter_clock_rise": true,
+      "candidate_pre7_clock": false,
+      "before": {
+        "HREAD_n": 0,
+        "COMADR_n": 0,
+        "raw_RAS_n": 0,
+        "raw_CAS_n": 1,
+        "RAS_n": 0,
+        "CAS_n": 1,
+        "selector": 3,
+        "disable": 0
+      },
+      "after": {
+        "HREAD_n": 0,
+        "COMADR_n": 0,
+        "raw_RAS_n": 0,
+        "raw_CAS_n": 0,
+        "RAS_n": 0,
+        "CAS_n": 0,
+        "selector": 3,
+        "disable": 0
+      },
+      "events": {
+        "RAS_n": false,
+        "CAS_n": true,
+        "RAS_n_rise": false,
+        "CAS_n_rise": false
+      }
+    },
+    {
+      "crystal_edge": 184,
+      "cpu_WR_RD": 1,
+      "pre_counter": 14,
+      "post_counter": 15,
+      "pre_serial": 225,
+      "post_serial": 195,
+      "counter_clock_rise": true,
+      "candidate_pre7_clock": false,
+      "before": {
+        "HREAD_n": 0,
+        "COMADR_n": 0,
+        "raw_RAS_n": 0,
+        "raw_CAS_n": 1,
+        "RAS_n": 0,
+        "CAS_n": 1,
+        "selector": 3,
+        "disable": 0
+      },
+      "after": {
+        "HREAD_n": 0,
+        "COMADR_n": 0,
+        "raw_RAS_n": 0,
+        "raw_CAS_n": 0,
+        "RAS_n": 0,
+        "CAS_n": 0,
+        "selector": 3,
+        "disable": 0
+      },
+      "events": {
+        "RAS_n": false,
+        "CAS_n": true,
+        "RAS_n_rise": false,
+        "CAS_n_rise": false
+      }
+    },
+    {
+      "crystal_edge": 188,
+      "cpu_WR_RD": 0,
+      "pre_counter": 15,
+      "post_counter": 0,
+      "pre_serial": 135,
+      "post_serial": 15,
+      "counter_clock_rise": true,
+      "candidate_pre7_clock": true,
+      "before": {
+        "HREAD_n": 0,
+        "COMADR_n": 1,
+        "raw_RAS_n": 0,
+        "raw_CAS_n": 0,
+        "RAS_n": 0,
+        "CAS_n": 0,
+        "selector": 2,
+        "disable": 0
+      },
+      "after": {
+        "HREAD_n": 1,
+        "COMADR_n": 1,
+        "raw_RAS_n": 1,
+        "raw_CAS_n": 0,
+        "RAS_n": 1,
+        "CAS_n": 1,
+        "selector": 0,
+        "disable": 1
+      },
+      "events": {
+        "RAS_n": false,
+        "CAS_n": false,
+        "RAS_n_rise": true,
+        "CAS_n_rise": true
+      }
+    },
+    {
+      "crystal_edge": 188,
+      "cpu_WR_RD": 1,
+      "pre_counter": 15,
+      "post_counter": 0,
+      "pre_serial": 135,
+      "post_serial": 15,
+      "counter_clock_rise": true,
+      "candidate_pre7_clock": true,
+      "before": {
+        "HREAD_n": 0,
+        "COMADR_n": 1,
+        "raw_RAS_n": 0,
+        "raw_CAS_n": 0,
+        "RAS_n": 0,
+        "CAS_n": 0,
+        "selector": 2,
+        "disable": 0
+      },
+      "after": {
+        "HREAD_n": 1,
+        "COMADR_n": 1,
+        "raw_RAS_n": 1,
+        "raw_CAS_n": 0,
+        "RAS_n": 1,
+        "CAS_n": 0,
+        "selector": 0,
+        "disable": 0
+      },
+      "events": {
+        "RAS_n": false,
+        "CAS_n": false,
+        "RAS_n_rise": true,
+        "CAS_n_rise": false
+      }
+    }
+  ],
+  "video_cycles": [
+    {
+      "cpu_WR_RD": 0,
+      "pre_counter": 7,
+      "RAS_fall": 144,
+      "CAS_fall": 152,
+      "candidate_load": 156,
+      "RAS_to_CAS_crystal_edges": 8,
+      "CAS_to_candidate_load_crystal_edges": 4,
+      "RAS_to_candidate_load_ns": 595.2380952380952,
+      "CAS_to_candidate_load_ns": 198.4126984126984,
+      "candidate_same_edge_CAS_rise": true,
+      "candidate_same_edge_RAS_rise": true,
+      "row_selector": 2,
+      "column_selector": 3
+    },
+    {
+      "cpu_WR_RD": 0,
+      "pre_counter": 15,
+      "RAS_fall": 176,
+      "CAS_fall": 184,
+      "candidate_load": 188,
+      "RAS_to_CAS_crystal_edges": 8,
+      "CAS_to_candidate_load_crystal_edges": 4,
+      "RAS_to_candidate_load_ns": 595.2380952380952,
+      "CAS_to_candidate_load_ns": 198.4126984126984,
+      "candidate_same_edge_CAS_rise": true,
+      "candidate_same_edge_RAS_rise": true,
+      "row_selector": 2,
+      "column_selector": 3
+    },
+    {
+      "cpu_WR_RD": 1,
+      "pre_counter": 7,
+      "RAS_fall": 144,
+      "CAS_fall": 152,
+      "candidate_load": 156,
+      "RAS_to_CAS_crystal_edges": 8,
+      "CAS_to_candidate_load_crystal_edges": 4,
+      "RAS_to_candidate_load_ns": 595.2380952380952,
+      "CAS_to_candidate_load_ns": 198.4126984126984,
+      "candidate_same_edge_CAS_rise": false,
+      "candidate_same_edge_RAS_rise": true,
+      "row_selector": 2,
+      "column_selector": 3
+    },
+    {
+      "cpu_WR_RD": 1,
+      "pre_counter": 15,
+      "RAS_fall": 176,
+      "CAS_fall": 184,
+      "candidate_load": 188,
+      "RAS_to_CAS_crystal_edges": 8,
+      "CAS_to_candidate_load_crystal_edges": 4,
+      "RAS_to_candidate_load_ns": 595.2380952380952,
+      "CAS_to_candidate_load_ns": 198.4126984126984,
+      "candidate_same_edge_CAS_rise": false,
+      "candidate_same_edge_RAS_rise": true,
+      "row_selector": 2,
+      "column_selector": 3
+    }
+  ],
+  "finding": "Video RAS selects C2, then CAS selects C3, then the pre7 counter clock occurs four crystal periods later.",
+  "data_book": {
+    "url": "https://bitsavers.org/components/ti/_dataBooks/1982_LCC7061_TI_MOS_Memory_Data_Book.pdf",
+    "title": "Texas Instruments 1982 MOS Memory Data Book, TMS4116NL, October1977/revisedMay1982",
+    "PDF_pages_one_based": [
+      26,
+      30,
+      31
+    ],
+    "limits_by_grade": {
+      "15": {
+        "RAS_access_max_ns": 150,
+        "CAS_access_max_ns": 100
+      },
+      "20": {
+        "RAS_access_max_ns": 200,
+        "CAS_access_max_ns": 135
+      },
+      "25": {
+        "RAS_access_max_ns": 250,
+        "CAS_access_max_ns": 165
+      }
+    },
+    "RAS_to_CAS_max_for_RAS_access_guarantee_ns": {
+      "15": 50,
+      "20": 65,
+      "25": 85
+    },
+    "access_note": "The derived397ns RAS-to-CAS exceeds these conditional maxima; use CAS-relative access limits, not a RAS-only bound.",
+    "exact_Sheriff_memory_grade_known": false,
+    "local_PDF_download_status": "curl returned HTTP403; online primary table inspected, no local PDF hash claimed.",
+    "limit": "These data-book limits do not include PCB gate/RC/latch delays and do not certify the actual fitted memory vendor/grade."
+  },
+  "clock_connection": "3B Q10 clocks 4I CLK2 and the common horizontal counter clock; adjoining page33/page34 traces continue through 4J/5I/5J CLK2 to 1L CLK11.",
+  "viewport_recovery": [
+    {
+      "page": 33,
+      "box": [
+        3690,
+        940,
+        5088,
+        1320
+      ],
+      "path": "_checks/manuals/bandido-counter-clock-right-join.png"
+    },
+    {
+      "page": 34,
+      "box": [
+        0,
+        800,
+        1700,
+        1380
+      ],
+      "path": "_checks/manuals/bandido-serializer-clock-left-join.png"
+    },
+    {
+      "page": 34,
+      "box": [
+        0,
+        0,
+        3550,
+        2100
+      ],
+      "path": "_checks/manuals/bandido-serializer-clock-upper-left.png"
+    }
+  ],
+  "limitations": [
+    "Common-clock connectivity is traced on related-Bandido drawings; exact Sheriff net/revision and electrical edge delays remain unqualified.",
+    "HB/VB assumed active; polarity, visible origin and flip-counter wiring still need connected derivation.",
+    "At CPU_WR_RD=0, CAS/RAS gate off at the same ideal counter transition as the candidate load; propagation/hold ordering must be retained, not silently resolved by source order.",
+    "RD buffers DRAM DO continuously; CPU readback registers do not hold the video byte.",
+    "Exact Sheriff versus related-Bandido applicability and actual memory grade remain unqualified.",
+    "No production timing offset, graphics waiver, physical setup/hold, READY response or release pass follows."
+  ],
+  "evidence_sha256": {
+    "D:/Arcade/AI/aCORES/sherrif/tools/derive_dram_cycle_edges.py": "265b70a46ba963afd2ab76b903a7f29d8d01ac24790ab014b6e3920fcfa84526",
+    "docs/evidence/sheriff_memory_phases.json": "850167737ae289fc94291b41a0404473ba77e36ab8aaf2dcb6c9f40a4b9fccdd",
+    "docs/evidence/sheriff_memory_mux_connections.json": "e8d3b0dc241153398bc2a597765cacc336649253614547584827748e75890ccc",
+    "docs/evidence/sheriff_video_control_network.json": "90dfe95bf1fa0b49de87a237ae4caf4e81049322643f80ad2c78a3e06c9a77a1",
+    "rtl/n8080_memory_phases.sv": "a27d44d465a6a464778ba645262b2b00e3ee69916b91a11db935a5903d202058",
+    "_checks/manuals/bandido-1980.pdf": "aa68eb8538e404c2ee1e02b7b47c0e40c62e9d9800cefcf22981c733c4b30224",
+    "_checks/manuals/bandido-counter-clock-right-join.png": "667a339d1af25cb741b9b208fcee065ed4957304cd6d5d41ae3012814021fc74",
+    "_checks/manuals/bandido-serializer-clock-left-join.png": "29c35f324dbf89437d9a942fab1c0dbad431fdbd9cfff7b22ab8c9bbfc26b519",
+    "_checks/manuals/bandido-serializer-clock-upper-left.png": "b92a42cd7f2f60a708e1762fb5d297d71da660d063a25ce85d3e30cb84a11bc1"
+  },
+  "production_RTL_changed": false,
+  "strict_graphics_gate_pass": false,
+  "physical_memory_timing_qualified": false,
+  "quartus_executed": false,
+  "rbf_built": false
+}

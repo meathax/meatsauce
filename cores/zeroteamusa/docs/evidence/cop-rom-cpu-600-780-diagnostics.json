@@ -1,0 +1,104 @@
+{
+  "scope": "Actual CPU 600/780-IRQ observations; no repeating attract, gameplay, scoring or visual equivalence acceptance",
+  "model_binary_sha256": "89378b6176765c8cde3002dec049afd3048adfa0959db85d891c59f8b7747069",
+  "frame599": {
+    "cycle": 1040000000,
+    "counters": {
+      "requests": 56737974,
+      "cop_requests": 7412,
+      "writes": 471749,
+      "reads": 32844153,
+      "irqs": 600,
+      "dma": 3061760,
+      "pal_dma": 1224704,
+      "busy": 22251203,
+      "main_due": 1039999985,
+      "cop_due": 1039721083,
+      "gfx_due": 1039995891,
+      "gfx_requests": 10163249,
+      "av_frame_pixels": 22720,
+      "av_complete_frames": 599,
+      "zfetch": 4314127,
+      "ziack": 2576,
+      "zwrite": 229042,
+      "zcoinread": 1976,
+      "zfmwrite": 6044,
+      "zokiwrite": 0,
+      "asamples": 538589,
+      "anonzero": 0,
+      "zpendingcycles": 10868923,
+      "soundtraces": 18403
+    },
+    "different_pixels": 4358,
+    "pixels": 81920,
+    "bbox": [
+      128,
+      119,
+      292,
+      221
+    ],
+    "image_sha256": "c0edf8fd67ae51f1d1772954fce9444e371ad444ed712e2ca305cf47752f6ab2",
+    "reference_sha256": "d1528b5906ed32b5928a055922727e61cd15f25ea2e1d6af4ca74c54c613e64d",
+    "observed_actor_count": 11,
+    "position_differences": 6,
+    "flag_differences": 0,
+    "actor_comparison_sha256": "3cc67bb2beb5434254edf938621dab31efab4e08860fa84ebc315349124d7a39",
+    "cause": "Not established; snapshot includes upstream position differences and does not establish a renderer defect"
+  },
+  "frame779": {
+    "facts": {
+      "scope": "Read-only saved host counters, not a resumed simulation",
+      "base": "sim\\results\\current-builds\\cop-rom-combat2p\\sim\\results\\avcop-rom-combat2p-checkpoint-1352000000",
+      "model_binary_sha256": "89378b6176765c8cde3002dec049afd3048adfa0959db85d891c59f8b7747069",
+      "host_struct_bytes": 224,
+      "cycle": 1352000000,
+      "counters": {
+        "requests": 73499065,
+        "cop_requests": 8764,
+        "writes": 754446,
+        "reads": 42559526,
+        "irqs": 780,
+        "dma": 3973120,
+        "pal_dma": 1589248,
+        "busy": 28751195,
+        "main_due": 1351999999,
+        "cop_due": 1351466649,
+        "gfx_due": 1351999996,
+        "gfx_requests": 14359132,
+        "av_frame_pixels": 29477,
+        "av_complete_frames": 779,
+        "zfetch": 5622421,
+        "ziack": 3395,
+        "zwrite": 332523,
+        "zcoinread": 2572,
+        "zfmwrite": 9428,
+        "zokiwrite": 42,
+        "asamples": 700166,
+        "anonzero": 136227,
+        "zpendingcycles": 14172711,
+        "soundtraces": 27435
+      }
+    },
+    "image_sha256": "867977719c2b35e78bcea1c380f1977196b46e68b665e98f7a1d050b012b5e7e",
+    "observed_image": "Black completed frame during post-start interval; not a gameplay proof",
+    "ram_sha256": "3025af8fb03c65cb0a898882b37fa1491215e0175b176a6c27aa19343a5dff26"
+  },
+  "probe": "Native passive read, no eval or added clocks",
+  "remaining": [
+    "Effective 2P/4P gameplay and scoring",
+    "Natural stages, bosses and ending",
+    "Repeating attract",
+    "Complete integrated sound",
+    "Final RBF/MiSTer phase"
+  ],
+  "native_600": {
+    ".rtl": "8328b5cd554d0d1c63a71c189f3328b819c6b5162c8b6e4620eeb6f6fba42cbc",
+    ".host": "5ec259b53f76df395bb1714a000ac09d5907b06cc272e32f02655a8ac503eb0c",
+    ".json": "6edc894e6bcc4eef58dc5a7eaed403f0eeac8845183555097fdcc98bff32bd55"
+  },
+  "native_780": {
+    ".rtl": "0a519fff6b58e2b52dcd34182351e21cb9d30e9c44373e6bceb733bc6321bf20",
+    ".host": "5d6dde9661814f6f9488189b271a6522fd99c3f7bb2c14daca1e17ae67135e94",
+    ".json": "6edc894e6bcc4eef58dc5a7eaed403f0eeac8845183555097fdcc98bff32bd55"
+  }
+}

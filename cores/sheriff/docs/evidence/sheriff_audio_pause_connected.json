@@ -1,0 +1,55 @@
+{
+  "receipt": {
+    "started_utc": "2026-10-10T05:41:41.698955+00:00",
+    "source_sha256": {
+      "rtl/n8080_mcs48.sv": "9add3d3ee9d50080dff1afa10d42970aa3e395251e0372f55eb1343f7dda5a7d",
+      "rtl/vendor/t48/t48_core.v": "8e8cb0a18e6f99c6da4ec258280294008ba1488c829d453846f24562d1010125",
+      "rtl/sheriff_sn76477.sv": "e4be6daec69f507efaead7779a2fdd9fbebc9db72d942d07c45ac81ea36e1381",
+      "rtl/sheriff_sn_constants.svh": "8d36ae2502e3b69331bed1e5bd29af0c1cc660904dc0a8ba24e039ea2d46ec22"
+    },
+    "harness_sha256": {
+      "audio_pause_connected.sv": "5996b56137e0d7fee1ee41b8268fee0056d3bcdd6983dcbe76faeaae21cba173",
+      "audio_pause_connected.cpp": "1bff9b69dc8e21c3f5cc6e53aee0d2211c062a8af1f1e3646657a60dc04ebe88",
+      "qualify.py": "ce320f8f15e3822db47b0037b439db7eb3af2cf733dcd2a4c3f07dc1ba748163"
+    },
+    "ROM_sha256": "082f0343064de9c9fc0c926aeae7d3414b7d890d3820c10899a37c64b80de997",
+    "scope": "Connected production8035/74123/SN pause preservation under finite synthetic sound-latch stimulus; no gameplay-class or fullwrapper equivalence claim.",
+    "build_exit": 0,
+    "native_OS_exit": 0,
+    "model_sha256": "31bc80ab97510975906a985f6b223a94e2c62b63e2165542455a994470218cae",
+    "finished_utc": "2026-10-10T05:43:12.904112+00:00",
+    "changed_source": [],
+    "fixture_changed": false
+  },
+  "native": {
+    "ticks": 31000000,
+    "pause_cases": 9,
+    "paused_clocks": 74572,
+    "compared_sample_events": 29523,
+    "nonzero_samples": 24646,
+    "MCU_port_transitions": 295,
+    "DAC_edges": 293,
+    "pause_state_mismatches": 0,
+    "resume_state_mismatches": 0,
+    "mono0_cancellation": true,
+    "mono1_retrigger": true,
+    "overlap": true,
+    "terminal_timers_idle": true
+  },
+  "connected_pause_qualified": true,
+  "whole_audio_gate_pass": false,
+  "source_ordered_retrigger_physical_resolution": false,
+  "current_fullwrapper_qualified": false,
+  "limits": [
+    "Synthetic latch commands do not qualify shot/hit/death/tune gameplay classes.",
+    "132 source-ordered versus106 atomic starts remain unresolved.",
+    "Q32 analog/noise approximations and recording epoch limitations retain their existing scope."
+  ],
+  "evidence_sha256": {
+    "launch.json": "9157c557a5cf075eba0bbbdc66eed5056a6158fef1622144cf5d151cbc115257",
+    "terminal.json": "90120cb26a4808aae4a203330ffa929c00334bbd45c77d24fc391a9c69143069",
+    "build.log": "fb7213f5302853183105eca6b0abb01283f4c72a06ab80a477f09cad0549480e",
+    "run.log": "5e223dd1961a674dc1376e8943168319cd4116980607f4eeb84dcee19d3d1f26",
+    "native/result.json": "5a86e5e1c26a72676f88820c53bef9d24e9555613c17613ae8ff2f24cb91f9bd"
+  }
+}

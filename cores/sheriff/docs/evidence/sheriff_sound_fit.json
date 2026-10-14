@@ -1,0 +1,165 @@
+{
+  "scope": "Sound integration fit before IRQ edge/controls updates; not final Sheriff release acceptance",
+  "snapshot": "_checks/b0443f5ab271-20261009-042553",
+  "source_revision": "b0443f5ab271",
+  "resources": {
+    "alms": {
+      "used": 8707,
+      "available": 41910,
+      "percent": 20.775471247912193
+    },
+    "labs": {
+      "used": 1378,
+      "available": 4191,
+      "percent": 32.87998091147698
+    },
+    "m10k": {
+      "used": 99,
+      "available": 553,
+      "percent": 17.90235081374322
+    },
+    "memory_bits": {
+      "used": 724737,
+      "available": 5662720,
+      "percent": 12.798390172920435
+    },
+    "dsps": {
+      "used": 33,
+      "available": 112,
+      "percent": 29.464285714285715
+    },
+    "average_interconnect": {
+      "total": 7.9,
+      "horizontal": 7.9,
+      "vertical": 8.0
+    },
+    "peak_interconnect": {
+      "total": 29.6,
+      "horizontal": 29.9,
+      "vertical": 28.4
+    }
+  },
+  "missing_resource_metrics": [],
+  "resource_limit_configuration": {
+    "comparison": "strictly_less_than",
+    "maximum_percent": {
+      "logic_alms": 80,
+      "labs_partially_or_completely_used": 90,
+      "peak_interconnect_max_h_v": 85,
+      "average_interconnect": 60,
+      "m10k_blocks": 90,
+      "block_memory_bits": 85,
+      "dsp_blocks": 90
+    },
+    "game_clock_domains": 1,
+    "clock_policy": "one game master clock plus enables; document unavoidable platform clocks",
+    "missing_metric_is_pass": false,
+    "minimum_setup_slack_ns": 0,
+    "minimum_hold_slack_ns": 0
+  },
+  "default_sta_model": "Slow 1100mV 100C Model",
+  "default_corner_min_slack_ns": {
+    "Setup": 0.67,
+    "Hold": 0.178,
+    "Recovery": 3.929,
+    "Removal": 0.726,
+    "Minimum Pulse Width": 0.396
+  },
+  "all_applicable_corners_qualified": true,
+  "platform_io_exception_audit_complete": false,
+  "release_gate_pass": false,
+  "report_sha256": {
+    "Nintendo8080.fit.rpt": "88d581ed8974a895e13b2dd41d47f250997481d81a9d99fd29ea495d6dc2f2e7",
+    "Nintendo8080.fit.summary": "7776ddd3e647ee2cea570bfbf051bc45d2a87acdfe835e6aa0c61853500019d1",
+    "Nintendo8080.flow.rpt": "23fae0d4c81ccc8f7f3f2e831748d22ac894a6ec9df701b019792244dd791a75",
+    "Nintendo8080.map.rpt": "bc7d3ddf573a93923c18e661e9ede8582d07524218ebc115fdcf144c21b3d0ae",
+    "Nintendo8080.map.summary": "6b94395b8bc5f135e2bf320a16c49e1e8a08854f3bcad5cb02b7a5fe7d955907",
+    "Nintendo8080.sta.rpt": "22d5a9f738cc6bb0174cb4a2b9a142612020693ba42ed2406c564cdddc00f409",
+    "Nintendo8080.sta.summary": "faae8a71c6337e27a667ba20167d435d9c0d8dfb7a93ec38e791981e997a0249"
+  },
+  "measured_operating_conditions": 8,
+  "all_corner_min_slack_ns": {
+    "setup": 0.32,
+    "hold": 0.067,
+    "recovery": 3.929,
+    "removal": 0.303,
+    "minimum_pulse_width": 0.396
+  },
+  "corner_report_sha256": {
+    "corners.csv": "54e6948d5667aef912ca442e46ffc1ea995c00aa68e6b9e9c6c831c727d810ac",
+    "corner_1/clocks.txt": "dcdeaeaf46ec919c9955087f7749c4c63bbe925beb91706bc2d6d638f4185806",
+    "corner_1/condition.txt": "f66cce0c6de3334214a1b1d8088a528c72c01428681a33e854bebb52189ef59a",
+    "corner_1/hold.txt": "cfc2c076291d13cb3c713eb59c3885cecaf453b74f49ecc6f654f5218b72654e",
+    "corner_1/min_pulse_width.txt": "5a2bc7466410265fc9d79e6199fa0e7df313c523c99354f7d89f36d324fa774d",
+    "corner_1/recovery.txt": "819a88da11a97fda1cde4e9f883eed20b0cd3f7730a65f5edc4881093dd9e73b",
+    "corner_1/removal.txt": "9bb00b21ae025053d01c6ec2e44306fcf840e1f8e7b08cb216a9fc88a34aa8e0",
+    "corner_1/setup.txt": "1531a7f661d0770142bd5c254d42fee728a688318699c37c5ce051d6e54f093e",
+    "corner_1/unconstrained.txt": "00c718eabac8ec23025efed8ef410c1d769d19b1789a0f9dd8ca90bdbbb69798",
+    "corner_2/clocks.txt": "dcdeaeaf46ec919c9955087f7749c4c63bbe925beb91706bc2d6d638f4185806",
+    "corner_2/condition.txt": "d9d1d75d97c9e2cb582f06b9a726a057bab04883d8cf397bef59fb26d65474ad",
+    "corner_2/hold.txt": "09893c364b7170f377eda6c658acdd75dd7efd190ec3eb35ea8bcc6e7fc1ab45",
+    "corner_2/min_pulse_width.txt": "be31db3dd11d5d57731a435497938d1f6aa7e9817f528d6b1958dee89aef9705",
+    "corner_2/recovery.txt": "94e914a39fa9ded4b436b0f826732ff922b9ed0b2e264b56a0ead7bc07958f2c",
+    "corner_2/removal.txt": "c6abec54f44ffc60ab3bcd25c1530a3806c38066cea9e5d764c22fd4bbf0e3ee",
+    "corner_2/setup.txt": "9261634cf1460bfd6555570c7dcf069f2b787c5eb872ddc88040163e5dcf50f5",
+    "corner_2/unconstrained.txt": "00c718eabac8ec23025efed8ef410c1d769d19b1789a0f9dd8ca90bdbbb69798",
+    "corner_3/clocks.txt": "dcdeaeaf46ec919c9955087f7749c4c63bbe925beb91706bc2d6d638f4185806",
+    "corner_3/condition.txt": "b840cff10a96bea718cb2f74bc4fd9b8410dd89ea443577f8c43bfa49a40c1f1",
+    "corner_3/hold.txt": "6552561fd633fde7969c80cc3313bfc9eae69cfdcb2b2495cc3810d92b55cc9e",
+    "corner_3/min_pulse_width.txt": "cdcc2479d2475541220368487dcbdcf710c963b0d12f6c940722dc5920157232",
+    "corner_3/recovery.txt": "dcbce7f5aa7dd5fafbf28d66f680bc7f687cab3cc14e817ebe7329610331d83f",
+    "corner_3/removal.txt": "a946f8435accf1eb18bcb7c7a06df1f5fa0c8cf30f3682994932772a9fe0b6eb",
+    "corner_3/setup.txt": "e2e014c9207988f0bbc14b814baddc678f12aec5c8d065963af93e059298a3b8",
+    "corner_3/unconstrained.txt": "00c718eabac8ec23025efed8ef410c1d769d19b1789a0f9dd8ca90bdbbb69798",
+    "corner_4/clocks.txt": "dcdeaeaf46ec919c9955087f7749c4c63bbe925beb91706bc2d6d638f4185806",
+    "corner_4/condition.txt": "39a613516406f14e4293251f6805edfbc307aa5b3a777e0a5408ea5480aa353f",
+    "corner_4/hold.txt": "6a7b59f7d14712b401c670f8ec0a1de0b6f9efb0b8edbb82ed1ea90fb7a0572f",
+    "corner_4/min_pulse_width.txt": "c352056a955257197b536badf154404379671930035654bda5664f2502eb6bae",
+    "corner_4/recovery.txt": "980330d13f2d4d7b22a15e9ebc73ba9b9332b03de4cc5ec2e2c13cac87f986a3",
+    "corner_4/removal.txt": "b63f4d1216ea9b457eb47e6a612bce389b9711c18ca659efb26e10f663b9df80",
+    "corner_4/setup.txt": "006a56ef458490958dfb5ed2a1143205004653fc71a506d70c8cc9c2ebe850ac",
+    "corner_4/unconstrained.txt": "00c718eabac8ec23025efed8ef410c1d769d19b1789a0f9dd8ca90bdbbb69798",
+    "corner_5/clocks.txt": "dcdeaeaf46ec919c9955087f7749c4c63bbe925beb91706bc2d6d638f4185806",
+    "corner_5/condition.txt": "b75b4d519f75a8de36f1b793c792cdf8f3f952db499abecea02a7d04295abb24",
+    "corner_5/hold.txt": "c367e66164d71c6b0dcf8330e428a99ded218f53a44e88e59685b05b460725d7",
+    "corner_5/min_pulse_width.txt": "3c1cde1b755bb408f907a953fec52715119be7d54d7222ce51007b740d689755",
+    "corner_5/recovery.txt": "4a44eec3eb74a5da19cb90539279f8990a4bf26f2b69ccbdbf8ac77fd028b66c",
+    "corner_5/removal.txt": "d5c6a460d8e818e1a9bb07aa634e7265ac621e41173fc297a28d360ce09ebead",
+    "corner_5/setup.txt": "0bfb7f808ab344935b2903b62df5b43e4b0ab45da56ef12b8670df022888f401",
+    "corner_5/unconstrained.txt": "00c718eabac8ec23025efed8ef410c1d769d19b1789a0f9dd8ca90bdbbb69798",
+    "corner_6/clocks.txt": "dcdeaeaf46ec919c9955087f7749c4c63bbe925beb91706bc2d6d638f4185806",
+    "corner_6/condition.txt": "92e28f448b8ebcffe7a71e4f814051d33bc2b1252e91fec85e9e913a7fe060dd",
+    "corner_6/hold.txt": "5eb82e4ad073e119a01bbcdc9d94bd75b093cc7b2ebf0123d71d0762906c6ecb",
+    "corner_6/min_pulse_width.txt": "141952d0b5aa238c175a6661a4d91dffa89edaf6cd0f9076426c5e56b4eeb588",
+    "corner_6/recovery.txt": "a550a99e7f785630549211cf5a5cd3ff666e175856af35875afc67d467fcaa8b",
+    "corner_6/removal.txt": "a3ccf2ce7c5815655e7bff4ba1bc86e33281ce27b00e39904e5a524a41693d26",
+    "corner_6/setup.txt": "568194dd62bd45be3942609fae8d9b59ab9e173b4d65048616a6d19cf570e69c",
+    "corner_6/unconstrained.txt": "00c718eabac8ec23025efed8ef410c1d769d19b1789a0f9dd8ca90bdbbb69798",
+    "corner_7/clocks.txt": "dcdeaeaf46ec919c9955087f7749c4c63bbe925beb91706bc2d6d638f4185806",
+    "corner_7/condition.txt": "151f9951cde7f13a235e4e3a2ae4a37486b495cd28c5749a2c2f708f008f72f9",
+    "corner_7/hold.txt": "e149e9d79a5a8dbd7ca76882885f597f184275bfa005f9c7f40e40a2b9191b78",
+    "corner_7/min_pulse_width.txt": "8b490ae7be2841db44087a999c35aca02d5934059daf4c1a3c71a8e01e316f7c",
+    "corner_7/recovery.txt": "4d1ad353340d6ccf06fba7f8386591be7dd20dda1f09936a56f0527c440352a2",
+    "corner_7/removal.txt": "00a7b87874dcc9fa90e6e3883c88627199cad11f54c86178946e07d1657ca5b3",
+    "corner_7/setup.txt": "a133f0e9acc5beab18fbd5f39cf6677128bd1f7043568336fe4d03a1bb86555d",
+    "corner_7/unconstrained.txt": "00c718eabac8ec23025efed8ef410c1d769d19b1789a0f9dd8ca90bdbbb69798",
+    "corner_8/clocks.txt": "dcdeaeaf46ec919c9955087f7749c4c63bbe925beb91706bc2d6d638f4185806",
+    "corner_8/condition.txt": "dbb48ab641a638e56cf20c03f3813e121b40653967fa66adbbf57167c3691628",
+    "corner_8/hold.txt": "ce7b60e6c1ccf7849211790218d4759f14434ca9c4e64e4a0bc7b2f6e174b850",
+    "corner_8/min_pulse_width.txt": "b619ec74ac74413ab2ae57cb4e5627db6744d44844cddcdd256fe5294dc72c9c",
+    "corner_8/recovery.txt": "c76f577241494d07acfb991b3452120518570db5bca7c7baee800e03203ae656",
+    "corner_8/removal.txt": "d2c248e67545bf4b8972a1121c4bcf277a0cba39844221bdae8a5739217a27d4",
+    "corner_8/setup.txt": "903d7bbec712a3b62a32d29cfe59765406d5387785f9d6b7c9edfe0ef69bda82",
+    "corner_8/unconstrained.txt": "00c718eabac8ec23025efed8ef410c1d769d19b1789a0f9dd8ca90bdbbb69798"
+  },
+  "resource_checks": {
+    "alms": true,
+    "labs": true,
+    "m10k": true,
+    "memory_bits": true,
+    "dsps": true,
+    "peak_interconnect": true,
+    "average_interconnect": true
+  },
+  "resource_gate_pass": true
+}

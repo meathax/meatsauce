@@ -1,0 +1,115 @@
+{
+  "date": "2026-10-11",
+  "scope": "Independent finite retained V36 CLR-order diagnosis; no runtime/replay or global pickup/audio acceptance",
+  "result": "PASS bounded low-word-first clear cause, actual raw score transaction; original semantic qualification remains failed",
+  "manifest": {
+    "path": "D:\\Arcade\\AI\\aCORES\\Alpha68k N\\research\\audio_pickup_20261011\\pickup_clear_order_v37\\import_manifest.json",
+    "sha256": "6c1ee23884b6a2cd38a8aa107fe6c163c39de20f22749f1e98f1deddb6bf948f"
+  },
+  "compact_pins": [
+    {
+      "path": "D:\\Arcade\\AI\\aCORES\\Alpha68k N\\research\\audio_pickup_20261011\\pickup_clear_order_v37\\cohort.json",
+      "sha256": "1c312217d08440b7ee452a0997b87a02fd0e75e340c6cd115c8f7d3f64b2706b",
+      "bytes": 26945
+    },
+    {
+      "path": "D:\\Arcade\\AI\\aCORES\\Alpha68k N\\research\\audio_pickup_20261011\\pickup_clear_order_v37\\events.csv",
+      "sha256": "b17832c00fad88e424f4324b14df7182974368b5ae515af51bedb8dcc320227b",
+      "bytes": 1369
+    },
+    {
+      "path": "D:\\Arcade\\AI\\aCORES\\Alpha68k N\\research\\audio_pickup_20261011\\pickup_clear_order_v37\\frame_states.csv",
+      "sha256": "0288a30f2eb4b8151746e08d2fb90a12bed1725346b9e6f062e067cf2539f8a0",
+      "bytes": 144
+    },
+    {
+      "path": "D:\\Arcade\\AI\\aCORES\\Alpha68k N\\research\\audio_pickup_20261011\\pickup_clear_order_v37\\pickup_owner_frames.csv",
+      "sha256": "7671ce1b630bb69bec98b727ac6e8691007aa98e899178bb2c34efafe872c0c7",
+      "bytes": 186
+    },
+    {
+      "path": "D:\\Arcade\\AI\\aCORES\\Alpha68k N\\research\\audio_pickup_20261011\\pickup_clear_order_v37\\pickup_semantics.csv",
+      "sha256": "73dc707246297b03ee01ee1cfa19d7b41b4581052a380a04e18a02feb60bf712",
+      "bytes": 1462
+    },
+    {
+      "path": "D:\\Arcade\\AI\\aCORES\\Alpha68k N\\research\\audio_pickup_20261011\\pickup_clear_order_v37\\source_states.csv",
+      "sha256": "84a6af281981ba318b8883489436b83efddc709e8709efdb6dba70169bfb65e3",
+      "bytes": 359
+    },
+    {
+      "path": "D:\\Arcade\\AI\\aCORES\\Alpha68k N\\research\\audio_pickup_20261011\\pickup_clear_order_v37\\work_ancestry.csv",
+      "sha256": "07f6d5fe6e81ca7ed85c398c4aa6c578a0abdb55e4302c6034708021acc6ab88",
+      "bytes": 918
+    }
+  ],
+  "official_source": {
+    "path": "D:\\Arcade\\AI\\mame289\\src\\devices\\cpu\\m68000\\m68000-sdf.cpp",
+    "sha256": "b46d977660c726d58509976d91d83cbf11682eb911032b807b0ee75ee7a1ca1c",
+    "lines": "76601-76728",
+    "function": "clr_l_ais_df opcode4290",
+    "exact_low_write_line": 76684,
+    "exact_high_write_line": 76707,
+    "fragment_sha256": "fff423d0d85aea523f3480a077a1285a2c70393f5844375f42355c425aa26f53"
+  },
+  "actual_clear": {
+    "slot": 134212,
+    "low_first": {
+      "frame": 1821,
+      "screen_frame": 1820,
+      "area": "work",
+      "address": 134214,
+      "data": 0,
+      "mask": 65535,
+      "vpos": 14,
+      "hpos": 251,
+      "time_seconds": 30,
+      "time_attoseconds": 770089833210252974,
+      "pc": 47622,
+      "master_ticks": 1476964311
+    },
+    "high_second": {
+      "frame": 1821,
+      "screen_frame": 1820,
+      "area": "work",
+      "address": 134212,
+      "data": 0,
+      "mask": 65535,
+      "vpos": 14,
+      "hpos": 255,
+      "time_seconds": 30,
+      "time_attoseconds": 770090499876919638,
+      "pc": 47622,
+      "master_ticks": 1476964343
+    },
+    "delta_master_ticks": 32,
+    "following_queue": {
+      "frame": 1821,
+      "screen_frame": 1820,
+      "area": "pickup_command_queue",
+      "address": 131934,
+      "data": 21331,
+      "mask": 255,
+      "vpos": 14,
+      "hpos": 267,
+      "time_seconds": 30,
+      "time_attoseconds": 770092499876919630,
+      "pc": 47626,
+      "master_ticks": 1476964439
+    }
+  },
+  "review_correction": "Prior V36 admission missed the tracker high-first assumption. Preserve pickup_v36_exact_admission_review.json and original semantic false; CLR low-first is source-defined, not guest owner replacement.",
+  "closed_scoped_evidence": [
+    "Actual same-slot full-mask low-word then high-word zero writes before source queue53",
+    "Actual graphic clear and selected comparison retained in cohort",
+    "Ordered three masked score writes produce final raw BCD000100; BA1A following source write retained"
+  ],
+  "open_limits": [
+    "No runtime rerun or source/controller change authorized by this receipt",
+    "No committed-at-queue scalar read or BA1A committed BCD scalar read was logged after tracker invalidation; final raw snapshot is separate evidence",
+    "Accepted main sound53 and Z80 consumed53 need complete bounded dispatcher/tap coverage; no global absence conclusion",
+    "No aftermath30 proof or native/audio comparison acceptance",
+    "Full raw corpus was not reread or rehashed; source-pins are owner frozen ancestry"
+  ],
+  "actual_verifier_exit": 0
+}

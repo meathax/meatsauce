@@ -1,0 +1,91 @@
+{
+  "checks": {
+    "actual_input_map_c0000": true,
+    "80000_is_MCU_not_input": true,
+    "no_vpos_hpos_Lua_binding": true,
+    "time_until_pos_and_period_bound": true,
+    "known_working_beam_exact": true,
+    "all_original_tap_objects_retained": true,
+    "tap_GC_removes_handler": true,
+    "all_guest_inputs_controller_unchanged": true,
+    "source53_arithmetic_unchanged": true,
+    "no_second_pilot": true,
+    "actual_player_item_pointer_mapping_nonvacuous": true
+  },
+  "actual_exit_code": 0,
+  "causes": [
+    {
+      "scope": "consumed-input observer",
+      "verified_cause": "Tap used MCU command address 080000 rather than Kyros IN0/IN1 address 0c0000. The tap also observed no MCU reads at its single guessed word; this is not port failure.",
+      "fix": "Change consumed tap range only to0c0000..0c0001."
+    },
+    {
+      "scope": "generic work/latch/sound logger",
+      "verified_cause": "Logger calls screen:vpos() and screen:hpos(), neither exposed by the official0.289 Lua screen binding. Every logging callback reaches the unavailable method before events:write.",
+      "fix": "Reuse exact known-working time_until_pos/frame_period/pixel_period beam function from sim/mame/capture.lua.",
+      "limit": "Tap callback runtime error text was not emitted in this pilot. Native MAME exit0 and no frame xpcall failure cannot qualify tap callbacks."
+    }
+  ],
+  "tap_lifetime": "All seven returned tap userdata are retained in taps and _G.kyros_pickup_taps; source destructor removes handlers only on release. No observed proof supports GC as cause.",
+  "coordinates": {
+    "actual_A4_A5_object_pointer_matched_rows": 2796,
+    "examples": [
+      {
+        "frame": 723,
+        "pc": 21450,
+        "player_A4": 132096,
+        "player_A5": 132910,
+        "player_record": "802800080000000000000000072e0a3e00000000000000000c000c0000e80040",
+        "item_A0": 132192,
+        "item_record": "01288001000005020700000007461f3e00000000000000000000000000000000",
+        "item_coordinate_read_address": 132934,
+        "data": 8288,
+        "mask": 65280
+      },
+      {
+        "frame": 723,
+        "pc": 21452,
+        "player_A4": 132096,
+        "player_A5": 132910,
+        "player_record": "802800080000000000000000072e0a3e00000000000000000c000c0000e80040",
+        "item_A0": 132192,
+        "item_record": "01288001000005020700000007461f3e00000000000000000000000000000000",
+        "item_coordinate_read_address": 132934,
+        "data": 8288,
+        "mask": 255
+      },
+      {
+        "frame": 723,
+        "pc": 21450,
+        "player_A4": 132096,
+        "player_A5": 132910,
+        "player_record": "802800080000000000000000072e0a3e00000000000000000c000c0000e80040",
+        "item_A0": 132224,
+        "item_record": "012880010000050207000000074e1e3e00000000000000000000000000000000",
+        "item_coordinate_read_address": 132942,
+        "data": 16448,
+        "mask": 65280
+      },
+      {
+        "frame": 723,
+        "pc": 21452,
+        "player_A4": 132096,
+        "player_A5": 132910,
+        "player_record": "802800080000000000000000072e0a3e00000000000000000c000c0000e80040",
+        "item_A0": 132224,
+        "item_record": "012880010000050207000000074e1e3e00000000000000000000000000000000",
+        "item_coordinate_read_address": 132942,
+        "data": 16448,
+        "mask": 255
+      }
+    ],
+    "limit": "Actual frame observation and CPU coordinate-read records agree; this is not ordinary-item collision acceptance."
+  },
+  "guest_activation_guard": {
+    "mapping": "Work20105 initialized50 atROM1af4 and read/modified/clamped in2abc..2b4a; work20414 tested at2b0c.",
+    "limit": "This establishes source offsets and HP-like bounds, not complete death/depletion semantic qualification. Guard behavior was not altered."
+  },
+  "reference_result": "2400 finite fields; zero ordinary item records in these seven slots. Unqualified generic logger cannot prove accepted pickup absence across whole game.",
+  "native_acceptance": false,
+  "second_pilot_dispatched": false
+}

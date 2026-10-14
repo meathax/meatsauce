@@ -1,0 +1,51 @@
+{
+  "scope": "Exact-clock read-only capture coverage, unchanged cabinet scenario. State and original trace/image equality only; no native CPU timing pass",
+  "original_event_rows_equal": 741506,
+  "state_rows_equal": 361,
+  "all_existing_canonical_images_equal": [
+    "frame_000000.display.rgb",
+    "frame_000030.display.rgb",
+    "frame_000060.display.rgb",
+    "frame_000090.display.rgb",
+    "frame_000119.display.rgb",
+    "frame_000120.display.rgb",
+    "frame_000150.display.rgb",
+    "frame_000179.display.rgb",
+    "frame_000180.display.rgb",
+    "frame_000210.display.rgb",
+    "frame_000240.display.rgb",
+    "frame_000270.display.rgb",
+    "frame_000300.display.rgb",
+    "frame_000330.display.rgb",
+    "frame_000360.display.rgb"
+  ],
+  "field60_background_write": [
+    {
+      "frame": "60",
+      "screen_frame": "60",
+      "area": "background_watchdog",
+      "address": "393216",
+      "data": "20560",
+      "mask": "255",
+      "vpos": "97",
+      "hpos": "81",
+      "master_ticks": "49032839",
+      "instruction_pc": "110132",
+      "next_pc": "110140",
+      "opcode_bytes": "13fc005000060001"
+    }
+  ],
+  "clock330": {
+    "frame": "330",
+    "master_ticks": "268443647",
+    "vpos": "240",
+    "hpos": "0"
+  },
+  "clock360": {
+    "frame": "360",
+    "master_ticks": "292773887",
+    "vpos": "240",
+    "hpos": "0"
+  },
+  "luaengine_source_sha256": "9e0dfa31b26a268dd41b26de9ec0b448d135a50516a137323eb71db30cd296a4"
+}

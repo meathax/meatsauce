@@ -1,0 +1,518 @@
+{
+  "scope": "offline terminal-frame state/render diagnosis; frame alignment unproven",
+  "frame": 600,
+  "rtl_frame_state": {
+    "frame": "600",
+    "main_address": "13356",
+    "sound_address": "1202",
+    "main_transactions": "13886750",
+    "work_writes": "62018",
+    "strip_writes": "147081",
+    "mcu_transactions": "557",
+    "irq1_acks": "544",
+    "irq2_acks": "552",
+    "unmapped": "0",
+    "pixels": "57344",
+    "duplicates": "0",
+    "worst_line_cycles": "2280",
+    "completed_lines": "158376",
+    "deadline_misses": "0",
+    "row_overflows": "0"
+  },
+  "mame_frame_state": {
+    "frame": "600",
+    "screen_frame": "600",
+    "main_pc": "13352",
+    "sound_pc": "515",
+    "main_sr": "8196",
+    "in0": "8",
+    "in1": "142",
+    "in2": "3",
+    "background": "38"
+  },
+  "pixel_diff": {
+    "count": 458,
+    "bounds": [
+      88,
+      57,
+      95,
+      198
+    ]
+  },
+  "inputs": {
+    "sim\\captures\\rtl\\kyros_system600\\frame_000600.rgb": "53cef81ac915460e3b3f49af242d6727070ff5ab3ae100ee948707be2575fb85",
+    "sim\\captures\\kyros\\gameplay\\frame_000600.display.rgb": "870367cea2cc090698af979491e7a9c75e56ca3048a484753ad11186728f9bc8",
+    "sim\\captures\\rtl\\kyros_system600\\work.bin": "3b11d8059404dc52b11d9ede224b2a07d9d4dcd9d7fadb2fe720eca5d32a3650",
+    "sim\\captures\\kyros\\gameplay\\frame_000600.work.bin": "a976edf7208966432430b40d41ab8d785f8bc466e539cf61bc88ae83ac7ede41",
+    "sim\\captures\\rtl\\kyros_system600\\sprites.bin": "f6382624b626e8502b834f27489190e5a4c211e781befc2add292984cecce677",
+    "sim\\captures\\kyros\\gameplay\\frame_000600.sprites.bin": "e5278764380265c52fa179824aa7f940340123f17d548435f0c3f9d4ca30eb9a"
+  },
+  "ram": {
+    "work": {
+      "bytes": 4096,
+      "count": 31,
+      "differences": [
+        {
+          "index": 0,
+          "address": 131072,
+          "rtl": 540,
+          "mame": 541,
+          "xor": 1
+        },
+        {
+          "index": 3,
+          "address": 131078,
+          "rtl": 7196,
+          "mame": 7453,
+          "xor": 257
+        },
+        {
+          "index": 4,
+          "address": 131080,
+          "rtl": 3076,
+          "mame": 3333,
+          "xor": 257
+        },
+        {
+          "index": 5,
+          "address": 131082,
+          "rtl": 0,
+          "mame": 257,
+          "xor": 257
+        },
+        {
+          "index": 1234,
+          "address": 133540,
+          "rtl": 267,
+          "mame": 10,
+          "xor": 257
+        },
+        {
+          "index": 1883,
+          "address": 134838,
+          "rtl": 1286,
+          "mame": 1284,
+          "xor": 2
+        },
+        {
+          "index": 1901,
+          "address": 134874,
+          "rtl": 24064,
+          "mame": 24576,
+          "xor": 15872
+        },
+        {
+          "index": 1965,
+          "address": 135002,
+          "rtl": 32,
+          "mame": 0,
+          "xor": 32
+        },
+        {
+          "index": 1969,
+          "address": 135010,
+          "rtl": 24,
+          "mame": 232,
+          "xor": 240
+        },
+        {
+          "index": 1975,
+          "address": 135022,
+          "rtl": 16400,
+          "mame": 65400,
+          "xor": 49000
+        },
+        {
+          "index": 1977,
+          "address": 135026,
+          "rtl": 65535,
+          "mame": 0,
+          "xor": 65535
+        },
+        {
+          "index": 1979,
+          "address": 135030,
+          "rtl": 0,
+          "mame": 65280,
+          "xor": 65280
+        },
+        {
+          "index": 1981,
+          "address": 135034,
+          "rtl": 65535,
+          "mame": 49280,
+          "xor": 16255
+        },
+        {
+          "index": 1983,
+          "address": 135038,
+          "rtl": 49280,
+          "mame": 65535,
+          "xor": 16255
+        },
+        {
+          "index": 1987,
+          "address": 135046,
+          "rtl": 65535,
+          "mame": 31,
+          "xor": 65504
+        },
+        {
+          "index": 1988,
+          "address": 135048,
+          "rtl": 0,
+          "mame": 2,
+          "xor": 2
+        },
+        {
+          "index": 1989,
+          "address": 135050,
+          "rtl": 65535,
+          "mame": 1792,
+          "xor": 63743
+        },
+        {
+          "index": 1990,
+          "address": 135052,
+          "rtl": 0,
+          "mame": 4,
+          "xor": 4
+        },
+        {
+          "index": 1991,
+          "address": 135054,
+          "rtl": 13000,
+          "mame": 1986,
+          "xor": 13578
+        },
+        {
+          "index": 1992,
+          "address": 135056,
+          "rtl": 4,
+          "mame": 0,
+          "xor": 4
+        },
+        {
+          "index": 1993,
+          "address": 135058,
+          "rtl": 3610,
+          "mame": 23014,
+          "xor": 22524
+        },
+        {
+          "index": 1995,
+          "address": 135062,
+          "rtl": 13214,
+          "mame": 23014,
+          "xor": 27256
+        },
+        {
+          "index": 1996,
+          "address": 135064,
+          "rtl": 0,
+          "mame": 2,
+          "xor": 2
+        },
+        {
+          "index": 1997,
+          "address": 135066,
+          "rtl": 23014,
+          "mame": 2468,
+          "xor": 20546
+        },
+        {
+          "index": 1998,
+          "address": 135068,
+          "rtl": 2,
+          "mame": 0,
+          "xor": 2
+        },
+        {
+          "index": 1999,
+          "address": 135070,
+          "rtl": 2468,
+          "mame": 13658,
+          "xor": 15614
+        },
+        {
+          "index": 2000,
+          "address": 135072,
+          "rtl": 0,
+          "mame": 2,
+          "xor": 2
+        },
+        {
+          "index": 2001,
+          "address": 135074,
+          "rtl": 13658,
+          "mame": 0,
+          "xor": 13658
+        },
+        {
+          "index": 2002,
+          "address": 135076,
+          "rtl": 2,
+          "mame": 8452,
+          "xor": 8454
+        },
+        {
+          "index": 2004,
+          "address": 135080,
+          "rtl": 8452,
+          "mame": 1428,
+          "xor": 9360
+        },
+        {
+          "index": 2008,
+          "address": 135088,
+          "rtl": 16,
+          "mame": 16400,
+          "xor": 16384
+        }
+      ]
+    },
+    "sprites": {
+      "bytes": 8192,
+      "count": 18,
+      "differences": [
+        {
+          "index": 1806,
+          "address": 265756,
+          "rtl": 129,
+          "mame": 16513,
+          "xor": 16384
+        },
+        {
+          "index": 1807,
+          "address": 265758,
+          "rtl": 32,
+          "mame": 16416,
+          "xor": 16384
+        },
+        {
+          "index": 1808,
+          "address": 265760,
+          "rtl": 82,
+          "mame": 16466,
+          "xor": 16384
+        },
+        {
+          "index": 1809,
+          "address": 265762,
+          "rtl": 69,
+          "mame": 16453,
+          "xor": 16384
+        },
+        {
+          "index": 1810,
+          "address": 265764,
+          "rtl": 89,
+          "mame": 16473,
+          "xor": 16384
+        },
+        {
+          "index": 1811,
+          "address": 265766,
+          "rtl": 65,
+          "mame": 16449,
+          "xor": 16384
+        },
+        {
+          "index": 1812,
+          "address": 265768,
+          "rtl": 76,
+          "mame": 16460,
+          "xor": 16384
+        },
+        {
+          "index": 1813,
+          "address": 265770,
+          "rtl": 80,
+          "mame": 16464,
+          "xor": 16384
+        },
+        {
+          "index": 1814,
+          "address": 265772,
+          "rtl": 32,
+          "mame": 16416,
+          "xor": 16384
+        },
+        {
+          "index": 1815,
+          "address": 265774,
+          "rtl": 89,
+          "mame": 16473,
+          "xor": 16384
+        },
+        {
+          "index": 1816,
+          "address": 265776,
+          "rtl": 68,
+          "mame": 16452,
+          "xor": 16384
+        },
+        {
+          "index": 1817,
+          "address": 265778,
+          "rtl": 65,
+          "mame": 16449,
+          "xor": 16384
+        },
+        {
+          "index": 1818,
+          "address": 265780,
+          "rtl": 69,
+          "mame": 16453,
+          "xor": 16384
+        },
+        {
+          "index": 1819,
+          "address": 265782,
+          "rtl": 82,
+          "mame": 16466,
+          "xor": 16384
+        },
+        {
+          "index": 1820,
+          "address": 265784,
+          "rtl": 32,
+          "mame": 16416,
+          "xor": 16384
+        },
+        {
+          "index": 1821,
+          "address": 265786,
+          "rtl": 84,
+          "mame": 16468,
+          "xor": 16384
+        },
+        {
+          "index": 1822,
+          "address": 265788,
+          "rtl": 69,
+          "mame": 16453,
+          "xor": 16384
+        },
+        {
+          "index": 1823,
+          "address": 265790,
+          "rtl": 71,
+          "mame": 16455,
+          "xor": 16384
+        }
+      ]
+    }
+  },
+  "fixture_executable_sha256": "c1f9962192ea011f50044eae655e3b24026320d656f171fc1f1e2c3f3cd0cca0",
+  "snapshot_renders": [
+    {
+      "state": "rtl",
+      "exit_code": 0,
+      "command": [
+        "wsl.exe",
+        "-d",
+        "Ubuntu",
+        "--cd",
+        "D:\\Arcade\\AI\\aCORES\\Alpha68k N",
+        "--exec",
+        "./sim/build/alpha68kn_render_fixture_sim",
+        "roms/kyros/download.bin",
+        "sim/captures/rtl/kyros_system600/sprites.bin",
+        "38",
+        "sim/captures/renderer/kyros_frame_000600_rtl_state",
+        "0",
+        "-"
+      ],
+      "output": "sim\\captures\\renderer\\kyros_frame_000600_rtl_state",
+      "stdout": "{\"scope\":\"isolated strip/palette/SDRAM fixture; no CPU acceptance\",\"profile\":0,\"flip\":false,\"pixels\":57344,\"pixel_mismatches\":0,\"first_x\":0,\"first_y\":16,\"oracle_compared\":false,\"oracle_mismatches\":0,\"worst_line_cycles\":1392,\"completed_lines\":225,\"deadline_misses\":0,\"row_overflows\":0,\"banks_mask\":23,\"boundary_codes_mask\":1,\"color_ff_tiles\":32,\"read_pairs\":16880,\"result\":\"pass\"}",
+      "stderr": "",
+      "actual.rgb": {
+        "sha256": "53cef81ac915460e3b3f49af242d6727070ff5ab3ae100ee948707be2575fb85",
+        "vs_live_rtl": {
+          "count": 0,
+          "bounds": null
+        },
+        "vs_mame_display": {
+          "count": 458,
+          "bounds": [
+            88,
+            57,
+            95,
+            198
+          ]
+        }
+      },
+      "expected.rgb": {
+        "sha256": "53cef81ac915460e3b3f49af242d6727070ff5ab3ae100ee948707be2575fb85",
+        "vs_live_rtl": {
+          "count": 0,
+          "bounds": null
+        },
+        "vs_mame_display": {
+          "count": 458,
+          "bounds": [
+            88,
+            57,
+            95,
+            198
+          ]
+        }
+      }
+    },
+    {
+      "state": "mame",
+      "exit_code": 0,
+      "command": [
+        "wsl.exe",
+        "-d",
+        "Ubuntu",
+        "--cd",
+        "D:\\Arcade\\AI\\aCORES\\Alpha68k N",
+        "--exec",
+        "./sim/build/alpha68kn_render_fixture_sim",
+        "roms/kyros/download.bin",
+        "sim/captures/kyros/gameplay/frame_000600.sprites.bin",
+        "38",
+        "sim/captures/renderer/kyros_frame_000600_mame_state",
+        "0",
+        "-"
+      ],
+      "output": "sim\\captures\\renderer\\kyros_frame_000600_mame_state",
+      "stdout": "{\"scope\":\"isolated strip/palette/SDRAM fixture; no CPU acceptance\",\"profile\":0,\"flip\":false,\"pixels\":57344,\"pixel_mismatches\":0,\"first_x\":0,\"first_y\":16,\"oracle_compared\":false,\"oracle_mismatches\":0,\"worst_line_cycles\":1392,\"completed_lines\":225,\"deadline_misses\":0,\"row_overflows\":0,\"banks_mask\":23,\"boundary_codes_mask\":1,\"color_ff_tiles\":35,\"read_pairs\":16928,\"result\":\"pass\"}",
+      "stderr": "",
+      "actual.rgb": {
+        "sha256": "870367cea2cc090698af979491e7a9c75e56ca3048a484753ad11186728f9bc8",
+        "vs_live_rtl": {
+          "count": 458,
+          "bounds": [
+            88,
+            57,
+            95,
+            198
+          ]
+        },
+        "vs_mame_display": {
+          "count": 0,
+          "bounds": null
+        }
+      },
+      "expected.rgb": {
+        "sha256": "870367cea2cc090698af979491e7a9c75e56ca3048a484753ad11186728f9bc8",
+        "vs_live_rtl": {
+          "count": 458,
+          "bounds": [
+            88,
+            57,
+            95,
+            198
+          ]
+        },
+        "vs_mame_display": {
+          "count": 0,
+          "bounds": null
+        }
+      }
+    }
+  ]
+}

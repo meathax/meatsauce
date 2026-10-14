@@ -1,0 +1,30 @@
+{
+  "pid": 53228,
+  "started": 1791651999.9519134,
+  "command": [
+    "wsl.exe",
+    "-d",
+    "Ubuntu",
+    "--cd",
+    "/tmp/alpha68kn-p2-qualification-v7-baseline",
+    "--exec",
+    "/usr/local/bin/verilator",
+    "--cc",
+    "--exe",
+    "--build",
+    "-j",
+    "4",
+    "-O3",
+    "-Wno-fatal",
+    "--top-module",
+    "fixture",
+    "--Mdir",
+    "obj",
+    "fixture.sv",
+    "alpha68kn_mcu.sv",
+    "t48_core.v",
+    "main.cpp",
+    "-CFLAGS",
+    "-std=c++17"
+  ]
+}

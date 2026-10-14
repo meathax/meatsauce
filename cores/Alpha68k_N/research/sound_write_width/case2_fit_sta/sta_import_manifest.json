@@ -1,0 +1,976 @@
+{
+  "status": "completed_native_STA_timing_failed",
+  "utc": "2026-10-10T16:48:51.581740+00:00",
+  "actual_exit": 0,
+  "native_session": 22866,
+  "terminal_chunk": "c86b66",
+  "elapsed_seconds": 148,
+  "cpu_seconds": 247,
+  "peak_virtual_memory_mb": 6381,
+  "errors": 0,
+  "warnings": 1376,
+  "operating_condition_count": 8,
+  "global_check_rows": 32,
+  "source_pins_161_unchanged": true,
+  "qsf_sha256": "387941e3c72c5f677feb9f2086a571584a3ab8f3de2a4ce851c0b32565061c28",
+  "assigned_board_sha256": "7ea61d03b20886e643c5d0be64c9f80bb93923975223f7c272621d3cab05aaa9",
+  "all7_resource_pass": true,
+  "timing_pass": false,
+  "unconstrained_pass": false,
+  "unconstrained_note": "Native collector reports design not fully constrained. Detailed classification remains investigator-owned.",
+  "files": [
+    {
+      "path": "D:\\Arcade\\AI\\aCORES\\Alpha68k N\\research\\sound_write_width\\case2_fit_sta\\all-corners-detail.tcl",
+      "sha256": "ab3bffea354fa2dd1aa70cc98d8e128cd7c6bf64045c7b14e86e0f93bac02aab",
+      "bytes": 3794
+    },
+    {
+      "path": "D:\\Arcade\\AI\\aCORES\\Alpha68k N\\research\\sound_write_width\\case2_fit_sta\\detail_collector_launch.json",
+      "sha256": "c7c09ab292e12a74034e3de442f22b01c7bb54fc1671b7acd322a60edbeb58a3",
+      "bytes": 917
+    },
+    {
+      "path": "D:\\Arcade\\AI\\aCORES\\Alpha68k N\\research\\sound_write_width\\case2_fit_sta\\collector_rejection.json",
+      "sha256": "f74b2b6b6648dc660e3ab3d64a504bf3753a616997dfdb50c1eca1495d58a5f9",
+      "bytes": 1156
+    },
+    {
+      "path": "D:\\Arcade\\AI\\aCORES\\Alpha68k N\\research\\sound_write_width\\case2_fit_sta\\native_sta_launch.json",
+      "sha256": "2d7ec500a93f9333314f0b5ce6841eff9afdfe12e8842b44abead82ed12c6a24",
+      "bytes": 668
+    },
+    {
+      "path": "D:\\Arcade\\AI\\aCORES\\Alpha68k N\\research\\sound_write_width\\case2_fit_sta\\bare_sta_terminal.json",
+      "sha256": "dc7ca620dd28769ef842a33f5b70caff3295fe21e551c6c3878cde04db085f91",
+      "bytes": 20399
+    },
+    {
+      "path": "D:\\Arcade\\AI\\aCORES\\Alpha68k N\\research\\sound_write_width\\case2_fit_sta\\bare_sta_minima.json",
+      "sha256": "7d99e9d0775406e5b4ee4e2a115305d3518fa999cccb46c66c9bb9ad1f3084ea",
+      "bytes": 6116
+    },
+    {
+      "path": "D:\\Arcade\\AI\\aCORES\\Alpha68k N\\research\\sound_write_width\\case2_fit_sta\\bare_sta_archive_receipt.json",
+      "sha256": "eb53d9c377a2f4a9630bcb066e87eaafd0c5b3390c3617a5a933803e46d0cce2",
+      "bytes": 585
+    },
+    {
+      "path": "D:\\Arcade\\AI\\aCORES\\Alpha68k N\\research\\sound_write_width\\case2_fit_sta\\fit_sta_result.json",
+      "sha256": "f1908f9ff105c326f2220903bf19cc9d517a9ab408e506d2d163933f4316325f",
+      "bytes": 1168406
+    }
+  ],
+  "reports": [
+    {
+      "path": "D:\\Arcade\\AI\\aCORES\\Alpha68k N\\research\\sound_write_width\\case2_fit_sta\\all-corners\\corner_1\\clocks.txt",
+      "sha256": "e849607c9260c2e3e780561310e314a49dc369596f6c6e004d8c8c5654e4d690",
+      "bytes": 9253
+    },
+    {
+      "path": "D:\\Arcade\\AI\\aCORES\\Alpha68k N\\research\\sound_write_width\\case2_fit_sta\\all-corners\\corner_1\\condition.txt",
+      "sha256": "f66cce0c6de3334214a1b1d8088a528c72c01428681a33e854bebb52189ef59a",
+      "bytes": 65
+    },
+    {
+      "path": "D:\\Arcade\\AI\\aCORES\\Alpha68k N\\research\\sound_write_width\\case2_fit_sta\\all-corners\\corner_1\\hold.txt",
+      "sha256": "16c89eac4d73c965ee4359dfc248c0122e40baabb4bc955b6cce19f986ac4def",
+      "bytes": 127873
+    },
+    {
+      "path": "D:\\Arcade\\AI\\aCORES\\Alpha68k N\\research\\sound_write_width\\case2_fit_sta\\all-corners\\corner_1\\min_pulse_width.txt",
+      "sha256": "2754f9c9b6d016ee026fe60c7388ff90ec3dcdd1be233beac17cce2b83420e96",
+      "bytes": 5891
+    },
+    {
+      "path": "D:\\Arcade\\AI\\aCORES\\Alpha68k N\\research\\sound_write_width\\case2_fit_sta\\all-corners\\corner_1\\recovery.txt",
+      "sha256": "51de1a50e80b760ac6280d41af01d27c44125e6f258bca4dd0cb1be7a6177747",
+      "bytes": 205289
+    },
+    {
+      "path": "D:\\Arcade\\AI\\aCORES\\Alpha68k N\\research\\sound_write_width\\case2_fit_sta\\all-corners\\corner_1\\removal.txt",
+      "sha256": "0e60458e83384e9bbcc4663808fc2c4f3b4fe2376a53898f1a540763aeffe0ba",
+      "bytes": 98734
+    },
+    {
+      "path": "D:\\Arcade\\AI\\aCORES\\Alpha68k N\\research\\sound_write_width\\case2_fit_sta\\all-corners\\corner_1\\same_audio_hold.txt",
+      "sha256": "e938a4d7f5c8f14a863fb79bdafca71ee65192eca8fe014185aefc645467dcca",
+      "bytes": 132694
+    },
+    {
+      "path": "D:\\Arcade\\AI\\aCORES\\Alpha68k N\\research\\sound_write_width\\case2_fit_sta\\all-corners\\corner_1\\same_audio_setup.txt",
+      "sha256": "63e77eed47ad53af27256954391cbee31c88c22396d4b9dbd5d05992160ce368",
+      "bytes": 144233
+    },
+    {
+      "path": "D:\\Arcade\\AI\\aCORES\\Alpha68k N\\research\\sound_write_width\\case2_fit_sta\\all-corners\\corner_1\\same_game_hold.txt",
+      "sha256": "c92abd984da0ce7bebbf889b865ea7f5ebc776fa012c8796a9e0168c14805a4f",
+      "bytes": 118503
+    },
+    {
+      "path": "D:\\Arcade\\AI\\aCORES\\Alpha68k N\\research\\sound_write_width\\case2_fit_sta\\all-corners\\corner_1\\same_game_setup.txt",
+      "sha256": "a9849a4661a218d09ab5d17546e3fb29429caa5159e9fe1b6d47439ea892f7d9",
+      "bytes": 138296
+    },
+    {
+      "path": "D:\\Arcade\\AI\\aCORES\\Alpha68k N\\research\\sound_write_width\\case2_fit_sta\\all-corners\\corner_1\\setup.txt",
+      "sha256": "474ef1005a9bbcd3471d836935792d03a13cde1f267ad8eb401452dc8afaace7",
+      "bytes": 130566
+    },
+    {
+      "path": "D:\\Arcade\\AI\\aCORES\\Alpha68k N\\research\\sound_write_width\\case2_fit_sta\\all-corners\\corner_1\\unconstrained.txt",
+      "sha256": "1649fa1c6ae5e5dd26296f996ea5747af5a5f4c92d84b544c5d475cac9a3e641",
+      "bytes": 124761
+    },
+    {
+      "path": "D:\\Arcade\\AI\\aCORES\\Alpha68k N\\research\\sound_write_width\\case2_fit_sta\\all-corners\\corner_2\\clocks.txt",
+      "sha256": "e849607c9260c2e3e780561310e314a49dc369596f6c6e004d8c8c5654e4d690",
+      "bytes": 9253
+    },
+    {
+      "path": "D:\\Arcade\\AI\\aCORES\\Alpha68k N\\research\\sound_write_width\\case2_fit_sta\\all-corners\\corner_2\\condition.txt",
+      "sha256": "d9d1d75d97c9e2cb582f06b9a726a057bab04883d8cf397bef59fb26d65474ad",
+      "bytes": 65
+    },
+    {
+      "path": "D:\\Arcade\\AI\\aCORES\\Alpha68k N\\research\\sound_write_width\\case2_fit_sta\\all-corners\\corner_2\\hold.txt",
+      "sha256": "442c2fff5adcaa8ebd5cef0bb4a95c639807543764737cd7f14d86d5688d2170",
+      "bytes": 128330
+    },
+    {
+      "path": "D:\\Arcade\\AI\\aCORES\\Alpha68k N\\research\\sound_write_width\\case2_fit_sta\\all-corners\\corner_2\\min_pulse_width.txt",
+      "sha256": "610d3a0df9d11b0f7e63726a639f49f0e1f1ee93c2084080b01fde461e491c5c",
+      "bytes": 5891
+    },
+    {
+      "path": "D:\\Arcade\\AI\\aCORES\\Alpha68k N\\research\\sound_write_width\\case2_fit_sta\\all-corners\\corner_2\\recovery.txt",
+      "sha256": "8508c66b323808643efd91047d1d7b39572ecbe647b0e198508d39345ce60c4a",
+      "bytes": 205289
+    },
+    {
+      "path": "D:\\Arcade\\AI\\aCORES\\Alpha68k N\\research\\sound_write_width\\case2_fit_sta\\all-corners\\corner_2\\removal.txt",
+      "sha256": "c3205cc17028129da57511145ebcabcde984478e157a315ee4c8280973320fdf",
+      "bytes": 99954
+    },
+    {
+      "path": "D:\\Arcade\\AI\\aCORES\\Alpha68k N\\research\\sound_write_width\\case2_fit_sta\\all-corners\\corner_2\\same_audio_hold.txt",
+      "sha256": "67ad5887d2a8e679e5e30771013184efb6d0a7e4d2774505f9688226140c15c4",
+      "bytes": 131200
+    },
+    {
+      "path": "D:\\Arcade\\AI\\aCORES\\Alpha68k N\\research\\sound_write_width\\case2_fit_sta\\all-corners\\corner_2\\same_audio_setup.txt",
+      "sha256": "0f849ba4210184e10add1a5d61f1d1e5788a9a59b063b203989f1b2f37979960",
+      "bytes": 140905
+    },
+    {
+      "path": "D:\\Arcade\\AI\\aCORES\\Alpha68k N\\research\\sound_write_width\\case2_fit_sta\\all-corners\\corner_2\\same_game_hold.txt",
+      "sha256": "d98418c2a8f9c811998f7cf52fef03705b52c53c5f2d344e62ae3f31277d2647",
+      "bytes": 117952
+    },
+    {
+      "path": "D:\\Arcade\\AI\\aCORES\\Alpha68k N\\research\\sound_write_width\\case2_fit_sta\\all-corners\\corner_2\\same_game_setup.txt",
+      "sha256": "0aac6e4283d82719fbb7edc78a8e328e4bd5bb8b32d86f99d08391b82ae71473",
+      "bytes": 138296
+    },
+    {
+      "path": "D:\\Arcade\\AI\\aCORES\\Alpha68k N\\research\\sound_write_width\\case2_fit_sta\\all-corners\\corner_2\\setup.txt",
+      "sha256": "725b8008f67bf85e22d945582cddf41b722d19a2496ca941aace61e587238079",
+      "bytes": 130566
+    },
+    {
+      "path": "D:\\Arcade\\AI\\aCORES\\Alpha68k N\\research\\sound_write_width\\case2_fit_sta\\all-corners\\corner_2\\unconstrained.txt",
+      "sha256": "1649fa1c6ae5e5dd26296f996ea5747af5a5f4c92d84b544c5d475cac9a3e641",
+      "bytes": 124761
+    },
+    {
+      "path": "D:\\Arcade\\AI\\aCORES\\Alpha68k N\\research\\sound_write_width\\case2_fit_sta\\all-corners\\corner_3\\clocks.txt",
+      "sha256": "e849607c9260c2e3e780561310e314a49dc369596f6c6e004d8c8c5654e4d690",
+      "bytes": 9253
+    },
+    {
+      "path": "D:\\Arcade\\AI\\aCORES\\Alpha68k N\\research\\sound_write_width\\case2_fit_sta\\all-corners\\corner_3\\condition.txt",
+      "sha256": "b840cff10a96bea718cb2f74bc4fd9b8410dd89ea443577f8c43bfa49a40c1f1",
+      "bytes": 63
+    },
+    {
+      "path": "D:\\Arcade\\AI\\aCORES\\Alpha68k N\\research\\sound_write_width\\case2_fit_sta\\all-corners\\corner_3\\hold.txt",
+      "sha256": "7ec4983c21b4a26994687b172fc81b7b1e83977a3dcd8455644dfb58a38dfa16",
+      "bytes": 127872
+    },
+    {
+      "path": "D:\\Arcade\\AI\\aCORES\\Alpha68k N\\research\\sound_write_width\\case2_fit_sta\\all-corners\\corner_3\\min_pulse_width.txt",
+      "sha256": "56a47cd07ee74c7df579a95081d290d286d98e4b984186cd4ee25f6053d04747",
+      "bytes": 5890
+    },
+    {
+      "path": "D:\\Arcade\\AI\\aCORES\\Alpha68k N\\research\\sound_write_width\\case2_fit_sta\\all-corners\\corner_3\\recovery.txt",
+      "sha256": "e499f0655287ee03577d99e8e6f2b33b4c340fd23256656742dd42bf3f428fb3",
+      "bytes": 205288
+    },
+    {
+      "path": "D:\\Arcade\\AI\\aCORES\\Alpha68k N\\research\\sound_write_width\\case2_fit_sta\\all-corners\\corner_3\\removal.txt",
+      "sha256": "5c3d564f01a34ae365e7f5aa3645094f3b071dff04e9077668e429b3c894c878",
+      "bytes": 98733
+    },
+    {
+      "path": "D:\\Arcade\\AI\\aCORES\\Alpha68k N\\research\\sound_write_width\\case2_fit_sta\\all-corners\\corner_3\\same_audio_hold.txt",
+      "sha256": "2c3d676a065a4a215b7c1235d88bde92c32052f08613ad69799a10043798d361",
+      "bytes": 132693
+    },
+    {
+      "path": "D:\\Arcade\\AI\\aCORES\\Alpha68k N\\research\\sound_write_width\\case2_fit_sta\\all-corners\\corner_3\\same_audio_setup.txt",
+      "sha256": "5f484afd61319a35e136e76f3dec4c6f747f01ab7fe81682d3f4d202319bc274",
+      "bytes": 144232
+    },
+    {
+      "path": "D:\\Arcade\\AI\\aCORES\\Alpha68k N\\research\\sound_write_width\\case2_fit_sta\\all-corners\\corner_3\\same_game_hold.txt",
+      "sha256": "c6c8078da4a28a26edf138055f3efe45236a2d3fc087c57d951f919f6ed4238f",
+      "bytes": 118502
+    },
+    {
+      "path": "D:\\Arcade\\AI\\aCORES\\Alpha68k N\\research\\sound_write_width\\case2_fit_sta\\all-corners\\corner_3\\same_game_setup.txt",
+      "sha256": "3f220a5d748558320025f4c131e3e42069bcfc1eccbe4b8b46b90e0eb7ebfd1f",
+      "bytes": 138295
+    },
+    {
+      "path": "D:\\Arcade\\AI\\aCORES\\Alpha68k N\\research\\sound_write_width\\case2_fit_sta\\all-corners\\corner_3\\setup.txt",
+      "sha256": "e2b7736c83c9230ed747567fae3c7a05e23eac12fa18bf74a1026723a028ccb6",
+      "bytes": 130565
+    },
+    {
+      "path": "D:\\Arcade\\AI\\aCORES\\Alpha68k N\\research\\sound_write_width\\case2_fit_sta\\all-corners\\corner_3\\unconstrained.txt",
+      "sha256": "1649fa1c6ae5e5dd26296f996ea5747af5a5f4c92d84b544c5d475cac9a3e641",
+      "bytes": 124761
+    },
+    {
+      "path": "D:\\Arcade\\AI\\aCORES\\Alpha68k N\\research\\sound_write_width\\case2_fit_sta\\all-corners\\corner_4\\clocks.txt",
+      "sha256": "e849607c9260c2e3e780561310e314a49dc369596f6c6e004d8c8c5654e4d690",
+      "bytes": 9253
+    },
+    {
+      "path": "D:\\Arcade\\AI\\aCORES\\Alpha68k N\\research\\sound_write_width\\case2_fit_sta\\all-corners\\corner_4\\condition.txt",
+      "sha256": "39a613516406f14e4293251f6805edfbc307aa5b3a777e0a5408ea5480aa353f",
+      "bytes": 61
+    },
+    {
+      "path": "D:\\Arcade\\AI\\aCORES\\Alpha68k N\\research\\sound_write_width\\case2_fit_sta\\all-corners\\corner_4\\hold.txt",
+      "sha256": "d6d752aa3d1fd89de4e79932cc51abdf69490cbdc21dd5ac6afb7ca1f06fbd9b",
+      "bytes": 128328
+    },
+    {
+      "path": "D:\\Arcade\\AI\\aCORES\\Alpha68k N\\research\\sound_write_width\\case2_fit_sta\\all-corners\\corner_4\\min_pulse_width.txt",
+      "sha256": "def3d248009e6c4c8752c5ffb0d52b27cb6517acdfd25b94c7490b5a3e47616e",
+      "bytes": 5889
+    },
+    {
+      "path": "D:\\Arcade\\AI\\aCORES\\Alpha68k N\\research\\sound_write_width\\case2_fit_sta\\all-corners\\corner_4\\recovery.txt",
+      "sha256": "9051ff3dd39dc217dd77577308d872bfdbd582c087def8fcf34e4c710a72a392",
+      "bytes": 205287
+    },
+    {
+      "path": "D:\\Arcade\\AI\\aCORES\\Alpha68k N\\research\\sound_write_width\\case2_fit_sta\\all-corners\\corner_4\\removal.txt",
+      "sha256": "1a644276e24faf5cf0f377589d6dcf7a6869b07d0dd420685b7d3b0355c0b946",
+      "bytes": 99422
+    },
+    {
+      "path": "D:\\Arcade\\AI\\aCORES\\Alpha68k N\\research\\sound_write_width\\case2_fit_sta\\all-corners\\corner_4\\same_audio_hold.txt",
+      "sha256": "c6836806de110789ff683459b5038639fb2abaab6bbb60d58c2c4ac477af469e",
+      "bytes": 131198
+    },
+    {
+      "path": "D:\\Arcade\\AI\\aCORES\\Alpha68k N\\research\\sound_write_width\\case2_fit_sta\\all-corners\\corner_4\\same_audio_setup.txt",
+      "sha256": "d0923bb2aad6976f1a3214e4cd7b0e8f984efa02550f0ab344647b9e7286d8ba",
+      "bytes": 141223
+    },
+    {
+      "path": "D:\\Arcade\\AI\\aCORES\\Alpha68k N\\research\\sound_write_width\\case2_fit_sta\\all-corners\\corner_4\\same_game_hold.txt",
+      "sha256": "77c511191a92c652b0ed56736fb6d14fc37ca4ec2b19fd1bc2397a6eaf4c35dd",
+      "bytes": 118501
+    },
+    {
+      "path": "D:\\Arcade\\AI\\aCORES\\Alpha68k N\\research\\sound_write_width\\case2_fit_sta\\all-corners\\corner_4\\same_game_setup.txt",
+      "sha256": "06f12fea915956e549830e0e81c9bc6df04a583ba8a20bf8d2ae0ec5cd1f5e44",
+      "bytes": 138294
+    },
+    {
+      "path": "D:\\Arcade\\AI\\aCORES\\Alpha68k N\\research\\sound_write_width\\case2_fit_sta\\all-corners\\corner_4\\setup.txt",
+      "sha256": "ceb834e926c05324238a29a269608a66274ac7e1f32abbe9dd82815a47dd87a6",
+      "bytes": 130564
+    },
+    {
+      "path": "D:\\Arcade\\AI\\aCORES\\Alpha68k N\\research\\sound_write_width\\case2_fit_sta\\all-corners\\corner_4\\unconstrained.txt",
+      "sha256": "1649fa1c6ae5e5dd26296f996ea5747af5a5f4c92d84b544c5d475cac9a3e641",
+      "bytes": 124761
+    },
+    {
+      "path": "D:\\Arcade\\AI\\aCORES\\Alpha68k N\\research\\sound_write_width\\case2_fit_sta\\all-corners\\corner_5\\clocks.txt",
+      "sha256": "e849607c9260c2e3e780561310e314a49dc369596f6c6e004d8c8c5654e4d690",
+      "bytes": 9253
+    },
+    {
+      "path": "D:\\Arcade\\AI\\aCORES\\Alpha68k N\\research\\sound_write_width\\case2_fit_sta\\all-corners\\corner_5\\condition.txt",
+      "sha256": "b75b4d519f75a8de36f1b793c792cdf8f3f952db499abecea02a7d04295abb24",
+      "bytes": 65
+    },
+    {
+      "path": "D:\\Arcade\\AI\\aCORES\\Alpha68k N\\research\\sound_write_width\\case2_fit_sta\\all-corners\\corner_5\\hold.txt",
+      "sha256": "8d8a52e6c6eb176fd1babdbe6a59ecfe5282b0de8148808a7544a906e5d460e9",
+      "bytes": 127526
+    },
+    {
+      "path": "D:\\Arcade\\AI\\aCORES\\Alpha68k N\\research\\sound_write_width\\case2_fit_sta\\all-corners\\corner_5\\min_pulse_width.txt",
+      "sha256": "dac44c7e014978af67d05acb5b5fc6857274b97a355e6126f6c5a58c1edad6af",
+      "bytes": 5891
+    },
+    {
+      "path": "D:\\Arcade\\AI\\aCORES\\Alpha68k N\\research\\sound_write_width\\case2_fit_sta\\all-corners\\corner_5\\recovery.txt",
+      "sha256": "a99667af26b51cbe7754089f5003f4d6532eb5ae94d764ab649a3cd6f2b2d057",
+      "bytes": 205262
+    },
+    {
+      "path": "D:\\Arcade\\AI\\aCORES\\Alpha68k N\\research\\sound_write_width\\case2_fit_sta\\all-corners\\corner_5\\removal.txt",
+      "sha256": "adc36f0a6df638197d2ba65120d358e20c19a3b8e269c3538e24727030ce749c",
+      "bytes": 98734
+    },
+    {
+      "path": "D:\\Arcade\\AI\\aCORES\\Alpha68k N\\research\\sound_write_width\\case2_fit_sta\\all-corners\\corner_5\\same_audio_hold.txt",
+      "sha256": "a5ea4989ce8bdce083b5f6a74e54cdb74a784d48f592fc8446a51ce822972fec",
+      "bytes": 138518
+    },
+    {
+      "path": "D:\\Arcade\\AI\\aCORES\\Alpha68k N\\research\\sound_write_width\\case2_fit_sta\\all-corners\\corner_5\\same_audio_setup.txt",
+      "sha256": "8cba4fbd16de168f6808670ba7307afb11528140b4248dfae120008a60bb71b8",
+      "bytes": 143762
+    },
+    {
+      "path": "D:\\Arcade\\AI\\aCORES\\Alpha68k N\\research\\sound_write_width\\case2_fit_sta\\all-corners\\corner_5\\same_game_hold.txt",
+      "sha256": "0fa22b7ced0defa476a0ec14b29b4be4ca3d1d5b44959a95c3e5b1b3bd3a6812",
+      "bytes": 117952
+    },
+    {
+      "path": "D:\\Arcade\\AI\\aCORES\\Alpha68k N\\research\\sound_write_width\\case2_fit_sta\\all-corners\\corner_5\\same_game_setup.txt",
+      "sha256": "e60d6af1f9a3487f549436f649af5d5da8f89306bfa382d70a71be14ffe8d7a9",
+      "bytes": 140655
+    },
+    {
+      "path": "D:\\Arcade\\AI\\aCORES\\Alpha68k N\\research\\sound_write_width\\case2_fit_sta\\all-corners\\corner_5\\setup.txt",
+      "sha256": "d7f582739e007fed9c63e1e29d4ede53bc4869bf28b52007715342aea17eb247",
+      "bytes": 146036
+    },
+    {
+      "path": "D:\\Arcade\\AI\\aCORES\\Alpha68k N\\research\\sound_write_width\\case2_fit_sta\\all-corners\\corner_5\\unconstrained.txt",
+      "sha256": "1649fa1c6ae5e5dd26296f996ea5747af5a5f4c92d84b544c5d475cac9a3e641",
+      "bytes": 124761
+    },
+    {
+      "path": "D:\\Arcade\\AI\\aCORES\\Alpha68k N\\research\\sound_write_width\\case2_fit_sta\\all-corners\\corner_6\\clocks.txt",
+      "sha256": "e849607c9260c2e3e780561310e314a49dc369596f6c6e004d8c8c5654e4d690",
+      "bytes": 9253
+    },
+    {
+      "path": "D:\\Arcade\\AI\\aCORES\\Alpha68k N\\research\\sound_write_width\\case2_fit_sta\\all-corners\\corner_6\\condition.txt",
+      "sha256": "92e28f448b8ebcffe7a71e4f814051d33bc2b1252e91fec85e9e913a7fe060dd",
+      "bytes": 61
+    },
+    {
+      "path": "D:\\Arcade\\AI\\aCORES\\Alpha68k N\\research\\sound_write_width\\case2_fit_sta\\all-corners\\corner_6\\hold.txt",
+      "sha256": "5e61d1d72262650896395ebc9aedc596e10882c69e8ecf45cbcad086fd3d4141",
+      "bytes": 127524
+    },
+    {
+      "path": "D:\\Arcade\\AI\\aCORES\\Alpha68k N\\research\\sound_write_width\\case2_fit_sta\\all-corners\\corner_6\\min_pulse_width.txt",
+      "sha256": "292d4c8197b4a18b2cb97e0b715ee8ca9a6861343ac187b3b7064565df367190",
+      "bytes": 5889
+    },
+    {
+      "path": "D:\\Arcade\\AI\\aCORES\\Alpha68k N\\research\\sound_write_width\\case2_fit_sta\\all-corners\\corner_6\\recovery.txt",
+      "sha256": "0d2f331175d08d8e675358574a049ff05ffbc16743b889209f8c679a9638a78e",
+      "bytes": 205260
+    },
+    {
+      "path": "D:\\Arcade\\AI\\aCORES\\Alpha68k N\\research\\sound_write_width\\case2_fit_sta\\all-corners\\corner_6\\removal.txt",
+      "sha256": "ca89a240bceaae8d822b734bffb82c1a431508c5cd23037266c909d143de123f",
+      "bytes": 99422
+    },
+    {
+      "path": "D:\\Arcade\\AI\\aCORES\\Alpha68k N\\research\\sound_write_width\\case2_fit_sta\\all-corners\\corner_6\\same_audio_hold.txt",
+      "sha256": "399bb81956d992cd1bb3f7ba566a7355deaefc8d95e9307ad8f7e691f857c2e4",
+      "bytes": 135664
+    },
+    {
+      "path": "D:\\Arcade\\AI\\aCORES\\Alpha68k N\\research\\sound_write_width\\case2_fit_sta\\all-corners\\corner_6\\same_audio_setup.txt",
+      "sha256": "247e3d12bf28eb36cf90281ba7812654d4a5dd75b7f8ff52b6e1299c6cc7a42e",
+      "bytes": 144130
+    },
+    {
+      "path": "D:\\Arcade\\AI\\aCORES\\Alpha68k N\\research\\sound_write_width\\case2_fit_sta\\all-corners\\corner_6\\same_game_hold.txt",
+      "sha256": "2405b4c5ee63a817e37e1761ff7e4f3a72a758987f3828ee8cce1a097faa3f90",
+      "bytes": 127302
+    },
+    {
+      "path": "D:\\Arcade\\AI\\aCORES\\Alpha68k N\\research\\sound_write_width\\case2_fit_sta\\all-corners\\corner_6\\same_game_setup.txt",
+      "sha256": "ee5c5a9e372da1dc4c42d02a269037a818c10e2e82ae3df9be8f6bb1cd753795",
+      "bytes": 139068
+    },
+    {
+      "path": "D:\\Arcade\\AI\\aCORES\\Alpha68k N\\research\\sound_write_width\\case2_fit_sta\\all-corners\\corner_6\\setup.txt",
+      "sha256": "cd9169f935d118c530c802fc34fd86a7e8bc26c78e8b4bfce3c6ffa1181241ea",
+      "bytes": 146034
+    },
+    {
+      "path": "D:\\Arcade\\AI\\aCORES\\Alpha68k N\\research\\sound_write_width\\case2_fit_sta\\all-corners\\corner_6\\unconstrained.txt",
+      "sha256": "1649fa1c6ae5e5dd26296f996ea5747af5a5f4c92d84b544c5d475cac9a3e641",
+      "bytes": 124761
+    },
+    {
+      "path": "D:\\Arcade\\AI\\aCORES\\Alpha68k N\\research\\sound_write_width\\case2_fit_sta\\all-corners\\corner_7\\clocks.txt",
+      "sha256": "e849607c9260c2e3e780561310e314a49dc369596f6c6e004d8c8c5654e4d690",
+      "bytes": 9253
+    },
+    {
+      "path": "D:\\Arcade\\AI\\aCORES\\Alpha68k N\\research\\sound_write_width\\case2_fit_sta\\all-corners\\corner_7\\condition.txt",
+      "sha256": "151f9951cde7f13a235e4e3a2ae4a37486b495cd28c5749a2c2f708f008f72f9",
+      "bytes": 63
+    },
+    {
+      "path": "D:\\Arcade\\AI\\aCORES\\Alpha68k N\\research\\sound_write_width\\case2_fit_sta\\all-corners\\corner_7\\hold.txt",
+      "sha256": "098cbb94c91d229c2b2e7dedcd19259ff2bd9b7d224d2e480c7b32a78013451b",
+      "bytes": 127336
+    },
+    {
+      "path": "D:\\Arcade\\AI\\aCORES\\Alpha68k N\\research\\sound_write_width\\case2_fit_sta\\all-corners\\corner_7\\min_pulse_width.txt",
+      "sha256": "33af1cd545aaee89506fbf9825ecf855fcd4c355623c05b326bc46d5091625cd",
+      "bytes": 5890
+    },
+    {
+      "path": "D:\\Arcade\\AI\\aCORES\\Alpha68k N\\research\\sound_write_width\\case2_fit_sta\\all-corners\\corner_7\\recovery.txt",
+      "sha256": "70423c6bb41eec3acda6a6c0863cb5bf75bd84e601f9d8be046a1a3ea54398eb",
+      "bytes": 174364
+    },
+    {
+      "path": "D:\\Arcade\\AI\\aCORES\\Alpha68k N\\research\\sound_write_width\\case2_fit_sta\\all-corners\\corner_7\\removal.txt",
+      "sha256": "7f8c84d8a2396eb9055941404103c4743b4bda85d26911fb3051ca7bea68fd6c",
+      "bytes": 98733
+    },
+    {
+      "path": "D:\\Arcade\\AI\\aCORES\\Alpha68k N\\research\\sound_write_width\\case2_fit_sta\\all-corners\\corner_7\\same_audio_hold.txt",
+      "sha256": "8b0ecdf658fdaed9c189c27ec9ddcefed1631f973714d23aa2f908ae03e46043",
+      "bytes": 132768
+    },
+    {
+      "path": "D:\\Arcade\\AI\\aCORES\\Alpha68k N\\research\\sound_write_width\\case2_fit_sta\\all-corners\\corner_7\\same_audio_setup.txt",
+      "sha256": "ea4012bf9cea3f831e059dfb6b2a10c52c80725881cac5886659af239b2c1532",
+      "bytes": 144131
+    },
+    {
+      "path": "D:\\Arcade\\AI\\aCORES\\Alpha68k N\\research\\sound_write_width\\case2_fit_sta\\all-corners\\corner_7\\same_game_hold.txt",
+      "sha256": "bee135f9273d1ca9d3996edf72301bc5e744995e3e3b20871ab278f7c5e5223b",
+      "bytes": 117951
+    },
+    {
+      "path": "D:\\Arcade\\AI\\aCORES\\Alpha68k N\\research\\sound_write_width\\case2_fit_sta\\all-corners\\corner_7\\same_game_setup.txt",
+      "sha256": "e7cf93658dc3f8bc74f99c1ddc77ae5bab565222385b5c6e6700d1a8dfaa76bf",
+      "bytes": 137127
+    },
+    {
+      "path": "D:\\Arcade\\AI\\aCORES\\Alpha68k N\\research\\sound_write_width\\case2_fit_sta\\all-corners\\corner_7\\setup.txt",
+      "sha256": "51869c28d18f6c59e45e7c0009dc3aa182b34aa154e506312fbfb56b5422d968",
+      "bytes": 146035
+    },
+    {
+      "path": "D:\\Arcade\\AI\\aCORES\\Alpha68k N\\research\\sound_write_width\\case2_fit_sta\\all-corners\\corner_7\\unconstrained.txt",
+      "sha256": "1649fa1c6ae5e5dd26296f996ea5747af5a5f4c92d84b544c5d475cac9a3e641",
+      "bytes": 124761
+    },
+    {
+      "path": "D:\\Arcade\\AI\\aCORES\\Alpha68k N\\research\\sound_write_width\\case2_fit_sta\\all-corners\\corner_8\\clocks.txt",
+      "sha256": "e849607c9260c2e3e780561310e314a49dc369596f6c6e004d8c8c5654e4d690",
+      "bytes": 9253
+    },
+    {
+      "path": "D:\\Arcade\\AI\\aCORES\\Alpha68k N\\research\\sound_write_width\\case2_fit_sta\\all-corners\\corner_8\\condition.txt",
+      "sha256": "dbb48ab641a638e56cf20c03f3813e121b40653967fa66adbbf57167c3691628",
+      "bytes": 65
+    },
+    {
+      "path": "D:\\Arcade\\AI\\aCORES\\Alpha68k N\\research\\sound_write_width\\case2_fit_sta\\all-corners\\corner_8\\hold.txt",
+      "sha256": "b3abfb58af0ef3a74552fa07079248f7e73aa2e9cd4c6312c26cb3ef3db59401",
+      "bytes": 127337
+    },
+    {
+      "path": "D:\\Arcade\\AI\\aCORES\\Alpha68k N\\research\\sound_write_width\\case2_fit_sta\\all-corners\\corner_8\\min_pulse_width.txt",
+      "sha256": "13aa00a9e883e6c358e6e550a38caf6953d880c6ad702646ab585fc9ad396493",
+      "bytes": 5891
+    },
+    {
+      "path": "D:\\Arcade\\AI\\aCORES\\Alpha68k N\\research\\sound_write_width\\case2_fit_sta\\all-corners\\corner_8\\recovery.txt",
+      "sha256": "059ea9f6c967aa05199bfa9e503b5801263726df170ca913cfdf75022619b646",
+      "bytes": 174365
+    },
+    {
+      "path": "D:\\Arcade\\AI\\aCORES\\Alpha68k N\\research\\sound_write_width\\case2_fit_sta\\all-corners\\corner_8\\removal.txt",
+      "sha256": "18fe2b25c2e78d490474b79e86741af3fadd293cde68883c0cac050d4204f0bb",
+      "bytes": 98734
+    },
+    {
+      "path": "D:\\Arcade\\AI\\aCORES\\Alpha68k N\\research\\sound_write_width\\case2_fit_sta\\all-corners\\corner_8\\same_audio_hold.txt",
+      "sha256": "34e5390aa29cb2a01ead7c04232afee18df93c9ba6db49a7b9ad030ccb98adbf",
+      "bytes": 132769
+    },
+    {
+      "path": "D:\\Arcade\\AI\\aCORES\\Alpha68k N\\research\\sound_write_width\\case2_fit_sta\\all-corners\\corner_8\\same_audio_setup.txt",
+      "sha256": "e4841888be8e57cce9ca6328b047bd97b246e65d4fb29c2c1ca015cd7a127fc4",
+      "bytes": 144132
+    },
+    {
+      "path": "D:\\Arcade\\AI\\aCORES\\Alpha68k N\\research\\sound_write_width\\case2_fit_sta\\all-corners\\corner_8\\same_game_hold.txt",
+      "sha256": "727badc171bf9f8c89f1fef4e39cf6b27bf52f90355fb7e5db553c54f430e0d0",
+      "bytes": 117952
+    },
+    {
+      "path": "D:\\Arcade\\AI\\aCORES\\Alpha68k N\\research\\sound_write_width\\case2_fit_sta\\all-corners\\corner_8\\same_game_setup.txt",
+      "sha256": "1c623af1764df1288fa5c9578901c77fa8e688da175001a53b83dcc9b4b6a9dc",
+      "bytes": 137128
+    },
+    {
+      "path": "D:\\Arcade\\AI\\aCORES\\Alpha68k N\\research\\sound_write_width\\case2_fit_sta\\all-corners\\corner_8\\setup.txt",
+      "sha256": "a16ecb7d1d15a76839db92605e1be9ce7bc0b72c3a19f7b1a58388a0063cb45f",
+      "bytes": 130582
+    },
+    {
+      "path": "D:\\Arcade\\AI\\aCORES\\Alpha68k N\\research\\sound_write_width\\case2_fit_sta\\all-corners\\corner_8\\unconstrained.txt",
+      "sha256": "1649fa1c6ae5e5dd26296f996ea5747af5a5f4c92d84b544c5d475cac9a3e641",
+      "bytes": 124761
+    },
+    {
+      "path": "D:\\Arcade\\AI\\aCORES\\Alpha68k N\\research\\sound_write_width\\case2_fit_sta\\all-corners\\corners.csv",
+      "sha256": "1e08d025a59d77b0770fb6239975bf3f493e65b152ca1a0b5c59a832743be71d",
+      "bytes": 1819
+    },
+    {
+      "path": "D:\\Arcade\\AI\\aCORES\\Alpha68k N\\research\\sound_write_width\\case2_fit_sta\\all-corners\\inherited_clock_groups.txt",
+      "sha256": "8e7dcbdcd608e2ecca8d72b2951132ff3bdabc76b22dc81e52d488fd6058b21b",
+      "bytes": 710
+    }
+  ],
+  "conditions": [
+    {
+      "directory": "D:\\Arcade\\AI\\aCORES\\Alpha68k N\\research\\sound_write_width\\case2_fit_sta\\all-corners\\corner_1",
+      "condition": "Slow 1100mV 100C Model\nmodel=slow temperature=100 voltage=1100",
+      "same_game_setup_slack_values_ns": [
+        -36.963,
+        -36.963,
+        -36.962,
+        -36.962,
+        -36.776,
+        -36.776,
+        -36.775,
+        -36.775,
+        -35.999,
+        -35.905
+      ],
+      "same_game_hold_slack_values_ns": [
+        0.235,
+        0.27,
+        0.271,
+        0.272,
+        0.281,
+        0.282,
+        0.282,
+        0.283,
+        0.409,
+        0.429
+      ],
+      "same_audio_setup_slack_values_ns": [
+        -0.93,
+        -0.889,
+        -0.889,
+        -0.889,
+        -0.889,
+        -0.889,
+        -0.889,
+        -0.889,
+        -0.885,
+        -0.885
+      ],
+      "same_audio_hold_slack_values_ns": [
+        0.269,
+        0.28,
+        0.318,
+        0.322,
+        0.328,
+        0.329,
+        0.334,
+        0.35,
+        0.35,
+        0.352
+      ]
+    },
+    {
+      "directory": "D:\\Arcade\\AI\\aCORES\\Alpha68k N\\research\\sound_write_width\\case2_fit_sta\\all-corners\\corner_2",
+      "condition": "Slow 1100mV -40C Model\nmodel=slow temperature=-40 voltage=1100",
+      "same_game_setup_slack_values_ns": [
+        -33.622,
+        -33.622,
+        -33.622,
+        -33.622,
+        -33.472,
+        -33.472,
+        -33.472,
+        -33.472,
+        -32.902,
+        -32.827
+      ],
+      "same_game_hold_slack_values_ns": [
+        0.221,
+        0.256,
+        0.257,
+        0.258,
+        0.265,
+        0.266,
+        0.268,
+        0.269,
+        0.407,
+        0.409
+      ],
+      "same_audio_setup_slack_values_ns": [
+        1.665,
+        1.665,
+        1.665,
+        1.665,
+        1.665,
+        1.665,
+        1.665,
+        1.67,
+        1.67,
+        1.67
+      ],
+      "same_audio_hold_slack_values_ns": [
+        0.244,
+        0.269,
+        0.32,
+        0.351,
+        0.36,
+        0.364,
+        0.371,
+        0.379,
+        0.385,
+        0.39
+      ]
+    },
+    {
+      "directory": "D:\\Arcade\\AI\\aCORES\\Alpha68k N\\research\\sound_write_width\\case2_fit_sta\\all-corners\\corner_3",
+      "condition": "Slow 1100mV 85C Model\nmodel=slow temperature=85 voltage=1100",
+      "same_game_setup_slack_values_ns": [
+        -36.263,
+        -36.263,
+        -36.263,
+        -36.263,
+        -36.08,
+        -36.08,
+        -36.08,
+        -36.08,
+        -35.328,
+        -35.237
+      ],
+      "same_game_hold_slack_values_ns": [
+        0.238,
+        0.27,
+        0.271,
+        0.273,
+        0.282,
+        0.283,
+        0.283,
+        0.284,
+        0.413,
+        0.433
+      ],
+      "same_audio_setup_slack_values_ns": [
+        -0.366,
+        -0.354,
+        -0.354,
+        -0.354,
+        -0.354,
+        -0.354,
+        -0.354,
+        -0.354,
+        -0.349,
+        -0.349
+      ],
+      "same_audio_hold_slack_values_ns": [
+        0.268,
+        0.281,
+        0.335,
+        0.338,
+        0.346,
+        0.347,
+        0.348,
+        0.351,
+        0.356,
+        0.363
+      ]
+    },
+    {
+      "directory": "D:\\Arcade\\AI\\aCORES\\Alpha68k N\\research\\sound_write_width\\case2_fit_sta\\all-corners\\corner_4",
+      "condition": "Slow 1100mV 0C Model\nmodel=slow temperature=0 voltage=1100",
+      "same_game_setup_slack_values_ns": [
+        -33.509,
+        -33.509,
+        -33.507,
+        -33.507,
+        -33.347,
+        -33.347,
+        -33.345,
+        -33.345,
+        -32.741,
+        -32.662
+      ],
+      "same_game_hold_slack_values_ns": [
+        0.221,
+        0.257,
+        0.258,
+        0.259,
+        0.265,
+        0.266,
+        0.266,
+        0.267,
+        0.409,
+        0.41
+      ],
+      "same_audio_setup_slack_values_ns": [
+        1.631,
+        1.641,
+        1.641,
+        1.641,
+        1.641,
+        1.641,
+        1.641,
+        1.641,
+        1.646,
+        1.646
+      ],
+      "same_audio_hold_slack_values_ns": [
+        0.251,
+        0.272,
+        0.333,
+        0.353,
+        0.37,
+        0.373,
+        0.376,
+        0.379,
+        0.386,
+        0.391
+      ]
+    },
+    {
+      "directory": "D:\\Arcade\\AI\\aCORES\\Alpha68k N\\research\\sound_write_width\\case2_fit_sta\\all-corners\\corner_5",
+      "condition": "Fast 1100mV -40C Model\nmodel=fast temperature=-40 voltage=1100",
+      "same_game_setup_slack_values_ns": [
+        -8.89,
+        -8.808,
+        -8.416,
+        -8.334,
+        -8.325,
+        -8.325,
+        -8.324,
+        -8.324,
+        -8.202,
+        -8.202
+      ],
+      "same_game_hold_slack_values_ns": [
+        0.114,
+        0.12,
+        0.121,
+        0.121,
+        0.125,
+        0.126,
+        0.128,
+        0.129,
+        0.163,
+        0.164
+      ],
+      "same_audio_setup_slack_values_ns": [
+        19.249,
+        19.37,
+        19.37,
+        19.37,
+        19.37,
+        19.37,
+        19.37,
+        19.37,
+        19.371,
+        19.371
+      ],
+      "same_audio_hold_slack_values_ns": [
+        0.133,
+        0.136,
+        0.139,
+        0.154,
+        0.155,
+        0.155,
+        0.157,
+        0.158,
+        0.158,
+        0.159
+      ]
+    },
+    {
+      "directory": "D:\\Arcade\\AI\\aCORES\\Alpha68k N\\research\\sound_write_width\\case2_fit_sta\\all-corners\\corner_6",
+      "condition": "Fast 1100mV 0C Model\nmodel=fast temperature=0 voltage=1100",
+      "same_game_setup_slack_values_ns": [
+        -9.757,
+        -9.676,
+        -9.531,
+        -9.531,
+        -9.53,
+        -9.53,
+        -9.396,
+        -9.396,
+        -9.395,
+        -9.395
+      ],
+      "same_game_hold_slack_values_ns": [
+        0.118,
+        0.124,
+        0.125,
+        0.125,
+        0.128,
+        0.129,
+        0.132,
+        0.133,
+        0.167,
+        0.168
+      ],
+      "same_audio_setup_slack_values_ns": [
+        18.236,
+        18.379,
+        18.379,
+        18.379,
+        18.379,
+        18.379,
+        18.379,
+        18.379,
+        18.38,
+        18.38
+      ],
+      "same_audio_hold_slack_values_ns": [
+        0.136,
+        0.14,
+        0.155,
+        0.166,
+        0.167,
+        0.167,
+        0.169,
+        0.169,
+        0.17,
+        0.17
+      ]
+    },
+    {
+      "directory": "D:\\Arcade\\AI\\aCORES\\Alpha68k N\\research\\sound_write_width\\case2_fit_sta\\all-corners\\corner_7",
+      "condition": "Fast 1100mV 85C Model\nmodel=fast temperature=85 voltage=1100",
+      "same_game_setup_slack_values_ns": [
+        -13.943,
+        -13.943,
+        -13.943,
+        -13.943,
+        -13.782,
+        -13.782,
+        -13.782,
+        -13.782,
+        -13.384,
+        -13.384
+      ],
+      "same_game_hold_slack_values_ns": [
+        0.128,
+        0.133,
+        0.134,
+        0.134,
+        0.14,
+        0.141,
+        0.141,
+        0.142,
+        0.176,
+        0.176
+      ],
+      "same_audio_setup_slack_values_ns": [
+        15.109,
+        15.242,
+        15.242,
+        15.242,
+        15.242,
+        15.242,
+        15.242,
+        15.242,
+        15.243,
+        15.243
+      ],
+      "same_audio_hold_slack_values_ns": [
+        0.152,
+        0.153,
+        0.162,
+        0.165,
+        0.167,
+        0.169,
+        0.175,
+        0.176,
+        0.177,
+        0.177
+      ]
+    },
+    {
+      "directory": "D:\\Arcade\\AI\\aCORES\\Alpha68k N\\research\\sound_write_width\\case2_fit_sta\\all-corners\\corner_8",
+      "condition": "Fast 1100mV 100C Model\nmodel=fast temperature=100 voltage=1100",
+      "same_game_setup_slack_values_ns": [
+        -15.039,
+        -15.039,
+        -15.038,
+        -15.038,
+        -14.871,
+        -14.871,
+        -14.87,
+        -14.87,
+        -14.452,
+        -14.452
+      ],
+      "same_game_hold_slack_values_ns": [
+        0.131,
+        0.139,
+        0.139,
+        0.139,
+        0.145,
+        0.145,
+        0.146,
+        0.146,
+        0.177,
+        0.177
+      ],
+      "same_audio_setup_slack_values_ns": [
+        14.126,
+        14.276,
+        14.276,
+        14.276,
+        14.276,
+        14.276,
+        14.276,
+        14.276,
+        14.278,
+        14.278
+      ],
+      "same_audio_hold_slack_values_ns": [
+        0.154,
+        0.157,
+        0.163,
+        0.165,
+        0.167,
+        0.168,
+        0.174,
+        0.177,
+        0.177,
+        0.178
+      ]
+    }
+  ],
+  "inherited_clock_groups_text": "game pattern=*|pll|pll_inst|altera_pll_i|*[*].*|divclk count=0\nhdmi pattern=pll_hdmi|pll_hdmi_inst|altera_pll_i|*[0].*|divclk count=1\n  pll_hdmi|pll_hdmi_inst|altera_pll_i|cyclonev_pll|counter[0].output_counter|divclk\naudio pattern=pll_audio|pll_audio_inst|altera_pll_i|*[0].*|divclk count=1\n  pll_audio|pll_audio_inst|altera_pll_i|general[0].gpll~PLL_OUTPUT_COUNTER|divclk\nspi pattern=spi_sck count=1\n  spi_sck\nhdmi_i2c pattern=hdmi_sck count=1\n  hdmi_sck\nhps pattern=*|h2f_user0_clk count=1\n  sysmem|fpga_interfaces|clocks_resets|h2f_user0_clk\nref1 pattern=FPGA_CLK1_50 count=1\n  FPGA_CLK1_50\nref2 pattern=FPGA_CLK2_50 count=1\n  FPGA_CLK2_50\nref3 pattern=FPGA_CLK3_50 count=1\n  FPGA_CLK3_50\n",
+  "RBF": false,
+  "source_or_constraint_edits": false
+}

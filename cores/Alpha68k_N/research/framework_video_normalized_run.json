@@ -1,0 +1,38 @@
+{
+  "sim/build/alpha68kn_framework_video_normalized_sim": {
+    "exists": true,
+    "mtime": 1791525045.6769955,
+    "sha256": "7b7116557bb1486d500951562f1ed0cf7ef615df9b55d09ef3e8fe6a917a1b4e"
+  },
+  "research/framework_video_normalized_inputs.sha256": {
+    "exists": true,
+    "mtime": 1791525035.337107,
+    "sha256": "49621308208db31a7517d067fc2a566443091aa72f805ff11617d8a03a7a1bb5"
+  },
+  "research/framework_video_scope_adapter.json": {
+    "exists": true,
+    "mtime": 1791525035.0265894,
+    "sha256": "043b60b1818b42da6ebeb7dd704c990e85bdc3842fe92ec6057fe3fcb46178af"
+  },
+  "research/framework_video_normalized_result.json": {
+    "exists": true,
+    "mtime": 1791525064.1301742,
+    "sha256": "2c900d2da5dc02cf12034fadbc72ac524082c09f996b037977230543edcc13df"
+  },
+  "recovery_reason": "previous tool failed after complete result without terminal receipt; prior simulation handle absent; rerun same immutable binary for authoritative exit",
+  "started": 1791525171.6497355,
+  "ended": 1791525190.1764688,
+  "run_exit": 0,
+  "run_command": [
+    "wsl.exe",
+    "-d",
+    "Ubuntu",
+    "--cd",
+    "D:\\Arcade\\AI\\aCORES\\Alpha68k N\\sim\\build",
+    "--exec",
+    "./alpha68kn_framework_video_normalized_sim",
+    "../captures/rtl/kyros_portreplay1800/frame_000360.rgb",
+    "../../research/framework_video_normalized_result.json"
+  ],
+  "stderr": ""
+}

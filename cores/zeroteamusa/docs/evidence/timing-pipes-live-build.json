@@ -1,0 +1,34 @@
+{
+  "scope": "Frozen actual RTL model; build and reset identity only, no full game acceptance",
+  "model_binary_sha256": "aa17f4cd456be0fe0b8ae9f12b340e04d9699164c1c57da9d97941ad2a5c6acb",
+  "source_count": 102,
+  "dependency_coverage": "Compile list plus all RTL headers and runtime initialization tables; older stamps not retroactively expanded",
+  "critical_dependencies": [
+    "rtl/ZeroTeam_platform.svh",
+    "rtl/ucore/pla3_tables.svh",
+    "rtl/ucore/ucdecode.hex",
+    "rtl/ucore/ucrom.hex"
+  ],
+  "reset_checkpoint": "sim/results/current-builds/timing-pipes-model/sim/results/avtiming-pipes-seed-checkpoint-64",
+  "reset_cycles": 68,
+  "seed_exit_code": 1,
+  "seed_exit_reason": "Functional progress counters not reached in tiny reset-seed run; not a boot pass",
+  "runs": [
+    "timing-pipes-attract",
+    "timing-pipes-combat2p",
+    "timing-pipes-combat4p"
+  ],
+  "four_player_start": "Cold reset with four-player cabinet DIPs",
+  "previous_checkpoints": "Never relabeled or force-loaded into changed model",
+  "run_status": "Stopped at user request before periodic current-model checkpoints; frozen build and genuine reset seed retained",
+  "physical_result": {
+    "map": "PASS",
+    "fit": "PASS",
+    "sta": "FAILED",
+    "core_setup_slack_ns": -30.499,
+    "core_setup_tns_ns": -48480.262,
+    "hdmi_setup_slack_ns": 0.549,
+    "sdram_setup_slack_ns": 1.64,
+    "constraint_coverage": "Incomplete; timing closure not established"
+  }
+}

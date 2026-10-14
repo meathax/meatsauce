@@ -1,0 +1,19 @@
+{
+  "scope": "Project-owned copies preserve the exact live-fit patched RTL bytes while restoring sys/ to pinned template commit3ea1134; source selection still requires analysis",
+  "sources": [
+    {
+      "upstream_path": "sys/sys_top.v",
+      "upstream_commit": "3ea1134",
+      "upstream_sha256": "9bc5562bcc9d923aa3bff1a9c976c52492edb9ef981f428b7a4101c919a711b8",
+      "override_path": "rtl/mister/sys_top.v",
+      "override_sha256": "80ec0b54cc64e4c9c35fee2bb26a860678f47e3f74564b3a6bb8fe168802e142"
+    },
+    {
+      "upstream_path": "sys/hps_io.sv",
+      "upstream_commit": "3ea1134",
+      "upstream_sha256": "f4a085fc23bdcefb57c600866a39a448c749cd3c93910f7005316e8df9019bec",
+      "override_path": "rtl/mister/hps_io.sv",
+      "override_sha256": "70df0e4182d028da0cc003c51d6369ae6dab0219d803681a33a84838c5f4ebc4"
+    }
+  ]
+}

@@ -1,0 +1,52 @@
+{
+  "primary_documents": [
+    {
+      "name": "VISA2000",
+      "url": "https://datasheet.datasheetarchive.com/originals/library/Datasheets-UD3/DSAUD0058543.pdf",
+      "bytes": 1782171,
+      "sha256": "95f11c5b67971dcab5e42e6ccabe84629dec43bdfb6849ab9c347a53f9208c8d",
+      "reviewed_pdf_pages": [
+        55,
+        56,
+        57
+      ],
+      "scope": "Related ADChips SE3208 ASIC primary data book; not a directly identified VRender0 revision",
+      "private_path": "sim/obj_dir/isa_research/VISA2000.pdf"
+    },
+    {
+      "name": "Jupiter",
+      "url": "https://datasheet.datasheetarchive.com/originals/library/Datasheets-UD4/DSAUD0063929.pdf",
+      "bytes": 2089706,
+      "sha256": "2127bec0622478353a861752fb76e20e28187e269f290d088e48b6cbf7580009",
+      "reviewed_pdf_pages": [
+        155,
+        159,
+        163,
+        164,
+        165,
+        166
+      ],
+      "scope": "Related ADChips SE3208 ASIC primary data book; not a directly identified VRender0 revision",
+      "private_path": "sim/obj_dir/isa_research/Jupiter.pdf"
+    }
+  ],
+  "next_action": "Qualified CP0/cache and cartridge-query device now implemented; preserve physical revision/geometry/write-buffer qualification. Continue original cached boot using snapshots and measured throughput, then genuine attract/gameplay and realistic memory acceptance.",
+  "findings": {
+    "implicit_r0": "Jupiter PDF159 section4.17.6; visually reviewed; write examples explicitly load R0 before MVTC; read direction given in prose, one sample annotation contradicts it",
+    "visa_cp0_registers": {
+      "master": 7,
+      "status": 6,
+      "invalidate": 5,
+      "bank_policy": 3,
+      "enable_bit": 11,
+      "invalidate_trigger_bit": 0,
+      "busy_status_bit": 20
+    },
+    "caveats": [
+      "Related ASIC documents, VRender0 revision not identified",
+      "VISA2000 general cache size2KiB conflicts with status table1KiB",
+      "Jupiter has different CR5/6/7 map; do not transplant it",
+      "Vendor disassembler extension/immediate formatting is not a replacement for already verified execution semantics"
+    ]
+  }
+}

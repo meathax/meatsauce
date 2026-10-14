@@ -1,0 +1,11 @@
+# Sheriff saved RAM observation boundaries
+
+The actual completed restart replay has 300 differing bytes across 64 snapshots. All 300 native byte observations match the latest logged native write before their actual dump tick. Fifteen reference byte observations do not match the latest reference write before the frame callback timestamp. 15 of those fifteen match the next logged write; its latest lead is 375.006139200000 master clocks. These are observations of the untouched logs, not timing waivers.
+
+The only differing non-stack address is 6856 at field 6240. Native dump tick 5111808009 contains 00; its next write is 62 at tick 5111808019. Reference RAM already contains 62 at recorded tick 5111807999.982012, while its logged write of 62 is at tick 5111808049.9923192. Both streams identify this as per-address write index 17; the preceding value is 00. The reference snapshot therefore anticipates its own logged write by about 50 master clocks.
+
+The capture uses program:read_range in register_frame_done (sim/mame_capture.lua:160-190), while the memory tap records machine.time inside the CPU callback (95-98). These contexts are distinct. MAME instruction scheduling and callback chronology remain the interpretation to investigate; no exact internal-time capture was added or claimed here. Future otherwise-required captures should carry exact seconds/attoseconds and common callback sequence IDs for writes and snapshots. Preserve the original time strings and all reference payloads.
+
+Evidence: docs/evidence/sheriff_lifecycle_ram_boundaries.json binds the unchanged memory logs and snapshots by SHA-256 and retains every difference with adjacent writes. Do not equate a frame RAM dump to an instantaneous physical bus checkpoint, or rerun the completed lifecycle solely to repair its observation metadata. The field-2760 RGB mismatch, remaining stack/IRQ differences, full integrated gameplay/audio and resource gates remain open.
+
+Nintendo's original 59-page maintenance manual is now staged locally, including I/O schematic page 55. Provenance: docs/evidence/sheriff_maintenance_manual.json. It provides another scan and CPU board revision notes, but has not resolved the rejected 128-line counter interpretation; no physical raster correction is qualified.

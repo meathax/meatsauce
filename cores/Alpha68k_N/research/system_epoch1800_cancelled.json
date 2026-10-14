@@ -1,0 +1,19 @@
+{
+  "cancelled_at": 1791522538.3318958,
+  "reason": "Verified input-request timing differs from actual MAME port values; preserve run as diagnostic and supersede with observed-port replay",
+  "source_job": "research/system_epoch1800_job.json",
+  "command_exit": 0,
+  "linux_actions": [
+    {
+      "pid": 103080,
+      "argv": [
+        "./alpha68kn_system_epoch_sim",
+        "../../roms/kyros/download.bin",
+        "1800",
+        "../captures/rtl/kyros_epoch1800",
+        "gameplay"
+      ],
+      "result": "SIGTERM sent to exact obsolete diagnostic"
+    }
+  ]
+}

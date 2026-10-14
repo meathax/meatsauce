@@ -1,0 +1,792 @@
+{
+  "pass": true,
+  "checks": [
+    {
+      "name": "native_four_steps_exit_zero",
+      "pass": true
+    },
+    {
+      "name": "frontend_failure_preserved",
+      "pass": true
+    },
+    {
+      "name": "unqueued_check_only",
+      "pass": true
+    },
+    {
+      "name": "no_fallback",
+      "pass": true
+    },
+    {
+      "name": "prepared_inputs_unchanged",
+      "pass": true
+    },
+    {
+      "name": "canonical_board_pin",
+      "pass": true
+    },
+    {
+      "name": "compiled_board_pin",
+      "pass": true
+    },
+    {
+      "name": "RBF_OFF",
+      "pass": true
+    },
+    {
+      "name": "collector_unchanged",
+      "pass": true
+    },
+    {
+      "name": "canonical_functional_inputs_match",
+      "pass": true
+    },
+    {
+      "name": "nonfilesystem_only_framework_cfgstr_marker",
+      "pass": true
+    },
+    {
+      "name": "cfgstr_external_file_branch_inactive",
+      "pass": true
+    },
+    {
+      "name": "actual_map_board_is_HALTFIX",
+      "pass": true
+    },
+    {
+      "name": "seven_strict_complete_design_caps",
+      "pass": true
+    },
+    {
+      "name": "physical_ALMs_also_under80",
+      "pass": true
+    },
+    {
+      "name": "implementation_memory_bits_also_under85",
+      "pass": true
+    },
+    {
+      "name": "both_program_banks_M10K",
+      "pass": true
+    },
+    {
+      "name": "fit_warning_codes_counts_unchanged",
+      "pass": true
+    },
+    {
+      "name": "critical_warning_zero",
+      "pass": true
+    },
+    {
+      "name": "map_critical_warning_zero",
+      "pass": true
+    },
+    {
+      "name": "external_counts_inherited_contract",
+      "pass": true
+    },
+    {
+      "name": "no_illegal_or_unconstrained_clocks",
+      "pass": true
+    },
+    {
+      "name": "358_setup_hold_IO_paths",
+      "pass": true
+    },
+    {
+      "name": "captured_frontend_parent_lineage",
+      "pass": true
+    },
+    {
+      "name": "captured_owned_native_compiler_children",
+      "pass": true
+    },
+    {
+      "name": "observed_owned_children_closed",
+      "pass": true
+    },
+    {
+      "name": "one_detail_STA_actual_exit_zero",
+      "pass": true
+    },
+    {
+      "name": "eight_detail_corners",
+      "pass": true
+    },
+    {
+      "name": "all_global_checks_positive",
+      "pass": true
+    },
+    {
+      "name": "all_eight_detail_folders_exist",
+      "pass": true
+    },
+    {
+      "name": "corner_folder_condition_identity",
+      "pass": true
+    },
+    {
+      "name": "corner_1_same_game_setup_positive",
+      "pass": true
+    },
+    {
+      "name": "corner_1_same_game_hold_positive",
+      "pass": true
+    },
+    {
+      "name": "corner_1_same_audio_setup_positive",
+      "pass": true
+    },
+    {
+      "name": "corner_1_same_audio_hold_positive",
+      "pass": true
+    },
+    {
+      "name": "corner_1_min_pulse_width_positive",
+      "pass": true
+    },
+    {
+      "name": "corner_2_same_game_setup_positive",
+      "pass": true
+    },
+    {
+      "name": "corner_2_same_game_hold_positive",
+      "pass": true
+    },
+    {
+      "name": "corner_2_same_audio_setup_positive",
+      "pass": true
+    },
+    {
+      "name": "corner_2_same_audio_hold_positive",
+      "pass": true
+    },
+    {
+      "name": "corner_2_min_pulse_width_positive",
+      "pass": true
+    },
+    {
+      "name": "corner_3_same_game_setup_positive",
+      "pass": true
+    },
+    {
+      "name": "corner_3_same_game_hold_positive",
+      "pass": true
+    },
+    {
+      "name": "corner_3_same_audio_setup_positive",
+      "pass": true
+    },
+    {
+      "name": "corner_3_same_audio_hold_positive",
+      "pass": true
+    },
+    {
+      "name": "corner_3_min_pulse_width_positive",
+      "pass": true
+    },
+    {
+      "name": "corner_4_same_game_setup_positive",
+      "pass": true
+    },
+    {
+      "name": "corner_4_same_game_hold_positive",
+      "pass": true
+    },
+    {
+      "name": "corner_4_same_audio_setup_positive",
+      "pass": true
+    },
+    {
+      "name": "corner_4_same_audio_hold_positive",
+      "pass": true
+    },
+    {
+      "name": "corner_4_min_pulse_width_positive",
+      "pass": true
+    },
+    {
+      "name": "corner_5_same_game_setup_positive",
+      "pass": true
+    },
+    {
+      "name": "corner_5_same_game_hold_positive",
+      "pass": true
+    },
+    {
+      "name": "corner_5_same_audio_setup_positive",
+      "pass": true
+    },
+    {
+      "name": "corner_5_same_audio_hold_positive",
+      "pass": true
+    },
+    {
+      "name": "corner_5_min_pulse_width_positive",
+      "pass": true
+    },
+    {
+      "name": "corner_6_same_game_setup_positive",
+      "pass": true
+    },
+    {
+      "name": "corner_6_same_game_hold_positive",
+      "pass": true
+    },
+    {
+      "name": "corner_6_same_audio_setup_positive",
+      "pass": true
+    },
+    {
+      "name": "corner_6_same_audio_hold_positive",
+      "pass": true
+    },
+    {
+      "name": "corner_6_min_pulse_width_positive",
+      "pass": true
+    },
+    {
+      "name": "corner_7_same_game_setup_positive",
+      "pass": true
+    },
+    {
+      "name": "corner_7_same_game_hold_positive",
+      "pass": true
+    },
+    {
+      "name": "corner_7_same_audio_setup_positive",
+      "pass": true
+    },
+    {
+      "name": "corner_7_same_audio_hold_positive",
+      "pass": true
+    },
+    {
+      "name": "corner_7_min_pulse_width_positive",
+      "pass": true
+    },
+    {
+      "name": "corner_8_same_game_setup_positive",
+      "pass": true
+    },
+    {
+      "name": "corner_8_same_game_hold_positive",
+      "pass": true
+    },
+    {
+      "name": "corner_8_same_audio_setup_positive",
+      "pass": true
+    },
+    {
+      "name": "corner_8_same_audio_hold_positive",
+      "pass": true
+    },
+    {
+      "name": "corner_8_min_pulse_width_positive",
+      "pass": true
+    },
+    {
+      "name": "builtin_eight_corners_positive",
+      "pass": true
+    }
+  ],
+  "check_count": 72,
+  "source_board_sha256": "63999966e2b74ca1f524dfba36e6bba9ebbe0eed4a04ed16a73e83bbeec647c2",
+  "native_steps_exit_zero": true,
+  "frontend_actual_exit": 1,
+  "release_timing_accepted": false,
+  "RBF_produced": false,
+  "external_IO_gate": "OPEN",
+  "detail_reports": [
+    {
+      "path": "D:\\Arcade\\AI\\aCORES\\Alpha68k N\\research\\stingray_halt_timing_run_20261011_v1\\sta_detail_evidence\\all-corners\\corner_1\\same_game_setup.txt",
+      "bytes": 209689,
+      "sha256": "8e0b0c26bbfa9cad39fd58dd144025f56bd54d783a5a5f5c6137758d50597051"
+    },
+    {
+      "path": "D:\\Arcade\\AI\\aCORES\\Alpha68k N\\research\\stingray_halt_timing_run_20261011_v1\\sta_detail_evidence\\all-corners\\corner_1\\same_game_hold.txt",
+      "bytes": 120550,
+      "sha256": "1c9cc9bfd15936c05659b1262f38bbcea5bea3fb4dccb7fbfdfe9ac5ad0a9eb2"
+    },
+    {
+      "path": "D:\\Arcade\\AI\\aCORES\\Alpha68k N\\research\\stingray_halt_timing_run_20261011_v1\\sta_detail_evidence\\all-corners\\corner_1\\same_audio_setup.txt",
+      "bytes": 297158,
+      "sha256": "e7ccd374c033adf9027cac7993672c43dc4539b80df79152507c22b222bd7ffc"
+    },
+    {
+      "path": "D:\\Arcade\\AI\\aCORES\\Alpha68k N\\research\\stingray_halt_timing_run_20261011_v1\\sta_detail_evidence\\all-corners\\corner_1\\same_audio_hold.txt",
+      "bytes": 130798,
+      "sha256": "784f61d46c943cc5a8fe90d4f1b679ee53a0b40da53773f34d421928240591dd"
+    },
+    {
+      "path": "D:\\Arcade\\AI\\aCORES\\Alpha68k N\\research\\stingray_halt_timing_run_20261011_v1\\sta_detail_evidence\\all-corners\\corner_1\\min_pulse_width.txt",
+      "bytes": 5916,
+      "sha256": "f5f4b5440b40c6e907722539d40a5c0740db75fc3de8dd1aacf2819b41ab6a6b"
+    },
+    {
+      "path": "D:\\Arcade\\AI\\aCORES\\Alpha68k N\\research\\stingray_halt_timing_run_20261011_v1\\sta_detail_evidence\\all-corners\\corner_2\\same_game_setup.txt",
+      "bytes": 209009,
+      "sha256": "bbe1dc2ee97d942a054c91db583b8886cc65e8521e242a80fdfd29281f628665"
+    },
+    {
+      "path": "D:\\Arcade\\AI\\aCORES\\Alpha68k N\\research\\stingray_halt_timing_run_20261011_v1\\sta_detail_evidence\\all-corners\\corner_2\\same_game_hold.txt",
+      "bytes": 118465,
+      "sha256": "88c498df421741e93aca731c355bca1a5af93a2b157190beada5506d35c2d6f5"
+    },
+    {
+      "path": "D:\\Arcade\\AI\\aCORES\\Alpha68k N\\research\\stingray_halt_timing_run_20261011_v1\\sta_detail_evidence\\all-corners\\corner_2\\same_audio_setup.txt",
+      "bytes": 297158,
+      "sha256": "bfdd7aa3d680bc46a9d8e67d6d3b04b706eeabf17f0b53d4aa87e5211cfe3b92"
+    },
+    {
+      "path": "D:\\Arcade\\AI\\aCORES\\Alpha68k N\\research\\stingray_halt_timing_run_20261011_v1\\sta_detail_evidence\\all-corners\\corner_2\\same_audio_hold.txt",
+      "bytes": 130972,
+      "sha256": "30b8f2602cd33af559d5cda25b69ff8c3dfeb5a0a94ef58e9a5af5a79d4b11cd"
+    },
+    {
+      "path": "D:\\Arcade\\AI\\aCORES\\Alpha68k N\\research\\stingray_halt_timing_run_20261011_v1\\sta_detail_evidence\\all-corners\\corner_2\\min_pulse_width.txt",
+      "bytes": 5916,
+      "sha256": "b32cf9ad6b1320dbf9c746c21e2128fa2b3bf655e9cc624516fff94e583f63fe"
+    },
+    {
+      "path": "D:\\Arcade\\AI\\aCORES\\Alpha68k N\\research\\stingray_halt_timing_run_20261011_v1\\sta_detail_evidence\\all-corners\\corner_3\\same_game_setup.txt",
+      "bytes": 210448,
+      "sha256": "3c7ee79b07cc4c41ca4cb024883c64f6db5aba6bab954ba92d6c55fe9c39f126"
+    },
+    {
+      "path": "D:\\Arcade\\AI\\aCORES\\Alpha68k N\\research\\stingray_halt_timing_run_20261011_v1\\sta_detail_evidence\\all-corners\\corner_3\\same_game_hold.txt",
+      "bytes": 119706,
+      "sha256": "33dc9c69c52166f1ff9fc174bf1fdb5849c266404e02e09dea4c816e09c57a4c"
+    },
+    {
+      "path": "D:\\Arcade\\AI\\aCORES\\Alpha68k N\\research\\stingray_halt_timing_run_20261011_v1\\sta_detail_evidence\\all-corners\\corner_3\\same_audio_setup.txt",
+      "bytes": 297157,
+      "sha256": "dec5b87ed5fe2f10bbb9bb5a032edf866ca2a4e919a486ce2c28d932b045000a"
+    },
+    {
+      "path": "D:\\Arcade\\AI\\aCORES\\Alpha68k N\\research\\stingray_halt_timing_run_20261011_v1\\sta_detail_evidence\\all-corners\\corner_3\\same_audio_hold.txt",
+      "bytes": 130797,
+      "sha256": "5c353fdcdc6c1684fabaa04caf715373f2403b1d351be94c4b88117cd0d19352"
+    },
+    {
+      "path": "D:\\Arcade\\AI\\aCORES\\Alpha68k N\\research\\stingray_halt_timing_run_20261011_v1\\sta_detail_evidence\\all-corners\\corner_3\\min_pulse_width.txt",
+      "bytes": 5915,
+      "sha256": "6a6f3ff544acdf8e8016960bde90d643ad267ecd3b980430f8cdd27d8a661215"
+    },
+    {
+      "path": "D:\\Arcade\\AI\\aCORES\\Alpha68k N\\research\\stingray_halt_timing_run_20261011_v1\\sta_detail_evidence\\all-corners\\corner_4\\same_game_setup.txt",
+      "bytes": 209619,
+      "sha256": "71243b06abdf50d8745b527cb0fc0ebbc88cb7fa560cc12ce106d13e74de4fc7"
+    },
+    {
+      "path": "D:\\Arcade\\AI\\aCORES\\Alpha68k N\\research\\stingray_halt_timing_run_20261011_v1\\sta_detail_evidence\\all-corners\\corner_4\\same_game_hold.txt",
+      "bytes": 118463,
+      "sha256": "034fad15f5cbd57c5a4306b837cee6a49f4de254e91bfed39261b01f7e48a8b9"
+    },
+    {
+      "path": "D:\\Arcade\\AI\\aCORES\\Alpha68k N\\research\\stingray_halt_timing_run_20261011_v1\\sta_detail_evidence\\all-corners\\corner_4\\same_audio_setup.txt",
+      "bytes": 297156,
+      "sha256": "b317e970a95cb0cddefc71016af88bf92a0f7a0ca738180c63a6e9ed563d8556"
+    },
+    {
+      "path": "D:\\Arcade\\AI\\aCORES\\Alpha68k N\\research\\stingray_halt_timing_run_20261011_v1\\sta_detail_evidence\\all-corners\\corner_4\\same_audio_hold.txt",
+      "bytes": 130970,
+      "sha256": "eeb90e802c0289663b665875f76160634892a6f6003bcbef437cb1d97d0d26c7"
+    },
+    {
+      "path": "D:\\Arcade\\AI\\aCORES\\Alpha68k N\\research\\stingray_halt_timing_run_20261011_v1\\sta_detail_evidence\\all-corners\\corner_4\\min_pulse_width.txt",
+      "bytes": 5914,
+      "sha256": "d979e22197f1c3d112756d84d442831db89a4d831b7e8f733bee7f89ec62e934"
+    },
+    {
+      "path": "D:\\Arcade\\AI\\aCORES\\Alpha68k N\\research\\stingray_halt_timing_run_20261011_v1\\sta_detail_evidence\\all-corners\\corner_5\\same_game_setup.txt",
+      "bytes": 145117,
+      "sha256": "9ba916c9413feec4525d520828b16a357e0d62a44b721686e3bdc739db16fde8"
+    },
+    {
+      "path": "D:\\Arcade\\AI\\aCORES\\Alpha68k N\\research\\stingray_halt_timing_run_20261011_v1\\sta_detail_evidence\\all-corners\\corner_5\\same_game_hold.txt",
+      "bytes": 115163,
+      "sha256": "421e92db010756362c339c4d4754dc511fa6f52c36b80905c03e9b62cca90171"
+    },
+    {
+      "path": "D:\\Arcade\\AI\\aCORES\\Alpha68k N\\research\\stingray_halt_timing_run_20261011_v1\\sta_detail_evidence\\all-corners\\corner_5\\same_audio_setup.txt",
+      "bytes": 245006,
+      "sha256": "6ec481e3d76468aae0d9737f8598cfd71fcc4a87eb86e2e31e8d02568e80ac4f"
+    },
+    {
+      "path": "D:\\Arcade\\AI\\aCORES\\Alpha68k N\\research\\stingray_halt_timing_run_20261011_v1\\sta_detail_evidence\\all-corners\\corner_5\\same_audio_hold.txt",
+      "bytes": 133208,
+      "sha256": "bf7060cdeeb3d7b90a501af88dd8d2d5a46b6951765997f79abd1efb49f72240"
+    },
+    {
+      "path": "D:\\Arcade\\AI\\aCORES\\Alpha68k N\\research\\stingray_halt_timing_run_20261011_v1\\sta_detail_evidence\\all-corners\\corner_5\\min_pulse_width.txt",
+      "bytes": 5916,
+      "sha256": "3c34f0f7760af6b85e0c99db983772157990e36f21df7d9a4dee952b381d2e55"
+    },
+    {
+      "path": "D:\\Arcade\\AI\\aCORES\\Alpha68k N\\research\\stingray_halt_timing_run_20261011_v1\\sta_detail_evidence\\all-corners\\corner_6\\same_game_setup.txt",
+      "bytes": 145115,
+      "sha256": "8a09aa6851950d031a7e7488d3a8f8315e84c71bdfb94c7919df0692e11115fe"
+    },
+    {
+      "path": "D:\\Arcade\\AI\\aCORES\\Alpha68k N\\research\\stingray_halt_timing_run_20261011_v1\\sta_detail_evidence\\all-corners\\corner_6\\same_game_hold.txt",
+      "bytes": 116881,
+      "sha256": "04f7b31e2e81858d238c8653640909135d18aa6cb857f67bc557c81e5940784f"
+    },
+    {
+      "path": "D:\\Arcade\\AI\\aCORES\\Alpha68k N\\research\\stingray_halt_timing_run_20261011_v1\\sta_detail_evidence\\all-corners\\corner_6\\same_audio_setup.txt",
+      "bytes": 234192,
+      "sha256": "2e16943947731f88b2b751a65cf174c072b2f2ff5379378bf28f61661ec46402"
+    },
+    {
+      "path": "D:\\Arcade\\AI\\aCORES\\Alpha68k N\\research\\stingray_halt_timing_run_20261011_v1\\sta_detail_evidence\\all-corners\\corner_6\\same_audio_hold.txt",
+      "bytes": 133206,
+      "sha256": "a073ea261052d20095cbf0504a148c96cb7ea0be605f09b7fe9a1cdc34a4f6cd"
+    },
+    {
+      "path": "D:\\Arcade\\AI\\aCORES\\Alpha68k N\\research\\stingray_halt_timing_run_20261011_v1\\sta_detail_evidence\\all-corners\\corner_6\\min_pulse_width.txt",
+      "bytes": 5914,
+      "sha256": "8a4a63f254047cb0f688f627b484c392bfbcce07c29ab59be771d67d40d9ddef"
+    },
+    {
+      "path": "D:\\Arcade\\AI\\aCORES\\Alpha68k N\\research\\stingray_halt_timing_run_20261011_v1\\sta_detail_evidence\\all-corners\\corner_7\\same_game_setup.txt",
+      "bytes": 145116,
+      "sha256": "dc392f2b99237e03cf9bb264614f3e743769cf83ebdd26a5b97bba32527c367f"
+    },
+    {
+      "path": "D:\\Arcade\\AI\\aCORES\\Alpha68k N\\research\\stingray_halt_timing_run_20261011_v1\\sta_detail_evidence\\all-corners\\corner_7\\same_game_hold.txt",
+      "bytes": 115162,
+      "sha256": "b695d4d9c0b86e2b12763b3d4eba77a5a5a02c13bc887f17a2018153b9221676"
+    },
+    {
+      "path": "D:\\Arcade\\AI\\aCORES\\Alpha68k N\\research\\stingray_halt_timing_run_20261011_v1\\sta_detail_evidence\\all-corners\\corner_7\\same_audio_setup.txt",
+      "bytes": 167095,
+      "sha256": "f03b68dcad5c0d5536390ae78d8212bdb0a43509b892c1b63fd0119177555efd"
+    },
+    {
+      "path": "D:\\Arcade\\AI\\aCORES\\Alpha68k N\\research\\stingray_halt_timing_run_20261011_v1\\sta_detail_evidence\\all-corners\\corner_7\\same_audio_hold.txt",
+      "bytes": 132564,
+      "sha256": "51238725949f836f0f298b5a7a9df940b0daa0097e636b8aa894811d588895db"
+    },
+    {
+      "path": "D:\\Arcade\\AI\\aCORES\\Alpha68k N\\research\\stingray_halt_timing_run_20261011_v1\\sta_detail_evidence\\all-corners\\corner_7\\min_pulse_width.txt",
+      "bytes": 5915,
+      "sha256": "4087bcd995a846083f66c3dc44fdbd81ad24fbb07c57eaa7d598a40e99b239e5"
+    },
+    {
+      "path": "D:\\Arcade\\AI\\aCORES\\Alpha68k N\\research\\stingray_halt_timing_run_20261011_v1\\sta_detail_evidence\\all-corners\\corner_8\\same_game_setup.txt",
+      "bytes": 147923,
+      "sha256": "14c916b6f182ce402d898bc6f0fc75b10b1405310f2e8654325c9263e49dd226"
+    },
+    {
+      "path": "D:\\Arcade\\AI\\aCORES\\Alpha68k N\\research\\stingray_halt_timing_run_20261011_v1\\sta_detail_evidence\\all-corners\\corner_8\\same_game_hold.txt",
+      "bytes": 115538,
+      "sha256": "c20740566768dc8e515664212300f5aafe960ca13d98669c66843c8132ada018"
+    },
+    {
+      "path": "D:\\Arcade\\AI\\aCORES\\Alpha68k N\\research\\stingray_halt_timing_run_20261011_v1\\sta_detail_evidence\\all-corners\\corner_8\\same_audio_setup.txt",
+      "bytes": 167096,
+      "sha256": "1e84d8f22426835d232f1ba5c18c15e400ff148420d344395f1f46eb834faead"
+    },
+    {
+      "path": "D:\\Arcade\\AI\\aCORES\\Alpha68k N\\research\\stingray_halt_timing_run_20261011_v1\\sta_detail_evidence\\all-corners\\corner_8\\same_audio_hold.txt",
+      "bytes": 133247,
+      "sha256": "b32a6316c52a0d483d77b42ff3e29824ccd991b4ce2dc7e64b166a19c9cbd2f2"
+    },
+    {
+      "path": "D:\\Arcade\\AI\\aCORES\\Alpha68k N\\research\\stingray_halt_timing_run_20261011_v1\\sta_detail_evidence\\all-corners\\corner_8\\min_pulse_width.txt",
+      "bytes": 5916,
+      "sha256": "27c1959d1fe660e2f23e1a8fdeebccad462b5c0e5c24eab5dad34903d49d2844"
+    },
+    {
+      "path": "D:\\Arcade\\AI\\aCORES\\Alpha68k N\\research\\stingray_halt_timing_run_20261011_v1\\sta_detail_evidence\\all-corners\\corner_1\\clocks.txt",
+      "bytes": 9253,
+      "sha256": "e849607c9260c2e3e780561310e314a49dc369596f6c6e004d8c8c5654e4d690"
+    },
+    {
+      "path": "D:\\Arcade\\AI\\aCORES\\Alpha68k N\\research\\stingray_halt_timing_run_20261011_v1\\sta_detail_evidence\\all-corners\\corner_1\\condition.txt",
+      "bytes": 65,
+      "sha256": "f66cce0c6de3334214a1b1d8088a528c72c01428681a33e854bebb52189ef59a"
+    },
+    {
+      "path": "D:\\Arcade\\AI\\aCORES\\Alpha68k N\\research\\stingray_halt_timing_run_20261011_v1\\sta_detail_evidence\\all-corners\\corner_1\\hold.txt",
+      "bytes": 123238,
+      "sha256": "02191cbca791e7381fe78aeb82fa4783759029867897fb2751874c44339a3b4c"
+    },
+    {
+      "path": "D:\\Arcade\\AI\\aCORES\\Alpha68k N\\research\\stingray_halt_timing_run_20261011_v1\\sta_detail_evidence\\all-corners\\corner_1\\recovery.txt",
+      "bytes": 127676,
+      "sha256": "ebcb376fb260248439ed33b1916fdf498e38945b4d0e896cbd37ed15d3f65af3"
+    },
+    {
+      "path": "D:\\Arcade\\AI\\aCORES\\Alpha68k N\\research\\stingray_halt_timing_run_20261011_v1\\sta_detail_evidence\\all-corners\\corner_1\\removal.txt",
+      "bytes": 125512,
+      "sha256": "caf65a40bed4ddccd541d954f92da670c12b95d19339ecbfe4f5dc98e2a21b42"
+    },
+    {
+      "path": "D:\\Arcade\\AI\\aCORES\\Alpha68k N\\research\\stingray_halt_timing_run_20261011_v1\\sta_detail_evidence\\all-corners\\corner_1\\setup.txt",
+      "bytes": 175071,
+      "sha256": "153cbd10bd5b237b17c0a404bf466c2285d767a68bf34bdede6fc4e0b0c98c9f"
+    },
+    {
+      "path": "D:\\Arcade\\AI\\aCORES\\Alpha68k N\\research\\stingray_halt_timing_run_20261011_v1\\sta_detail_evidence\\all-corners\\corner_1\\unconstrained.txt",
+      "bytes": 125071,
+      "sha256": "710e5a810393b5f58510d4da3e7e07fc5273c59e28d0062ff2723ebedf6a4353"
+    },
+    {
+      "path": "D:\\Arcade\\AI\\aCORES\\Alpha68k N\\research\\stingray_halt_timing_run_20261011_v1\\sta_detail_evidence\\all-corners\\corner_2\\clocks.txt",
+      "bytes": 9253,
+      "sha256": "e849607c9260c2e3e780561310e314a49dc369596f6c6e004d8c8c5654e4d690"
+    },
+    {
+      "path": "D:\\Arcade\\AI\\aCORES\\Alpha68k N\\research\\stingray_halt_timing_run_20261011_v1\\sta_detail_evidence\\all-corners\\corner_2\\condition.txt",
+      "bytes": 65,
+      "sha256": "d9d1d75d97c9e2cb582f06b9a726a057bab04883d8cf397bef59fb26d65474ad"
+    },
+    {
+      "path": "D:\\Arcade\\AI\\aCORES\\Alpha68k N\\research\\stingray_halt_timing_run_20261011_v1\\sta_detail_evidence\\all-corners\\corner_2\\hold.txt",
+      "bytes": 125915,
+      "sha256": "84bfc2f5ac20378ea1d350020266435622d18ff84dd6807b8bc5ce9ab7070114"
+    },
+    {
+      "path": "D:\\Arcade\\AI\\aCORES\\Alpha68k N\\research\\stingray_halt_timing_run_20261011_v1\\sta_detail_evidence\\all-corners\\corner_2\\recovery.txt",
+      "bytes": 127676,
+      "sha256": "d0d789be0792852fdcd754892181a9a2568ea0824ee3db7b18b24cc353c136fb"
+    },
+    {
+      "path": "D:\\Arcade\\AI\\aCORES\\Alpha68k N\\research\\stingray_halt_timing_run_20261011_v1\\sta_detail_evidence\\all-corners\\corner_2\\removal.txt",
+      "bytes": 125512,
+      "sha256": "6320af120d5606f8875bb124784670472f8846e6f3e2ce4dcbea915ad70ac428"
+    },
+    {
+      "path": "D:\\Arcade\\AI\\aCORES\\Alpha68k N\\research\\stingray_halt_timing_run_20261011_v1\\sta_detail_evidence\\all-corners\\corner_2\\setup.txt",
+      "bytes": 179551,
+      "sha256": "a45d350afe6b31f256e7f3bd73795eb239ff8caf6d88b019c9953c64f7e6a02f"
+    },
+    {
+      "path": "D:\\Arcade\\AI\\aCORES\\Alpha68k N\\research\\stingray_halt_timing_run_20261011_v1\\sta_detail_evidence\\all-corners\\corner_2\\unconstrained.txt",
+      "bytes": 125071,
+      "sha256": "710e5a810393b5f58510d4da3e7e07fc5273c59e28d0062ff2723ebedf6a4353"
+    },
+    {
+      "path": "D:\\Arcade\\AI\\aCORES\\Alpha68k N\\research\\stingray_halt_timing_run_20261011_v1\\sta_detail_evidence\\all-corners\\corner_3\\clocks.txt",
+      "bytes": 9253,
+      "sha256": "e849607c9260c2e3e780561310e314a49dc369596f6c6e004d8c8c5654e4d690"
+    },
+    {
+      "path": "D:\\Arcade\\AI\\aCORES\\Alpha68k N\\research\\stingray_halt_timing_run_20261011_v1\\sta_detail_evidence\\all-corners\\corner_3\\condition.txt",
+      "bytes": 63,
+      "sha256": "b840cff10a96bea718cb2f74bc4fd9b8410dd89ea443577f8c43bfa49a40c1f1"
+    },
+    {
+      "path": "D:\\Arcade\\AI\\aCORES\\Alpha68k N\\research\\stingray_halt_timing_run_20261011_v1\\sta_detail_evidence\\all-corners\\corner_3\\hold.txt",
+      "bytes": 124555,
+      "sha256": "8fbe392261cea659c72069248025f28d18e9e3e4269e421a9e34e450365d2da9"
+    },
+    {
+      "path": "D:\\Arcade\\AI\\aCORES\\Alpha68k N\\research\\stingray_halt_timing_run_20261011_v1\\sta_detail_evidence\\all-corners\\corner_3\\recovery.txt",
+      "bytes": 127675,
+      "sha256": "e216dfdb78244f4251b211bbf50492c282910dba1ccb9e2b91266af70cf1a36d"
+    },
+    {
+      "path": "D:\\Arcade\\AI\\aCORES\\Alpha68k N\\research\\stingray_halt_timing_run_20261011_v1\\sta_detail_evidence\\all-corners\\corner_3\\removal.txt",
+      "bytes": 125511,
+      "sha256": "ad306304c5171ae525eeb32abbe24dff5243f3efe9c3f41c91a59a32c9b3752a"
+    },
+    {
+      "path": "D:\\Arcade\\AI\\aCORES\\Alpha68k N\\research\\stingray_halt_timing_run_20261011_v1\\sta_detail_evidence\\all-corners\\corner_3\\setup.txt",
+      "bytes": 175070,
+      "sha256": "aa82d98e6a74a85b027d1307e49259d147855330c978c73811349ffcf4b0ff43"
+    },
+    {
+      "path": "D:\\Arcade\\AI\\aCORES\\Alpha68k N\\research\\stingray_halt_timing_run_20261011_v1\\sta_detail_evidence\\all-corners\\corner_3\\unconstrained.txt",
+      "bytes": 125071,
+      "sha256": "710e5a810393b5f58510d4da3e7e07fc5273c59e28d0062ff2723ebedf6a4353"
+    },
+    {
+      "path": "D:\\Arcade\\AI\\aCORES\\Alpha68k N\\research\\stingray_halt_timing_run_20261011_v1\\sta_detail_evidence\\all-corners\\corner_4\\clocks.txt",
+      "bytes": 9253,
+      "sha256": "e849607c9260c2e3e780561310e314a49dc369596f6c6e004d8c8c5654e4d690"
+    },
+    {
+      "path": "D:\\Arcade\\AI\\aCORES\\Alpha68k N\\research\\stingray_halt_timing_run_20261011_v1\\sta_detail_evidence\\all-corners\\corner_4\\condition.txt",
+      "bytes": 61,
+      "sha256": "39a613516406f14e4293251f6805edfbc307aa5b3a777e0a5408ea5480aa353f"
+    },
+    {
+      "path": "D:\\Arcade\\AI\\aCORES\\Alpha68k N\\research\\stingray_halt_timing_run_20261011_v1\\sta_detail_evidence\\all-corners\\corner_4\\hold.txt",
+      "bytes": 124286,
+      "sha256": "76afce98f371a5ba581bfbf069b8e0b08924090d775c956da88893b98ed79233"
+    },
+    {
+      "path": "D:\\Arcade\\AI\\aCORES\\Alpha68k N\\research\\stingray_halt_timing_run_20261011_v1\\sta_detail_evidence\\all-corners\\corner_4\\recovery.txt",
+      "bytes": 127674,
+      "sha256": "977e9d09bf0526212edf0784581a6d192ad73b362b7e06a4356694a98b6afa7c"
+    },
+    {
+      "path": "D:\\Arcade\\AI\\aCORES\\Alpha68k N\\research\\stingray_halt_timing_run_20261011_v1\\sta_detail_evidence\\all-corners\\corner_4\\removal.txt",
+      "bytes": 125510,
+      "sha256": "19db0ad99757eab1985870b6fa21721d23d727b0293761c54a152daca9a47736"
+    },
+    {
+      "path": "D:\\Arcade\\AI\\aCORES\\Alpha68k N\\research\\stingray_halt_timing_run_20261011_v1\\sta_detail_evidence\\all-corners\\corner_4\\setup.txt",
+      "bytes": 179549,
+      "sha256": "4fa43686475564507db68c7d0e7f3954bf74268afe870310e7c35b2f5502daf1"
+    },
+    {
+      "path": "D:\\Arcade\\AI\\aCORES\\Alpha68k N\\research\\stingray_halt_timing_run_20261011_v1\\sta_detail_evidence\\all-corners\\corner_4\\unconstrained.txt",
+      "bytes": 125071,
+      "sha256": "710e5a810393b5f58510d4da3e7e07fc5273c59e28d0062ff2723ebedf6a4353"
+    },
+    {
+      "path": "D:\\Arcade\\AI\\aCORES\\Alpha68k N\\research\\stingray_halt_timing_run_20261011_v1\\sta_detail_evidence\\all-corners\\corner_5\\clocks.txt",
+      "bytes": 9253,
+      "sha256": "e849607c9260c2e3e780561310e314a49dc369596f6c6e004d8c8c5654e4d690"
+    },
+    {
+      "path": "D:\\Arcade\\AI\\aCORES\\Alpha68k N\\research\\stingray_halt_timing_run_20261011_v1\\sta_detail_evidence\\all-corners\\corner_5\\condition.txt",
+      "bytes": 65,
+      "sha256": "b75b4d519f75a8de36f1b793c792cdf8f3f952db499abecea02a7d04295abb24"
+    },
+    {
+      "path": "D:\\Arcade\\AI\\aCORES\\Alpha68k N\\research\\stingray_halt_timing_run_20261011_v1\\sta_detail_evidence\\all-corners\\corner_5\\hold.txt",
+      "bytes": 120104,
+      "sha256": "89d16f662b0db422eef7f0b8e7d304f102464f6e9f052c4daf740b5c56d01960"
+    },
+    {
+      "path": "D:\\Arcade\\AI\\aCORES\\Alpha68k N\\research\\stingray_halt_timing_run_20261011_v1\\sta_detail_evidence\\all-corners\\corner_5\\recovery.txt",
+      "bytes": 127406,
+      "sha256": "d79a667fc9a9ae121e48ec8b4d6c521464280b1b268eb07f829dd4608300a706"
+    },
+    {
+      "path": "D:\\Arcade\\AI\\aCORES\\Alpha68k N\\research\\stingray_halt_timing_run_20261011_v1\\sta_detail_evidence\\all-corners\\corner_5\\removal.txt",
+      "bytes": 123882,
+      "sha256": "29dbf36acad585a05def09c78c6788c27d15eacb89bee3f881d787d9c8ea58f6"
+    },
+    {
+      "path": "D:\\Arcade\\AI\\aCORES\\Alpha68k N\\research\\stingray_halt_timing_run_20261011_v1\\sta_detail_evidence\\all-corners\\corner_5\\setup.txt",
+      "bytes": 163188,
+      "sha256": "07441804f4dc84e7c238a1b9161287138d45d6252c4a9934dcd792718cda0c22"
+    },
+    {
+      "path": "D:\\Arcade\\AI\\aCORES\\Alpha68k N\\research\\stingray_halt_timing_run_20261011_v1\\sta_detail_evidence\\all-corners\\corner_5\\unconstrained.txt",
+      "bytes": 125071,
+      "sha256": "710e5a810393b5f58510d4da3e7e07fc5273c59e28d0062ff2723ebedf6a4353"
+    },
+    {
+      "path": "D:\\Arcade\\AI\\aCORES\\Alpha68k N\\research\\stingray_halt_timing_run_20261011_v1\\sta_detail_evidence\\all-corners\\corner_6\\clocks.txt",
+      "bytes": 9253,
+      "sha256": "e849607c9260c2e3e780561310e314a49dc369596f6c6e004d8c8c5654e4d690"
+    },
+    {
+      "path": "D:\\Arcade\\AI\\aCORES\\Alpha68k N\\research\\stingray_halt_timing_run_20261011_v1\\sta_detail_evidence\\all-corners\\corner_6\\condition.txt",
+      "bytes": 61,
+      "sha256": "92e28f448b8ebcffe7a71e4f814051d33bc2b1252e91fec85e9e913a7fe060dd"
+    },
+    {
+      "path": "D:\\Arcade\\AI\\aCORES\\Alpha68k N\\research\\stingray_halt_timing_run_20261011_v1\\sta_detail_evidence\\all-corners\\corner_6\\hold.txt",
+      "bytes": 120422,
+      "sha256": "89710ff8dcfe51be420c8e5268a3a51a4f8e307814df43573d6d788d07e69dcc"
+    },
+    {
+      "path": "D:\\Arcade\\AI\\aCORES\\Alpha68k N\\research\\stingray_halt_timing_run_20261011_v1\\sta_detail_evidence\\all-corners\\corner_6\\recovery.txt",
+      "bytes": 127404,
+      "sha256": "846c637ba6c6395b5942c5c553b643168ffc34a345518b5bd30f50e392e71275"
+    },
+    {
+      "path": "D:\\Arcade\\AI\\aCORES\\Alpha68k N\\research\\stingray_halt_timing_run_20261011_v1\\sta_detail_evidence\\all-corners\\corner_6\\removal.txt",
+      "bytes": 123880,
+      "sha256": "d44f87868e6325589be178bd6f86e9161c5cfbcf150b3184588317a4ef7e9fcb"
+    },
+    {
+      "path": "D:\\Arcade\\AI\\aCORES\\Alpha68k N\\research\\stingray_halt_timing_run_20261011_v1\\sta_detail_evidence\\all-corners\\corner_6\\setup.txt",
+      "bytes": 156560,
+      "sha256": "898d366effef61a8864c1a98c3029f4cfc3292cf13b6dbbd0d407e422af260d2"
+    },
+    {
+      "path": "D:\\Arcade\\AI\\aCORES\\Alpha68k N\\research\\stingray_halt_timing_run_20261011_v1\\sta_detail_evidence\\all-corners\\corner_6\\unconstrained.txt",
+      "bytes": 125071,
+      "sha256": "710e5a810393b5f58510d4da3e7e07fc5273c59e28d0062ff2723ebedf6a4353"
+    },
+    {
+      "path": "D:\\Arcade\\AI\\aCORES\\Alpha68k N\\research\\stingray_halt_timing_run_20261011_v1\\sta_detail_evidence\\all-corners\\corner_7\\clocks.txt",
+      "bytes": 9253,
+      "sha256": "e849607c9260c2e3e780561310e314a49dc369596f6c6e004d8c8c5654e4d690"
+    },
+    {
+      "path": "D:\\Arcade\\AI\\aCORES\\Alpha68k N\\research\\stingray_halt_timing_run_20261011_v1\\sta_detail_evidence\\all-corners\\corner_7\\condition.txt",
+      "bytes": 63,
+      "sha256": "151f9951cde7f13a235e4e3a2ae4a37486b495cd28c5749a2c2f708f008f72f9"
+    },
+    {
+      "path": "D:\\Arcade\\AI\\aCORES\\Alpha68k N\\research\\stingray_halt_timing_run_20261011_v1\\sta_detail_evidence\\all-corners\\corner_7\\hold.txt",
+      "bytes": 117385,
+      "sha256": "7656f1ea0e3b62aaa6288e8d3e9a347a02953775d21878afc198e954f9d47d43"
+    },
+    {
+      "path": "D:\\Arcade\\AI\\aCORES\\Alpha68k N\\research\\stingray_halt_timing_run_20261011_v1\\sta_detail_evidence\\all-corners\\corner_7\\recovery.txt",
+      "bytes": 127405,
+      "sha256": "d68d89088193c7a080a32eceaafb093986e09c5426e01af4854e4c084e7c0126"
+    },
+    {
+      "path": "D:\\Arcade\\AI\\aCORES\\Alpha68k N\\research\\stingray_halt_timing_run_20261011_v1\\sta_detail_evidence\\all-corners\\corner_7\\removal.txt",
+      "bytes": 109671,
+      "sha256": "a28138d16d64d0cfc17d559d33d1dc5b32963684a8f43320af432ebe6bcab45d"
+    },
+    {
+      "path": "D:\\Arcade\\AI\\aCORES\\Alpha68k N\\research\\stingray_halt_timing_run_20261011_v1\\sta_detail_evidence\\all-corners\\corner_7\\setup.txt",
+      "bytes": 146622,
+      "sha256": "26692c1719519d2878ed064b06fadd03512439f39eaefc59a44750ae41d578ff"
+    },
+    {
+      "path": "D:\\Arcade\\AI\\aCORES\\Alpha68k N\\research\\stingray_halt_timing_run_20261011_v1\\sta_detail_evidence\\all-corners\\corner_7\\unconstrained.txt",
+      "bytes": 125071,
+      "sha256": "710e5a810393b5f58510d4da3e7e07fc5273c59e28d0062ff2723ebedf6a4353"
+    },
+    {
+      "path": "D:\\Arcade\\AI\\aCORES\\Alpha68k N\\research\\stingray_halt_timing_run_20261011_v1\\sta_detail_evidence\\all-corners\\corner_8\\clocks.txt",
+      "bytes": 9253,
+      "sha256": "e849607c9260c2e3e780561310e314a49dc369596f6c6e004d8c8c5654e4d690"
+    },
+    {
+      "path": "D:\\Arcade\\AI\\aCORES\\Alpha68k N\\research\\stingray_halt_timing_run_20261011_v1\\sta_detail_evidence\\all-corners\\corner_8\\condition.txt",
+      "bytes": 65,
+      "sha256": "dbb48ab641a638e56cf20c03f3813e121b40653967fa66adbbf57167c3691628"
+    },
+    {
+      "path": "D:\\Arcade\\AI\\aCORES\\Alpha68k N\\research\\stingray_halt_timing_run_20261011_v1\\sta_detail_evidence\\all-corners\\corner_8\\hold.txt",
+      "bytes": 117761,
+      "sha256": "5c3f03a0ec86d3126a0ced6499dddbc90a05886222ab164ee67b5e9d5bfc2739"
+    },
+    {
+      "path": "D:\\Arcade\\AI\\aCORES\\Alpha68k N\\research\\stingray_halt_timing_run_20261011_v1\\sta_detail_evidence\\all-corners\\corner_8\\recovery.txt",
+      "bytes": 127406,
+      "sha256": "347a09211185b5dc10740c1dbceac63398e0b29a8d27ecd2f865fd2d899dd0f7"
+    },
+    {
+      "path": "D:\\Arcade\\AI\\aCORES\\Alpha68k N\\research\\stingray_halt_timing_run_20261011_v1\\sta_detail_evidence\\all-corners\\corner_8\\removal.txt",
+      "bytes": 109672,
+      "sha256": "374460ef92ab883cc751c9efaa24d0b74a1c4940bcda5960f7aecd0c94f28a82"
+    },
+    {
+      "path": "D:\\Arcade\\AI\\aCORES\\Alpha68k N\\research\\stingray_halt_timing_run_20261011_v1\\sta_detail_evidence\\all-corners\\corner_8\\setup.txt",
+      "bytes": 144425,
+      "sha256": "4dffc2d95b2f3c38d9a6e3a6facc863de0e8a5fd4d0d79a7dd9ccac34db7ecc6"
+    },
+    {
+      "path": "D:\\Arcade\\AI\\aCORES\\Alpha68k N\\research\\stingray_halt_timing_run_20261011_v1\\sta_detail_evidence\\all-corners\\corner_8\\unconstrained.txt",
+      "bytes": 125071,
+      "sha256": "710e5a810393b5f58510d4da3e7e07fc5273c59e28d0062ff2723ebedf6a4353"
+    },
+    {
+      "path": "D:\\Arcade\\AI\\aCORES\\Alpha68k N\\research\\stingray_halt_timing_run_20261011_v1\\sta_detail_evidence\\all-corners\\corners.csv",
+      "bytes": 1773,
+      "sha256": "dd0d12769fdedc5f1d4f49352498ffc33c050b91d52a09c4b36299cd19ca93e8"
+    },
+    {
+      "path": "D:\\Arcade\\AI\\aCORES\\Alpha68k N\\research\\stingray_halt_timing_run_20261011_v1\\sta_detail_evidence\\all-corners\\inherited_clock_groups.txt",
+      "bytes": 710,
+      "sha256": "8e7dcbdcd608e2ecca8d72b2951132ff3bdabc76b22dc81e52d488fd6058b21b"
+    }
+  ]
+}

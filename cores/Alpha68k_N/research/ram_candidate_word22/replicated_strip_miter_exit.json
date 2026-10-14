@@ -1,0 +1,27 @@
+{
+  "scope": "Finite exact storage extraction versus shared-array legacy OLD_DATA port model; not a second actualCPU/game replay",
+  "compile_command": [
+    "D:/vibes/fpga/toolchains/msys64/ucrt64/bin/iverilog.exe",
+    "-g2012",
+    "-s",
+    "replicated_strip_miter",
+    "-o",
+    "D:\\Arcade\\AI\\aCORES\\Alpha68k N\\research\\ram_candidate_word22\\replicated_strip_miter.vvp",
+    "D:\\Arcade\\AI\\aCORES\\Alpha68k N\\research\\ram_candidate_word22\\replicated_strip_miter.sv",
+    "D:\\Arcade\\AI\\aCORES\\Alpha68k N\\research\\ram_candidate_word22\\ram_candidate_reference_old.sv",
+    "D:\\Arcade\\AI\\aCORES\\Alpha68k N\\research\\ram_candidate_word22\\ram_candidate_inference_probe_replicated.sv"
+  ],
+  "compile_exit": 0,
+  "compile_stderr": "",
+  "run_exit": 0,
+  "run_stdout": "PASS replicated SDP exact OLD_DATA contract checked=8193 all4096copies/all2048work\nD:\\Arcade\\AI\\aCORES\\Alpha68k N\\research\\ram_candidate_word22\\replicated_strip_miter.sv:58: $finish called at 81930 (1s)\n",
+  "run_stderr": "",
+  "source_sha256": {
+    "replicated_strip_miter.sv": "fcf8b4ef5f8c57f82a9d71050dfe968fb55f52f4014b7fa03105d9b1c3029c85",
+    "ram_candidate_reference_old.sv": "1507ac4c8af0c1fc16e0fa84e9d90d1d90a897a9027439c08ce799d185e6f149",
+    "ram_candidate_inference_probe_replicated.sv": "c1d07fbf558aa7cbabca0f764140a183970dced4d847f5029065307e61eab061"
+  },
+  "actualCPU_join_receipt": "verilator_run3_exit.json",
+  "structural_join_receipt": "replicated_source_join.json",
+  "Quartus_inference_pass": false
+}

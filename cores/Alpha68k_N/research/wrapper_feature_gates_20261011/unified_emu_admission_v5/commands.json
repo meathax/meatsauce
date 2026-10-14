@@ -1,0 +1,49 @@
+{
+  "status": "Root approved LF-only recipe correction within ONE shared compilation and Japan1201 runtime; Stingray held",
+  "build_argv": [
+    "wsl.exe",
+    "-d",
+    "Ubuntu",
+    "--cd",
+    "D:\\Arcade\\AI\\aCORES\\Alpha68k N\\research\\wrapper_feature_gates_20261011\\unified_emu_admission_v5",
+    "--exec",
+    "/bin/bash",
+    "build.sh"
+  ],
+  "runtime_argv": [
+    {
+      "game": "kyrosj",
+      "argv": [
+        "wsl.exe",
+        "-d",
+        "Ubuntu",
+        "--cd",
+        "D:\\Arcade\\AI\\aCORES\\Alpha68k N\\research\\wrapper_feature_gates_20261011\\unified_emu_admission_v5\\source",
+        "--exec",
+        "./obj/alpha68kn_wrapper_shared_sim",
+        "/mnt/d/Arcade/AI/aCORES/meatsauce-alpha68kn/cores/Alpha68k_N/roms/kyrosj/download.bin",
+        "1201",
+        "../capture_kyrosj",
+        "../japan_observed_rows.csv",
+        "/mnt/d/Arcade/AI/aCORES/meatsauce-alpha68kn/cores/Alpha68k_N/roms/kyrosj/hiscore_config.bin"
+      ]
+    },
+    {
+      "game": "sstingry",
+      "argv": [
+        "wsl.exe",
+        "-d",
+        "Ubuntu",
+        "--cd",
+        "D:\\Arcade\\AI\\aCORES\\Alpha68k N\\research\\wrapper_feature_gates_20261011\\unified_emu_admission_v5\\source",
+        "--exec",
+        "./obj/alpha68kn_wrapper_shared_sim",
+        "/mnt/d/Arcade/AI/aCORES/meatsauce-alpha68kn/cores/Alpha68k_N/roms/sstingry/download.bin",
+        "1800",
+        "../capture_sstingry",
+        "../stingray_observed_rows.csv",
+        "/mnt/d/Arcade/AI/aCORES/meatsauce-alpha68kn/cores/Alpha68k_N/roms/sstingry/hiscore_config.bin"
+      ]
+    }
+  ]
+}

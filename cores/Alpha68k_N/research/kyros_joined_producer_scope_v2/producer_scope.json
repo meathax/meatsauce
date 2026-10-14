@@ -1,0 +1,349 @@
+{
+  "created_utc": "2026-10-10T19:43:45.666140+00:00",
+  "source_scope": "historical joined75/preP2 only; no current source transfer",
+  "ELF_sha256": "8aeaa8d8b1fa4683aeb1415409cac3f39407c58337001fd38ecd887d3f3243de",
+  "source_closure_sha256": "76411d80f0cdcd4da6d75e6287ac6fa9adeac64ddf06a80019f87ef18dc9a13c",
+  "prior_report": {
+    "path": "D:\\Arcade\\AI\\aCORES\\Alpha68k N\\research\\kyros_joined_producer_scope_v1\\producer_scope.json",
+    "sha256": "2927ef34b46f343c49349b66adff07d88590a3cfdd6881c8f4b8b94dce0f0810"
+  },
+  "MAME_field240_last_affected_word_writes": {
+    "file": "D:\\Arcade\\AI\\aCORES\\Alpha68k N\\sim\\captures\\kyros\\idle_death_restart_actions4401\\events.csv",
+    "prefix_end_byte": 19434116,
+    "prefix_read_cap": 50331648,
+    "matching_write_counts": {
+      "0x020F7E": 22,
+      "0x020F9C": 22
+    },
+    "last_writes_through_field240": {
+      "0x020F7E": {
+        "frame": "217",
+        "screen_frame": "216",
+        "area": "work",
+        "address": "135038",
+        "data": "1800",
+        "mask": "65535",
+        "vpos": "243"
+      },
+      "0x020F9C": {
+        "frame": "217",
+        "screen_frame": "216",
+        "area": "work",
+        "address": "135068",
+        "data": "1452",
+        "mask": "65535",
+        "vpos": "243"
+      }
+    }
+  },
+  "RAM_causal_limit": "Native instruction_events covers fields59..60 only. Native epoch filter excludes 0x020F7E/0x020F9C. Native bus is capped at4096 boot transactions plus2048 selected samples. No target SP/SR/read-consumer/retirement records; actual native writers cannot be bound from these journals.",
+  "HUD_targets": {
+    "900": {
+      "bbox": [
+        26,
+        19,
+        29,
+        19
+      ],
+      "snapshot": "D:\\Arcade\\AI\\aCORES\\Alpha68k N\\sim\\captures\\kyros\\idle_death_restart_actions4401\\frame_000900.sprites.bin",
+      "snapshot_hash_basis": "already sealed whole verifier; no new raw hash",
+      "candidates": [
+        {
+          "pass_c": 1,
+          "pass_d": 2048,
+          "column_offset": 864,
+          "tile_row": 22,
+          "position_address": 263874,
+          "attribute_address": 268012,
+          "position_word": 36888,
+          "attribute_word": 8831,
+          "x": 24,
+          "absolute_y": 32,
+          "native_y": 16,
+          "coordinate_basis": "upright/nonflip MAME draw_sprites; tile nontransparent status/pen priority unresolved"
+        },
+        {
+          "pass_c": 1,
+          "pass_d": 2048,
+          "column_offset": 992,
+          "tile_row": 4,
+          "position_address": 264130,
+          "attribute_address": 268232,
+          "position_word": 24,
+          "attribute_word": 8835,
+          "x": 24,
+          "absolute_y": 32,
+          "native_y": 16,
+          "coordinate_basis": "upright/nonflip MAME draw_sprites; tile nontransparent status/pen priority unresolved"
+        },
+        {
+          "pass_c": 2,
+          "pass_d": 3072,
+          "column_offset": 96,
+          "tile_row": 4,
+          "position_address": 262340,
+          "attribute_address": 268488,
+          "position_word": 24,
+          "attribute_word": 32,
+          "x": 24,
+          "absolute_y": 32,
+          "native_y": 16,
+          "coordinate_basis": "upright/nonflip MAME draw_sprites; tile nontransparent status/pen priority unresolved"
+        }
+      ],
+      "MAME_target_matching_writes": [
+        {
+          "frame": "900",
+          "screen_frame": "899",
+          "area": "positions",
+          "address": "264130",
+          "data": "0",
+          "mask": "65280",
+          "vpos": "241"
+        },
+        {
+          "frame": "900",
+          "screen_frame": "899",
+          "area": "positions",
+          "address": "264130",
+          "data": "6168",
+          "mask": "255",
+          "vpos": "241"
+        },
+        {
+          "frame": "900",
+          "screen_frame": "899",
+          "area": "positions",
+          "address": "263874",
+          "data": "37008",
+          "mask": "65280",
+          "vpos": "244"
+        },
+        {
+          "frame": "900",
+          "screen_frame": "899",
+          "area": "positions",
+          "address": "263874",
+          "data": "6168",
+          "mask": "255",
+          "vpos": "244"
+        },
+        {
+          "frame": "900",
+          "screen_frame": "899",
+          "area": "positions",
+          "address": "262340",
+          "data": "0",
+          "mask": "65280",
+          "vpos": "260"
+        },
+        {
+          "frame": "900",
+          "screen_frame": "899",
+          "area": "positions",
+          "address": "262340",
+          "data": "6168",
+          "mask": "255",
+          "vpos": "260"
+        }
+      ],
+      "native_target_matching_writes": [
+        {
+          "tick": "729920482",
+          "frame": "900",
+          "raster_x": "125",
+          "raster_y": "244",
+          "address": "263874",
+          "iack": "0",
+          "rw": "0",
+          "uds_n": "0",
+          "lds_n": "1",
+          "data_out": "37008",
+          "data_in": "36888"
+        },
+        {
+          "tick": "729920578",
+          "frame": "900",
+          "raster_x": "137",
+          "raster_y": "244",
+          "address": "263874",
+          "iack": "0",
+          "rw": "0",
+          "uds_n": "1",
+          "lds_n": "0",
+          "data_out": "6168",
+          "data_in": "36888"
+        }
+      ],
+      "MAME_total_target_strip_writes": 239,
+      "native_total_retained_target_strip_writes": 7,
+      "limit": "Candidate geometric overlap only; no tile pen decode or final priority proof. MAME events have vpos only; native journal retains selected strip addresses only. No pixel causality/waiver established."
+    },
+    "4400": {
+      "bbox": [
+        26,
+        8,
+        29,
+        15
+      ],
+      "snapshot": "D:\\Arcade\\AI\\aCORES\\Alpha68k N\\sim\\captures\\kyros\\idle_death_restart_actions4401\\frame_004400.sprites.bin",
+      "snapshot_hash_basis": "already sealed whole verifier; no new raw hash",
+      "candidates": [
+        {
+          "pass_c": 1,
+          "pass_d": 2048,
+          "column_offset": 864,
+          "tile_row": 21,
+          "position_address": 263874,
+          "attribute_address": 268010,
+          "position_word": 36888,
+          "attribute_word": 8834,
+          "x": 24,
+          "absolute_y": 24,
+          "native_y": 8,
+          "coordinate_basis": "upright/nonflip MAME draw_sprites; tile nontransparent status/pen priority unresolved"
+        },
+        {
+          "pass_c": 1,
+          "pass_d": 2048,
+          "column_offset": 992,
+          "tile_row": 3,
+          "position_address": 264130,
+          "attribute_address": 268230,
+          "position_word": 24,
+          "attribute_word": 2894,
+          "x": 24,
+          "absolute_y": 24,
+          "native_y": 8,
+          "coordinate_basis": "upright/nonflip MAME draw_sprites; tile nontransparent status/pen priority unresolved"
+        },
+        {
+          "pass_c": 2,
+          "pass_d": 3072,
+          "column_offset": 96,
+          "tile_row": 1,
+          "position_address": 262340,
+          "attribute_address": 268482,
+          "position_word": 61720,
+          "attribute_word": 32,
+          "x": 24,
+          "absolute_y": 23,
+          "native_y": 7,
+          "coordinate_basis": "upright/nonflip MAME draw_sprites; tile nontransparent status/pen priority unresolved"
+        },
+        {
+          "pass_c": 2,
+          "pass_d": 3072,
+          "column_offset": 96,
+          "tile_row": 2,
+          "position_address": 262340,
+          "attribute_address": 268484,
+          "position_word": 61720,
+          "attribute_word": 32,
+          "x": 24,
+          "absolute_y": 31,
+          "native_y": 15,
+          "coordinate_basis": "upright/nonflip MAME draw_sprites; tile nontransparent status/pen priority unresolved"
+        }
+      ],
+      "MAME_target_matching_writes": [
+        {
+          "frame": "4400",
+          "screen_frame": "4399",
+          "area": "positions",
+          "address": "264130",
+          "data": "0",
+          "mask": "65280",
+          "vpos": "241"
+        },
+        {
+          "frame": "4400",
+          "screen_frame": "4399",
+          "area": "positions",
+          "address": "264130",
+          "data": "6168",
+          "mask": "255",
+          "vpos": "241"
+        },
+        {
+          "frame": "4400",
+          "screen_frame": "4399",
+          "area": "positions",
+          "address": "263874",
+          "data": "37008",
+          "mask": "65280",
+          "vpos": "244"
+        },
+        {
+          "frame": "4400",
+          "screen_frame": "4399",
+          "area": "positions",
+          "address": "263874",
+          "data": "6168",
+          "mask": "255",
+          "vpos": "244"
+        },
+        {
+          "frame": "4400",
+          "screen_frame": "4399",
+          "area": "positions",
+          "address": "262340",
+          "data": "61937",
+          "mask": "65280",
+          "vpos": "260"
+        },
+        {
+          "frame": "4400",
+          "screen_frame": "4399",
+          "area": "positions",
+          "address": "262340",
+          "data": "6168",
+          "mask": "255",
+          "vpos": "260"
+        }
+      ],
+      "native_target_matching_writes": [
+        {
+          "tick": "3568448402",
+          "frame": "4400",
+          "raster_x": "115",
+          "raster_y": "244",
+          "address": "263874",
+          "iack": "0",
+          "rw": "0",
+          "uds_n": "0",
+          "lds_n": "1",
+          "data_out": "37008",
+          "data_in": "36888"
+        },
+        {
+          "tick": "3568448498",
+          "frame": "4400",
+          "raster_x": "127",
+          "raster_y": "244",
+          "address": "263874",
+          "iack": "0",
+          "rw": "0",
+          "uds_n": "1",
+          "lds_n": "0",
+          "data_out": "6168",
+          "data_in": "36888"
+        }
+      ],
+      "MAME_total_target_strip_writes": 239,
+      "native_total_retained_target_strip_writes": 6,
+      "limit": "Candidate geometric overlap only; no tile pen decode or final priority proof. MAME events have vpos only; native journal retains selected strip addresses only. No pixel causality/waiver established."
+    }
+  },
+  "MAME_renderer_pin": {
+    "path": "D:\\Arcade\\AI\\mame289\\src\\mame\\alpha\\alpha68k_n.cpp",
+    "sha256": "5f9884076ea1b5c02d2169a58de5425ae5475a13a4f1438abae2e2b9f0fdab7d",
+    "lines": "150..200 draw_sprites"
+  },
+  "limits": [
+    "No replay, build, observer, recapture, raw large rehash or existing artifact modification.",
+    "MAME write tap lacks producer PC/SP/SR and work read/retirement events.",
+    "Older FRAME900 diagnosis has different source/pixels and is not transferred.",
+    "Stack proximity remains hypothesis; all failed comparisons and current-source boundary retained."
+  ]
+}

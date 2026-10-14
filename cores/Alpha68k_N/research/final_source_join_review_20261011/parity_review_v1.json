@@ -1,0 +1,35 @@
+{
+  "review_completed": true,
+  "approved_for_bounded_MAP_and_source_join": true,
+  "findings": [],
+  "candidate_sha256": "43b8c6e7600e4c4089f0d3c0e4a15637be8bfcbdd626ddd0bc0e222b7b1553ce",
+  "baseline_sha256": "04f67f370afd744e64b35b88e5ac9dcb68cb062a5aad8cdb32818aedfe1f6699",
+  "patch_sha256": "028a4453afc875bb10ed01522997bbea95f0ebaeac5d5b388feb0a2dad735752",
+  "review_manifest_sha256": "c4b0eca829587a8e70866aa2203d36b9f39930258c6fa3bed9d8e9a2299b06f7",
+  "pins_verified": 17,
+  "address_cases_independently_reviewed": 4096,
+  "native_smoke_comparisons": 79875,
+  "native_smoke_build_exit": 0,
+  "native_smoke_run_exit": 0,
+  "read_latency_master_cycles": 1,
+  "NBA_scope": "Both bank q registers and parity capture sample the same preedge address; output mux uses captured parity. OLD_DATA equivalence in the source-extracted simulation.",
+  "download_contract": "Production wrapper sends only even word addresses, qualifies word write with load, and forwards downloading into board held_reset. MCU consumes no live download collision because reset is asserted.",
+  "inference_review": "Each parity bank has one mutually exclusive loader write and one registered hardware read; debug helper is VERILATOR-only. Native MAP must still prove RAM inference.",
+  "limits": [
+    "No T48/full-board/current-image replay qualification from the memory smoke.",
+    "No physical mixed-port read-during-write guarantee; wrapper avoids guest consumption during download.",
+    "Standalone direct callers must honor held-reset/download ownership.",
+    "No complete timing/resource acceptance from this source review."
+  ],
+  "native_builds_runs_started_by_reviewer": false,
+  "sources": {
+    "wrapper": {
+      "path": "D:\\Arcade\\AI\\aCORES\\meatsauce-alpha68kn\\cores\\Alpha68k_N\\Alpha68k_N.sv",
+      "sha256": "e06df32e27980fd18930da274d05538396e8be3fc7379409043dd36bef383b61"
+    },
+    "system": {
+      "path": "D:\\Arcade\\AI\\aCORES\\meatsauce-alpha68kn\\cores\\Alpha68k_N\\rtl\\alpha68kn_system.sv",
+      "sha256": "ca909f97d09875ecfe98b92e04d5fbad343a2e6fed20c84542b4265eb5060152"
+    }
+  }
+}

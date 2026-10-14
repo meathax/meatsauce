@@ -1,0 +1,325 @@
+{
+  "scope": "Diagnostic attribution of the first ordered restart input-read difference; no RTL correction or comparison waiver",
+  "checks_passed": true,
+  "capture_stop_frame": 1600,
+  "child_exit_code": null,
+  "child_exit_limit": "Launcher did not retain child exit status; process was independently observed missing after the terminal state and closed trace were produced",
+  "original_reference_io_byte_prefix_equal": true,
+  "observed_window_rows": 795,
+  "events": {
+    "last_old_read_before_application": {
+      "sequence": "159656",
+      "time": "25.161144841232",
+      "frame": "1547",
+      "y": "240",
+      "x": "10",
+      "kind": "in",
+      "event_frame": "",
+      "p0": "130",
+      "p1": "0",
+      "p2": "1",
+      "dip": "252",
+      "address": "2",
+      "data": "1",
+      "pc": "2293"
+    },
+    "application": {
+      "sequence": "159657",
+      "time": "25.161142857054",
+      "frame": "1548",
+      "y": "240",
+      "x": "0",
+      "kind": "apply",
+      "event_frame": "1548",
+      "p0": "130",
+      "p1": "0",
+      "p2": "0",
+      "dip": "252",
+      "address": "",
+      "data": "",
+      "pc": "2293"
+    },
+    "first_new_read_after_application": {
+      "sequence": "159658",
+      "time": "25.161201884883",
+      "frame": "1548",
+      "y": "240",
+      "x": "298",
+      "kind": "in",
+      "event_frame": "",
+      "p0": "130",
+      "p1": "0",
+      "p2": "0",
+      "dip": "252",
+      "address": "2",
+      "data": "0",
+      "pc": "737"
+    }
+  },
+  "master_tick_relative_to_frame_1548": {
+    "before": "99.998092800000",
+    "apply": "-0.004478400000",
+    "after": "2974.998103200000"
+  },
+  "first_input_difference": {
+    "matched_prefix": 75823,
+    "mame": {
+      "time": "25.161144841232",
+      "frame": "1547",
+      "y": "240",
+      "x": "10",
+      "kind": "in",
+      "address": "2",
+      "data": "1",
+      "pc": "2293"
+    },
+    "rtl": {
+      "tick": "1268121681",
+      "frame": "1548",
+      "y": "240",
+      "x": "7",
+      "kind": "in",
+      "address": "514",
+      "data": "0",
+      "status": "66",
+      "inte": "1"
+    }
+  },
+  "ordered_output_value_prefix_through_1600": {
+    "matched": 89466,
+    "baseline_delta_master_clocks": "5.999988800000",
+    "first_changed_timing": [
+      {
+        "ordinal": 1786,
+        "mame": {
+          "time": "1.683530753966",
+          "frame": "103",
+          "y": "131",
+          "x": "195",
+          "kind": "out",
+          "address": "2",
+          "data": "5",
+          "pc": "4261"
+        },
+        "rtl": {
+          "tick": "84850269",
+          "frame": "103",
+          "y": "131",
+          "x": "225",
+          "kind": "out",
+          "address": "514",
+          "data": "5",
+          "status": "16",
+          "inte": "0"
+        },
+        "delta_master_clocks": "-319.000113600000"
+      },
+      {
+        "ordinal": 1787,
+        "mame": {
+          "time": "1.683538194442",
+          "frame": "103",
+          "y": "131",
+          "x": "233",
+          "kind": "out",
+          "address": "3",
+          "data": "48",
+          "pc": "4264"
+        },
+        "rtl": {
+          "tick": "84850644",
+          "frame": "103",
+          "y": "131",
+          "x": "263",
+          "kind": "out",
+          "address": "771",
+          "data": "48",
+          "status": "16",
+          "inte": "0"
+        },
+        "delta_master_clocks": "-319.000123200000"
+      },
+      {
+        "ordinal": 1788,
+        "mame": {
+          "time": "1.683545634918",
+          "frame": "103",
+          "y": "131",
+          "x": "270",
+          "kind": "out",
+          "address": "3",
+          "data": "65",
+          "pc": "4267"
+        },
+        "rtl": {
+          "tick": "84851019",
+          "frame": "103",
+          "y": "131",
+          "x": "300",
+          "kind": "out",
+          "address": "771",
+          "data": "65",
+          "status": "16",
+          "inte": "0"
+        },
+        "delta_master_clocks": "-319.000132800000"
+      },
+      {
+        "ordinal": 1789,
+        "mame": {
+          "time": "1.683561507934",
+          "frame": "103",
+          "y": "132",
+          "x": "30",
+          "kind": "out",
+          "address": "3",
+          "data": "2",
+          "pc": "4274"
+        },
+        "rtl": {
+          "tick": "84851819",
+          "frame": "103",
+          "y": "132",
+          "x": "60",
+          "kind": "out",
+          "address": "771",
+          "data": "2",
+          "status": "16",
+          "inte": "0"
+        },
+        "delta_master_clocks": "-319.000126400000"
+      },
+      {
+        "ordinal": 1790,
+        "mame": {
+          "time": "1.683575892855",
+          "frame": "103",
+          "y": "132",
+          "x": "103",
+          "kind": "out",
+          "address": "3",
+          "data": "0",
+          "pc": "4280"
+        },
+        "rtl": {
+          "tick": "84852544",
+          "frame": "103",
+          "y": "132",
+          "x": "133",
+          "kind": "out",
+          "address": "771",
+          "data": "0",
+          "status": "16",
+          "inte": "0"
+        },
+        "delta_master_clocks": "-319.000108000000"
+      },
+      {
+        "ordinal": 1791,
+        "mame": {
+          "time": "1.683596726188",
+          "frame": "103",
+          "y": "132",
+          "x": "208",
+          "kind": "out",
+          "address": "2",
+          "data": "0",
+          "pc": "4292"
+        },
+        "rtl": {
+          "tick": "84853594",
+          "frame": "103",
+          "y": "132",
+          "x": "238",
+          "kind": "out",
+          "address": "514",
+          "data": "0",
+          "status": "16",
+          "inte": "0"
+        },
+        "delta_master_clocks": "-319.000124800000"
+      },
+      {
+        "ordinal": 1792,
+        "mame": {
+          "time": "1.683625992061",
+          "frame": "103",
+          "y": "133",
+          "x": "35",
+          "kind": "out",
+          "address": "3",
+          "data": "0",
+          "pc": "4781"
+        },
+        "rtl": {
+          "tick": "84855069",
+          "frame": "103",
+          "y": "133",
+          "x": "65",
+          "kind": "out",
+          "address": "771",
+          "data": "0",
+          "status": "16",
+          "inte": "0"
+        },
+        "delta_master_clocks": "-319.000125600000"
+      },
+      {
+        "ordinal": 1793,
+        "mame": {
+          "time": "1.683647817458",
+          "frame": "103",
+          "y": "133",
+          "x": "145",
+          "kind": "out",
+          "address": "3",
+          "data": "0",
+          "pc": "4789"
+        },
+        "rtl": {
+          "tick": "84856169",
+          "frame": "103",
+          "y": "133",
+          "x": "175",
+          "kind": "out",
+          "address": "771",
+          "data": "0",
+          "status": "16",
+          "inte": "0"
+        },
+        "delta_master_clocks": "-319.000116800000"
+      }
+    ],
+    "limit": "A matching value prefix with differing transaction times is not complete I/O equivalence or a proof of the later pixel cause"
+  },
+  "known": "The old-value MAME read executes before the input callback in event order, despite its later CPU-local timestamp. The callback applies the change at the physical frame edge.",
+  "source_support": {
+    "path": "D:/Arcade/AI/mame289/src/devices/cpu/i8085/i8085.cpp",
+    "execute_run_line": 870,
+    "cycle_debit_line": 894,
+    "input_read_line": 1519,
+    "behavior": "execute_one debits a whole instruction before issuing the I/O read; execute_run tests the remaining slice budget only after that instruction"
+  },
+  "inferred": "Instruction-atomic MAME execution crosses the pending timer boundary before the frame callback runs, producing an old-pin read with a timestamp after the input edge.",
+  "rtl_action": "Retain the physical input waveform and synthesizable CPU bus timing. Do not delay controls to force agreement with the reference.",
+  "pixel_2760_cause_qualified": false,
+  "complete_input_stream_equal": false,
+  "complete_graphics_gate": false,
+  "complete_sheriff_gate": false,
+  "quartus_executed": false,
+  "sha256": {
+    "sim/results/input-boundary-1548-mame-20261009/input_observations.csv": "cbe2d66a7a7a8975e61566764d6243dccf10effce6f7b4404c760c34e98cb8bf",
+    "sim/results/input-boundary-1548-mame-20261009/io.csv": "af0a8196e768923b6e86e1626dc012205bff31fd2ddce1b628425ba175550a2e",
+    "sim/results/input-boundary-1548-mame-20261009/states.csv": "c5f9b0c8ec05679adf54ba092eb1b5642bc2bfce3b72d0b5410625fda9e94394",
+    "sim/results/restart-mame/io.csv": "2104acb4ae1dd005a2ae9f9f81148d92c54842fe70603cb18f1ae6748f38adb9",
+    "sim/results/restart-phase-ce-rtl/io.csv": "ee6f216a26ac17caa303953875b5abb1b46ad9bcb08194dd7f6fccfed9434dd6",
+    "sim/results/input-boundary-1548-mame-20261009/capture_features.json": "e106f00c38c41071cf4f2d1112b257ef1daa15b024cb46021f9438260cb89cb4",
+    "sim/results/input-boundary-1548-mame-20261009/input_sha256.json": "61ebd1d41361e961a029652cb51bd57dba587ff0881c4d80874bee651c144b79",
+    "sim/mame_capture.lua": "5e214ec7ed3dbf63c7550f87ebf6e967ea4e52688500e30923db5b50b6665481",
+    "tools/mame_capture.ps1": "fbc12ab865463ee60b98f9c80c99606d09c21cb09fe2f136c52ff8fa008ab61c",
+    "D:/Arcade/AI/aCORES/sherrif/tools/qualify_input_scheduler_boundary.py": "de37a15412f15b54e2aaa9094c818611dd2db531db5562c18ef11b0d782b6a32",
+    "sim/inputs_restart.csv": "15e27f7747d95c53762259b136b7b8aeff7e8a7c24dcf75ac81edad85456db3d",
+    "D:/Arcade/AI/mame289/src/devices/cpu/i8085/i8085.cpp": "eb478e899cc9f331c9e429f50095a37a25cf4400c87bad9184276f54280a3114",
+    "D:/Arcade/AI/mameexe/mame.exe": "af6966108d9b52c22465c6d50f4e5d50cc371b50f2d27dc443935f287aad37a3"
+  }
+}

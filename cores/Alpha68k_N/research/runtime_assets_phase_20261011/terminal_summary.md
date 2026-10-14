@@ -1,0 +1,5 @@
+The corrected V2 runtime uses the same compiled ELF and source graph as the invalid first attempt, with both required FX68K readmem assets present. Its authentic native exit is 1: "HALT boundary event cap exceeded; no truncation". The last retained field is 118, at master tick 99634589. This diagnostic cap failure does not establish a HALT or core regression.
+
+Both first consumers exit 1 with empty stderr. All nine available full RGB, work RAM and sprite comparisons at fields 0, 30 and 90 are exact. Six target files for fields 119 and 179 are missing; their checks are false. All nine aggregate array/protocol gates are false and the summary is empty. No complete 180-field endpoint or whole-game acceptance is claimed.
+
+Four finite latch checks pass over 4253 events and 8778 actual captures, with model_bad=0 and physical_commit_bad=0. The missing field 119 cut and four producer checks remain false. These finite observations do not transfer acceptance to the missing endpoints, physical PCB wiring or broader timing and gameplay gates. Canonical board639 and isolated model7238 remain unchanged.

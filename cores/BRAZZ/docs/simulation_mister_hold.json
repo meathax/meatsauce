@@ -1,0 +1,51 @@
+{
+  "target": "mister_hold",
+  "acceptance": "unit verification",
+  "runtime": "native Windows PE / MSYS2 UCRT64",
+  "commands": [
+    [
+      "D:/vibes/fpga/bin/verilator.exe",
+      "--cc",
+      "--exe",
+      "--build",
+      "-j",
+      "4",
+      "-O3",
+      "--top-module",
+      "cs_video_hold",
+      "--Mdir",
+      "R:/Verilator/CrystalSystem/tool-20261008T172325926Z-52144-60932640/obj_dir",
+      "-CFLAGS",
+      "-O2",
+      "-MAKEFLAGS",
+      "OPT_FAST=-O2",
+      "-MAKEFLAGS",
+      "OPT_GLOBAL=-O2",
+      "-Wno-fatal",
+      "D:/Arcade/AI/aCORES/BRAZZ/Arcade-CrystalSystem_MiSTer/rtl/video/cs_video_hold.sv",
+      "D:/Arcade/AI/aCORES/BRAZZ/Arcade-CrystalSystem_MiSTer/sim/mister/hold.cpp"
+    ],
+    [
+      "D:/vibes/fpga/bin/verilator.exe",
+      "sim",
+      "R:/Verilator/CrystalSystem/tool-20261008T172325926Z-52144-60932640/obj_dir/Vcs_video_hold.exe"
+    ]
+  ],
+  "exit_code": 0,
+  "run_seconds": 0.47767079999903217,
+  "sources": [
+    {
+      "path": "rtl/video/cs_video_hold.sv",
+      "sha256": "f0746184b9ce66dc28a8ff2fb53e4268501ecee7a1009d1685e1cf58bb31031b"
+    },
+    {
+      "path": "sim/mister/hold.cpp",
+      "sha256": "5dc2cd6e838d1e2d6a6e7b71f542f6e990efb8a42f34e2a9a447e4ffff5fc8e6"
+    }
+  ],
+  "workspace": "R:/Verilator/CrystalSystem/tool-20261008T172325926Z-52144-60932640",
+  "timing_profile": null,
+  "stdout": "PASS video_hold: 1103975 checks; fixed /12 fallback raster 455x262/320x240, HS 34px, VS 3 lines inside blanking, pass-through, recovery\n",
+  "stderr": "",
+  "build_log": "sim/obj_dir/mister_hold/build.log"
+}

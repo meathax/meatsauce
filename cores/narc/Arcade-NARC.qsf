@@ -1,0 +1,82 @@
+# --------------------------------------------------------------------------
+#
+# MiSTer project -- NARC (Williams Z-unit)
+#
+# WARNING: Do not add files to the project in the Quartus IDE! It rewrites this
+# file. Add source files manually to files.qip. Device / pins / config come from
+# sys/sys.tcl (the MiSTer framework), exactly as the Sega System 32 core does.
+#
+# Build with Quartus Prime Lite (D:\Q17) -- the Standard edition at D:\Q is
+# unlicensed (Evaluation Mode) and refuses to emit Cyclone V bitstreams.
+#
+# --------------------------------------------------------------------------
+
+set_global_assignment -name TOP_LEVEL_ENTITY sys_top
+set_global_assignment -name PARTITION_NETLIST_TYPE SOURCE -section_id Top
+set_global_assignment -name PARTITION_FITTER_PRESERVATION_LEVEL PLACEMENT_AND_ROUTING -section_id Top
+set_global_assignment -name PARTITION_COLOR 16764057 -section_id Top
+
+set_global_assignment -name LAST_QUARTUS_VERSION "17.0.2 Lite Edition"
+
+set_global_assignment -name GENERATE_RBF_FILE ON
+set_global_assignment -name PROJECT_OUTPUT_DIRECTORY output_files
+set_global_assignment -name SAVE_DISK_SPACE OFF
+set_global_assignment -name SMART_RECOMPILE ON
+set_global_assignment -name MIN_CORE_JUNCTION_TEMP "-40"
+set_global_assignment -name MAX_CORE_JUNCTION_TEMP 100
+set_global_assignment -name POWER_PRESET_COOLING_SOLUTION "23 MM HEAT SINK WITH 200 LFPM AIRFLOW"
+set_global_assignment -name POWER_BOARD_THERMAL_MODEL "NONE (CONSERVATIVE)"
+# Multicorner timing analysis is REQUIRED for release sign-off. With it off,
+# TimeQuest only analysed the "Slow 1100mV 100C" model, which is the least
+# pessimistic corner for HOLD -- the fast corner (1100mV 0C / 1150mV) that
+# actually catches DE10-Nano hold failures was never run. The July-27 board
+# freeze had already shown this design is timing-marginal, so a single-corner
+# report is not sign-off. This costs STA time only; it does not affect fitting.
+set_global_assignment -name TIMEQUEST_MULTICORNER_ANALYSIS ON
+
+# Global fast/stable build policy. These assignments are deliberately stored in
+# the project so GUI, command-line, and future automated builds use the same
+# six-processor ceiling. Quartus 17 has crashed in advanced physical synthesis
+# and maximum-effort routing on this memory-dense design, so Fast Fit, normal
+# router effort, and no fitting netlist optimizations are the defaults.
+# Timing is still reported after a full flow and must be reviewed for every RBF.
+# Do NOT turn on PHYSICAL_SYNTHESIS_REGISTER_RETIMING.
+# Small caches remain in MLAB via RTL ramstyle attributes (Quartus 17.0 Lite
+# does not accept AUTO_RAM_TO_MLAB_CONVERSION as a global assignment). One 8 KiB
+# NARC sound work RAM uses two paired 4 KiB M10K banks per CPU; the
+# NARC-specific native-color lite scandoubler recovers 24 blocks. The HDMI OSD
+# spends four blocks to remove a distributed-memory timing bottleneck; the VGA
+# OSD remains in MLAB.
+set_global_assignment -name OPTIMIZE_POWER_DURING_FITTING OFF
+set_global_assignment -name FITTER_EFFORT "FAST FIT"
+set_global_assignment -name OPTIMIZATION_MODE "BALANCED"
+set_global_assignment -name ALLOW_POWER_UP_DONT_CARE ON
+set_global_assignment -name QII_AUTO_PACKED_REGISTERS NORMAL
+set_global_assignment -name ROUTER_TIMING_OPTIMIZATION_LEVEL NORMAL
+set_global_assignment -name OPTIMIZE_HOLD_TIMING "ALL PATHS"
+set_global_assignment -name PHYSICAL_SYNTHESIS_COMBO_LOGIC OFF
+set_global_assignment -name PHYSICAL_SYNTHESIS_REGISTER_DUPLICATION OFF
+set_global_assignment -name SEED 6
+set_global_assignment -name NUM_PARALLEL_PROCESSORS 6
+
+# The downloaded JT51 source is intentionally kept outside version control.
+# Apply the memory trade here so fresh vendor checkouts also keep its short
+# operator/envelope delays in logic instead of spending nine M10Ks.
+set_instance_assignment -name AUTO_SHIFT_REGISTER_RECOGNITION OFF -to * -entity jt51_sh
+set_instance_assignment -name AUTO_SHIFT_REGISTER_RECOGNITION OFF -to * -entity jt51_eg
+
+# MiSTer framework options (save resources; safe for a fixed-res arcade core).
+set_global_assignment -name VERILOG_MACRO "MISTER_DOWNSCALE_NN=1"
+set_global_assignment -name VERILOG_MACRO "MISTER_DISABLE_ADAPTIVE=1"
+set_global_assignment -name VERILOG_MACRO "MISTER_DISABLE_YC=1"
+set_global_assignment -name VERILOG_MACRO "MISTER_DISABLE_ALSA=1"
+
+# DIAGNOSTIC: render the 34010 PC as 32 vertical bars instead of game video.
+
+set_global_assignment -name SEARCH_PATH rtl/cpu
+
+source sys/sys.tcl
+source sys/sys_analog.tcl
+source files.qip
+
+set_instance_assignment -name PARTITION_HIERARCHY root_partition -to | -section_id Top

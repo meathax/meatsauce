@@ -1,0 +1,74 @@
+{
+  "qualification": "Complete fitted private sys_top candidate resource pass only; excludes later P6/SSG/all-game join and release qualification.",
+  "source_board_sha256": "7ea61d03b20886e643c5d0be64c9f80bb93923975223f7c272621d3cab05aaa9",
+  "qsf_sha256": "387941e3c72c5f677feb9f2086a571584a3ab8f3de2a4ce851c0b32565061c28",
+  "fit_actual_exit": 0,
+  "fit_tool_chunk": "f19aa0",
+  "strict_comparison": "<",
+  "limits": {
+    "alm_pct": {
+      "measured_pct": 41.4626580768313,
+      "hard_limit_pct": 80,
+      "pass": true
+    },
+    "labs_pct": {
+      "measured_pct": 67.5972321641613,
+      "hard_limit_pct": 90,
+      "pass": true
+    },
+    "peak_interconnect_pct": {
+      "measured_pct": 55.8,
+      "hard_limit_pct": 85,
+      "pass": true
+    },
+    "average_interconnect_pct": {
+      "measured_pct": 22.9,
+      "hard_limit_pct": 60,
+      "pass": true
+    },
+    "m10k_pct": {
+      "measured_pct": 59.85533453887884,
+      "hard_limit_pct": 90,
+      "pass": true
+    },
+    "block_memory_bits_pct": {
+      "measured_pct": 43.08021586799276,
+      "hard_limit_pct": 85,
+      "pass": true
+    },
+    "dsp_pct": {
+      "measured_pct": 36.607142857142854,
+      "hard_limit_pct": 90,
+      "pass": true
+    }
+  },
+  "peak_source": "max(H40.3%,V55.8%)",
+  "average_source": "reported total22.9%; H23.4%, V21.5% also below60%.",
+  "counts": {
+    "ALMs": [
+      17377,
+      41910
+    ],
+    "occupied_LABs": [
+      2833,
+      4191
+    ],
+    "M10K": [
+      331,
+      553
+    ],
+    "block_bits": [
+      2439512,
+      5662720
+    ],
+    "DSP": [
+      41,
+      112
+    ]
+  },
+  "resource_pass": true,
+  "timing_pass": false,
+  "warning_review": "No Critical Warning rows in fit report;1274 warnings retained. Largehold-routing demand requires actualSTA qualification.",
+  "source_pins_161_verified": true,
+  "RBF": false
+}

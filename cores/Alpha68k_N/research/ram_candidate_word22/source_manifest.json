@@ -1,0 +1,17 @@
+{
+  "scope": "Private word22/fullbyte candidate not integrated",
+  "canonical_source_sha256": {
+    "rtl/alpha68kn_board.sv": "1d96bcb640490b62fbe6f15a9dc0e4fcf8e80b496cc108f14bd91241eb85ca0c",
+    "sim/system_main.cpp": "ac8fc5de33ba606dca879ecaa337e37d0cfee9f23c96125f4e2781ed7b776202"
+  },
+  "stage_sha256": {
+    "alpha68kn_board.sv": "b37fb0a6cc76e55a89f7379c0af2f1d8f4b0e3e20a38e21db75b12cdfc4e3462",
+    "board.patch": "2a0fb7ab992aa313dc8e4356f8933c7625dbc2298ca2aef21a33507c89ae0bd2",
+    "host.patch": "88cd7986e0024f3fb3fff27895325a0f1773218c6003db46f9d0cf6ddd696ade",
+    "legacy_board.sv": "ce115e326af138396c7d24d2badee688170e54e906814d8075b76ba3465e47d6",
+    "system_main.cpp": "9a14eba8ab0902bbd8565675a1695666829e9bffdf81cd997e5f6abc38f6f107"
+  },
+  "strip_write_DI_difference": "NEW_DATA only written lanes; actual CPU nonconsumption still needs miter qualification",
+  "RAM_inference_qualified": false,
+  "simulation_debug_scope": "Only unconsumed work debug output uses VERILATOR observation read; functional RAM/CPU latency identical both modes"
+}

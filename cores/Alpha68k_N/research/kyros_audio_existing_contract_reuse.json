@@ -1,0 +1,342 @@
+{
+  "scope": "Current source-bound externalAY tone contracts, current nominal mixer arithmetic, and retained actual isolated-command per-route moments. No new simulation/compile, no phase-identicalPCM/physical calibration.",
+  "externalAY_checks": {
+    "actual_original_soundchips_exit0": true,
+    "actual_manifest_pin": true,
+    "actual_original_ELF_pin": false,
+    "old_wrapper_matches_original_manifest": false,
+    "all8_external_AY_modules_current_exact": false,
+    "current_AY_instances_controls_parameters_exact": true,
+    "current_shared_phase_write_counter_block_exact": true,
+    "actual_tone_period0_and1_384clocks_recorded": true,
+    "actual_tone_period37_14208clocks_recorded": true
+  },
+  "current_externalAY_tone_reuse_pass": false,
+  "measured_tone": {
+    "period0and1_gap_masterticks": 384,
+    "period0and1_frequency_Hz": 125000.0,
+    "period37_gap_masterticks": 14208,
+    "period37_frequency_Hz": 3378.3783783783783
+  },
+  "nominal_mixer_checks": {
+    "actual_current_nominal_mixer_contract_exit0": true,
+    "actual_current_mixer_manifest_pin": true,
+    "actual_original_mixer_ELF_pin": true,
+    "current_production_mixer_exact": true,
+    "original_golden_test_source_exact": true
+  },
+  "current_nominal_mixer_reuse_pass": true,
+  "mixer_coverage": {
+    "vectors": 7,
+    "sample_pulses": 35,
+    "scope": "nominal mixer arithmetic; not a waveform/game/hardware acceptance gate",
+    "oracle": "MAME0.289 YMFM SSG peak16382/zero bias; standalone legacy AY formula; scalar floating golden, saturation/cadence/reset assertions"
+  },
+  "retained_component_checks": {
+    "retained_MAME_component_data_pin": true,
+    "retained_actual_RTL_component_data_pin": true,
+    "source_activity_ok": true
+  },
+  "retained_component_data_reuse": true,
+  "per_route_moments": [
+    {
+      "second": 2,
+      "devices": {
+        "fm": {
+          "mame_mean": 0.0,
+          "mame_ac_rms": 0.0,
+          "rtl_mean": 0.0,
+          "rtl_ac_rms": 0.0,
+          "ac_rms_ratio": null
+        },
+        "ym_ssg": {
+          "mame_mean": 0.0,
+          "mame_ac_rms": 0.0,
+          "rtl_mean": 0.0,
+          "rtl_ac_rms": 0.0,
+          "ac_rms_ratio": null
+        },
+        "ay1": {
+          "mame_mean": -3686.4000000000974,
+          "mame_ac_rms": 0.0,
+          "rtl_mean": -3686.4,
+          "rtl_ac_rms": 0.0,
+          "ac_rms_ratio": null
+        },
+        "ay2": {
+          "mame_mean": -7372.800000000225,
+          "mame_ac_rms": 0.0,
+          "rtl_mean": -7372.8,
+          "rtl_ac_rms": 0.0,
+          "ac_rms_ratio": null
+        },
+        "dac": {
+          "mame_mean": -268.822,
+          "mame_ac_rms": 1979.8759157203092,
+          "rtl_mean": -266.923,
+          "rtl_ac_rms": 1980.06,
+          "ac_rms_ratio": 1.0000929776852323
+        }
+      }
+    },
+    {
+      "second": 3,
+      "devices": {
+        "fm": {
+          "mame_mean": 0.0,
+          "mame_ac_rms": 0.0,
+          "rtl_mean": 0.0,
+          "rtl_ac_rms": 0.0,
+          "ac_rms_ratio": null
+        },
+        "ym_ssg": {
+          "mame_mean": 0.0,
+          "mame_ac_rms": 0.0,
+          "rtl_mean": 0.0,
+          "rtl_ac_rms": 0.0,
+          "ac_rms_ratio": null
+        },
+        "ay1": {
+          "mame_mean": -3686.4000000000974,
+          "mame_ac_rms": 0.0,
+          "rtl_mean": -3686.4,
+          "rtl_ac_rms": 0.0,
+          "ac_rms_ratio": null
+        },
+        "ay2": {
+          "mame_mean": -7372.800000000225,
+          "mame_ac_rms": 0.0,
+          "rtl_mean": -7372.8,
+          "rtl_ac_rms": 0.0,
+          "ac_rms_ratio": null
+        },
+        "dac": {
+          "mame_mean": -308.437,
+          "mame_ac_rms": 962.9858308222055,
+          "rtl_mean": -307.797,
+          "rtl_ac_rms": 962.814,
+          "ac_rms_ratio": 0.9998215645373943
+        }
+      }
+    },
+    {
+      "second": 10,
+      "devices": {
+        "fm": {
+          "mame_mean": 0.0,
+          "mame_ac_rms": 0.0,
+          "rtl_mean": 0.0,
+          "rtl_ac_rms": 0.0,
+          "ac_rms_ratio": null
+        },
+        "ym_ssg": {
+          "mame_mean": 0.0,
+          "mame_ac_rms": 0.0,
+          "rtl_mean": 0.0,
+          "rtl_ac_rms": 0.0,
+          "ac_rms_ratio": null
+        },
+        "ay1": {
+          "mame_mean": -3686.4000000000974,
+          "mame_ac_rms": 0.0,
+          "rtl_mean": -3686.4,
+          "rtl_ac_rms": 0.0,
+          "ac_rms_ratio": null
+        },
+        "ay2": {
+          "mame_mean": -7372.800000000225,
+          "mame_ac_rms": 0.0,
+          "rtl_mean": -7372.8,
+          "rtl_ac_rms": 0.0,
+          "ac_rms_ratio": null
+        },
+        "dac": {
+          "mame_mean": 0.0,
+          "mame_ac_rms": 0.0,
+          "rtl_mean": 0.0,
+          "rtl_ac_rms": 0.0,
+          "ac_rms_ratio": null
+        }
+      }
+    },
+    {
+      "second": 15,
+      "devices": {
+        "fm": {
+          "mame_mean": -3.0051030204121165,
+          "mame_ac_rms": 1081.8782009369384,
+          "rtl_mean": 12.0621,
+          "rtl_ac_rms": 1068.79,
+          "ac_rms_ratio": 0.9879023341762468
+        },
+        "ym_ssg": {
+          "mame_mean": 1883.4526250104577,
+          "mame_ac_rms": 1483.6579624605824,
+          "rtl_mean": 1881.67,
+          "rtl_ac_rms": 1490.2,
+          "ac_rms_ratio": 1.0044093973846693
+        },
+        "ay1": {
+          "mame_mean": -2419.1051434422584,
+          "mame_ac_rms": 1589.2168492323472,
+          "rtl_mean": -2423.96,
+          "rtl_ac_rms": 1583.5,
+          "ac_rms_ratio": 0.9964027255090401
+        },
+        "ay2": {
+          "mame_mean": -7175.894910701134,
+          "mame_ac_rms": 625.5938597282559,
+          "rtl_mean": -7178.8,
+          "rtl_ac_rms": 623.808,
+          "ac_rms_ratio": 0.9971453368659474
+        },
+        "dac": {
+          "mame_mean": 0.0,
+          "mame_ac_rms": 0.0,
+          "rtl_mean": 0.0,
+          "rtl_ac_rms": 0.0,
+          "ac_rms_ratio": null
+        }
+      }
+    },
+    {
+      "second": 20,
+      "devices": {
+        "fm": {
+          "mame_mean": 27.495732782931114,
+          "mame_ac_rms": 1479.2311018290688,
+          "rtl_mean": -9.03076,
+          "rtl_ac_rms": 1470.63,
+          "ac_rms_ratio": 0.9941854238878337
+        },
+        "ym_ssg": {
+          "mame_mean": 1464.0143982575705,
+          "mame_ac_rms": 1597.1000411451241,
+          "rtl_mean": 1471.95,
+          "rtl_ac_rms": 1567.78,
+          "ac_rms_ratio": 0.981641700338257
+        },
+        "ay1": {
+          "mame_mean": -3183.184712135095,
+          "mame_ac_rms": 684.2432541791861,
+          "rtl_mean": -3184.92,
+          "rtl_ac_rms": 682.133,
+          "ac_rms_ratio": 0.9969159298739195
+        },
+        "ay2": {
+          "mame_mean": -6450.574947315297,
+          "mame_ac_rms": 756.751722542038,
+          "rtl_mean": -6452.54,
+          "rtl_ac_rms": 782.052,
+          "ac_rms_ratio": 1.0334327319044279
+        },
+        "dac": {
+          "mame_mean": 2048.0,
+          "mame_ac_rms": 0.0,
+          "rtl_mean": 2048.0,
+          "rtl_ac_rms": 0.0,
+          "ac_rms_ratio": null
+        }
+      }
+    },
+    {
+      "second": 29,
+      "devices": {
+        "fm": {
+          "mame_mean": 6.477050508202048,
+          "mame_ac_rms": 1057.2659852560462,
+          "rtl_mean": 10.6219,
+          "rtl_ac_rms": 1045.58,
+          "ac_rms_ratio": 0.9889469769963174
+        },
+        "ym_ssg": {
+          "mame_mean": 1873.4870165480206,
+          "mame_ac_rms": 1488.7896843157164,
+          "rtl_mean": 1867.78,
+          "rtl_ac_rms": 1480.4,
+          "ac_rms_ratio": 0.9943647619243329
+        },
+        "ay1": {
+          "mame_mean": -3021.7068165552446,
+          "mame_ac_rms": 1284.7969778658994,
+          "rtl_mean": -3024.04,
+          "rtl_ac_rms": 1280.05,
+          "ac_rms_ratio": 0.996305270056142
+        },
+        "ay2": {
+          "mame_mean": -7178.478718332485,
+          "mame_ac_rms": 622.1828420047475,
+          "rtl_mean": -7176.02,
+          "rtl_ac_rms": 628.303,
+          "ac_rms_ratio": 1.009836590760897
+        },
+        "dac": {
+          "mame_mean": 2048.0,
+          "mame_ac_rms": 0.0,
+          "rtl_mean": 2048.0,
+          "rtl_ac_rms": 0.0,
+          "ac_rms_ratio": null
+        }
+      }
+    }
+  ],
+  "correction": "Original punch native capture has final mixedPCM only, but existing corrected1800 isolated-command replay DOES retain actual per-chip component moments. ExternalAY pitch and nominal route arithmetic already have isolated contracts; do not demand another capture for those source-valid scopes.",
+  "limits": [
+    "Whole-graph YM FM/SSG current pitch is not implied by the externalAY contract. Current wrapper/readback and YM dependencies differ from the original soundchips manifest; only unchanged externalAY path is reused.",
+    "Seven-vector nominal mixer arithmetic is byte-identical currentRTL; the per-route1800 data is retained finite command-replay moment evidence, not naturalCPU action acceptance or entire current sound graph equivalence.",
+    "One 512sample mixed noise RMSdifference13.99% is descriptive, not a mixgain gate without phase/statistical qualification.",
+    "Broad P5 effects/action semantics and physical analog balance remain open."
+  ],
+  "evidence_pins": [
+    {
+      "path": "D:\\Arcade\\AI\\aCORES\\Alpha68k N\\research\\soundchips_inputs.sha256",
+      "sha256": "892741bc942077e3054706437ce1d9041182906852addbd8e2486ed051b01c13"
+    },
+    {
+      "path": "D:\\Arcade\\AI\\aCORES\\Alpha68k N\\research\\soundchips_contracts.json",
+      "sha256": "2e0bdbc7e2d2b320fa7065262604f42aef95913bc093760f504b0384320b06f9"
+    },
+    {
+      "path": "D:\\Arcade\\AI\\aCORES\\Alpha68k N\\research\\soundchips_contracts.log",
+      "sha256": "88a1312be020560edb5c95d96cf936a07a5db9820b68b3999894e81de9f33ade"
+    },
+    {
+      "path": "D:\\Arcade\\AI\\aCORES\\Alpha68k N\\rtl\\alpha68kn_soundchips.sv",
+      "sha256": "5031188ac069c50e0deb4594947395b5440ac288e41f29c09fec8a80e1a45e37"
+    },
+    {
+      "path": "D:\\Arcade\\AI\\aCORES\\meatsauce-alpha68kn\\cores\\Alpha68k_N\\rtl\\alpha68kn_soundchips.sv",
+      "sha256": "5031188ac069c50e0deb4594947395b5440ac288e41f29c09fec8a80e1a45e37"
+    },
+    {
+      "path": "D:\\Arcade\\AI\\aCORES\\Alpha68k N\\research\\mixer_ymfm_contract_manifest.json",
+      "sha256": "be71c86b0795e2e1e4eb4db4cad7e02c5e00a5e326bc2f5566475efefe440d96"
+    },
+    {
+      "path": "D:\\Arcade\\AI\\aCORES\\Alpha68k N\\research\\mixer_ymfm_inputs.sha256",
+      "sha256": "366abbe5fe8b58bb164fd2bcd8a2367a771bddb571b4c37420f53102f63a8e10"
+    },
+    {
+      "path": "D:\\Arcade\\AI\\aCORES\\Alpha68k N\\sim\\mixer_main.cpp",
+      "sha256": "2231c5423427454b67511266d7656613d4991bff9e59578f5209c620238cae11"
+    },
+    {
+      "path": "D:\\Arcade\\AI\\aCORES\\Alpha68k N\\research\\audio_component_curve_fixed.json",
+      "sha256": "b740ea7d5dd52012d487d218838bb6b016a094c8ec3438501fa6d747d6422bcb"
+    },
+    {
+      "path": "D:\\Arcade\\AI\\aCORES\\Alpha68k N\\sim\\captures\\kyros\\sound_components1800\\sound_components.csv",
+      "sha256": "b73959244e5622cf457c74ffff23625ca7f6ed125712307081ed7275d40a2305"
+    },
+    {
+      "path": "D:\\Arcade\\AI\\aCORES\\Alpha68k N\\sim\\captures\\audio\\kyros_ymcurve_fixed1800\\components.csv",
+      "sha256": "ff9078359eff87f7eecfb678a3a06decaf4613765545e93354eb965cc5376caf"
+    },
+    {
+      "path": "D:\\Arcade\\AI\\aCORES\\Alpha68k N\\scripts\\audit_kyros_existing_audio_contracts.py",
+      "sha256": "d56f38bbc3b391ffca31cd480aa2616ad7cd8c056d4a3ac61eec7e4822923f2d"
+    }
+  ],
+  "fullP5pass": false,
+  "fullB03_B06pass": false
+}

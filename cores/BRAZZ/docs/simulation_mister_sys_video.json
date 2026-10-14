@@ -1,0 +1,103 @@
+{
+  "target": "mister_sys_video",
+  "acceptance": "unit verification",
+  "runtime": "native Windows PE / MSYS2 UCRT64",
+  "commands": [
+    [
+      "D:/vibes/fpga/bin/verilator.exe",
+      "--cc",
+      "--exe",
+      "--build",
+      "-j",
+      "4",
+      "-O3",
+      "--top-module",
+      "cs_sys_video",
+      "--Mdir",
+      "R:/Verilator/CrystalSystem/tool-20261008T171924411Z-50788-60691125/obj_dir",
+      "-CFLAGS",
+      "-O2",
+      "-MAKEFLAGS",
+      "OPT_FAST=-O2",
+      "-MAKEFLAGS",
+      "OPT_GLOBAL=-O2",
+      "-Wno-fatal",
+      "-Wno-PROCASSWIRE",
+      "--public-flat-rw",
+      "D:/Arcade/AI/aCORES/BRAZZ/Arcade-CrystalSystem_MiSTer/rtl/video/cs_video_hold.sv",
+      "D:/Arcade/AI/aCORES/BRAZZ/Arcade-CrystalSystem_MiSTer/rtl/vendor/crt_adjust.sv",
+      "D:/Arcade/AI/aCORES/BRAZZ/Arcade-CrystalSystem_MiSTer/rtl/video/crystal_crt_adjust.sv",
+      "D:/Arcade/AI/aCORES/BRAZZ/Arcade-CrystalSystem_MiSTer/sys/arcade_video.v",
+      "D:/Arcade/AI/aCORES/BRAZZ/Arcade-CrystalSystem_MiSTer/sys/video_mixer.sv",
+      "D:/Arcade/AI/aCORES/BRAZZ/Arcade-CrystalSystem_MiSTer/sys/scandoubler.v",
+      "D:/Arcade/AI/aCORES/BRAZZ/Arcade-CrystalSystem_MiSTer/sys/hq2x.sv",
+      "D:/Arcade/AI/aCORES/BRAZZ/Arcade-CrystalSystem_MiSTer/sys/gamma_corr.sv",
+      "D:/Arcade/AI/aCORES/BRAZZ/Arcade-CrystalSystem_MiSTer/sys/video_freezer.sv",
+      "D:/Arcade/AI/aCORES/BRAZZ/Arcade-CrystalSystem_MiSTer/sim/mister/sync_fix.v",
+      "D:/Arcade/AI/aCORES/BRAZZ/Arcade-CrystalSystem_MiSTer/sim/mister/sys_video.sv",
+      "D:/Arcade/AI/aCORES/BRAZZ/Arcade-CrystalSystem_MiSTer/sim/mister/sys_video.cpp"
+    ],
+    [
+      "D:/vibes/fpga/bin/verilator.exe",
+      "sim",
+      "R:/Verilator/CrystalSystem/tool-20261008T171924411Z-50788-60691125/obj_dir/Vcs_sys_video.exe"
+    ]
+  ],
+  "exit_code": 0,
+  "run_seconds": 228.60362390000228,
+  "sources": [
+    {
+      "path": "rtl/video/cs_video_hold.sv",
+      "sha256": "f0746184b9ce66dc28a8ff2fb53e4268501ecee7a1009d1685e1cf58bb31031b"
+    },
+    {
+      "path": "rtl/vendor/crt_adjust.sv",
+      "sha256": "e66c4bae75ca86606c134fa82e57f63274331422a2c8931188495dfeac5afc21"
+    },
+    {
+      "path": "rtl/video/crystal_crt_adjust.sv",
+      "sha256": "908fb36c54fb52b3dbe0ceb7d637a14e387f537c48aa62d350318513b948e7d1"
+    },
+    {
+      "path": "sys/arcade_video.v",
+      "sha256": "ce64cdd7f900ded7b9cd9aa728dab7383b7561cdc75dfe82ab23fe27a3d217d3"
+    },
+    {
+      "path": "sys/video_mixer.sv",
+      "sha256": "31ed2c917bd6680b4d60328e71a4f28015bd5fcec21e15b290eacec88971167d"
+    },
+    {
+      "path": "sys/scandoubler.v",
+      "sha256": "e165eed142dbe525872038d7fe7fa4c6a50581473189cd4ee5d5d1cdbf5497c2"
+    },
+    {
+      "path": "sys/hq2x.sv",
+      "sha256": "add2820efe5574abae4cd8a2bdb22d468daedfb2af7b58f9c6585e7915f8ebed"
+    },
+    {
+      "path": "sys/gamma_corr.sv",
+      "sha256": "bf5a10783c8e5846f2124e67c555d23bd900ac5d05f611aecad23b8a4c4db10d"
+    },
+    {
+      "path": "sys/video_freezer.sv",
+      "sha256": "0f3f4710b072b7e90b0b6bfe7607dec18dbd6bed78d1994f32d6fa72a6b7aef3"
+    },
+    {
+      "path": "sim/mister/sync_fix.v",
+      "sha256": "73b7a3c069542932efe1e485c36a0f15cafa4d3ab6aa34696bb5bb53fa85cca4"
+    },
+    {
+      "path": "sim/mister/sys_video.sv",
+      "sha256": "542aa7909b6d69f8f67ab102d1991fb025edd0341965268a8817d47f17cb1920"
+    },
+    {
+      "path": "sim/mister/sys_video.cpp",
+      "sha256": "0627223536975000bef4d150e654d59c22e461a2227d1923c68500ddff938f4f"
+    }
+  ],
+  "workspace": "R:/Verilator/CrystalSystem/tool-20261008T171924411Z-50788-60691125",
+  "timing_profile": null,
+  "stdout": "undriven HDMI_FREEZE in Verilator = 0 (tied to 0 below)\nnative (Direct Video / 15 kHz) CRT adjust off px width 12 [12..12], line 5460 clk (15.734 kHz), lines/frame 262, active lines 240, px/line 320, HS 408, VS 16380, sync->picture 94163, frame 1430520, column errors 0\nnative (Direct Video / 15 kHz) CRT adjust size 0 pos 7 shift 7 px width 12 [12..12], line 5460 clk (15.734 kHz), lines/frame 262, active lines 240, px/line 320, HS 408, VS 16380, sync->picture 60899, frame 1430520, column errors 0\nnative (Direct Video / 15 kHz) CRT adjust size 0 pos -8 shift 0 px width 12 [12..12], line 5460 clk (15.734 kHz), lines/frame 262, active lines 240, px/line 320, HS 408, VS 16380, sync->picture 99875, frame 1430520, column errors 0\n  VS low clocks over 2 warm-up frames: 2828280 (shift -3)\n  VS edge at line 241.98 level 1\n  VS edge at line 244.98 level 0\n  VS edge at line 503.98 level 1\n  VS edge at line 506.98 level 0\n  VS edge at line 765.98 level 1\n  VS edge at line 768.98 level 0\n  VS edge at line 1027.98 level 1\n  VS edge at line 1030.98 level 0\n  VS edge at line 1289.98 level 1\n  VS edge at line 1292.98 level 0\n  VS edge at line 1551.98 level 1\n  VS edge at line 1554.98 level 0\nnative (Direct Video / 15 kHz) CRT adjust size 0 pos 0 shift -3 px width 12 [12..12], line 5460 clk (15.734 kHz), lines/frame 262, active lines 240, px/line 320, HS 408, VS 16380, sync->picture 116003, frame 1430520, column errors 0\n  VS low clocks over 2 warm-up frames: 2828280 (shift -8)\nnative (Direct Video / 15 kHz) CRT adjust size 0 pos 0 shift -8 px width 12 [12..12], line 5460 clk (15.734 kHz), lines/frame 262, active lines 240, px/line 320, HS 408, VS 16380, sync->picture 116003, frame 1430520, column errors 0\nnative (Direct Video / 15 kHz) CRT adjust size 10 pos 0 shift 0 px width VARIES [13..14], line 5460 clk (15.734 kHz), lines/frame 262, active lines 240, px/line 320, HS 413, VS 16380, sync->picture 99426, frame 1430520, column errors 0\nnative (Direct Video / 15 kHz) CRT adjust size 11 pos 0 shift 0 px width VARIES [10..11], line 5460 clk (15.734 kHz), lines/frame 262, active lines 240, px/line 320, HS 407, VS 16380, sync->picture 99833, frame 1430520, column errors 0\nforced scandoubler CRT adjust off  px width 6 [6..6], line 2730 clk (31.469 kHz), lines/frame 524, active lines 480, px/line 320, HS 204, VS 16380, sync->picture 96035, frame 1430520, column errors 0\nforced scandoubler CRT adjust size 0 pos 7 shift 7 px width 6 [6..6], line 2730 clk (31.469 kHz), lines/frame 524, active lines 480, px/line 320, HS 204, VS 16380, sync->picture 96035, frame 1430520, column errors 0\nHQ2x CRT adjust off                px width 3 [3..3], line 2730 clk (31.469 kHz), lines/frame 524, active lines 480, px/line 640, HS 204, VS 16380, sync->picture 96032, frame 1430520, column errors 0\nHQ2x CRT adjust size 0 pos 7 shift 7 px width 3 [3..3], line 2730 clk (31.469 kHz), lines/frame 524, active lines 480, px/line 640, HS 204, VS 16380, sync->picture 96032, frame 1430520, column errors 0\nHQ2x CRT adjust size 0 pos -8 shift 0 px width 3 [3..3], line 2730 clk (31.469 kHz), lines/frame 524, active lines 480, px/line 640, HS 204, VS 16380, sync->picture 96032, frame 1430520, column errors 0\nHQ2x CRT adjust size 0 pos 0 shift -3 px width 3 [3..3], line 2730 clk (31.469 kHz), lines/frame 524, active lines 480, px/line 640, HS 204, VS 16380, sync->picture 96032, frame 1430520, column errors 0\nHQ2x CRT adjust size 0 pos 0 shift -8 px width 3 [3..3], line 2730 clk (31.469 kHz), lines/frame 524, active lines 480, px/line 640, HS 204, VS 16380, sync->picture 96032, frame 1430520, column errors 0\nHQ2x CRT adjust size 10 pos 0 shift 0 px width 3 [3..3], line 2730 clk (31.469 kHz), lines/frame 524, active lines 480, px/line 640, HS 204, VS 16380, sync->picture 96032, frame 1430520, column errors 0\nHQ2x CRT adjust size 11 pos 0 shift 0 px width 3 [3..3], line 2730 clk (31.469 kHz), lines/frame 524, active lines 480, px/line 640, HS 204, VS 16380, sync->picture 96032, frame 1430520, column errors 0\nCRT 25% CRT adjust off             px width 6 [6..6], line 2730 clk (31.469 kHz), lines/frame 524, active lines 480, px/line 320, HS 204, VS 16380, sync->picture 96035, frame 1430520, column errors 0\nCRT 25% CRT adjust size 0 pos 7 shift 7 px width 6 [6..6], line 2730 clk (31.469 kHz), lines/frame 524, active lines 480, px/line 320, HS 204, VS 16380, sync->picture 96035, frame 1430520, column errors 0\nCRT 50% CRT adjust off             px width 6 [6..6], line 2730 clk (31.469 kHz), lines/frame 524, active lines 480, px/line 320, HS 204, VS 16380, sync->picture 96035, frame 1430520, column errors 0\nCRT 50% CRT adjust size 0 pos 7 shift 7 px width 6 [6..6], line 2730 clk (31.469 kHz), lines/frame 524, active lines 480, px/line 320, HS 204, VS 16380, sync->picture 96035, frame 1430520, column errors 0\nCRT 75% CRT adjust off             px width 6 [6..6], line 2730 clk (31.469 kHz), lines/frame 524, active lines 480, px/line 320, HS 204, VS 16380, sync->picture 96035, frame 1430520, column errors 0\nCRT 75% CRT adjust size 0 pos 7 shift 7 px width 6 [6..6], line 2730 clk (31.469 kHz), lines/frame 524, active lines 480, px/line 320, HS 204, VS 16380, sync->picture 96035, frame 1430520, column errors 0\nPASS raw sys video chain: native/direct, scandoubler, HQ2x and CRT scanline modes at CRT Adjust 0/+7/-8\n",
+  "stderr": "",
+  "build_log": "sim/obj_dir/mister_sys_video/build.log"
+}

@@ -1,0 +1,178 @@
+{
+  "status": "unresolved_source_continuation_no_production_equation",
+  "scope": "Related Bandido CPU sheet35; exact Sheriff PCB revision and propagation not qualified",
+  "source_sha256": {
+    "_checks/manuals/bandido-1980.pdf": "aa68eb8538e404c2ee1e02b7b47c0e40c62e9d9800cefcf22981c733c4b30224",
+    "_checks/manuals/bandido-page-35.png": "0638d4f90cd7b99feb94a2252569f858c6e8f5b0eb6ab4b822da2565ded4a562",
+    "_checks/agent-cpu-ram-control-20261010/views.json": "5002d8b95c4aa4872ee00b41b5e753c18735cdaa4a2df0dd37817c1f3bfc6428",
+    "_checks/agent-cpu-ram-control-20261010/source_views.py": "f36c71637d6e58b5f868e17cad43430dfe56ac770ca90064b14e3c7e2231fd7a"
+  },
+  "views": [
+    {
+      "path": "_checks/agent-cpu-ram-control-20261010/cpu-control-network.png",
+      "source": "_checks/manuals/bandido-page-35.png",
+      "original_pixel_box": [
+        2900,
+        3000,
+        3700,
+        5350
+      ],
+      "scale": 1,
+      "coordinate_overlay": true,
+      "sha256": "2732397a6e7db22a4e6552e06fe1f248a15c1ad110ddec556e9bc5b44989c515"
+    },
+    {
+      "path": "_checks/agent-cpu-ram-control-20261010/cpu-control-top.png",
+      "source": "_checks/manuals/bandido-page-35.png",
+      "original_pixel_box": [
+        2650,
+        1800,
+        3900,
+        3500
+      ],
+      "scale": 1,
+      "coordinate_overlay": false,
+      "sha256": "3c648eb2bf0fcc4e79578a791e057f7ead4bfc827809b30a1f7e0617d22d4a3c"
+    },
+    {
+      "path": "_checks/agent-cpu-ram-control-20261010/cpu-read-write-join.png",
+      "source": "_checks/manuals/bandido-page-35.png",
+      "original_pixel_box": [
+        3050,
+        4650,
+        3750,
+        5480
+      ],
+      "scale": 2,
+      "coordinate_overlay": false,
+      "sha256": "8efc086606aa779cbb4fdf6e830946312743716091782aee0420c329d46bc382"
+    },
+    {
+      "path": "_checks/agent-cpu-ram-control-20261010/cpu-3e-connected.png",
+      "source": "_checks/manuals/bandido-page-35.png",
+      "original_pixel_box": [
+        2980,
+        3480,
+        3260,
+        4370
+      ],
+      "scale": 2,
+      "coordinate_overlay": false,
+      "sha256": "15dcb02b5ce99c2f186d6cc43ecde3376f30d16421e1fa5f44f52c05bda25d95"
+    },
+    {
+      "path": "_checks/agent-cpu-ram-control-20261010/cpu-3e-output-continuation.png",
+      "source": "_checks/manuals/bandido-page-35.png",
+      "original_pixel_box": [
+        3000,
+        4150,
+        3750,
+        5350
+      ],
+      "scale": 1,
+      "coordinate_overlay": false,
+      "sha256": "4718e867c55a8d80f85b745dd03fb0d90f5d5381ab856eed999c577b7157041a"
+    },
+    {
+      "path": "_checks/agent-cpu-ram-control-20261010/cpu-control-absolute.png",
+      "source": "_checks/manuals/bandido-page-35.png",
+      "original_pixel_box": [
+        2940,
+        3400,
+        3720,
+        5320
+      ],
+      "scale": 1,
+      "coordinate_overlay": true,
+      "sha256": "48c3357ad2000624de9adc162c011ea2f4849af94971a15a8f40a0b6bd068b14"
+    },
+    {
+      "path": "_checks/agent-cpu-ram-control-20261010/cpu-lower-joins.png",
+      "source": "_checks/manuals/bandido-page-35.png",
+      "original_pixel_box": [
+        2990,
+        4120,
+        3750,
+        4420
+      ],
+      "scale": 2,
+      "coordinate_overlay": true,
+      "sha256": "719a367c437cc3e8f784a555d55fff404ca0974983b7e1555136d35f096b3d79"
+    },
+    {
+      "path": "_checks/agent-cpu-ram-control-20261010/cpu-wrrd-origin.png",
+      "source": "_checks/manuals/bandido-page-35.png",
+      "original_pixel_box": [
+        3400,
+        5080,
+        3800,
+        5260
+      ],
+      "scale": 3,
+      "coordinate_overlay": true,
+      "sha256": "d7c045f285a7c931f94b80310125ba7a39b1f47786f30bfcebaf110bc8d358d9"
+    },
+    {
+      "path": "_checks/agent-cpu-ram-control-20261010/cpu-input-control-connected.png",
+      "source": "_checks/manuals/bandido-page-35.png",
+      "original_pixel_box": [
+        2080,
+        3350,
+        3750,
+        5500
+      ],
+      "scale": 1,
+      "coordinate_overlay": true,
+      "sha256": "e55b94ded017f9be0f6c9ecec7bdd4a973413e7c5baad069a5ddc2357ecfd60d"
+    }
+  ],
+  "confirmed_connections": [
+    {
+      "from": "CPU-board 3E LS02 output pin1",
+      "to": "5B LS32 input pin9",
+      "source_page": 35,
+      "box": [
+        2980,
+        3480,
+        3260,
+        4370
+      ]
+    },
+    {
+      "from": "CPU-board 3E LS02 output pin4",
+      "to": "same package input pin3",
+      "source_page": 35,
+      "box": [
+        2980,
+        3480,
+        3260,
+        4370
+      ]
+    },
+    {
+      "connection": "CPU-board 3E inputs5 and6 are tied together",
+      "source_page": 35,
+      "box": [
+        2980,
+        3480,
+        3260,
+        4370
+      ]
+    }
+  ],
+  "unresolved": [
+    "Raw source at upper 3E input2 and lower tied 3E inputs5/6",
+    "CPU_WR_RD original sheet35 turn near x3555,y5210 back through continuations near y4215/4250",
+    "Cross-page CPU_WR_RD-to-video RAM 3E input11 polarity and timing bridge",
+    "Exact Sheriff revision equivalence"
+  ],
+  "withheld": [
+    "CPU_WR_RD equation",
+    "CPU RAS/CAS arbitration implementation",
+    "Timing or gameplay qualification"
+  ],
+  "verification": {
+    "kind": "source artifact existence and SHA256 retention only",
+    "native_test": "not applicable: no behavior changed"
+  }
+}

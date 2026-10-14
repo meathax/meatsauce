@@ -1,0 +1,33 @@
+{
+  "gate": "BLOCKED-by-live reference at before_claim admission",
+  "actual_supervisor_exit": 1,
+  "actual_MAME_launch": false,
+  "actual_MAME_pid": null,
+  "automatic_retry": false,
+  "scan_actual_exit": 0,
+  "scan_utc": "2026-10-10T22:55:37.391492+00:00",
+  "recorded_rows": [
+    {
+      "ProcessId": 52048,
+      "Name": "mame.exe",
+      "ExecutablePath": "D:\\Arcade\\AI\\mameexe\\mame.exe",
+      "CreationDate": "/Date(1791672921320)/",
+      "CreationDateUTC": "2026-10-10T22:55:21.320000+00:00"
+    }
+  ],
+  "expected_owned_reference_executable": "D:\\Arcade\\AI\\aCORES\\Alpha68k N\\tools\\mame0289\\mame.exe",
+  "V5_repository_owned": false,
+  "other_session_ownership": "UNKNOWN; existing retained evidence does not identify an owner",
+  "observed_path_differs_from_this_packet": true,
+  "ownership_limit": "Recorded PID/path/creation identify the blocking process at scan time; no new live-state or owner claim",
+  "fresh_output_absence": {
+    "one_attempt.claim": true,
+    "admission.json": true,
+    "capture": true,
+    "worker.json": true,
+    "mame_exit.json": true
+  },
+  "no_interference": true,
+  "previous3764_postscan_identity_still_unknown": true,
+  "failure": "Reference lane not exclusive; stopped before x-claim and before any guest launch"
+}

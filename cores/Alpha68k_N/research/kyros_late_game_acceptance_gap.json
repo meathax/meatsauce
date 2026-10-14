@@ -1,0 +1,1717 @@
+{
+  "scope": "Bounded read-only audit of existing Kyros B01/B02 renderer fixtures and completed actual CPU evidence. No replay, state writes or acceptance closure.",
+  "rom_sha256": "6949ea5dc91dfced8c1afccbadee18c2e795ab38d8adbc3795f05a19b8f3b2b3",
+  "assembly_sha256": "da4e0ed81c446f9c77107fbac9e30f950d7e4cce20f2285fe78f14115f8d707d",
+  "verified_rom_instructions": [
+    {
+      "pc": "0x42c",
+      "assembly_line": 485,
+      "opcode": "4df900020000",
+      "text": "0042c: 4df9 0002 0000            lea     $20000.l, A6"
+    },
+    {
+      "pc": "0x1a1e",
+      "assembly_line": 1890,
+      "opcode": "522e0101",
+      "text": "01a1e: 522e 0101                 addq.b  #1, ($101,A6)"
+    },
+    {
+      "pc": "0x1a2c",
+      "assembly_line": 1893,
+      "opcode": "1d7c00010101",
+      "text": "01a2c: 1d7c 0001 0101            move.b  #$1, ($101,A6)"
+    },
+    {
+      "pc": "0x1a40",
+      "assembly_line": 1897,
+      "opcode": "1d7c00040101",
+      "text": "01a40: 1d7c 0004 0101            move.b  #$4, ($101,A6)"
+    },
+    {
+      "pc": "0x1a4e",
+      "assembly_line": 1900,
+      "opcode": "1d7c00030101",
+      "text": "01a4e: 1d7c 0003 0101            move.b  #$3, ($101,A6)"
+    },
+    {
+      "pc": "0x1a54",
+      "assembly_line": 1901,
+      "opcode": "522e0100",
+      "text": "01a54: 522e 0100                 addq.b  #1, ($100,A6)"
+    },
+    {
+      "pc": "0x1b90",
+      "assembly_line": 1966,
+      "opcode": "102e0110",
+      "text": "01b90: 102e 0110                 move.b  ($110,A6), D0"
+    },
+    {
+      "pc": "0x1e000",
+      "assembly_line": 38249,
+      "opcode": "4a2e0d10",
+      "text": "1e000: 4a2e 0d10                 tst.b   ($d10,A6)"
+    },
+    {
+      "pc": "0x1e81a",
+      "assembly_line": 38874,
+      "opcode": "102e0d11",
+      "text": "1e81a: 102e 0d11                 move.b  ($d11,A6), D0"
+    },
+    {
+      "pc": "0x1eca8",
+      "assembly_line": 39202,
+      "opcode": "102e0d12",
+      "text": "1eca8: 102e 0d12                 move.b  ($d12,A6), D0"
+    },
+    {
+      "pc": "0x1edd4",
+      "assembly_line": 39287,
+      "opcode": "522e0d12",
+      "text": "1edd4: 522e 0d12                 addq.b  #1, ($d12,A6)"
+    },
+    {
+      "pc": "0x1f004",
+      "assembly_line": 39446,
+      "opcode": "302e0d1a",
+      "text": "1f004: 302e 0d1a                 move.w  ($d1a,A6), D0"
+    }
+  ],
+  "markers": {
+    "round_cycle": {
+      "address": "0x20100",
+      "width_bits": 8,
+      "limit": "Source increments on scene-selector wrap; not interpreted as displayed stage number."
+    },
+    "scene_selector": {
+      "address": "0x20101",
+      "width_bits": 8,
+      "source_sequence": [
+        3,
+        1,
+        2,
+        4,
+        5,
+        3
+      ]
+    },
+    "room_cursor": {
+      "address": "0x20110",
+      "width_bits": 16,
+      "encoding": "big endian; high byte chooses descriptor",
+      "stage5_late_fixture_value": "0x0900"
+    },
+    "ending_dispatch": {
+      "addresses": [
+        "0x20d10",
+        "0x20d11",
+        "0x20d12"
+      ],
+      "width_bits_each": 8,
+      "fixture_values": [
+        5,
+        2,
+        2
+      ],
+      "source": "Natural main-loop dispatch at1e000 reaches1e81a/1eca8 then staff text copying1f004; fixture values are not evidence of legitimate gameplay."
+    },
+    "excluded_guesses": [
+      "0x20009 is a scheduling byte, not a qualified mode marker.",
+      "0x20912 is an object-loop counter, not stage."
+    ]
+  },
+  "actual_cpu_combat": {
+    "terminal_exit_code": 0,
+    "fields": 3301,
+    "snapshot_count": 130,
+    "snapshot_hashes": [
+      {
+        "field": 0,
+        "round": 0,
+        "scene": 0,
+        "room_word": 0,
+        "ending_d10": 0,
+        "ending_d11": 0,
+        "ending_d12": 0,
+        "path": "sim\\captures\\rtl\\kyros_combat_hud3301\\frame_000000.work.bin",
+        "sha256": "ad7facb2586fc6e966c004d7d1d16b024f5805ff7cb47c7a85dabd8b48892ca7"
+      },
+      {
+        "field": 1,
+        "round": 0,
+        "scene": 0,
+        "room_word": 0,
+        "ending_d10": 0,
+        "ending_d11": 0,
+        "ending_d12": 0,
+        "path": "sim\\captures\\rtl\\kyros_combat_hud3301\\frame_000001.work.bin",
+        "sha256": "ad7facb2586fc6e966c004d7d1d16b024f5805ff7cb47c7a85dabd8b48892ca7"
+      },
+      {
+        "field": 2,
+        "round": 0,
+        "scene": 0,
+        "room_word": 0,
+        "ending_d10": 0,
+        "ending_d11": 0,
+        "ending_d12": 0,
+        "path": "sim\\captures\\rtl\\kyros_combat_hud3301\\frame_000002.work.bin",
+        "sha256": "ad7facb2586fc6e966c004d7d1d16b024f5805ff7cb47c7a85dabd8b48892ca7"
+      },
+      {
+        "field": 3,
+        "round": 0,
+        "scene": 0,
+        "room_word": 0,
+        "ending_d10": 0,
+        "ending_d11": 0,
+        "ending_d12": 0,
+        "path": "sim\\captures\\rtl\\kyros_combat_hud3301\\frame_000003.work.bin",
+        "sha256": "ad7facb2586fc6e966c004d7d1d16b024f5805ff7cb47c7a85dabd8b48892ca7"
+      },
+      {
+        "field": 4,
+        "round": 0,
+        "scene": 0,
+        "room_word": 0,
+        "ending_d10": 0,
+        "ending_d11": 0,
+        "ending_d12": 0,
+        "path": "sim\\captures\\rtl\\kyros_combat_hud3301\\frame_000004.work.bin",
+        "sha256": "3c14726172174d1acec8efcf7f89238390d50de5898d9aa5c84e886ed003bfdd"
+      },
+      {
+        "field": 5,
+        "round": 0,
+        "scene": 0,
+        "room_word": 0,
+        "ending_d10": 0,
+        "ending_d11": 0,
+        "ending_d12": 0,
+        "path": "sim\\captures\\rtl\\kyros_combat_hud3301\\frame_000005.work.bin",
+        "sha256": "3c14726172174d1acec8efcf7f89238390d50de5898d9aa5c84e886ed003bfdd"
+      },
+      {
+        "field": 6,
+        "round": 0,
+        "scene": 0,
+        "room_word": 0,
+        "ending_d10": 0,
+        "ending_d11": 0,
+        "ending_d12": 0,
+        "path": "sim\\captures\\rtl\\kyros_combat_hud3301\\frame_000006.work.bin",
+        "sha256": "3c14726172174d1acec8efcf7f89238390d50de5898d9aa5c84e886ed003bfdd"
+      },
+      {
+        "field": 7,
+        "round": 0,
+        "scene": 0,
+        "room_word": 0,
+        "ending_d10": 0,
+        "ending_d11": 0,
+        "ending_d12": 0,
+        "path": "sim\\captures\\rtl\\kyros_combat_hud3301\\frame_000007.work.bin",
+        "sha256": "3c14726172174d1acec8efcf7f89238390d50de5898d9aa5c84e886ed003bfdd"
+      },
+      {
+        "field": 8,
+        "round": 0,
+        "scene": 0,
+        "room_word": 0,
+        "ending_d10": 0,
+        "ending_d11": 0,
+        "ending_d12": 0,
+        "path": "sim\\captures\\rtl\\kyros_combat_hud3301\\frame_000008.work.bin",
+        "sha256": "3c14726172174d1acec8efcf7f89238390d50de5898d9aa5c84e886ed003bfdd"
+      },
+      {
+        "field": 9,
+        "round": 0,
+        "scene": 0,
+        "room_word": 0,
+        "ending_d10": 0,
+        "ending_d11": 0,
+        "ending_d12": 0,
+        "path": "sim\\captures\\rtl\\kyros_combat_hud3301\\frame_000009.work.bin",
+        "sha256": "3c14726172174d1acec8efcf7f89238390d50de5898d9aa5c84e886ed003bfdd"
+      },
+      {
+        "field": 10,
+        "round": 0,
+        "scene": 0,
+        "room_word": 0,
+        "ending_d10": 0,
+        "ending_d11": 0,
+        "ending_d12": 0,
+        "path": "sim\\captures\\rtl\\kyros_combat_hud3301\\frame_000010.work.bin",
+        "sha256": "3c14726172174d1acec8efcf7f89238390d50de5898d9aa5c84e886ed003bfdd"
+      },
+      {
+        "field": 11,
+        "round": 0,
+        "scene": 0,
+        "room_word": 0,
+        "ending_d10": 0,
+        "ending_d11": 0,
+        "ending_d12": 0,
+        "path": "sim\\captures\\rtl\\kyros_combat_hud3301\\frame_000011.work.bin",
+        "sha256": "3c14726172174d1acec8efcf7f89238390d50de5898d9aa5c84e886ed003bfdd"
+      },
+      {
+        "field": 12,
+        "round": 0,
+        "scene": 0,
+        "room_word": 0,
+        "ending_d10": 0,
+        "ending_d11": 0,
+        "ending_d12": 0,
+        "path": "sim\\captures\\rtl\\kyros_combat_hud3301\\frame_000012.work.bin",
+        "sha256": "3c14726172174d1acec8efcf7f89238390d50de5898d9aa5c84e886ed003bfdd"
+      },
+      {
+        "field": 13,
+        "round": 0,
+        "scene": 0,
+        "room_word": 0,
+        "ending_d10": 0,
+        "ending_d11": 0,
+        "ending_d12": 0,
+        "path": "sim\\captures\\rtl\\kyros_combat_hud3301\\frame_000013.work.bin",
+        "sha256": "3c14726172174d1acec8efcf7f89238390d50de5898d9aa5c84e886ed003bfdd"
+      },
+      {
+        "field": 14,
+        "round": 0,
+        "scene": 0,
+        "room_word": 0,
+        "ending_d10": 0,
+        "ending_d11": 0,
+        "ending_d12": 0,
+        "path": "sim\\captures\\rtl\\kyros_combat_hud3301\\frame_000014.work.bin",
+        "sha256": "3c14726172174d1acec8efcf7f89238390d50de5898d9aa5c84e886ed003bfdd"
+      },
+      {
+        "field": 15,
+        "round": 0,
+        "scene": 0,
+        "room_word": 0,
+        "ending_d10": 0,
+        "ending_d11": 0,
+        "ending_d12": 0,
+        "path": "sim\\captures\\rtl\\kyros_combat_hud3301\\frame_000015.work.bin",
+        "sha256": "3c14726172174d1acec8efcf7f89238390d50de5898d9aa5c84e886ed003bfdd"
+      },
+      {
+        "field": 16,
+        "round": 0,
+        "scene": 0,
+        "room_word": 0,
+        "ending_d10": 0,
+        "ending_d11": 0,
+        "ending_d12": 0,
+        "path": "sim\\captures\\rtl\\kyros_combat_hud3301\\frame_000016.work.bin",
+        "sha256": "3c14726172174d1acec8efcf7f89238390d50de5898d9aa5c84e886ed003bfdd"
+      },
+      {
+        "field": 30,
+        "round": 0,
+        "scene": 0,
+        "room_word": 0,
+        "ending_d10": 0,
+        "ending_d11": 0,
+        "ending_d12": 0,
+        "path": "sim\\captures\\rtl\\kyros_combat_hud3301\\frame_000030.work.bin",
+        "sha256": "3c14726172174d1acec8efcf7f89238390d50de5898d9aa5c84e886ed003bfdd"
+      },
+      {
+        "field": 60,
+        "round": 0,
+        "scene": 0,
+        "room_word": 0,
+        "ending_d10": 0,
+        "ending_d11": 0,
+        "ending_d12": 0,
+        "path": "sim\\captures\\rtl\\kyros_combat_hud3301\\frame_000060.work.bin",
+        "sha256": "c7ba8f0adb36579e208d086517a562a54346a8f0edec833bfcbe8c0f3bb190d9"
+      },
+      {
+        "field": 90,
+        "round": 0,
+        "scene": 0,
+        "room_word": 0,
+        "ending_d10": 0,
+        "ending_d11": 0,
+        "ending_d12": 0,
+        "path": "sim\\captures\\rtl\\kyros_combat_hud3301\\frame_000090.work.bin",
+        "sha256": "a7e8ad6207f23b5f74c03af30769ab2fdaf19585e5e4fd183c0ca2f05e923add"
+      },
+      {
+        "field": 119,
+        "round": 0,
+        "scene": 0,
+        "room_word": 0,
+        "ending_d10": 0,
+        "ending_d11": 0,
+        "ending_d12": 0,
+        "path": "sim\\captures\\rtl\\kyros_combat_hud3301\\frame_000119.work.bin",
+        "sha256": "32fbb156b7c7d58f704e79d118840d6af0a804e945ab6160d1c9c096da9b3eff"
+      },
+      {
+        "field": 120,
+        "round": 0,
+        "scene": 0,
+        "room_word": 0,
+        "ending_d10": 0,
+        "ending_d11": 0,
+        "ending_d12": 0,
+        "path": "sim\\captures\\rtl\\kyros_combat_hud3301\\frame_000120.work.bin",
+        "sha256": "7c7de0829b98218d281d6407f13a3a01df244ca7d68c4ccab95822d4ca8521a5"
+      },
+      {
+        "field": 150,
+        "round": 0,
+        "scene": 0,
+        "room_word": 0,
+        "ending_d10": 0,
+        "ending_d11": 0,
+        "ending_d12": 0,
+        "path": "sim\\captures\\rtl\\kyros_combat_hud3301\\frame_000150.work.bin",
+        "sha256": "a4c217eac6fe63d00800df41651bff4bcae2f7f650b3c44a51d0a056e47e4e7a"
+      },
+      {
+        "field": 179,
+        "round": 0,
+        "scene": 3,
+        "room_word": 240,
+        "ending_d10": 0,
+        "ending_d11": 0,
+        "ending_d12": 0,
+        "path": "sim\\captures\\rtl\\kyros_combat_hud3301\\frame_000179.work.bin",
+        "sha256": "e1db108e08bb7a4b5b58c1f9902631e1d625a62bce9f3fde775778c51feaae69"
+      },
+      {
+        "field": 180,
+        "round": 0,
+        "scene": 3,
+        "room_word": 240,
+        "ending_d10": 0,
+        "ending_d11": 0,
+        "ending_d12": 0,
+        "path": "sim\\captures\\rtl\\kyros_combat_hud3301\\frame_000180.work.bin",
+        "sha256": "7aa5505afdffb0a71f6a63efa0f31e0faf028259b451600896bbf8b40847588b"
+      },
+      {
+        "field": 210,
+        "round": 0,
+        "scene": 3,
+        "room_word": 240,
+        "ending_d10": 0,
+        "ending_d11": 0,
+        "ending_d12": 0,
+        "path": "sim\\captures\\rtl\\kyros_combat_hud3301\\frame_000210.work.bin",
+        "sha256": "0ba0a5b93d7eb520c22ca00ea95ff68fdd0cc0bcf2cd3b5eed3c12f4588a1427"
+      },
+      {
+        "field": 240,
+        "round": 0,
+        "scene": 3,
+        "room_word": 240,
+        "ending_d10": 0,
+        "ending_d11": 0,
+        "ending_d12": 0,
+        "path": "sim\\captures\\rtl\\kyros_combat_hud3301\\frame_000240.work.bin",
+        "sha256": "afa9d10a24bd9ecf960a2ebb58c0689cc430ba8e72cc07e06949ae7a98a59ffe"
+      },
+      {
+        "field": 270,
+        "round": 0,
+        "scene": 3,
+        "room_word": 240,
+        "ending_d10": 0,
+        "ending_d11": 0,
+        "ending_d12": 0,
+        "path": "sim\\captures\\rtl\\kyros_combat_hud3301\\frame_000270.work.bin",
+        "sha256": "c0204d1205969a205df9318cdce5424b47cec0595573e828cb206c1a642d9c99"
+      },
+      {
+        "field": 300,
+        "round": 0,
+        "scene": 3,
+        "room_word": 240,
+        "ending_d10": 0,
+        "ending_d11": 0,
+        "ending_d12": 0,
+        "path": "sim\\captures\\rtl\\kyros_combat_hud3301\\frame_000300.work.bin",
+        "sha256": "9ae317e6da70319c220a2d7fbcdd365334f85b4a36a850421c5a5ef45f6a2b68"
+      },
+      {
+        "field": 330,
+        "round": 0,
+        "scene": 3,
+        "room_word": 240,
+        "ending_d10": 0,
+        "ending_d11": 0,
+        "ending_d12": 0,
+        "path": "sim\\captures\\rtl\\kyros_combat_hud3301\\frame_000330.work.bin",
+        "sha256": "af6e5b209688e0fae8e54ad1b4fadbbd39fd0e9492ec18abd241e8ec76343209"
+      },
+      {
+        "field": 360,
+        "round": 0,
+        "scene": 3,
+        "room_word": 240,
+        "ending_d10": 0,
+        "ending_d11": 0,
+        "ending_d12": 0,
+        "path": "sim\\captures\\rtl\\kyros_combat_hud3301\\frame_000360.work.bin",
+        "sha256": "c5a129f9150f52a0860702d305fca63c842ea4a28eb06801589ca921f9929b0a"
+      },
+      {
+        "field": 390,
+        "round": 0,
+        "scene": 3,
+        "room_word": 240,
+        "ending_d10": 0,
+        "ending_d11": 0,
+        "ending_d12": 0,
+        "path": "sim\\captures\\rtl\\kyros_combat_hud3301\\frame_000390.work.bin",
+        "sha256": "2b48108c5208d96646f23c0b359194174bff647153d22af22ddef41036d9c06a"
+      },
+      {
+        "field": 420,
+        "round": 0,
+        "scene": 3,
+        "room_word": 240,
+        "ending_d10": 0,
+        "ending_d11": 0,
+        "ending_d12": 0,
+        "path": "sim\\captures\\rtl\\kyros_combat_hud3301\\frame_000420.work.bin",
+        "sha256": "3713b241dae6f9e6f92af450a25198f177ff4f5e55d886d7f7eb99e54a2a16f9"
+      },
+      {
+        "field": 450,
+        "round": 0,
+        "scene": 3,
+        "room_word": 240,
+        "ending_d10": 0,
+        "ending_d11": 0,
+        "ending_d12": 0,
+        "path": "sim\\captures\\rtl\\kyros_combat_hud3301\\frame_000450.work.bin",
+        "sha256": "2c4e9d4cabbacce19115201e2055b948d6d5f71c4604ee0e7feb4155343e86aa"
+      },
+      {
+        "field": 480,
+        "round": 0,
+        "scene": 3,
+        "room_word": 240,
+        "ending_d10": 0,
+        "ending_d11": 0,
+        "ending_d12": 0,
+        "path": "sim\\captures\\rtl\\kyros_combat_hud3301\\frame_000480.work.bin",
+        "sha256": "4da0d4aa4618c856ebb912650d06bb3a62db33bb7d7f5f146890679e441ea867"
+      },
+      {
+        "field": 510,
+        "round": 0,
+        "scene": 3,
+        "room_word": 240,
+        "ending_d10": 0,
+        "ending_d11": 0,
+        "ending_d12": 0,
+        "path": "sim\\captures\\rtl\\kyros_combat_hud3301\\frame_000510.work.bin",
+        "sha256": "be468a74bc1bc352ea2730143b0874db68027724753d70c04954d8bef39fd3c1"
+      },
+      {
+        "field": 540,
+        "round": 0,
+        "scene": 3,
+        "room_word": 240,
+        "ending_d10": 0,
+        "ending_d11": 0,
+        "ending_d12": 0,
+        "path": "sim\\captures\\rtl\\kyros_combat_hud3301\\frame_000540.work.bin",
+        "sha256": "adcc8f649da4ecee20828f941e41fc13b22ddfd77479fc3f390c624851af2a04"
+      },
+      {
+        "field": 570,
+        "round": 0,
+        "scene": 3,
+        "room_word": 240,
+        "ending_d10": 0,
+        "ending_d11": 0,
+        "ending_d12": 0,
+        "path": "sim\\captures\\rtl\\kyros_combat_hud3301\\frame_000570.work.bin",
+        "sha256": "c49622c27433fe188d95f8046cc7017f373195d5d1697d5cc6922d9bf919bf34"
+      },
+      {
+        "field": 600,
+        "round": 0,
+        "scene": 3,
+        "room_word": 240,
+        "ending_d10": 0,
+        "ending_d11": 0,
+        "ending_d12": 0,
+        "path": "sim\\captures\\rtl\\kyros_combat_hud3301\\frame_000600.work.bin",
+        "sha256": "3e11c390ff288abd0f5b37f76b6e009d61099017fdb922d0c5f555baff81297e"
+      },
+      {
+        "field": 630,
+        "round": 0,
+        "scene": 3,
+        "room_word": 240,
+        "ending_d10": 0,
+        "ending_d11": 0,
+        "ending_d12": 0,
+        "path": "sim\\captures\\rtl\\kyros_combat_hud3301\\frame_000630.work.bin",
+        "sha256": "6eb8711b6cf86016e2c9d9c8e297e7dcfdd8365525e6d7423690e800508c6a5e"
+      },
+      {
+        "field": 660,
+        "round": 0,
+        "scene": 3,
+        "room_word": 240,
+        "ending_d10": 0,
+        "ending_d11": 0,
+        "ending_d12": 0,
+        "path": "sim\\captures\\rtl\\kyros_combat_hud3301\\frame_000660.work.bin",
+        "sha256": "11dcfd89420e7c8a3cb68d776aabbd09470dd3c4a6096f520cee4114143fe443"
+      },
+      {
+        "field": 690,
+        "round": 0,
+        "scene": 3,
+        "room_word": 240,
+        "ending_d10": 0,
+        "ending_d11": 0,
+        "ending_d12": 0,
+        "path": "sim\\captures\\rtl\\kyros_combat_hud3301\\frame_000690.work.bin",
+        "sha256": "a3d8f57f5573d4d41343a155a20bc02f2237a6da817a19bf5666840b16bd502a"
+      },
+      {
+        "field": 720,
+        "round": 0,
+        "scene": 3,
+        "room_word": 240,
+        "ending_d10": 0,
+        "ending_d11": 0,
+        "ending_d12": 0,
+        "path": "sim\\captures\\rtl\\kyros_combat_hud3301\\frame_000720.work.bin",
+        "sha256": "057823a784a7f692b2d53c5205db0b1cc831920e0f4b30b463358071f72e635e"
+      },
+      {
+        "field": 750,
+        "round": 0,
+        "scene": 3,
+        "room_word": 240,
+        "ending_d10": 0,
+        "ending_d11": 0,
+        "ending_d12": 0,
+        "path": "sim\\captures\\rtl\\kyros_combat_hud3301\\frame_000750.work.bin",
+        "sha256": "66f2e1196bcfb2d4238e5312fd1a3adef3323a652edeb7f98708ed491b33f70b"
+      },
+      {
+        "field": 780,
+        "round": 0,
+        "scene": 3,
+        "room_word": 240,
+        "ending_d10": 0,
+        "ending_d11": 0,
+        "ending_d12": 0,
+        "path": "sim\\captures\\rtl\\kyros_combat_hud3301\\frame_000780.work.bin",
+        "sha256": "ea903f353dcdfb85cb468313682e798533657a1fc28cdaee56b9721dcc30a5e7"
+      },
+      {
+        "field": 810,
+        "round": 0,
+        "scene": 3,
+        "room_word": 240,
+        "ending_d10": 0,
+        "ending_d11": 0,
+        "ending_d12": 0,
+        "path": "sim\\captures\\rtl\\kyros_combat_hud3301\\frame_000810.work.bin",
+        "sha256": "809e53b235db1e00cb2d79644b0803932844dc416584054a0dab869a5f032faa"
+      },
+      {
+        "field": 840,
+        "round": 0,
+        "scene": 3,
+        "room_word": 240,
+        "ending_d10": 0,
+        "ending_d11": 0,
+        "ending_d12": 0,
+        "path": "sim\\captures\\rtl\\kyros_combat_hud3301\\frame_000840.work.bin",
+        "sha256": "a8f6edd93156257cd9cdc5dc490b5fa9775da602f4c604b7c1d035451cfd932c"
+      },
+      {
+        "field": 870,
+        "round": 0,
+        "scene": 3,
+        "room_word": 240,
+        "ending_d10": 0,
+        "ending_d11": 0,
+        "ending_d12": 0,
+        "path": "sim\\captures\\rtl\\kyros_combat_hud3301\\frame_000870.work.bin",
+        "sha256": "bb068f5d0663701452f54861230817f6b5aa1842333bd63610a002d53ec687cc"
+      },
+      {
+        "field": 900,
+        "round": 0,
+        "scene": 3,
+        "room_word": 240,
+        "ending_d10": 0,
+        "ending_d11": 0,
+        "ending_d12": 0,
+        "path": "sim\\captures\\rtl\\kyros_combat_hud3301\\frame_000900.work.bin",
+        "sha256": "e9853b040c7bd026f546b800e2ae8736e53fb0a5a4e914ecf729b19c78041371"
+      },
+      {
+        "field": 930,
+        "round": 0,
+        "scene": 3,
+        "room_word": 240,
+        "ending_d10": 0,
+        "ending_d11": 0,
+        "ending_d12": 0,
+        "path": "sim\\captures\\rtl\\kyros_combat_hud3301\\frame_000930.work.bin",
+        "sha256": "29430685ac03122fef99ec92af4c0820d7c6e93113c1ac484ae0e752fc89b089"
+      },
+      {
+        "field": 960,
+        "round": 0,
+        "scene": 3,
+        "room_word": 240,
+        "ending_d10": 0,
+        "ending_d11": 0,
+        "ending_d12": 0,
+        "path": "sim\\captures\\rtl\\kyros_combat_hud3301\\frame_000960.work.bin",
+        "sha256": "c2a5b3f031fa8e22a160e75ea892e133cc297405ddc0d2e2b87bd1f6213be8d5"
+      },
+      {
+        "field": 990,
+        "round": 0,
+        "scene": 3,
+        "room_word": 240,
+        "ending_d10": 0,
+        "ending_d11": 0,
+        "ending_d12": 0,
+        "path": "sim\\captures\\rtl\\kyros_combat_hud3301\\frame_000990.work.bin",
+        "sha256": "e2bb360c34be86f8668e9d06a5f1a74497063887d208f62f76f7dcbe9dec439d"
+      },
+      {
+        "field": 1020,
+        "round": 0,
+        "scene": 3,
+        "room_word": 240,
+        "ending_d10": 0,
+        "ending_d11": 0,
+        "ending_d12": 0,
+        "path": "sim\\captures\\rtl\\kyros_combat_hud3301\\frame_001020.work.bin",
+        "sha256": "4d22d85ef2d4590bfa0664a7f890f1b1e36679e19c203eff4ee75985aebf8c65"
+      },
+      {
+        "field": 1050,
+        "round": 0,
+        "scene": 3,
+        "room_word": 240,
+        "ending_d10": 0,
+        "ending_d11": 0,
+        "ending_d12": 0,
+        "path": "sim\\captures\\rtl\\kyros_combat_hud3301\\frame_001050.work.bin",
+        "sha256": "00ab2c7998df8907db97d47116f5b9f2ab011824fe80db1542964dbe7af23048"
+      },
+      {
+        "field": 1080,
+        "round": 0,
+        "scene": 3,
+        "room_word": 240,
+        "ending_d10": 0,
+        "ending_d11": 0,
+        "ending_d12": 0,
+        "path": "sim\\captures\\rtl\\kyros_combat_hud3301\\frame_001080.work.bin",
+        "sha256": "053ca990f54b6e256d480d9ee43fb6d19c4e46b2999ed49430fb9fb7023aea41"
+      },
+      {
+        "field": 1110,
+        "round": 0,
+        "scene": 3,
+        "room_word": 240,
+        "ending_d10": 0,
+        "ending_d11": 0,
+        "ending_d12": 0,
+        "path": "sim\\captures\\rtl\\kyros_combat_hud3301\\frame_001110.work.bin",
+        "sha256": "a348c2c6ddc0c44771a157bbd337ee6ffb3b17726095158c718dd62a9f2d0953"
+      },
+      {
+        "field": 1140,
+        "round": 0,
+        "scene": 3,
+        "room_word": 240,
+        "ending_d10": 0,
+        "ending_d11": 0,
+        "ending_d12": 0,
+        "path": "sim\\captures\\rtl\\kyros_combat_hud3301\\frame_001140.work.bin",
+        "sha256": "b93782e88fbe0bac761db7b57181354797206b98f69a61ccf6cd005ef218ef8d"
+      },
+      {
+        "field": 1170,
+        "round": 0,
+        "scene": 3,
+        "room_word": 240,
+        "ending_d10": 0,
+        "ending_d11": 0,
+        "ending_d12": 0,
+        "path": "sim\\captures\\rtl\\kyros_combat_hud3301\\frame_001170.work.bin",
+        "sha256": "eb70c4ff3a68b4741d531724bb8b197e73ccf78ddad6f8332615202a8f6adeb6"
+      },
+      {
+        "field": 1200,
+        "round": 0,
+        "scene": 3,
+        "room_word": 240,
+        "ending_d10": 0,
+        "ending_d11": 0,
+        "ending_d12": 0,
+        "path": "sim\\captures\\rtl\\kyros_combat_hud3301\\frame_001200.work.bin",
+        "sha256": "54f19379111ad658b820680de92decf11aa52814483c63923851f198fec316c4"
+      },
+      {
+        "field": 1230,
+        "round": 0,
+        "scene": 3,
+        "room_word": 262,
+        "ending_d10": 0,
+        "ending_d11": 0,
+        "ending_d12": 0,
+        "path": "sim\\captures\\rtl\\kyros_combat_hud3301\\frame_001230.work.bin",
+        "sha256": "c9c4c33320b8f35e9d226f98174e8577aff950cc2fea7540f0171409cf5081ac"
+      },
+      {
+        "field": 1260,
+        "round": 0,
+        "scene": 3,
+        "room_word": 262,
+        "ending_d10": 0,
+        "ending_d11": 0,
+        "ending_d12": 0,
+        "path": "sim\\captures\\rtl\\kyros_combat_hud3301\\frame_001260.work.bin",
+        "sha256": "a0d0825bc7cb7532f186a78e221c196099db607a88c8b0eee3f05d6e454bdc20"
+      },
+      {
+        "field": 1290,
+        "round": 0,
+        "scene": 3,
+        "room_word": 262,
+        "ending_d10": 0,
+        "ending_d11": 0,
+        "ending_d12": 0,
+        "path": "sim\\captures\\rtl\\kyros_combat_hud3301\\frame_001290.work.bin",
+        "sha256": "2882053dfcb8163072c744f234a93d9215de3ff7b5e6b6f0e2b5c6a77cf51057"
+      },
+      {
+        "field": 1320,
+        "round": 0,
+        "scene": 3,
+        "room_word": 262,
+        "ending_d10": 0,
+        "ending_d11": 0,
+        "ending_d12": 0,
+        "path": "sim\\captures\\rtl\\kyros_combat_hud3301\\frame_001320.work.bin",
+        "sha256": "7f871f791417c8bf539e4583917eef088b112e092ddd5e0bb88df1746a1bb6ee"
+      },
+      {
+        "field": 1350,
+        "round": 0,
+        "scene": 3,
+        "room_word": 262,
+        "ending_d10": 0,
+        "ending_d11": 0,
+        "ending_d12": 0,
+        "path": "sim\\captures\\rtl\\kyros_combat_hud3301\\frame_001350.work.bin",
+        "sha256": "982b4f0f2f7eead3500f7e61d28e5c29b45fe8cc4a392e508afcdd53b77f8702"
+      },
+      {
+        "field": 1380,
+        "round": 0,
+        "scene": 3,
+        "room_word": 256,
+        "ending_d10": 0,
+        "ending_d11": 0,
+        "ending_d12": 0,
+        "path": "sim\\captures\\rtl\\kyros_combat_hud3301\\frame_001380.work.bin",
+        "sha256": "40eba9351b1d9814a96951a0b3887107c1ff181375dbac1e416d1a229c9422db"
+      },
+      {
+        "field": 1410,
+        "round": 0,
+        "scene": 3,
+        "room_word": 256,
+        "ending_d10": 0,
+        "ending_d11": 0,
+        "ending_d12": 0,
+        "path": "sim\\captures\\rtl\\kyros_combat_hud3301\\frame_001410.work.bin",
+        "sha256": "026ad3254f5bdb77a837a2c711e9093725e2c862d3791c6cd561a4965e91b989"
+      },
+      {
+        "field": 1440,
+        "round": 0,
+        "scene": 3,
+        "room_word": 256,
+        "ending_d10": 0,
+        "ending_d11": 0,
+        "ending_d12": 0,
+        "path": "sim\\captures\\rtl\\kyros_combat_hud3301\\frame_001440.work.bin",
+        "sha256": "9ded4615b07b0ff79d976591694538c0a7054bc5afd209bc4c95eb758defd0e5"
+      },
+      {
+        "field": 1470,
+        "round": 0,
+        "scene": 3,
+        "room_word": 256,
+        "ending_d10": 0,
+        "ending_d11": 0,
+        "ending_d12": 0,
+        "path": "sim\\captures\\rtl\\kyros_combat_hud3301\\frame_001470.work.bin",
+        "sha256": "5e80e85623e42cbeba6e0a4a3325b1a6c4354134ab6267bf313fbb946a73dae8"
+      },
+      {
+        "field": 1500,
+        "round": 0,
+        "scene": 3,
+        "room_word": 256,
+        "ending_d10": 0,
+        "ending_d11": 0,
+        "ending_d12": 0,
+        "path": "sim\\captures\\rtl\\kyros_combat_hud3301\\frame_001500.work.bin",
+        "sha256": "a30da07b3b5cdf5675b9c17d13da801d3ce447bfa0e3c03bb71589ae833f8a88"
+      },
+      {
+        "field": 1530,
+        "round": 0,
+        "scene": 3,
+        "room_word": 256,
+        "ending_d10": 0,
+        "ending_d11": 0,
+        "ending_d12": 0,
+        "path": "sim\\captures\\rtl\\kyros_combat_hud3301\\frame_001530.work.bin",
+        "sha256": "9aa18fe916f62953f1f0a9443e057b9cb72985aaed43d65f38aa8ea15d12e949"
+      },
+      {
+        "field": 1560,
+        "round": 0,
+        "scene": 3,
+        "room_word": 256,
+        "ending_d10": 0,
+        "ending_d11": 0,
+        "ending_d12": 0,
+        "path": "sim\\captures\\rtl\\kyros_combat_hud3301\\frame_001560.work.bin",
+        "sha256": "c13599e8b4a9dbafd0bd90c273553e0ec9a7341db87a4bc3b6eced4dcd00173f"
+      },
+      {
+        "field": 1590,
+        "round": 0,
+        "scene": 3,
+        "room_word": 256,
+        "ending_d10": 0,
+        "ending_d11": 0,
+        "ending_d12": 0,
+        "path": "sim\\captures\\rtl\\kyros_combat_hud3301\\frame_001590.work.bin",
+        "sha256": "4a66211ff040131a0565245afe2ff5f8ce99763e039be7ebaa6b6d05a8ef35d9"
+      },
+      {
+        "field": 1620,
+        "round": 0,
+        "scene": 3,
+        "room_word": 256,
+        "ending_d10": 0,
+        "ending_d11": 0,
+        "ending_d12": 0,
+        "path": "sim\\captures\\rtl\\kyros_combat_hud3301\\frame_001620.work.bin",
+        "sha256": "8839768c04302402d75c04176245b54f068729b5332d1dba3fc980cf253f85f8"
+      },
+      {
+        "field": 1650,
+        "round": 0,
+        "scene": 3,
+        "room_word": 256,
+        "ending_d10": 0,
+        "ending_d11": 0,
+        "ending_d12": 0,
+        "path": "sim\\captures\\rtl\\kyros_combat_hud3301\\frame_001650.work.bin",
+        "sha256": "27c58522bf1503b46d10a28438bdab63f6f19fab0396a68c9171e41d0c2e7621"
+      },
+      {
+        "field": 1680,
+        "round": 0,
+        "scene": 3,
+        "room_word": 256,
+        "ending_d10": 0,
+        "ending_d11": 0,
+        "ending_d12": 0,
+        "path": "sim\\captures\\rtl\\kyros_combat_hud3301\\frame_001680.work.bin",
+        "sha256": "046909973c3fe3cda29654b2a5c9ddc694ccf58bad7ec848c63c1c997cd4b151"
+      },
+      {
+        "field": 1710,
+        "round": 0,
+        "scene": 3,
+        "room_word": 256,
+        "ending_d10": 0,
+        "ending_d11": 0,
+        "ending_d12": 0,
+        "path": "sim\\captures\\rtl\\kyros_combat_hud3301\\frame_001710.work.bin",
+        "sha256": "f0d7de0f010102c31ff669d36f642ce5fb5cf4a28d19000c89a96c31a5291efe"
+      },
+      {
+        "field": 1740,
+        "round": 0,
+        "scene": 3,
+        "room_word": 256,
+        "ending_d10": 0,
+        "ending_d11": 0,
+        "ending_d12": 0,
+        "path": "sim\\captures\\rtl\\kyros_combat_hud3301\\frame_001740.work.bin",
+        "sha256": "b6e93fce31138e56e06a791037ee0614f2715c13cdb56564877b7714d1aad778"
+      },
+      {
+        "field": 1770,
+        "round": 0,
+        "scene": 3,
+        "room_word": 256,
+        "ending_d10": 0,
+        "ending_d11": 0,
+        "ending_d12": 0,
+        "path": "sim\\captures\\rtl\\kyros_combat_hud3301\\frame_001770.work.bin",
+        "sha256": "f17d2044ea8b128e8d60e06d3f70b6089f395443612cdd908441e191bf191637"
+      },
+      {
+        "field": 1799,
+        "round": 0,
+        "scene": 3,
+        "room_word": 256,
+        "ending_d10": 0,
+        "ending_d11": 0,
+        "ending_d12": 0,
+        "path": "sim\\captures\\rtl\\kyros_combat_hud3301\\frame_001799.work.bin",
+        "sha256": "4ba1e20c33cffed202898c815fa90b15588dc3b904396145f564bd9e073ac520"
+      },
+      {
+        "field": 1800,
+        "round": 0,
+        "scene": 3,
+        "room_word": 256,
+        "ending_d10": 0,
+        "ending_d11": 0,
+        "ending_d12": 0,
+        "path": "sim\\captures\\rtl\\kyros_combat_hud3301\\frame_001800.work.bin",
+        "sha256": "85639f206857b00caa4fbb4877cd99cdc5f1cfdd16d2ec1f8023ec6c4590f403"
+      },
+      {
+        "field": 1830,
+        "round": 0,
+        "scene": 3,
+        "room_word": 256,
+        "ending_d10": 0,
+        "ending_d11": 0,
+        "ending_d12": 0,
+        "path": "sim\\captures\\rtl\\kyros_combat_hud3301\\frame_001830.work.bin",
+        "sha256": "a4fde4cf850b1e2440f021d311097ae6d7df4fdd3f33f14a6c017f5353ba2a83"
+      },
+      {
+        "field": 1860,
+        "round": 0,
+        "scene": 3,
+        "room_word": 256,
+        "ending_d10": 0,
+        "ending_d11": 0,
+        "ending_d12": 0,
+        "path": "sim\\captures\\rtl\\kyros_combat_hud3301\\frame_001860.work.bin",
+        "sha256": "e0491b86ce94a20283a1dee4f3b421942eb8237b8fe050289363a21c23c98bca"
+      },
+      {
+        "field": 1890,
+        "round": 0,
+        "scene": 3,
+        "room_word": 256,
+        "ending_d10": 0,
+        "ending_d11": 0,
+        "ending_d12": 0,
+        "path": "sim\\captures\\rtl\\kyros_combat_hud3301\\frame_001890.work.bin",
+        "sha256": "c784c3994ae1d8ce63979e6b081a9c166a3c1bcc291bbb0de053d90daee1e6b3"
+      },
+      {
+        "field": 1920,
+        "round": 0,
+        "scene": 3,
+        "room_word": 256,
+        "ending_d10": 0,
+        "ending_d11": 0,
+        "ending_d12": 0,
+        "path": "sim\\captures\\rtl\\kyros_combat_hud3301\\frame_001920.work.bin",
+        "sha256": "33d9dc149ec2c237e29f8c5b03e08834bc9646669eb65e2628fb7f49553b5b1f"
+      },
+      {
+        "field": 1950,
+        "round": 0,
+        "scene": 3,
+        "room_word": 262,
+        "ending_d10": 0,
+        "ending_d11": 0,
+        "ending_d12": 0,
+        "path": "sim\\captures\\rtl\\kyros_combat_hud3301\\frame_001950.work.bin",
+        "sha256": "0b733e3fb7e01c0d54a4b662da849aabae75fbe92a04cecb7522333db1c3318e"
+      },
+      {
+        "field": 1980,
+        "round": 0,
+        "scene": 3,
+        "room_word": 267,
+        "ending_d10": 0,
+        "ending_d11": 0,
+        "ending_d12": 0,
+        "path": "sim\\captures\\rtl\\kyros_combat_hud3301\\frame_001980.work.bin",
+        "sha256": "d8f9b251cca8a23b799ecfc1db6aa043567888cdb9598228493ad5b03a66b043"
+      },
+      {
+        "field": 2010,
+        "round": 0,
+        "scene": 3,
+        "room_word": 270,
+        "ending_d10": 0,
+        "ending_d11": 0,
+        "ending_d12": 0,
+        "path": "sim\\captures\\rtl\\kyros_combat_hud3301\\frame_002010.work.bin",
+        "sha256": "7cba0edf77367af93e7df6ad1d7c5e55f95bf8e3640873ef1c1e480149ea8666"
+      },
+      {
+        "field": 2040,
+        "round": 0,
+        "scene": 3,
+        "room_word": 270,
+        "ending_d10": 0,
+        "ending_d11": 0,
+        "ending_d12": 0,
+        "path": "sim\\captures\\rtl\\kyros_combat_hud3301\\frame_002040.work.bin",
+        "sha256": "90f2aded40946b8ef003de9d20091cc3634ab385e8f31ac08e02bd3d17a2f3f4"
+      },
+      {
+        "field": 2070,
+        "round": 0,
+        "scene": 3,
+        "room_word": 270,
+        "ending_d10": 0,
+        "ending_d11": 0,
+        "ending_d12": 0,
+        "path": "sim\\captures\\rtl\\kyros_combat_hud3301\\frame_002070.work.bin",
+        "sha256": "3ecf15e5240a5d2f316faadd16bdc6ad36eed3788aefe12221032c157a8c5abc"
+      },
+      {
+        "field": 2100,
+        "round": 0,
+        "scene": 3,
+        "room_word": 276,
+        "ending_d10": 0,
+        "ending_d11": 0,
+        "ending_d12": 0,
+        "path": "sim\\captures\\rtl\\kyros_combat_hud3301\\frame_002100.work.bin",
+        "sha256": "af0cab04489ce2385a97a8ce150b008b0c1b485e2366f99bdb3f48430df5d7d4"
+      },
+      {
+        "field": 2130,
+        "round": 0,
+        "scene": 3,
+        "room_word": 303,
+        "ending_d10": 0,
+        "ending_d11": 0,
+        "ending_d12": 0,
+        "path": "sim\\captures\\rtl\\kyros_combat_hud3301\\frame_002130.work.bin",
+        "sha256": "269561b87b74bc797958fa396b11a682cdca25afeb6408668ab7964ce59a8cbd"
+      },
+      {
+        "field": 2160,
+        "round": 0,
+        "scene": 3,
+        "room_word": 308,
+        "ending_d10": 0,
+        "ending_d11": 0,
+        "ending_d12": 0,
+        "path": "sim\\captures\\rtl\\kyros_combat_hud3301\\frame_002160.work.bin",
+        "sha256": "673fa993812d98a4e3a4ca3d506b6618231c3e6b8f241cc902a0f9fb29e34d6d"
+      },
+      {
+        "field": 2190,
+        "round": 0,
+        "scene": 3,
+        "room_word": 314,
+        "ending_d10": 0,
+        "ending_d11": 0,
+        "ending_d12": 0,
+        "path": "sim\\captures\\rtl\\kyros_combat_hud3301\\frame_002190.work.bin",
+        "sha256": "a19b6764361bb48afc1da26e4ceed14b7f536cc94bba72e71583e35d38b53cd8"
+      },
+      {
+        "field": 2220,
+        "round": 0,
+        "scene": 3,
+        "room_word": 317,
+        "ending_d10": 0,
+        "ending_d11": 0,
+        "ending_d12": 0,
+        "path": "sim\\captures\\rtl\\kyros_combat_hud3301\\frame_002220.work.bin",
+        "sha256": "d76729e6baf847357e79eaff976e18a713eada4d356c03a9df98798a9ee502fd"
+      },
+      {
+        "field": 2250,
+        "round": 0,
+        "scene": 3,
+        "room_word": 323,
+        "ending_d10": 0,
+        "ending_d11": 0,
+        "ending_d12": 0,
+        "path": "sim\\captures\\rtl\\kyros_combat_hud3301\\frame_002250.work.bin",
+        "sha256": "8325c424df51e58d826dc205eeaad92c2902d27f5d0693e59e7c350624ca8bfe"
+      },
+      {
+        "field": 2280,
+        "round": 0,
+        "scene": 3,
+        "room_word": 329,
+        "ending_d10": 0,
+        "ending_d11": 0,
+        "ending_d12": 0,
+        "path": "sim\\captures\\rtl\\kyros_combat_hud3301\\frame_002280.work.bin",
+        "sha256": "f479417914aedcd36f23f570b348cec1ba9e7d912b782a83bc97e13d07db4ed4"
+      },
+      {
+        "field": 2310,
+        "round": 0,
+        "scene": 3,
+        "room_word": 355,
+        "ending_d10": 0,
+        "ending_d11": 0,
+        "ending_d12": 0,
+        "path": "sim\\captures\\rtl\\kyros_combat_hud3301\\frame_002310.work.bin",
+        "sha256": "ce1641003dad9fd8029c7f0c891f4f5818689242a2fbd3a7317bf69d8d214706"
+      },
+      {
+        "field": 2340,
+        "round": 0,
+        "scene": 3,
+        "room_word": 360,
+        "ending_d10": 0,
+        "ending_d11": 0,
+        "ending_d12": 0,
+        "path": "sim\\captures\\rtl\\kyros_combat_hud3301\\frame_002340.work.bin",
+        "sha256": "ace16f13c296369c60df7d7ed790507477b2c138e28d6fbcf5235885e5d6d883"
+      },
+      {
+        "field": 2370,
+        "round": 0,
+        "scene": 3,
+        "room_word": 366,
+        "ending_d10": 0,
+        "ending_d11": 0,
+        "ending_d12": 0,
+        "path": "sim\\captures\\rtl\\kyros_combat_hud3301\\frame_002370.work.bin",
+        "sha256": "14b3807c8b342d00c38d79d83785067a5418426d380b4e2142f1877f8170e22c"
+      },
+      {
+        "field": 2400,
+        "round": 0,
+        "scene": 3,
+        "room_word": 369,
+        "ending_d10": 0,
+        "ending_d11": 0,
+        "ending_d12": 0,
+        "path": "sim\\captures\\rtl\\kyros_combat_hud3301\\frame_002400.work.bin",
+        "sha256": "a94769ea66513e11a2b90611baf7154a975c8b06de2063d8747c1ff92224cdd4"
+      },
+      {
+        "field": 2430,
+        "round": 0,
+        "scene": 3,
+        "room_word": 375,
+        "ending_d10": 0,
+        "ending_d11": 0,
+        "ending_d12": 0,
+        "path": "sim\\captures\\rtl\\kyros_combat_hud3301\\frame_002430.work.bin",
+        "sha256": "066d2eb9f7fcb9687718867f0eba9c795cd5d5f1e0193e72169859063b5cb0c5"
+      },
+      {
+        "field": 2460,
+        "round": 0,
+        "scene": 3,
+        "room_word": 375,
+        "ending_d10": 0,
+        "ending_d11": 0,
+        "ending_d12": 0,
+        "path": "sim\\captures\\rtl\\kyros_combat_hud3301\\frame_002460.work.bin",
+        "sha256": "db85f665e02bde6fc9a0ddf5b6876431bb9c07ab04e78b160e6609f1f39e7021"
+      },
+      {
+        "field": 2490,
+        "round": 0,
+        "scene": 3,
+        "room_word": 375,
+        "ending_d10": 0,
+        "ending_d11": 0,
+        "ending_d12": 0,
+        "path": "sim\\captures\\rtl\\kyros_combat_hud3301\\frame_002490.work.bin",
+        "sha256": "7af585c6fd521af4b14fdcaf7173f4a749fd6e5b2d995c41eea611ff28b76fce"
+      },
+      {
+        "field": 2520,
+        "round": 0,
+        "scene": 3,
+        "room_word": 375,
+        "ending_d10": 0,
+        "ending_d11": 0,
+        "ending_d12": 0,
+        "path": "sim\\captures\\rtl\\kyros_combat_hud3301\\frame_002520.work.bin",
+        "sha256": "33147fa439c0d1df5a6263b9c4fc9553e9878d8cb1b0a13a6d32366e2bc9bf82"
+      },
+      {
+        "field": 2550,
+        "round": 0,
+        "scene": 3,
+        "room_word": 375,
+        "ending_d10": 0,
+        "ending_d11": 0,
+        "ending_d12": 0,
+        "path": "sim\\captures\\rtl\\kyros_combat_hud3301\\frame_002550.work.bin",
+        "sha256": "81de99f59c02b4b313f1dd32ae9a732ce84fcfbd274b432375cdd4cc80983363"
+      },
+      {
+        "field": 2580,
+        "round": 0,
+        "scene": 3,
+        "room_word": 256,
+        "ending_d10": 0,
+        "ending_d11": 0,
+        "ending_d12": 0,
+        "path": "sim\\captures\\rtl\\kyros_combat_hud3301\\frame_002580.work.bin",
+        "sha256": "7ccda53141426397397f83e0939cfa2035dbfdd78e604a5bc41ccca0d2527127"
+      },
+      {
+        "field": 2610,
+        "round": 0,
+        "scene": 3,
+        "room_word": 256,
+        "ending_d10": 0,
+        "ending_d11": 0,
+        "ending_d12": 0,
+        "path": "sim\\captures\\rtl\\kyros_combat_hud3301\\frame_002610.work.bin",
+        "sha256": "07e736abc9b9c684b87216e1603fb5fe9fe40c8c57e94c0496f5abc1c452911e"
+      },
+      {
+        "field": 2640,
+        "round": 0,
+        "scene": 3,
+        "room_word": 256,
+        "ending_d10": 0,
+        "ending_d11": 0,
+        "ending_d12": 0,
+        "path": "sim\\captures\\rtl\\kyros_combat_hud3301\\frame_002640.work.bin",
+        "sha256": "072ba48cbf28e571b5b4b01580f66c5a2cb5cfd434c0f70aa920bf97271b6e1e"
+      },
+      {
+        "field": 2670,
+        "round": 0,
+        "scene": 3,
+        "room_word": 256,
+        "ending_d10": 0,
+        "ending_d11": 0,
+        "ending_d12": 0,
+        "path": "sim\\captures\\rtl\\kyros_combat_hud3301\\frame_002670.work.bin",
+        "sha256": "ffbc0e97f9a7f70c5c40e3afa7f004ae4501b947d035a04e2a3526c7f2e91478"
+      },
+      {
+        "field": 2700,
+        "round": 0,
+        "scene": 3,
+        "room_word": 256,
+        "ending_d10": 0,
+        "ending_d11": 0,
+        "ending_d12": 0,
+        "path": "sim\\captures\\rtl\\kyros_combat_hud3301\\frame_002700.work.bin",
+        "sha256": "e01ddc563351f979c78e7f53188ac7fa9612f1e9421cae80f86301f2a7298989"
+      },
+      {
+        "field": 2730,
+        "round": 0,
+        "scene": 3,
+        "room_word": 256,
+        "ending_d10": 0,
+        "ending_d11": 0,
+        "ending_d12": 0,
+        "path": "sim\\captures\\rtl\\kyros_combat_hud3301\\frame_002730.work.bin",
+        "sha256": "588d1bc83a2314635a5f1871ac780bdd78883dd28496047def970a851c6d63b5"
+      },
+      {
+        "field": 2760,
+        "round": 0,
+        "scene": 3,
+        "room_word": 256,
+        "ending_d10": 0,
+        "ending_d11": 0,
+        "ending_d12": 0,
+        "path": "sim\\captures\\rtl\\kyros_combat_hud3301\\frame_002760.work.bin",
+        "sha256": "96d284f5f7a687d3c04b89539c56afcba91e1713ec3382beafa908145fb495b7"
+      },
+      {
+        "field": 2790,
+        "round": 0,
+        "scene": 3,
+        "room_word": 256,
+        "ending_d10": 0,
+        "ending_d11": 0,
+        "ending_d12": 0,
+        "path": "sim\\captures\\rtl\\kyros_combat_hud3301\\frame_002790.work.bin",
+        "sha256": "85d96234fe2f55b5221c9962038671142a13ca1efb0629c6e3c831368df02be3"
+      },
+      {
+        "field": 2820,
+        "round": 0,
+        "scene": 3,
+        "room_word": 256,
+        "ending_d10": 0,
+        "ending_d11": 0,
+        "ending_d12": 0,
+        "path": "sim\\captures\\rtl\\kyros_combat_hud3301\\frame_002820.work.bin",
+        "sha256": "9fff60b26a7940a870f00a91825a37e9c169e3d0815ffbf4b465ea77945a069d"
+      },
+      {
+        "field": 2850,
+        "round": 0,
+        "scene": 3,
+        "room_word": 256,
+        "ending_d10": 0,
+        "ending_d11": 0,
+        "ending_d12": 0,
+        "path": "sim\\captures\\rtl\\kyros_combat_hud3301\\frame_002850.work.bin",
+        "sha256": "8f964d1c7586b4e0bd0760b09b037236f00524c26f6b3904fbb5d95cad14e4db"
+      },
+      {
+        "field": 2880,
+        "round": 0,
+        "scene": 3,
+        "room_word": 256,
+        "ending_d10": 0,
+        "ending_d11": 0,
+        "ending_d12": 0,
+        "path": "sim\\captures\\rtl\\kyros_combat_hud3301\\frame_002880.work.bin",
+        "sha256": "d9d01fe292a6f698b5b3bd56e89860b9e0dd5e0a065316096bcc37a8affbe690"
+      },
+      {
+        "field": 2910,
+        "round": 0,
+        "scene": 3,
+        "room_word": 256,
+        "ending_d10": 0,
+        "ending_d11": 0,
+        "ending_d12": 0,
+        "path": "sim\\captures\\rtl\\kyros_combat_hud3301\\frame_002910.work.bin",
+        "sha256": "a51f0eea2f87f59cc51c762629931fbd282d35595c872d641bdba1aef867b89a"
+      },
+      {
+        "field": 2940,
+        "round": 0,
+        "scene": 3,
+        "room_word": 256,
+        "ending_d10": 0,
+        "ending_d11": 0,
+        "ending_d12": 0,
+        "path": "sim\\captures\\rtl\\kyros_combat_hud3301\\frame_002940.work.bin",
+        "sha256": "508993b3ae5ee423b884fa83320077b6d8c512ff547082724a89170f70e94921"
+      },
+      {
+        "field": 2970,
+        "round": 0,
+        "scene": 3,
+        "room_word": 256,
+        "ending_d10": 0,
+        "ending_d11": 0,
+        "ending_d12": 0,
+        "path": "sim\\captures\\rtl\\kyros_combat_hud3301\\frame_002970.work.bin",
+        "sha256": "e351f6a889e6d5d5b263dbec53ce3d0350f19f71f490128e24c96d2e203f449e"
+      },
+      {
+        "field": 3000,
+        "round": 0,
+        "scene": 3,
+        "room_word": 256,
+        "ending_d10": 0,
+        "ending_d11": 0,
+        "ending_d12": 0,
+        "path": "sim\\captures\\rtl\\kyros_combat_hud3301\\frame_003000.work.bin",
+        "sha256": "a9a9e862abe18120aa72d89be1bd5fdfb2ce8c58dd4b58e06e682553e0e3efa6"
+      },
+      {
+        "field": 3030,
+        "round": 0,
+        "scene": 3,
+        "room_word": 256,
+        "ending_d10": 0,
+        "ending_d11": 0,
+        "ending_d12": 0,
+        "path": "sim\\captures\\rtl\\kyros_combat_hud3301\\frame_003030.work.bin",
+        "sha256": "83eae965d576142845226943d3e9ae894f521dff8ffd97b358ddacb50a97bcb9"
+      },
+      {
+        "field": 3060,
+        "round": 0,
+        "scene": 3,
+        "room_word": 256,
+        "ending_d10": 0,
+        "ending_d11": 0,
+        "ending_d12": 0,
+        "path": "sim\\captures\\rtl\\kyros_combat_hud3301\\frame_003060.work.bin",
+        "sha256": "eb2bf836673f3ff4b23397c83d4dc727d0a1611af603a8b17ae8ff4a10fe590e"
+      },
+      {
+        "field": 3090,
+        "round": 0,
+        "scene": 3,
+        "room_word": 256,
+        "ending_d10": 0,
+        "ending_d11": 0,
+        "ending_d12": 0,
+        "path": "sim\\captures\\rtl\\kyros_combat_hud3301\\frame_003090.work.bin",
+        "sha256": "ae617cf0cacd62d7520c9cf10c741c3f21323e9f4a1c13f8df096ad7e7720622"
+      },
+      {
+        "field": 3120,
+        "round": 0,
+        "scene": 3,
+        "room_word": 256,
+        "ending_d10": 0,
+        "ending_d11": 0,
+        "ending_d12": 0,
+        "path": "sim\\captures\\rtl\\kyros_combat_hud3301\\frame_003120.work.bin",
+        "sha256": "5cc2eb30af683eddec254946b026df7268b47a199e81d7c7484ecac99e63ceed"
+      },
+      {
+        "field": 3150,
+        "round": 0,
+        "scene": 3,
+        "room_word": 256,
+        "ending_d10": 0,
+        "ending_d11": 0,
+        "ending_d12": 0,
+        "path": "sim\\captures\\rtl\\kyros_combat_hud3301\\frame_003150.work.bin",
+        "sha256": "95a0fd209214c9796214032a7aefc5fcf2e115c38c77ecc22aae2c67ebbf1a7d"
+      },
+      {
+        "field": 3180,
+        "round": 0,
+        "scene": 3,
+        "room_word": 256,
+        "ending_d10": 0,
+        "ending_d11": 0,
+        "ending_d12": 0,
+        "path": "sim\\captures\\rtl\\kyros_combat_hud3301\\frame_003180.work.bin",
+        "sha256": "32ae55619bb389a7a2829eb299d8f138e3ff72b7a2ee25164d5f3240a74ddd14"
+      },
+      {
+        "field": 3210,
+        "round": 0,
+        "scene": 3,
+        "room_word": 279,
+        "ending_d10": 0,
+        "ending_d11": 0,
+        "ending_d12": 0,
+        "path": "sim\\captures\\rtl\\kyros_combat_hud3301\\frame_003210.work.bin",
+        "sha256": "3047f3a7f485e8983f3cc0465de53a338bcd5703106536f944710b1c19d0ccd2"
+      },
+      {
+        "field": 3240,
+        "round": 0,
+        "scene": 3,
+        "room_word": 282,
+        "ending_d10": 0,
+        "ending_d11": 0,
+        "ending_d12": 0,
+        "path": "sim\\captures\\rtl\\kyros_combat_hud3301\\frame_003240.work.bin",
+        "sha256": "c99482fefa071cc7c44f5ca545406d0c3aba0b428b723caff43836ac2a70b9a2"
+      },
+      {
+        "field": 3270,
+        "round": 0,
+        "scene": 3,
+        "room_word": 285,
+        "ending_d10": 0,
+        "ending_d11": 0,
+        "ending_d12": 0,
+        "path": "sim\\captures\\rtl\\kyros_combat_hud3301\\frame_003270.work.bin",
+        "sha256": "83374b91a49003a57ecd82fcc4e9ffb44d617f318749212068f0a521beb109ff"
+      },
+      {
+        "field": 3300,
+        "round": 0,
+        "scene": 3,
+        "room_word": 288,
+        "ending_d10": 0,
+        "ending_d11": 0,
+        "ending_d12": 0,
+        "path": "sim\\captures\\rtl\\kyros_combat_hud3301\\frame_003300.work.bin",
+        "sha256": "41c7f886437d683d1be84e43d8d20c0811ad48bda1b0655fafb2395c1cac27f1"
+      }
+    ],
+    "unique_round_scene": [
+      [
+        0,
+        0
+      ],
+      [
+        0,
+        3
+      ]
+    ],
+    "unique_ending_dispatch": [
+      [
+        0,
+        0,
+        0
+      ]
+    ],
+    "max_observed_room_word": 375,
+    "scene5_snapshots": 0,
+    "ending_nonzero_dispatch_snapshots": 0,
+    "limit": "130 actual snapshots establish only observed selector3 during active combat and zero ending-dispatch bytes. No unsampled state interval is claimed."
+  },
+  "earned_score": {
+    "actual_cpu_score_and_hps_protocol_pass": true,
+    "evidence": {
+      "passed": true,
+      "earned_best_raw": 8192,
+      "saved_bytes": 178,
+      "cpu_reset_cleared_best": true,
+      "reset_steps": 2446,
+      "restore_steps": 9668523,
+      "hps_upload_exact": true,
+      "hps_restore_exact": true,
+      "synthetic_ram_writes": 0,
+      "limit": "Ideal PLL/peripheral interfaces; finite Kyros gameplay and score protocol only; no physical qualification"
+    },
+    "finite_feature_pass": false,
+    "canonical_graphics_pass": false,
+    "full_acceptance_pass": false,
+    "limit": "CPU-earned BCD2000,178-byte save/restore and zero synthetic RAM writes establish a finite feature protocol; score does not prove stage5/ending reachability."
+  },
+  "existing_renderer_fixtures": {
+    "world_stage5": {
+      "receipt": "research/kyros_candidate5_lastroom_renderer_verification.json",
+      "sha256": "10476be5a648af113ae4be2908f7d866903c4d7f860dab8ded479a775f9d9ada",
+      "fields": [
+        1500,
+        1800,
+        2400,
+        3000,
+        3599
+      ],
+      "complete_rgb_differences": [
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      "actual_renderer_pass": true,
+      "actual_cpu_progression_pass": false,
+      "scope": "Complete isolated real renderer/SDRAM fields from guarded MAME selector5 snapshots; no real RTL CPU, whole-game or late-scene identity acceptance"
+    },
+    "japan_stage5": {
+      "receipt": "research/kyrosj_candidate5_lastroom_renderer_verification.json",
+      "sha256": "575f004a5e2f01faf652493e99ae1b0276845aea87203f27ddfad0467e4e8f5c",
+      "fields": [
+        1500,
+        1800,
+        2400,
+        3000,
+        3600
+      ],
+      "complete_rgb_differences": [
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      "actual_renderer_pass": true,
+      "actual_cpu_progression_pass": false,
+      "scope": "Complete isolated real renderer/SDRAM fields from guarded MAME selector5 snapshots; no real RTL CPU, whole-game or late-scene identity acceptance"
+    },
+    "world_ending": {
+      "receipt": "research/kyros_ending_renderer_verification.json",
+      "sha256": "dce0141242586dd2cb7f396a5cc92a679a05c09fdc84f555fea36cb62e78ac81",
+      "fields": [
+        2400,
+        3000,
+        3600,
+        4200,
+        5399
+      ],
+      "complete_rgb_differences": [
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      "actual_renderer_pass": true,
+      "actual_cpu_progression_pass": false,
+      "scope": "Complete isolated real renderer/SDRAM fields from guarded MAME selector5 snapshots; no real RTL CPU, whole-game or late-scene identity acceptance"
+    }
+  },
+  "retained_failures": [
+    "Earlier entry/corridor CLUT255 suppression tests changed zero visible pixels; retained as failed nonvacuous-coverage attempts.",
+    "Five blind direction/long route attempts, including36000 fields, did not leave the initial area and used explicit health/ammo/etc RAM writes. They are scene discovery only.",
+    "Original actual native/MAME graphics mismatches remain; renderer-fixture parity is not whole-game CPU parity."
+  ],
+  "first_missing_requirement": "A ROM-pinned, control-only official-MAME input recording that naturally reaches selector5/room0900 and the actual ending staff-text path, with no PC/register/RAM/score/invulnerability writes.",
+  "efficient_next_action": [
+    "Use one legal official-MAME control recording, keeping per-field applied input ports and read-only scene/room/player/lives/energy/ending markers. Establish a successful route cheaply in MAME before any long native replay.",
+    "Reuse the existing input schema and correctly named raw input bits; use player/room progress observations to resolve routing stalls. Do not repeat blind held-direction sweeps or infer direction from ROT90 screenshots alone.",
+    "On natural selector5/late-room entry, retain the corrected-color lamp/blocks field; on actual ending-dispatch/staff text, retain character/text overlap. Pin complete control trace, ROM, source, actual exit and no-mutation audit.",
+    "Replay that same complete legal trace once through actual CPU RTL, collecting bounded marker/image evidence at both targets. Reuse existing finite renderer/regression receipts; do not rerun them without new behavior. Japan actual CPU B01 needs its own ROM-qualified natural target trace after World route is established."
+  ],
+  "minimal_observer": {
+    "read_only_completed_field_bytes": [
+      "0x20100",
+      "0x20101",
+      "0x20103",
+      "0x20105",
+      "0x20414",
+      "0x20d10",
+      "0x20d11",
+      "0x20d12"
+    ],
+    "read_only_completed_field_words": [
+      "0x20110"
+    ],
+    "accepted_main_write_words": [
+      "0x20100",
+      "0x20110",
+      "0x20d10",
+      "0x20d12"
+    ],
+    "limit": "Input playback is the only driver; markers are observers. Exact transition edges require accepted write timestamps; sparse work snapshots give conservative bounds."
+  },
+  "full_B01_actual_cpu_acceptance": false,
+  "full_B02_actual_cpu_acceptance": false,
+  "whole_game_acceptance": false,
+  "evidence_pins": {
+    "research\\kyros_combat_hud3301_exit.json": "f20f2c3ad3fd45b458c8f302868b5ff311409146090c32548816e7c64ab6a267",
+    "research\\kyros_combat_hud3301_job.json": "0c11387a5d21dc4170739579e50a9093d63c1aa132833d955077b1e083611da9",
+    "research\\kyros_combat_hud3301_verification.json": "8e316d02ae355386b654fa5b46c08893b47f544cfd7b08844bafc68af9c3e340",
+    "research\\kyros_death_marker_localization_v2.json": "eb47fa9f44ae1853064930670e91c5614014d62e19a86a7024cee335b944e87e",
+    "research\\kyros_scene_selector_analysis.json": "d8f0da6e01f7958ea9b4a95e3e0be877235f320d53070d5516a5af09a2470132",
+    "research\\kyros_scene5_room_descriptors.json": "2627d673317a28c5f04fa3ccb8ed7252455193f0d1562069f678a67931e3f007",
+    "research\\kyros_scene_fixture_profiles.json": "68bcd44c7c7f231a9f1527e97dd4ee028d838c36067f589186100cfd3d81eec7",
+    "research\\kyros_ending_fixture_profile.json": "ec082314b634d2799b450cb2d24716902c35461d7c63df4a06c1624d4bd260d8",
+    "research\\kyros_earned_wrapper901_v5_feature_terminal.json": "8266182a38e9f47633b0b572d854876a1980bb2f2e421490cc25cad8583a388a",
+    "research\\kyros_earned_wrapper901_v5_exit.json": "76154779fdc8af482d08c67ffe0fabc820799774991a02970ac87831d62a600a",
+    "roms\\kyros\\maincpu.bin": "6949ea5dc91dfced8c1afccbadee18c2e795ab38d8adbc3795f05a19b8f3b2b3",
+    "sim\\captures\\diagnostics\\kyros_rom_disassembly\\maincpu.asm": "da4e0ed81c446f9c77107fbac9e30f950d7e4cce20f2285fe78f14115f8d707d",
+    "docs\\LATE_SCENE_FIXTURES.md": "cb81bc0ff691b5de171110a5912301b9f558cb6fbc76116997188ba724de57ce",
+    "docs\\bug_coverage.json": "17c4730efab91c4d61d74ebf30fd399fc2434997af71bdc2fb90ce83289c413d"
+  }
+}

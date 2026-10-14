@@ -1,0 +1,82 @@
+{
+  "scope": "Isolated component analysis and synthesis of unchanged storage RTL, not production integration, fit, timing or full-core resource acceptance.",
+  "tool": "Quartus Prime17.0.2Build602SJLite",
+  "actual_native_OS_exit": 0,
+  "native_receipt": "_checks/agent-dram-storage-quartus-20261010/native-tool-receipt.json",
+  "command": "D:/q17/quartus/bin64/quartus_map.exe dram_storage --rev=dram_storage",
+  "device": "5CSEBA6U23I7",
+  "clock_SDC_MHz": 50.4,
+  "clock_constraint_is_timing_pass": false,
+  "generate_RBF_file": "OFF",
+  "RTL_sha256": "e43ea1abd41d45c8237d3a08ba2e0790434e3dd59f662a29934424be284b7dc2",
+  "source_sha256": {
+    "rtl/n8080_dram_storage.sv": "e43ea1abd41d45c8237d3a08ba2e0790434e3dd59f662a29934424be284b7dc2",
+    "docs/DRAM_STORAGE_INFERENCE.md": "5a9f037d25a8a1d1d7d554d0c42b8b5aaf5c16efc06bc946d26f076528a1309f"
+  },
+  "evidence_sha256": {
+    "_checks/agent-dram-storage-quartus-20261010/n8080_dram_storage.sv": "e43ea1abd41d45c8237d3a08ba2e0790434e3dd59f662a29934424be284b7dc2",
+    "_checks/agent-dram-storage-quartus-20261010/dram_storage.qpf": "7f94c9c009c4275bb3f0f1b24f61ea4bdc8e5d27b1eb4a490b884d956ebd80f7",
+    "_checks/agent-dram-storage-quartus-20261010/dram_storage.qsf": "5008595f9a4cdf47de5dda6fdce2af221b33b680fcd5913ff67f53840de714b7",
+    "_checks/agent-dram-storage-quartus-20261010/dram_storage.sdc": "57a0109ed5ea9a14428fddeee77c8dc2596ee7b7bf2085157094dc816c49d3ae",
+    "_checks/agent-dram-storage-quartus-20261010/launch.json": "cb73d8431ac019f9416334e581bc4d919231dc46ee1523e42a7aa758137ec778",
+    "_checks/agent-dram-storage-quartus-20261010/pre-map-project.json": "e225740843e8c2ed188d9f790576d91ba05c16a6830df75e9749e555b6a15d9a",
+    "_checks/agent-dram-storage-quartus-20261010/native-tool-receipt.json": "aa84b74408f83e887aed7a0936c745313036bdd4ced7fe728872629c64ab2ecd",
+    "_checks/agent-dram-storage-quartus-20261010/map-exit-code.txt": "9a271f2a916b0b6ee6cecb2426f0b3206ef074578be55d9bc94f6f3fe3ab86aa",
+    "_checks/agent-dram-storage-quartus-20261010/map-console.txt": "4fbc470a90817864e04ec06397c9612716747838a7652f38b7c388669003ab37",
+    "_checks/agent-dram-storage-quartus-20261010/audit-inference.py": "f235d2ee713d57252817ab64d580d59967c4ea68f5783aaf3e6d897da236cfa3",
+    "_checks/agent-dram-storage-quartus-20261010/output_files/dram_storage.map.rpt": "846bc21486636d54e6c3d44a01799a1a0d13a06dd2de2f831b8ee53324d7106b",
+    "_checks/agent-dram-storage-quartus-20261010/output_files/dram_storage.map.summary": "12f599b196ee3dddea33da96f6efd91a80d8aff96371793f496d148d6f476b6f",
+    "_checks/agent-dram-storage-quartus-20261010/db/altsyncram_77s1.tdf": "0b3a4bfa62ce78bdae3bb383f44bbfac0fee8f59b99b54d201bfc7eaff1a31af"
+  },
+  "resource_estimates": {
+    "estimated_ALMs": 33,
+    "combinational_ALUTs": 53,
+    "dedicated_logic_registers": 34,
+    "MLAB_bits": 0,
+    "block_memory_bits": 131072,
+    "DSP_blocks": 0,
+    "M10K_RAM_segments": 16,
+    "implemented_logic_cells": 57
+  },
+  "report_resource_lines": {
+    "estimated_ALMs": 203,
+    "combinational_ALUTs": 205,
+    "dedicated_logic_registers": 212,
+    "MLAB_bits": 215,
+    "block_memory_bits": 61,
+    "DSP_blocks": 62
+  },
+  "primitive": {
+    "name": "altsyncram:memory_rtl_0",
+    "operation_mode": "DUAL_PORT",
+    "RAM_BLOCK_TYPE": "M10K",
+    "width": 8,
+    "address_width": 14,
+    "numwords": 16384,
+    "address_reg_B": "CLOCK0",
+    "outdata_reg_B": "UNREGISTERED",
+    "read_during_write_mode_mixed_ports": "OLD_DATA"
+  },
+  "M10K_inference_qualified": true,
+  "register_memory_explosion_ruled_out": true,
+  "logical_mutually_exclusive_shared_address_access": true,
+  "physical_SINGLE_PORT_inference_qualified": false,
+  "strict_single_port_criterion_pass": false,
+  "RTL_changed": false,
+  "source_frozen_and_unchanged": true,
+  "errors": 0,
+  "warnings": 0,
+  "fit_executed": false,
+  "STA_executed": false,
+  "production_timing_qualified": false,
+  "full_core_resources_qualified": false,
+  "production_integration_qualified": false,
+  "rbf_built": false,
+  "notes": [
+    "Quartus infers separate write A/read B ports from the synchronous HDL form; the native-qualified logical mutually exclusive shared-address behavior is unchanged.",
+    "The16RAM segments and131072block bits prove block RAM storage rather than131072fabric registers. Logic/register estimates are unfitted component figures.",
+    "50.4MHz exists as one declared SDC clock, without STA/Fmax/setup/hold evidence.",
+    "No fit was needed to establish primitive type and rule out register-memory explosion; a physical SINGLE_PORT result is not claimed.",
+    "CPU arbitration, physical4116 access and serializer timing remain unresolved. No native or whole-board regression was rerun."
+  ]
+}

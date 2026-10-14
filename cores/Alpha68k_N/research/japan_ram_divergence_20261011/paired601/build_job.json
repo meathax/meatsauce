@@ -1,0 +1,26 @@
+{
+  "pid": 4880,
+  "supervisor_pid": 53464,
+  "started": 1791654280.1927881,
+  "command": [
+    "wsl.exe",
+    "-d",
+    "Ubuntu",
+    "--cd",
+    "D:\\Arcade\\AI\\aCORES\\Alpha68k N\\research\\japan_ram_divergence_20261011\\paired601\\source",
+    "--exec",
+    "/bin/bash",
+    "-c",
+    "printf \"build_linux_pid=%s\\n\" \"$$\"\nexec /bin/bash sim/build_system.sh"
+  ],
+  "preparation": {
+    "path": "D:\\Arcade\\AI\\aCORES\\Alpha68k N\\research\\japan_ram_divergence_20261011\\paired601\\preparation_native_build.json",
+    "bytes": 26053,
+    "sha256": "1d4d645c2a7aef24549209f9352ee17efc7418ef4472e81498f7adcb5f20dd10"
+  },
+  "worker": {
+    "path": "D:\\Arcade\\AI\\aCORES\\Alpha68k N\\research\\japan_ram_divergence_20261011\\build_observer601.py",
+    "bytes": 4703,
+    "sha256": "25e60e5757097ec4c72e53e4d47e37ea0a6160e31e4e49cf4370ca79bcae6fd3"
+  }
+}

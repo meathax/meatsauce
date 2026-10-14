@@ -1,0 +1,80 @@
+{
+  "scope": "Finite actualCPU noise-active punch warm-reset: authentic build/simulation/postcheck exits plus strict Boolean precondition independently recomputed from captured existing signal observations. No rerun or production state mutation.",
+  "checks": {
+    "actual_terminal_zero": true,
+    "same_job_process_handles": true,
+    "frozen_original_source_pins": true,
+    "private_host_exact_derivation": true,
+    "readonly_retention_config_unchanged": true,
+    "actual_executable_pinned": true,
+    "frozen_ports_and_payload": true,
+    "complete_original_frame_metrics_prefix": true,
+    "actual_original_input_application_prefix": true,
+    "original_accepted_sound_prefix_exact": true,
+    "original_main_epoch_prefix_exact": true,
+    "original_actual_rgb_prefix_exact": true,
+    "unique_pixels_no_renderer_fault": true,
+    "actual_noise_only_nonzero_before_reset": true,
+    "real_warm_reset64_edges": true,
+    "rom_sdram_retained_no_cold_download": true,
+    "actual_held_cpu_audio_state_cleared": true,
+    "actual_channel_settles_by64": true,
+    "actual500000_post_ticks_observed": true,
+    "no_retained_channel_after_reset": true
+  },
+  "all20_checks_strict_boolean_true": true,
+  "actual_terminal_exits": {
+    "build_exit": 0,
+    "exit": 0,
+    "check_exit": 0
+  },
+  "actual_reset": {
+    "reset_delivered": true,
+    "completed_fields": 716,
+    "trigger_field": 715,
+    "assert_tick": 580681721,
+    "release_tick": 580681785,
+    "post_end_tick": 581181785,
+    "held_ticks": 64,
+    "post_ticks": 500000,
+    "pre_active_ticks": 783351,
+    "pre_nonzero_ticks": 362880,
+    "pre_noise_changes": 70,
+    "pre_channel_b_changes": 70,
+    "held_nonzero_ticks": 0,
+    "held_final_channel_b": 0,
+    "post_nonzero_ticks": 0,
+    "post_stale_nonzero_ticks": 0,
+    "post_ay2_data_writes": 0,
+    "whole_game_acceptance": false
+  },
+  "independent_observed_noise_transitions": 70,
+  "independent_observed_channel_transitions": 70,
+  "prefix_rgb_count": 42,
+  "prefix_sound_rows": 29903,
+  "prefix_epoch_rows": 26807,
+  "serialization_correction": {
+    "original_check": "actual_noise_only_nonzero_before_reset",
+    "original_integer_value": 2,
+    "meaning": "Python and-chain returned the observed nonzero volume2; original terminal/check exit and original receipt are preserved.",
+    "strict_boolean": true
+  },
+  "evidence_pins": {
+    "research\\kyros_active_noise_reset_v3_job.json": "a51bd24ea9028ea1fdd75605b80256a4ededf89cb3b8b292a877786bc32979b6",
+    "research\\kyros_active_noise_reset_v3_build_exit.json": "368f0f4d3b754cbf2ecef31987232d34ebd67ef7d9ebca73462ca878b4b75b5d",
+    "research\\kyros_active_noise_reset_v3_exit.json": "22e6c249930a7bf906a700e67017cf25c7740da47f225916d8b22c4fca5561d1",
+    "research\\kyros_active_noise_reset_v3_check_exit.json": "eb6a7344737719f81e380c6cb184042401964a7b94922e5d99e531d62d2a7ca7",
+    "research\\kyros_active_noise_reset_v3_verification.json": "5fa700e790c7c27abdb9836af74c044e17664e5f397c00e771f468ddd77a3146"
+  },
+  "observer_trace_sha256": "c12fca6f515b80fde9b54f34ae2a756d0430bdd25b5c4295b6a759291d15835e",
+  "qualifier_sha256": "21fd664be0ccd10b1ddcc65641dc3797293e8fd92562bd4ad13b1155a9cd96d0",
+  "finite_active_noise_cpu_reset_pass": true,
+  "full_B03_acceptance": false,
+  "whole_game_acceptance": false,
+  "canonical_graphics_pass": false,
+  "limits": [
+    "Exactly64 held master ticks and500000 postrelease ticks; no physical reset/clock claim.",
+    "Postrelease AY2datawrites are0 and channelB samples remain0; other channels/whole-board PCM alignment are not qualified.",
+    "Full Japan/death animation/precise MAME-native PCM and release/resource/physical acceptance remain separate."
+  ]
+}

@@ -1,0 +1,256 @@
+{
+  "passed": false,
+  "checks": {
+    "expected_graphics_rejection": false,
+    "complete_field": true,
+    "nonvacuous_color_ff_effect": false,
+    "independent_fixture_decoder_agrees": true,
+    "mame_difference_count": true,
+    "suppressed_ff_tiles": true,
+    "no_renderer_fault": true
+  },
+  "field": 11999,
+  "command": [
+    "wsl.exe",
+    "-d",
+    "Ubuntu",
+    "--cd",
+    "D:\\Arcade\\AI\\aCORES\\Alpha68k N",
+    "--exec",
+    "/mnt/d/Arcade/AI/aCORES/Alpha68k N/sim/captures/diagnostics/combat_hud_prewrite_fixtures/alpha68kn_render_fixture_sim",
+    "roms/kyros/download.bin",
+    "sim/captures/renderer/kyros_candidate5_corridor_renderer_color_ff_suppression_011999/suppressed.sprites.bin",
+    "68",
+    "sim/captures/renderer/kyros_candidate5_corridor_renderer_color_ff_suppression_011999/field_011999",
+    "0",
+    "sim/captures/kyros/late_scene_candidates12000_corridor_scene5_moving/frame_011999.display.rgb"
+  ],
+  "exit_code": 0,
+  "result": {
+    "scope": "isolated strip/palette/SDRAM fixture; no CPU acceptance",
+    "profile": 0,
+    "flip": false,
+    "pixels": 57344,
+    "pixel_mismatches": 0,
+    "first_x": 0,
+    "first_y": 16,
+    "oracle_compared": true,
+    "oracle_mismatches": 0,
+    "worst_line_cycles": 1681,
+    "completed_lines": 225,
+    "deadline_misses": 0,
+    "row_overflows": 0,
+    "banks_mask": 255,
+    "boundary_codes_mask": 5,
+    "color_ff_tiles": 0,
+    "read_pairs": 17856,
+    "result": "pass"
+  },
+  "changed_pixels": 0,
+  "modifications": [
+    {
+      "byte_offset": 2616,
+      "before": 32768,
+      "after": 32,
+      "clut_address": 2
+    },
+    {
+      "byte_offset": 2618,
+      "before": 32768,
+      "after": 32,
+      "clut_address": 2
+    },
+    {
+      "byte_offset": 2680,
+      "before": 32768,
+      "after": 32,
+      "clut_address": 2
+    },
+    {
+      "byte_offset": 2682,
+      "before": 32768,
+      "after": 32,
+      "clut_address": 2
+    },
+    {
+      "byte_offset": 2744,
+      "before": 32768,
+      "after": 32,
+      "clut_address": 2
+    },
+    {
+      "byte_offset": 2746,
+      "before": 32768,
+      "after": 32,
+      "clut_address": 2
+    },
+    {
+      "byte_offset": 2808,
+      "before": 32768,
+      "after": 32,
+      "clut_address": 2
+    },
+    {
+      "byte_offset": 2810,
+      "before": 32768,
+      "after": 32,
+      "clut_address": 2
+    },
+    {
+      "byte_offset": 2872,
+      "before": 32768,
+      "after": 32,
+      "clut_address": 2
+    },
+    {
+      "byte_offset": 2874,
+      "before": 32768,
+      "after": 32,
+      "clut_address": 2
+    },
+    {
+      "byte_offset": 2936,
+      "before": 32768,
+      "after": 32,
+      "clut_address": 2
+    },
+    {
+      "byte_offset": 2938,
+      "before": 32768,
+      "after": 32,
+      "clut_address": 2
+    },
+    {
+      "byte_offset": 3000,
+      "before": 32768,
+      "after": 32,
+      "clut_address": 2
+    },
+    {
+      "byte_offset": 3002,
+      "before": 32768,
+      "after": 32,
+      "clut_address": 2
+    },
+    {
+      "byte_offset": 3064,
+      "before": 32768,
+      "after": 32,
+      "clut_address": 2
+    },
+    {
+      "byte_offset": 3066,
+      "before": 32768,
+      "after": 32,
+      "clut_address": 2
+    },
+    {
+      "byte_offset": 3516,
+      "before": 32768,
+      "after": 32,
+      "clut_address": 2
+    },
+    {
+      "byte_offset": 3518,
+      "before": 32768,
+      "after": 32,
+      "clut_address": 2
+    },
+    {
+      "byte_offset": 3580,
+      "before": 32768,
+      "after": 32,
+      "clut_address": 2
+    },
+    {
+      "byte_offset": 3582,
+      "before": 32768,
+      "after": 32,
+      "clut_address": 2
+    },
+    {
+      "byte_offset": 3640,
+      "before": 32775,
+      "after": 32,
+      "clut_address": 6
+    },
+    {
+      "byte_offset": 3642,
+      "before": 32774,
+      "after": 32,
+      "clut_address": 6
+    },
+    {
+      "byte_offset": 3644,
+      "before": 32771,
+      "after": 32,
+      "clut_address": 2
+    },
+    {
+      "byte_offset": 3646,
+      "before": 32770,
+      "after": 32,
+      "clut_address": 2
+    },
+    {
+      "byte_offset": 3704,
+      "before": 32781,
+      "after": 32,
+      "clut_address": 14
+    },
+    {
+      "byte_offset": 3706,
+      "before": 32780,
+      "after": 32,
+      "clut_address": 14
+    },
+    {
+      "byte_offset": 3708,
+      "before": 32777,
+      "after": 32,
+      "clut_address": 10
+    },
+    {
+      "byte_offset": 3710,
+      "before": 32776,
+      "after": 32,
+      "clut_address": 10
+    },
+    {
+      "byte_offset": 3768,
+      "before": 32783,
+      "after": 32,
+      "clut_address": 14
+    },
+    {
+      "byte_offset": 3770,
+      "before": 32782,
+      "after": 32,
+      "clut_address": 14
+    },
+    {
+      "byte_offset": 3772,
+      "before": 32779,
+      "after": 32,
+      "clut_address": 10
+    },
+    {
+      "byte_offset": 3774,
+      "before": 32778,
+      "after": 32,
+      "clut_address": 10
+    }
+  ],
+  "native_bounds": null,
+  "portrait_bounds": null,
+  "source_sha256": {
+    "research\\kyros_candidate5_corridor_renderer_verification.json": "0e3a4cd9a27f85e5b5f0d50a114d0cef3c873eaef134a19a865071938716af95",
+    "sim\\captures\\kyros\\late_scene_candidates12000_corridor_scene5_moving\\frame_011999.sprites.bin": "e5b7714af454d652d9faf272f75dbe4ce8ae6c8852955af80188fdfb99360a41",
+    "sim\\captures\\kyros\\late_scene_candidates12000_corridor_scene5_moving\\frame_011999.display.rgb": "68412fe08b9ddd68e392b1b827fb30ea417b5b3aef5bc7f9a1533baf3b351208",
+    "roms\\kyros\\download.bin": "5cf728d5d40e9be14a4a9c07792bab9f44404a75c2c2eed92124ff96ee9b5ef6",
+    "sim\\captures\\diagnostics\\combat_hud_prewrite_fixtures\\alpha68kn_render_fixture_sim": "39b911470653cd526a54660362ea15c1efc94fbd4fd551709c6e63e5d19be31f"
+  },
+  "fixture_sha256": "0b6f531c0d20ac27432a14c1e26c4b53af34d0c41fce1c18b3408e063f68ae16",
+  "actual_sha256": "68412fe08b9ddd68e392b1b827fb30ea417b5b3aef5bc7f9a1533baf3b351208",
+  "scope": "Deliberate isolated RAM fault injection: replace CLUT255 tile words by the Kyros sentinel, equivalent to the obsolete color255 skip. Positive baseline stays unchanged and matches full MAME RGB. No old-MAME capture, RTL modification, screenshot mask or CPU gameplay acceptance."
+}

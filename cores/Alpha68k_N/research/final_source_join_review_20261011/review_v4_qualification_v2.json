@@ -1,0 +1,36 @@
+{
+  "pass": true,
+  "approved_for_bounded_merge": true,
+  "findings": [],
+  "resolved_finding": "JT49 fork records deployed LF hash separately from qualified CRLF source; exact normalization verified.",
+  "released_plan_sha256": "bff403ad07e41a6e3fbd444b0d1aa3922256a4d412b18dcda9d3234f5bb03a2a",
+  "released_helper_sha256": "85ce69da6a68734420516a57c4aab01baa9df09c0e9a25d40d89309a9ae535bb",
+  "corrected_fork_sha256": "3e9e1a7f758739c28991e8343503336b687b5a0d7e7a5b87126361554dbe014b",
+  "release_delivery_manifest_sha256": "4c3c489b8e35585483c0413064b9d47417211bd58e52f7e3196e049256d32e8e",
+  "original_held_manifest_sha256": "67957255c395483c53798976414ed62f1b9bc469df71a7cbaec9a606a3e953ed",
+  "actual_native_exit": 0,
+  "production_updates_verified": 15,
+  "delta_from_v3": [
+    "rtl/alpha68kn_board.sv",
+    "docs/STATE.md",
+    "donormap.md"
+  ],
+  "original490_evidence_pins_reused_without_rehash": true,
+  "new_metadata_pins_verified": 3,
+  "native_dependency_recipe_sha256": "61ef9977369596edd9ed098b36324c74ff9519a56d636cc620780e2276b9de31",
+  "compiled_HDL_closure_proof_reused": 67,
+  "optional_observer_VLT_integrated": false,
+  "source_ready_for_apply": false,
+  "root_activation_required": true,
+  "previous_reviews_reused": [
+    "review_v2.json",
+    "parity_review_v1.json",
+    "P2 architectural latch genuine firmware qualification"
+  ],
+  "qualification_limits": [
+    "79875 comparison proof covers extracted ROM storage, not whole-game current graph.",
+    "MAP resource estimates do not close complete FIT, all-corner STA, unconstrained I/O or seven resource caps.",
+    "Current 1800 lifecycle, strict RAM, sound, documented bugs and hardware/release gates remain open."
+  ],
+  "build_replay_Quartus_canonical_edits": false
+}

@@ -1,0 +1,263 @@
+{
+  "source_binding_sha256": "4f3a6d15a146a7b3d1880de0fdd7ba097bb2437c8c5429d9a37e1db991cfff6b",
+  "available_resources": [
+    {
+      "resource": "Estimated ALMs",
+      "used": 19012,
+      "capacity": 41910,
+      "percent": 45.36387497017419,
+      "limit_percent": 80,
+      "scope": "Map estimate, not fitted ALMs"
+    },
+    {
+      "resource": "Block memory bits",
+      "used": 2470744,
+      "capacity": 5662720,
+      "percent": 43.631752938517174,
+      "limit_percent": 85,
+      "scope": "Complete mapped design"
+    },
+    {
+      "resource": "DSP blocks",
+      "used": 41,
+      "capacity": 112,
+      "percent": 36.607142857142854,
+      "limit_percent": 90,
+      "scope": "Complete mapped design"
+    }
+  ],
+  "unavailable_until_fit": [
+    "Fitted ALMs",
+    "LABs used",
+    "Peak H/V interconnect",
+    "Average interconnect",
+    "M10K blocks"
+  ],
+  "registers": 26184,
+  "ram_segments": 1379,
+  "ram_segments_are_not_m10k_blocks": true,
+  "all_simple_dual_port_rows": [
+    {
+      "line": 1111,
+      "text": "; ascal:ascal|altsyncram:i_dpram_rtl_0|altsyncram_g9j1:auto_generated|ALTSYNCRAM                                                                                                                                    ; AUTO       ; Simple Dual Port ; 32           ; 128          ; 32           ; 128          ; 4096    ; None                                                   ;"
+    },
+    {
+      "line": 1112,
+      "text": "; ascal:ascal|altsyncram:i_mem[0].r[7]__1|altsyncram_89q1:auto_generated|ALTSYNCRAM                                                                                                                                 ; AUTO       ; Simple Dual Port ; 2048         ; 24           ; 2048         ; 24           ; 49152   ; None                                                   ;"
+    },
+    {
+      "line": 1113,
+      "text": "; ascal:ascal|altsyncram:o_a_poly_mem_rtl_0|altsyncram_o9j1:auto_generated|ALTSYNCRAM                                                                                                                               ; AUTO       ; Simple Dual Port ; 256          ; 40           ; 256          ; 40           ; 10240   ; None                                                   ;"
+    },
+    {
+      "line": 1114,
+      "text": "; ascal:ascal|altsyncram:o_dpram_rtl_0|altsyncram_32k1:auto_generated|ALTSYNCRAM                                                                                                                                    ; AUTO       ; Simple Dual Port ; 32           ; 128          ; 32           ; 128          ; 4096    ; None                                                   ;"
+    },
+    {
+      "line": 1115,
+      "text": "; ascal:ascal|altsyncram:o_h_poly_mem_rtl_0|altsyncram_o9j1:auto_generated|ALTSYNCRAM                                                                                                                               ; AUTO       ; Simple Dual Port ; 256          ; 40           ; 256          ; 40           ; 10240   ; None                                                   ;"
+    },
+    {
+      "line": 1116,
+      "text": "; ascal:ascal|altsyncram:o_line0[0].r[7]__2|altsyncram_ccn1:auto_generated|ALTSYNCRAM                                                                                                                               ; AUTO       ; Simple Dual Port ; 2048         ; 24           ; 2048         ; 24           ; 49152   ; None                                                   ;"
+    },
+    {
+      "line": 1117,
+      "text": "; ascal:ascal|altsyncram:o_line1[0].r[7]__3|altsyncram_ccn1:auto_generated|ALTSYNCRAM                                                                                                                               ; AUTO       ; Simple Dual Port ; 2048         ; 24           ; 2048         ; 24           ; 49152   ; None                                                   ;"
+    },
+    {
+      "line": 1118,
+      "text": "; ascal:ascal|altsyncram:o_line2[0].r[7]__4|altsyncram_ccn1:auto_generated|ALTSYNCRAM                                                                                                                               ; AUTO       ; Simple Dual Port ; 2048         ; 24           ; 2048         ; 24           ; 49152   ; None                                                   ;"
+    },
+    {
+      "line": 1119,
+      "text": "; ascal:ascal|altsyncram:o_line3[0].r[7]__5|altsyncram_ccn1:auto_generated|ALTSYNCRAM                                                                                                                               ; AUTO       ; Simple Dual Port ; 2048         ; 24           ; 2048         ; 24           ; 49152   ; None                                                   ;"
+    },
+    {
+      "line": 1120,
+      "text": "; ascal:ascal|altsyncram:o_linf0[0].r[7]__6|altsyncram_m6n1:auto_generated|ALTSYNCRAM                                                                                                                               ; AUTO       ; Simple Dual Port ; 256          ; 24           ; 256          ; 24           ; 6144    ; None                                                   ;"
+    },
+    {
+      "line": 1121,
+      "text": "; ascal:ascal|altsyncram:o_linf1[0].r[7]__7|altsyncram_m6n1:auto_generated|ALTSYNCRAM                                                                                                                               ; AUTO       ; Simple Dual Port ; 256          ; 24           ; 256          ; 24           ; 6144    ; None                                                   ;"
+    },
+    {
+      "line": 1122,
+      "text": "; ascal:ascal|altsyncram:o_linf2[0].r[7]__8|altsyncram_m6n1:auto_generated|ALTSYNCRAM                                                                                                                               ; AUTO       ; Simple Dual Port ; 256          ; 24           ; 256          ; 24           ; 6144    ; None                                                   ;"
+    },
+    {
+      "line": 1123,
+      "text": "; ascal:ascal|altsyncram:o_linf3[0].r[7]__9|altsyncram_m6n1:auto_generated|ALTSYNCRAM                                                                                                                               ; AUTO       ; Simple Dual Port ; 256          ; 24           ; 256          ; 24           ; 6144    ; None                                                   ;"
+    },
+    {
+      "line": 1124,
+      "text": "; ascal:ascal|altsyncram:o_v_poly_mem_rtl_0|altsyncram_o9j1:auto_generated|ALTSYNCRAM                                                                                                                               ; AUTO       ; Simple Dual Port ; 256          ; 40           ; 256          ; 40           ; 10240   ; None                                                   ;"
+    },
+    {
+      "line": 1125,
+      "text": "; ascal:ascal|altsyncram:pal1_mem_rtl_0|altsyncram_2aj1:auto_generated|ALTSYNCRAM                                                                                                                                   ; AUTO       ; Simple Dual Port ; 128          ; 48           ; 128          ; 48           ; 6144    ; None                                                   ;"
+    },
+    {
+      "line": 1126,
+      "text": "; emu:emu|alpha68kn_crt:crt|crt_adjust:horizontal|altsyncram:mem_rtl_0|altsyncram_irs1:auto_generated|ALTSYNCRAM                                                                                                    ; M10K block ; Simple Dual Port ; 1024         ; 24           ; 1024         ; 24           ; 24576   ; db/Alpha68k_N.ram0_crt_adjust_61af0db5.hdl.mif         ;"
+    },
+    {
+      "line": 1127,
+      "text": "; emu:emu|alpha68kn_crt:crt|crt_vsize:vertical|altsyncram:meta_px_rtl_0|altsyncram_4vu1:auto_generated|ALTSYNCRAM                                                                                                   ; AUTO       ; Simple Dual Port ; 12           ; 10           ; 12           ; 10           ; 120     ; db/Alpha68k_N.ram0_crt_vsize_61a6d732.hdl.mif          ;"
+    },
+    {
+      "line": 1128,
+      "text": "; emu:emu|alpha68kn_crt:crt|crt_vsize:vertical|altsyncram:ring_rtl_0|altsyncram_5qk1:auto_generated|ALTSYNCRAM                                                                                                      ; M10K block ; Simple Dual Port ; 4608         ; 24           ; 4608         ; 24           ; 110592  ; None                                                   ;"
+    },
+    {
+      "line": 1132,
+      "text": "; emu:emu|alpha68kn_system:system|alpha68kn_board:board|alpha68kn_mcu:sting_mcu|altsyncram:ram[0][7]__10|altsyncram_g0n1:auto_generated|ALTSYNCRAM                                                                  ; AUTO       ; Simple Dual Port ; 64           ; 8            ; 64           ; 8            ; 512     ; None                                                   ;"
+    },
+    {
+      "line": 1133,
+      "text": "; emu:emu|alpha68kn_system:system|alpha68kn_board:board|altsyncram:main_rom_rtl_0|altsyncram_egn1:auto_generated|ALTSYNCRAM                                                                                         ; AUTO       ; Simple Dual Port ; 65536        ; 16           ; 65536        ; 16           ; 1048576 ; None                                                   ;"
+    },
+    {
+      "line": 1134,
+      "text": "; emu:emu|alpha68kn_system:system|alpha68kn_board:board|altsyncram:mcu_rom_even_rtl_0|altsyncram_g9n1:auto_generated|ALTSYNCRAM                                                                                     ; AUTO       ; Simple Dual Port ; 2048         ; 8            ; 2048         ; 8            ; 16384   ; None                                                   ;"
+    },
+    {
+      "line": 1135,
+      "text": "; emu:emu|alpha68kn_system:system|alpha68kn_board:board|altsyncram:mcu_rom_odd_rtl_0|altsyncram_g9n1:auto_generated|ALTSYNCRAM                                                                                      ; AUTO       ; Simple Dual Port ; 2048         ; 8            ; 2048         ; 8            ; 16384   ; None                                                   ;"
+    },
+    {
+      "line": 1136,
+      "text": "; emu:emu|alpha68kn_system:system|alpha68kn_board:board|altsyncram:renderer_strip_hi_rtl_0|altsyncram_aqs1:auto_generated|ALTSYNCRAM                                                                                ; AUTO       ; Simple Dual Port ; 4096         ; 8            ; 4096         ; 8            ; 32768   ; db/Alpha68k_N.ram5_alpha68kn_board_ce55f273.hdl.mif    ;"
+    },
+    {
+      "line": 1137,
+      "text": "; emu:emu|alpha68kn_system:system|alpha68kn_board:board|altsyncram:renderer_strip_lo_rtl_0|altsyncram_bqs1:auto_generated|ALTSYNCRAM                                                                                ; AUTO       ; Simple Dual Port ; 4096         ; 8            ; 4096         ; 8            ; 32768   ; db/Alpha68k_N.ram6_alpha68kn_board_ce55f273.hdl.mif    ;"
+    },
+    {
+      "line": 1138,
+      "text": "; emu:emu|alpha68kn_system:system|alpha68kn_board:board|altsyncram:sound_ram_rtl_0|altsyncram_29u1:auto_generated|ALTSYNCRAM                                                                                        ; AUTO       ; Simple Dual Port ; 2048         ; 8            ; 2048         ; 8            ; 16384   ; db/Alpha68k_N.ram2_alpha68kn_board_ce55f273.hdl.mif    ;"
+    },
+    {
+      "line": 1139,
+      "text": "; emu:emu|alpha68kn_system:system|alpha68kn_board:board|altsyncram:sound_rom_rtl_0|altsyncram_fgn1:auto_generated|ALTSYNCRAM                                                                                        ; AUTO       ; Simple Dual Port ; 32768        ; 16           ; 32768        ; 16           ; 524288  ; None                                                   ;"
+    },
+    {
+      "line": 1140,
+      "text": "; emu:emu|alpha68kn_system:system|alpha68kn_board:board|altsyncram:strip_hi_rtl_0|altsyncram_4nv1:auto_generated|ALTSYNCRAM                                                                                         ; AUTO       ; Simple Dual Port ; 4096         ; 8            ; 4096         ; 8            ; 32768   ; db/Alpha68k_N.ram3_alpha68kn_board_ce55f273.hdl.mif    ;"
+    },
+    {
+      "line": 1141,
+      "text": "; emu:emu|alpha68kn_system:system|alpha68kn_board:board|altsyncram:strip_lo_rtl_0|altsyncram_5nv1:auto_generated|ALTSYNCRAM                                                                                         ; AUTO       ; Simple Dual Port ; 4096         ; 8            ; 4096         ; 8            ; 32768   ; db/Alpha68k_N.ram4_alpha68kn_board_ce55f273.hdl.mif    ;"
+    },
+    {
+      "line": 1142,
+      "text": "; emu:emu|alpha68kn_system:system|alpha68kn_board:board|altsyncram:work_hi_rtl_0|altsyncram_lmv1:auto_generated|ALTSYNCRAM                                                                                          ; AUTO       ; Simple Dual Port ; 2048         ; 8            ; 2048         ; 8            ; 16384   ; db/Alpha68k_N.ram0_alpha68kn_board_ce55f273.hdl.mif    ;"
+    },
+    {
+      "line": 1143,
+      "text": "; emu:emu|alpha68kn_system:system|alpha68kn_board:board|altsyncram:work_lo_rtl_0|altsyncram_mmv1:auto_generated|ALTSYNCRAM                                                                                          ; AUTO       ; Simple Dual Port ; 2048         ; 8            ; 2048         ; 8            ; 16384   ; db/Alpha68k_N.ram1_alpha68kn_board_ce55f273.hdl.mif    ;"
+    },
+    {
+      "line": 1146,
+      "text": "; emu:emu|alpha68kn_system:system|alpha68kn_gfxmem:gfxmem|altsyncram:fifo_rtl_0|altsyncram_43n1:auto_generated|ALTSYNCRAM                                                                                           ; AUTO       ; Simple Dual Port ; 16           ; 34           ; 16           ; 34           ; 544     ; None                                                   ;"
+    },
+    {
+      "line": 1147,
+      "text": "; emu:emu|alpha68kn_system:system|alpha68kn_renderer:renderer|altsyncram:linebuf_rtl_0|altsyncram_ous1:auto_generated|ALTSYNCRAM                                                                                    ; AUTO       ; Simple Dual Port ; 512          ; 9            ; 512          ; 9            ; 4608    ; db/Alpha68k_N.ram0_alpha68kn_renderer_6c94f6f8.hdl.mif ;"
+    },
+    {
+      "line": 1148,
+      "text": "; emu:emu|alpha68kn_system:system|alpha68kn_video_rom:video_rom|altsyncram:blue_rtl_0|altsyncram_k3n1:auto_generated|ALTSYNCRAM                                                                                     ; AUTO       ; Simple Dual Port ; 128          ; 8            ; 128          ; 8            ; 1024    ; None                                                   ;"
+    },
+    {
+      "line": 1149,
+      "text": "; emu:emu|alpha68kn_system:system|alpha68kn_video_rom:video_rom|altsyncram:clut_hi_rtl_0|altsyncram_k3n1:auto_generated|ALTSYNCRAM                                                                                  ; AUTO       ; Simple Dual Port ; 128          ; 8            ; 128          ; 8            ; 1024    ; None                                                   ;"
+    },
+    {
+      "line": 1150,
+      "text": "; emu:emu|alpha68kn_system:system|alpha68kn_video_rom:video_rom|altsyncram:clut_lo_rtl_0|altsyncram_k3n1:auto_generated|ALTSYNCRAM                                                                                  ; AUTO       ; Simple Dual Port ; 128          ; 8            ; 128          ; 8            ; 1024    ; None                                                   ;"
+    },
+    {
+      "line": 1151,
+      "text": "; emu:emu|alpha68kn_system:system|alpha68kn_video_rom:video_rom|altsyncram:color_rom_rtl_0|altsyncram_ecn1:auto_generated|ALTSYNCRAM                                                                                ; AUTO       ; Simple Dual Port ; 4096         ; 10           ; 4096         ; 10           ; 40960   ; None                                                   ;"
+    },
+    {
+      "line": 1152,
+      "text": "; emu:emu|alpha68kn_system:system|alpha68kn_video_rom:video_rom|altsyncram:green_rtl_0|altsyncram_k3n1:auto_generated|ALTSYNCRAM                                                                                    ; AUTO       ; Simple Dual Port ; 128          ; 8            ; 128          ; 8            ; 1024    ; None                                                   ;"
+    },
+    {
+      "line": 1153,
+      "text": "; emu:emu|alpha68kn_system:system|alpha68kn_video_rom:video_rom|altsyncram:red_rtl_0|altsyncram_k3n1:auto_generated|ALTSYNCRAM                                                                                      ; AUTO       ; Simple Dual Port ; 128          ; 8            ; 128          ; 8            ; 1024    ; None                                                   ;"
+    },
+    {
+      "line": 1154,
+      "text": "; emu:emu|arcade_video:video|video_mixer:video_mixer|gamma_corr:gamma|altsyncram:gamma_curve_rtl_0|altsyncram_4ni1:auto_generated|ALTSYNCRAM                                                                        ; AUTO       ; Simple Dual Port ; 768          ; 8            ; 768          ; 8            ; 6144    ; None                                                   ;"
+    },
+    {
+      "line": 1155,
+      "text": "; emu:emu|arcade_video:video|video_mixer:video_mixer|scandoubler:sd|Hq2x:Hq2x|hq2x_buf:hq2x_out|altsyncram:ram_rtl_0|altsyncram_e9n1:auto_generated|ALTSYNCRAM                                                      ; AUTO       ; Simple Dual Port ; 520          ; 96           ; 520          ; 96           ; 49920   ; None                                                   ;"
+    },
+    {
+      "line": 1156,
+      "text": "; emu:emu|arcade_video:video|video_mixer:video_mixer|scandoubler:sd|Hq2x:Hq2x|hq2x_in:hq2x_in|hq2x_buf:buf0|altsyncram:ram_rtl_0|altsyncram_e6n1:auto_generated|ALTSYNCRAM                                          ; AUTO       ; Simple Dual Port ; 260          ; 24           ; 260          ; 24           ; 6240    ; None                                                   ;"
+    },
+    {
+      "line": 1157,
+      "text": "; emu:emu|arcade_video:video|video_mixer:video_mixer|scandoubler:sd|Hq2x:Hq2x|hq2x_in:hq2x_in|hq2x_buf:buf1|altsyncram:ram_rtl_0|altsyncram_e6n1:auto_generated|ALTSYNCRAM                                          ; AUTO       ; Simple Dual Port ; 260          ; 24           ; 260          ; 24           ; 6240    ; None                                                   ;"
+    },
+    {
+      "line": 1158,
+      "text": "; emu:emu|hiscore:hi|dpram_hs:address_table|altsyncram:ram_rtl_0|altsyncram_ovm1:auto_generated|ALTSYNCRAM                                                                                                          ; AUTO       ; Simple Dual Port ; 4            ; 24           ; 4            ; 24           ; 96      ; None                                                   ;"
+    },
+    {
+      "line": 1159,
+      "text": "; osd:hdmi_osd|altsyncram:osd_buffer_rtl_0|altsyncram_i6k1:auto_generated|ALTSYNCRAM                                                                                                                                ; AUTO       ; Simple Dual Port ; 4096         ; 8            ; 4096         ; 8            ; 32768   ; None                                                   ;"
+    },
+    {
+      "line": 1160,
+      "text": "; osd:vga_osd|altsyncram:osd_buffer_rtl_0|altsyncram_0nl1:auto_generated|ALTSYNCRAM                                                                                                                                 ; AUTO       ; Simple Dual Port ; 4096         ; 8            ; 4096         ; 8            ; 32768   ; None                                                   ;"
+    },
+    {
+      "line": 1161,
+      "text": "; shadowmask:HDMI_shadowmask|altsyncram:mask_lut_rtl_0|altsyncram_k9j1:auto_generated|ALTSYNCRAM                                                                                                                    ; AUTO       ; Simple Dual Port ; 256          ; 11           ; 256          ; 11           ; 2816    ; None                                                   ;"
+    }
+  ],
+  "mcu_program_ram_rows": [
+    {
+      "line": 1134,
+      "text": "; emu:emu|alpha68kn_system:system|alpha68kn_board:board|altsyncram:mcu_rom_even_rtl_0|altsyncram_g9n1:auto_generated|ALTSYNCRAM                                                                                     ; AUTO       ; Simple Dual Port ; 2048         ; 8            ; 2048         ; 8            ; 16384   ; None                                                   ;"
+    },
+    {
+      "line": 1135,
+      "text": "; emu:emu|alpha68kn_system:system|alpha68kn_board:board|altsyncram:mcu_rom_odd_rtl_0|altsyncram_g9n1:auto_generated|ALTSYNCRAM                                                                                      ; AUTO       ; Simple Dual Port ; 2048         ; 8            ; 2048         ; 8            ; 16384   ; None                                                   ;"
+    }
+  ],
+  "critical_warning_rows": [],
+  "warning_counts_by_code": {
+    "10027": 1,
+    "10030": 18,
+    "10034": 7,
+    "10036": 19,
+    "10230": 71,
+    "10762": 120,
+    "10763": 2,
+    "10958": 12,
+    "12030": 1,
+    "12241": 1,
+    "12364": 6290,
+    "125092": 5,
+    "13024": 1,
+    "13050": 1,
+    "13051": 1,
+    "13410": 4,
+    "14284": 3,
+    "14285": 3,
+    "14320": 9,
+    "15610": 2,
+    "20013": 6,
+    "21074": 1,
+    "276020": 3,
+    "276027": 5,
+    "330000": 1
+  }
+}

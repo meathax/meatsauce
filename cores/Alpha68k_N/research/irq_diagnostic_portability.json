@@ -1,0 +1,199 @@
+{
+  "schema": 1,
+  "canonical_target_root": "D:\\Arcade\\AI\\aCORES\\meatsauce-alpha68kn\\cores\\Alpha68k_N",
+  "purpose": "Portable canonical script copies; originals and completed-run source hashes remain immutable. ROOT/path routing and safe --help/--show-root guards only; observed host/ticks/replay/qualification logic unchanged.",
+  "evidence_root_override": "ALPHA68KN_EVIDENCE_ROOT",
+  "scope_limits": [
+    "These smoke checks start no Verilator/MAME process and do not qualify a new replay.",
+    "Completed-run receipts retain original diagnostics source hashes and capture paths; portable hashes are separate provenance.",
+    "Native WSL launch routes the current portable script through its explicit /mnt/<drive> path, including when evidence ROOT is overridden.",
+    "Explicit Windows-drive evidence-root overrides are normalized to /mnt/<drive> for Ubuntu workers; verified by read-only root-resolution CLI."
+  ],
+  "scripts": [
+    {
+      "name": "irq_sampling_edge_probe.py",
+      "original_path": "D:\\Arcade\\AI\\aCORES\\Alpha68k N\\sim\\captures\\diagnostics\\irq_sampling_edge_probe.py",
+      "original_sha256": "8b3b018399d27eed182ab2c0bcada3f1e000750bb7e3f65088c989bc90ffef86",
+      "staged_path": "D:\\Arcade\\AI\\aCORES\\Alpha68k N\\research\\irq_portable_stage\\scripts\\irq_sampling_edge_probe.py",
+      "portable_sha256": "90bcf4901265286308cebb41985834acede6cbe0c5de7574a95b3ff7b991c95b",
+      "exact_portability_diff": "--- D:\\Arcade\\AI\\aCORES\\Alpha68k N\\sim\\captures\\diagnostics\\irq_sampling_edge_probe.py\n+++ cores/Alpha68k_N/scripts/irq_sampling_edge_probe.py\n@@ -8,7 +8,33 @@\n import tempfile\n import time\n \n-ROOT = Path(__file__).resolve().parents[3]\n+import sys\n+SCRIPT_PATH = Path(__file__).resolve()\n+# Canonical copies live in core/scripts; original frozen copies live in diagnostics.\n+DEFAULT_EVIDENCE_ROOT = SCRIPT_PATH.parents[1] if SCRIPT_PATH.parent.name == \"scripts\" else SCRIPT_PATH.parents[3]\n+EVIDENCE_ROOT_ARGUMENT = os.environ.get(\"ALPHA68KN_EVIDENCE_ROOT\", str(DEFAULT_EVIDENCE_ROOT))\n+# An explicit Windows override must also resolve when the worker enters Ubuntu WSL.\n+if os.name != \"nt\" and len(EVIDENCE_ROOT_ARGUMENT) > 2 and EVIDENCE_ROOT_ARGUMENT[1] == \":\":\n+    EVIDENCE_ROOT_ARGUMENT = \"/mnt/\" + EVIDENCE_ROOT_ARGUMENT[0].lower() + EVIDENCE_ROOT_ARGUMENT[2:].replace(\"\\\\\", \"/\")\n+ROOT = Path(EVIDENCE_ROOT_ARGUMENT).resolve()\n+if \"--help\" in sys.argv or \"--show-root\" in sys.argv:\n+    print(json.dumps({\"script\": str(SCRIPT_PATH), \"evidence_root\": str(ROOT),\n+                      \"override\": \"ALPHA68KN_EVIDENCE_ROOT\", \"simulation_started\": False}))\n+    raise SystemExit(0)\n+\n+\n+def sibling_script(name):\n+    candidate = SCRIPT_PATH.parent / name\n+    return candidate if candidate.exists() else ROOT / \"sim/captures/diagnostics\" / name\n+\n+\n+def wsl_script_path():\n+    # Windows paths must be translated before an explicit Ubuntu Python invocation.\n+    if os.name == \"nt\":\n+        assert SCRIPT_PATH.drive, \"Expected absolute Windows script path\"\n+        return \"/mnt/\" + SCRIPT_PATH.drive[0].lower() + SCRIPT_PATH.as_posix()[2:]\n+    return str(SCRIPT_PATH)\n+\n NAME = \"irq_sampling_edge_latch61\"\n \n \n@@ -86,7 +112,7 @@\n     if os.name == \"nt\":\n         assert not launcher.exists(), \"Preserve the existing launcher\"\n         command = [\"wsl.exe\", \"-d\", \"Ubuntu\", \"--cd\", str(ROOT),\n-                   \"--exec\", \"/usr/bin/python3\", \"sim/captures/diagnostics/irq_sampling_edge_probe.py\"]\n+                   \"--exec\", \"/usr/bin/python3\", wsl_script_path()]\n         with (ROOT / \"research\" / (NAME + \"_worker.log\")).open(\"w\") as log:\n             child = subprocess.Popen(command, cwd=ROOT, stdout=log, stderr=subprocess.STDOUT,\n                                      creationflags=subprocess.CREATE_NO_WINDOW)\n",
+      "host_tick_and_qualification_logic_changed": false
+    },
+    {
+      "name": "irq_sampling_edge_mame61.py",
+      "original_path": "D:\\Arcade\\AI\\aCORES\\Alpha68k N\\sim\\captures\\diagnostics\\irq_sampling_edge_mame61.py",
+      "original_sha256": "391d9d8f10a3af5cf0e09293ae804a83b82f4b154064a68bb5807f4121670800",
+      "staged_path": "D:\\Arcade\\AI\\aCORES\\Alpha68k N\\research\\irq_portable_stage\\scripts\\irq_sampling_edge_mame61.py",
+      "portable_sha256": "d5882d71aeb60aff56316274df349f222756efd4ab8eba5dc55d5a3c9981058c",
+      "exact_portability_diff": "--- D:\\Arcade\\AI\\aCORES\\Alpha68k N\\sim\\captures\\diagnostics\\irq_sampling_edge_mame61.py\n+++ cores/Alpha68k_N/scripts/irq_sampling_edge_mame61.py\n@@ -1,7 +1,32 @@\n \"\"\"Read-only actual MAME61 CPU-space IACK observer; immutable prior clocked recorder.\"\"\"\n from pathlib import Path\n import csv,hashlib,json,os,subprocess,sys,time\n-ROOT=Path(__file__).resolve().parents[3]\n+SCRIPT_PATH = Path(__file__).resolve()\n+# Canonical copies live in core/scripts; original frozen copies live in diagnostics.\n+DEFAULT_EVIDENCE_ROOT = SCRIPT_PATH.parents[1] if SCRIPT_PATH.parent.name == \"scripts\" else SCRIPT_PATH.parents[3]\n+EVIDENCE_ROOT_ARGUMENT = os.environ.get(\"ALPHA68KN_EVIDENCE_ROOT\", str(DEFAULT_EVIDENCE_ROOT))\n+# An explicit Windows override must also resolve when the worker enters Ubuntu WSL.\n+if os.name != \"nt\" and len(EVIDENCE_ROOT_ARGUMENT) > 2 and EVIDENCE_ROOT_ARGUMENT[1] == \":\":\n+    EVIDENCE_ROOT_ARGUMENT = \"/mnt/\" + EVIDENCE_ROOT_ARGUMENT[0].lower() + EVIDENCE_ROOT_ARGUMENT[2:].replace(\"\\\\\", \"/\")\n+ROOT = Path(EVIDENCE_ROOT_ARGUMENT).resolve()\n+if \"--help\" in sys.argv or \"--show-root\" in sys.argv:\n+    print(json.dumps({\"script\": str(SCRIPT_PATH), \"evidence_root\": str(ROOT),\n+                      \"override\": \"ALPHA68KN_EVIDENCE_ROOT\", \"simulation_started\": False}))\n+    raise SystemExit(0)\n+\n+\n+def sibling_script(name):\n+    candidate = SCRIPT_PATH.parent / name\n+    return candidate if candidate.exists() else ROOT / \"sim/captures/diagnostics\" / name\n+\n+\n+def wsl_script_path():\n+    # Windows paths must be translated before an explicit Ubuntu Python invocation.\n+    if os.name == \"nt\":\n+        assert SCRIPT_PATH.drive, \"Expected absolute Windows script path\"\n+        return \"/mnt/\" + SCRIPT_PATH.drive[0].lower() + SCRIPT_PATH.as_posix()[2:]\n+    return str(SCRIPT_PATH)\n+\n NAME=\"irq_sampling_edge_mame61\"\n def sha(p):return hashlib.sha256(Path(p).read_bytes()).hexdigest()\n def main():\n",
+      "host_tick_and_qualification_logic_changed": false
+    },
+    {
+      "name": "verify_irq_sampling_edge_latch61.py",
+      "original_path": "D:\\Arcade\\AI\\aCORES\\Alpha68k N\\sim\\captures\\diagnostics\\verify_irq_sampling_edge_latch61.py",
+      "original_sha256": "fd6ed0b62b03063065aea13b7627bb4898b5354dce9d0f279a4a41a2d8a5c4a4",
+      "staged_path": "D:\\Arcade\\AI\\aCORES\\Alpha68k N\\research\\irq_portable_stage\\scripts\\verify_irq_sampling_edge_latch61.py",
+      "portable_sha256": "40c7c4565f0b74e806596a06053abe80a754df62281c3cc0dd6eefbd3aa0ef6f",
+      "exact_portability_diff": "--- D:\\Arcade\\AI\\aCORES\\Alpha68k N\\sim\\captures\\diagnostics\\verify_irq_sampling_edge_latch61.py\n+++ cores/Alpha68k_N/scripts/verify_irq_sampling_edge_latch61.py\n@@ -1,7 +1,33 @@\n \"\"\"Qualify actual private latch observer and matched real MAME IACK capture.\"\"\"\n from pathlib import Path\n import csv,hashlib,json,importlib.util,sys\n-ROOT=Path(__file__).resolve().parents[3]\n+import os\n+SCRIPT_PATH = Path(__file__).resolve()\n+# Canonical copies live in core/scripts; original frozen copies live in diagnostics.\n+DEFAULT_EVIDENCE_ROOT = SCRIPT_PATH.parents[1] if SCRIPT_PATH.parent.name == \"scripts\" else SCRIPT_PATH.parents[3]\n+EVIDENCE_ROOT_ARGUMENT = os.environ.get(\"ALPHA68KN_EVIDENCE_ROOT\", str(DEFAULT_EVIDENCE_ROOT))\n+# An explicit Windows override must also resolve when the worker enters Ubuntu WSL.\n+if os.name != \"nt\" and len(EVIDENCE_ROOT_ARGUMENT) > 2 and EVIDENCE_ROOT_ARGUMENT[1] == \":\":\n+    EVIDENCE_ROOT_ARGUMENT = \"/mnt/\" + EVIDENCE_ROOT_ARGUMENT[0].lower() + EVIDENCE_ROOT_ARGUMENT[2:].replace(\"\\\\\", \"/\")\n+ROOT = Path(EVIDENCE_ROOT_ARGUMENT).resolve()\n+if \"--help\" in sys.argv or \"--show-root\" in sys.argv:\n+    print(json.dumps({\"script\": str(SCRIPT_PATH), \"evidence_root\": str(ROOT),\n+                      \"override\": \"ALPHA68KN_EVIDENCE_ROOT\", \"simulation_started\": False}))\n+    raise SystemExit(0)\n+\n+\n+def sibling_script(name):\n+    candidate = SCRIPT_PATH.parent / name\n+    return candidate if candidate.exists() else ROOT / \"sim/captures/diagnostics\" / name\n+\n+\n+def wsl_script_path():\n+    # Windows paths must be translated before an explicit Ubuntu Python invocation.\n+    if os.name == \"nt\":\n+        assert SCRIPT_PATH.drive, \"Expected absolute Windows script path\"\n+        return \"/mnt/\" + SCRIPT_PATH.drive[0].lower() + SCRIPT_PATH.as_posix()[2:]\n+    return str(SCRIPT_PATH)\n+\n NAME=\"irq_sampling_edge_latch61\"\n def sha(p):return hashlib.sha256(Path(p).read_bytes()).hexdigest()\n def rows(p):return list(csv.DictReader(Path(p).open()))\n@@ -29,7 +55,7 @@\n   \"frozen_original_sources_unchanged\":all(sha(ROOT/p)==h for p,h in job[\"source_pins\"].items()),\n   \"executable_pinned\":sha(cap/Path(job[\"command\"][0]).name)==job[\"executable_sha256\"],\n  }\n- spec=importlib.util.spec_from_file_location(\"owned_observer\",ROOT/\"sim/captures/diagnostics/irq_sampling_edge_probe.py\")\n+ spec=importlib.util.spec_from_file_location(\"owned_observer\",sibling_script(\"irq_sampling_edge_probe.py\"))\n  module=importlib.util.module_from_spec(spec);spec.loader.exec_module(module)\n  generated=ROOT/job[\"compile_file_origins\"][\"system_main.cpp\"]\n  check[\"only_declared_private_host\"]=generated.read_text()==module.observed_host((ROOT/\"sim/system_main.cpp\").read_text()) and sha(generated)==job[\"generated_host_sha256\"]\n",
+      "host_tick_and_qualification_logic_changed": false
+    },
+    {
+      "name": "join_irq_sampling_edge61.py",
+      "original_path": "D:\\Arcade\\AI\\aCORES\\Alpha68k N\\sim\\captures\\diagnostics\\join_irq_sampling_edge61.py",
+      "original_sha256": "00678fbd49be98b5d1728c4f4ddcc8535277ef2621a476ee1ea855c060ece2aa",
+      "staged_path": "D:\\Arcade\\AI\\aCORES\\Alpha68k N\\research\\irq_portable_stage\\scripts\\join_irq_sampling_edge61.py",
+      "portable_sha256": "4c2067d1a0f4f04a09b7f06ed9dd332e3ee9679d7ebc438ac9ab9d184097e390",
+      "exact_portability_diff": "--- D:\\Arcade\\AI\\aCORES\\Alpha68k N\\sim\\captures\\diagnostics\\join_irq_sampling_edge61.py\n+++ cores/Alpha68k_N/scripts/join_irq_sampling_edge61.py\n@@ -1,7 +1,34 @@\n \"\"\"Join explicitly labelled actual IRQ request/latch/callback boundaries; no phase fitting.\"\"\"\n from pathlib import Path\n import csv,json,hashlib\n-ROOT=Path(__file__).resolve().parents[3]\n+import os\n+import sys\n+SCRIPT_PATH = Path(__file__).resolve()\n+# Canonical copies live in core/scripts; original frozen copies live in diagnostics.\n+DEFAULT_EVIDENCE_ROOT = SCRIPT_PATH.parents[1] if SCRIPT_PATH.parent.name == \"scripts\" else SCRIPT_PATH.parents[3]\n+EVIDENCE_ROOT_ARGUMENT = os.environ.get(\"ALPHA68KN_EVIDENCE_ROOT\", str(DEFAULT_EVIDENCE_ROOT))\n+# An explicit Windows override must also resolve when the worker enters Ubuntu WSL.\n+if os.name != \"nt\" and len(EVIDENCE_ROOT_ARGUMENT) > 2 and EVIDENCE_ROOT_ARGUMENT[1] == \":\":\n+    EVIDENCE_ROOT_ARGUMENT = \"/mnt/\" + EVIDENCE_ROOT_ARGUMENT[0].lower() + EVIDENCE_ROOT_ARGUMENT[2:].replace(\"\\\\\", \"/\")\n+ROOT = Path(EVIDENCE_ROOT_ARGUMENT).resolve()\n+if \"--help\" in sys.argv or \"--show-root\" in sys.argv:\n+    print(json.dumps({\"script\": str(SCRIPT_PATH), \"evidence_root\": str(ROOT),\n+                      \"override\": \"ALPHA68KN_EVIDENCE_ROOT\", \"simulation_started\": False}))\n+    raise SystemExit(0)\n+\n+\n+def sibling_script(name):\n+    candidate = SCRIPT_PATH.parent / name\n+    return candidate if candidate.exists() else ROOT / \"sim/captures/diagnostics\" / name\n+\n+\n+def wsl_script_path():\n+    # Windows paths must be translated before an explicit Ubuntu Python invocation.\n+    if os.name == \"nt\":\n+        assert SCRIPT_PATH.drive, \"Expected absolute Windows script path\"\n+        return \"/mnt/\" + SCRIPT_PATH.drive[0].lower() + SCRIPT_PATH.as_posix()[2:]\n+    return str(SCRIPT_PATH)\n+\n def rows(p):return list(csv.DictReader(Path(p).open()))\n def sha(p):return hashlib.sha256(Path(p).read_bytes()).hexdigest()\n def main():\n",
+      "host_tick_and_qualification_logic_changed": false
+    },
+    {
+      "name": "wait_irq_sampling_edge_latch61.py",
+      "original_path": "D:\\Arcade\\AI\\aCORES\\Alpha68k N\\sim\\captures\\diagnostics\\wait_irq_sampling_edge_latch61.py",
+      "original_sha256": "7cd6378fad536e6941524c802a13eb25b12ea2850c950f26ffea885f704c50cf",
+      "staged_path": "D:\\Arcade\\AI\\aCORES\\Alpha68k N\\research\\irq_portable_stage\\scripts\\wait_irq_sampling_edge_latch61.py",
+      "portable_sha256": "cab298b74a447fcba90d5d1dc758d017cebf34a20b6416286ac895c05440d7d6",
+      "exact_portability_diff": "--- D:\\Arcade\\AI\\aCORES\\Alpha68k N\\sim\\captures\\diagnostics\\wait_irq_sampling_edge_latch61.py\n+++ cores/Alpha68k_N/scripts/wait_irq_sampling_edge_latch61.py\n@@ -1,10 +1,36 @@\n \"\"\"Owned finite worker: qualify the single existing native61 terminal, never restart.\"\"\"\n from pathlib import Path\n import hashlib,json,subprocess,sys,time\n-ROOT=Path(__file__).resolve().parents[3]\n+import os\n+SCRIPT_PATH = Path(__file__).resolve()\n+# Canonical copies live in core/scripts; original frozen copies live in diagnostics.\n+DEFAULT_EVIDENCE_ROOT = SCRIPT_PATH.parents[1] if SCRIPT_PATH.parent.name == \"scripts\" else SCRIPT_PATH.parents[3]\n+EVIDENCE_ROOT_ARGUMENT = os.environ.get(\"ALPHA68KN_EVIDENCE_ROOT\", str(DEFAULT_EVIDENCE_ROOT))\n+# An explicit Windows override must also resolve when the worker enters Ubuntu WSL.\n+if os.name != \"nt\" and len(EVIDENCE_ROOT_ARGUMENT) > 2 and EVIDENCE_ROOT_ARGUMENT[1] == \":\":\n+    EVIDENCE_ROOT_ARGUMENT = \"/mnt/\" + EVIDENCE_ROOT_ARGUMENT[0].lower() + EVIDENCE_ROOT_ARGUMENT[2:].replace(\"\\\\\", \"/\")\n+ROOT = Path(EVIDENCE_ROOT_ARGUMENT).resolve()\n+if \"--help\" in sys.argv or \"--show-root\" in sys.argv:\n+    print(json.dumps({\"script\": str(SCRIPT_PATH), \"evidence_root\": str(ROOT),\n+                      \"override\": \"ALPHA68KN_EVIDENCE_ROOT\", \"simulation_started\": False}))\n+    raise SystemExit(0)\n+\n+\n+def sibling_script(name):\n+    candidate = SCRIPT_PATH.parent / name\n+    return candidate if candidate.exists() else ROOT / \"sim/captures/diagnostics\" / name\n+\n+\n+def wsl_script_path():\n+    # Windows paths must be translated before an explicit Ubuntu Python invocation.\n+    if os.name == \"nt\":\n+        assert SCRIPT_PATH.drive, \"Expected absolute Windows script path\"\n+        return \"/mnt/\" + SCRIPT_PATH.drive[0].lower() + SCRIPT_PATH.as_posix()[2:]\n+    return str(SCRIPT_PATH)\n+\n NAME=\"irq_sampling_edge_latch61_postcheck\"\n def sha(p):return hashlib.sha256(Path(p).read_bytes()).hexdigest()\n-paths=[ROOT/\"sim/captures/diagnostics\"/n for n in [\"verify_irq_sampling_edge_latch61.py\",\"join_irq_sampling_edge61.py\"]]\n+paths=[sibling_script(n) for n in [\"verify_irq_sampling_edge_latch61.py\",\"join_irq_sampling_edge61.py\"]]\n pins={str(p):sha(p) for p in paths}\n receipt=ROOT/\"research\"/(NAME+\"_exit.json\")\n assert not receipt.exists()\n",
+      "host_tick_and_qualification_logic_changed": false
+    }
+  ],
+  "ast_checks": "All five portable scripts parse; native observed_host AST identical.",
+  "smoke_checks": [
+    {
+      "runtime": "Windows",
+      "script": "irq_sampling_edge_probe.py",
+      "flag": "--help",
+      "override": null,
+      "exit_code": 0,
+      "observed_root": "D:\\Arcade\\AI\\aCORES\\Alpha68k N\\research\\irq_portable_stage",
+      "simulation_started": false
+    },
+    {
+      "runtime": "Windows",
+      "script": "irq_sampling_edge_probe.py",
+      "flag": "--show-root",
+      "override": "D:\\Arcade\\AI\\aCORES\\Alpha68k N",
+      "exit_code": 0,
+      "observed_root": "D:\\Arcade\\AI\\aCORES\\Alpha68k N",
+      "simulation_started": false
+    },
+    {
+      "runtime": "Ubuntu WSL",
+      "script": "irq_sampling_edge_probe.py",
+      "flag": "--show-root",
+      "override": "D:\\Arcade\\AI\\aCORES\\Alpha68k N",
+      "exit_code": 0,
+      "observed_root": "/mnt/d/Arcade/AI/aCORES/Alpha68k N",
+      "simulation_started": false
+    },
+    {
+      "runtime": "Windows",
+      "script": "irq_sampling_edge_mame61.py",
+      "flag": "--help",
+      "override": null,
+      "exit_code": 0,
+      "observed_root": "D:\\Arcade\\AI\\aCORES\\Alpha68k N\\research\\irq_portable_stage",
+      "simulation_started": false
+    },
+    {
+      "runtime": "Windows",
+      "script": "irq_sampling_edge_mame61.py",
+      "flag": "--show-root",
+      "override": "D:\\Arcade\\AI\\aCORES\\Alpha68k N",
+      "exit_code": 0,
+      "observed_root": "D:\\Arcade\\AI\\aCORES\\Alpha68k N",
+      "simulation_started": false
+    },
+    {
+      "runtime": "Ubuntu WSL",
+      "script": "irq_sampling_edge_mame61.py",
+      "flag": "--show-root",
+      "override": "D:\\Arcade\\AI\\aCORES\\Alpha68k N",
+      "exit_code": 0,
+      "observed_root": "/mnt/d/Arcade/AI/aCORES/Alpha68k N",
+      "simulation_started": false
+    },
+    {
+      "runtime": "Windows",
+      "script": "verify_irq_sampling_edge_latch61.py",
+      "flag": "--help",
+      "override": null,
+      "exit_code": 0,
+      "observed_root": "D:\\Arcade\\AI\\aCORES\\Alpha68k N\\research\\irq_portable_stage",
+      "simulation_started": false
+    },
+    {
+      "runtime": "Windows",
+      "script": "verify_irq_sampling_edge_latch61.py",
+      "flag": "--show-root",
+      "override": "D:\\Arcade\\AI\\aCORES\\Alpha68k N",
+      "exit_code": 0,
+      "observed_root": "D:\\Arcade\\AI\\aCORES\\Alpha68k N",
+      "simulation_started": false
+    },
+    {
+      "runtime": "Ubuntu WSL",
+      "script": "verify_irq_sampling_edge_latch61.py",
+      "flag": "--show-root",
+      "override": "D:\\Arcade\\AI\\aCORES\\Alpha68k N",
+      "exit_code": 0,
+      "observed_root": "/mnt/d/Arcade/AI/aCORES/Alpha68k N",
+      "simulation_started": false
+    },
+    {
+      "runtime": "Windows",
+      "script": "join_irq_sampling_edge61.py",
+      "flag": "--help",
+      "override": null,
+      "exit_code": 0,
+      "observed_root": "D:\\Arcade\\AI\\aCORES\\Alpha68k N\\research\\irq_portable_stage",
+      "simulation_started": false
+    },
+    {
+      "runtime": "Windows",
+      "script": "join_irq_sampling_edge61.py",
+      "flag": "--show-root",
+      "override": "D:\\Arcade\\AI\\aCORES\\Alpha68k N",
+      "exit_code": 0,
+      "observed_root": "D:\\Arcade\\AI\\aCORES\\Alpha68k N",
+      "simulation_started": false
+    },
+    {
+      "runtime": "Ubuntu WSL",
+      "script": "join_irq_sampling_edge61.py",
+      "flag": "--show-root",
+      "override": "D:\\Arcade\\AI\\aCORES\\Alpha68k N",
+      "exit_code": 0,
+      "observed_root": "/mnt/d/Arcade/AI/aCORES/Alpha68k N",
+      "simulation_started": false
+    },
+    {
+      "runtime": "Windows",
+      "script": "wait_irq_sampling_edge_latch61.py",
+      "flag": "--help",
+      "override": null,
+      "exit_code": 0,
+      "observed_root": "D:\\Arcade\\AI\\aCORES\\Alpha68k N\\research\\irq_portable_stage",
+      "simulation_started": false
+    },
+    {
+      "runtime": "Windows",
+      "script": "wait_irq_sampling_edge_latch61.py",
+      "flag": "--show-root",
+      "override": "D:\\Arcade\\AI\\aCORES\\Alpha68k N",
+      "exit_code": 0,
+      "observed_root": "D:\\Arcade\\AI\\aCORES\\Alpha68k N",
+      "simulation_started": false
+    },
+    {
+      "runtime": "Ubuntu WSL",
+      "script": "wait_irq_sampling_edge_latch61.py",
+      "flag": "--show-root",
+      "override": "D:\\Arcade\\AI\\aCORES\\Alpha68k N",
+      "exit_code": 0,
+      "observed_root": "/mnt/d/Arcade/AI/aCORES/Alpha68k N",
+      "simulation_started": false
+    }
+  ],
+  "smoke_pass": true,
+  "new_simulations_launched": 0
+}

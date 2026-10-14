@@ -1,0 +1,45 @@
+{
+  "decision": "PASS_SOURCE_ONLY",
+  "reviewed_header_sha256": "45ce1106eb707d4fe35ad9c0645962baf9e46e41b3457137ec47951a861da29d",
+  "prior_V2_findings_closed": {
+    "coherent_active_VPA_IACK": "Pre/post actual IACK plus active-low VPAn/rVma and active-high xVma keep intermediate semantic and actual-read-latch rows inside the original window; IRQ-pending alone deliberately does not retain unrelated bus. IRQ pulse edges and prior/post pending metadata retained.",
+    "selection_accounting": "Explicit old/retained/added counters, mutually exclusive ordinary/cadence/remainder omissions and two failclosed finish equations verified across128 Boolean cases."
+  },
+  "syntax_cleanup": {
+    "exact_removed_prefix_bytes": 14,
+    "line_numbers_in_failed_V3": [
+      47,
+      48,
+      49,
+      50,
+      51,
+      145,
+      146,
+      147,
+      148,
+      149,
+      161,
+      162,
+      163,
+      164
+    ],
+    "only_change_from_failed_V3": true,
+    "literal_diff_artifacts_remaining": false,
+    "C++compiler_not_run": true
+  },
+  "preserved": "Original handshake/IRQ/phase/AS/DS/pending validation core matches after excluding new cadence increments. Original window,2Mcap, physicalprefix, everyedge mask, reset priority and checkpoint unchanged. Original host source unchanged: post occurs before fieldincrement; final179 setsfinished and exits without post180. No target/input/audio changes.",
+  "polarity_source": {
+    "fx_selected_lines460_482": "\t\t\tAvia <= ~Vpai & Iac;\n\t\tend\n\t\t\t\n\tend\n\t\t\n\tassign enErrClk = iAddrErr | iBusErr;\n\tassign wClk = waitBusCycle | ~BeI | iAddrErr | Err6591;\n\t\n\t// E clock and counter, VMA\n\treg [3:0] eCntr;\n\treg rVma;\n\t\n\tassign VMAn = rVma;\n\t\n\t// Internal stop just one cycle before E falling edge\n\twire xVma = ~rVma & (eCntr == 8);\n\t\n`ifdef USE_E_CLKEN\n\tassign E_PosClkEn = (Clks.enPhi2 & (eCntr == 5));\n\tassign E_NegClkEn = (Clks.enPhi2 & (eCntr == 9));\n`endif\n\t\n\talways_ff @( posedge Clks.clk) begin",
+    "board_selected_lines200_246": "    logic mas_n, mrw_n, muds_n, mlds_n;\n    logic fc0,fc1,fc2;\n    logic bus_done;\n    wire iack = !mas_n && fc0 && fc1 && fc2;\n    wire [23:0] maddr = {ma,1'b0};\n    assign debug_main_addr = maddr;\n    assign debug_main_as_n = mas_n;\n    assign debug_main_attrs = {iack,mrw_n,muds_n,mlds_n};\n    assign debug_main_din = mdin;\n    assign debug_main_dout = mdout;\n    wire [11:0] sting_mcu_program_addr;\n    logic [7:0] sting_mcu_even_q=0, sting_mcu_odd_q=0;\n    logic sting_mcu_program_odd_q=0;\n    wire [7:0] sting_mcu_program_q=sting_mcu_program_odd_q ? sting_mcu_odd_q : sting_mcu_even_q;\n    wire sting_mcu_main_halt,sting_mcu_irq2,sting_mcu_shared_write,sting_mcu_flip;\n    wire sting_mcu_command_valid,sting_mcu_bus_event,sting_mcu_control_event;\n    wire [7:0] sting_mcu_shared_addr,sting_mcu_shared_data,sting_mcu_bus,sting_mcu_control;\n    wire [31:0] sting_mcu_oscillator_ticks,sting_mcu_core_ticks;\n    // MCU main-CPU halt requests inhibit new FX68K bus cycles.\n    // Keep CPU phase, E and input sampling running; pause_game still freezes\n    // the complete game for user/OSD/hiscore access.\n    wire sting_main_haltn=!(is_stingray && sting_mcu_main_halt);\n    always @(posedge clk) begin\n        sting_mcu_even_q<=mcu_rom_even[sting_mcu_program_addr[11:1]];\n        sting_mcu_odd_q<=mcu_rom_odd[sting_mcu_program_addr[11:1]];\n        sting_mcu_program_odd_q<=sting_mcu_program_addr[0];\n    end\n    alpha68kn_mcu sting_mcu (\n        .clk(clk),.reset(held_reset || !is_stingray),.pause_game(pause_game),\n        .program_addr(sting_mcu_program_addr),.program_data(sting_mcu_program_q),\n        .command_valid(sting_mcu_command_valid),.command_read(mrw_n),\n        .command_addr(ma[8:1]),.command_data(mdout[7:0]),.coins_n(coins_n),\n        .main_halt(sting_mcu_main_halt),.irq2(sting_mcu_irq2),\n        .shared_write(sting_mcu_shared_write),.shared_addr(sting_mcu_shared_addr),\n        .shared_data(sting_mcu_shared_data),.flip(sting_mcu_flip),\n        .bus_data(sting_mcu_bus),.control(sting_mcu_control),\n        .bus_event(sting_mcu_bus_event),.control_event(sting_mcu_control_event),\n        .oscillator_ticks(sting_mcu_oscillator_ticks),.core_ticks(sting_mcu_core_ticks)\n    );\n    fx68k maincpu (\n        .clk(clk), .HALTn(sting_main_haltn), .extReset(held_reset), .pwrUp(held_reset),\n        .enPhi1(cpu_phase==0 && !pause_game), .enPhi2(cpu_phase==4 && !pause_game),\n        .eRWn(mrw_n), .ASn(mas_n), .LDSn(mlds_n), .UDSn(muds_n),\n        .E(), .VMAn(), .FC0(fc0), .FC1(fc1), .FC2(fc2),\n        .BGn(), .oRESETn(), .oHALTEDn(),\n        .DTACKn(!(bus_done && !iack)), .VPAn(!iack), .BERRn(1'b1),\n        .BRn(1'b1), .BGACKn(1'b1),"
+  },
+  "getter_proof": "Same exact generated getters and unsigned widths previously verified in bea5cf/2dbb pinned API; V4 introduces no new model getter.",
+  "limits": [
+    "Source review authorizes no runtime/build by itself; actual host-only compile/link and terminal/source admission remain root-owned.",
+    "Not full C++ compilation proof; invalid V3 remains failed and immutable.",
+    "No measured speedup or guarantee future activity stays under2M cap.",
+    "Cadence counters are genuine all-post/checked-mask counts, not a replacement for accepted handshake/current-image qualification.",
+    "Post denominator includes reset/download frame0. Checked counts0 do not constitute a protocol or E pass.",
+    "E-only raw history is deliberately summarized while original E checks run; no raw waveform replayability claim.",
+    "Unexercised S6/RMC/collision remain open; source PASS does not create119/179 snapshots or180 completion."
+  ]
+}

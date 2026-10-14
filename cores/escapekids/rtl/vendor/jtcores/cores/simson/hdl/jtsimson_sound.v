@@ -1,0 +1,290 @@
+/*  This file is part of JTCORES.
+    JTCORES program is free software: you can redistribute it and/or modify
+    it under the terms of the GNU General Public License as published by
+    the Free Software Foundation, either version 3 of the License, or
+    (at your option) any later version.
+
+    JTCORES program is distributed in the hope that it will be useful,
+    but WITHOUT ANY WARRANTY; without even the implied warranty of
+    MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+    GNU General Public License for more details.
+
+    You should have received a copy of the GNU General Public License
+    along with JTCORES.  If not, see <http://www.gnu.org/licenses/>.
+
+    Author: Jose Tejada Gomez. Twitter: @topapate
+    Version: 1.0
+    Date: 6-5-2023 */
+
+module jtsimson_sound(
+    input           rst,
+    input           clk,
+    input           cen_fm,
+    input           cen_fm2,
+    input           simson, suratk,
+
+    // communication with main CPU
+    input           snd_irq,
+    input   [ 7:0]  main_dout,
+    output  [ 7:0]  main_din,
+    input           main_addr,
+    input           main_rnw,
+    input           mono,
+    input           voice_mute,
+    // Surprise Attack has YM2151 connected directly to main CPU
+    input           main_fmcs,
+    output   [ 7:0] fm_dout,
+    output          fm_irqn,
+    // ROM
+    output   [16:0] rom_addr,
+    output reg      rom_cs,
+    input    [ 7:0] rom_data,
+    input           rom_ok,
+    // ADPCM ROM
+    output   [20:0] pcma_addr,
+    input    [ 7:0] pcma_dout,
+    output          pcma_cs,
+    input           pcma_ok,
+
+    output   [20:0] pcmb_addr,
+    input    [ 7:0] pcmb_dout,
+    output          pcmb_cs,
+    input           pcmb_ok,
+
+    output   [20:0] pcmc_addr,
+    input    [ 7:0] pcmc_dout,
+    output          pcmc_cs,
+    input           pcmc_ok,
+
+    output   [20:0] pcmd_addr,
+    input    [ 7:0] pcmd_dout,
+    output          pcmd_cs,
+    input           pcmd_ok,
+    output   [ 3:0] pcm_sample,
+    output   [ 3:0] pcm_bsy, pcm_reverse,
+    output   [20:0] pcma_start, pcmb_start, pcmc_start, pcmd_start,
+    // Sound output
+    output reg signed [15:0] snd_l, snd_r,
+    // Debug
+    input    [ 7:0] debug_bus,
+    input    [ 5:0] snd_en,
+    output   [ 7:0] st_dout
+);
+`ifndef NOSOUND
+wire signed [15:0]  fm_l, fm_r, mix_l, mix_r;
+wire        [ 7:0]  cpu_dout, ram_dout, st_pcm, pcm_dout, mux_fmdin;
+wire        [ 3:0]  pcm_mix_en;
+wire        [15:0]  A;
+reg         [ 7:0]  cpu_din;
+wire                mreq_n, rd_n, wr_n, rfsh_n,
+                    peak_l, peak_r, nmi_n,
+                    mux_a0, mux_wrn, mux_cs;
+reg                 ram_cs, latch_cs, fm_cs, pcm_cs, bank_cs, rst_z80;
+wire                sample;
+reg                 mem_acc, af, nmi_clr;
+reg         [ 2:0]  bank;
+reg         [ 3:0]  pcm_msb;
+
+assign rom_addr = simson ? { A[15] ? bank : { 2'd0, A[14] }, A[13:0] } : {1'd0,A[15:0]};
+assign st_dout  = fm_dout;
+assign mux_a0   = suratk ? main_addr : A[0];
+assign mux_wrn  = suratk ? main_rnw  : wr_n;
+assign mux_cs   = suratk ? main_fmcs : fm_cs;
+assign mux_fmdin= suratk ? main_dout : cpu_dout;
+
+always @(posedge clk) begin
+    rst_z80 <= rst | suratk;
+    snd_l   <= suratk ? fm_l : mix_l;
+    snd_r   <= suratk ? fm_r : mix_r;
+end
+
+always @(*) begin
+    mem_acc  = !mreq_n && rfsh_n;
+    af       = A[15:12]==4'hf;
+    rom_cs   = mem_acc && !af;
+    ram_cs   = mem_acc &&  af && !A[11];
+    bank_cs  = 0;
+    nmi_clr  = 0;
+    fm_cs    = 0;
+    pcm_cs   = 0;
+    if( mem_acc && af ) case(A[11:9])
+        4: fm_cs   = 1;
+        5: nmi_clr = 1;
+        6: pcm_cs  = 1;
+        7: bank_cs = simson;     // unused in Parodius
+        default:;
+    endcase
+end
+
+always @(posedge clk) begin
+    if( rst_z80 ) begin
+        bank <= 0;
+    end else begin
+        if( bank_cs ) bank <= cpu_dout[2:0];
+    end
+end
+/* verilator tracing_off */
+jtframe_edge #(.QSET(0)) u_edge (
+    .rst    ( 1'b0      ),
+    .clk    ( clk       ),
+    .edgeof ( rst_z80 | sample ),
+    .clr    ( nmi_clr   ),
+    .q      ( nmi_n     )
+);
+
+reg [10:0] clear_addr;
+always @(posedge clk) clear_addr <= !rst ? 11'd0 : clear_addr + 1'd1;
+
+`ifndef SURATK
+always @(*) begin
+    case(1'b1)
+        rom_cs:  cpu_din = rom_data;
+        ram_cs:  cpu_din = ram_dout;
+        pcm_cs:  cpu_din = pcm_dout;
+        fm_cs:   cpu_din = fm_dout;
+        default: cpu_din = 8'hff;
+    endcase
+end
+
+/* verilator tracing_on */
+jtframe_sysz80_nvram #(.RAM_AW(11),.CLR_INT(1)) u_cpu(
+    .rst_n      ( ~rst_z80  ),
+    .clk        ( clk       ),
+    .cen        ( cen_fm    ),
+    .cpu_cen    (           ),
+    .int_n      ( ~snd_irq  ),
+    .nmi_n      ( nmi_n     ),
+    .busrq_n    ( 1'b1      ),
+    .m1_n       (           ),
+    .mreq_n     ( mreq_n    ),
+    .iorq_n     (           ),
+    .rd_n       ( rd_n      ),
+    .wr_n       ( wr_n      ),
+    .rfsh_n     ( rfsh_n    ),
+    .halt_n     (           ),
+    .busak_n    (           ),
+    .A          ( A         ),
+    .cpu_din    ( cpu_din   ),
+    .cpu_dout   ( cpu_dout  ),
+    .ram_dout   ( ram_dout  ),
+    .prog_addr  ( clear_addr),
+    .prog_data  ( 8'd0      ),
+    .prog_din   (           ),
+    .prog_we    ( rst       ),
+    // ROM access
+    .ram_cs     ( ram_cs    ),
+    .rom_cs     ( rom_cs    ),
+    .rom_ok     ( rom_ok    )
+);
+`else
+    assign rd_n=1, wr_n=1, mreq_n=1, rfsh_n=1, A=0,
+           cpu_dout=0;
+`endif
+/* verilator tracing_on */
+jt51 u_jt51(
+    .rst        ( rst       ), // reset
+    .clk        ( clk       ), // main clock
+    .cen        ( cen_fm    ),
+    .cen_p1     ( cen_fm2   ),
+    .cs_n       ( !mux_cs   ), // chip select
+    .wr_n       ( mux_wrn   ), // write
+    .a0         ( mux_a0    ),
+    .din        ( mux_fmdin ), // data in
+    .dout       ( fm_dout   ), // data out
+    .ct1        (           ),
+    .ct2        (           ),
+    .irq_n      ( fm_irqn   ),
+    // Low resolution output (same as real chip)
+    .sample     ( sample    ),
+    .left       ( fm_l      ),
+    .right      ( fm_r      ),
+    // Full resolution output
+    .xleft      (           ),
+    .xright     (           )
+);
+escape_kids_voice_mute u_voice_mute(
+    .clk           ( clk         ),
+    .rst           ( rst_z80     ),
+    .enable        ( voice_mute  ),
+    .channel_bsy   ( pcm_bsy     ),
+    .ch0_start     ( pcma_start  ),
+    .ch1_start     ( pcmb_start  ),
+    .ch2_start     ( pcmc_start  ),
+    .ch3_start     ( pcmd_start  ),
+    .channel_en    ( snd_en[4:1] ),
+    .channel_en_out( pcm_mix_en  )
+);
+
+/* verilator tracing_off */
+jt053260 u_pcm(
+    .rst        ( rst_z80   ),
+    .clk        ( clk       ),
+    .cen        ( cen_fm    ),
+    // Main CPU interface
+    .ma0        ( main_addr ),
+    .mrdnw      ( main_rnw  ),
+    .mcs        ( 1'b1      ),
+    .mdin       ( main_din  ),
+    .mdout      ( main_dout ),
+    // Sub CPU control
+    .addr       ( A[5:0]    ),
+    .rd_n       ( rd_n      ),
+    .wr_n       ( wr_n      ),
+    .cs         ( pcm_cs    ),
+    .dout       ( pcm_dout  ),
+    .din        ( cpu_dout  ),
+
+    // External memory - the original chip
+    // only had one bus
+    .roma_addr  ( pcma_addr ),
+    .roma_data  ( pcma_dout ),
+    .roma_cs    ( pcma_cs   ),
+    // .roma_ok    ( pcma_ok   ),
+
+    .romb_addr  ( pcmb_addr ),
+    .romb_data  ( pcmb_dout ),
+    .romb_cs    ( pcmb_cs   ),
+    // .romb_ok    ( pcmb_ok   ),
+
+    .romc_addr  ( pcmc_addr ),
+    .romc_data  ( pcmc_dout ),
+    .romc_cs    ( pcmc_cs   ),
+    // .romc_ok    ( pcmc_ok   ),
+
+    .romd_addr  ( pcmd_addr ),
+    .romd_data  ( pcmd_dout ),
+    .romd_cs    ( pcmd_cs   ),
+    .ch0_start  ( pcma_start ),
+    .ch1_start  ( pcmb_start ),
+    .ch2_start  ( pcmc_start ),
+    .ch3_start  ( pcmd_start ),
+    .channel_sample ( pcm_sample ),
+    .channel_bsy    ( pcm_bsy    ),
+    .channel_reverse( pcm_reverse ),
+    // .romd_ok    ( pcmd_ok   ),
+    // sound output - raw
+    .ch_en      ({snd_en[5],pcm_mix_en}),
+    .aux_l      ( fm_l      ),
+    .aux_r      ( fm_r      ),
+    .snd_l      ( mix_l     ),
+    .snd_r      ( mix_r     ),
+    .tim2       (           ),
+    .sample     (           )
+);
+`else
+initial rom_cs   = 0;
+assign  pcma_cs  = 0, pcmb_cs=0, pcmc_cs=0, pcmd_cs=0;
+assign  pcma_addr= 0, pcmb_addr=0, pcmc_addr=0, pcmd_addr=0;
+assign  rom_addr = 0;
+assign  snd_l    = 0;
+assign  snd_r    = 0;
+assign  st_dout  = 0;
+assign  main_din = 0;
+assign  fm_irqn  = 1;
+assign  fm_dout  = 0;
+assign  pcm_sample = 0;
+assign  pcm_bsy = 0;
+assign  pcm_reverse = 0;
+assign  pcma_start = 0, pcmb_start=0, pcmc_start=0, pcmd_start=0;
+`endif
+endmodule

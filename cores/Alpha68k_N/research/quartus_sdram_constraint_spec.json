@@ -1,0 +1,914 @@
+{
+  "scope": "Source-backedSDRAMconstraint specificationonly;noSDC/sourceedit,Quartusrunorphysicalqualification. Exactnumericexternaldelays remainunresolved untildevice/boardprofileexists. BaselineSTA runningseparately byirq_timing.",
+  "canonical_root": "D:\\Arcade\\AI\\aCORES\\meatsauce-alpha68kn\\cores\\Alpha68k_N",
+  "facts": [
+    {
+      "fact": "PhysicalgamePLL outputs0/1 each48MHz with0ps/10416ps phase and50%duty;48MHz period is20.833333ns. Forwardedphase10.416ns is close tohalfperiod but actualfittedPLL clocks must confirm realizedphase/uncertainty.",
+      "evidence": {
+        "path": "D:\\Arcade\\AI\\aCORES\\meatsauce-alpha68kn\\cores\\Alpha68k_N\\rtl\\alpha68kn_pll.sv",
+        "start_line": 4,
+        "end_line": 12,
+        "lines": [
+          [
+            4,
+            "    altera_pll #("
+          ],
+          [
+            5,
+            "        .fractional_vco_multiplier(\"false\"), .reference_clock_frequency(\"50.0 MHz\"),"
+          ],
+          [
+            6,
+            "        .operation_mode(\"direct\"), .number_of_clocks(2),"
+          ],
+          [
+            7,
+            "        .output_clock_frequency0(\"48.0 MHz\"), .phase_shift0(\"0 ps\"), .duty_cycle0(50),"
+          ],
+          [
+            8,
+            "        .output_clock_frequency1(\"48.0 MHz\"), .phase_shift1(\"10416 ps\"), .duty_cycle1(50),"
+          ],
+          [
+            9,
+            "        .pll_type(\"General\"), .pll_subtype(\"General\")"
+          ],
+          [
+            10,
+            "    ) pll (.refclk(refclk),.rst(rst),.outclk(clocks),.locked(locked),.fbclk(1'b0));"
+          ],
+          [
+            11,
+            "    assign clk_sys=clocks[0];"
+          ],
+          [
+            12,
+            "    assign clk_sdram=clocks[1];"
+          ]
+        ]
+      }
+    },
+    {
+      "fact": "Productionwrapper usesphysicalPLL; simulation substitutesidealclock only underALPHA_EMU_SIM. SDRAM_CLK directlyforwards clk_sdram. No independent game domain is added byforwarding.",
+      "evidence": {
+        "path": "D:\\Arcade\\AI\\aCORES\\meatsauce-alpha68kn\\cores\\Alpha68k_N\\Alpha68k_N.sv",
+        "start_line": 52,
+        "end_line": 66,
+        "lines": [
+          [
+            52,
+            "    wire clk_sys,clk_sdram,locked;"
+          ],
+          [
+            53,
+            "`ifdef ALPHA_EMU_SIM"
+          ],
+          [
+            54,
+            "    // Ideal PLL output model only: real HPS/game/framework remain instantiated."
+          ],
+          [
+            55,
+            "    // The host supplies 48 MHz and the documented SDRAM half-cycle phase."
+          ],
+          [
+            56,
+            "    assign clk_sys=SIM_MASTER;assign clk_sdram=SIM_SDRAM;assign locked=SIM_LOCKED;"
+          ],
+          [
+            57,
+            "    // External HPS drives only these pins. A direct C++ assignment to the"
+          ],
+          [
+            58,
+            "    // inout port would be overwritten by the core's response drivers."
+          ],
+          [
+            59,
+            "    assign HPS_BUS[31:16]=SIM_HPS_HOST[31:16];"
+          ],
+          [
+            60,
+            "    assign HPS_BUS[35:33]=SIM_HPS_HOST[35:33];"
+          ],
+          [
+            61,
+            "    assign HPS_BUS[45:38]=SIM_HPS_HOST[45:38];"
+          ],
+          [
+            62,
+            "`else"
+          ],
+          [
+            63,
+            "    alpha68kn_pll pll(.refclk(CLK_50M),.rst(1'b0),"
+          ],
+          [
+            64,
+            "        .clk_sys(clk_sys),.clk_sdram(clk_sdram),.locked(locked));"
+          ],
+          [
+            65,
+            "`endif"
+          ],
+          [
+            66,
+            "    assign SDRAM_CLK=clk_sdram;"
+          ]
+        ]
+      }
+    },
+    {
+      "fact": "Actualgraphicscontroller AW22,HF0,SHIFTED0; allread/program lengths16bits,refreshcount9;controller.clk is thecommon gameclock. AW22bankgeometry ROW13/COW9. These selectcontroller behavior,not a specificSDRAM manufacturer/speedgrade.",
+      "evidence": [
+        {
+          "path": "D:\\Arcade\\AI\\aCORES\\meatsauce-alpha68kn\\cores\\Alpha68k_N\\rtl\\alpha68kn_gfxmem.sv",
+          "start_line": 76,
+          "end_line": 89,
+          "lines": [
+            [
+              76,
+              "    jtframe_sdram64 #(.AW(22),.HF(0),.SHIFTED(0),"
+            ],
+            [
+              77,
+              "        .BA0_LEN(16),.BA1_LEN(16),.BA2_LEN(16),.BA3_LEN(16),.PROG_LEN(16),"
+            ],
+            [
+              78,
+              "        .BA0_WEN(0),.BA1_WEN(0),.BA2_WEN(0),.BA3_WEN(0),.RFSHCNT(9)"
+            ],
+            [
+              79,
+              "    ) controller ("
+            ],
+            [
+              80,
+              "        .rst(reset),.clk(clk),.init(init),"
+            ],
+            [
+              81,
+              "        .ba0_addr({4'd0,phy_read[18:1]}),.ba1_addr(22'd0),.ba2_addr(22'd0),.ba3_addr(22'd0),"
+            ],
+            [
+              82,
+              "        .rd({3'd0,read_req && !load_busy}),.wr(4'd0),"
+            ],
+            [
+              83,
+              "        .ba0_din(16'd0),.ba1_din(16'd0),.ba2_din(16'd0),.ba3_din(16'd0),"
+            ],
+            [
+              84,
+              "        .ba0_dsn(2'b11),.ba1_dsn(2'b11),.ba2_dsn(2'b11),.ba3_dsn(2'b11),"
+            ],
+            [
+              85,
+              "        .prog_en(load_busy),.prog_addr({4'd0,phy_byte[18:1]}),"
+            ],
+            [
+              86,
+              "        .prog_rd(1'b0),.prog_wr(prog_wr),.prog_din({byte_data,byte_data}),"
+            ],
+            [
+              87,
+              "        .prog_dsn(phy_byte[0] ? 2'b01 : 2'b10),.prog_ba(2'd0),"
+            ],
+            [
+              88,
+              "        .prog_dst(),.prog_dok(),.prog_rdy(prog_rdy),.prog_ack(prog_ack),"
+            ],
+            [
+              89,
+              "        .rfsh(refresh),.ack(ack),.dst(),.dok(),.rdy(rdy),.dout(read_data),"
+            ]
+          ]
+        },
+        {
+          "path": "D:\\Arcade\\AI\\aCORES\\meatsauce-alpha68kn\\cores\\Alpha68k_N\\rtl\\vendor\\jtframe_sdram\\jtframe_sdram64_bank.v",
+          "start_line": 62,
+          "end_line": 76,
+          "lines": [
+            [
+              62,
+              "localparam ROW=13,"
+            ],
+            [
+              63,
+              "           COW= AW==22 ? 9 : 10; // 9 for 32MB SDRAM, 10 for 64MB"
+            ],
+            [
+              64,
+              ""
+            ],
+            [
+              65,
+              "// states"
+            ],
+            [
+              66,
+              "localparam IDLE    = 0,"
+            ],
+            [
+              67,
+              "           // AUTOPRECH 1+2(1)"
+            ],
+            [
+              68,
+              "           PRE_ACT = HF ? 2:1,"
+            ],
+            [
+              69,
+              "           ACT     = PRE_ACT+1,"
+            ],
+            [
+              70,
+              "           PRE_RD  = PRE_ACT + (HF ? 2:1),"
+            ],
+            [
+              71,
+              "           READ    = PRE_RD+1,"
+            ],
+            [
+              72,
+              "           DST     = READ + (SHIFTED==1 ? 1 : 2) ,"
+            ],
+            [
+              73,
+              "           DTICKS  = BURSTLEN==64 ? 4 : (BURSTLEN==32?2:1),"
+            ],
+            [
+              74,
+              "           BUSY    = DST+(DTICKS-1),"
+            ],
+            [
+              75,
+              "           RDY     = DST + (BALEN==16 ? 0 : (BALEN==32? 1 : 3)),"
+            ],
+            [
+              76,
+              "           STW     = BUSY + 1 + {2'd0,AUTOPRECH[0]};"
+            ]
+          ]
+        }
+      ]
+    },
+    {
+      "fact": "SDRAMdata capture dout<=sdram_dq, command/address/writeDQ andDQM control are registered onposedgeclk. Onlyprog/reset/refreshbankmode reset qualifiers shown179\u2013183 use negedgeclk. Oppositeedgepaths neednormal halfcycleSTA;DQ is notcaptured onnegedge inthiscontroller.",
+      "evidence": {
+        "path": "D:\\Arcade\\AI\\aCORES\\meatsauce-alpha68kn\\cores\\Alpha68k_N\\rtl\\vendor\\jtframe_sdram\\jtframe_sdram64.v",
+        "start_line": 174,
+        "end_line": 222,
+        "lines": [
+          [
+            174,
+            "`ifndef VERILATOR"
+          ],
+          [
+            175,
+            "reg  [15:0] dq_pad;"
+          ],
+          [
+            176,
+            "assign sdram_dq = dq_pad;"
+          ],
+          [
+            177,
+            "`endif"
+          ],
+          [
+            178,
+            ""
+          ],
+          [
+            179,
+            "always @(negedge clk) begin"
+          ],
+          [
+            180,
+            "    prog_rst  <= ~prog_en | init | rst;"
+          ],
+          [
+            181,
+            "    rfsh_rst  <= init | rst;"
+          ],
+          [
+            182,
+            "    other_rst <= prog_en | init | rst;"
+          ],
+          [
+            183,
+            "end"
+          ],
+          [
+            184,
+            ""
+          ],
+          [
+            185,
+            "assign din = (bg[3] && BA3_WEN) ? ba3_din :"
+          ],
+          [
+            186,
+            "             (bg[2] && BA2_WEN) ? ba2_din :"
+          ],
+          [
+            187,
+            "             (bg[1] && BA1_WEN) ? ba1_din : ba0_din;"
+          ],
+          [
+            188,
+            ""
+          ],
+          [
+            189,
+            "always @(posedge clk) begin"
+          ],
+          [
+            190,
+            "    dst      <= ba_dst;"
+          ],
+          [
+            191,
+            "    rdy      <= ba_rdy;"
+          ],
+          [
+            192,
+            "    all_dbusy    <= |ba_dbusy;"
+          ],
+          [
+            193,
+            "    all_dbusy64  <= |ba_dbusy64;"
+          ],
+          [
+            194,
+            "    dok      <= ba_dok;"
+          ],
+          [
+            195,
+            "    dout     <= sdram_dq;"
+          ],
+          [
+            196,
+            "    cmd      <= next_cmd;"
+          ],
+          [
+            197,
+            ""
+          ],
+          [
+            198,
+            "    // prog signals"
+          ],
+          [
+            199,
+            "    prog_dst <= pre_dst;"
+          ],
+          [
+            200,
+            "    prog_dok <= pre_dok;"
+          ],
+          [
+            201,
+            "    prog_rdy <= pre_rdy;"
+          ],
+          [
+            202,
+            "    prog_ack <= pre_ack;"
+          ],
+          [
+            203,
+            ""
+          ],
+          [
+            204,
+            "    sdram_ba      <= next_ba;"
+          ],
+          [
+            205,
+            "    sdram_a[10:0] <= next_a[10:0];"
+          ],
+          [
+            206,
+            ""
+          ],
+          [
+            207,
+            "    wr_l <= wr_aux & ~ba_rdy;"
+          ],
+          [
+            208,
+            ""
+          ],
+          [
+            209,
+            "`ifndef VERILATOR"
+          ],
+          [
+            210,
+            "    dq_pad <= wr_cycle ? (prog_en ? prog_din : din) : 16'hzzzz;"
+          ],
+          [
+            211,
+            "`else"
+          ],
+          [
+            212,
+            "    sdram_din <= prog_en ? prog_din : din;"
+          ],
+          [
+            213,
+            "`endif"
+          ],
+          [
+            214,
+            "    if( MISTER ) begin"
+          ],
+          [
+            215,
+            "        if( next_cmd==CMD_ACTIVE )"
+          ],
+          [
+            216,
+            "            sdram_a[12:11] <= next_a[12:11];"
+          ],
+          [
+            217,
+            "        else"
+          ],
+          [
+            218,
+            "            sdram_a[12:11] <= wr_cycle ? mask_mux : 2'd0;"
+          ],
+          [
+            219,
+            "    end else begin"
+          ],
+          [
+            220,
+            "        sdram_a[12:11] <= next_a[12:11];"
+          ],
+          [
+            221,
+            "        dqm <= wr_cycle ? mask_mux : 2'd0;"
+          ],
+          [
+            222,
+            "    end"
+          ]
+        ]
+      }
+    },
+    {
+      "fact": "MISTERdefault1 uses address12/11 forDQM alias;CKE constant1. BothlogicalDQM/address outputportgroups must be covered withoutinventing independenttiming domains.",
+      "evidence": [
+        {
+          "path": "D:\\Arcade\\AI\\aCORES\\meatsauce-alpha68kn\\cores\\Alpha68k_N\\rtl\\vendor\\jtframe_sdram\\jtframe_sdram64.v",
+          "start_line": 30,
+          "end_line": 31,
+          "lines": [
+            [
+              30,
+              "              MISTER =1,     // shorts dqm to address bus 12/11 signals"
+            ],
+            [
+              31,
+              "              RFSHCNT=9,     // 8192 every 64ms or 1 every 7.8us ~ 8.2 per line (15kHz)"
+            ]
+          ]
+        },
+        {
+          "path": "D:\\Arcade\\AI\\aCORES\\meatsauce-alpha68kn\\cores\\Alpha68k_N\\rtl\\vendor\\jtframe_sdram\\jtframe_sdram64.v",
+          "start_line": 144,
+          "end_line": 146,
+          "lines": [
+            [
+              144,
+              "assign {sdram_ncs, sdram_nras, sdram_ncas, sdram_nwe } = cmd;"
+            ],
+            [
+              145,
+              "assign {sdram_dqmh, sdram_dqml} = MISTER ? sdram_a[12:11] : dqm;"
+            ],
+            [
+              146,
+              "assign sdram_cke = 1;"
+            ]
+          ]
+        }
+      ]
+    },
+    {
+      "fact": "Initialization mode selectsCL2 andburst1 for current16bit lengths. CL2 alone does notspecify tAC,tOH,tHZ,tSU,tH orboardflight.",
+      "evidence": {
+        "path": "D:\\Arcade\\AI\\aCORES\\meatsauce-alpha68kn\\cores\\Alpha68k_N\\rtl\\vendor\\jtframe_sdram\\jtframe_sdram64_init.v",
+        "start_line": 68,
+        "end_line": 74,
+        "lines": [
+          [
+            68,
+            "                    wait_cnt <= 14'd11;"
+          ],
+          [
+            69,
+            "                end"
+          ],
+          [
+            70,
+            "                3'd3: begin"
+          ],
+          [
+            71,
+            "                    init_cmd <= CMD_LOAD_MODE;"
+          ],
+          [
+            72,
+            "                    sdram_a  <= {10'b00_1_00_010_0,BURSTLEN==64?3'b010:(BURSTLEN==32?3'b001:3'b000)}; // CAS Latency = 2, burst = 1-4"
+          ],
+          [
+            73,
+            "                    wait_cnt <= 14'd3;"
+          ],
+          [
+            74,
+            "                end"
+          ]
+        ]
+      }
+    },
+    {
+      "fact": "MiSTerframework binds SDRAM_CLK PIN_AD20 andotherSDRAMsignals;3.3VLVTTL,fastoutput/enable/input register assignments are present. Assignments are placementrequests;actualI/Oregisterpacking must beverified infit.",
+      "evidence": {
+        "path": "D:\\Arcade\\AI\\aCORES\\meatsauce-alpha68kn\\cores\\Alpha68k_N\\sys\\sys.tcl",
+        "start_line": 82,
+        "end_line": 98,
+        "lines": [
+          [
+            82,
+            "set_location_assignment PIN_AF4 -to SDRAM_DQ[14]"
+          ],
+          [
+            83,
+            "set_location_assignment PIN_AH3 -to SDRAM_DQ[15]"
+          ],
+          [
+            84,
+            "set_location_assignment PIN_AG13 -to SDRAM_DQML"
+          ],
+          [
+            85,
+            "set_location_assignment PIN_AF13 -to SDRAM_DQMH"
+          ],
+          [
+            86,
+            "set_location_assignment PIN_AD20 -to SDRAM_CLK"
+          ],
+          [
+            87,
+            "set_location_assignment PIN_AG10 -to SDRAM_CKE"
+          ],
+          [
+            88,
+            "set_location_assignment PIN_AA19 -to SDRAM_nWE"
+          ],
+          [
+            89,
+            "set_location_assignment PIN_AA18 -to SDRAM_nCAS"
+          ],
+          [
+            90,
+            "set_location_assignment PIN_Y18 -to SDRAM_nCS"
+          ],
+          [
+            91,
+            "set_location_assignment PIN_W14 -to SDRAM_nRAS"
+          ],
+          [
+            92,
+            ""
+          ],
+          [
+            93,
+            "set_instance_assignment -name IO_STANDARD \"3.3-V LVTTL\" -to SDRAM_*"
+          ],
+          [
+            94,
+            "set_instance_assignment -name CURRENT_STRENGTH_NEW \"MAXIMUM CURRENT\" -to SDRAM_*"
+          ],
+          [
+            95,
+            "set_instance_assignment -name FAST_OUTPUT_REGISTER ON -to SDRAM_*"
+          ],
+          [
+            96,
+            "set_instance_assignment -name FAST_OUTPUT_ENABLE_REGISTER ON -to SDRAM_DQ[*]"
+          ],
+          [
+            97,
+            "set_instance_assignment -name FAST_INPUT_REGISTER ON -to SDRAM_DQ[*]"
+          ],
+          [
+            98,
+            "set_instance_assignment -name ALLOW_SYNCH_CTRL_USAGE OFF -to *|SDRAM_*"
+          ]
+        ]
+      }
+    },
+    {
+      "fact": "Core SDC contains derive_pll_clocks and derive_clock_uncertainty only. Framework defines50MHz roots and exclusive groups for named independent clocks. Its wildcard core-PLL group assumes pll|pll_inst hierarchy; this core instantiates alpha68kn_pll with an altera_pll instance named pll. Actual fitted clock/group matches must be inspected; no claim is made that this custom PLL matches the framework wildcard. Both related48MHz outputs must retain their phase relationship.",
+      "evidence": [
+        {
+          "path": "D:\\Arcade\\AI\\aCORES\\meatsauce-alpha68kn\\cores\\Alpha68k_N\\Alpha68k_N.sdc",
+          "start_line": 1,
+          "end_line": 4,
+          "lines": [
+            [
+              1,
+              "derive_pll_clocks"
+            ],
+            [
+              2,
+              "derive_clock_uncertainty"
+            ],
+            [
+              3,
+              ""
+            ],
+            [
+              4,
+              "# core specific constraints"
+            ]
+          ]
+        },
+        {
+          "path": "D:\\Arcade\\AI\\aCORES\\meatsauce-alpha68kn\\cores\\Alpha68k_N\\sys\\sys_top.sdc",
+          "start_line": 2,
+          "end_line": 22,
+          "lines": [
+            [
+              2,
+              "create_clock -period \"50.0 MHz\"  [get_ports FPGA_CLK1_50]"
+            ],
+            [
+              3,
+              "create_clock -period \"50.0 MHz\"  [get_ports FPGA_CLK2_50]"
+            ],
+            [
+              4,
+              "create_clock -period \"50.0 MHz\"  [get_ports FPGA_CLK3_50]"
+            ],
+            [
+              5,
+              "create_clock -period \"100.0 MHz\" [get_pins -compatibility_mode *|h2f_user0_clk] "
+            ],
+            [
+              6,
+              "create_clock -period \"100.0 MHz\" [get_pins -compatibility_mode spi|sclk_out] -name spi_sck"
+            ],
+            [
+              7,
+              "create_clock -period \"10.0 MHz\"  [get_pins -compatibility_mode hdmi_i2c|out_clk] -name hdmi_sck"
+            ],
+            [
+              8,
+              ""
+            ],
+            [
+              9,
+              "derive_pll_clocks"
+            ],
+            [
+              10,
+              "derive_clock_uncertainty"
+            ],
+            [
+              11,
+              ""
+            ],
+            [
+              12,
+              "# Decouple different clock groups (to simplify routing)"
+            ],
+            [
+              13,
+              "set_clock_groups -exclusive \\"
+            ],
+            [
+              14,
+              "   -group [get_clocks { *|pll|pll_inst|altera_pll_i|*[*].*|divclk}] \\"
+            ],
+            [
+              15,
+              "   -group [get_clocks { pll_hdmi|pll_hdmi_inst|altera_pll_i|*[0].*|divclk}] \\"
+            ],
+            [
+              16,
+              "   -group [get_clocks { pll_audio|pll_audio_inst|altera_pll_i|*[0].*|divclk}] \\"
+            ],
+            [
+              17,
+              "   -group [get_clocks { spi_sck}] \\"
+            ],
+            [
+              18,
+              "   -group [get_clocks { hdmi_sck}] \\"
+            ],
+            [
+              19,
+              "   -group [get_clocks { *|h2f_user0_clk}] \\"
+            ],
+            [
+              20,
+              "   -group [get_clocks { FPGA_CLK1_50 }] \\"
+            ],
+            [
+              21,
+              "   -group [get_clocks { FPGA_CLK2_50 }] \\"
+            ],
+            [
+              22,
+              "   -group [get_clocks { FPGA_CLK3_50 }]"
+            ]
+          ]
+        }
+      ]
+    },
+    {
+      "fact": "Projectbaseline explicitlyleavesexternalSDRAMelectricaltiming unqualified. No source-backedSDRAM partnumber,module revision,speedgrade,loads orPCBtracebound is identified bythesereviewedfiles.",
+      "evidence": {
+        "path": "D:\\Arcade\\AI\\aCORES\\meatsauce-alpha68kn\\cores\\Alpha68k_N\\docs\\LOADER_AND_CLOCKS.md",
+        "start_line": 11,
+        "end_line": 22,
+        "lines": [
+          [
+            11,
+            "`rtl/alpha68kn_pll.sv` produces one 48 MHz master for game logic, CPUs, HPS I/O"
+          ],
+          [
+            12,
+            "and the SDRAM controller. Its second 48 MHz output, shifted 10416 ps, forwards"
+          ],
+          [
+            13,
+            "the SDRAM device clock only. The controller also uses the opposite edge of the"
+          ],
+          [
+            14,
+            "same master internally; this is an interface timing path that STA must review."
+          ],
+          [
+            15,
+            "The standard framework's clocks are retained without changing `sys/`."
+          ],
+          [
+            16,
+            ""
+          ],
+          [
+            17,
+            "PLL lock and external reset each enter a three-register synchronizer."
+          ],
+          [
+            18,
+            "A 10000-cycle power-up delay precedes the controller's own 5000-cycle"
+          ],
+          [
+            19,
+            "initialization delay. Cold reset initializes SDRAM; game/user reset does not."
+          ],
+          [
+            20,
+            "A free-running 3072-cycle counter triggers distributed refresh during download,"
+          ],
+          [
+            21,
+            "CPU reset and gameplay. The phase choice and external device setup/hold are"
+          ],
+          [
+            22,
+            "development settings, **not yet an electrically qualified SDRAM interface**."
+          ]
+        ]
+      }
+    }
+  ],
+  "known_numeric_values": {
+    "master_hz": 48000000,
+    "nominal_period_ns": 20.833333333333332,
+    "forwarded_phase_ps": 10416,
+    "duty_cycle_pct": 50,
+    "CAS_latency_cycles": 2,
+    "burst_words": 1,
+    "DQ_width_bits": 16,
+    "row_bits": 13,
+    "column_bits": 9
+  },
+  "missing_information": [
+    {
+      "parameter": "actualSDRAMpart/module/speedgrade",
+      "needed_for": "Device tAC(max), guaranteedoutputhold/active-drive/tOH(min),tHZ(min/max),write/address/command/DQM tSU/tH,minpulsewidth,andvoltage/temperature/capacitance applicability",
+      "known_value": null
+    },
+    {
+      "parameter": "clockflight_min/max:FPGA SDRAM_CLK pad to SDRAM clockpin",
+      "needed_for": "Input roundtripandoutput clock-data skew;connector/moduleandclockloadingincluded",
+      "known_value": null
+    },
+    {
+      "parameter": "data/address/control/DQMflight_min/max:FPGA pad toSDRAMpin andreadreturn path",
+      "needed_for": "Per-portworstcases,matching/polarity/boarddelay andloadbounds",
+      "known_value": null
+    },
+    {
+      "parameter": "fitted actualPLL outputclocks,phase,jitterandportforwardinglatency",
+      "needed_for": "Verifiedgeneratedclockreference atSDRAM_CLK;avoid doublecountingPLLphase/padroute",
+      "known_value": null
+    },
+    {
+      "parameter": "fittedIOregister/enablepacking andDQturnaround windows",
+      "needed_for": "Check activeCL2 readwindow,write setup/hold andbusrelease/tri-state contention acrossREAD/WRITE transitions",
+      "known_value": null
+    }
+  ],
+  "formula_convention_and_derivation": {
+    "reference_convention": "All externaldelay formulas reference risingedge of generatedforwardedclock atFPGA SDRAM_CLK pad. FPGAinternalPLL/clockroute/padlatency belongsinSTAclockpath,not duplicatedinboardflight.",
+    "input_DQ_max_ns": "clk_flight_max + device_tAC_max + read_DQ_flight_max",
+    "input_DQ_min_ns": "clk_flight_min + guaranteed_device_output_hold_min + read_DQ_flight_min; exactminimumandfiniteactive-drive boundary must bevalidated for selectedpart/CL2/burst1,tOH/loadcondition,tHZ andnextbeat,not borrowedfromanothercore",
+    "output_port_max_ns": "device_tSU + write_or_control_flight_max - clk_flight_min",
+    "output_port_min_ns": "write_or_control_flight_min - clk_flight_max - device_tH",
+    "derivation_scope": "Outputequations followdataarrivaltime<=capturetime-tSU andnextdataarrivaltime>=capturetime+tH. ThisisderivedfromexplicitFPGApadreference convention,not measuredboardnumericvalues."
+  },
+  "minimal_constraint_obligations": [
+    {
+      "order": 1,
+      "action": "FromrealSTA netlistresolveexactderived48MHzPLLout0/out1clocks,sourcesandrelatedphase; requirecollectioncardinality1foreach andbindforwardedclockat SDRAM_CLK ifnotalreadycorrectlyrepresented. No freevirtualclockthatlosesrelatedPLLphase. Check actual framework set_clock_groups wildcard matches for the custom PLL hierarchy; do not infer matches from template instance names.",
+      "candidate_command_shape": "create_generated_clock -name alpha68kn_sdram_forwarded -source <verified_one_PLL_output1_pin> -master_clock <verified_PLL_output1_clock> -divide_by 1 [get_ports SDRAM_CLK]",
+      "limit": "Shapeonly:notexecutables untilactualnetlistnameschecked; avoidduplicateclock ifexistingderivedclockproperlycoversport."
+    },
+    {
+      "order": 2,
+      "action": "Supplyapproveddevice/boardprofilebounds;derivebothmax/minDQinputdelay and bothmax/min outputdelay perdeviceportclass. BindrisingSDRclockedge;noDDR-style -clock_fall withoutsourceevidence.",
+      "candidate_command_shape": [
+        "set_input_delay -clock alpha68kn_sdram_forwarded -max <validated_INPUT_MAX_NS> [get_ports {SDRAM_DQ[*]}]",
+        "set_input_delay -clock alpha68kn_sdram_forwarded -min <validated_INPUT_MIN_NS> [get_ports {SDRAM_DQ[*]}]",
+        "set_output_delay -clock alpha68kn_sdram_forwarded -max <validated_CLASS_OUTPUT_MAX_NS> <exact_nonempty_port_collection>",
+        "set_output_delay -clock alpha68kn_sdram_forwarded -min <validated_CLASS_OUTPUT_MIN_NS> <same_port_collection>"
+      ],
+      "limit": "Symboliconly. Never fillunknownswith0,unreviewed8/1.8ns fromothercoreorassumedtrace skews."
+    },
+    {
+      "order": 3,
+      "action": "CoverdynamicoutputaddressA[12:0],BA[1:0],nCS/nRAS/nCAS/nWE,DQ[15:0]writes,DQML/DQMH. ReviewconstantCKE separately;SDRAM_CLK is theclockreference ratherthanordinarydata. DQM/address aliases do notremove physicalpinobligations.",
+      "candidate_command_shape": "Outputportclasses must be partitioned iftheirdevice tSU/tH ortracebounds differ."
+    },
+    {
+      "order": 4,
+      "action": "Retainnormalposedge/negedge controller resetqualifier timingandposedgeDQcapture;noasynchronousclockgroup betweenrelatedPLLoutputs,noSDRAMblanketfalsepaths,nomulticycle justifiedonlybyCL2.",
+      "candidate_command_shape": "Onlysource-backed sampledvalid/enableproof couldauthorize targetedpairedmulticycle later; currentreviewproposesnone."
+    },
+    {
+      "order": 5,
+      "action": "Auditallrequiredfitcorners inputsetup/inputhold/outputsetup/outputhold,internalposedge/negedgepaths,recovery/removal,minpulsewidth,actualgeneratedclocksandunconstrainedfunctionalSDRAMendpoints. ConfirmfastI/Oassignmentsactuallypacked.",
+      "candidate_command_shape": "Preserveactualreportpanel/sourcepin/clockandexceptionmatch evidence; failqualificationonmissingclock/port/metricorunexplainedSDRAMpath."
+    }
+  ],
+  "constraint_edit_ready": false,
+  "electrical_timing_qualified": false,
+  "lessons_consulted": [
+    {
+      "index_line": 423,
+      "title": "Source-synchronous SDRAM timing needs both corners and streaming hold checks",
+      "application": "Requireallcornersandstreaminghold/activewindow;anoldsuccessfulfitcannotreplacecurrentfullqualification."
+    },
+    {
+      "index_line": 6593,
+      "title": "Model SDRAM first-word drive and release before timing qualification",
+      "application": "CL2doesnotguaranteevaliddataforeveraftertheterminalbeat;do notcopyBT80MHzphase,8/1.8nsoritsmulticycleexceptiontoAlpha48MHz."
+    }
+  ],
+  "official_references": [
+    {
+      "title": "Quartus17 SetInputDelay",
+      "url": "https://resources.altera.com/quartushelp/17.0/analyze/sta/sta_db_set_input_delay.htm",
+      "verified": "Officialpage fetched;maxusedforsetup/recovery,minforhold/removal;specifyingonevalueappliesittoboth,soexplicitbothneeded."
+    },
+    {
+      "title": "IntelAN433 source-synchronousconstraints",
+      "url": "https://cdrdv2-public.intel.com/653688/an433.pdf",
+      "verified": "Officialsearchresultidentified;directPDFfetch403. No numericalvaluesorunreadPDFpassagesreliedupon."
+    }
+  ],
+  "source_pins": {
+    "rtl/alpha68kn_pll.sv": "4dc60ba22c062801682f7269ecf6cbb2eebbc9bd73abc84366f1edfe38e419d1",
+    "Alpha68k_N.sv": "e06df32e27980fd18930da274d05538396e8be3fc7379409043dd36bef383b61",
+    "rtl/alpha68kn_gfxmem.sv": "ec21f32d4108d6e18352efbff8e58490a84d57af2252b1a2d656c7152639943e",
+    "rtl/vendor/jtframe_sdram/jtframe_sdram64.v": "039cccd60d203635de1acad84c1d505309086600aabd4c7e5fa9076c79183668",
+    "rtl/vendor/jtframe_sdram/jtframe_sdram64_bank.v": "50078e5732eae354cf7459b415c022f24cfbb2f411e68db2bffd00bcfa40adde",
+    "rtl/vendor/jtframe_sdram/jtframe_sdram64_init.v": "6874abf941b538f72ad1cd654f3d7cd6c300e70e13fd8ea2a0464d0a187eb248",
+    "sys/sys.tcl": "e9ab2b7c89b4347854810387550a65458aa3ec9de1bd26ad74328d73376f6a88",
+    "sys/sys_top.sdc": "0a5fa4015b82ad7ce38e56d1ae4aadea6209af59c5dd9eff56a11139cf16ce86",
+    "Alpha68k_N.sdc": "89cb176f5eeb8c2adf59d758e56a605bd711631a4bccb92e77c77f995b62e71f",
+    "docs/LOADER_AND_CLOCKS.md": "36ff17159fe63d686bee9c06018174e1ef3237554a3cec40167a6006f2455130"
+  },
+  "next_action": "ReadactualbaselineSTA clock/port/unconstrainedreports; resolveforwarded-clocktargets withoutwaivers. ObtainactualSDRAMpart/speedgradeandboardflightbounds orexplicitlyapprovedboundedprofile,thenformconcretesymbolicconstraintsandrerunSTA forfullcurrentfit."
+}

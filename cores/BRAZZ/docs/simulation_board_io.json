@@ -1,0 +1,51 @@
+{
+  "target": "board_io",
+  "acceptance": "unit verification",
+  "runtime": "native Windows PE / MSYS2 UCRT64",
+  "commands": [
+    [
+      "D:/vibes/fpga/bin/verilator.exe",
+      "--cc",
+      "--exe",
+      "--build",
+      "-j",
+      "4",
+      "-O3",
+      "--top-module",
+      "cs_board_io",
+      "--Mdir",
+      "R:/Verilator/CrystalSystem/tool-20261007T030457689Z-36404-61058328/obj_dir",
+      "-CFLAGS",
+      "-O2",
+      "-MAKEFLAGS",
+      "OPT_FAST=-O2",
+      "-MAKEFLAGS",
+      "OPT_GLOBAL=-O2",
+      "-Wno-fatal",
+      "D:/Arcade/AI/aCORES/BRAZZ/Arcade-CrystalSystem_MiSTer/rtl/board/cs_board_io.sv",
+      "D:/Arcade/AI/aCORES/BRAZZ/Arcade-CrystalSystem_MiSTer/sim/board_io/main.cpp"
+    ],
+    [
+      "D:/vibes/fpga/bin/verilator.exe",
+      "sim",
+      "R:/Verilator/CrystalSystem/tool-20261007T030457689Z-36404-61058328/obj_dir/Vcs_board_io.exe"
+    ]
+  ],
+  "exit_code": 0,
+  "run_seconds": 0.12114789999759523,
+  "sources": [
+    {
+      "path": "rtl/board/cs_board_io.sv",
+      "sha256": "da34cdd7a999f3eb8e2a0b435f4e83aba8c56b56a3728eb75977cdecdaa3d3c9"
+    },
+    {
+      "path": "sim/board_io/main.cpp",
+      "sha256": "af65dc39acda39a65b6202642abde8b80919270fccdc9ec52ecd2bdeef661289"
+    }
+  ],
+  "workspace": "R:/Verilator/CrystalSystem/tool-20261007T030457689Z-36404-61058328",
+  "timing_profile": null,
+  "stdout": "PASS board IO: 56 checks; real input pins, coin events/counters, bank (all-lane MAME semantics), zero write-only reads and lamp lanes\n",
+  "stderr": "",
+  "build_log": "sim/obj_dir/board_io/build.log"
+}

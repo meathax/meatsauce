@@ -1,0 +1,10 @@
+{
+  "structured_request": {
+    "cmd": "$candidateJobs = @(Get-CimInstance Win32_Process -Filter \"Name='quartus_fit.exe'\" | Where-Object { $_.CommandLine -like '*case2_standard_fit*' } | Select-Object ProcessId, ParentProcessId, Name, CommandLine)\n$observation = [ordered]@{utc=(Get-Date).ToUniversalTime().ToString('o');matching_count=$candidateJobs.Count;processes=$candidateJobs}\n$observation | ConvertTo-Json -Depth 5 | Set-Content -LiteralPath 'D:\\Arcade\\AI\\aCORES\\Alpha68k N\\research\\sound_write_width\\case2_standard_fit_evidence\\prelaunch_jobs.json' -Encoding UTF8\n$observation | ConvertTo-Json -Depth 5\nif ($candidateJobs.Count -gt 0) { exit 2 }",
+    "sandbox_permissions": "require_escalated",
+    "justification": "Observe exact owned standard-fit jobs to prevent duplicate native checks; save only their local receipt.",
+    "max_output_tokens": 1000
+  },
+  "rejection": "Command blocked by PreToolUse hook: Compound, redirection or substitution syntax Use the reviewed QuartusFast frontend for check-only work; full compiles require the shared queue and separate explicit RBF authorization..",
+  "effect": "No observation and no native launch occurred. Transparent single-purpose read helper used as safer alternative."
+}

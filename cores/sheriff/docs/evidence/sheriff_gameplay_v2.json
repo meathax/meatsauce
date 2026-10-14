@@ -1,0 +1,49 @@
+{
+  "date": "2026-10-09",
+  "scope": "Real Sheriff boot, attract, credit/start and first active gameplay; partial simulation qualification",
+  "rtl_source": "385f083",
+  "frames_executed": 1800,
+  "cpu_writes": 945637,
+  "interrupt_acknowledgements": 3528,
+  "ordered_io_writes_matching_mame": 94888,
+  "native_rgb_checkpoints": 34,
+  "timed_mame_scanout_mismatch_pixels": 0,
+  "paired_whole_frame_mame_checkpoints_matching": 33,
+  "paired_whole_frame_difference": {
+    "frame": 1500,
+    "pixels": 7,
+    "verified_cause": "MAME whole-frame redraw incorporates writes to rows 131-135 made at raster rows 139-151, after the live display has passed those pixels",
+    "independent_timed_write_oracle_mismatch_pixels": 0
+  },
+  "full_ram_checkpoints_matching": 32,
+  "unclosed_ram_checkpoints": [
+    {"frame": 600, "different_bytes": 1, "address": "0x7ffc"},
+    {"frame": 1140, "different_bytes": 1, "address": "0x7ff0"}
+  ],
+  "first_ordered_ram_write_difference": {
+    "index": 22648,
+    "frame": 58,
+    "address": "0x7ffc",
+    "rtl": 239,
+    "mame": 243,
+    "status": "IRQ return-address sampling difference remains to qualify; no broad memory waiver"
+  },
+  "evidence": [
+    "sim/results/gameplay-v2/rtl/",
+    "sim/results/gameplay-v2/mame-paired/",
+    "sim/results/gameplay-v2/paired_comparison.json",
+    "sim/results/gameplay-v2/streaming_comparison.json",
+    "sim/results/gameplay-v2/first_live_scanout_difference.json",
+    "sim/results/pixel-phase-probe/",
+    "docs/HACKS.md"
+  ],
+  "release_gate_pass": false,
+  "pending": [
+    "IRQ/CPU boundary qualification",
+    "Scoring, deaths, round 3/red heart, game over/restart and both players/cocktail coverage",
+    "Connected real MCU and SN76477/DAC audio qualification",
+    "Full MiSTer controls, pause, high scores, CRT/rotation/scaling and MRA",
+    "All timing corners and platform I/O constraint audit on exact final source",
+    "Final authorized RBF assembly and actual hardware tests"
+  ]
+}

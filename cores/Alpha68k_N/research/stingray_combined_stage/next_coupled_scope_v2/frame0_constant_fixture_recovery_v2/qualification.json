@@ -1,0 +1,138 @@
+{
+  "schema": "actual_sstingry_first_field_constant_RAM_diagnostic_v1",
+  "build": {
+    "exit_code": 0,
+    "pid": 31040,
+    "finished": 1791647691.826436,
+    "log": {
+      "path": "D:\\Arcade\\AI\\aCORES\\Alpha68k N\\research\\stingray_combined_stage\\next_coupled_scope_v2\\frame0_constant_fixture_recovery_v2\\build.log",
+      "sha256": "c48509ddd67f43e06e3cd98201c85a8dd8cbd5049a18ea525501da58aba9db5e",
+      "bytes": 3473
+    },
+    "ELF": {
+      "path": "D:\\Arcade\\AI\\aCORES\\Alpha68k N\\research\\stingray_combined_stage\\next_coupled_scope_v2\\frame0_constant_fixture_recovery_v2\\source\\sim\\build\\alpha68kn_render_fixture_sim",
+      "sha256": "7090778fa8b2e0d93d79249d8cfaa11e11fab97ed0a8f12f1fa3e1cbf7303fa1",
+      "bytes": 388776
+    },
+    "pins_sha256": "f6079c05ace1c1383dc6ed659eeba52a21d2059c26f58b7fa75d0fa6d632d65f"
+  },
+  "run": {
+    "exit_code": 1,
+    "pid": 42904,
+    "finished": 1791647693.8774734,
+    "log": {
+      "path": "D:\\Arcade\\AI\\aCORES\\Alpha68k N\\research\\stingray_combined_stage\\next_coupled_scope_v2\\frame0_constant_fixture_recovery_v2\\run.log",
+      "sha256": "778f16812d67cc1d4f59b8d8ef38b9edc115d5e7f97a9b86cc9af3b472d99547",
+      "bytes": 395
+    },
+    "ELF": {
+      "path": "D:\\Arcade\\AI\\aCORES\\Alpha68k N\\research\\stingray_combined_stage\\next_coupled_scope_v2\\frame0_constant_fixture_recovery_v2\\source\\sim\\build\\alpha68kn_render_fixture_sim",
+      "sha256": "7090778fa8b2e0d93d79249d8cfaa11e11fab97ed0a8f12f1fa3e1cbf7303fa1",
+      "bytes": 388776
+    },
+    "pins_sha256": "f6079c05ace1c1383dc6ed659eeba52a21d2059c26f58b7fa75d0fa6d632d65f"
+  },
+  "all12_source_pins_exact": true,
+  "pins": {
+    "path": "D:\\Arcade\\AI\\aCORES\\Alpha68k N\\research\\stingray_combined_stage\\next_coupled_scope_v2\\frame0_constant_fixture_recovery_v2\\pins.json",
+    "sha256": "f6079c05ace1c1383dc6ed659eeba52a21d2059c26f58b7fa75d0fa6d632d65f",
+    "bytes": 8276
+  },
+  "no_CPU_game_acceptance": true,
+  "cause_not_yet_selected": true,
+  "helper": {
+    "path": "D:\\Arcade\\AI\\aCORES\\Alpha68k N\\research\\stingray_combined_stage\\qualify_recovered_constant_fixture.py",
+    "sha256": "f8aa84865d9bc48b40c6cc047138de1499e0ee1947e9ffaf75fe25f700a9425f",
+    "bytes": 3623
+  },
+  "native_fixture_result": {
+    "scope": "isolated strip/palette/SDRAM fixture; no CPU acceptance",
+    "profile": 2,
+    "flip": false,
+    "pixels": 57344,
+    "pixel_mismatches": 0,
+    "first_x": 0,
+    "first_y": 16,
+    "oracle_compared": true,
+    "oracle_mismatches": 868,
+    "worst_line_cycles": 2089,
+    "completed_lines": 225,
+    "deadline_misses": 0,
+    "row_overflows": 0,
+    "banks_mask": 1,
+    "boundary_codes_mask": 1,
+    "color_ff_tiles": 0,
+    "read_pairs": 43008,
+    "result": "fail"
+  },
+  "actual_vs_transcription": {
+    "a": {
+      "path": "D:\\Arcade\\AI\\aCORES\\Alpha68k N\\research\\stingray_combined_stage\\next_coupled_scope_v2\\frame0_constant_fixture_recovery_v2\\capture\\actual.rgb",
+      "sha256": "627f1db9ee518cc0fb2a9a223be1aa86c3a0b4fde0184de9d4334b94c1d1f27a",
+      "bytes": 172032
+    },
+    "b": {
+      "path": "D:\\Arcade\\AI\\aCORES\\Alpha68k N\\research\\stingray_combined_stage\\next_coupled_scope_v2\\frame0_constant_fixture_recovery_v2\\capture\\expected.rgb",
+      "sha256": "627f1db9ee518cc0fb2a9a223be1aa86c3a0b4fde0184de9d4334b94c1d1f27a",
+      "bytes": 172032
+    },
+    "exact": true,
+    "different_pixels": 0,
+    "bbox": null
+  },
+  "actual_vs_MAME": {
+    "a": {
+      "path": "D:\\Arcade\\AI\\aCORES\\Alpha68k N\\research\\stingray_combined_stage\\next_coupled_scope_v2\\frame0_constant_fixture_recovery_v2\\capture\\actual.rgb",
+      "sha256": "627f1db9ee518cc0fb2a9a223be1aa86c3a0b4fde0184de9d4334b94c1d1f27a",
+      "bytes": 172032
+    },
+    "b": {
+      "path": "D:\\Arcade\\AI\\aCORES\\meatsauce-alpha68kn\\cores\\Alpha68k_N\\sim\\captures\\sstingry\\attract\\frame_000000.rgb",
+      "sha256": "5fcaea3e9a96bd542b161537c280f82dc131be0498b738564f53cd256a1c601d",
+      "bytes": 172032
+    },
+    "exact": false,
+    "different_pixels": 868,
+    "bbox": [
+      0,
+      0,
+      7,
+      223
+    ]
+  },
+  "transcription_vs_MAME": {
+    "a": {
+      "path": "D:\\Arcade\\AI\\aCORES\\Alpha68k N\\research\\stingray_combined_stage\\next_coupled_scope_v2\\frame0_constant_fixture_recovery_v2\\capture\\expected.rgb",
+      "sha256": "627f1db9ee518cc0fb2a9a223be1aa86c3a0b4fde0184de9d4334b94c1d1f27a",
+      "bytes": 172032
+    },
+    "b": {
+      "path": "D:\\Arcade\\AI\\aCORES\\meatsauce-alpha68kn\\cores\\Alpha68k_N\\sim\\captures\\sstingry\\attract\\frame_000000.rgb",
+      "sha256": "5fcaea3e9a96bd542b161537c280f82dc131be0498b738564f53cd256a1c601d",
+      "bytes": 172032
+    },
+    "exact": false,
+    "different_pixels": 868,
+    "bbox": [
+      0,
+      0,
+      7,
+      223
+    ]
+  },
+  "original_native_first_field_vs_steady_fixture": {
+    "a": {
+      "path": "D:\\Arcade\\AI\\aCORES\\Alpha68k N\\research\\stingray_combined_stage\\coupled_boot111\\capture\\frame_000000.rgb",
+      "sha256": "627f1db9ee518cc0fb2a9a223be1aa86c3a0b4fde0184de9d4334b94c1d1f27a",
+      "bytes": 172032
+    },
+    "b": {
+      "path": "D:\\Arcade\\AI\\aCORES\\Alpha68k N\\research\\stingray_combined_stage\\next_coupled_scope_v2\\frame0_constant_fixture_recovery_v2\\capture\\actual.rgb",
+      "sha256": "627f1db9ee518cc0fb2a9a223be1aa86c3a0b4fde0184de9d4334b94c1d1f27a",
+      "bytes": 172032
+    },
+    "exact": true,
+    "different_pixels": 0,
+    "bbox": null
+  }
+}

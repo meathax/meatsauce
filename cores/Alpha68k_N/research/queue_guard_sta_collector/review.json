@@ -1,0 +1,714 @@
+{
+  "pass": true,
+  "pins": {
+    "baseline": "afcf3db289db892de176c233b411a267d1c687012e1334988a83ffd8b3efbf04",
+    "candidate": "294f6b5d02bd99f316b50a880a2e9376afcbcaeacc733732442d1c9e734946d8",
+    "global": "afcf3db289db892de176c233b411a267d1c687012e1334988a83ffd8b3efbf04",
+    "collector": "3309f3c72b10bdc50443f4891f5791f08748dd4ce9df5fc451d4ec650176780a"
+  },
+  "collector_lines": 49,
+  "independent_cases": 52,
+  "builder_checks_verified": 181,
+  "dangerous_commands_executed": false,
+  "global_deployment": false,
+  "findings": [],
+  "results": [
+    {
+      "name": "exact",
+      "accepted": true,
+      "command": "& 'D:/q17/quartus/bin64/quartus_sta.exe' '-t' 'D:\\Arcade\\AI\\aCORES\\Alpha68k N\\research\\sound_write_width\\case2_fit_sta\\all-corners.tcl' 'D:/Arcade/AI/aCORES/Alpha68k N/research/sound_write_width/case2_full_map/Alpha68k_N' 'Alpha68k_N' 'D:/Arcade/AI/aCORES/Alpha68k N/research/sound_write_width/case2_fit_sta/all-corners'",
+      "outputs": {
+        "powershell": {
+          "hookSpecificOutput": {
+            "hookEventName": "PreToolUse",
+            "permissionDecision": "allow",
+            "permissionDecisionReason": "User-authorized analysis/synthesis/fit/STA check: direct, unqueued; no RBF assembly."
+          }
+        }
+      }
+    },
+    {
+      "name": "upper_windows_path_spellings",
+      "accepted": true,
+      "command": "& 'D:/Q17/QUARTUS/BIN64/QUARTUS_STA.EXE' '-t' 'D:\\ARCADE\\AI\\ACORES\\ALPHA68K N\\RESEARCH\\SOUND_WRITE_WIDTH\\CASE2_FIT_STA\\ALL-CORNERS.TCL' 'D:/ARCADE/AI/ACORES/ALPHA68K N/RESEARCH/SOUND_WRITE_WIDTH/CASE2_FULL_MAP/ALPHA68K_N' 'Alpha68k_N' 'D:/ARCADE/AI/ACORES/ALPHA68K N/RESEARCH/SOUND_WRITE_WIDTH/CASE2_FIT_STA/ALL-CORNERS'",
+      "outputs": {
+        "powershell": {
+          "hookSpecificOutput": {
+            "hookEventName": "PreToolUse",
+            "permissionDecision": "allow",
+            "permissionDecisionReason": "User-authorized analysis/synthesis/fit/STA check: direct, unqueued; no RBF assembly."
+          }
+        }
+      }
+    },
+    {
+      "name": "same_normalized_project",
+      "accepted": true,
+      "command": "& 'D:/q17/quartus/bin64/quartus_sta.exe' '-t' 'D:\\Arcade\\AI\\aCORES\\Alpha68k N\\research\\sound_write_width\\case2_fit_sta\\all-corners.tcl' 'D:/Arcade/AI/aCORES/Alpha68k N/research/sound_write_width/case2_full_map/Alpha68k_N/../Alpha68k_N' 'Alpha68k_N' 'D:/Arcade/AI/aCORES/Alpha68k N/research/sound_write_width/case2_fit_sta/all-corners'",
+      "outputs": {
+        "powershell": {
+          "hookSpecificOutput": {
+            "hookEventName": "PreToolUse",
+            "permissionDecision": "allow",
+            "permissionDecisionReason": "User-authorized analysis/synthesis/fit/STA check: direct, unqueued; no RBF assembly."
+          }
+        }
+      }
+    },
+    {
+      "name": "wrong_revision_case",
+      "accepted": false,
+      "command": "& 'D:/q17/quartus/bin64/quartus_sta.exe' '-t' 'D:\\Arcade\\AI\\aCORES\\Alpha68k N\\research\\sound_write_width\\case2_fit_sta\\all-corners.tcl' 'D:/Arcade/AI/aCORES/Alpha68k N/research/sound_write_width/case2_full_map/Alpha68k_N' 'alpha68k_n' 'D:/Arcade/AI/aCORES/Alpha68k N/research/sound_write_width/case2_fit_sta/all-corners'",
+      "outputs": {
+        "powershell": {
+          "hookSpecificOutput": {
+            "hookEventName": "PreToolUse",
+            "permissionDecision": "deny",
+            "permissionDecisionReason": "Delegated operation on a check-only Quartus tool Use the reviewed QuartusFast frontend for check-only work; full compiles require the shared queue and separate explicit RBF authorization."
+          }
+        }
+      }
+    },
+    {
+      "name": "revision_command",
+      "accepted": false,
+      "command": "& 'D:/q17/quartus/bin64/quartus_sta.exe' '-t' 'D:\\Arcade\\AI\\aCORES\\Alpha68k N\\research\\sound_write_width\\case2_fit_sta\\all-corners.tcl' 'D:/Arcade/AI/aCORES/Alpha68k N/research/sound_write_width/case2_full_map/Alpha68k_N' 'Alpha68k_N; quartus_asm' 'D:/Arcade/AI/aCORES/Alpha68k N/research/sound_write_width/case2_fit_sta/all-corners'",
+      "outputs": {
+        "powershell": {
+          "hookSpecificOutput": {
+            "hookEventName": "PreToolUse",
+            "permissionDecision": "deny",
+            "permissionDecisionReason": "Delegated operation on a check-only Quartus tool Use the reviewed QuartusFast frontend for check-only work; full compiles require the shared queue and separate explicit RBF authorization."
+          }
+        }
+      }
+    },
+    {
+      "name": "collector_same_name_other_root",
+      "accepted": false,
+      "command": "& 'D:/q17/quartus/bin64/quartus_sta.exe' '-t' 'D:/other/all-corners.tcl' 'D:/Arcade/AI/aCORES/Alpha68k N/research/sound_write_width/case2_full_map/Alpha68k_N' 'Alpha68k_N' 'D:/Arcade/AI/aCORES/Alpha68k N/research/sound_write_width/case2_fit_sta/all-corners'",
+      "outputs": {
+        "powershell": {
+          "hookSpecificOutput": {
+            "hookEventName": "PreToolUse",
+            "permissionDecision": "deny",
+            "permissionDecisionReason": "Delegated operation on a check-only Quartus tool Use the reviewed QuartusFast frontend for check-only work; full compiles require the shared queue and separate explicit RBF authorization."
+          }
+        }
+      }
+    },
+    {
+      "name": "collector_escape",
+      "accepted": false,
+      "command": "& 'D:/q17/quartus/bin64/quartus_sta.exe' '-t' 'D:\\Arcade\\AI\\aCORES\\Alpha68k N\\research\\sound_write_width\\case2_fit_sta/../all-corners.tcl' 'D:/Arcade/AI/aCORES/Alpha68k N/research/sound_write_width/case2_full_map/Alpha68k_N' 'Alpha68k_N' 'D:/Arcade/AI/aCORES/Alpha68k N/research/sound_write_width/case2_fit_sta/all-corners'",
+      "outputs": {
+        "powershell": {
+          "hookSpecificOutput": {
+            "hookEventName": "PreToolUse",
+            "permissionDecision": "deny",
+            "permissionDecisionReason": "Delegated operation on a check-only Quartus tool Use the reviewed QuartusFast frontend for check-only work; full compiles require the shared queue and separate explicit RBF authorization."
+          }
+        }
+      }
+    },
+    {
+      "name": "project_escape",
+      "accepted": false,
+      "command": "& 'D:/q17/quartus/bin64/quartus_sta.exe' '-t' 'D:\\Arcade\\AI\\aCORES\\Alpha68k N\\research\\sound_write_width\\case2_fit_sta\\all-corners.tcl' 'D:/Arcade/AI/aCORES/Alpha68k N/research/sound_write_width/case2_full_map/Alpha68k_N/../outside' 'Alpha68k_N' 'D:/Arcade/AI/aCORES/Alpha68k N/research/sound_write_width/case2_fit_sta/all-corners'",
+      "outputs": {
+        "powershell": {
+          "hookSpecificOutput": {
+            "hookEventName": "PreToolUse",
+            "permissionDecision": "deny",
+            "permissionDecisionReason": "Delegated operation on a check-only Quartus tool Use the reviewed QuartusFast frontend for check-only work; full compiles require the shared queue and separate explicit RBF authorization."
+          }
+        }
+      }
+    },
+    {
+      "name": "output_escape",
+      "accepted": false,
+      "command": "& 'D:/q17/quartus/bin64/quartus_sta.exe' '-t' 'D:\\Arcade\\AI\\aCORES\\Alpha68k N\\research\\sound_write_width\\case2_fit_sta\\all-corners.tcl' 'D:/Arcade/AI/aCORES/Alpha68k N/research/sound_write_width/case2_full_map/Alpha68k_N' 'Alpha68k_N' 'D:/Arcade/AI/aCORES/Alpha68k N/research/sound_write_width/case2_fit_sta/all-corners/../../outside'",
+      "outputs": {
+        "powershell": {
+          "hookSpecificOutput": {
+            "hookEventName": "PreToolUse",
+            "permissionDecision": "deny",
+            "permissionDecisionReason": "Delegated operation on a check-only Quartus tool Use the reviewed QuartusFast frontend for check-only work; full compiles require the shared queue and separate explicit RBF authorization."
+          }
+        }
+      }
+    },
+    {
+      "name": "output_relative_drive",
+      "accepted": false,
+      "command": "& 'D:/q17/quartus/bin64/quartus_sta.exe' '-t' 'D:\\Arcade\\AI\\aCORES\\Alpha68k N\\research\\sound_write_width\\case2_fit_sta\\all-corners.tcl' 'D:/Arcade/AI/aCORES/Alpha68k N/research/sound_write_width/case2_full_map/Alpha68k_N' 'Alpha68k_N' 'D:all-corners'",
+      "outputs": {
+        "powershell": {
+          "hookSpecificOutput": {
+            "hookEventName": "PreToolUse",
+            "permissionDecision": "deny",
+            "permissionDecisionReason": "Delegated operation on a check-only Quartus tool Use the reviewed QuartusFast frontend for check-only work; full compiles require the shared queue and separate explicit RBF authorization."
+          }
+        }
+      }
+    },
+    {
+      "name": "collector_unc",
+      "accepted": false,
+      "command": "& 'D:/q17/quartus/bin64/quartus_sta.exe' '-t' '//localhost/D$/Arcade\\AI\\aCORES\\Alpha68k N\\research\\sound_write_width\\case2_fit_sta\\all-corners.tcl' 'D:/Arcade/AI/aCORES/Alpha68k N/research/sound_write_width/case2_full_map/Alpha68k_N' 'Alpha68k_N' 'D:/Arcade/AI/aCORES/Alpha68k N/research/sound_write_width/case2_fit_sta/all-corners'",
+      "outputs": {
+        "powershell": {
+          "hookSpecificOutput": {
+            "hookEventName": "PreToolUse",
+            "permissionDecision": "deny",
+            "permissionDecisionReason": "Delegated operation on a check-only Quartus tool Use the reviewed QuartusFast frontend for check-only work; full compiles require the shared queue and separate explicit RBF authorization."
+          }
+        }
+      }
+    },
+    {
+      "name": "output_env",
+      "accepted": false,
+      "command": "& 'D:/q17/quartus/bin64/quartus_sta.exe' '-t' 'D:\\Arcade\\AI\\aCORES\\Alpha68k N\\research\\sound_write_width\\case2_fit_sta\\all-corners.tcl' 'D:/Arcade/AI/aCORES/Alpha68k N/research/sound_write_width/case2_full_map/Alpha68k_N' 'Alpha68k_N' '$env:quartus'",
+      "outputs": {
+        "powershell": {
+          "hookSpecificOutput": {
+            "hookEventName": "PreToolUse",
+            "permissionDecision": "deny",
+            "permissionDecisionReason": "Delegated operation on a check-only Quartus tool Use the reviewed QuartusFast frontend for check-only work; full compiles require the shared queue and separate explicit RBF authorization."
+          }
+        }
+      }
+    },
+    {
+      "name": "revision_dollar",
+      "accepted": false,
+      "command": "& 'D:/q17/quartus/bin64/quartus_sta.exe' '-t' 'D:\\Arcade\\AI\\aCORES\\Alpha68k N\\research\\sound_write_width\\case2_fit_sta\\all-corners.tcl' 'D:/Arcade/AI/aCORES/Alpha68k N/research/sound_write_width/case2_full_map/Alpha68k_N' '$quartus' 'D:/Arcade/AI/aCORES/Alpha68k N/research/sound_write_width/case2_fit_sta/all-corners'",
+      "outputs": {
+        "powershell": {
+          "hookSpecificOutput": {
+            "hookEventName": "PreToolUse",
+            "permissionDecision": "deny",
+            "permissionDecisionReason": "Delegated operation on a check-only Quartus tool Use the reviewed QuartusFast frontend for check-only work; full compiles require the shared queue and separate explicit RBF authorization."
+          }
+        }
+      }
+    },
+    {
+      "name": "flag_case",
+      "accepted": false,
+      "command": "& 'D:/q17/quartus/bin64/quartus_sta.exe' '-T' 'D:\\Arcade\\AI\\aCORES\\Alpha68k N\\research\\sound_write_width\\case2_fit_sta\\all-corners.tcl' 'D:/Arcade/AI/aCORES/Alpha68k N/research/sound_write_width/case2_full_map/Alpha68k_N' 'Alpha68k_N' 'D:/Arcade/AI/aCORES/Alpha68k N/research/sound_write_width/case2_fit_sta/all-corners'",
+      "outputs": {
+        "powershell": {
+          "hookSpecificOutput": {
+            "hookEventName": "PreToolUse",
+            "permissionDecision": "deny",
+            "permissionDecisionReason": "Delegated operation on a check-only Quartus tool Use the reviewed QuartusFast frontend for check-only work; full compiles require the shared queue and separate explicit RBF authorization."
+          }
+        }
+      }
+    },
+    {
+      "name": "flag_long",
+      "accepted": false,
+      "command": "& 'D:/q17/quartus/bin64/quartus_sta.exe' '--script' 'D:\\Arcade\\AI\\aCORES\\Alpha68k N\\research\\sound_write_width\\case2_fit_sta\\all-corners.tcl' 'D:/Arcade/AI/aCORES/Alpha68k N/research/sound_write_width/case2_full_map/Alpha68k_N' 'Alpha68k_N' 'D:/Arcade/AI/aCORES/Alpha68k N/research/sound_write_width/case2_fit_sta/all-corners'",
+      "outputs": {
+        "powershell": {
+          "hookSpecificOutput": {
+            "hookEventName": "PreToolUse",
+            "permissionDecision": "deny",
+            "permissionDecisionReason": "Delegated operation on a check-only Quartus tool Use the reviewed QuartusFast frontend for check-only work; full compiles require the shared queue and separate explicit RBF authorization."
+          }
+        }
+      }
+    },
+    {
+      "name": "flag_eval",
+      "accepted": false,
+      "command": "& 'D:/q17/quartus/bin64/quartus_sta.exe' '--tcl_eval' 'D:\\Arcade\\AI\\aCORES\\Alpha68k N\\research\\sound_write_width\\case2_fit_sta\\all-corners.tcl' 'D:/Arcade/AI/aCORES/Alpha68k N/research/sound_write_width/case2_full_map/Alpha68k_N' 'Alpha68k_N' 'D:/Arcade/AI/aCORES/Alpha68k N/research/sound_write_width/case2_fit_sta/all-corners'",
+      "outputs": {
+        "powershell": {
+          "hookSpecificOutput": {
+            "hookEventName": "PreToolUse",
+            "permissionDecision": "deny",
+            "permissionDecisionReason": "Delegated operation on a check-only Quartus tool Use the reviewed QuartusFast frontend for check-only work; full compiles require the shared queue and separate explicit RBF authorization."
+          }
+        }
+      }
+    },
+    {
+      "name": "flag_equals",
+      "accepted": false,
+      "command": "& 'D:/q17/quartus/bin64/quartus_sta.exe' '-t=D:\\Arcade\\AI\\aCORES\\Alpha68k N\\research\\sound_write_width\\case2_fit_sta\\all-corners.tcl' 'D:\\Arcade\\AI\\aCORES\\Alpha68k N\\research\\sound_write_width\\case2_fit_sta\\all-corners.tcl' 'D:/Arcade/AI/aCORES/Alpha68k N/research/sound_write_width/case2_full_map/Alpha68k_N' 'Alpha68k_N' 'D:/Arcade/AI/aCORES/Alpha68k N/research/sound_write_width/case2_fit_sta/all-corners'",
+      "outputs": {
+        "powershell": {
+          "hookSpecificOutput": {
+            "hookEventName": "PreToolUse",
+            "permissionDecision": "deny",
+            "permissionDecisionReason": "Delegated operation on a check-only Quartus tool Use the reviewed QuartusFast frontend for check-only work; full compiles require the shared queue and separate explicit RBF authorization."
+          }
+        }
+      }
+    },
+    {
+      "name": "collector_quote_data",
+      "accepted": false,
+      "command": "& 'D:/q17/quartus/bin64/quartus_sta.exe' '-t' 'D:\\Arcade\\AI\\aCORES\\Alpha68k N\\research\\sound_write_width\\case2_fit_sta\\all-corners.tcl''; quartus_asm; ''' 'D:/Arcade/AI/aCORES/Alpha68k N/research/sound_write_width/case2_full_map/Alpha68k_N' 'Alpha68k_N' 'D:/Arcade/AI/aCORES/Alpha68k N/research/sound_write_width/case2_fit_sta/all-corners'",
+      "outputs": {
+        "powershell": {
+          "hookSpecificOutput": {
+            "hookEventName": "PreToolUse",
+            "permissionDecision": "deny",
+            "permissionDecisionReason": "Delegated operation on a check-only Quartus tool Use the reviewed QuartusFast frontend for check-only work; full compiles require the shared queue and separate explicit RBF authorization."
+          }
+        }
+      }
+    },
+    {
+      "name": "collector_nul",
+      "accepted": false,
+      "command": "& 'D:/q17/quartus/bin64/quartus_sta.exe' '-t' 'D:\\Arcade\\AI\\aCORES\\Alpha68k N\\research\\sound_write_width\\case2_fit_sta\\all-corners.tcl\u0000' 'D:/Arcade/AI/aCORES/Alpha68k N/research/sound_write_width/case2_full_map/Alpha68k_N' 'Alpha68k_N' 'D:/Arcade/AI/aCORES/Alpha68k N/research/sound_write_width/case2_fit_sta/all-corners'",
+      "outputs": {
+        "powershell": {
+          "hookSpecificOutput": {
+            "hookEventName": "PreToolUse",
+            "permissionDecision": "deny",
+            "permissionDecisionReason": "Invalid command extent Use the reviewed QuartusFast frontend for check-only work; full compiles require the shared queue and separate explicit RBF authorization."
+          }
+        }
+      }
+    },
+    {
+      "name": "collector_newline",
+      "accepted": false,
+      "command": "& 'D:/q17/quartus/bin64/quartus_sta.exe' '-t' 'D:\\Arcade\\AI\\aCORES\\Alpha68k N\\research\\sound_write_width\\case2_fit_sta\\all-corners.tcl\n' 'D:/Arcade/AI/aCORES/Alpha68k N/research/sound_write_width/case2_full_map/Alpha68k_N' 'Alpha68k_N' 'D:/Arcade/AI/aCORES/Alpha68k N/research/sound_write_width/case2_fit_sta/all-corners'",
+      "outputs": {
+        "powershell": {
+          "hookSpecificOutput": {
+            "hookEventName": "PreToolUse",
+            "permissionDecision": "deny",
+            "permissionDecisionReason": "Delegated operation on a check-only Quartus tool Use the reviewed QuartusFast frontend for check-only work; full compiles require the shared queue and separate explicit RBF authorization."
+          }
+        }
+      }
+    },
+    {
+      "name": "project_semicolon",
+      "accepted": false,
+      "command": "& 'D:/q17/quartus/bin64/quartus_sta.exe' '-t' 'D:\\Arcade\\AI\\aCORES\\Alpha68k N\\research\\sound_write_width\\case2_fit_sta\\all-corners.tcl' 'D:/Arcade/AI/aCORES/Alpha68k N/research/sound_write_width/case2_full_map/Alpha68k_N; quartus_asm' 'Alpha68k_N' 'D:/Arcade/AI/aCORES/Alpha68k N/research/sound_write_width/case2_fit_sta/all-corners'",
+      "outputs": {
+        "powershell": {
+          "hookSpecificOutput": {
+            "hookEventName": "PreToolUse",
+            "permissionDecision": "deny",
+            "permissionDecisionReason": "Delegated operation on a check-only Quartus tool Use the reviewed QuartusFast frontend for check-only work; full compiles require the shared queue and separate explicit RBF authorization."
+          }
+        }
+      }
+    },
+    {
+      "name": "tool_quartus_sta",
+      "accepted": false,
+      "command": "& 'quartus_sta' '-t' 'D:\\Arcade\\AI\\aCORES\\Alpha68k N\\research\\sound_write_width\\case2_fit_sta\\all-corners.tcl' 'D:/Arcade/AI/aCORES/Alpha68k N/research/sound_write_width/case2_full_map/Alpha68k_N' 'Alpha68k_N' 'D:/Arcade/AI/aCORES/Alpha68k N/research/sound_write_width/case2_fit_sta/all-corners'",
+      "outputs": {
+        "powershell": {
+          "hookSpecificOutput": {
+            "hookEventName": "PreToolUse",
+            "permissionDecision": "deny",
+            "permissionDecisionReason": "Delegated operation on a check-only Quartus tool Use the reviewed QuartusFast frontend for check-only work; full compiles require the shared queue and separate explicit RBF authorization."
+          }
+        }
+      }
+    },
+    {
+      "name": "tool_D:/q17/quartus/bin/quartus_sta.exe",
+      "accepted": false,
+      "command": "& 'D:/q17/quartus/bin/quartus_sta.exe' '-t' 'D:\\Arcade\\AI\\aCORES\\Alpha68k N\\research\\sound_write_width\\case2_fit_sta\\all-corners.tcl' 'D:/Arcade/AI/aCORES/Alpha68k N/research/sound_write_width/case2_full_map/Alpha68k_N' 'Alpha68k_N' 'D:/Arcade/AI/aCORES/Alpha68k N/research/sound_write_width/case2_fit_sta/all-corners'",
+      "outputs": {
+        "powershell": {
+          "hookSpecificOutput": {
+            "hookEventName": "PreToolUse",
+            "permissionDecision": "deny",
+            "permissionDecisionReason": "Delegated operation on a check-only Quartus tool Use the reviewed QuartusFast frontend for check-only work; full compiles require the shared queue and separate explicit RBF authorization."
+          }
+        }
+      }
+    },
+    {
+      "name": "tool_C:/q17/quartus/bin64/quartus_sta.exe",
+      "accepted": false,
+      "command": "& 'C:/q17/quartus/bin64/quartus_sta.exe' '-t' 'D:\\Arcade\\AI\\aCORES\\Alpha68k N\\research\\sound_write_width\\case2_fit_sta\\all-corners.tcl' 'D:/Arcade/AI/aCORES/Alpha68k N/research/sound_write_width/case2_full_map/Alpha68k_N' 'Alpha68k_N' 'D:/Arcade/AI/aCORES/Alpha68k N/research/sound_write_width/case2_fit_sta/all-corners'",
+      "outputs": {
+        "powershell": {
+          "hookSpecificOutput": {
+            "hookEventName": "PreToolUse",
+            "permissionDecision": "deny",
+            "permissionDecisionReason": "Delegated operation on a check-only Quartus tool Use the reviewed QuartusFast frontend for check-only work; full compiles require the shared queue and separate explicit RBF authorization."
+          }
+        }
+      }
+    },
+    {
+      "name": "tool_D:/q17/quartus/bin64/quartus_sh.exe",
+      "accepted": false,
+      "command": "& 'D:/q17/quartus/bin64/quartus_sh.exe' '-t' 'D:\\Arcade\\AI\\aCORES\\Alpha68k N\\research\\sound_write_width\\case2_fit_sta\\all-corners.tcl' 'D:/Arcade/AI/aCORES/Alpha68k N/research/sound_write_width/case2_full_map/Alpha68k_N' 'Alpha68k_N' 'D:/Arcade/AI/aCORES/Alpha68k N/research/sound_write_width/case2_fit_sta/all-corners'",
+      "outputs": {
+        "powershell": {
+          "hookSpecificOutput": {
+            "hookEventName": "PreToolUse",
+            "permissionDecision": "deny",
+            "permissionDecisionReason": "Raw ASM/CPF/Quartus shell execution is not forwarded by the hook Use the reviewed QuartusFast frontend for check-only work; full compiles require the shared queue and separate explicit RBF authorization."
+          }
+        }
+      }
+    },
+    {
+      "name": "tool_D:/q17/quartus/bin64/quartus_asm.exe",
+      "accepted": false,
+      "command": "& 'D:/q17/quartus/bin64/quartus_asm.exe' '-t' 'D:\\Arcade\\AI\\aCORES\\Alpha68k N\\research\\sound_write_width\\case2_fit_sta\\all-corners.tcl' 'D:/Arcade/AI/aCORES/Alpha68k N/research/sound_write_width/case2_full_map/Alpha68k_N' 'Alpha68k_N' 'D:/Arcade/AI/aCORES/Alpha68k N/research/sound_write_width/case2_fit_sta/all-corners'",
+      "outputs": {
+        "powershell": {
+          "hookSpecificOutput": {
+            "hookEventName": "PreToolUse",
+            "permissionDecision": "deny",
+            "permissionDecisionReason": "Raw ASM/CPF/Quartus shell execution is not forwarded by the hook Use the reviewed QuartusFast frontend for check-only work; full compiles require the shared queue and separate explicit RBF authorization."
+          }
+        }
+      }
+    },
+    {
+      "name": "tool_D:/q17/quartus/bin64/quartus_cpf.exe",
+      "accepted": false,
+      "command": "& 'D:/q17/quartus/bin64/quartus_cpf.exe' '-t' 'D:\\Arcade\\AI\\aCORES\\Alpha68k N\\research\\sound_write_width\\case2_fit_sta\\all-corners.tcl' 'D:/Arcade/AI/aCORES/Alpha68k N/research/sound_write_width/case2_full_map/Alpha68k_N' 'Alpha68k_N' 'D:/Arcade/AI/aCORES/Alpha68k N/research/sound_write_width/case2_fit_sta/all-corners'",
+      "outputs": {
+        "powershell": {
+          "hookSpecificOutput": {
+            "hookEventName": "PreToolUse",
+            "permissionDecision": "deny",
+            "permissionDecisionReason": "Raw ASM/CPF/Quartus shell execution is not forwarded by the hook Use the reviewed QuartusFast frontend for check-only work; full compiles require the shared queue and separate explicit RBF authorization."
+          }
+        }
+      }
+    },
+    {
+      "name": "extra_--flow",
+      "accepted": false,
+      "command": "& 'D:/q17/quartus/bin64/quartus_sta.exe' '-t' 'D:\\Arcade\\AI\\aCORES\\Alpha68k N\\research\\sound_write_width\\case2_fit_sta\\all-corners.tcl' 'D:/Arcade/AI/aCORES/Alpha68k N/research/sound_write_width/case2_full_map/Alpha68k_N' 'Alpha68k_N' 'D:/Arcade/AI/aCORES/Alpha68k N/research/sound_write_width/case2_fit_sta/all-corners' '--flow'",
+      "outputs": {
+        "powershell": {
+          "hookSpecificOutput": {
+            "hookEventName": "PreToolUse",
+            "permissionDecision": "deny",
+            "permissionDecisionReason": "Delegated operation on a check-only Quartus tool Use the reviewed QuartusFast frontend for check-only work; full compiles require the shared queue and separate explicit RBF authorization."
+          }
+        }
+      }
+    },
+    {
+      "name": "extra_compile",
+      "accepted": false,
+      "command": "& 'D:/q17/quartus/bin64/quartus_sta.exe' '-t' 'D:\\Arcade\\AI\\aCORES\\Alpha68k N\\research\\sound_write_width\\case2_fit_sta\\all-corners.tcl' 'D:/Arcade/AI/aCORES/Alpha68k N/research/sound_write_width/case2_full_map/Alpha68k_N' 'Alpha68k_N' 'D:/Arcade/AI/aCORES/Alpha68k N/research/sound_write_width/case2_fit_sta/all-corners' 'compile'",
+      "outputs": {
+        "powershell": {
+          "hookSpecificOutput": {
+            "hookEventName": "PreToolUse",
+            "permissionDecision": "deny",
+            "permissionDecisionReason": "Delegated operation on a check-only Quartus tool Use the reviewed QuartusFast frontend for check-only work; full compiles require the shared queue and separate explicit RBF authorization."
+          }
+        }
+      }
+    },
+    {
+      "name": "extra_--allow-rbf",
+      "accepted": false,
+      "command": "& 'D:/q17/quartus/bin64/quartus_sta.exe' '-t' 'D:\\Arcade\\AI\\aCORES\\Alpha68k N\\research\\sound_write_width\\case2_fit_sta\\all-corners.tcl' 'D:/Arcade/AI/aCORES/Alpha68k N/research/sound_write_width/case2_full_map/Alpha68k_N' 'Alpha68k_N' 'D:/Arcade/AI/aCORES/Alpha68k N/research/sound_write_width/case2_fit_sta/all-corners' '--allow-rbf'",
+      "outputs": {
+        "powershell": {
+          "hookSpecificOutput": {
+            "hookEventName": "PreToolUse",
+            "permissionDecision": "deny",
+            "permissionDecisionReason": "Delegated operation on a check-only Quartus tool Use the reviewed QuartusFast frontend for check-only work; full compiles require the shared queue and separate explicit RBF authorization."
+          }
+        }
+      }
+    },
+    {
+      "name": "extra_-t",
+      "accepted": false,
+      "command": "& 'D:/q17/quartus/bin64/quartus_sta.exe' '-t' 'D:\\Arcade\\AI\\aCORES\\Alpha68k N\\research\\sound_write_width\\case2_fit_sta\\all-corners.tcl' 'D:/Arcade/AI/aCORES/Alpha68k N/research/sound_write_width/case2_full_map/Alpha68k_N' 'Alpha68k_N' 'D:/Arcade/AI/aCORES/Alpha68k N/research/sound_write_width/case2_fit_sta/all-corners' '-t'",
+      "outputs": {
+        "powershell": {
+          "hookSpecificOutput": {
+            "hookEventName": "PreToolUse",
+            "permissionDecision": "deny",
+            "permissionDecisionReason": "Delegated operation on a check-only Quartus tool Use the reviewed QuartusFast frontend for check-only work; full compiles require the shared queue and separate explicit RBF authorization."
+          }
+        }
+      }
+    },
+    {
+      "name": "extra_--script",
+      "accepted": false,
+      "command": "& 'D:/q17/quartus/bin64/quartus_sta.exe' '-t' 'D:\\Arcade\\AI\\aCORES\\Alpha68k N\\research\\sound_write_width\\case2_fit_sta\\all-corners.tcl' 'D:/Arcade/AI/aCORES/Alpha68k N/research/sound_write_width/case2_full_map/Alpha68k_N' 'Alpha68k_N' 'D:/Arcade/AI/aCORES/Alpha68k N/research/sound_write_width/case2_fit_sta/all-corners' '--script'",
+      "outputs": {
+        "powershell": {
+          "hookSpecificOutput": {
+            "hookEventName": "PreToolUse",
+            "permissionDecision": "deny",
+            "permissionDecisionReason": "Delegated operation on a check-only Quartus tool Use the reviewed QuartusFast frontend for check-only work; full compiles require the shared queue and separate explicit RBF authorization."
+          }
+        }
+      }
+    },
+    {
+      "name": "extra_--eval",
+      "accepted": false,
+      "command": "& 'D:/q17/quartus/bin64/quartus_sta.exe' '-t' 'D:\\Arcade\\AI\\aCORES\\Alpha68k N\\research\\sound_write_width\\case2_fit_sta\\all-corners.tcl' 'D:/Arcade/AI/aCORES/Alpha68k N/research/sound_write_width/case2_full_map/Alpha68k_N' 'Alpha68k_N' 'D:/Arcade/AI/aCORES/Alpha68k N/research/sound_write_width/case2_fit_sta/all-corners' '--eval'",
+      "outputs": {
+        "powershell": {
+          "hookSpecificOutput": {
+            "hookEventName": "PreToolUse",
+            "permissionDecision": "deny",
+            "permissionDecisionReason": "Delegated operation on a check-only Quartus tool Use the reviewed QuartusFast frontend for check-only work; full compiles require the shared queue and separate explicit RBF authorization."
+          }
+        }
+      }
+    },
+    {
+      "name": "extra_quartus_asm",
+      "accepted": false,
+      "command": "& 'D:/q17/quartus/bin64/quartus_sta.exe' '-t' 'D:\\Arcade\\AI\\aCORES\\Alpha68k N\\research\\sound_write_width\\case2_fit_sta\\all-corners.tcl' 'D:/Arcade/AI/aCORES/Alpha68k N/research/sound_write_width/case2_full_map/Alpha68k_N' 'Alpha68k_N' 'D:/Arcade/AI/aCORES/Alpha68k N/research/sound_write_width/case2_fit_sta/all-corners' 'quartus_asm'",
+      "outputs": {
+        "powershell": {
+          "hookSpecificOutput": {
+            "hookEventName": "PreToolUse",
+            "permissionDecision": "deny",
+            "permissionDecisionReason": "Delegated operation on a check-only Quartus tool Use the reviewed QuartusFast frontend for check-only work; full compiles require the shared queue and separate explicit RBF authorization."
+          }
+        }
+      }
+    },
+    {
+      "name": "missing_0",
+      "accepted": false,
+      "command": "& 'D:/q17/quartus/bin64/quartus_sta.exe' 'D:\\Arcade\\AI\\aCORES\\Alpha68k N\\research\\sound_write_width\\case2_fit_sta\\all-corners.tcl' 'D:/Arcade/AI/aCORES/Alpha68k N/research/sound_write_width/case2_full_map/Alpha68k_N' 'Alpha68k_N' 'D:/Arcade/AI/aCORES/Alpha68k N/research/sound_write_width/case2_fit_sta/all-corners'",
+      "outputs": {
+        "powershell": {
+          "hookSpecificOutput": {
+            "hookEventName": "PreToolUse",
+            "permissionDecision": "allow",
+            "permissionDecisionReason": "User-authorized analysis/synthesis/fit/STA check: direct, unqueued; no RBF assembly."
+          }
+        }
+      }
+    },
+    {
+      "name": "missing_1",
+      "accepted": false,
+      "command": "& 'D:/q17/quartus/bin64/quartus_sta.exe' '-t' 'D:/Arcade/AI/aCORES/Alpha68k N/research/sound_write_width/case2_full_map/Alpha68k_N' 'Alpha68k_N' 'D:/Arcade/AI/aCORES/Alpha68k N/research/sound_write_width/case2_fit_sta/all-corners'",
+      "outputs": {
+        "powershell": {
+          "hookSpecificOutput": {
+            "hookEventName": "PreToolUse",
+            "permissionDecision": "deny",
+            "permissionDecisionReason": "Delegated operation on a check-only Quartus tool Use the reviewed QuartusFast frontend for check-only work; full compiles require the shared queue and separate explicit RBF authorization."
+          }
+        }
+      }
+    },
+    {
+      "name": "missing_2",
+      "accepted": false,
+      "command": "& 'D:/q17/quartus/bin64/quartus_sta.exe' '-t' 'D:\\Arcade\\AI\\aCORES\\Alpha68k N\\research\\sound_write_width\\case2_fit_sta\\all-corners.tcl' 'Alpha68k_N' 'D:/Arcade/AI/aCORES/Alpha68k N/research/sound_write_width/case2_fit_sta/all-corners'",
+      "outputs": {
+        "powershell": {
+          "hookSpecificOutput": {
+            "hookEventName": "PreToolUse",
+            "permissionDecision": "deny",
+            "permissionDecisionReason": "Delegated operation on a check-only Quartus tool Use the reviewed QuartusFast frontend for check-only work; full compiles require the shared queue and separate explicit RBF authorization."
+          }
+        }
+      }
+    },
+    {
+      "name": "missing_3",
+      "accepted": false,
+      "command": "& 'D:/q17/quartus/bin64/quartus_sta.exe' '-t' 'D:\\Arcade\\AI\\aCORES\\Alpha68k N\\research\\sound_write_width\\case2_fit_sta\\all-corners.tcl' 'D:/Arcade/AI/aCORES/Alpha68k N/research/sound_write_width/case2_full_map/Alpha68k_N' 'D:/Arcade/AI/aCORES/Alpha68k N/research/sound_write_width/case2_fit_sta/all-corners'",
+      "outputs": {
+        "powershell": {
+          "hookSpecificOutput": {
+            "hookEventName": "PreToolUse",
+            "permissionDecision": "deny",
+            "permissionDecisionReason": "Delegated operation on a check-only Quartus tool Use the reviewed QuartusFast frontend for check-only work; full compiles require the shared queue and separate explicit RBF authorization."
+          }
+        }
+      }
+    },
+    {
+      "name": "missing_4",
+      "accepted": false,
+      "command": "& 'D:/q17/quartus/bin64/quartus_sta.exe' '-t' 'D:\\Arcade\\AI\\aCORES\\Alpha68k N\\research\\sound_write_width\\case2_fit_sta\\all-corners.tcl' 'D:/Arcade/AI/aCORES/Alpha68k N/research/sound_write_width/case2_full_map/Alpha68k_N' 'Alpha68k_N'",
+      "outputs": {
+        "powershell": {
+          "hookSpecificOutput": {
+            "hookEventName": "PreToolUse",
+            "permissionDecision": "deny",
+            "permissionDecisionReason": "Delegated operation on a check-only Quartus tool Use the reviewed QuartusFast frontend for check-only work; full compiles require the shared queue and separate explicit RBF authorization."
+          }
+        }
+      }
+    },
+    {
+      "name": "compound_'; quartus_asm x'",
+      "accepted": false,
+      "command": "& 'D:/q17/quartus/bin64/quartus_sta.exe' '-t' 'D:\\Arcade\\AI\\aCORES\\Alpha68k N\\research\\sound_write_width\\case2_fit_sta\\all-corners.tcl' 'D:/Arcade/AI/aCORES/Alpha68k N/research/sound_write_width/case2_full_map/Alpha68k_N' 'Alpha68k_N' 'D:/Arcade/AI/aCORES/Alpha68k N/research/sound_write_width/case2_fit_sta/all-corners'; quartus_asm x",
+      "output": {
+        "hookSpecificOutput": {
+          "hookEventName": "PreToolUse",
+          "permissionDecision": "deny",
+          "permissionDecisionReason": "Compound, redirection or substitution syntax Use the reviewed QuartusFast frontend for check-only work; full compiles require the shared queue and separate explicit RBF authorization."
+        }
+      }
+    },
+    {
+      "name": "compound_'\\nquartus_asm x'",
+      "accepted": false,
+      "command": "& 'D:/q17/quartus/bin64/quartus_sta.exe' '-t' 'D:\\Arcade\\AI\\aCORES\\Alpha68k N\\research\\sound_write_width\\case2_fit_sta\\all-corners.tcl' 'D:/Arcade/AI/aCORES/Alpha68k N/research/sound_write_width/case2_full_map/Alpha68k_N' 'Alpha68k_N' 'D:/Arcade/AI/aCORES/Alpha68k N/research/sound_write_width/case2_fit_sta/all-corners'\nquartus_asm x",
+      "output": {
+        "hookSpecificOutput": {
+          "hookEventName": "PreToolUse",
+          "permissionDecision": "deny",
+          "permissionDecisionReason": "Multiple command lines are unsupported Use the reviewed QuartusFast frontend for check-only work; full compiles require the shared queue and separate explicit RBF authorization."
+        }
+      }
+    },
+    {
+      "name": "compound_'\\rquartus_asm x'",
+      "accepted": false,
+      "command": "& 'D:/q17/quartus/bin64/quartus_sta.exe' '-t' 'D:\\Arcade\\AI\\aCORES\\Alpha68k N\\research\\sound_write_width\\case2_fit_sta\\all-corners.tcl' 'D:/Arcade/AI/aCORES/Alpha68k N/research/sound_write_width/case2_full_map/Alpha68k_N' 'Alpha68k_N' 'D:/Arcade/AI/aCORES/Alpha68k N/research/sound_write_width/case2_fit_sta/all-corners'\rquartus_asm x",
+      "output": {
+        "hookSpecificOutput": {
+          "hookEventName": "PreToolUse",
+          "permissionDecision": "deny",
+          "permissionDecisionReason": "Multiple command lines are unsupported Use the reviewed QuartusFast frontend for check-only work; full compiles require the shared queue and separate explicit RBF authorization."
+        }
+      }
+    },
+    {
+      "name": "compound_'\\r\\nquartus_asm x'",
+      "accepted": false,
+      "command": "& 'D:/q17/quartus/bin64/quartus_sta.exe' '-t' 'D:\\Arcade\\AI\\aCORES\\Alpha68k N\\research\\sound_write_width\\case2_fit_sta\\all-corners.tcl' 'D:/Arcade/AI/aCORES/Alpha68k N/research/sound_write_width/case2_full_map/Alpha68k_N' 'Alpha68k_N' 'D:/Arcade/AI/aCORES/Alpha68k N/research/sound_write_width/case2_fit_sta/all-corners'\r\nquartus_asm x",
+      "output": {
+        "hookSpecificOutput": {
+          "hookEventName": "PreToolUse",
+          "permissionDecision": "deny",
+          "permissionDecisionReason": "Multiple command lines are unsupported Use the reviewed QuartusFast frontend for check-only work; full compiles require the shared queue and separate explicit RBF authorization."
+        }
+      }
+    },
+    {
+      "name": "compound_' | quartus_asm x'",
+      "accepted": false,
+      "command": "& 'D:/q17/quartus/bin64/quartus_sta.exe' '-t' 'D:\\Arcade\\AI\\aCORES\\Alpha68k N\\research\\sound_write_width\\case2_fit_sta\\all-corners.tcl' 'D:/Arcade/AI/aCORES/Alpha68k N/research/sound_write_width/case2_full_map/Alpha68k_N' 'Alpha68k_N' 'D:/Arcade/AI/aCORES/Alpha68k N/research/sound_write_width/case2_fit_sta/all-corners' | quartus_asm x",
+      "output": {
+        "hookSpecificOutput": {
+          "hookEventName": "PreToolUse",
+          "permissionDecision": "deny",
+          "permissionDecisionReason": "Compound, redirection or substitution syntax Use the reviewed QuartusFast frontend for check-only work; full compiles require the shared queue and separate explicit RBF authorization."
+        }
+      }
+    },
+    {
+      "name": "compound_' && quartus_asm x'",
+      "accepted": false,
+      "command": "& 'D:/q17/quartus/bin64/quartus_sta.exe' '-t' 'D:\\Arcade\\AI\\aCORES\\Alpha68k N\\research\\sound_write_width\\case2_fit_sta\\all-corners.tcl' 'D:/Arcade/AI/aCORES/Alpha68k N/research/sound_write_width/case2_full_map/Alpha68k_N' 'Alpha68k_N' 'D:/Arcade/AI/aCORES/Alpha68k N/research/sound_write_width/case2_fit_sta/all-corners' && quartus_asm x",
+      "output": {
+        "hookSpecificOutput": {
+          "hookEventName": "PreToolUse",
+          "permissionDecision": "deny",
+          "permissionDecisionReason": "Background/compound shell syntax Use the reviewed QuartusFast frontend for check-only work; full compiles require the shared queue and separate explicit RBF authorization."
+        }
+      }
+    },
+    {
+      "name": "compound_' > quartus.rbf'",
+      "accepted": false,
+      "command": "& 'D:/q17/quartus/bin64/quartus_sta.exe' '-t' 'D:\\Arcade\\AI\\aCORES\\Alpha68k N\\research\\sound_write_width\\case2_fit_sta\\all-corners.tcl' 'D:/Arcade/AI/aCORES/Alpha68k N/research/sound_write_width/case2_full_map/Alpha68k_N' 'Alpha68k_N' 'D:/Arcade/AI/aCORES/Alpha68k N/research/sound_write_width/case2_fit_sta/all-corners' > quartus.rbf",
+      "output": {
+        "hookSpecificOutput": {
+          "hookEventName": "PreToolUse",
+          "permissionDecision": "deny",
+          "permissionDecisionReason": "Compound, redirection or substitution syntax Use the reviewed QuartusFast frontend for check-only work; full compiles require the shared queue and separate explicit RBF authorization."
+        }
+      }
+    },
+    {
+      "name": "compound_' & quartus_asm x'",
+      "accepted": false,
+      "command": "& 'D:/q17/quartus/bin64/quartus_sta.exe' '-t' 'D:\\Arcade\\AI\\aCORES\\Alpha68k N\\research\\sound_write_width\\case2_fit_sta\\all-corners.tcl' 'D:/Arcade/AI/aCORES/Alpha68k N/research/sound_write_width/case2_full_map/Alpha68k_N' 'Alpha68k_N' 'D:/Arcade/AI/aCORES/Alpha68k N/research/sound_write_width/case2_fit_sta/all-corners' & quartus_asm x",
+      "output": {
+        "hookSpecificOutput": {
+          "hookEventName": "PreToolUse",
+          "permissionDecision": "deny",
+          "permissionDecisionReason": "Background/compound shell syntax Use the reviewed QuartusFast frontend for check-only work; full compiles require the shared queue and separate explicit RBF authorization."
+        }
+      }
+    },
+    {
+      "name": "changed_byte",
+      "accepted": false,
+      "output": {
+        "hookSpecificOutput": {
+          "hookEventName": "PreToolUse",
+          "permissionDecision": "deny",
+          "permissionDecisionReason": "Delegated operation on a check-only Quartus tool Use the reviewed QuartusFast frontend for check-only work; full compiles require the shared queue and separate explicit RBF authorization."
+        }
+      }
+    },
+    {
+      "name": "evil_exec",
+      "accepted": false,
+      "output": {
+        "hookSpecificOutput": {
+          "hookEventName": "PreToolUse",
+          "permissionDecision": "deny",
+          "permissionDecisionReason": "Delegated operation on a check-only Quartus tool Use the reviewed QuartusFast frontend for check-only work; full compiles require the shared queue and separate explicit RBF authorization."
+        }
+      }
+    },
+    {
+      "name": "evil_source",
+      "accepted": false,
+      "output": {
+        "hookSpecificOutput": {
+          "hookEventName": "PreToolUse",
+          "permissionDecision": "deny",
+          "permissionDecisionReason": "Delegated operation on a check-only Quartus tool Use the reviewed QuartusFast frontend for check-only work; full compiles require the shared queue and separate explicit RBF authorization."
+        }
+      }
+    },
+    {
+      "name": "oversize",
+      "accepted": false,
+      "output": {
+        "hookSpecificOutput": {
+          "hookEventName": "PreToolUse",
+          "permissionDecision": "deny",
+          "permissionDecisionReason": "Delegated operation on a check-only Quartus tool Use the reviewed QuartusFast frontend for check-only work; full compiles require the shared queue and separate explicit RBF authorization."
+        }
+      }
+    },
+    {
+      "name": "missing",
+      "accepted": false,
+      "output": {
+        "hookSpecificOutput": {
+          "hookEventName": "PreToolUse",
+          "permissionDecision": "deny",
+          "permissionDecisionReason": "Delegated operation on a check-only Quartus tool Use the reviewed QuartusFast frontend for check-only work; full compiles require the shared queue and separate explicit RBF authorization."
+        }
+      }
+    }
+  ]
+}

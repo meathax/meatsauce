@@ -1,0 +1,21 @@
+--- a/src/preflight/hps.py
++++ b/src/preflight/hps.py
+@@ -3,7 +3,7 @@
+ Order (user_io_init and arcade_send_rom in the current firmware):
+   core runs free after configuration -> reboot() holds it in reset -> fpga_io_init writes
+   GPO=0 -> first command releases reset -> UIO_SET_MEMSZ -> status with bit 0 set ->
+-  config string -> buttons/config word -> ROM downloads (index, start, data in 4 KB
++  config string -> buttons/config word -> gamma disabled -> ROM downloads (index, start, data in 4 KB
+   chunks, end) -> DIP switches (index 254) -> RTC and timestamp -> status bit 0 cleared.
+ Timings marked "compressed" are seconds on a real MiSTer (Linux restarting); the twin
+ shortens them because the core only sees "reset held for a long time".
+@@ -37,7 +37,8 @@
+          "mark reset_released",
+          "uio 0x1e " + " ".join(status_words(status | 1)) + "   # status, bit 0 = reset while loading",
+          "confstr                         # UIO_GET_STRING",
+-         f"uio 0x01 {hex(PRESETS.get(preset, 0))}         # buttons and video config ({preset})"]
++         f"uio 0x01 {hex(PRESETS.get(preset, 0))}         # buttons and video config ({preset})",
++         "uio 0x32 0                     # UIO_SET_GAMMA: default gamma disabled"]
+     for r in roms:
+         if r.get("address"):
+             # <rom address=...>: rom_finish() announces the length, copies the image into DDR3

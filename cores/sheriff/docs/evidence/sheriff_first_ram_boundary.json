@@ -1,0 +1,81 @@
+{
+  "native_exit_receipt": {
+    "started_utc": "2026-10-09T12:37:49.8109765Z",
+    "finished_utc": "2026-10-09T12:39:24.9423875Z",
+    "exit_code": 0,
+    "error": null,
+    "frames_requested": 67,
+    "bus_windows": [
+      65,
+      66
+    ],
+    "executable": "_checks/physical-cpu-restart-corners-20261009/Vn8080_board",
+    "executable_sha256": "518a6614f5d1b865378805a37aeee5e7513747154e1f017ce906a10bf158c0da",
+    "inputs": "_checks/physical-cpu-restart-corners-20261009/inputs_restart.csv",
+    "inputs_sha256": "15e27f7747d95c53762259b136b7b8aeff7e8a7c24dcf75ac81edad85456db3d",
+    "model_provenance": "_checks/physical-cpu-restart-corners-20261009/model-source.json"
+  },
+  "mame_exit_receipt": {
+    "exit_code": 0,
+    "finished_utc": "2026-10-09T12:37:52.7480406Z",
+    "process_id": 53752,
+    "frames_requested": 67,
+    "started_utc": "2026-10-09T12:37:50.1958440Z",
+    "lua_sha256": "5E214EC7ED3DBF63C7550F87EBF6E967EA4E52688500E30923DB5B50B6665481",
+    "launcher_sha256": "3E8937DC09367ABE0194417F6D959B06AE5F06E4A6844CC55B2EC3E2D5E7F96B"
+  },
+  "exact_prefixes": {
+    "native_ram_write_bytes": 258830,
+    "mame_ram_write_bytes": 804841,
+    "mame_io_bytes": 26279
+  },
+  "clock_projection": {
+    "origin_evidence": "docs/evidence/sheriff_reset_startup.json",
+    "sha256": "adc4c70fc2e78f8b6af2ee2662584fd8b802687696dd93a45ef512bc10e75969",
+    "tag_counter_phase": 7,
+    "last_phi2_tag_offset": 12
+  },
+  "irq_edge": 54067200,
+  "native": {
+    "instruction": "ANA A",
+    "PC": 4082,
+    "T_states": 4,
+    "opcode_DBIN_from_edge": -48,
+    "sampled_T1_from_edge": -75,
+    "final_phi2_from_edge": 12,
+    "RST_sampled_T1_from_edge": 25,
+    "ACK_from_edge": 27,
+    "stack_writes_from_edge": [
+      194,
+      269
+    ],
+    "return_PC": 4083,
+    "first_opcode_PC": 0,
+    "first_opcode_sampled_T1": 50
+  },
+  "mame": {
+    "ANA_fetch_from_edge": "-125.000059200000",
+    "ANA_epoch_minus_native_T1": "-50.000059200000",
+    "JNZ_fetch_from_edge": "-25.000058400000",
+    "JNZ_PC": 4083,
+    "taken_target": 4079,
+    "JNZ_T_states": 10,
+    "atomic_RST_start_from_edge": "224.999908000000",
+    "return_PC": 4079,
+    "RST_predates_request": false
+  },
+  "sources": {
+    "D:/Arcade/AI/aCORES/sherrif/tools/record_first_ram_boundary.py": "413787ae5dc1e5833a16ed3299534537964dca32f4cbac1e2103ed57884b8622",
+    "sim/results/first-ram66-rtl-20261009/bus.csv": "1c517429c062b2c01391fcb6c7b896067f788741e70fe7454d8f41a3fe8e3ccf",
+    "sim/results/first-ram66-rtl-20261009/memory_writes.bin": "fced24971402544fe60a9853957d9630758704ae3f0d969d9c61d31011871ef8",
+    "sim/results/first-ram66-mame-20261009/irq_program_reads.csv": "cf1683ad9dacb8006b4a540983f585f567f3c72da92b109b615dbab31edff78c",
+    "sim/results/first-ram66-mame-20261009/video_writes.csv": "af13a7527542320798874d0e6f0fe926228b654d732cb49bab9047a8e9fa19f0",
+    "_checks/first-ram66-20261009/terminal.json": "2c95fd7631db31b45dc9cb6f2199c6873e6d2fa577a95c4ca605caf90baead6e",
+    "sim/results/first-ram66-mame-20261009/exit.json": "aec700f3dffca8208891939f2f9ec19bac61e76c43afb9753d54cde974d0f32c",
+    "docs/evidence/sheriff_reset_startup.json": "adc4c70fc2e78f8b6af2ee2662584fd8b802687696dd93a45ef512bc10e75969"
+  },
+  "reference_offset_or_tolerance_used_for_graphics": false,
+  "graphics_gate_qualified": false,
+  "current_board_source_qualified": false,
+  "scope": "Direct IRQ ordering and saved-model ISA/clock prediction only. Absolute boot/raster phase and electrical memory/READY behavior remain open."
+}

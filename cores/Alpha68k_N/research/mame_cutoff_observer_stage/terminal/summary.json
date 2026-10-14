@@ -1,0 +1,157 @@
+{
+  "checks": {
+    "actual_private_build0": true,
+    "actual_new_mame_terminal0": true,
+    "no_lua_failure": true,
+    "cloned_qualified_recorder_exact": true,
+    "all_frozen_source_files_unchanged_before_run": true,
+    "all61_contiguous": true,
+    "all_reference_csvs_exact": true,
+    "all_retained_whole_raw_arrays_exact": true,
+    "actual_cutoff_records_present": true,
+    "all_cutoff_records_well_formed_and_sequences_contiguous": true,
+    "both_original_irq_windows_nonvacuous": true,
+    "cutoff_before_after_pair_sequences_valid": true
+  },
+  "csv_files_exact": 12,
+  "whole_raw_arrays_exact": 9,
+  "stream": {
+    "complete_raw_record_count": 130,
+    "malformed_count": 0,
+    "first_sequence_gaps": [],
+    "last_sequence": 130,
+    "json_records_scope": "Only both declared cutoff windows; complete uncapped raw log retained and SHA pinned."
+  },
+  "windows": [
+    {
+      "bounds": [
+        47847465,
+        47851465
+      ],
+      "records": 66,
+      "pairs": 32,
+      "assertion": {
+        "sequence": 47,
+        "event": "input_applied",
+        "local_ticks": 47849471,
+        "machine_ticks": 47849471,
+        "total_cycles": 5981184,
+        "icount": 0,
+        "pc": 2136,
+        "ipc": 2132,
+        "ir": 12540,
+        "ird": 12540,
+        "irc": 32,
+        "sr": 8192,
+        "level": 1,
+        "pending": 16777220,
+        "next": 0
+      },
+      "first_following_cutoff_before": {
+        "sequence": 48,
+        "event": "cutoff_before",
+        "local_ticks": 47849527,
+        "machine_ticks": 47849527,
+        "total_cycles": 5981191,
+        "icount": 809,
+        "pc": 2138,
+        "ipc": 2132,
+        "ir": 20936,
+        "ird": 12540,
+        "irc": 20936,
+        "sr": 8192,
+        "level": 1,
+        "pending": 16777220,
+        "next": 0
+      },
+      "first_following_cutoff_after": {
+        "sequence": 49,
+        "event": "cutoff_after",
+        "local_ticks": 47849527,
+        "machine_ticks": 47849527,
+        "total_cycles": 5981191,
+        "icount": 809,
+        "pc": 2138,
+        "ipc": 2132,
+        "ir": 20936,
+        "ird": 20936,
+        "irc": 20936,
+        "sr": 8192,
+        "level": 1,
+        "pending": 16777220,
+        "next": 16777220
+      },
+      "input_to_following_cutoff_local_ticks": 56
+    },
+    {
+      "bounds": [
+        47998000,
+        48002000
+      ],
+      "records": 64,
+      "pairs": 31,
+      "assertion": {
+        "sequence": 113,
+        "event": "input_applied",
+        "local_ticks": 47999999,
+        "machine_ticks": 47999999,
+        "total_cycles": 6000000,
+        "icount": 0,
+        "pc": 2134,
+        "ipc": 2136,
+        "ir": 12540,
+        "ird": 12540,
+        "irc": 12540,
+        "sr": 8192,
+        "level": 2,
+        "pending": 33554436,
+        "next": 0
+      },
+      "first_following_cutoff_before": {
+        "sequence": 114,
+        "event": "cutoff_before",
+        "local_ticks": 48000071,
+        "machine_ticks": 48000071,
+        "total_cycles": 6000009,
+        "icount": 1491,
+        "pc": 2138,
+        "ipc": 2132,
+        "ir": 20936,
+        "ird": 12540,
+        "irc": 20936,
+        "sr": 8192,
+        "level": 2,
+        "pending": 33554436,
+        "next": 0
+      },
+      "first_following_cutoff_after": {
+        "sequence": 115,
+        "event": "cutoff_after",
+        "local_ticks": 48000071,
+        "machine_ticks": 48000071,
+        "total_cycles": 6000009,
+        "icount": 1491,
+        "pc": 2138,
+        "ipc": 2132,
+        "ir": 20936,
+        "ird": 20936,
+        "irc": 20936,
+        "sr": 8192,
+        "level": 2,
+        "pending": 33554436,
+        "next": 33554436
+      },
+      "input_to_following_cutoff_local_ticks": 72
+    }
+  ],
+  "raw_log": {
+    "path": "D:\\Arcade\\AI\\aCORES\\Alpha68k N\\sim\\captures\\kyros\\mame_cutoff_observer61\\error.log",
+    "sha256": "3239f2e6ae16b3808a4f717ad72857bf64e2370b6cca4d8f67757f0c263a9b49",
+    "bytes": 14647
+  },
+  "local_machine_times_retained_separately": true,
+  "B16_closed": false,
+  "physical_cause_proven": false,
+  "CPU_or_clock_correction_justified": false,
+  "limits": "Finite MAME observer qualification only. No timing normalization, PC-based alignment, graphics masking or hardware promotion."
+}

@@ -1,0 +1,39 @@
+{
+  "combat_process": {
+    "pid": 133636,
+    "live": true,
+    "command": "/mnt/d/Arcade/AI/aCORES/Alpha68k N/sim/build/kyros_combat3600_sim /mnt/d/Arcade/AI/aCORES/Alpha68k N/roms/kyros/download.bin 3600 /mnt/d/Arcade/AI/aCORES/Alpha68k N/sim/captures/rtl/kyros_combat3600 gameplay dac-probe --inputs /mnt/d/Arcade/AI/aCORES/Alpha68k N/sim/captures/kyros/combat3600_v2/frame_states.csv ",
+    "fields": 73
+  },
+  "comparison_exit": 0,
+  "comparison": {
+    "sound_io": {
+      "reference_writes": 100,
+      "rtl_writes": 100,
+      "ordered_writes_equal": true,
+      "field_label_differences": 0,
+      "first_difference_index": null,
+      "reference_first": null,
+      "rtl_first": null
+    },
+    "sound_latch_write": {
+      "reference_writes": 0,
+      "rtl_writes": 0,
+      "ordered_writes_equal": true,
+      "field_label_differences": 0,
+      "first_difference_index": null,
+      "reference_first": null,
+      "rtl_first": null
+    },
+    "dac_write": {
+      "reference_writes": 2,
+      "rtl_writes": 2,
+      "ordered_writes_equal": true,
+      "field_label_differences": 0,
+      "first_difference_index": null,
+      "reference_first": null,
+      "rtl_first": null
+    }
+  },
+  "dac_capture_available": true
+}

@@ -1,0 +1,69 @@
+{
+  "scope": "Paired real8748 same-ROM component fixture, original ID initialization, real coin pulse, accepted 0x29 coin-detected status, 0x29 credit-ready status, then 0x22 coinage commands. This is not gameplay or timing qualification.",
+  "results": {
+    "baseline": {
+      "sent": 1,
+      "ID_reply": 1,
+      "sent_second": 1,
+      "coinage_reply": 0,
+      "stale_pin_sampling_events": 17,
+      "ready_restore_lost_events": 3,
+      "recorded_events": 40,
+      "source_pins": [
+        {
+          "name": "alpha68kn_mcu.sv",
+          "sha256": "623e1c4c2ca319306887e9d76c1e24ac83adc5355165a618f703cee40e2186bd"
+        },
+        {
+          "name": "t48_core.v",
+          "sha256": "c341c5845cc78c6c2e22936a143021d29ebd78f6ea42eed108925afc46fb32d5"
+        },
+        {
+          "name": "fixture.sv",
+          "sha256": "c269cd788716a40ce461e8ae90559f8af09bac7af57185ee0ac6dd861c8416bd"
+        },
+        {
+          "name": "main.cpp",
+          "sha256": "d32fb411d7d547cbb7fc02930a84cd539094c87ca944b8f81a3c7a18c62a7929"
+        },
+        {
+          "name": "mcu.hex",
+          "sha256": "6d5a895aeeec178b2fb55b5af94db6091d20ed17bec918ffd1dc14bf606c9bc9"
+        }
+      ]
+    },
+    "candidate": {
+      "sent": 1,
+      "ID_reply": 1,
+      "sent_second": 1,
+      "coinage_reply": 1,
+      "stale_pin_sampling_events": 21,
+      "ready_restore_lost_events": 0,
+      "recorded_events": 42,
+      "source_pins": [
+        {
+          "name": "alpha68kn_mcu.sv",
+          "sha256": "26614f565524e7dc136c3c898eb044807d22d2c6ce473dcc64d7f54258a97120"
+        },
+        {
+          "name": "t48_core.v",
+          "sha256": "2ad3acf392e1deec18d5d7f2c8d878b33b00073c55a7c032cd0155dfac46bf6d"
+        },
+        {
+          "name": "fixture.sv",
+          "sha256": "c269cd788716a40ce461e8ae90559f8af09bac7af57185ee0ac6dd861c8416bd"
+        },
+        {
+          "name": "main.cpp",
+          "sha256": "168ade8f61e99d002fca9fd9373a693add7d8d2792b5ba940daad8fb77ec5e47"
+        },
+        {
+          "name": "mcu.hex",
+          "sha256": "6d5a895aeeec178b2fb55b5af94db6091d20ed17bec918ffd1dc14bf606c9bc9"
+        }
+      ]
+    }
+  },
+  "candidate_patch_sha256": "fc0dfc663584bf3d5f2ed27d2c87a4308f82cb6e362e63e43e24b60479ddb5f1",
+  "functional_CPU_timer_clock_ROM_logic_changed": false
+}

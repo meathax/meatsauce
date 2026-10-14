@@ -1,0 +1,310 @@
+{
+  "scope": "Exact source applicability and passive finite positive-frame mask; no simulation or timing/address tuning",
+  "sheriff_primary_identity": {
+    "board": "TWG-I/O",
+    "drawing_board_number": "PI-500932",
+    "title": "TWG-I/O PC BOARD PARTS LOCATIONS",
+    "revision": "No legible explicit revision established",
+    "clock_trace_available": false
+  },
+  "bandido_primary_identity": {
+    "board": "BANDIDO I/O PCB",
+    "schematic_number": "77-3367-11",
+    "sheet": "1 of1",
+    "revision": "No exact Nintendo TWG revision cross-reference established"
+  },
+  "primary_views": [
+    {
+      "source": "_checks\\manuals\\sheriff-io-readable.png",
+      "source_sha256": "40ceaad9831c24b7870b3709ca47e5f5cbb71a14d2c6953e1ba85929d8e6317a",
+      "source_dimensions": [
+        3100,
+        2195
+      ],
+      "box": [
+        850,
+        1660,
+        3100,
+        2195
+      ],
+      "scale": 1,
+      "view": "_checks\\agent-color-applicability-20261010\\sheriff-io-readable-title.png",
+      "view_sha256": "cba7c515add1da0b04b2b16a0c9a1b86b6b08d10c6085aa4f7d02688ea6fbe8d"
+    },
+    {
+      "source": "_checks\\manuals\\bandido-page-34.png",
+      "source_sha256": "2a9b487489b7dfba1f394727e2f10ebaa621dfc5c2977e8b2f5cee6942a4a18c",
+      "source_dimensions": [
+        5088,
+        6600
+      ],
+      "box": [
+        3100,
+        5540,
+        5088,
+        6600
+      ],
+      "scale": 1,
+      "view": "_checks\\agent-color-applicability-20261010\\bandido-page-34-title.png",
+      "view_sha256": "e2033a6b044b0187a134e07d807bba2b76daff8f429651a46601f3e55f46a20c"
+    }
+  ],
+  "source_sha256": {
+    "_checks/manuals/sheriff-twg1.pdf": "2ce3578f2a6dda01313be947871d33678260870813933c76a44866cc9bd3ab78",
+    "_checks/manuals/bandido-1980.pdf": "aa68eb8538e404c2ee1e02b7b47c0e40c62e9d9800cefcf22981c733c4b30224",
+    "_checks/agent-board-irq-20261010/after/source.json": "6dbe67744ed32a12846b42f156bd59f5e454786920d0a85f6a595aaacd736182",
+    "_checks/agent-board-irq-20261010/after/native.json": "016880d8eaace730e7f386ab62b5d320c3303a076941047a39c936e40e87642e",
+    "_checks/agent-board-irq-20261010/fixtures/source.json": "8d49ed1a558faba99277bab1bcd736b351060ffc8b5972594911e27ca764e6f7",
+    "docs/evidence/sheriff_board_irq_integration.json": "a8b94c68d6b9f85c4c7ba03df3eb23bf1d3be043edf3fcf03cf5493bad2bac35",
+    "docs/evidence/sheriff_color_clock_pixel_bridge.json": "11083f9da4f109ab7a413970b5bc62d75c9cbdf7948f7a7bdf4865c284782f1a",
+    "docs/evidence/sheriff_color_clock_review.json": "0fcd551d0aee068d1b8409424690000d575d7106e91157a122fe25ab82b02536",
+    "sim/board_harness.cpp": "6e18f5ee13a910d8d280aa973fb59875feb6bf45b9b396e3875175d6842cd02a",
+    "rtl/n8080_board.sv": "a3267486c736d4a8672f4681d3ab9247f2d5809a4fa3d88a12cba5963e7a2faa"
+  },
+  "frozen_renderer_source_matches": {
+    "sim/board_harness.cpp": true,
+    "rtl/n8080_board.sv": true
+  },
+  "private_asset": {
+    "parent_sha256": "082f0343064de9c9fc0c926aeae7d3414b7d890d3820c10899a37c64b80de997",
+    "prom_sha1": "197eeb008c140558e7c1ab2b2bd0f6a27096877c",
+    "offset": "0x4400",
+    "size": 1024
+  },
+  "alternate_primary_search": [
+    {
+      "url": "https://forums.arcade-museum.com/threads/nintendo-sheriff-questions.512351/",
+      "observed": "First-person owner account and listed photos describe B/W converted Space Fever hardware, TWG sticker overTSF sound board; not exact color parent board.",
+      "limit": "No parent-color TWG CLK9 trace or revision proof; forum architecture opinions not used as primary circuit evidence"
+    },
+    {
+      "url": "https://jammarcade.net/sheriff-conversion-repair-log/",
+      "observed": "First-person2019 conversion repair search extract describes modified wiring and changed chip locations versus Bandido schematic.",
+      "limit": "Page open returned Internal Error; no exact parent-color schematic or complete copper trace obtained"
+    }
+  ],
+  "finite_frames": [
+    {
+      "frame": 1,
+      "ppm_sha256": "0bed1ceb80b6d20f94736cb8c7fcf4f3eba1b8b5ec054a7af6b8b9de0915c384",
+      "ram_sha256": "b29cf944e0f611c37ac9b4975696407fb6c641e67e172ef39f53e0e54ea69dc3",
+      "static_mode0_flip0_through_frame": true,
+      "preceding_OUT6_writes": 0,
+      "OUT6_writes_during_captured_field": 0,
+      "field_start_mode": 0,
+      "field_end_mode": 0,
+      "field_start_flip": 0,
+      "field_end_flip": 0,
+      "visible_rows": [
+        16,
+        239
+      ],
+      "saved_first_irq68_compatibility": {
+        "current_sha256": "0bed1ceb80b6d20f94736cb8c7fcf4f3eba1b8b5ec054a7af6b8b9de0915c384",
+        "saved_sha256": "0bed1ceb80b6d20f94736cb8c7fcf4f3eba1b8b5ec054a7af6b8b9de0915c384",
+        "identical": true
+      },
+      "reference_positive_scope": true,
+      "aggregate": {
+        "visible_lit_ppm_pixels": 0,
+        "lit_ppm_with_RAM1_and_expected_PROM_RGB": 0,
+        "visible_RGB_unequal_even_odd_pairs": 106,
+        "RGB_unequal_pairs_left_lit": 0,
+        "RGB_unequal_pairs_right_lit": 0,
+        "RGB_unequal_pairs_both_lit": 0,
+        "RGB_unequal_pairs_any_lit": 0,
+        "visible_O4_unequal_even_odd_pairs": 104,
+        "O4_unequal_pairs_any_lit": 0,
+        "O4_unequal_pairs_both_lit": 0
+      }
+    },
+    {
+      "frame": 2,
+      "ppm_sha256": "0bed1ceb80b6d20f94736cb8c7fcf4f3eba1b8b5ec054a7af6b8b9de0915c384",
+      "ram_sha256": "b29cf944e0f611c37ac9b4975696407fb6c641e67e172ef39f53e0e54ea69dc3",
+      "static_mode0_flip0_through_frame": true,
+      "preceding_OUT6_writes": 0,
+      "OUT6_writes_during_captured_field": 0,
+      "field_start_mode": 0,
+      "field_end_mode": 0,
+      "field_start_flip": 0,
+      "field_end_flip": 0,
+      "visible_rows": [
+        16,
+        239
+      ],
+      "saved_first_irq68_compatibility": {
+        "current_sha256": "0bed1ceb80b6d20f94736cb8c7fcf4f3eba1b8b5ec054a7af6b8b9de0915c384",
+        "saved_sha256": "0bed1ceb80b6d20f94736cb8c7fcf4f3eba1b8b5ec054a7af6b8b9de0915c384",
+        "identical": true
+      },
+      "reference_positive_scope": true,
+      "aggregate": {
+        "visible_lit_ppm_pixels": 0,
+        "lit_ppm_with_RAM1_and_expected_PROM_RGB": 0,
+        "visible_RGB_unequal_even_odd_pairs": 106,
+        "RGB_unequal_pairs_left_lit": 0,
+        "RGB_unequal_pairs_right_lit": 0,
+        "RGB_unequal_pairs_both_lit": 0,
+        "RGB_unequal_pairs_any_lit": 0,
+        "visible_O4_unequal_even_odd_pairs": 104,
+        "O4_unequal_pairs_any_lit": 0,
+        "O4_unequal_pairs_both_lit": 0
+      }
+    },
+    {
+      "frame": 3,
+      "ppm_sha256": "0bed1ceb80b6d20f94736cb8c7fcf4f3eba1b8b5ec054a7af6b8b9de0915c384",
+      "ram_sha256": "b29cf944e0f611c37ac9b4975696407fb6c641e67e172ef39f53e0e54ea69dc3",
+      "static_mode0_flip0_through_frame": true,
+      "preceding_OUT6_writes": 0,
+      "OUT6_writes_during_captured_field": 0,
+      "field_start_mode": 0,
+      "field_end_mode": 0,
+      "field_start_flip": 0,
+      "field_end_flip": 0,
+      "visible_rows": [
+        16,
+        239
+      ],
+      "saved_first_irq68_compatibility": {
+        "current_sha256": "0bed1ceb80b6d20f94736cb8c7fcf4f3eba1b8b5ec054a7af6b8b9de0915c384",
+        "saved_sha256": "0bed1ceb80b6d20f94736cb8c7fcf4f3eba1b8b5ec054a7af6b8b9de0915c384",
+        "identical": true
+      },
+      "reference_positive_scope": true,
+      "aggregate": {
+        "visible_lit_ppm_pixels": 0,
+        "lit_ppm_with_RAM1_and_expected_PROM_RGB": 0,
+        "visible_RGB_unequal_even_odd_pairs": 106,
+        "RGB_unequal_pairs_left_lit": 0,
+        "RGB_unequal_pairs_right_lit": 0,
+        "RGB_unequal_pairs_both_lit": 0,
+        "RGB_unequal_pairs_any_lit": 0,
+        "visible_O4_unequal_even_odd_pairs": 104,
+        "O4_unequal_pairs_any_lit": 0,
+        "O4_unequal_pairs_both_lit": 0
+      }
+    },
+    {
+      "frame": 4,
+      "ppm_sha256": "0bed1ceb80b6d20f94736cb8c7fcf4f3eba1b8b5ec054a7af6b8b9de0915c384",
+      "ram_sha256": "b29cf944e0f611c37ac9b4975696407fb6c641e67e172ef39f53e0e54ea69dc3",
+      "static_mode0_flip0_through_frame": true,
+      "preceding_OUT6_writes": 0,
+      "OUT6_writes_during_captured_field": 0,
+      "field_start_mode": 0,
+      "field_end_mode": 0,
+      "field_start_flip": 0,
+      "field_end_flip": 0,
+      "visible_rows": [
+        16,
+        239
+      ],
+      "saved_first_irq68_compatibility": {
+        "current_sha256": "0bed1ceb80b6d20f94736cb8c7fcf4f3eba1b8b5ec054a7af6b8b9de0915c384",
+        "saved_sha256": "0bed1ceb80b6d20f94736cb8c7fcf4f3eba1b8b5ec054a7af6b8b9de0915c384",
+        "identical": true
+      },
+      "reference_positive_scope": true,
+      "aggregate": {
+        "visible_lit_ppm_pixels": 0,
+        "lit_ppm_with_RAM1_and_expected_PROM_RGB": 0,
+        "visible_RGB_unequal_even_odd_pairs": 106,
+        "RGB_unequal_pairs_left_lit": 0,
+        "RGB_unequal_pairs_right_lit": 0,
+        "RGB_unequal_pairs_both_lit": 0,
+        "RGB_unequal_pairs_any_lit": 0,
+        "visible_O4_unequal_even_odd_pairs": 104,
+        "O4_unequal_pairs_any_lit": 0,
+        "O4_unequal_pairs_both_lit": 0
+      }
+    },
+    {
+      "frame": 60,
+      "ppm_sha256": "ef1bdc0bd3910e102b1006fac8d7982807ee10f0b99436c34b004cea43a33ed5",
+      "ram_sha256": "689a36f5fbba51be17f2ffcbf5ddc26c31aea0bac073f8005afedf15404283e7",
+      "static_mode0_flip0_through_frame": false,
+      "preceding_OUT6_writes": 1,
+      "OUT6_writes_during_captured_field": 0,
+      "field_start_mode": 1,
+      "field_end_mode": 1,
+      "field_start_flip": 0,
+      "field_end_flip": 0,
+      "visible_rows": [
+        16,
+        239
+      ],
+      "saved_first_irq68_compatibility": {
+        "current_sha256": "ef1bdc0bd3910e102b1006fac8d7982807ee10f0b99436c34b004cea43a33ed5",
+        "saved_sha256": "ef1bdc0bd3910e102b1006fac8d7982807ee10f0b99436c34b004cea43a33ed5",
+        "identical": true
+      },
+      "reference_positive_scope": true,
+      "aggregate": {
+        "visible_lit_ppm_pixels": 0,
+        "lit_ppm_with_RAM1_and_expected_PROM_RGB": 0,
+        "visible_RGB_unequal_even_odd_pairs": 0,
+        "RGB_unequal_pairs_left_lit": 0,
+        "RGB_unequal_pairs_right_lit": 0,
+        "RGB_unequal_pairs_both_lit": 0,
+        "RGB_unequal_pairs_any_lit": 0,
+        "visible_O4_unequal_even_odd_pairs": 0,
+        "O4_unequal_pairs_any_lit": 0,
+        "O4_unequal_pairs_both_lit": 0
+      }
+    },
+    {
+      "frame": 68,
+      "ppm_sha256": "f823b1f476204f6201e561d5eabb04aee27d222b35ce7b74bbe2c870f5c41f4e",
+      "ram_sha256": "71ae739cdb3bb608194bdd68d80bf46a0b1a8c2194847cad4c0c919f10119b26",
+      "static_mode0_flip0_through_frame": false,
+      "preceding_OUT6_writes": 1,
+      "OUT6_writes_during_captured_field": 0,
+      "field_start_mode": 1,
+      "field_end_mode": 1,
+      "field_start_flip": 0,
+      "field_end_flip": 0,
+      "visible_rows": [
+        16,
+        239
+      ],
+      "saved_first_irq68_compatibility": {
+        "current_sha256": "f823b1f476204f6201e561d5eabb04aee27d222b35ce7b74bbe2c870f5c41f4e",
+        "saved_sha256": "f823b1f476204f6201e561d5eabb04aee27d222b35ce7b74bbe2c870f5c41f4e",
+        "identical": true
+      },
+      "reference_positive_scope": false,
+      "aggregate": {
+        "visible_lit_ppm_pixels": 0,
+        "lit_ppm_with_RAM1_and_expected_PROM_RGB": 0,
+        "visible_RGB_unequal_even_odd_pairs": 0,
+        "RGB_unequal_pairs_left_lit": 0,
+        "RGB_unequal_pairs_right_lit": 0,
+        "RGB_unequal_pairs_both_lit": 0,
+        "RGB_unequal_pairs_any_lit": 0,
+        "visible_O4_unequal_even_odd_pairs": 0,
+        "O4_unequal_pairs_any_lit": 0,
+        "O4_unequal_pairs_both_lit": 0
+      }
+    }
+  ],
+  "finite_analysis_semantics": "Positive mask requires observed nonblack PPM, same-coordinate frozen RAM bit1, and matching static PROM RGB; it does not infer video0 from black pixels. RAM is end-of-field, so this intersection is a conservative observed subset, not a complete pixel-time bitmap.",
+  "applicability_gap": "The exact Sheriff TWG-I/O PI-500932 CLK9 net and counter cadence are not proven by its placement drawing or the two alternate conversion leads. Bandido16-clock source qualification must remain related-board-only.",
+  "limits": [
+    "Exact parent PCB revision/CLK9 copper routing",
+    "Physical old/new PROM sampling and setup/hold",
+    "Visible origin and serializer phase",
+    "Finite frames do not qualify all rounds/PROM/color modes",
+    "Frame68 is same-side comparison only after known IRQ divergence; not full reference-positive proof"
+  ],
+  "mame_bug_established": false,
+  "exact_sheriff_clock_applicability_qualified": false,
+  "simulation_executed": false,
+  "production_modified": false,
+  "positive_scope_result": {
+    "RGB_unequal_pair_lit_observations": 0,
+    "RGB_unequal_pair_both_halves_lit_observations": 0,
+    "all_inequality_only_video0_rejected_for_observed_subset": false
+  }
+}

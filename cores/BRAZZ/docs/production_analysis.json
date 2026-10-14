@@ -1,0 +1,596 @@
+{
+  "scope": "real emu/sys_top production source analysis and resource inference; no fit/STA/pin closure or RBF",
+  "snapshot": "D:/Arcade/AI/aCORES/BRAZZ/Arcade-CrystalSystem_MiSTer/sim/obj_dir/production/1791486088294830300",
+  "sources": [
+    {
+      "path": "credits/credits.qip",
+      "sha256": "c2c376c37d8028501d60bb4b01ba77472db820322e49b9fec3db70bb2b15e6a2"
+    },
+    {
+      "path": "credits/generated/credits_layout.vh",
+      "sha256": "e74daf8c197564fa56b42808a79e457519d1be1935f92e7ceaf88574859b8854"
+    },
+    {
+      "path": "credits/generated/credits_rom.sv",
+      "sha256": "cec73f58aac791390459d97806b614158e4f666cc95e2c8958f869ac81f3bc46"
+    },
+    {
+      "path": "credits/generated/manifest.json",
+      "sha256": "feeb91e5fbfbd9ebd0066c9a13809559fa6ca91e6b55fbb6a39e37db6bcf5319"
+    },
+    {
+      "path": "credits/generated/meat_osd_manifest.json",
+      "sha256": "9f8ed7da9ea6eabf96cfc2c017f8971ecb590d57b162c5c980998003376cfeef"
+    },
+    {
+      "path": "credits/generated/meat_osd_rom.sv",
+      "sha256": "a90199b146e94b682e94e8793690e79085273600232d5771a42b196c87c50f8a"
+    },
+    {
+      "path": "credits/generated/meatcore_credits.mif",
+      "sha256": "6df1e8553a149d95748d9c8e1aa33ad427c5f3e068c5b33b72a3ecd36d2cbfea"
+    },
+    {
+      "path": "credits/INTEGRATION.md",
+      "sha256": "e3c58aef83119abd22668ea1a9996b879c385230bf81b54f49be6ca72df5db62"
+    },
+    {
+      "path": "credits/jtframe_meat_osd.qip",
+      "sha256": "3c2afab156c4ec1d78932b05014af4041f24e4e7fde8cd3be9832e026665c2ed"
+    },
+    {
+      "path": "credits/osd/assets/meatcores_128x64.png",
+      "sha256": "72084bac077d73a1613cc18eee28a926ecac4c1fd0667504a0465a0d40f6e243"
+    },
+    {
+      "path": "credits/OSD_THEME.md",
+      "sha256": "6ec505f9450429e48908cd1b144ea6424418949fd957ac2f19d9799bf9da6594"
+    },
+    {
+      "path": "credits/preflow.tcl",
+      "sha256": "ac417d2380551f5e8fbf28be67f8284fad1ebae6225e3f02282aabb1875c7052"
+    },
+    {
+      "path": "credits/rtl/credits_overlay.sv",
+      "sha256": "c577cafc9481a0acca0aaf47c13bac80ce7a1dd50349cb49bc541268c6790f97"
+    },
+    {
+      "path": "credits/tools/compile_art.py",
+      "sha256": "213c73f3d2c5a2c6564df3feee95514ac2248bf8ff4fc073172ed33ae44f5b80"
+    },
+    {
+      "path": "credits/tools/generate.py",
+      "sha256": "cfbca65e0dd9ddbe5a70263be4fb8a55b62eb3c1dd197debb4e192d412ce9722"
+    },
+    {
+      "path": "credits/tools/install_osd_theme.py",
+      "sha256": "ed4dead9a27fcef04e9e593fb318e01abd361961f5c56cb60a5db37cd393f2a6"
+    },
+    {
+      "path": "CrystalSystem.qpf",
+      "sha256": "d65afa83304c0992681c532fc659c9a1c5e9e20777b18e5996a7a98b04f4c035"
+    },
+    {
+      "path": "CrystalSystem.qsf",
+      "sha256": "c9e285c6c783a580542b1015b65188f203c596a9a7d93f49187b7bf4016c7284"
+    },
+    {
+      "path": "CrystalSystem.sdc",
+      "sha256": "fcd81695661b73e6a833e62dc271f457cc944fa5a20dab8171776c52670addcb"
+    },
+    {
+      "path": "CrystalSystem.sv",
+      "sha256": "e1f01aa6ec7222d4525bdd028e77bd061517a1cd323c7f6149712bc751649516"
+    },
+    {
+      "path": "donors/sdram/src_v/sdram_axi_core.v",
+      "sha256": "bf7b3cdd53383051f8a108010bf5f19171eaff7e416b9b5b8d70ac1928b6af5f"
+    },
+    {
+      "path": "files.qip",
+      "sha256": "2ce5bdbacc9254b8fef385fbd34cb823af5e86e8fba319dd82deb4c98e1d5385"
+    },
+    {
+      "path": "rtl/audio/cs_audio_interp.sv",
+      "sha256": "98dcb2153980f8eba14b8f2794b0febf290bc1735bdd017d893e3e5d552830b2"
+    },
+    {
+      "path": "rtl/audio/vr0_audio_pkg.sv",
+      "sha256": "a922fe95e199ab6a94ac6f17807e3781ebe59ae9fd725a4537dbae550b5b954c"
+    },
+    {
+      "path": "rtl/audio/vr0_spu.sv",
+      "sha256": "a53b52457634a77b3d06bf3aabec6b60d6da31ca0bfda47127ba452301805f63"
+    },
+    {
+      "path": "rtl/audio/vr0_voice.sv",
+      "sha256": "051e305e9e070ad9220c1af4efa65f9ca5c07e1fbc76846031a9f246a128d69a"
+    },
+    {
+      "path": "rtl/board/cs_address_decode.sv",
+      "sha256": "ad4140238e5d1eee3c5f20d3ca99e7d5ae361c92d59798508262494378551f36"
+    },
+    {
+      "path": "rtl/board/cs_board_config.sv",
+      "sha256": "e48bd7dfa875d9ba9ccd79e67e5d075a08b92ea7fddd456cefb641bd1214f464"
+    },
+    {
+      "path": "rtl/board/cs_board_io.sv",
+      "sha256": "da34cdd7a999f3eb8e2a0b435f4e83aba8c56b56a3728eb75977cdecdaa3d3c9"
+    },
+    {
+      "path": "rtl/board/cs_boot_probe.sv",
+      "sha256": "6091df873d2c2d23f262d00af28abc245f7d1d68362aefb1b60729bbab97bb97"
+    },
+    {
+      "path": "rtl/board/cs_bus_pkg.sv",
+      "sha256": "fe42f20099c87f3742b5730d275fc96d50720899c90ab01559adf52a67b3ae46"
+    },
+    {
+      "path": "rtl/board/cs_crystal_board.sv",
+      "sha256": "3dbea697e918a64abe03a7fc79ca937d75930390bdba352e6fb5d38b2c8a0077"
+    },
+    {
+      "path": "rtl/board/cs_crystal_platform.sv",
+      "sha256": "e2d0a7123a94af8ed9dc4b909f49cfaf9b1499a2bc43a81ef0c1faf6658a7390"
+    },
+    {
+      "path": "rtl/board/cs_flash_cmd.sv",
+      "sha256": "15d2c9b5d40bb1bd48750201ea4defaeba132d80856fbb393f9f1cfa8790f2fa"
+    },
+    {
+      "path": "rtl/board/cs_mister_controls.sv",
+      "sha256": "ae2e3f4c80af5b5a9d7902d5b50dcee08ea851a7d52e2a8e6b20f4f470d69e6b"
+    },
+    {
+      "path": "rtl/board/cs_mister_rom_loader.sv",
+      "sha256": "6ac03abd1a93d8ee5c24f6b0543a4789c1df86f22c204a80bb62164c5dbcaac6"
+    },
+    {
+      "path": "rtl/board/cs_nvram.sv",
+      "sha256": "7665764060dfb5cd381823f27e0cbee93a4f2009347a9cb6ed88ec41c9d6093e"
+    },
+    {
+      "path": "rtl/board/cs_nvram_host.sv",
+      "sha256": "a85192e182cc9e4309aba22faee08b5429e53e17e855261aeea5ceca7616c922"
+    },
+    {
+      "path": "rtl/cos.sv",
+      "sha256": "38f233d5b413f739a182a57d85306b4cc3b5d9b5eef993ff6c1ecae8f1eb2bb5"
+    },
+    {
+      "path": "rtl/cpu/se3208.sv",
+      "sha256": "5a7faa58a0af6b3e890b5d45d87287a21668a51b33030c597e0fa031a6bfa2fc"
+    },
+    {
+      "path": "rtl/cpu/se3208_bus_access.sv",
+      "sha256": "2641c6117504736a27cf30b520a08dc96638e5bbbb6c68da70b6456c82477d2e"
+    },
+    {
+      "path": "rtl/cpu/se3208_cp_access.sv",
+      "sha256": "4af771f1526ac8ce0a4455ede36964c3fc1ec40c6d31007a512983e1a8b7ecd5"
+    },
+    {
+      "path": "rtl/cpu/se3208_decode.sv",
+      "sha256": "c03060740f22ad0c8fd0fb1c3d5cdf75093fb66adef4a01983cf5602734c2a00"
+    },
+    {
+      "path": "rtl/cpu/se3208_execute.sv",
+      "sha256": "c3ea5e1e6d1f0e7bf84ae129bf9587fe05ff2088be1857d5cabd7b4d0d54de81"
+    },
+    {
+      "path": "rtl/cpu/se3208_pkg.sv",
+      "sha256": "63bdde59a9eb369742ad68baabddf3be191571408bcacf7f71fa958e222e1b99"
+    },
+    {
+      "path": "rtl/lfsr.v",
+      "sha256": "291fdc8c9ab4006e92f129aafe484d37187845d94bfb0220446d0286c5108c27"
+    },
+    {
+      "path": "rtl/memory/cs_burst_mux.sv",
+      "sha256": "36edc703b21123ac830b34a0fc99d8b0751f481e6289f6b3cdd7651606cd9581"
+    },
+    {
+      "path": "rtl/memory/cs_bus_arbiter.sv",
+      "sha256": "177101ab94843ca238b3773b646a068617ed86b664898b86b973d1a8b19553e2"
+    },
+    {
+      "path": "rtl/memory/cs_bus_ram.sv",
+      "sha256": "867f7e7954478d8e62b31251ca7658703b8fd5ab16b9aaba97732d6b64f402b7"
+    },
+    {
+      "path": "rtl/memory/cs_ddr_rom_backend.sv",
+      "sha256": "44555deb1fd50424e0b084ef0612ce0f89ea2b82230969621daea04b1a18fcdd"
+    },
+    {
+      "path": "rtl/memory/cs_ddr_share.sv",
+      "sha256": "ec5f18fc644fd3443063922a0aa832360f5e1ee43166f72ddd05f32eea13cee0"
+    },
+    {
+      "path": "rtl/memory/cs_memory_fabric.sv",
+      "sha256": "a79a3aaae8931ee94663c2c9e90ca93ef2ff4aa8caf7110ebdfa81139cc1df09"
+    },
+    {
+      "path": "rtl/memory/cs_nvram_port.sv",
+      "sha256": "6d0aef204357fcc17ad2a3526235576427b497a777ed3694b30d1d02840ab688"
+    },
+    {
+      "path": "rtl/memory/cs_sdram_backend.sv",
+      "sha256": "9c1c603f184cfbe1c6cc102f74153160bbb0cd225c2957aeb647cafb334b15e0"
+    },
+    {
+      "path": "rtl/memory/cs_texq.sv",
+      "sha256": "f897d273fb9e665a0a2e8ad1134bc93da6f05942c32a9508cd5fc8d97e208821"
+    },
+    {
+      "path": "rtl/mister/hps_io.sv",
+      "sha256": "70df0e4182d028da0cc003c51d6369ae6dab0219d803681a33a84838c5f4ebc4"
+    },
+    {
+      "path": "rtl/mister/sys_project.qip",
+      "sha256": "adebe4c84967532b118ae4e047afd8e1d54b9189d6a95580c29e4eda46105171"
+    },
+    {
+      "path": "rtl/mister/sys_project.tcl",
+      "sha256": "4a1e6309f95924f05f599c311bfa21185daac490fa5829ec774527d9e8ecf7be"
+    },
+    {
+      "path": "rtl/mister/sys_top.v",
+      "sha256": "80ec0b54cc64e4c9c35fee2bb26a860678f47e3f74564b3a6bb8fe168802e142"
+    },
+    {
+      "path": "rtl/mycore.v",
+      "sha256": "cd597f8bdb3d6fade1cbab24f327df33e6e73f125816bcf5bbb2bf73bd32bd55"
+    },
+    {
+      "path": "rtl/pll/pll_0002.qip",
+      "sha256": "fcb38c7fb25c851a8242c592b2077e672f3520eeaf3820217819075cca461abb"
+    },
+    {
+      "path": "rtl/pll/pll_0002.v",
+      "sha256": "a1c48d5956ab8fbea378ead8e4c46e802560a71511a8c837124e79299b537ed4"
+    },
+    {
+      "path": "rtl/pll/pll_0002_q13.qip",
+      "sha256": "a88dcf61d2463ac673fc7a36f7d41160b4db1137d4f5678e78646b65ebee9305"
+    },
+    {
+      "path": "rtl/pll.qip",
+      "sha256": "cf17f22973e99727b789acdb18e5ba43b96bb2dea65e90e2bcd6a1873ad74c40"
+    },
+    {
+      "path": "rtl/pll.v",
+      "sha256": "39585ee74c3068909ff71b495cfbcf673ee275b4a6d126ba367608b9e62161cf"
+    },
+    {
+      "path": "rtl/soc/ds1302.sv",
+      "sha256": "e02fb71e427120eaa61877e2ec2d50dd90973287cb3a2fc43b1ed0ddd4032cb6"
+    },
+    {
+      "path": "rtl/soc/vr0_control.sv",
+      "sha256": "f33f587e14f347f76b578b7d0ae41629da02ab1c59e18fc8cf8cc131d0825927"
+    },
+    {
+      "path": "rtl/soc/vr0_cp0.sv",
+      "sha256": "d5612c86214290daf18c1ff69b48d3f30c612e7c5cee9b632e7e8081365b6619"
+    },
+    {
+      "path": "rtl/soc/vr0_dma.sv",
+      "sha256": "dff84cae812ac50c7cc3e7dd509f677e9c876cf9f2f9263d0e40320c25fa4c43"
+    },
+    {
+      "path": "rtl/soc/vr0_gpio.sv",
+      "sha256": "aab61140efe37a1a5a02e3ef5560bc175d3fe6d921348b1fb27769f2d0423ffd"
+    },
+    {
+      "path": "rtl/soc/vr0_uart.sv",
+      "sha256": "7c2fe0f33ac98224e88722ec9fa0d5e1e795203a5de96af4f73fd0b02904f1e7"
+    },
+    {
+      "path": "rtl/vendor/crt_adjust.sv",
+      "sha256": "e66c4bae75ca86606c134fa82e57f63274331422a2c8931188495dfeac5afc21"
+    },
+    {
+      "path": "rtl/video/crystal_crt_adjust.sv",
+      "sha256": "908fb36c54fb52b3dbe0ceb7d637a14e387f537c48aa62d350318513b948e7d1"
+    },
+    {
+      "path": "rtl/video/cs_debug_overlay.sv",
+      "sha256": "6a4b6a13e07248015ff9415a755899fec87856cf653e6d21697b6cabbfd780ba"
+    },
+    {
+      "path": "rtl/video/cs_diagnostic_video.sv",
+      "sha256": "a4b8dd6ec0c58fd9d207f6c0d098ccd902d45911feb76d742e84f8868a16f660"
+    },
+    {
+      "path": "rtl/video/cs_screen_rotate.sv",
+      "sha256": "e63af56856101996fcc2cc84637363b0d34a0ca51a7f177abac448b7d3488cf9"
+    },
+    {
+      "path": "rtl/video/cs_video_freak.sv",
+      "sha256": "99b5cb18f0b01a3ff018839e6f83ebade1e124eada7231c4e3d8305fd93bfdeb"
+    },
+    {
+      "path": "rtl/video/cs_video_hold.sv",
+      "sha256": "f0746184b9ce66dc28a8ff2fb53e4268501ecee7a1009d1685e1cf58bb31031b"
+    },
+    {
+      "path": "rtl/video/vr0_crtc.sv",
+      "sha256": "174ef5fbbb41c9e1f7be5c41e566391e80211e983b65001c927d4a999d84a8a0"
+    },
+    {
+      "path": "rtl/video/vr0_gpu.sv",
+      "sha256": "718ee007d5046d4355d74ec232cc125b59aee4acf29620212d6f68677ca53335"
+    },
+    {
+      "path": "rtl/video/vr0_pixel_pkg.sv",
+      "sha256": "2494e80157a94fb6c8a47b340689204ce8441caa1a60daca2b0f52fdcac4fee0"
+    },
+    {
+      "path": "rtl/video/vr0_scanout.sv",
+      "sha256": "905f02ab2b6f794842efc09946718d6cb5d345592102c371faaa644b515163f3"
+    },
+    {
+      "path": "sys/alsa.sv",
+      "sha256": "a286b786b13353a4e5ac729440e96381896600051cd39526ca354b8e662608b1"
+    },
+    {
+      "path": "sys/arcade_video.v",
+      "sha256": "ce64cdd7f900ded7b9cd9aa728dab7383b7561cdc75dfe82ab23fe27a3d217d3"
+    },
+    {
+      "path": "sys/ascal.vhd",
+      "sha256": "9b03f825284635ccb1ccaa1d8d47656e8199357455a4cd89ed92a690a48ecc32"
+    },
+    {
+      "path": "sys/audio_out.sv",
+      "sha256": "429407debad8260a8e9ff166b69c6f3f0373bdeb4b7eb2dce1fc8af1fb4f6541"
+    },
+    {
+      "path": "sys/build_id.tcl",
+      "sha256": "148dc6a8124d36ac2898a45d085960cc05178a76d7297fde8877925fc0a74e88"
+    },
+    {
+      "path": "sys/ddr_svc.sv",
+      "sha256": "8dfa874b9a93b4dbbe3b2fcf4f9035a895262cc090d398f4099941a626f41c08"
+    },
+    {
+      "path": "sys/emu_ports.vh",
+      "sha256": "0b8f96815236ea4fcfec6fa3592b58f4c53f12094f31a26fd509709b503225e0"
+    },
+    {
+      "path": "sys/f2sdram_safe_terminator.sv",
+      "sha256": "400bcbcfc0b4aae324fe813866a5443d577bf4de9b4ab1454cb068733d170261"
+    },
+    {
+      "path": "sys/gamma_corr.sv",
+      "sha256": "bf5a10783c8e5846f2124e67c555d23bd900ac5d05f611aecad23b8a4c4db10d"
+    },
+    {
+      "path": "sys/hps_io.sv",
+      "sha256": "f4a085fc23bdcefb57c600866a39a448c749cd3c93910f7005316e8df9019bec"
+    },
+    {
+      "path": "sys/hq2x.sv",
+      "sha256": "add2820efe5574abae4cd8a2bdb22d468daedfb2af7b58f9c6585e7915f8ebed"
+    },
+    {
+      "path": "sys/i2c.v",
+      "sha256": "09bd7ebd5d84fb57f6a9d569e5214f3154c49e55826c15bd78884f3c781fec5b"
+    },
+    {
+      "path": "sys/i2s.v",
+      "sha256": "650c796742f69b2dd152c6871064c31be1e33a8aca046668b01a7a79712d689f"
+    },
+    {
+      "path": "sys/iir_filter.v",
+      "sha256": "570a8095c15af84a60015b5eab105cee6e2d7edde77e20f0ce40c075ab2db8b7"
+    },
+    {
+      "path": "sys/ltc2308.sv",
+      "sha256": "217eedccf331050adbcfaed17dac6e8f0016a5140eebd9488556c889c5698133"
+    },
+    {
+      "path": "sys/math.sv",
+      "sha256": "d384fa9fcf73100cb28a2affc5db1e4aacc87620287971c3882507fc3af056cc"
+    },
+    {
+      "path": "sys/mcp23009.sv",
+      "sha256": "7f02c3d12c7dd9dac6ff3ebc14e1741c6e5d0685f05b8ab928399fee63d09dd2"
+    },
+    {
+      "path": "sys/mt32pi.sv",
+      "sha256": "4ad39571d16a4b25347030d75ffdf601803ddec71e2e3fcabe962103cc45a1a2"
+    },
+    {
+      "path": "sys/osd.v",
+      "sha256": "c43b5d49046bc809481961f6d3b730a08e4ce8f96f35f99ba94b24c1776e6071"
+    },
+    {
+      "path": "sys/osd.v.meatcores-original",
+      "sha256": "e4f29b0c6b600b468fecf1634708b25b977cf2c7ba8fc20e0fc8e759c97722bf"
+    },
+    {
+      "path": "sys/pll.13.qip",
+      "sha256": "f97928526dd6865d25dbb2e10cabfc679d6777be07a0589e06caac7916715a37"
+    },
+    {
+      "path": "sys/pll_audio/pll_audio_0002.qip",
+      "sha256": "afc57d46dfcc6faf7136ad4875a79f7770ec8e2fad9849c070f4f076c51ebb2a"
+    },
+    {
+      "path": "sys/pll_audio/pll_audio_0002.v",
+      "sha256": "2b24d2a561d81cc8b20f725884ee9c243e619058e42ebcdcf6f491d33008696c"
+    },
+    {
+      "path": "sys/pll_audio.13.qip",
+      "sha256": "5373220c49eca185cde0624634f986483a28037d9607edcf1fae5408461ac46b"
+    },
+    {
+      "path": "sys/pll_audio.qip",
+      "sha256": "000251bec942ef6af09cac43c9c9a3fcb6c5bfa15b965c601c4a2a2f0827612c"
+    },
+    {
+      "path": "sys/pll_audio.v",
+      "sha256": "1662fff7650cd443db81db7f0707f5583d223372b3e3c41af2d41ea4f3ac38f3"
+    },
+    {
+      "path": "sys/pll_cfg/altera_pll_reconfig_core.v",
+      "sha256": "9058d2c68e9cb0b1b6b3ab5487daad8aeaf04461e162aba317857dd133329189"
+    },
+    {
+      "path": "sys/pll_cfg/altera_pll_reconfig_top.v",
+      "sha256": "34c11c19e6bf3797d2db2e41314ce802f5a01041265ce943b54e7f20eb2027c9"
+    },
+    {
+      "path": "sys/pll_cfg/pll_cfg.v",
+      "sha256": "e07ae93193537830b3bc9029465e763a6bfe354c25b7e7747eeeb4094b08ad10"
+    },
+    {
+      "path": "sys/pll_cfg/pll_cfg_hdmi.v",
+      "sha256": "f42a49ea9fd36174243c6ad8e8589eaa25e3fde1e080d8630530671834293f43"
+    },
+    {
+      "path": "sys/pll_cfg.qip",
+      "sha256": "21faf3d9666d91905bfdb0ebb8d308109509afaeeee0fae75774c587e1b04a40"
+    },
+    {
+      "path": "sys/pll_hdmi/pll_hdmi_0002.qip",
+      "sha256": "037bd53b941a9dba72d4d9f7f716890e05ddd54de3cd6c1eea22b4451ddce848"
+    },
+    {
+      "path": "sys/pll_hdmi/pll_hdmi_0002.v",
+      "sha256": "27c77f35c89e97994477801f83edf3c7e9c5b9e57df49864434d300c40e9f1f7"
+    },
+    {
+      "path": "sys/pll_hdmi.13.qip",
+      "sha256": "a0d6ccbc83d64f1814ac50824cfd77b056ee30bf10aa25af022ea7cfc5f89d45"
+    },
+    {
+      "path": "sys/pll_hdmi.qip",
+      "sha256": "0ede985aa43e5d3c363c9ddcc6f736f0c2acb5590d888daa8933a104ef8c8198"
+    },
+    {
+      "path": "sys/pll_hdmi.v",
+      "sha256": "499561547c1045a46f1137558e2bab83d8e026e5d32669b5c5779a264b7ed676"
+    },
+    {
+      "path": "sys/pll_hdmi_adj.vhd",
+      "sha256": "78135450032b27888b625db9ca57d88b5ebe444dc69498a3b82363020b08e36d"
+    },
+    {
+      "path": "sys/pll_q13.qip",
+      "sha256": "727fe7d24c8582a5ec7923c741b04288cce354220f58ead5f7bd355ad62409a7"
+    },
+    {
+      "path": "sys/pll_q17.qip",
+      "sha256": "9d662ba114d5c02e82c0f500e7e9600e02962549c74a84fd5bf2ce34abb69a76"
+    },
+    {
+      "path": "sys/scandoubler.v",
+      "sha256": "e165eed142dbe525872038d7fe7fa4c6a50581473189cd4ee5d5d1cdbf5497c2"
+    },
+    {
+      "path": "sys/scanlines.v",
+      "sha256": "948db6e6d67900b52c3b45671a112ea0ddc0ddecaf4f4192788657f79aa30ad6"
+    },
+    {
+      "path": "sys/sd_card.sv",
+      "sha256": "25114f9a0e9ab4dd702633ae927fc825dc79a4d9f7746c1bb75dbd10d61eb6d6"
+    },
+    {
+      "path": "sys/shadowmask.sv",
+      "sha256": "e1ddba7502662dd1ad5a18950abbf912d8e91a66d233baef608c15729bc39d0a"
+    },
+    {
+      "path": "sys/sigma_delta_dac.v",
+      "sha256": "6c93dfa8397caa35f55288271f6081827df41eedc98ade6cc810575afcfbaaea"
+    },
+    {
+      "path": "sys/spdif.v",
+      "sha256": "4032717bb9a5cd0b1c72dac82f5f3fc3c6ed4974a6767c2865d380ea214eb55f"
+    },
+    {
+      "path": "sys/sys.qip",
+      "sha256": "ff265ba87bfa2922eb5870de27978b2dc55e32e1576d610e266ebffd6ec896d7"
+    },
+    {
+      "path": "sys/sys.tcl",
+      "sha256": "e9ab2b7c89b4347854810387550a65458aa3ec9de1bd26ad74328d73376f6a88"
+    },
+    {
+      "path": "sys/sys_analog.tcl",
+      "sha256": "e4cbfd22985fa046b546c0cfc626fccf773d9098b7c6a595f8bea66d67d25203"
+    },
+    {
+      "path": "sys/sys_dual_sdram.tcl",
+      "sha256": "4f41376069b2070079d8ba4ae4a722c8ecfe3ca4b99798d0bdd8cda986b5ad5b"
+    },
+    {
+      "path": "sys/sys_top.sdc",
+      "sha256": "0a5fa4015b82ad7ce38e56d1ae4aadea6209af59c5dd9eff56a11139cf16ce86"
+    },
+    {
+      "path": "sys/sys_top.v",
+      "sha256": "9bc5562bcc9d923aa3bff1a9c976c52492edb9ef981f428b7a4101c919a711b8"
+    },
+    {
+      "path": "sys/sysmem.sv",
+      "sha256": "247f4aaa270d45e0c8a44dc1361040a519836bd7d0493d708fe40a00443e4377"
+    },
+    {
+      "path": "sys/vga_out.sv",
+      "sha256": "0a3198971def145f22625e12bb2f1c2ec41e0402a7e296154ce9dad40584e429"
+    },
+    {
+      "path": "sys/video_cleaner.sv",
+      "sha256": "44b986d9bf8412e56bf8e4eae3dc87e04b4c378e58ec6119de5a8aed320e3572"
+    },
+    {
+      "path": "sys/video_freak.sv",
+      "sha256": "6a9b8565f66894a8f2ec10c916593e980d260f29f1886bfe70bf6f3b0cf6edc0"
+    },
+    {
+      "path": "sys/video_freezer.sv",
+      "sha256": "0f3f4710b072b7e90b0b6bfe7607dec18dbd6bed78d1994f32d6fa72a6b7aef3"
+    },
+    {
+      "path": "sys/video_mixer.sv",
+      "sha256": "31ed2c917bd6680b4d60328e71a4f28015bd5fcec21e15b290eacec88971167d"
+    },
+    {
+      "path": "sys/yc_out.sv",
+      "sha256": "83845cdb9b2d3bbfa055e1987577be74ea44bf27278f4c17dce6ccaee310f55e"
+    }
+  ],
+  "rbf_built": false,
+  "stage_overrides": [
+    "GENERATE_RBF_FILE OFF",
+    "NUM_PARALLEL_PROCESSORS 4",
+    "build_id.v 261009"
+  ],
+  "configuration_sha256": {
+    "CrystalSystem.qsf": "f044e2867037ff39dddad7eba9640f57a6794b5a2f10e1e7f79a9daa14bd0cac",
+    "build_id.v": "b070d427ed822abf63732ea5492c00fa15bd7b1dfaa0285e135fbae4706d8d20"
+  },
+  "steps": [
+    {
+      "tool": "quartus_map",
+      "returncode": 0,
+      "seconds": 365.398,
+      "command": [
+        "D:/q17/quartus/bin64/quartus_map.exe",
+        "CrystalSystem",
+        "--read_settings_files=on",
+        "--write_settings_files=off"
+      ],
+      "log": "D:/Arcade/AI/aCORES/BRAZZ/Arcade-CrystalSystem_MiSTer/sim/obj_dir/production/1791486088294830300/quartus_map.log",
+      "errors": []
+    }
+  ],
+  "status": "SYNTHESIS_PASS",
+  "exit_code": 0,
+  "seconds": 365.633,
+  "errors": [],
+  "source_bytes": 1728116
+}

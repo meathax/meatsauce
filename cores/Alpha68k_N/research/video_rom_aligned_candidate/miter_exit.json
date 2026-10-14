@@ -1,0 +1,27 @@
+{
+  "source_sha256": "b000479a8d41ac4d17fcd60fc129912c6a437cf2f690873fc7d62aac4094d10e",
+  "compile_command": [
+    "D:\\vibes\\fpga\\toolchains\\msys64\\ucrt64\\bin\\iverilog.exe",
+    "-g2012",
+    "-s",
+    "video_rom_miter_tb",
+    "-o",
+    "D:\\Arcade\\AI\\aCORES\\Alpha68k N\\research\\video_rom_aligned_candidate\\miter.vvp",
+    "D:\\Arcade\\AI\\aCORES\\Alpha68k N\\research\\video_rom_aligned_candidate\\original_video_rom.sv",
+    "D:\\Arcade\\AI\\aCORES\\Alpha68k N\\research\\video_rom_aligned_candidate\\alpha68kn_video_rom.sv",
+    "D:\\Arcade\\AI\\aCORES\\Alpha68k N\\research\\video_rom_aligned_candidate\\video_rom_miter_tb.sv"
+  ],
+  "compile_exit": 0,
+  "compile_stderr": "",
+  "scope": "Original versus candidate complete video-ROM RTL, cycle-aligned outputs including runtime loader collisions; no synthesis or actual-game claim",
+  "run_exit": 0,
+  "run_stdout": "PASS video ROM cycle miter 131072, runtime collisions 18725\nD:\\Arcade\\AI\\aCORES\\Alpha68k N\\research\\video_rom_aligned_candidate\\video_rom_miter_tb.sv:64: $finish called at 1358110 (1s)\n",
+  "run_stderr": "",
+  "files": {
+    "alpha68kn_video_rom.sv": "54af03897152b00a6328b443c9b5b2311bc2554b4cb4e00699650f0b973d7af2",
+    "original_video_rom.sv": "0e5240923eb24b6cd5b6feb716b0a8aa7d8708c4b9ac78f9f983c03bfca391f8",
+    "prepare_and_test.py": "b7112e2c5c57581548b4af2621b7f44e54ce49baefac18f83028f15fc342fafc",
+    "video_rom.patch": "7104aebd4ac6b0173afa28f867f02bbb42947038b70f77a3a6eee68601f5c643",
+    "video_rom_miter_tb.sv": "502dd6f318c9effd2d31f8873b136522558bbf43835f078d33fbcf47f4e4065c"
+  }
+}

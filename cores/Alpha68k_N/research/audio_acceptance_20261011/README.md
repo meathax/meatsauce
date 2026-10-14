@@ -1,0 +1,13 @@
+# Finite CPU sound event acceptance — 2026-10-11
+
+The actual Kyros merged lifecycle ELF `9315e2530060034cd1cae053574c3109f3bb1c3669e1f7ac94685089cc75fbaa`, compiled from revision `6dfeca51f027e5d431f4ebe68c58f7a3a5df9a68`, produced a 2588 completed-field prefix. All 10,608 globally ordered sound-port writes (6438 YM, 1922 AY1, 2248 AY2), 32,091 DAC accepted address/data writes, and 21 accepted main sound-latch writes equal the retained MAME reference, with zero field-label differences. This is a captured finite prefix, with no whole-run terminal acceptance claim.
+
+The retained combat3301 capture also has exactly 32,091 matching DAC writes and 134 matching accepted latches. Each chip's ordered bytes match independently. Its seven YM callback-field differences and inter-chip global ordering divergence at index 896 remain recorded. No CPU timing change is justified by this audit.
+
+The accepted latch comparison applies each MAME `mem_mask`, matching the RTL UDS/LDS acceptance. A prior audit omitted the MAME mask and used the wrong compiled-receipt ELF property; its output remains under `prior_unmasked_latch_and_wrong_elf_key_v2`. The earlier unsupported input-schema failure remains under `failed_input_schema_v1`. Actual native input columns are `controls,dips,coins_n`, mapped to MAME `in0,in1,in2`; the retained 2588 prefix has zero same-field port differences.
+
+All 69 compiled production source pins were checked against the canonical checkout. The final observation retains 68 exact pins and the changed `rtl/alpha68kn_board.sv` pin from concurrent integration. This does not transfer the recorded old ELF's qualification to that new image. The audio graph pins remain unchanged. No production source was edited by this task, and no game simulation was repeated.
+
+`combat3301_observed_punch_noise_12to14s.wav` is an exact 96,000-sample copy of the retained actual CPU/chip/mixer mixed PCM, at 48 kHz mono 16-bit, from sample 576,000. The original 2,677,137-sample capture reports zero clipped samples. This preserves a short WAV without requiring phase-identical MAME/JT PCM or hardware listening. It is a punch/noise interval, not proof of a successful hit.
+
+P5 still requires source-qualified successful hit/jump/pickup windows, merged lifecycle terminal audio/sample/reset qualification, Japan current-image/oracle epoch qualification, and complete integration resource/timing checks. Existing finite tone/envelope/timer/noise/reset/mixer evidence and the separate embedded SSG period-zero correction should be reused. Broad B03–B06/B13, whole P5 and physical audio acceptance remain open; hardware listening stays in P9.

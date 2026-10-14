@@ -1,0 +1,17 @@
+{
+  "observed_utc": "2026-10-09T21:39:52.716562+00:00",
+  "job": "research/kyros_cocktail3601_oracle_job.json",
+  "worker_pid": 27280,
+  "mame_pid": 53016,
+  "process_observation": "Both exact Windows PIDs absent in the preceding Get-CimInstance query",
+  "exit_code": null,
+  "exit_receipt_present": false,
+  "completion_present": false,
+  "passed": false,
+  "failure": "Observer finish() resolved global flip_trace before its later local declaration; corrected by declaring the local file before finish()",
+  "failure_path": "sim\\captures\\kyros\\cocktail3601\\failure.txt",
+  "failure_sha256": "523a946d1bdc411234269a97f51f1c07341dc7766847600dad6d782960e23ed4",
+  "preserved_runner_snapshot": "sim\\captures\\kyros\\cocktail3601\\runner_snapshot.py",
+  "runner_sha256": "5fa524955458c824588b66be3297660af6a009de21c2fe22b5b501247097552e",
+  "recovery": "Original script and capture retained; corrected v2 has a separate namespace and terminal receipt. No original success or recovered exit code is invented."
+}

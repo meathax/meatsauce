@@ -1,0 +1,57 @@
+{
+  "scope": "Related Exidy Bandido audio drawing, conditional connectivity only; not exact Sheriff propagation or trigger qualification.",
+  "drawing": {
+    "title": "BANDIDO AUDIO BOARD",
+    "owner_printed": "EXIDY INC.",
+    "date_printed": "1-6-80",
+    "number_printed": "77-3368-11",
+    "local_pdf": "_checks/manuals/bandido-1980.pdf"
+  },
+  "connections": {
+    "U5_second_half": "74123 B10 from J12-6; A9 grounded; CLR_n11 high; timing R2 33K and C4 33uF; Q5/Qbar12.",
+    "U5_first_half": "74123 B2 from J12-4; A1 grounded; CLR_n3 from J12-6; timing R3 33K and C5 33uF; Qbar4.",
+    "SN_enable": "U7 pin9 at R4 10K pullup-to-5V node, clamped by CR6 to U5 Qbar12 and CR5 to U5 Qbar4.",
+    "SN_VCO_mode": "U5 Q5 reaches U7 pin22.",
+    "SN_mixer_B": "U5 Q5 through U6 inverter9->8 reaches U7 pin25.",
+    "SN_external_VCO_voltage": "U5 Qbar4 through U6 inverter5->6 reaches U7 pin16."
+  },
+  "viewports": [
+    {
+      "page": 37,
+      "box": [
+        500,
+        2200,
+        4300,
+        5000
+      ],
+      "original": "_checks/manuals/bandido-sound-37.png",
+      "viewport": "_checks/manuals/bandido-monostable-enable-connected.png"
+    },
+    {
+      "page": 38,
+      "box": [
+        2750,
+        4800,
+        4200,
+        5300
+      ],
+      "original": "_checks/manuals/bandido-sound-38.png",
+      "viewport": "_checks/manuals/bandido-sound-title.png"
+    }
+  ],
+  "evidence_sha256": {
+    "D:/Arcade/AI/aCORES/sherrif/tools/record_sound_enable_network.py": "708902a747681a187c85f46d8230c0a4391492b88333163925c53b8e44ef4356",
+    "_checks/manuals/bandido-1980.pdf": "aa68eb8538e404c2ee1e02b7b47c0e40c62e9d9800cefcf22981c733c4b30224",
+    "_checks/manuals/bandido-sound-37.png": "bb3cf68b6fd2f1a1b25e1dcecbb19680242ab8203ecf9cf79db3905437886630",
+    "_checks/manuals/bandido-sound-38.png": "9f9afef836b335ba68f0819f74b885f17819b2138e4659fc65271254ef3a4f01",
+    "_checks/manuals/bandido-monostable-enable-connected.png": "10a20ec3a814fbb5b0c1fc81edd52e38b1a70516408d61f0cbc769433a8e5bbc",
+    "_checks/manuals/bandido-sound-title.png": "2271d860217a877379661dc3b123dfa85b0e5e5c10e49800baefb39a5d274228"
+  },
+  "limitations": [
+    "Shared trigger/clear wire and diode combination do not establish an enable pulse or its duration.",
+    "Actual Sheriff board revision, connector signal polarity, 74123 trigger edges, diode thresholds and propagation remain to be qualified.",
+    "Do not transplant the MAME zero-duration stop/start setter pulse into RTL from this drawing alone.",
+    "No production RTL edit, native replay or whole-audio pass."
+  ],
+  "physical_enable_pulse_qualified": false
+}

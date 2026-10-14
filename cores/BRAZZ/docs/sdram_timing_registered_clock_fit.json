@@ -1,0 +1,231 @@
+{
+  "scope": "cs_sdram_backend RTL with synthetic synchronous registered interface boundaries; excludes bench pin segments and production wrapper/PLL/physical I/O closure",
+  "top_entity": "cs_timing_registered",
+  "simulation_target": "sdram",
+  "interface_model": "registered_boundary",
+  "stage": "D:\\Arcade\\AI\\aCORES\\BRAZZ\\Arcade-CrystalSystem_MiSTer\\sim\\obj_dir\\timing\\1791182155774279200",
+  "source_sha256": {
+    "donors/sdram/src_v/sdram_axi_core.v": "bf7b3cdd53383051f8a108010bf5f19171eaff7e416b9b5b8d70ac1928b6af5f",
+    "rtl/memory/cs_sdram_backend.sv": "eccca8a37345eb10e6fb0494247f13cd3d07a92faa75551bb001e9e3b2207cc9"
+  },
+  "clock_period_ns": 11.64,
+  "seed": 1,
+  "rbf_generated": false,
+  "requested_fit": true,
+  "steps": [
+    {
+      "tool": "quartus_map",
+      "returncode": 0,
+      "seconds": 16.638,
+      "errors": [],
+      "log": "D:\\Arcade\\AI\\aCORES\\BRAZZ\\Arcade-CrystalSystem_MiSTer\\sim\\obj_dir\\timing\\1791182155774279200\\quartus_map.log"
+    },
+    {
+      "tool": "quartus_fit",
+      "returncode": 0,
+      "seconds": 56.229,
+      "errors": [],
+      "log": "D:\\Arcade\\AI\\aCORES\\BRAZZ\\Arcade-CrystalSystem_MiSTer\\sim\\obj_dir\\timing\\1791182155774279200\\quartus_fit.log"
+    },
+    {
+      "tool": "quartus_sta",
+      "returncode": 0,
+      "seconds": 7.168,
+      "errors": [],
+      "log": "D:\\Arcade\\AI\\aCORES\\BRAZZ\\Arcade-CrystalSystem_MiSTer\\sim\\obj_dir\\timing\\1791182155774279200\\quartus_sta.log"
+    }
+  ],
+  "configuration_sha256": {
+    "board.qpf": "8242ee5e59a70da6149cb823d27ca626c19cecce70342b4e21184bb2adb3d6c3",
+    "board.qsf": "22e8dd7d1d9270951dd8d49abce165baf624b68f4b6090c0b7aeba2016752a56",
+    "board.sdc": "baa5db0ebe577a093d1b45a5cf8ec12836f10d7ff18ba16eab683edb9f12ac47",
+    "board_registered.sv": "5fbddf88f587453d33dc5580c81cdb47334c9da4ffb079709da33e5f8b291e30"
+  },
+  "status": "TIMING_PASS",
+  "timing_summary": "------------------------------------------------------------\nTimeQuest Timing Analyzer Summary\n------------------------------------------------------------\n\nType  : Slow 1100mV 100C Model Setup 'board_clk'\nSlack : 4.225\nTNS   : 0.000\n\nType  : Slow 1100mV 100C Model Hold 'board_clk'\nSlack : 0.222\nTNS   : 0.000\n\nType  : Slow 1100mV 100C Model Recovery 'board_clk'\nSlack : 8.627\nTNS   : 0.000\n\nType  : Slow 1100mV 100C Model Removal 'board_clk'\nSlack : 0.924\nTNS   : 0.000\n\nType  : Slow 1100mV 100C Model Minimum Pulse Width 'board_clk'\nSlack : 5.076\nTNS   : 0.000\n\nType  : Slow 1100mV -40C Model Setup 'board_clk'\nSlack : 4.292\nTNS   : 0.000\n\nType  : Slow 1100mV -40C Model Hold 'board_clk'\nSlack : 0.207\nTNS   : 0.000\n\nType  : Slow 1100mV -40C Model Recovery 'board_clk'\nSlack : 8.739\nTNS   : 0.000\n\nType  : Slow 1100mV -40C Model Removal 'board_clk'\nSlack : 0.872\nTNS   : 0.000\n\nType  : Slow 1100mV -40C Model Minimum Pulse Width 'board_clk'\nSlack : 4.962\nTNS   : 0.000\n\nType  : Fast 1100mV 100C Model Setup 'board_clk'\nSlack : 7.737\nTNS   : 0.000\n\nType  : Fast 1100mV 100C Model Hold 'board_clk'\nSlack : 0.122\nTNS   : 0.000\n\nType  : Fast 1100mV 100C Model Recovery 'board_clk'\nSlack : 9.893\nTNS   : 0.000\n\nType  : Fast 1100mV 100C Model Removal 'board_clk'\nSlack : 0.447\nTNS   : 0.000\n\nType  : Fast 1100mV 100C Model Minimum Pulse Width 'board_clk'\nSlack : 5.388\nTNS   : 0.000\n\nType  : Fast 1100mV -40C Model Setup 'board_clk'\nSlack : 8.340\nTNS   : 0.000\n\nType  : Fast 1100mV -40C Model Hold 'board_clk'\nSlack : 0.108\nTNS   : 0.000\n\nType  : Fast 1100mV -40C Model Recovery 'board_clk'\nSlack : 10.171\nTNS   : 0.000\n\nType  : Fast 1100mV -40C Model Removal 'board_clk'\nSlack : 0.385\nTNS   : 0.000\n\nType  : Fast 1100mV -40C Model Minimum Pulse Width 'board_clk'\nSlack : 5.376\nTNS   : 0.000\n\n------------------------------------------------------------\n",
+  "slacks_ns": [
+    4.225,
+    0.222,
+    8.627,
+    0.924,
+    5.076,
+    4.292,
+    0.207,
+    8.739,
+    0.872,
+    4.962,
+    7.737,
+    0.122,
+    9.893,
+    0.447,
+    5.388,
+    8.34,
+    0.108,
+    10.171,
+    0.385,
+    5.376
+  ],
+  "resources": "Fitter Status : Successful - Mon Oct 05 17:37:07 2026\nQuartus Prime Version : 17.0.2 Build 602 07/19/2017 SJ Lite Edition\nRevision Name : board\nTop-level Entity Name : cs_timing_registered\nFamily : Cyclone V\nDevice : 5CSEBA6U23I7\nTiming Models : Final\nLogic utilization (in ALMs) : 228 / 41,910 ( < 1 % )\nTotal registers : 410\nTotal pins : 0 / 314 ( 0 % )\nTotal virtual pins : 167\nTotal block memory bits : 0 / 5,662,720 ( 0 % )\nTotal RAM Blocks : 0 / 553 ( 0 % )\nTotal DSP Blocks : 0 / 112 ( 0 % )\nTotal HSSI RX PCSs : 0\nTotal HSSI PMA RX Deserializers : 0\nTotal HSSI TX PCSs : 0\nTotal HSSI PMA TX Serializers : 0\nTotal PLLs : 0 / 6 ( 0 % )\nTotal DLLs : 0 / 4 ( 0 % )\n",
+  "path_audit": {
+    "returncode": 0,
+    "errors": [],
+    "seconds": 3.305,
+    "log": "D:\\Arcade\\AI\\aCORES\\BRAZZ\\Arcade-CrystalSystem_MiSTer\\sim\\obj_dir\\timing\\1791182155774279200\\timing_audit.log",
+    "audit_script_sha256": "1031578eac9ea14babde51ff874f1ef1da90dc0d6e8d202f1821014b6f883100",
+    "corners": [
+      {
+        "model": "Slow 1100mV 100C Model",
+        "setup": {
+          "slack_ns": 4.225,
+          "report": "D:\\Arcade\\AI\\aCORES\\BRAZZ\\Arcade-CrystalSystem_MiSTer\\sim\\obj_dir\\timing\\1791182155774279200\\timing_paths\\corner0_setup.rpt",
+          "from_node": "core_req_target[2]",
+          "to_node": "cs_sdram_backend:core|sdram_axi_core:controller|delay_state_q.STATE_PRECHARGE",
+          "data_delay": "6.762"
+        },
+        "hold": {
+          "slack_ns": 0.222,
+          "report": "D:\\Arcade\\AI\\aCORES\\BRAZZ\\Arcade-CrystalSystem_MiSTer\\sim\\obj_dir\\timing\\1791182155774279200\\timing_paths\\corner0_hold.rpt",
+          "from_node": "cs_sdram_backend:core|sdram_axi_core:controller|dqm_buffer_q[1]",
+          "to_node": "cs_sdram_backend:core|sdram_axi_core:controller|dqm_q[1]",
+          "data_delay": "0.344"
+        },
+        "internal_setup": {
+          "slack_ns": 4.225,
+          "report": "D:\\Arcade\\AI\\aCORES\\BRAZZ\\Arcade-CrystalSystem_MiSTer\\sim\\obj_dir\\timing\\1791182155774279200\\timing_paths\\corner0_internal_setup.rpt",
+          "from_node": "core_req_target[2]",
+          "to_node": "cs_sdram_backend:core|sdram_axi_core:controller|delay_state_q.STATE_PRECHARGE",
+          "data_delay": "6.762"
+        },
+        "internal_hold": {
+          "slack_ns": 0.222,
+          "report": "D:\\Arcade\\AI\\aCORES\\BRAZZ\\Arcade-CrystalSystem_MiSTer\\sim\\obj_dir\\timing\\1791182155774279200\\timing_paths\\corner0_internal_hold.rpt",
+          "from_node": "cs_sdram_backend:core|sdram_axi_core:controller|dqm_buffer_q[1]",
+          "to_node": "cs_sdram_backend:core|sdram_axi_core:controller|dqm_q[1]",
+          "data_delay": "0.344"
+        }
+      },
+      {
+        "model": "Slow 1100mV -40C Model",
+        "setup": {
+          "slack_ns": 4.292,
+          "report": "D:\\Arcade\\AI\\aCORES\\BRAZZ\\Arcade-CrystalSystem_MiSTer\\sim\\obj_dir\\timing\\1791182155774279200\\timing_paths\\corner1_setup.rpt",
+          "from_node": "core_req_target[2]",
+          "to_node": "cs_sdram_backend:core|sdram_axi_core:controller|delay_state_q.STATE_PRECHARGE",
+          "data_delay": "6.686"
+        },
+        "hold": {
+          "slack_ns": 0.207,
+          "report": "D:\\Arcade\\AI\\aCORES\\BRAZZ\\Arcade-CrystalSystem_MiSTer\\sim\\obj_dir\\timing\\1791182155774279200\\timing_paths\\corner1_hold.rpt",
+          "from_node": "cs_sdram_backend:core|sdram_axi_core:controller|dqm_buffer_q[1]",
+          "to_node": "cs_sdram_backend:core|sdram_axi_core:controller|dqm_q[1]",
+          "data_delay": "0.319"
+        },
+        "internal_setup": {
+          "slack_ns": 4.292,
+          "report": "D:\\Arcade\\AI\\aCORES\\BRAZZ\\Arcade-CrystalSystem_MiSTer\\sim\\obj_dir\\timing\\1791182155774279200\\timing_paths\\corner1_internal_setup.rpt",
+          "from_node": "core_req_target[2]",
+          "to_node": "cs_sdram_backend:core|sdram_axi_core:controller|delay_state_q.STATE_PRECHARGE",
+          "data_delay": "6.686"
+        },
+        "internal_hold": {
+          "slack_ns": 0.207,
+          "report": "D:\\Arcade\\AI\\aCORES\\BRAZZ\\Arcade-CrystalSystem_MiSTer\\sim\\obj_dir\\timing\\1791182155774279200\\timing_paths\\corner1_internal_hold.rpt",
+          "from_node": "cs_sdram_backend:core|sdram_axi_core:controller|dqm_buffer_q[1]",
+          "to_node": "cs_sdram_backend:core|sdram_axi_core:controller|dqm_q[1]",
+          "data_delay": "0.319"
+        }
+      },
+      {
+        "model": "Fast 1100mV 100C Model",
+        "setup": {
+          "slack_ns": 7.737,
+          "report": "D:\\Arcade\\AI\\aCORES\\BRAZZ\\Arcade-CrystalSystem_MiSTer\\sim\\obj_dir\\timing\\1791182155774279200\\timing_paths\\corner2_setup.rpt",
+          "from_node": "core_req_target[1]",
+          "to_node": "cs_sdram_backend:core|sdram_axi_core:controller|delay_state_q.STATE_PRECHARGE",
+          "data_delay": "3.579"
+        },
+        "hold": {
+          "slack_ns": 0.122,
+          "report": "D:\\Arcade\\AI\\aCORES\\BRAZZ\\Arcade-CrystalSystem_MiSTer\\sim\\obj_dir\\timing\\1791182155774279200\\timing_paths\\corner2_hold.rpt",
+          "from_node": "cs_sdram_backend:core|sdram_axi_core:controller|dqm_buffer_q[1]",
+          "to_node": "cs_sdram_backend:core|sdram_axi_core:controller|dqm_q[1]",
+          "data_delay": "0.166"
+        },
+        "internal_setup": {
+          "slack_ns": 7.737,
+          "report": "D:\\Arcade\\AI\\aCORES\\BRAZZ\\Arcade-CrystalSystem_MiSTer\\sim\\obj_dir\\timing\\1791182155774279200\\timing_paths\\corner2_internal_setup.rpt",
+          "from_node": "core_req_target[1]",
+          "to_node": "cs_sdram_backend:core|sdram_axi_core:controller|delay_state_q.STATE_PRECHARGE",
+          "data_delay": "3.579"
+        },
+        "internal_hold": {
+          "slack_ns": 0.122,
+          "report": "D:\\Arcade\\AI\\aCORES\\BRAZZ\\Arcade-CrystalSystem_MiSTer\\sim\\obj_dir\\timing\\1791182155774279200\\timing_paths\\corner2_internal_hold.rpt",
+          "from_node": "cs_sdram_backend:core|sdram_axi_core:controller|dqm_buffer_q[1]",
+          "to_node": "cs_sdram_backend:core|sdram_axi_core:controller|dqm_q[1]",
+          "data_delay": "0.166"
+        }
+      },
+      {
+        "model": "Fast 1100mV -40C Model",
+        "setup": {
+          "slack_ns": 8.34,
+          "report": "D:\\Arcade\\AI\\aCORES\\BRAZZ\\Arcade-CrystalSystem_MiSTer\\sim\\obj_dir\\timing\\1791182155774279200\\timing_paths\\corner3_setup.rpt",
+          "from_node": "core_req_target[1]",
+          "to_node": "cs_sdram_backend:core|sdram_axi_core:controller|delay_state_q.STATE_ACTIVATE",
+          "data_delay": "2.980"
+        },
+        "hold": {
+          "slack_ns": 0.108,
+          "report": "D:\\Arcade\\AI\\aCORES\\BRAZZ\\Arcade-CrystalSystem_MiSTer\\sim\\obj_dir\\timing\\1791182155774279200\\timing_paths\\corner3_hold.rpt",
+          "from_node": "cs_sdram_backend:core|sdram_axi_core:controller|dqm_buffer_q[1]",
+          "to_node": "cs_sdram_backend:core|sdram_axi_core:controller|dqm_q[1]",
+          "data_delay": "0.143"
+        },
+        "internal_setup": {
+          "slack_ns": 8.34,
+          "report": "D:\\Arcade\\AI\\aCORES\\BRAZZ\\Arcade-CrystalSystem_MiSTer\\sim\\obj_dir\\timing\\1791182155774279200\\timing_paths\\corner3_internal_setup.rpt",
+          "from_node": "core_req_target[1]",
+          "to_node": "cs_sdram_backend:core|sdram_axi_core:controller|delay_state_q.STATE_ACTIVATE",
+          "data_delay": "2.980"
+        },
+        "internal_hold": {
+          "slack_ns": 0.108,
+          "report": "D:\\Arcade\\AI\\aCORES\\BRAZZ\\Arcade-CrystalSystem_MiSTer\\sim\\obj_dir\\timing\\1791182155774279200\\timing_paths\\corner3_internal_hold.rpt",
+          "from_node": "cs_sdram_backend:core|sdram_axi_core:controller|dqm_buffer_q[1]",
+          "to_node": "cs_sdram_backend:core|sdram_axi_core:controller|dqm_q[1]",
+          "data_delay": "0.143"
+        }
+      }
+    ],
+    "unconstrained": {
+      "Illegal Clocks": [
+        0,
+        0
+      ],
+      "Unconstrained Clocks": [
+        0,
+        0
+      ],
+      "Unconstrained Input Port Paths": [
+        0,
+        0
+      ],
+      "Unconstrained Input Ports": [
+        0,
+        0
+      ],
+      "Unconstrained Output Port Paths": [
+        0,
+        0
+      ],
+      "Unconstrained Output Ports": [
+        0,
+        0
+      ]
+    },
+    "fully_constrained": true,
+    "internal_status": "INTERNAL_PASS",
+    "status": "AUDIT_PASS"
+  }
+}

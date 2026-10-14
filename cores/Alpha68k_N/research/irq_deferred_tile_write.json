@@ -1,0 +1,78 @@
+{
+  "schema": 1,
+  "sources": [
+    {
+      "path": "D:\\Arcade\\AI\\aCORES\\Alpha68k N\\sim\\captures\\rtl\\kyros_instruction60_diagnostic\\instruction_events.csv",
+      "sha256": "951c7d91c10ac3c1c090dc1db94e38742f9e9ebf279b41cfcd25ba38084226bf"
+    },
+    {
+      "path": "D:\\Arcade\\AI\\aCORES\\Alpha68k N\\sim\\captures\\kyros\\reset_raster361_v4\\events.csv",
+      "sha256": "1d630ea6c3bf6173c4463c4d1ce2b6a302fd3351369acabcea99247b51455747"
+    },
+    {
+      "path": "D:\\Arcade\\AI\\aCORES\\Alpha68k N\\research\\kyros_irq59_60_context_comparison.json",
+      "sha256": "7c3f436d62fe1d4174eb1951750691232eff10932296aba9c1e8c9fbe934ec7a"
+    },
+    {
+      "path": "D:\\Arcade\\AI\\aCORES\\Alpha68k N\\roms\\kyros\\maincpu.bin",
+      "sha256": "6949ea5dc91dfced8c1afccbadee18c2e795ab38d8adbc3795f05a19b8f3b2b3"
+    }
+  ],
+  "checks": {
+    "two_actual_field59_cases": true,
+    "rom_MOVE_W_immediate_postincrement_and_DBF_bytes_exact": true,
+    "native_saved_pc_854_mame_858": true,
+    "mame_tile_write_before_its_exception_stack": true,
+    "native_tile_write_after_its_exception_stack": true,
+    "both_next_write_offsets_75": true,
+    "both_initial_stack_offsets_minus21": true,
+    "both_relative_offset_growth_96": true
+  },
+  "cases": [
+    {
+      "field": 59,
+      "level": 1,
+      "address": 266676,
+      "value": 32,
+      "native_write_tick": 47925314,
+      "mame_write_callback_tick": 47849495,
+      "native_saved_pc": 2132,
+      "mame_saved_pc": 2136,
+      "native_stack_tick": 47849586,
+      "mame_stack_tick": 47849607,
+      "subsequent_shared_write_address": 266678,
+      "subsequent_native_tick": 47925490,
+      "subsequent_mame_tick": 47925415,
+      "subsequent_write_native_minus_mame_ticks": 75,
+      "stack_write_native_minus_mame_ticks": -21,
+      "relative_offset_growth_ticks": 96
+    },
+    {
+      "field": 59,
+      "level": 2,
+      "address": 267526,
+      "value": 32,
+      "native_write_tick": 48003170,
+      "mame_write_callback_tick": 48000039,
+      "native_saved_pc": 2132,
+      "mame_saved_pc": 2136,
+      "native_stack_tick": 48000130,
+      "mame_stack_tick": 48000151,
+      "subsequent_shared_write_address": 267528,
+      "subsequent_native_tick": 48003346,
+      "subsequent_mame_tick": 48003271,
+      "subsequent_write_native_minus_mame_ticks": 75,
+      "stack_write_native_minus_mame_ticks": -21,
+      "relative_offset_growth_ticks": 96
+    }
+  ],
+  "scope": "Two actual writes straddle different sides of the field59 interrupt contexts. Common next-write offsets grow by96masterticks; no semantic instruction-edge or physical timing equivalence is assumed.",
+  "limits": [
+    "MAME tile tap completeness requires independent source review; unmatched tile counts are not missing RTL writes.",
+    "This qualifies a software-visible ordering difference, not the physical correctness of either timing model.",
+    "No IRQ phase, clock or CPU-cycle correction follows from these observations alone."
+  ],
+  "B16_closure": false,
+  "timing_fix_established": false,
+  "whole_game_acceptance": false
+}

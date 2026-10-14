@@ -1,0 +1,63 @@
+{
+  "scope": "Terminal saved native 6781-field opcode replay; post-IRQ frame-6780 observation only",
+  "actual_worker_result": {
+    "exit_code": 0,
+    "build_exit_code": 0,
+    "finished_at": "2026-10-09T06:47:17.6373106Z",
+    "bus_frames": [
+      102,
+      2759,
+      6779
+    ],
+    "started_at": "2026-10-09T04:56:19.6024613Z",
+    "executable": "sim/build/pixel-irq-bus-windows-20261009/board/Vn8080_board",
+    "inputs": "sim/inputs_restart.csv",
+    "frames_requested": 6781
+  },
+  "actual_terminal": {
+    "frames": 6781,
+    "writes": 4543123,
+    "irq_acknowledges": 13412,
+    "final_address": 6082
+  },
+  "bus_rows": 57821,
+  "vblank_tick": 5553356800,
+  "post_irq_events": [
+    {
+      "tick": 5553356831,
+      "kind": "ack",
+      "address": 2563,
+      "data": 0,
+      "status": 4
+    },
+    {
+      "tick": 5553356994,
+      "kind": "write",
+      "address": 32761,
+      "data": 10,
+      "status": 4
+    },
+    {
+      "tick": 5553357069,
+      "kind": "write",
+      "address": 32760,
+      "data": 3,
+      "status": 4
+    }
+  ],
+  "irq_saved_return_pc": "0x0a03",
+  "post_irq_qualified": true,
+  "pre_irq_fetch_qualified": false,
+  "first_divergence_cause_qualified": false,
+  "complete_sheriff": false,
+  "quartus_used": false,
+  "hashes": {
+    "executable": "ffa2eb6e2006a5bac94ea2b7be59a93c6c4b83ede3cd8af1f7a51ce857524bb3",
+    "input_fixture": "15e27f7747d95c53762259b136b7b8aeff7e8a7c24dcf75ac81edad85456db3d",
+    "bus_csv": "ecd1830ed6dbffc454507dfe76b639490301aa77e464438e6fc0b3573bc35efe",
+    "worker_result": "41eb20dfc7fb6c997fd1f5a68ce9e904325cf1c0c852efc038531216102277d8",
+    "actual_stdout": "88256fbc3a7d465cd8157c7a192d27ba2c48cbfa1f2d28c019b5c9a0c3911136"
+  },
+  "recovery": "sim/results/pixel-irq-bus-windows-rtl-20261009",
+  "limits": "The completed-field windows 2759/6779 begin at the relevant vblank edges and miss preceding opcode fetches. Retain baseline/post-IRQ evidence; use 2398/2758/6778 on the next necessary corrected-board replay. This does not qualify physical video load timing or waive MAME RGB differences."
+}

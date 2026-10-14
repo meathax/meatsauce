@@ -1,0 +1,698 @@
+{
+  "passed": true,
+  "checks": {
+    "expected_graphics_rejection": true,
+    "complete_field": true,
+    "nonvacuous_color_ff_effect": true,
+    "independent_fixture_decoder_agrees": true,
+    "mame_difference_count": true,
+    "suppressed_ff_tiles": true,
+    "no_renderer_fault": true
+  },
+  "field": 1500,
+  "command": [
+    "wsl.exe",
+    "-d",
+    "Ubuntu",
+    "--cd",
+    "D:\\Arcade\\AI\\aCORES\\Alpha68k N",
+    "--exec",
+    "/mnt/d/Arcade/AI/aCORES/Alpha68k N/sim/captures/diagnostics/combat_hud_prewrite_fixtures/alpha68kn_render_fixture_sim",
+    "roms/kyros/download.bin",
+    "sim/captures/renderer/kyros_candidate5_lastroom_renderer_color_ff_suppression_001500/suppressed.sprites.bin",
+    "68",
+    "sim/captures/renderer/kyros_candidate5_lastroom_renderer_color_ff_suppression_001500/field_001500",
+    "0",
+    "sim/captures/kyros/late_scene_candidates3600_centered_up_scene5_lastroom/frame_001500.display.rgb"
+  ],
+  "exit_code": 1,
+  "result": {
+    "scope": "isolated strip/palette/SDRAM fixture; no CPU acceptance",
+    "profile": 0,
+    "flip": false,
+    "pixels": 57344,
+    "pixel_mismatches": 0,
+    "first_x": 0,
+    "first_y": 16,
+    "oracle_compared": true,
+    "oracle_mismatches": 500,
+    "worst_line_cycles": 1477,
+    "completed_lines": 225,
+    "deadline_misses": 0,
+    "row_overflows": 0,
+    "banks_mask": 159,
+    "boundary_codes_mask": 1,
+    "color_ff_tiles": 0,
+    "read_pairs": 18048,
+    "result": "fail"
+  },
+  "changed_pixels": 500,
+  "modifications": [
+    {
+      "byte_offset": 4892,
+      "before": 3973,
+      "after": 32,
+      "clut_address": 3972
+    },
+    {
+      "byte_offset": 4894,
+      "before": 3972,
+      "after": 32,
+      "clut_address": 3972
+    },
+    {
+      "byte_offset": 4956,
+      "before": 3975,
+      "after": 32,
+      "clut_address": 3972
+    },
+    {
+      "byte_offset": 4958,
+      "before": 3974,
+      "after": 32,
+      "clut_address": 3972
+    },
+    {
+      "byte_offset": 5900,
+      "before": 4001,
+      "after": 32,
+      "clut_address": 4000
+    },
+    {
+      "byte_offset": 5902,
+      "before": 4000,
+      "after": 32,
+      "clut_address": 4000
+    },
+    {
+      "byte_offset": 5916,
+      "before": 3973,
+      "after": 32,
+      "clut_address": 3972
+    },
+    {
+      "byte_offset": 5918,
+      "before": 3972,
+      "after": 32,
+      "clut_address": 3972
+    },
+    {
+      "byte_offset": 5964,
+      "before": 4003,
+      "after": 32,
+      "clut_address": 4000
+    },
+    {
+      "byte_offset": 5966,
+      "before": 4002,
+      "after": 32,
+      "clut_address": 4000
+    },
+    {
+      "byte_offset": 5980,
+      "before": 3975,
+      "after": 32,
+      "clut_address": 3972
+    },
+    {
+      "byte_offset": 5982,
+      "before": 3974,
+      "after": 32,
+      "clut_address": 3972
+    },
+    {
+      "byte_offset": 6188,
+      "before": 32769,
+      "after": 32,
+      "clut_address": 2
+    },
+    {
+      "byte_offset": 6190,
+      "before": 32768,
+      "after": 32,
+      "clut_address": 2
+    },
+    {
+      "byte_offset": 6192,
+      "before": 32769,
+      "after": 32,
+      "clut_address": 2
+    },
+    {
+      "byte_offset": 6194,
+      "before": 32768,
+      "after": 32,
+      "clut_address": 2
+    },
+    {
+      "byte_offset": 6196,
+      "before": 32769,
+      "after": 32,
+      "clut_address": 2
+    },
+    {
+      "byte_offset": 6198,
+      "before": 32768,
+      "after": 32,
+      "clut_address": 2
+    },
+    {
+      "byte_offset": 6200,
+      "before": 32769,
+      "after": 32,
+      "clut_address": 2
+    },
+    {
+      "byte_offset": 6202,
+      "before": 32768,
+      "after": 32,
+      "clut_address": 2
+    },
+    {
+      "byte_offset": 6204,
+      "before": 32769,
+      "after": 32,
+      "clut_address": 2
+    },
+    {
+      "byte_offset": 6206,
+      "before": 32768,
+      "after": 32,
+      "clut_address": 2
+    },
+    {
+      "byte_offset": 6252,
+      "before": 32771,
+      "after": 32,
+      "clut_address": 2
+    },
+    {
+      "byte_offset": 6254,
+      "before": 32770,
+      "after": 32,
+      "clut_address": 2
+    },
+    {
+      "byte_offset": 6256,
+      "before": 32771,
+      "after": 32,
+      "clut_address": 2
+    },
+    {
+      "byte_offset": 6258,
+      "before": 32770,
+      "after": 32,
+      "clut_address": 2
+    },
+    {
+      "byte_offset": 6260,
+      "before": 32771,
+      "after": 32,
+      "clut_address": 2
+    },
+    {
+      "byte_offset": 6262,
+      "before": 32770,
+      "after": 32,
+      "clut_address": 2
+    },
+    {
+      "byte_offset": 6264,
+      "before": 32771,
+      "after": 32,
+      "clut_address": 2
+    },
+    {
+      "byte_offset": 6266,
+      "before": 32770,
+      "after": 32,
+      "clut_address": 2
+    },
+    {
+      "byte_offset": 6268,
+      "before": 32771,
+      "after": 32,
+      "clut_address": 2
+    },
+    {
+      "byte_offset": 6270,
+      "before": 32770,
+      "after": 32,
+      "clut_address": 2
+    },
+    {
+      "byte_offset": 6316,
+      "before": 32769,
+      "after": 32,
+      "clut_address": 2
+    },
+    {
+      "byte_offset": 6318,
+      "before": 32768,
+      "after": 32,
+      "clut_address": 2
+    },
+    {
+      "byte_offset": 6332,
+      "before": 32769,
+      "after": 32,
+      "clut_address": 2
+    },
+    {
+      "byte_offset": 6334,
+      "before": 32768,
+      "after": 32,
+      "clut_address": 2
+    },
+    {
+      "byte_offset": 6380,
+      "before": 32771,
+      "after": 32,
+      "clut_address": 2
+    },
+    {
+      "byte_offset": 6382,
+      "before": 32770,
+      "after": 32,
+      "clut_address": 2
+    },
+    {
+      "byte_offset": 6396,
+      "before": 32771,
+      "after": 32,
+      "clut_address": 2
+    },
+    {
+      "byte_offset": 6398,
+      "before": 32770,
+      "after": 32,
+      "clut_address": 2
+    },
+    {
+      "byte_offset": 6444,
+      "before": 32769,
+      "after": 32,
+      "clut_address": 2
+    },
+    {
+      "byte_offset": 6446,
+      "before": 32768,
+      "after": 32,
+      "clut_address": 2
+    },
+    {
+      "byte_offset": 6508,
+      "before": 32771,
+      "after": 32,
+      "clut_address": 2
+    },
+    {
+      "byte_offset": 6510,
+      "before": 32770,
+      "after": 32,
+      "clut_address": 2
+    },
+    {
+      "byte_offset": 6572,
+      "before": 32768,
+      "after": 32,
+      "clut_address": 2
+    },
+    {
+      "byte_offset": 6574,
+      "before": 32768,
+      "after": 32,
+      "clut_address": 2
+    },
+    {
+      "byte_offset": 6576,
+      "before": 32768,
+      "after": 32,
+      "clut_address": 2
+    },
+    {
+      "byte_offset": 6578,
+      "before": 32768,
+      "after": 32,
+      "clut_address": 2
+    },
+    {
+      "byte_offset": 6580,
+      "before": 32768,
+      "after": 32,
+      "clut_address": 2
+    },
+    {
+      "byte_offset": 6582,
+      "before": 32768,
+      "after": 32,
+      "clut_address": 2
+    },
+    {
+      "byte_offset": 6584,
+      "before": 32768,
+      "after": 32,
+      "clut_address": 2
+    },
+    {
+      "byte_offset": 6586,
+      "before": 32768,
+      "after": 32,
+      "clut_address": 2
+    },
+    {
+      "byte_offset": 6588,
+      "before": 32768,
+      "after": 32,
+      "clut_address": 2
+    },
+    {
+      "byte_offset": 6590,
+      "before": 32768,
+      "after": 32,
+      "clut_address": 2
+    },
+    {
+      "byte_offset": 6636,
+      "before": 32768,
+      "after": 32,
+      "clut_address": 2
+    },
+    {
+      "byte_offset": 6638,
+      "before": 32768,
+      "after": 32,
+      "clut_address": 2
+    },
+    {
+      "byte_offset": 6640,
+      "before": 32768,
+      "after": 32,
+      "clut_address": 2
+    },
+    {
+      "byte_offset": 6642,
+      "before": 32768,
+      "after": 32,
+      "clut_address": 2
+    },
+    {
+      "byte_offset": 6644,
+      "before": 32768,
+      "after": 32,
+      "clut_address": 2
+    },
+    {
+      "byte_offset": 6646,
+      "before": 32768,
+      "after": 32,
+      "clut_address": 2
+    },
+    {
+      "byte_offset": 6648,
+      "before": 32768,
+      "after": 32,
+      "clut_address": 2
+    },
+    {
+      "byte_offset": 6650,
+      "before": 32768,
+      "after": 32,
+      "clut_address": 2
+    },
+    {
+      "byte_offset": 6652,
+      "before": 32768,
+      "after": 32,
+      "clut_address": 2
+    },
+    {
+      "byte_offset": 6654,
+      "before": 32768,
+      "after": 32,
+      "clut_address": 2
+    },
+    {
+      "byte_offset": 6700,
+      "before": 32769,
+      "after": 32,
+      "clut_address": 2
+    },
+    {
+      "byte_offset": 6702,
+      "before": 32768,
+      "after": 32,
+      "clut_address": 2
+    },
+    {
+      "byte_offset": 6704,
+      "before": 32769,
+      "after": 32,
+      "clut_address": 2
+    },
+    {
+      "byte_offset": 6706,
+      "before": 32768,
+      "after": 32,
+      "clut_address": 2
+    },
+    {
+      "byte_offset": 6708,
+      "before": 32769,
+      "after": 32,
+      "clut_address": 2
+    },
+    {
+      "byte_offset": 6710,
+      "before": 32768,
+      "after": 32,
+      "clut_address": 2
+    },
+    {
+      "byte_offset": 6712,
+      "before": 32769,
+      "after": 32,
+      "clut_address": 2
+    },
+    {
+      "byte_offset": 6714,
+      "before": 32768,
+      "after": 32,
+      "clut_address": 2
+    },
+    {
+      "byte_offset": 6716,
+      "before": 32769,
+      "after": 32,
+      "clut_address": 2
+    },
+    {
+      "byte_offset": 6718,
+      "before": 32768,
+      "after": 32,
+      "clut_address": 2
+    },
+    {
+      "byte_offset": 6764,
+      "before": 32771,
+      "after": 32,
+      "clut_address": 2
+    },
+    {
+      "byte_offset": 6766,
+      "before": 32770,
+      "after": 32,
+      "clut_address": 2
+    },
+    {
+      "byte_offset": 6768,
+      "before": 32771,
+      "after": 32,
+      "clut_address": 2
+    },
+    {
+      "byte_offset": 6770,
+      "before": 32770,
+      "after": 32,
+      "clut_address": 2
+    },
+    {
+      "byte_offset": 6772,
+      "before": 32771,
+      "after": 32,
+      "clut_address": 2
+    },
+    {
+      "byte_offset": 6774,
+      "before": 32770,
+      "after": 32,
+      "clut_address": 2
+    },
+    {
+      "byte_offset": 6776,
+      "before": 32771,
+      "after": 32,
+      "clut_address": 2
+    },
+    {
+      "byte_offset": 6778,
+      "before": 32770,
+      "after": 32,
+      "clut_address": 2
+    },
+    {
+      "byte_offset": 6780,
+      "before": 32771,
+      "after": 32,
+      "clut_address": 2
+    },
+    {
+      "byte_offset": 6782,
+      "before": 32770,
+      "after": 32,
+      "clut_address": 2
+    },
+    {
+      "byte_offset": 6828,
+      "before": 32769,
+      "after": 32,
+      "clut_address": 2
+    },
+    {
+      "byte_offset": 6830,
+      "before": 32768,
+      "after": 32,
+      "clut_address": 2
+    },
+    {
+      "byte_offset": 6844,
+      "before": 32769,
+      "after": 32,
+      "clut_address": 2
+    },
+    {
+      "byte_offset": 6846,
+      "before": 32768,
+      "after": 32,
+      "clut_address": 2
+    },
+    {
+      "byte_offset": 6892,
+      "before": 32771,
+      "after": 32,
+      "clut_address": 2
+    },
+    {
+      "byte_offset": 6894,
+      "before": 32770,
+      "after": 32,
+      "clut_address": 2
+    },
+    {
+      "byte_offset": 6908,
+      "before": 32771,
+      "after": 32,
+      "clut_address": 2
+    },
+    {
+      "byte_offset": 6910,
+      "before": 32770,
+      "after": 32,
+      "clut_address": 2
+    },
+    {
+      "byte_offset": 6956,
+      "before": 32769,
+      "after": 32,
+      "clut_address": 2
+    },
+    {
+      "byte_offset": 6958,
+      "before": 32768,
+      "after": 32,
+      "clut_address": 2
+    },
+    {
+      "byte_offset": 7020,
+      "before": 32771,
+      "after": 32,
+      "clut_address": 2
+    },
+    {
+      "byte_offset": 7022,
+      "before": 32770,
+      "after": 32,
+      "clut_address": 2
+    },
+    {
+      "byte_offset": 7084,
+      "before": 32769,
+      "after": 32,
+      "clut_address": 2
+    },
+    {
+      "byte_offset": 7086,
+      "before": 32768,
+      "after": 32,
+      "clut_address": 2
+    },
+    {
+      "byte_offset": 7088,
+      "before": 32769,
+      "after": 32,
+      "clut_address": 2
+    },
+    {
+      "byte_offset": 7090,
+      "before": 32768,
+      "after": 32,
+      "clut_address": 2
+    },
+    {
+      "byte_offset": 7148,
+      "before": 32771,
+      "after": 32,
+      "clut_address": 2
+    },
+    {
+      "byte_offset": 7150,
+      "before": 32770,
+      "after": 32,
+      "clut_address": 2
+    },
+    {
+      "byte_offset": 7152,
+      "before": 32771,
+      "after": 32,
+      "clut_address": 2
+    },
+    {
+      "byte_offset": 7154,
+      "before": 32770,
+      "after": 32,
+      "clut_address": 2
+    }
+  ],
+  "native_bounds": {
+    "min_x": 112,
+    "max_x": 247,
+    "min_y": 16,
+    "max_y": 95
+  },
+  "portrait_bounds": {
+    "min_x": 128,
+    "max_x": 207,
+    "min_y": 112,
+    "max_y": 247
+  },
+  "source_sha256": {
+    "research\\kyros_candidate5_lastroom_renderer_verification.json": "10476be5a648af113ae4be2908f7d866903c4d7f860dab8ded479a775f9d9ada",
+    "sim\\captures\\kyros\\late_scene_candidates3600_centered_up_scene5_lastroom\\frame_001500.sprites.bin": "8329d01ec5a927b77f14c098bcca73d399f4160f9509313e61c748355a68bab8",
+    "sim\\captures\\kyros\\late_scene_candidates3600_centered_up_scene5_lastroom\\frame_001500.display.rgb": "1e24ce80cdeb12e6e5a054e62af19dd312d4d9843458cc4b50f692c7fbe9416d",
+    "roms\\kyros\\download.bin": "5cf728d5d40e9be14a4a9c07792bab9f44404a75c2c2eed92124ff96ee9b5ef6",
+    "sim\\captures\\diagnostics\\combat_hud_prewrite_fixtures\\alpha68kn_render_fixture_sim": "39b911470653cd526a54660362ea15c1efc94fbd4fd551709c6e63e5d19be31f"
+  },
+  "fixture_sha256": "c12307035719cfd86f0a3c3148650dc383fd9f5abfe6c42d625e0bd7caf628e6",
+  "actual_sha256": "56d83344ba906ca4fe52c6f70bf83b8db55e814b5a989be44c4751044e262355",
+  "scope": "Deliberate isolated RAM fault injection: replace CLUT255 tile words by the Kyros sentinel, equivalent to the obsolete color255 skip. Positive baseline stays unchanged and matches full MAME RGB. No old-MAME capture, RTL modification, screenshot mask or CPU gameplay acceptance."
+}

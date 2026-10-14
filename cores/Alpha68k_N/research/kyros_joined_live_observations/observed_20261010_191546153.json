@@ -1,0 +1,33 @@
+{
+  "observed_utc": "2026-10-10T19:15:46.1473165Z",
+  "csv_length": 318539,
+  "tail_read_byte_offset": 316491,
+  "tail_read_bytes": 2048,
+  "csv_mtime_utc": "2026-10-10T19:15:45.3256540Z",
+  "latest_completed_field": 4091,
+  "completed_fields": 4092,
+  "latest_row": "4091,131076,4360,94761712,884784,902659,4102,4036,4092,0,57344,0,2280,1080288,0,0",
+  "native_ps_exit": 0,
+  "native_ps": [
+    "    PID     ELAPSED     TIME STAT COMMAND",
+    "  58820    03:13:51 00:00:00 Ss+  python3 scripts/transition_kyros_joined_4401_v1.py --transition",
+    "  58822    03:13:48 03:13:35 Rl+  /mnt/d/Arcade/AI/aCORES/Alpha68k N/sim/captures/rtl/kyros_joined_lifecycle_4401_v1/alpha68kn_merged_lifecycle_v2_sim /mnt/d/Arcade/AI/aCORES/Alpha68k N/roms/kyros/download.bin 4401 /mnt/d/Arcade/AI/aCORES/Alpha68k N/sim/captures/rtl/kyros_joined_lifecycle_4401_v1 gameplay --inputs /mnt/d/Arcade/AI/aCORES/Alpha68k N/sim/captures/kyros/idle_death_restart_actions4401/frame_states.csv"
+  ],
+  "watchers": [
+    {
+      "ProcessId": 46320,
+      "Name": "python.exe",
+      "CommandLine": "D:\\vibes\\fpga\\toolchains\\msys64\\ucrt64\\bin\\python.exe -X utf8 \"D:\\Arcade\\AI\\aCORES\\Alpha68k N\\scripts\\qualify_kyros_completed_png_v1.py\" --wait-terminal"
+    },
+    {
+      "ProcessId": 28924,
+      "Name": "python.exe",
+      "CommandLine": "D:\\vibes\\fpga\\toolchains\\msys64\\ucrt64\\bin\\python.exe -X utf8 \"D:\\Arcade\\AI\\aCORES\\Alpha68k N\\scripts\\freeze_kyros_joined_terminal_v1.py\" --wait"
+    }
+  ],
+  "terminals": [],
+  "source_job_sha256": "ed5dd5fa041a8e3c3e46d7cd0c1298e69c391b7b613c21aeb8e1abc0ee1b1f9e",
+  "candidate_ELF_sha256": "8aeaa8d8b1fa4683aeb1415409cac3f39407c58337001fd38ecd887d3f3243de",
+  "candidate_closure_sha256": "76411d80f0cdcd4da6d75e6287ac6fa9adeac64ddf06a80019f87ef18dc9a13c",
+  "scope": "Fresh bounded historical candidate observation; no current43b wholecore claim, source edits/control/new watchers"
+}

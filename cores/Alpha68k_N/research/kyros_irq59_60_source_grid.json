@@ -1,0 +1,14 @@
+{
+  "scope": "Primary source corroboration and observed grids, not a root-cause/physical-phase proof",
+  "inputs_sha256": {
+    "D:\\Arcade\\AI\\aCORES\\Alpha68k N\\rtl\\vendor\\fx68k\\fx68k.sv": "797566aa6c1dfb308d88a458550d55f86e0d023e670ab179cc39f594d9d4f73d",
+    "D:\\Arcade\\AI\\aCORES\\Alpha68k N\\rtl\\alpha68kn_board.sv": "1d96bcb640490b62fbe6f15a9dc0e4fcf8e80b496cc108f14bd91241eb85ca0c",
+    "D:\\Arcade\\AI\\mame289\\src\\devices\\cpu\\m68000\\m68000.cpp": "ef095e786564a203b828ed8e1e517b6af2e0d8fd64090d432f8be67480a5fab3",
+    "D:\\Arcade\\AI\\mame289\\src\\mame\\alpha\\alpha68k.h": "7265faf19c6e1c01a7a45febe8df01c02f07e0c3a7a1bd0fc98b9b3a9afca2a0"
+  },
+  "native_vector_ticks_mod80": 26,
+  "mame_vector_ticks_mod80": 55,
+  "period_basis": "6MHz CPU =8 master ticks; FX eCntr wraps every10 enPhi2 enables; MAME vpa_sync aligns current_time modulo10 CPU clocks",
+  "irq_cases": 4,
+  "open": "Run origins and actual E/IRQ sampling phase require qualification; no change to clock, VPA or interrupt timing justified by these finite observations"
+}

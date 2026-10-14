@@ -1,0 +1,64 @@
+{
+  "scope": "Distinct actual RTL HPS181-field prefix. Complete overlapping stats, input ticks and RGB must equal frozen v5. New119/179 coverage stays separate; v5 finite/full graphics results remain unchanged.",
+  "checks": {
+    "actual_terminal_exit_zero": true,
+    "terminal_matches_owned_process": true,
+    "complete181_fields": true,
+    "complete181_input_applications": true,
+    "all181_frame_stats_match_v5": true,
+    "all_overlap_rgb_exact": true,
+    "production_pins_exact_v5_and_content_equivalent_canonical": true,
+    "private_host_exact_four_substitutions": true,
+    "private_host_pin": true,
+    "executable_pin": true,
+    "rom_pin": true,
+    "ports_pin": true,
+    "target_images_actual_full_fields": true,
+    "no_post_prefix_score_fixture": true
+  },
+  "observer_prefix_fidelity_pass": true,
+  "images": {
+    "119": {
+      "actual": "D:\\Arcade\\AI\\aCORES\\Alpha68k N\\sim\\captures\\rtl\\kyros_earned_prefix181\\frame_000119.core.rgb",
+      "reference": "D:\\Arcade\\AI\\aCORES\\Alpha68k N\\sim\\captures\\kyros\\combat3600_v2\\frame_000119.display.rgb",
+      "reference_kind": "MAME canonical displayed RGB, same as v5 qualification",
+      "actual_sha256": "3bcac5c304a6099c1684bffb103dc2964200a2616be78baa744dcf123d7f8e72",
+      "reference_sha256": "3bcac5c304a6099c1684bffb103dc2964200a2616be78baa744dcf123d7f8e72",
+      "bytes": 172032,
+      "pixel_differences": 0,
+      "framework_exact": true
+    },
+    "179": {
+      "actual": "D:\\Arcade\\AI\\aCORES\\Alpha68k N\\sim\\captures\\rtl\\kyros_earned_prefix181\\frame_000179.core.rgb",
+      "reference": "D:\\Arcade\\AI\\aCORES\\Alpha68k N\\sim\\captures\\kyros\\combat3600_v2\\frame_000179.display.rgb",
+      "reference_kind": "MAME canonical displayed RGB, same as v5 qualification",
+      "actual_sha256": "159db246e6c1ca749ddf242ec71367a07727892df17a5f760446eb58941b8cdd",
+      "reference_sha256": "159db246e6c1ca749ddf242ec71367a07727892df17a5f760446eb58941b8cdd",
+      "bytes": 172032,
+      "pixel_differences": 0,
+      "framework_exact": true
+    }
+  },
+  "overlap": {
+    "frame_000000.core.rgb": true,
+    "frame_000000.vga.rgb": true,
+    "frame_000030.core.rgb": true,
+    "frame_000030.vga.rgb": true,
+    "frame_000060.core.rgb": true,
+    "frame_000060.vga.rgb": true,
+    "frame_000090.core.rgb": true,
+    "frame_000090.vga.rgb": true,
+    "frame_000120.core.rgb": true,
+    "frame_000120.vga.rgb": true,
+    "frame_000150.core.rgb": true,
+    "frame_000150.vga.rgb": true,
+    "frame_000180.core.rgb": true,
+    "frame_000180.vga.rgb": true
+  },
+  "canonical119_179_graphics_pass": true,
+  "full_feature_acceptance": false,
+  "whole_game_acceptance": false,
+  "terminal_sha256": "09fcf1cca5bac709ef37a53e6b87f6e9d97336114d7648b0b28611f59320a6b3",
+  "verifier_sha256": "53d64fe14ef5f4d5c5f56c5a1dc186b2f4d13bf2916aac758044c7a13f9835a6",
+  "v5_feature_terminal_sha256": "8266182a38e9f47633b0b572d854876a1980bb2f2e421490cc25cad8583a388a"
+}

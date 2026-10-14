@@ -1,0 +1,20 @@
+{
+  "scope": "Finite early post-reset graphics and CPU sound commands; second gameplay/whole run pending",
+  "graphics": [
+    {
+      "frame": 330,
+      "different_pixels": 390,
+      "rtl_sha256": "b81bc7a9187a4dd8519fb877e063137ae08b168c1e938a6e15b4d1bc86125ab3",
+      "mame_sha256": "7f943b9faa4dbf246526e278a9e1a4bce65587ac9c5d30cfbdd0517c922cddc0"
+    },
+    {
+      "frame": 360,
+      "different_pixels": 2104,
+      "rtl_sha256": "75abd0a2622c84b91e0b0e8fcbc44c3c133b940541d9310af3d3c0beda0fa1bc",
+      "mame_sha256": "38139c5b73ffe4fb269a04a58df72508ba09c9581ed026c636ee2d10190cb860"
+    }
+  ],
+  "sound_comparison_exit": 0,
+  "reset_events": "frame,tick,phase,main_transactions,sound_transactions,ym_writes,dac,audio_sample,cold_reset,downloading\n300,244113401,before,6965517,5448103,42,152,-7988,0,0\n300,244113465,held,0,0,0,0,0,0,0\n",
+  "sound_receipt": "research/kyros_warm_reset_sound360.json"
+}

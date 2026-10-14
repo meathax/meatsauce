@@ -1,0 +1,545 @@
+[
+  {
+    "set": "sheriff",
+    "driver": "n8080.cpp",
+    "parent": true,
+    "chips": [
+      {
+        "name": "sh.f1",
+        "region": "maincpu",
+        "offset": 0,
+        "size": 1024,
+        "crc32": "e79df6e8",
+        "sha1": "908176de9bfc3d48e2da9af6ba7ebdee698ec2de"
+      },
+      {
+        "name": "sh.f2",
+        "region": "maincpu",
+        "offset": 1024,
+        "size": 1024,
+        "crc32": "da67721a",
+        "sha1": "ee6a5fb98da1d1fcfad0ef27af300473a637f578"
+      },
+      {
+        "name": "sh.g1",
+        "region": "maincpu",
+        "offset": 2048,
+        "size": 1024,
+        "crc32": "3fb7888e",
+        "sha1": "2c2d6b27d577d5ccf759e451e53c2e3314af40f6"
+      },
+      {
+        "name": "sh.g2",
+        "region": "maincpu",
+        "offset": 3072,
+        "size": 1024,
+        "crc32": "585fcfee",
+        "sha1": "82f2abc14f893c092b80da45fc297fa5fb0890b5"
+      },
+      {
+        "name": "sh.h1",
+        "region": "maincpu",
+        "offset": 4096,
+        "size": 1024,
+        "crc32": "e59eab52",
+        "sha1": "aa87710237dd48d1831f1b307d547b1b0707cd4e"
+      },
+      {
+        "name": "sh.h2",
+        "region": "maincpu",
+        "offset": 5120,
+        "size": 1024,
+        "crc32": "79e69a6a",
+        "sha1": "1780ce77d7d9ddbf4aceabe0fcf079339837bbe1"
+      },
+      {
+        "name": "sh.i1",
+        "region": "maincpu",
+        "offset": 6144,
+        "size": 1024,
+        "crc32": "dda7d1e8",
+        "sha1": "bd2a7388e81c71922b2e97d68be71359a75e8d37"
+      },
+      {
+        "name": "sh.i2",
+        "region": "maincpu",
+        "offset": 7168,
+        "size": 1024,
+        "crc32": "5c5f3f86",
+        "sha1": "25c64ccb7d0e136f67d6e1da7927ae6d89e0ceb9"
+      },
+      {
+        "name": "sh.j1",
+        "region": "maincpu",
+        "offset": 8192,
+        "size": 1024,
+        "crc32": "0aa8b79a",
+        "sha1": "aed139e8c8ba912823c57fe4cc7231b2d638f479"
+      },
+      {
+        "name": "sh.snd",
+        "region": "soundboard:cpu",
+        "offset": 0,
+        "size": 1024,
+        "crc32": "75731745",
+        "sha1": "538a63c9c60f1886fca4caf3eb1e0bada2d3f162"
+      },
+      {
+        "name": "82s137.3l",
+        "region": "proms",
+        "offset": 0,
+        "size": 1024,
+        "crc32": "820f8cdd",
+        "sha1": "197eeb008c140558e7c1ab2b2bd0f6a27096877c"
+      }
+    ],
+    "archive_sha256": "5d874071ad3bcafef74e1e0890f5636f7907fab2046f67106929e442ed2099dc",
+    "dump_warnings": []
+  },
+  {
+    "set": "spacefev",
+    "driver": "n8080.cpp",
+    "parent": true,
+    "chips": [
+      {
+        "name": "f1-ro-.bin",
+        "region": "maincpu",
+        "offset": 0,
+        "size": 1024,
+        "crc32": "35f295bd",
+        "sha1": "34d1df25fcdea598ca1191cecc2125e6f63dbce3"
+      },
+      {
+        "name": "f2-ro-.bin",
+        "region": "maincpu",
+        "offset": 1024,
+        "size": 1024,
+        "crc32": "0c633f4c",
+        "sha1": "a551ddbf21670fb1f000404b92da87a97f7ba157"
+      },
+      {
+        "name": "g1-ro-.bin",
+        "region": "maincpu",
+        "offset": 2048,
+        "size": 1024,
+        "crc32": "f3d851cb",
+        "sha1": "535c52a56e54a064aa3d1c48a129f714234a1007"
+      },
+      {
+        "name": "g2-ro-.bin",
+        "region": "maincpu",
+        "offset": 3072,
+        "size": 1024,
+        "crc32": "1faef63a",
+        "sha1": "68e1bfc45587bfb1ee2eb477b60efd4f69dffd2c"
+      },
+      {
+        "name": "h1-ro-.bin",
+        "region": "maincpu",
+        "offset": 4096,
+        "size": 1024,
+        "crc32": "b365389d",
+        "sha1": "e681f2c5e37cc07912915ef74184ff9336309de3"
+      },
+      {
+        "name": "h2-ro-.bin",
+        "region": "maincpu",
+        "offset": 5120,
+        "size": 1024,
+        "crc32": "a163e800",
+        "sha1": "e8817f3e17f099a0dc66213d2d3d3fdeb117b10e"
+      },
+      {
+        "name": "i1-ro-p.bin",
+        "region": "maincpu",
+        "offset": 6144,
+        "size": 1024,
+        "crc32": "756b5582",
+        "sha1": "b7f3d218b7f4267ce6128624306396bcacb9b44e"
+      },
+      {
+        "name": "ss3.ic2",
+        "region": "soundboard:cpu",
+        "offset": 0,
+        "size": 1024,
+        "crc32": "95c2c1ee",
+        "sha1": "42a3a382fc7d2782052372d71f6d0e8a153e74d0"
+      },
+      {
+        "name": "f5-i-.bin",
+        "region": "proms",
+        "offset": 0,
+        "size": 32,
+        "crc32": "c5914ec1",
+        "sha1": "198875fcab36d09c8726bb21e2fdff9882f6721a"
+      }
+    ],
+    "archive_sha256": "3c7361429baf9a9b77f284ebcd1d4ef43edf18f53c745fd091ddf8300ecb9460",
+    "dump_warnings": []
+  },
+  {
+    "set": "highsplt",
+    "driver": "n8080.cpp",
+    "parent": true,
+    "chips": [
+      {
+        "name": "f1-ha-.bin",
+        "region": "maincpu",
+        "offset": 0,
+        "size": 1024,
+        "crc32": "b8887351",
+        "sha1": "ccd49937f1cbd7a157b3715474ccc3e8fdcea2b2"
+      },
+      {
+        "name": "f2-ha-.bin",
+        "region": "maincpu",
+        "offset": 1024,
+        "size": 1024,
+        "crc32": "cda933a7",
+        "sha1": "a0447c8c98e24674081c9bf4b1ef07dc186c6e2b"
+      },
+      {
+        "name": "g1-ha-.bin",
+        "region": "maincpu",
+        "offset": 2048,
+        "size": 1024,
+        "crc32": "de17578a",
+        "sha1": "d9d5dbf38331f212d2a566c60756a788e169104d"
+      },
+      {
+        "name": "g2-ha-.bin",
+        "region": "maincpu",
+        "offset": 3072,
+        "size": 1024,
+        "crc32": "f1a90948",
+        "sha1": "850f27b42ca12bcba4aa95a1ad3e66206fa63554"
+      },
+      {
+        "name": "hs.h1",
+        "region": "maincpu",
+        "offset": 4096,
+        "size": 1024,
+        "crc32": "eefb4273",
+        "sha1": "853a62976a406516f10ac68dc2859399b8b7aae8"
+      },
+      {
+        "name": "h2-ha-.bin",
+        "region": "maincpu",
+        "offset": 5120,
+        "size": 1024,
+        "crc32": "e91703e8",
+        "sha1": "f58606b0c7d945e94c3fccc7ebe17ca25675e6a0"
+      },
+      {
+        "name": "hs.i1",
+        "region": "maincpu",
+        "offset": 6144,
+        "size": 1024,
+        "crc32": "41e18df9",
+        "sha1": "2212c836313775e7c507a875672c0b3635825e02"
+      },
+      {
+        "name": "i2-ha-.bin",
+        "region": "maincpu",
+        "offset": 7168,
+        "size": 1024,
+        "crc32": "eff9f82d",
+        "sha1": "5004e52dfa652ceefca9ed4210c0fa8f0591dc08"
+      },
+      {
+        "name": "ss4.bin",
+        "region": "soundboard:cpu",
+        "offset": 0,
+        "size": 1024,
+        "crc32": "939e01d4",
+        "sha1": "7c9ccd24e5da03831cd0aa821da17e3b81cd8381"
+      },
+      {
+        "name": "f5-i-.bin",
+        "region": "proms",
+        "offset": 0,
+        "size": 32,
+        "crc32": "c5914ec1",
+        "sha1": "198875fcab36d09c8726bb21e2fdff9882f6721a"
+      }
+    ],
+    "archive_sha256": "8b452d69679d5547dde8239345814e3ba86adc80c038ee9ad253057da1d3f19b",
+    "dump_warnings": []
+  },
+  {
+    "set": "spacelnc",
+    "driver": "n8080.cpp",
+    "parent": true,
+    "chips": [
+      {
+        "name": "sl.f1",
+        "region": "maincpu",
+        "offset": 0,
+        "size": 1024,
+        "crc32": "6ad59e40",
+        "sha1": "d416f7e6f5f55178df5c390548cd299650853022"
+      },
+      {
+        "name": "sl.f2",
+        "region": "maincpu",
+        "offset": 1024,
+        "size": 1024,
+        "crc32": "2de568e2",
+        "sha1": "f13740d3d9bf7434b7760e9286ef6e2ede40845f"
+      },
+      {
+        "name": "sl.g1",
+        "region": "maincpu",
+        "offset": 2048,
+        "size": 1024,
+        "crc32": "06d0ab36",
+        "sha1": "bf063100b065dbf511d6f32da169fb461568d15d"
+      },
+      {
+        "name": "sl.g2",
+        "region": "maincpu",
+        "offset": 3072,
+        "size": 1024,
+        "crc32": "73ac4fe6",
+        "sha1": "7fa8c09692446bdf804900158e040f0b875a2e32"
+      },
+      {
+        "name": "sl.h1",
+        "region": "maincpu",
+        "offset": 4096,
+        "size": 1024,
+        "crc32": "7f42a94b",
+        "sha1": "ad85706de5e3f952b12756275be1ea1276a10666"
+      },
+      {
+        "name": "sl.h2",
+        "region": "maincpu",
+        "offset": 5120,
+        "size": 1024,
+        "crc32": "04b7a5f9",
+        "sha1": "589b0a0c8dcb1300623fe8478f1d7173b2bc575f"
+      },
+      {
+        "name": "sl.i1",
+        "region": "maincpu",
+        "offset": 6144,
+        "size": 1024,
+        "crc32": "d30007a3",
+        "sha1": "9e5905df8f7822385daef159a07f0e8257cb862a"
+      },
+      {
+        "name": "sl.i2",
+        "region": "maincpu",
+        "offset": 7168,
+        "size": 1024,
+        "crc32": "640ffd2f",
+        "sha1": "65c21396c39dc99ec263f66f400a8e4c7712b20a"
+      },
+      {
+        "name": "sl.snd",
+        "region": "soundboard:cpu",
+        "offset": 0,
+        "size": 1024,
+        "crc32": "8e1ff929",
+        "sha1": "5c7da97b05fb8fff242158978199f5d35b234426"
+      },
+      {
+        "name": "sf.prm",
+        "region": "proms",
+        "offset": 0,
+        "size": 32,
+        "crc32": "c5914ec1",
+        "sha1": "198875fcab36d09c8726bb21e2fdff9882f6721a"
+      }
+    ],
+    "archive_sha256": "1f31931cac63c8225ebe1ab382343e3729cadbee688c03faf79c426e9cde46ab",
+    "dump_warnings": []
+  },
+  {
+    "set": "helifire",
+    "driver": "n8080.cpp",
+    "parent": true,
+    "chips": [
+      {
+        "name": "tub_f1_b",
+        "region": "maincpu",
+        "offset": 0,
+        "size": 1024,
+        "crc32": "032f89ca",
+        "sha1": "63b0310875ed78a6385e44eea781ddcc4a63557c"
+      },
+      {
+        "name": "tub_f2_b",
+        "region": "maincpu",
+        "offset": 1024,
+        "size": 1024,
+        "crc32": "2774e70f",
+        "sha1": "98d845e80db61799493dbebe8db801567277432c"
+      },
+      {
+        "name": "tub_g1_b",
+        "region": "maincpu",
+        "offset": 2048,
+        "size": 1024,
+        "crc32": "b5ad6e8a",
+        "sha1": "1eb4931e85bd6a559e85a2b978d383216d3988a7"
+      },
+      {
+        "name": "tub_g2_b",
+        "region": "maincpu",
+        "offset": 3072,
+        "size": 1024,
+        "crc32": "5e015bf4",
+        "sha1": "60f5a9707c8655e54a8381afd764856fb25c29f1"
+      },
+      {
+        "name": "tub_h1_b",
+        "region": "maincpu",
+        "offset": 4096,
+        "size": 1024,
+        "crc32": "23bb4e5a",
+        "sha1": "b59bc0adff3635aca1def2b1997f7edc6ca7e8ee"
+      },
+      {
+        "name": "tub_h2_b",
+        "region": "maincpu",
+        "offset": 5120,
+        "size": 1024,
+        "crc32": "358227c6",
+        "sha1": "d7bd678ef1737edc6aa609e43e3ae96a8d61dc15"
+      },
+      {
+        "name": "tub_i1_b",
+        "region": "maincpu",
+        "offset": 6144,
+        "size": 1024,
+        "crc32": "0c679f44",
+        "sha1": "cbe31dbe5f2c5f11a637cb3bde4e059c310d0e76"
+      },
+      {
+        "name": "tub_i2_b",
+        "region": "maincpu",
+        "offset": 7168,
+        "size": 1024,
+        "crc32": "d8b7a398",
+        "sha1": "3ddfeac39147d5df6096f525f7ef67abef32a28b"
+      },
+      {
+        "name": "tub_j1_b",
+        "region": "maincpu",
+        "offset": 8192,
+        "size": 1024,
+        "crc32": "98ef24db",
+        "sha1": "70ad8dd6e1e8f4bf4ce431737ca1856eecc03d53"
+      },
+      {
+        "name": "tub_j2_b",
+        "region": "maincpu",
+        "offset": 9216,
+        "size": 1024,
+        "crc32": "5e2b5877",
+        "sha1": "f7c747e8a1d9fe2dda71ee6304636cf3cdf727a7"
+      },
+      {
+        "name": "tub-e_ic5-a",
+        "region": "soundboard:cpu",
+        "offset": 0,
+        "size": 1024,
+        "crc32": "9d77a31f",
+        "sha1": "36db9b5087b6661de88042854874bc247c92d985"
+      }
+    ],
+    "archive_sha256": "04351f138e62292c98e6a7cd447733e13a080fc2fc6de2bfa57173e523470926",
+    "dump_warnings": []
+  },
+  {
+    "set": "cothello",
+    "driver": "cothello.cpp",
+    "parent": true,
+    "chips": [
+      {
+        "name": "13.ic13",
+        "region": "maincpu",
+        "offset": 0,
+        "size": 1024,
+        "crc32": "c4b2802b",
+        "sha1": "b7e568c3503722143815b051de2dd3b60cde635a"
+      },
+      {
+        "name": "12.ic12",
+        "region": "maincpu",
+        "offset": 1024,
+        "size": 1024,
+        "crc32": "293eee03",
+        "sha1": "d3bf755104f2fcbc99ebdc9556b3f42cdfacf94e"
+      },
+      {
+        "name": "11.ic11",
+        "region": "maincpu",
+        "offset": 2048,
+        "size": 1024,
+        "crc32": "dea6486e",
+        "sha1": "4e11699dfee0e34c67872427372ea0b33bd16d09"
+      }
+    ],
+    "archive_sha256": "139652d4b4df4c0cf6d545f843cfc8db803e1083dc08a6d39d2b3bcf9a16ca94",
+    "dump_warnings": []
+  },
+  {
+    "set": "blockfvr",
+    "driver": "blockfvr.cpp",
+    "parent": true,
+    "chips": [
+      {
+        "name": "d1_.4",
+        "region": "maincpu",
+        "offset": 0,
+        "size": 1024,
+        "crc32": "c3efd8e7",
+        "sha1": "54613d94e8674e711215a8a65a25c455e18bd37a"
+      },
+      {
+        "name": "c1_.3",
+        "region": "maincpu",
+        "offset": 1024,
+        "size": 1024,
+        "crc32": "c0540779",
+        "sha1": "4773deabdd3352467cc9eb69cc788b8bd22a78ff"
+      },
+      {
+        "name": "b1_.2",
+        "region": "maincpu",
+        "offset": 2048,
+        "size": 1024,
+        "crc32": "8ba0436d",
+        "sha1": "ae31ece035b1f5841068bfc02762200fd56dba5e"
+      },
+      {
+        "name": "a1_.1",
+        "region": "maincpu",
+        "offset": 3072,
+        "size": 1024,
+        "crc32": "e6de8867",
+        "sha1": "9dad61fc26cd6208cc9a3020527f38cf85f41556"
+      },
+      {
+        "name": "mr005.9",
+        "region": "tiles",
+        "offset": 0,
+        "size": 512,
+        "crc32": "0b2f27a5",
+        "sha1": "65c7f943898df65330b8e6dce866ed86507a62d8"
+      },
+      {
+        "name": "mr006.20",
+        "region": "tiles",
+        "offset": 512,
+        "size": 512,
+        "crc32": "eadec4c5",
+        "sha1": "2ce6e6216163216097e57295f6dc54ff221382c0"
+      }
+    ],
+    "archive_sha256": "fee45d91c6a2bc45ba8e11edbaeec469c359c1e4843c72f910a1a1ae41da64fb",
+    "dump_warnings": []
+  }
+]

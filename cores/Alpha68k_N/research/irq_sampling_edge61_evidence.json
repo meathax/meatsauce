@@ -1,0 +1,174 @@
+{
+  "schema": 1,
+  "source_parent": "6d064dbde944e2f322464b221bf2546aa67519e2",
+  "observer_receipt": {
+    "path": "D:\\Arcade\\AI\\aCORES\\Alpha68k N\\research\\kyros_irq_e_phase61_verification.json",
+    "sha256": "971f3f94281aadce849b2f89080fe308c69795e04c76753b1fbdf7c8fa9fdfcf",
+    "observer_fidelity_pass": true,
+    "trace_rows": 1523,
+    "e_period_master_ticks": 80
+  },
+  "trace": {
+    "path": "D:\\Arcade\\AI\\aCORES\\Alpha68k N\\sim\\captures\\rtl\\kyros_irq_e_phase61\\e_phase.csv",
+    "sha256": "648c21b5884cf59c66f3298025e8feef9f9705affcaef66b979dde6730c81b80"
+  },
+  "instruction_trace": {
+    "path": "D:\\Arcade\\AI\\aCORES\\Alpha68k N\\sim\\captures\\rtl\\kyros_irq_e_phase61\\instruction_events.csv",
+    "sha256": "951c7d91c10ac3c1c090dc1db94e38742f9e9ebf279b41cfcd25ba38084226bf"
+  },
+  "windows": [
+    {
+      "field": 59,
+      "level": 1,
+      "first_iack_before_row_tick": 47849610,
+      "iack_deassert_edge_tick": 47849677,
+      "iack_deassert_e_before": 9,
+      "iack_deassert_e_after": 0,
+      "vma_assert_edge_tick": 47849629,
+      "vma_assert_e_before": 3,
+      "vma_assert_e_after": 4,
+      "vector_high_board_acceptance_tick": 47849786,
+      "vector_high_board_acceptance_e": 3,
+      "vector_acceptance_after_iack_deassert_ticks": 109
+    },
+    {
+      "field": 59,
+      "level": 2,
+      "first_iack_before_row_tick": 48000154,
+      "iack_deassert_edge_tick": 48000237,
+      "iack_deassert_e_before": 9,
+      "iack_deassert_e_after": 0,
+      "vma_assert_edge_tick": 48000189,
+      "vma_assert_e_before": 3,
+      "vma_assert_e_after": 4,
+      "vector_high_board_acceptance_tick": 48000346,
+      "vector_high_board_acceptance_e": 3,
+      "vector_acceptance_after_iack_deassert_ticks": 109
+    },
+    {
+      "field": 60,
+      "level": 1,
+      "first_iack_before_row_tick": 48660666,
+      "iack_deassert_edge_tick": 48660797,
+      "iack_deassert_e_before": 9,
+      "iack_deassert_e_after": 0,
+      "vma_assert_edge_tick": 48660749,
+      "vma_assert_e_before": 3,
+      "vma_assert_e_after": 4,
+      "vector_high_board_acceptance_tick": 48660906,
+      "vector_high_board_acceptance_e": 3,
+      "vector_acceptance_after_iack_deassert_ticks": 109
+    },
+    {
+      "field": 60,
+      "level": 2,
+      "first_iack_before_row_tick": 48800314,
+      "iack_deassert_edge_tick": 48800397,
+      "iack_deassert_e_before": 9,
+      "iack_deassert_e_after": 0,
+      "vma_assert_edge_tick": 48800349,
+      "vma_assert_e_before": 3,
+      "vma_assert_e_after": 4,
+      "vector_high_board_acceptance_tick": 48800506,
+      "vector_high_board_acceptance_e": 3,
+      "vector_acceptance_after_iack_deassert_ticks": 109
+    }
+  ],
+  "sources": [
+    {
+      "path": "D:\\Arcade\\AI\\aCORES\\Alpha68k N\\rtl\\vendor\\fx68k\\fx68k.sv",
+      "sha256": "797566aa6c1dfb308d88a458550d55f86e0d023e670ab179cc39f594d9d4f73d",
+      "excerpts": [
+        {
+          "first_line": 217,
+          "last_line": 235,
+          "text": "\t\t\tBeI <= 1'b0;\n\t\tend\n\t\telse if( Clks.enPhi2) begin\n\t\t\trDtack <= DTACKn;\n\t\t\trBerr <= BERRn;\n\t\t\trIpl <= ~{ IPL2n, IPL1n, IPL0n};\n\t\t\tiIpl <= rIpl;\n\t\t\t\n\t\t\t// Needed for cycle accuracy but only if BR or HALT are asserted on the wrong edge of the clock\t\t\t\n\t\t\t// rBR <= BRn;\n\t\t\t// rHALT <= HALTn;\n\t\tend\n\t\telse if( Clks.enPhi1) begin\n\t\t\tVpai <= VPAn;\n\t\t\tBeI <= rBerr;\n\t\t\tBeiDelay <= BeI;\n\t\t\tBgackI <= BGACKn;\n\t\t\t\n\t\t\tBRi <= BRn;"
+        },
+        {
+          "first_line": 475,
+          "last_line": 503,
+          "text": "\twire xVma = ~rVma & (eCntr == 8);\n\t\n`ifdef USE_E_CLKEN\n\tassign E_PosClkEn = (Clks.enPhi2 & (eCntr == 5));\n\tassign E_NegClkEn = (Clks.enPhi2 & (eCntr == 9));\n`endif\n\t\n\talways_ff @( posedge Clks.clk) begin\n\t\tif( Clks.pwrUp) begin\n\t\t\tE <= 1'b0;\n\t\t\teCntr <='0;\n\t\t\trVma <= 1'b1;\n\t\tend\n\t\tif( Clks.enPhi2) begin\n\t\t\tif( eCntr == 9)\n\t\t\t\tE <= 1'b0;\n\t\t\telse if( eCntr == 5)\n\t\t\t\tE <= 1'b1;\n\n\t\t\tif( eCntr == 9)\n\t\t\t\teCntr <= '0;\n\t\t\telse\n\t\t\t\teCntr <= eCntr + 1'b1;\n\t\tend\n\t\t\n\t\tif( Clks.enPhi2 & addrOe & ~Vpai & (eCntr == 3))\n\t\t\trVma <= 1'b0;\n\t\telse if( Clks.enPhi1 & eCntr == '0)\n\t\t\trVma <= 1'b1;"
+        },
+        {
+          "first_line": 1701,
+          "last_line": 1703,
+          "text": "// Input is latched async at the EDB register.\n// We capture directly from the external data bus to the internal registers (IRC & DBIN) on PHI2, starting the external S7 phase, at a T4 internal period.\n"
+        },
+        {
+          "first_line": 1746,
+          "last_line": 1766,
+          "text": "\t\tif( enT1) begin\n\t\t\t// If on wait states, we continue latching until next T1\n\t\t\txToDbin <= 1'b0;\n\t\t\txToIrc <= 1'b0;\t\t\t\n\t\tend\n\t\telse if( enT3) begin\n\t\t\txToDbin <= Nanod.todbin;\n\t\t\txToIrc <= Nanod.toIrc;\n\t\tend\n\n\t\t// Capture on T4 of the next ucycle\n\t\t// If there are wait states, we keep capturing every PHI2 until the next T1\n\t\t\n\t\tif( xToIrc & Clks.enPhi2)\n\t\t\tIrc <= iEdb;\n\t\tif( xToDbin & Clks.enPhi2) begin\n\t\t\t// Original connects both halves of EDB.\n\t\t\tif( ~dbinNoLow)\n\t\t\t\tdbin[ 7:0] <= byteMux ? iEdb[ 15:8] : iEdb[7:0];\n\t\t\tif( ~dbinNoHigh)\n\t\t\t\tdbin[ 15:8] <= ~byteMux & dbinNoLow ? iEdb[ 7:0] : iEdb[ 15:8];"
+        }
+      ]
+    },
+    {
+      "path": "D:\\Arcade\\AI\\aCORES\\Alpha68k N\\rtl\\alpha68kn_board.sv",
+      "sha256": "1d96bcb640490b62fbe6f15a9dc0e4fcf8e80b496cc108f14bd91241eb85ca0c",
+      "excerpts": [
+        {
+          "first_line": 147,
+          "last_line": 163,
+          "text": "    wire iack = !mas_n && fc0 && fc1 && fc2;\n    wire [23:0] maddr = {ma,1'b0};\n    assign debug_main_addr = maddr;\n    assign debug_main_as_n = mas_n;\n    assign debug_main_attrs = {iack,mrw_n,muds_n,mlds_n};\n    assign debug_main_din = mdin;\n    assign debug_main_dout = mdout;\n    fx68k maincpu (\n        .clk(clk), .HALTn(1'b1), .extReset(held_reset), .pwrUp(held_reset),\n        .enPhi1(cpu_phase==0 && !pause_game), .enPhi2(cpu_phase==4 && !pause_game),\n        .eRWn(mrw_n), .ASn(mas_n), .LDSn(mlds_n), .UDSn(muds_n),\n        .E(), .VMAn(), .FC0(fc0), .FC1(fc1), .FC2(fc2),\n        .BGn(), .oRESETn(), .oHALTEDn(),\n        .DTACKn(!(bus_done && !iack)), .VPAn(!iack), .BERRn(1'b1),\n        .BRn(1'b1), .BGACKn(1'b1),\n        .IPL0n(!level[0]), .IPL1n(!level[1]), .IPL2n(!level[2]),\n        .iEdb(mdin), .oEdb(mdout), .eab(ma)"
+        },
+        {
+          "first_line": 258,
+          "last_line": 270,
+          "text": "            if (mas_n) bus_done<=0;\n            // fx68k asserts AS before write byte strobes. Never acknowledge or\n            // commit that address-only phase; stack/data writes would be lost.\n            else if (!bus_done && (iack || !muds_n || !mlds_n)\n                && (iack || maddr>=24'h020000 || main_rom_addr_q==ma[16:1])) begin\n                bus_done<=1;\n                main_transactions<=main_transactions+1'b1;\n                mdin<=16'hffff;\n                if (iack) begin\n                    if (maddr[3:1]==2) begin irq2<=0;irq2_acks<=irq2_acks+1'b1; end\n                    else if (maddr[3:1]==1) begin irq1<=0;irq1_acks<=irq1_acks+1'b1; end\n                end else if (maddr < 'h020000) mdin<=main_rom_q;\n                else if (maddr >= 'h020000 && maddr < 'h021000) begin"
+        }
+      ]
+    },
+    {
+      "path": "D:\\Arcade\\AI\\aCORES\\Alpha68k N\\sim\\system_main.cpp",
+      "sha256": "ac8fc5de33ba606dca879ecaa337e37d0cfee9f23c96125f4e2781ed7b776202",
+      "excerpts": [
+        {
+          "first_line": 227,
+          "last_line": 240,
+          "text": "        if(top.main_transactions!=previous) {\n            previous=top.main_transactions;\n            if(frame>=59 && frame<=60) {\n                auto *state=top.rootp;\n                uint32_t pc=(uint32_t(state->alpha68kn_system__DOT__board__DOT__maincpu__DOT__excUnit__DOT__PcH)<<16)\n                    | state->alpha68kn_system__DOT__board__DOT__maincpu__DOT__excUnit__DOT__PcL;\n                instruction_events<<ticks-started<<','<<frame<<','<<raster_x<<','<<raster_y<<','<<address<<','\n                    <<((attrs>>3)&1)<<','<<((attrs>>2)&1)<<','<<((attrs>>1)&1)<<','<<(attrs&1)<<','\n                    <<dataout<<','<<instruction_din_before<<','\n                    <<unsigned(state->alpha68kn_system__DOT__board__DOT__maincpu__DOT__rFC)<<','<<pc<<','\n                    <<state->alpha68kn_system__DOT__board__DOT__maincpu__DOT__Ir<<','\n                    <<state->alpha68kn_system__DOT__board__DOT__maincpu__DOT__Ird<<','\n                    <<unsigned(state->alpha68kn_system__DOT__board__DOT__phase)<<','\n                    <<unsigned(state->alpha68kn_system__DOT__board__DOT__cpu_phase)<<'\\n';"
+        }
+      ]
+    },
+    {
+      "path": "D:\\Arcade\\AI\\mame289\\src\\devices\\cpu\\m68000\\m68000.cpp",
+      "sha256": "ef095e786564a203b828ed8e1e517b6af2e0d8fd64090d432f8be67480a5fab3",
+      "excerpts": [
+        {
+          "first_line": 103,
+          "last_line": 117,
+          "text": "u64 m68000_device::vpa_sync(offs_t, u64 current_time)\n{\n\tif(m_last_vpa_time >= current_time)\n\t\treturn m_last_vpa_time;\n\tu64 mod = current_time % 10;\n\tif(mod < 7)\n\t\tm_last_vpa_time = current_time - mod + 10;\n\telse\n\t\tm_last_vpa_time = current_time - mod + 20;\n\treturn m_last_vpa_time;\n}\n\nu32 m68000_device::vpa_after(offs_t)\n{\n\treturn 1;"
+        },
+        {
+          "first_line": 207,
+          "last_line": 218,
+          "text": "void m68000_device::default_autovectors_map(address_map &map)\n{\n\tif(m_cpu_space_id == AS_CPU_SPACE && !has_configured_map(AS_CPU_SPACE)) {\n\t\toffs_t mask = make_bitmask<offs_t>(m_cpu_space_config.m_addr_width) - 0xf;\n\t\tmap(mask + 0x3, mask + 0x3).before_time(*this, FUNC(m68000_device::vpa_sync)).after_delay(*this, FUNC(m68000_device::vpa_after)).lr8(NAME([] () -> u8 { return autovector(1); }));\n\t\tmap(mask + 0x5, mask + 0x5).before_time(*this, FUNC(m68000_device::vpa_sync)).after_delay(*this, FUNC(m68000_device::vpa_after)).lr8(NAME([] () -> u8 { return autovector(2); }));\n\t\tmap(mask + 0x7, mask + 0x7).before_time(*this, FUNC(m68000_device::vpa_sync)).after_delay(*this, FUNC(m68000_device::vpa_after)).lr8(NAME([] () -> u8 { return autovector(3); }));\n\t\tmap(mask + 0x9, mask + 0x9).before_time(*this, FUNC(m68000_device::vpa_sync)).after_delay(*this, FUNC(m68000_device::vpa_after)).lr8(NAME([] () -> u8 { return autovector(4); }));\n\t\tmap(mask + 0xb, mask + 0xb).before_time(*this, FUNC(m68000_device::vpa_sync)).after_delay(*this, FUNC(m68000_device::vpa_after)).lr8(NAME([] () -> u8 { return autovector(5); }));\n\t\tmap(mask + 0xd, mask + 0xd).before_time(*this, FUNC(m68000_device::vpa_sync)).after_delay(*this, FUNC(m68000_device::vpa_after)).lr8(NAME([] () -> u8 { return autovector(6); }));\n\t\tmap(mask + 0xf, mask + 0xf).before_time(*this, FUNC(m68000_device::vpa_sync)).after_delay(*this, FUNC(m68000_device::vpa_after)).lr8(NAME([] () -> u8 { return autovector(7); }));\n\t}"
+        }
+      ]
+    },
+    {
+      "path": "D:\\Arcade\\AI\\mame289\\src\\devices\\cpu\\m68000\\m68000-sdf.cpp",
+      "sha256": "b46d977660c726d58509976d91d83cbf11682eb911032b807b0ee75ee7a1ca1c",
+      "excerpts": [
+        {
+          "first_line": 775,
+          "last_line": 799,
+          "text": "\t\t\tm_inst_substate = 2;\n\t\treturn;\n\t}\n\tif(m_aob & 1) {\n\t\tm_icount -= 4;\n\t\tm_inst_state = S_ADDRESS_ERROR;\n\t\treturn;\n\t}\n\t// 236 itlx5\n\tm_aob = m_at;\n\tm_base_ssw = SSW_CPU | SSW_R | SSW_N;\n\tstart_interrupt_vector_lookup();\n\tm_edb = m_cpu_space.read_interruptible(m_aob);\n\tm_icount -= 4;\n\tif(m_icount <= 0) {\n\t\tif(access_to_be_redone()) {\n\t\t\tm_icount += 4;\n\t\t\tm_inst_substate = 3;\n\t\t} else\n\t\t\tm_inst_substate = 4;\n\t\treturn;\n\t}\n\tend_interrupt_vector_lookup();\n\tif(m_aob & 1) {\n\t\tm_icount -= 4;"
+        }
+      ],
+      "scope": "First four CPU-space read call sites only; no sampled-completion claim."
+    }
+  ],
+  "conclusions": [
+    "Observed vector-high board acceptance is a different boundary from IACK deassertion and qualified CPU input-data latch.",
+    "All four observed IACK cycles end at E9-to0 and all VMA assertions occur at E3-to4.",
+    "The vector-high E3 observation alone does not identify an E-clock phase error."
+  ],
+  "scope_limits": [
+    "No actual CPU input latch strobe was recorded in this probe.",
+    "No matched MAME CPU-space IACK callback stream was recorded.",
+    "No uniquely qualified physical-board startup phase or B16 cause/fix is established.",
+    "Timed field60 residual18 and canonical graphics failures remain open."
+  ],
+  "B16_closure": false,
+  "whole_game_acceptance": false,
+  "additional_simulations_launched": 0
+}

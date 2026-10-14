@@ -1,0 +1,10 @@
+{
+  "exit_code": 1,
+  "cpu_profile_valid": false,
+  "verified_setup_failure": "CPU microcode files absent in isolated run working directory; both explicit startup readmem warnings retained",
+  "warnings": [
+    "%Warning: microrom.mem:0: $readmem file not found",
+    "%Warning: nanorom.mem:0: $readmem file not found"
+  ],
+  "scope": "Profiling flags and neutral feature input drive did not supply required runtime assets. No evidence of a model-generation bug or FPGA clock defect from these failed runs."
+}

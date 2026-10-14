@@ -1,0 +1,330 @@
+{
+  "scope": "Independent finite source/capture review. Actual busrequest and MAMEcallback boundaries are distinguished. No new replay, productionedit, Quartus, clocks or phasepatch; no physicalcause/fix/wholegame acceptance.",
+  "checks": {
+    "both_actual_capture_terminals_exit0": true,
+    "pinned_actual_loaded_lua": true,
+    "actual_finite_capture_complete361": true,
+    "root_v2_source_pins": true,
+    "root_deferred_source_pins": true,
+    "ROM_pinned_and_exact_MOVE_postincrement_DBF_bytes": true,
+    "independent_common_scope10606_each": true,
+    "independent_ordered_exact10598": true,
+    "root_v2_opcodes_exact": true,
+    "loaded_lua_has_unconditional_write_tap_in_actual_range": true,
+    "loaded_lua_has_no_changed_value_filter": true,
+    "two_target_rows_present_with_full_masks": true,
+    "actual_MAMEtargets_before_own_stack_and_native_after": true,
+    "actual_saved_PC854_vs858": true,
+    "actual_handler_saved_low_pointer_minus2": true,
+    "next_shared_write75_stack_minus21_growth96": true,
+    "original_deferred8checks_remain_pass": true,
+    "original_B16_and_fix_flags_false": true,
+    "ROM_MOVEM_saved_A0_complete_and_minus2": true,
+    "actual_A0_long_save_low_then_high_32ticks_bothcaptures": true
+  },
+  "finite_deferred_write_observation_and_capture_scope_pass": true,
+  "source_pins": {
+    "D:\\Arcade\\AI\\aCORES\\Alpha68k N\\sim\\captures\\rtl\\kyros_instruction60_diagnostic\\instruction_events.csv": "951c7d91c10ac3c1c090dc1db94e38742f9e9ebf279b41cfcd25ba38084226bf",
+    "D:\\Arcade\\AI\\aCORES\\Alpha68k N\\sim\\captures\\kyros\\reset_raster361_v4\\events.csv": "1d630ea6c3bf6173c4463c4d1ce2b6a302fd3351369acabcea99247b51455747",
+    "D:\\Arcade\\AI\\aCORES\\Alpha68k N\\sim\\captures\\kyros\\reset_raster361_v4\\loaded_recorder.lua": "b69776e383e8d3d50ba8a70673e6d0a6cf41e2894026dd0c9287cd63481f8855",
+    "D:\\Arcade\\AI\\aCORES\\Alpha68k N\\roms\\kyros\\maincpu.bin": "6949ea5dc91dfced8c1afccbadee18c2e795ab38d8adbc3795f05a19b8f3b2b3",
+    "D:\\Arcade\\AI\\mame289\\src\\mame\\alpha\\alpha68k_n.cpp": "5f9884076ea1b5c02d2169a58de5425ae5475a13a4f1438abae2e2b9f0fdab7d",
+    "D:\\Arcade\\AI\\aCORES\\Alpha68k N\\research\\irq_main_write_alignment_v2.json": "1e012122b7f601810df2d3b915e7784841a418aab9fdb62f598387ae57bf3b9f",
+    "D:\\Arcade\\AI\\aCORES\\Alpha68k N\\research\\irq_deferred_tile_write.json": "3ce1c5a29246f7620afcd983d0e4826a29b25bbb850664a8c14a9f9727b6cea5",
+    "D:\\Arcade\\AI\\aCORES\\Alpha68k N\\research\\kyros_irq59_60_context_comparison.json": "7c3f436d62fe1d4174eb1951750691232eff10932296aba9c1e8c9fbe934ec7a",
+    "D:\\Arcade\\AI\\aCORES\\Alpha68k N\\research\\kyros_reset_raster361_v4_mame_job.json": "0fa2d4a03490da88bdf82f06bf626d0cd4bd761ef61ad2053dee20b14cb53cfd",
+    "D:\\Arcade\\AI\\aCORES\\Alpha68k N\\research\\kyros_reset_raster361_v4_mame_exit.json": "e1c4f3f4c294a82edd97f7093ed5ad64c102e880599e574cefa8115b3185a8a3",
+    "D:\\Arcade\\AI\\aCORES\\Alpha68k N\\research\\kyros_instruction60_diagnostic_exit.json": "e6c392bf9b4736ed39d592beba7992508b7ed25a903198dc990dc9e880875e3c"
+  },
+  "common_scope": {
+    "fields": [
+      59,
+      60
+    ],
+    "work_address_range": [
+      "0x20000",
+      "0x20fff"
+    ],
+    "sprite_address_range": [
+      "0x40000",
+      "0x41fff"
+    ],
+    "included_MAMEareas": [
+      "work",
+      "positions",
+      "tilesN"
+    ],
+    "native_writes": 10606,
+    "mame_writes": 10606,
+    "ordered_exact_matches": 10598,
+    "unequal_blocks": 7,
+    "repeated_same_masked_value_observations_in_MAME": 4023
+  },
+  "cases": [
+    {
+      "field": 59,
+      "IRQ_level": 1,
+      "tile_address_hex": "0x411b4",
+      "native_tile": {
+        "field": 59,
+        "tick": 47925314,
+        "address": 266676,
+        "mask": 65535,
+        "value": 32
+      },
+      "mame_tile": {
+        "field": 59,
+        "tick": 47849495,
+        "address": 266676,
+        "mask": 65535,
+        "value": 32,
+        "area": "tiles2",
+        "instruction_pc": 2132
+      },
+      "native_exception_saved_pc": 2132,
+      "mame_exception_saved_pc": 2136,
+      "native_stack_tick": 47849586,
+      "mame_stack_tick": 47849607,
+      "native_handler_low_pointer_store": {
+        "field": 59,
+        "tick": 47850354,
+        "address": 135128,
+        "mask": 65535,
+        "value": 4532
+      },
+      "mame_handler_low_pointer_store": {
+        "field": 59,
+        "tick": 47850375,
+        "address": 135128,
+        "mask": 65535,
+        "value": 4534,
+        "area": "work",
+        "instruction_pc": 1116
+      },
+      "native_saved_low_minus_mame": -2,
+      "next_native": {
+        "field": 59,
+        "tick": 47925490,
+        "address": 266678,
+        "mask": 65535,
+        "value": 32
+      },
+      "next_mame": {
+        "field": 59,
+        "tick": 47925415,
+        "address": 266678,
+        "mask": 65535,
+        "value": 32,
+        "area": "tiles2",
+        "instruction_pc": 2132
+      },
+      "next_tick_offset": 75,
+      "stack_tick_offset": -21,
+      "relative_offset_growth": 96,
+      "native_saved_A0": 266676,
+      "mame_saved_A0": 266678,
+      "native_A0_high_store_tick": 47850386,
+      "mame_A0_high_store_tick": 47850407,
+      "A0_identity_proof": "Actual ROM45c MOVEM.L D0-D7/A0-A6,-(A7) saves15longregisters bypredecrement. ExceptionSP20ff2 placesA0high/low at20fd6/20fd8. Bothobservedtraceswrite lowword first andhighword32masterticks later."
+    },
+    {
+      "field": 59,
+      "IRQ_level": 2,
+      "tile_address_hex": "0x41506",
+      "native_tile": {
+        "field": 59,
+        "tick": 48003170,
+        "address": 267526,
+        "mask": 65535,
+        "value": 32
+      },
+      "mame_tile": {
+        "field": 59,
+        "tick": 48000039,
+        "address": 267526,
+        "mask": 65535,
+        "value": 32,
+        "area": "tiles2",
+        "instruction_pc": 2132
+      },
+      "native_exception_saved_pc": 2132,
+      "mame_exception_saved_pc": 2136,
+      "native_stack_tick": 48000130,
+      "mame_stack_tick": 48000151,
+      "native_handler_low_pointer_store": {
+        "field": 59,
+        "tick": 48000914,
+        "address": 135128,
+        "mask": 65535,
+        "value": 5382
+      },
+      "mame_handler_low_pointer_store": {
+        "field": 59,
+        "tick": 48000935,
+        "address": 135128,
+        "mask": 65535,
+        "value": 5384,
+        "area": "work",
+        "instruction_pc": 1302
+      },
+      "native_saved_low_minus_mame": -2,
+      "next_native": {
+        "field": 59,
+        "tick": 48003346,
+        "address": 267528,
+        "mask": 65535,
+        "value": 32
+      },
+      "next_mame": {
+        "field": 59,
+        "tick": 48003271,
+        "address": 267528,
+        "mask": 65535,
+        "value": 32,
+        "area": "tiles2",
+        "instruction_pc": 2132
+      },
+      "next_tick_offset": 75,
+      "stack_tick_offset": -21,
+      "relative_offset_growth": 96,
+      "native_saved_A0": 267526,
+      "mame_saved_A0": 267528,
+      "native_A0_high_store_tick": 48000946,
+      "mame_A0_high_store_tick": 48000967,
+      "A0_identity_proof": "Actual ROM45c MOVEM.L D0-D7/A0-A6,-(A7) saves15longregisters bypredecrement. ExceptionSP20ff2 placesA0high/low at20fd6/20fd8. Bothobservedtraceswrite lowword first andhighword32masterticks later."
+    }
+  ],
+  "ROM_semantics": {
+    "0x854": "MOVE.W #$20,(A0)+; commits16bitword and advancesA0 by2; followinginstruction at858",
+    "0x858": "DBRA D0,$854; bytes51c8fffa",
+    "verified_primary_unidasm_output": "00854:30fc0020 move.w #$20,(A0)+;00858:51c8fffa dbra D0,$854",
+    "handler_disassembly": {
+      "command": "unidasm m68000 ROM skip0x440,count48,basepc0x440",
+      "exit_code": 0,
+      "stdout": "00440: 0000 0909            ori.b   #$9, D0\n00444: 46fc 2000            move    #$2000, SR\n00448: 4eb9 0000 198c       jsr     $198c.l\n0044e: 13fc 00ff 0018 4000  move.b  #$ff, $184000.l\n00456: 4ef9 0000 9dd0       jmp     $9dd0.l\n0045c: 48e7 fffe            movem.l D0-D7/A0-A6, -(A7)\n00460: 422e 0018            clr.b   ($18,A6)\n00464: 0839 0007 000e 0000  btst    #$7, $e0000.l\n0046c: 6700 0008            beq     $476\n",
+      "stderr": ""
+    }
+  },
+  "capture_Lua_evidence": {
+    "path": "D:\\Arcade\\AI\\aCORES\\Alpha68k N\\sim\\captures\\kyros\\reset_raster361_v4\\loaded_recorder.lua",
+    "lines": [
+      [
+        53,
+        "local function observe(area, address, data, mask)"
+      ],
+      [
+        54,
+        "    local scan, horizontal = beam()"
+      ],
+      [
+        55,
+        "    local segment = frame < 120 and \"early\" or (frame < 180 and \"pre_start\" or \"post_start\")"
+      ],
+      [
+        56,
+        "    local key = segment .. \",\" .. area .. \",\" .. tostring(scan)"
+      ],
+      [
+        57,
+        "    counts[key] = (counts[key] or 0) + 1"
+      ],
+      [
+        58,
+        "    -- Detailed events cover boot and the coin/start handshakes, plus small late windows."
+      ],
+      [
+        59,
+        "    if true then -- complete finite sound observations"
+      ],
+      [
+        60,
+        "        events:write(string.format(\"%d,%d,%s,%d,%d,%d,%d,%d,%d,%d,%d\\n\","
+      ],
+      [
+        61,
+        "            frame, screen:frame_number(), area, address, data, mask, scan, horizontal, machine.time:as_ticks(48000000), main.state[\"CURPC\"] and main.state[\"CURPC\"].value or -1, pc(main)))"
+      ],
+      [
+        62,
+        "    end"
+      ],
+      [
+        63,
+        "end"
+      ],
+      [
+        64,
+        ""
+      ],
+      [
+        65,
+        "handles[#handles+1] = space:install_write_tap(0x040000, 0x041fff, \"alpha_sprite_sweep\", function(a,d,m)"
+      ],
+      [
+        66,
+        "    local word = (a - 0x040000) // 2"
+      ],
+      [
+        67,
+        "    local area = word < 0x400 and \"positions\" or (\"tiles\" .. tostring(word // 0x400))"
+      ],
+      [
+        68,
+        "    observe(area,a,d,m)"
+      ],
+      [
+        69,
+        "end)"
+      ],
+      [
+        70,
+        "handles[#handles+1] = space:install_write_tap(0x020000, 0x020fff, \"alpha_work_sweep\", function(a,d,m)"
+      ],
+      [
+        71,
+        "    observe(\"work\",a,d,m)"
+      ],
+      [
+        72,
+        "end)"
+      ]
+    ]
+  },
+  "MAME_address_map_evidence": {
+    "path": "D:\\Arcade\\AI\\mame289\\src\\mame\\alpha\\alpha68k_n.cpp",
+    "lines": [
+      [
+        379,
+        "\tmap(0x020000, 0x020fff).ram().share(m_shared_ram);  // work RAM"
+      ],
+      [
+        380,
+        "\tmap(0x040000, 0x041fff).ram().share(m_spriteram); // sprite RAM"
+      ],
+      [
+        390,
+        "\tmap(0x020000, 0x020fff).ram().share(m_shared_ram);  // work RAM"
+      ],
+      [
+        391,
+        "\tmap(0x040000, 0x041fff).ram().share(m_spriteram); // sprite RAM"
+      ]
+    ]
+  },
+  "corrected_asymmetry": {
+    "original_receipt": "research/irq_main_write_alignment.json",
+    "problem": "Nativeincluded0x40000..43fff;MAMEselectoromittedpositions. Recorderactuallylogsallmapped0x40000..41fff writes,includingpositions. Largeoriginalcountdifferenceswerecomparisonscopegaps,not evidenceofomittedsamevaluewrites.",
+    "replacement": "research/irq_main_write_alignment_v2.json",
+    "original_preserved": true
+  },
+  "limits": [
+    "Complete-sourceunconditionaltap plus10606matching-scopedcounts qualifythisfinitejournal; not everypossibleMMIO/capture/CPUinstruction inwholegame.",
+    "Nativeobservedpc_after and MAMEnext_pc are not equivalent instruction dispatchboundaries. Observedexception savedPC and actual buswrites are explicit values.",
+    "The two tilewrites are software-visible orderingdifferences aroundexceptioncontexts. Relative96tickgrowth does notbyitself provea96tickCPUtimingbug or physicalcorrectness of either interrupt model.",
+    "Field59\u219260 label crossings for identicalpositionwrites406b0/406b2 remain recorded; no globalframe normalization orpixelmask.",
+    "SavedA0identity is source-backed byactualROM45c MOVEMsaveorderandcapturedhigh+lowwords. Bothcapturedpredecrementlongs savelowwordthenhighword; no assumptionofascendingmemorywriteorder isneeded. Thisdoesnot equatebusrequestedgewithCPUarchitectural samplingedge."
+  ],
+  "B16_closure": false,
+  "timing_fix_established": false,
+  "whole_game_acceptance": false
+}

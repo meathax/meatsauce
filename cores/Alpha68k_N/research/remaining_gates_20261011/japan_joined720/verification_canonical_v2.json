@@ -1,0 +1,465 @@
+{
+  "scope": "Actual joined profile1 cold boot/coin/start/play and finite sound/graphics compatibility; no broad gameplay-effects, death/reset, P7/P8, resource/timing or hardware acceptance.",
+  "checks": {
+    "actual_native_exit0": true,
+    "frozen75_sources_ELF_ROM_input_reference_pins": true,
+    "actual_profile1_ROM": true,
+    "720_contiguous_native_fields": true,
+    "all_pixels57344_no_duplicates_deadlines_overflows_unmapped": true,
+    "all_actual_ports_at_original_snapshot_boundary": true,
+    "all18_full_RGB_work_strip_arrays_exact": false,
+    "all6_RGB_arrays_exact": true,
+    "all6_strip_arrays_exact": true,
+    "all6_work_arrays_exact": false,
+    "global_ordered_fulltap_sound_chip_data_exact": true,
+    "fulltap_sound_chip_original_field_labels_exact": true,
+    "fulltap_DAC_ordered_data_exact": true,
+    "main_sound_latch_ordered_data_exact": true,
+    "finite_actual_coin_start_and_movement_inputs_nonvacuous": true,
+    "720_main_and_sound_CPU_transaction_progress": true,
+    "PCM_captured_even_length_nonempty": true
+  },
+  "all_checks_strict_true": false,
+  "failed_checks": [
+    "all18_full_RGB_work_strip_arrays_exact",
+    "all6_work_arrays_exact"
+  ],
+  "fields": 720,
+  "worst_line_cycles": 2280,
+  "arrays": [
+    {
+      "field": 0,
+      "suffix": "rgb",
+      "native_sha256": "9a4b97b4b079955bac86930724c8bcdd30aba4732f1dcbcbac2ec270f5f5e485",
+      "reference_sha256": "9a4b97b4b079955bac86930724c8bcdd30aba4732f1dcbcbac2ec270f5f5e485",
+      "different_bytes": 0,
+      "native_bytes": 172032,
+      "reference_bytes": 172032
+    },
+    {
+      "field": 0,
+      "suffix": "work.bin",
+      "native_sha256": "ad7facb2586fc6e966c004d7d1d16b024f5805ff7cb47c7a85dabd8b48892ca7",
+      "reference_sha256": "ad7facb2586fc6e966c004d7d1d16b024f5805ff7cb47c7a85dabd8b48892ca7",
+      "different_bytes": 0,
+      "native_bytes": 4096,
+      "reference_bytes": 4096
+    },
+    {
+      "field": 0,
+      "suffix": "sprites.bin",
+      "native_sha256": "9f1dcbc35c350d6027f98be0f5c8b43b42ca52b7604459c0c42be3aa88913d47",
+      "reference_sha256": "9f1dcbc35c350d6027f98be0f5c8b43b42ca52b7604459c0c42be3aa88913d47",
+      "different_bytes": 0,
+      "native_bytes": 8192,
+      "reference_bytes": 8192
+    },
+    {
+      "field": 30,
+      "suffix": "rgb",
+      "native_sha256": "9a4b97b4b079955bac86930724c8bcdd30aba4732f1dcbcbac2ec270f5f5e485",
+      "reference_sha256": "9a4b97b4b079955bac86930724c8bcdd30aba4732f1dcbcbac2ec270f5f5e485",
+      "different_bytes": 0,
+      "native_bytes": 172032,
+      "reference_bytes": 172032
+    },
+    {
+      "field": 30,
+      "suffix": "work.bin",
+      "native_sha256": "14ce3af2f455fbb4b7a274e2ee2090199dedff1d81220a7bd599eec95acfeb12",
+      "reference_sha256": "14ce3af2f455fbb4b7a274e2ee2090199dedff1d81220a7bd599eec95acfeb12",
+      "different_bytes": 0,
+      "native_bytes": 4096,
+      "reference_bytes": 4096
+    },
+    {
+      "field": 30,
+      "suffix": "sprites.bin",
+      "native_sha256": "9f1dcbc35c350d6027f98be0f5c8b43b42ca52b7604459c0c42be3aa88913d47",
+      "reference_sha256": "9f1dcbc35c350d6027f98be0f5c8b43b42ca52b7604459c0c42be3aa88913d47",
+      "different_bytes": 0,
+      "native_bytes": 8192,
+      "reference_bytes": 8192
+    },
+    {
+      "field": 90,
+      "suffix": "rgb",
+      "native_sha256": "597b7466c651ce13c6948134b3d586d62680f8fb85994fcbc7f2d047c07ce5bb",
+      "reference_sha256": "597b7466c651ce13c6948134b3d586d62680f8fb85994fcbc7f2d047c07ce5bb",
+      "different_bytes": 0,
+      "native_bytes": 172032,
+      "reference_bytes": 172032
+    },
+    {
+      "field": 90,
+      "suffix": "work.bin",
+      "native_sha256": "81e66162aedf93572208684145e0cf042b68fc8d874d4cdaf6392dcb153c6295",
+      "reference_sha256": "81e66162aedf93572208684145e0cf042b68fc8d874d4cdaf6392dcb153c6295",
+      "different_bytes": 0,
+      "native_bytes": 4096,
+      "reference_bytes": 4096
+    },
+    {
+      "field": 90,
+      "suffix": "sprites.bin",
+      "native_sha256": "327febe2a8b43924a6dfa465ae563dea96ec00db0db3248b61956bdf5a2a7be4",
+      "reference_sha256": "327febe2a8b43924a6dfa465ae563dea96ec00db0db3248b61956bdf5a2a7be4",
+      "different_bytes": 0,
+      "native_bytes": 8192,
+      "reference_bytes": 8192
+    },
+    {
+      "field": 240,
+      "suffix": "rgb",
+      "native_sha256": "159db246e6c1ca749ddf242ec71367a07727892df17a5f760446eb58941b8cdd",
+      "reference_sha256": "159db246e6c1ca749ddf242ec71367a07727892df17a5f760446eb58941b8cdd",
+      "different_bytes": 0,
+      "native_bytes": 172032,
+      "reference_bytes": 172032
+    },
+    {
+      "field": 240,
+      "suffix": "work.bin",
+      "native_sha256": "1ff622e4a7430d22cb84022658c54ff0f533d0db0a854fe55351558310c3b371",
+      "reference_sha256": "e597360df8492d4bdba58f672219e5485b345f9988fb7ec18849ac15b8860b3a",
+      "different_bytes": 3,
+      "native_bytes": 4096,
+      "reference_bytes": 4096
+    },
+    {
+      "field": 240,
+      "suffix": "sprites.bin",
+      "native_sha256": "3d8918435b6cf7e2132037e5f603e6f114428e7bd08b7455cb6de6aa077733c7",
+      "reference_sha256": "3d8918435b6cf7e2132037e5f603e6f114428e7bd08b7455cb6de6aa077733c7",
+      "different_bytes": 0,
+      "native_bytes": 8192,
+      "reference_bytes": 8192
+    },
+    {
+      "field": 360,
+      "suffix": "rgb",
+      "native_sha256": "c70ec6bd6464f4da16a10cbc23eb328327aea1a578a4089eade1ae6f6e39178f",
+      "reference_sha256": "c70ec6bd6464f4da16a10cbc23eb328327aea1a578a4089eade1ae6f6e39178f",
+      "different_bytes": 0,
+      "native_bytes": 172032,
+      "reference_bytes": 172032
+    },
+    {
+      "field": 360,
+      "suffix": "work.bin",
+      "native_sha256": "2823d18f2fe05f1715fd38e1bfac59582f59b3959c0b9ecf51c08f584355dc51",
+      "reference_sha256": "e986577bfba8d95aa44c76fab75a388a80f2152fdb40fc889102e43f93eced9a",
+      "different_bytes": 1,
+      "native_bytes": 4096,
+      "reference_bytes": 4096
+    },
+    {
+      "field": 360,
+      "suffix": "sprites.bin",
+      "native_sha256": "a7172c6445af5be50889e52765361e0da619f89683da49e82437573ab06508b7",
+      "reference_sha256": "a7172c6445af5be50889e52765361e0da619f89683da49e82437573ab06508b7",
+      "different_bytes": 0,
+      "native_bytes": 8192,
+      "reference_bytes": 8192
+    },
+    {
+      "field": 600,
+      "suffix": "rgb",
+      "native_sha256": "870367cea2cc090698af979491e7a9c75e56ca3048a484753ad11186728f9bc8",
+      "reference_sha256": "870367cea2cc090698af979491e7a9c75e56ca3048a484753ad11186728f9bc8",
+      "different_bytes": 0,
+      "native_bytes": 172032,
+      "reference_bytes": 172032
+    },
+    {
+      "field": 600,
+      "suffix": "work.bin",
+      "native_sha256": "84b0b250f441c4ed64226dd1390afae8f847c6383c47ac4751a7365040bfafc4",
+      "reference_sha256": "e217a99cc86d6665297168628f60c977efa8bca7a6f2cabd569ddcc68add924c",
+      "different_bytes": 4,
+      "native_bytes": 4096,
+      "reference_bytes": 4096
+    },
+    {
+      "field": 600,
+      "suffix": "sprites.bin",
+      "native_sha256": "e5278764380265c52fa179824aa7f940340123f17d548435f0c3f9d4ca30eb9a",
+      "reference_sha256": "e5278764380265c52fa179824aa7f940340123f17d548435f0c3f9d4ca30eb9a",
+      "different_bytes": 0,
+      "native_bytes": 8192,
+      "reference_bytes": 8192
+    }
+  ],
+  "sound_writes_reference_native": [
+    406,
+    406
+  ],
+  "DAC_writes_reference_native": [
+    29549,
+    29549
+  ],
+  "latches_reference_native": [
+    9,
+    9
+  ],
+  "first_port_difference": null,
+  "prepared_source_manifest_sha256": "f5d2a3a5ef96c9bd6112868f6dccc1d24c33ba6426a1e504355acd93eee7831d",
+  "actual_native_exit": {
+    "exit_code": 0,
+    "finished": 1791650337.5932417,
+    "WSL_pid": 42792,
+    "Linux_pid": 58672,
+    "ELF_sha256": "8aeaa8d8b1fa4683aeb1415409cac3f39407c58337001fd38ecd887d3f3243de",
+    "log_sha256": "edf9bb7e0496dba99e6472e38f473d3f30c4d0aa957ab4dc72c0ddc18c37f0f8"
+  },
+  "limitations": [
+    "Button/input pulses do not prove every successful hit/pickup/jump or death/restart effect.",
+    "PCM phase equality is not required; capture is retained for mix/rate analysis.",
+    "IRQ/NMI source clock identities remain pinned; physical clock and full audio calibration are separate gates."
+  ],
+  "canonical_reference_pins": [
+    {
+      "path": "D:\\Arcade\\AI\\aCORES\\Alpha68k N\\sim\\captures\\kyrosj\\gameplay\\frame_000000.png",
+      "sha256": "90d9ec75814724c7c9484a4a70eb59d4a56f33e7684cffd798187b5ff65b537d",
+      "bytes": 421
+    },
+    {
+      "path": "D:\\Arcade\\AI\\aCORES\\Alpha68k N\\sim\\captures\\kyrosj\\gameplay\\frame_000000.display.rgb",
+      "sha256": "9a4b97b4b079955bac86930724c8bcdd30aba4732f1dcbcbac2ec270f5f5e485",
+      "bytes": 172032
+    },
+    {
+      "path": "D:\\Arcade\\AI\\aCORES\\Alpha68k N\\sim\\captures\\kyrosj\\gameplay\\frame_000030.png",
+      "sha256": "90d9ec75814724c7c9484a4a70eb59d4a56f33e7684cffd798187b5ff65b537d",
+      "bytes": 421
+    },
+    {
+      "path": "D:\\Arcade\\AI\\aCORES\\Alpha68k N\\sim\\captures\\kyrosj\\gameplay\\frame_000030.display.rgb",
+      "sha256": "9a4b97b4b079955bac86930724c8bcdd30aba4732f1dcbcbac2ec270f5f5e485",
+      "bytes": 172032
+    },
+    {
+      "path": "D:\\Arcade\\AI\\aCORES\\Alpha68k N\\sim\\captures\\kyrosj\\gameplay\\frame_000090.png",
+      "sha256": "1afdb8470de0c28a01c900db6463d269f3f44ed4f54b74ab54badd3f69d26841",
+      "bytes": 2200
+    },
+    {
+      "path": "D:\\Arcade\\AI\\aCORES\\Alpha68k N\\sim\\captures\\kyrosj\\gameplay\\frame_000090.display.rgb",
+      "sha256": "597b7466c651ce13c6948134b3d586d62680f8fb85994fcbc7f2d047c07ce5bb",
+      "bytes": 172032
+    },
+    {
+      "path": "D:\\Arcade\\AI\\aCORES\\Alpha68k N\\sim\\captures\\kyrosj\\gameplay\\frame_000240.png",
+      "sha256": "1908e1e4dceff62c8439e724493e858d2282b6267662380e8ab380ad7b541a3c",
+      "bytes": 5478
+    },
+    {
+      "path": "D:\\Arcade\\AI\\aCORES\\Alpha68k N\\sim\\captures\\kyrosj\\gameplay\\frame_000240.display.rgb",
+      "sha256": "159db246e6c1ca749ddf242ec71367a07727892df17a5f760446eb58941b8cdd",
+      "bytes": 172032
+    },
+    {
+      "path": "D:\\Arcade\\AI\\aCORES\\Alpha68k N\\sim\\captures\\kyrosj\\gameplay\\frame_000360.png",
+      "sha256": "dffed40c773e0e466db05a1e40cad54e08b16e1ca19dd57cc20299f23d0f186e",
+      "bytes": 7581
+    },
+    {
+      "path": "D:\\Arcade\\AI\\aCORES\\Alpha68k N\\sim\\captures\\kyrosj\\gameplay\\frame_000360.display.rgb",
+      "sha256": "c70ec6bd6464f4da16a10cbc23eb328327aea1a578a4089eade1ae6f6e39178f",
+      "bytes": 172032
+    },
+    {
+      "path": "D:\\Arcade\\AI\\aCORES\\Alpha68k N\\sim\\captures\\kyrosj\\gameplay\\frame_000600.png",
+      "sha256": "62d24c629b33280dfd1beaa3b56ee623f40f811fa62e5841aeb019c112146881",
+      "bytes": 7349
+    },
+    {
+      "path": "D:\\Arcade\\AI\\aCORES\\Alpha68k N\\sim\\captures\\kyrosj\\gameplay\\frame_000600.display.rgb",
+      "sha256": "870367cea2cc090698af979491e7a9c75e56ca3048a484753ad11186728f9bc8",
+      "bytes": 172032
+    }
+  ],
+  "array_class_results": {
+    "RGB": {
+      "fields": 6,
+      "passed": true,
+      "arrays": [
+        {
+          "field": 0,
+          "suffix": "rgb",
+          "native_sha256": "9a4b97b4b079955bac86930724c8bcdd30aba4732f1dcbcbac2ec270f5f5e485",
+          "reference_sha256": "9a4b97b4b079955bac86930724c8bcdd30aba4732f1dcbcbac2ec270f5f5e485",
+          "different_bytes": 0,
+          "native_bytes": 172032,
+          "reference_bytes": 172032
+        },
+        {
+          "field": 30,
+          "suffix": "rgb",
+          "native_sha256": "9a4b97b4b079955bac86930724c8bcdd30aba4732f1dcbcbac2ec270f5f5e485",
+          "reference_sha256": "9a4b97b4b079955bac86930724c8bcdd30aba4732f1dcbcbac2ec270f5f5e485",
+          "different_bytes": 0,
+          "native_bytes": 172032,
+          "reference_bytes": 172032
+        },
+        {
+          "field": 90,
+          "suffix": "rgb",
+          "native_sha256": "597b7466c651ce13c6948134b3d586d62680f8fb85994fcbc7f2d047c07ce5bb",
+          "reference_sha256": "597b7466c651ce13c6948134b3d586d62680f8fb85994fcbc7f2d047c07ce5bb",
+          "different_bytes": 0,
+          "native_bytes": 172032,
+          "reference_bytes": 172032
+        },
+        {
+          "field": 240,
+          "suffix": "rgb",
+          "native_sha256": "159db246e6c1ca749ddf242ec71367a07727892df17a5f760446eb58941b8cdd",
+          "reference_sha256": "159db246e6c1ca749ddf242ec71367a07727892df17a5f760446eb58941b8cdd",
+          "different_bytes": 0,
+          "native_bytes": 172032,
+          "reference_bytes": 172032
+        },
+        {
+          "field": 360,
+          "suffix": "rgb",
+          "native_sha256": "c70ec6bd6464f4da16a10cbc23eb328327aea1a578a4089eade1ae6f6e39178f",
+          "reference_sha256": "c70ec6bd6464f4da16a10cbc23eb328327aea1a578a4089eade1ae6f6e39178f",
+          "different_bytes": 0,
+          "native_bytes": 172032,
+          "reference_bytes": 172032
+        },
+        {
+          "field": 600,
+          "suffix": "rgb",
+          "native_sha256": "870367cea2cc090698af979491e7a9c75e56ca3048a484753ad11186728f9bc8",
+          "reference_sha256": "870367cea2cc090698af979491e7a9c75e56ca3048a484753ad11186728f9bc8",
+          "different_bytes": 0,
+          "native_bytes": 172032,
+          "reference_bytes": 172032
+        }
+      ]
+    },
+    "strip": {
+      "fields": 6,
+      "passed": true,
+      "arrays": [
+        {
+          "field": 0,
+          "suffix": "sprites.bin",
+          "native_sha256": "9f1dcbc35c350d6027f98be0f5c8b43b42ca52b7604459c0c42be3aa88913d47",
+          "reference_sha256": "9f1dcbc35c350d6027f98be0f5c8b43b42ca52b7604459c0c42be3aa88913d47",
+          "different_bytes": 0,
+          "native_bytes": 8192,
+          "reference_bytes": 8192
+        },
+        {
+          "field": 30,
+          "suffix": "sprites.bin",
+          "native_sha256": "9f1dcbc35c350d6027f98be0f5c8b43b42ca52b7604459c0c42be3aa88913d47",
+          "reference_sha256": "9f1dcbc35c350d6027f98be0f5c8b43b42ca52b7604459c0c42be3aa88913d47",
+          "different_bytes": 0,
+          "native_bytes": 8192,
+          "reference_bytes": 8192
+        },
+        {
+          "field": 90,
+          "suffix": "sprites.bin",
+          "native_sha256": "327febe2a8b43924a6dfa465ae563dea96ec00db0db3248b61956bdf5a2a7be4",
+          "reference_sha256": "327febe2a8b43924a6dfa465ae563dea96ec00db0db3248b61956bdf5a2a7be4",
+          "different_bytes": 0,
+          "native_bytes": 8192,
+          "reference_bytes": 8192
+        },
+        {
+          "field": 240,
+          "suffix": "sprites.bin",
+          "native_sha256": "3d8918435b6cf7e2132037e5f603e6f114428e7bd08b7455cb6de6aa077733c7",
+          "reference_sha256": "3d8918435b6cf7e2132037e5f603e6f114428e7bd08b7455cb6de6aa077733c7",
+          "different_bytes": 0,
+          "native_bytes": 8192,
+          "reference_bytes": 8192
+        },
+        {
+          "field": 360,
+          "suffix": "sprites.bin",
+          "native_sha256": "a7172c6445af5be50889e52765361e0da619f89683da49e82437573ab06508b7",
+          "reference_sha256": "a7172c6445af5be50889e52765361e0da619f89683da49e82437573ab06508b7",
+          "different_bytes": 0,
+          "native_bytes": 8192,
+          "reference_bytes": 8192
+        },
+        {
+          "field": 600,
+          "suffix": "sprites.bin",
+          "native_sha256": "e5278764380265c52fa179824aa7f940340123f17d548435f0c3f9d4ca30eb9a",
+          "reference_sha256": "e5278764380265c52fa179824aa7f940340123f17d548435f0c3f9d4ca30eb9a",
+          "different_bytes": 0,
+          "native_bytes": 8192,
+          "reference_bytes": 8192
+        }
+      ]
+    },
+    "work": {
+      "fields": 6,
+      "passed": false,
+      "arrays": [
+        {
+          "field": 0,
+          "suffix": "work.bin",
+          "native_sha256": "ad7facb2586fc6e966c004d7d1d16b024f5805ff7cb47c7a85dabd8b48892ca7",
+          "reference_sha256": "ad7facb2586fc6e966c004d7d1d16b024f5805ff7cb47c7a85dabd8b48892ca7",
+          "different_bytes": 0,
+          "native_bytes": 4096,
+          "reference_bytes": 4096
+        },
+        {
+          "field": 30,
+          "suffix": "work.bin",
+          "native_sha256": "14ce3af2f455fbb4b7a274e2ee2090199dedff1d81220a7bd599eec95acfeb12",
+          "reference_sha256": "14ce3af2f455fbb4b7a274e2ee2090199dedff1d81220a7bd599eec95acfeb12",
+          "different_bytes": 0,
+          "native_bytes": 4096,
+          "reference_bytes": 4096
+        },
+        {
+          "field": 90,
+          "suffix": "work.bin",
+          "native_sha256": "81e66162aedf93572208684145e0cf042b68fc8d874d4cdaf6392dcb153c6295",
+          "reference_sha256": "81e66162aedf93572208684145e0cf042b68fc8d874d4cdaf6392dcb153c6295",
+          "different_bytes": 0,
+          "native_bytes": 4096,
+          "reference_bytes": 4096
+        },
+        {
+          "field": 240,
+          "suffix": "work.bin",
+          "native_sha256": "1ff622e4a7430d22cb84022658c54ff0f533d0db0a854fe55351558310c3b371",
+          "reference_sha256": "e597360df8492d4bdba58f672219e5485b345f9988fb7ec18849ac15b8860b3a",
+          "different_bytes": 3,
+          "native_bytes": 4096,
+          "reference_bytes": 4096
+        },
+        {
+          "field": 360,
+          "suffix": "work.bin",
+          "native_sha256": "2823d18f2fe05f1715fd38e1bfac59582f59b3959c0b9ecf51c08f584355dc51",
+          "reference_sha256": "e986577bfba8d95aa44c76fab75a388a80f2152fdb40fc889102e43f93eced9a",
+          "different_bytes": 1,
+          "native_bytes": 4096,
+          "reference_bytes": 4096
+        },
+        {
+          "field": 600,
+          "suffix": "work.bin",
+          "native_sha256": "84b0b250f441c4ed64226dd1390afae8f847c6383c47ac4751a7365040bfafc4",
+          "reference_sha256": "e217a99cc86d6665297168628f60c977efa8bca7a6f2cabd569ddcc68add924c",
+          "different_bytes": 4,
+          "native_bytes": 4096,
+          "reference_bytes": 4096
+        }
+      ]
+    }
+  },
+  "consumer_correction": "MAME RGB uses pinned completedPNG-derived display.rgb only; strict work/strip checks are unchanged. Original verifier exit1 and receipt remain immutable."
+}

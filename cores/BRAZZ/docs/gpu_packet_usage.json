@@ -1,0 +1,39 @@
+{
+  "scope": "MAME queue-front write inventory including BIOS queue initialization; not GPU execution counts or RTL acceptance",
+  "capture_directory": "D:/Arcade/AI/aCORES/BRAZZ/Arcade-CrystalSystem_MiSTer/sim/obj_dir/mame_capture/20261004_232730",
+  "packets": 240804,
+  "controls": {
+    "0000": 2048,
+    "0001": 3360,
+    "070a": 63,
+    "070c": 81032,
+    "070e": 18810,
+    "0718": 112,
+    "071c": 477,
+    "071e": 2784,
+    "0800": 21657,
+    "1000": 3754,
+    "1110": 3361,
+    "6000": 175,
+    "6040": 103171
+  },
+  "format_update_counts": {
+    "1": 103171,
+    "2": 175
+  },
+  "tiled_update_counts": {
+    "1": 79541,
+    "0": 23805
+  },
+  "first_batch": {
+    "frame": 11,
+    "first": 0,
+    "end": 1,
+    "control": 8,
+    "display_bank": 0,
+    "bank1": 32768,
+    "scope": "memory before first queue submission; draw destination and timing require integrated replay"
+  },
+  "fixture_limitation": "First memory snapshot occurred with control=8 (reset), before an active draw. A short corrected capture supplies the first actual drawing fixture.",
+  "corrected_fixture_evidence": "docs/mame_gpu_fixture.json"
+}

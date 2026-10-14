@@ -1,0 +1,236 @@
+# --------------------------------------------------------------------------
+#
+# MiSTer project
+#
+# WARNING WARNING WARNING:
+# Do not add files to project in Quartus IDE! It will mess this file!
+# Add the files manually to files.qip file.
+#
+# --------------------------------------------------------------------------
+
+# Universal production profile for every supported single-screen System 32
+# game, including Golden Axe II and Arabian Fight with the real NEC V25.
+# Runtime descriptor fields select V25 versus standard-board peripherals; no
+# second Quartus revision or per-game build is used.
+#
+# The universal shape retains every supported standard-board peripheral and
+# compiles the V25 implementation. Descriptor selection keeps each optional
+# block inactive for games that do not use it.
+#
+# Timing-qualified universal production profile: the clean seed-5 compile on
+# 2026-08-29 passed all four TimeQuest corners; historical pre-qualification
+# notes below are retained as placement/resource provenance.
+set_global_assignment -name TOP_LEVEL_ENTITY sys_top
+
+set_global_assignment -name LAST_QUARTUS_VERSION "17.0.2 Lite Edition"
+
+set_global_assignment -name GENERATE_RBF_FILE ON
+set_global_assignment -name COMPRESSION_MODE ON
+set_global_assignment -name PROJECT_OUTPUT_DIRECTORY output_files
+set_global_assignment -name SAVE_DISK_SPACE OFF
+# Preserve compilation databases so Smart Recompile can reuse unchanged work.
+set_global_assignment -name SMART_RECOMPILE ON
+set_global_assignment -name MIN_CORE_JUNCTION_TEMP "-40"
+set_global_assignment -name MAX_CORE_JUNCTION_TEMP 100
+set_global_assignment -name POWER_PRESET_COOLING_SOLUTION "23 MM HEAT SINK WITH 200 LFPM AIRFLOW"
+set_global_assignment -name POWER_BOARD_THERMAL_MODEL "NONE (CONSERVATIVE)"
+# Qualify release timing at all process/voltage/temperature corners, including
+# the fast-corner hold checks the single-corner flow skipped (audit R20 PF-5).
+set_global_assignment -name TIMEQUEST_MULTICORNER_ANALYSIS ON
+set_global_assignment -name OPTIMIZE_POWER_DURING_FITTING OFF
+set_global_assignment -name FINAL_PLACEMENT_OPTIMIZATION ALWAYS
+# 2026-08-14: raised from "FAST FIT" to "STANDARD FIT". Removing the V60 fast
+# instruction-fetch transport freed ~580 ALMs, which re-floorplanned the design
+# and exposed a previously-passing path inside the vendored sys/ascal.vhd
+# horizontal polyphase (o_h_poly_t.g0[11] -> o_h_poly_pix.g[*], 1-2 logic
+# levels, i.e. placement-bound rather than logic-bound). A full seed sweep
+# (2/3/4/1) improved it from -0.687 to -0.136 ns but did not close it, and
+# ascal.vhd is vendored framework code that must not be edited. Standard Fit is
+# the sanctioned optimization lever for a residual placement miss; it costs
+# compile wall-clock only and changes no hardware behaviour.
+set_global_assignment -name FITTER_EFFORT "STANDARD FIT"
+# The latest recorded standard-profile fit used 74% ALMs and 91% M10Ks, with
+# only marginal setup failures after dead logic was removed. The subsequent
+# universal merge adds the real V25, while the RF5C68 external-wave change is
+# expected to remove about 64 M10Ks. Exact universal use remains unproven until
+# the explicitly deferred Quartus optimization pass.
+set_global_assignment -name OPTIMIZATION_MODE "HIGH PERFORMANCE EFFORT"
+set_global_assignment -name FITTER_AGGRESSIVE_ROUTABILITY_OPTIMIZATION ALWAYS
+set_global_assignment -name ALLOW_POWER_UP_DONT_CARE OFF
+set_global_assignment -name QII_AUTO_PACKED_REGISTERS NORMAL
+set_global_assignment -name ROUTER_LCELL_INSERTION_AND_LOGIC_DUPLICATION ON
+set_global_assignment -name PHYSICAL_SYNTHESIS_COMBO_LOGIC OFF
+set_global_assignment -name PHYSICAL_SYNTHESIS_REGISTER_DUPLICATION OFF
+# 2026-08-06: retried register retiming on the post-optimization netlist
+# (V60 FP unit + s32_v25 HLE mailbox removed): bit-identical -0.083/-0.115 ns
+# slack to retiming OFF. Confirmed a genuine no-op regardless of resource
+# shape, same as the earlier universal-profile tests. Reverted.
+set_global_assignment -name PHYSICAL_SYNTHESIS_REGISTER_RETIMING OFF
+set_global_assignment -name OPTIMIZATION_TECHNIQUE SPEED
+set_global_assignment -name MUX_RESTRUCTURE ON
+set_global_assignment -name REMOVE_REDUNDANT_LOGIC_CELLS ON
+set_global_assignment -name AUTO_DELAY_CHAINS_FOR_HIGH_FANOUT_INPUT_PINS ON
+set_global_assignment -name PHYSICAL_SYNTHESIS_COMBO_LOGIC_FOR_AREA OFF
+set_global_assignment -name ADV_NETLIST_OPT_SYNTH_WYSIWYG_REMAP ON
+set_global_assignment -name SYNTH_GATED_CLOCK_CONVERSION ON
+set_global_assignment -name PRE_MAPPING_RESYNTHESIS ON
+set_global_assignment -name ROUTER_CLOCKING_TOPOLOGY_ANALYSIS ON
+set_global_assignment -name ROUTER_TIMING_OPTIMIZATION_LEVEL NORMAL
+set_global_assignment -name ECO_OPTIMIZE_TIMING ON
+set_global_assignment -name PERIPHERY_TO_CORE_PLACEMENT_AND_ROUTING_OPTIMIZATION ON
+set_global_assignment -name PHYSICAL_SYNTHESIS_ASYNCHRONOUS_SIGNAL_PIPELINING ON
+set_global_assignment -name ALM_REGISTER_PACKING_EFFORT MEDIUM
+# 2026-08-06: first fit of this profile. Resources fit comfortably
+# (33,722/41,910 ALMs 80%, 504/553 M10K 91%, before the V25 QIP was merged)
+# but seed 2 (carried over, unvalidated) gave -0.903/
+# -1.157 ns worst setup on a DIFFERENT critical
+# path family: the worst path is in the vendor MiSTer OSD (sys/osd.v's
+# h_cnt->osd_de, -0.780 ns), not our video pipeline. NOT extending the
+# existing pixcnt/multiscan multicycle exceptions (s32.sdc) to osd_de without
+# verifying it tolerates the same slack -- osd_de directly gates OSD pixel
+# visibility at an exact h_cnt match, unlike those two internal scaling
+# counters, so a wrong relaxation could visibly shift the on-screen menu by a
+# pixel on real hardware. Trying seed exploration first (no risk to vendor
+# code); see below for results as they come in.
+# Seed 3: -1.019/-0.942 ns worst setup (marginally better worst-number than
+# seed 2's -0.903/-1.157, worse on the other corner). Still deeply violated.
+# Seed 4 was stopped mid-fit, no result. 2026-08-06 (later same night): two
+# real correctness bugs fixed (analog input sign) and
+# two resource exclusions added (S32_V60_NO_FP, s32_v25 HLE mailbox tie-off)
+# -- the resource/placement shape has genuinely changed since the numbers
+# above, so resetting to seed 2 as the starting point for a fresh clean
+# compile rather than keeping the untested, arbitrarily-interrupted seed 4.
+#
+# Result: 30,910/41,910 ALMs (74%, down from 80% -- the FP unit was a real
+# ~2,800 ALM chunk), 504/553 M10K unchanged, worst setup slack -0.083/
+# -0.115 ns -- down from -0.903/-1.157 ns, ~90% of the gap closed by
+# removing dead logic alone. Close enough that seed exploration is worth
+# retrying properly. Seed 3: -0.552/-0.561 ns. Seed 4: -0.720/-0.625 ns.
+# Both worse than seed 2's -0.083/-0.115 ns. Seed 1: -0.278/-0.151 ns, also
+# worse. Seed 2 wins the full 3-additional-seed exploration on this netlist
+# too. Reverting to seed 2.
+# 2026-08-14: fixed a stale mismatch -- this line still read SEED 4 despite
+# the conclusion above; corrected to the documented winner, SEED 2.
+# 2026-08-14 (fetch-revert netlist): disabling the wide fetch reshuffled
+# placement and seed 2 now misses at -0.047/-0.036 ns on the pll_hdmi domain.
+# Re-running the seed exploration on this netlist. Seed 5: quartus_fit crashed
+# (exit -1, 0 errors, no stack trace, no Windows fault event) on 3/3 attempts,
+# each overlapping another unrelated Quartus job on this host; inconclusive on
+# cause, not scored as a seed result. Seed 6 was the prior starting point.
+# 2026-08-17 current universal-profile netlist: seed 6 missed slow-corner
+# setup at -0.083 ns; a current-map seed-2 fit/STA passed with multicorner
+# worst setup +0.204 ns, hold +0.099 ns, recovery +3.555 ns, removal
+# +0.278 ns, and minimum-pulse-width +0.398 ns. Keep seed 2 for the clean
+# full compile and release candidate.
+# 2026-08-18 current Jurassic Park gun-gain/release netlist: fresh seed 2
+# missed slow -40C HDMI setup at -0.173 ns (TNS -0.173 ns). Seed 6 moved
+# the miss into the main 96.6 MHz domain at -0.197 ns (TNS -0.399 ns).
+# Seed 5 passed all four operating corners: multicorner setup +0.218 ns,
+# hold +0.076 ns, recovery +3.327 ns, removal +0.255 ns, and minimum pulse
+# width +0.398 ns. Persist seed 5 for the clean full compile.
+# 2026-08-26 radm wheel slew-limiter netlist: seed 5 missed slow 100C setup
+# at -0.095 ns (TNS -0.795, main 96.6 MHz clk_ram domain). Re-exploring;
+# seed 2 is the other historical winner on this profile.
+# Seed 2 on this netlist: clk_ram closed (+0.035) but pll_hdmi missed
+# -0.054 ns at slow -40C (same see-saw as 2026-08-18). Seed 6 passed all
+# four corners: setup +0.356/+0.111/+2.515/+2.571, hold +0.107, recovery
+# +3.472, removal +0.779, min pulse +0.398. Persist seed 6 for release.
+# 2026-08-26 Sonic USB/PS2 mouse trackball RTL change: the clean seed-6
+# compile still fit but missed main clk_ram hold at -0.285 ns (one endpoint).
+# Run the bounded historical-winner seed-2 placement experiment before any
+# RTL or SDC change; update this record with the measured result.
+# Result: seed 2 closed clk_ram hold, but STA exposed a new Slow -40C HDMI
+# setup miss at -0.312 ns (TNS -2.459 ns); hold was +0.089 ns there.
+# Seed 5 also fit but missed setup at -0.548 ns (TNS -3.967 ns); hold was
+# +0.113 ns worst-case. Seed 1 then passed all four corners: setup +0.075 ns,
+# hold +0.117 ns, recovery +3.752 ns, removal +0.475 ns, min pulse +0.398 ns.
+# 2026-08-29 direct-video retimer/source-register fix: seed-5 clean fit and
+# four-corner STA pass (worst setup +0.075 ns, worst hold +0.079 ns).
+# 2026-08-28 Air Rescue byte-plane M10K relocation: seed-1 clean compile
+# missed Slow-corner setup/hold. Seed-5 is retained after the measured
+# placement sweep; no RTL or SDC workaround is required for this margin.
+set_global_assignment -name SEED 5
+# 2026-08-13: dropped from 8 to 2.  At 8, quartus_map and quartus_fit both died
+# with `*** Fatal Error: Access Violation` on this host; the fitter's stack
+# trace named deeply recursive TIS_ADVANCED_SPICE_RC_BODY::annotate_delay_tree
+# frames under parallel_annotate_re_netlist_by_self_scheduling / thr_thread_begin
+# -- Quartus's own multi-threaded delay annotation, not the design netlist.  The
+# failure was intermittent (one clean compile, then repeated crashes at varying
+# addresses in different executables), which is the signature of a worker-thread
+# fault rather than a source defect.  Processor count does not affect fit or
+# timing results, only compile wall-clock, so this is a host-stability setting
+# and not a hardware change.
+set_global_assignment -name NUM_PARALLEL_PROCESSORS 2
+
+# This repository is single-screen Sega System 32 only; Multi 32 is not a
+# supported target here.  The macro compiles out the second palette / mixer and
+# sizes work RAM to the board-correct 64 KiB so this RBF fits the Cyclone V
+# memory budget.  The Multi 32 arms remain in the RTL because is_multi32 folds
+# to a constant and reclaims no logic -- deleting them buys nothing.  Every
+# revision in this repository must set this macro; Multi32ExclusionTests in
+# verif/test_gen_mra.py keeps the MRA side in step.
+set_global_assignment -name VERILOG_MACRO "S32_SYSTEM32_ONLY=1"
+set_global_assignment -name VERILOG_MACRO "S32_PROFILE_STANDARD=1"
+set_global_assignment -name VERILOG_MACRO "S32_PCB_TIMING=1"
+set_global_assignment -name VERILOG_MACRO "S32_UNIVERSAL=1"
+set_global_assignment -name VERILOG_MACRO "S32_V25_HW=1"
+# Universal-profile trim keeps descriptor-gated driving ADC, PPI, Dark Edge
+# protection, and the real V25 path, but no excluded-title peripherals or
+# responders. See rtl/s32_core.sv's GAME_ONLY_STD localparam.
+set_global_assignment -name VERILOG_MACRO "S32_GAME_ONLY_STD=1"
+# 2026-08-06: two independent audits confirmed fp_valid() (rtl/cpu/v60/
+# s32_v60.sv) exactly mirrors MAME's s_Op5CTable/s_Op5FTable dispatch
+# index-for-index, and no known System 32 game (per that RTL's own comment
+# and docs/compat.md) executes the V60 floating-point group -- the same
+# evidence class already used for the V25 game descriptors. It is a substantial
+# unit (barrel shifters, LZC, 24x24 multiply),
+# so this is a real, not speculative, resource win; verify the actual ALM
+# delta on the next Analysis & Synthesis rather than assuming a figure.
+set_global_assignment -name VERILOG_MACRO "S32_V60_NO_FP=1"
+# Quartus 17 does not predefine SYNTHESIS; keep simulation-only assertions out
+# of the production HDL parse (the verification harnesses do not define it).
+set_global_assignment -name VERILOG_MACRO "SYNTHESIS=1"
+
+# All supported standard protection responders remain available; descriptor
+# selection keeps them inactive for games that do not use them.
+set_global_assignment -name SYSTEMVERILOG_FILE rtl/prot/s32_prot.sv
+
+# --- Real V25, descriptor-selected ------------------------------------
+set_global_assignment -name VERILOG_MACRO "S80X86_PSEUDO_286_INT=0"
+set_global_assignment -name QIP_FILE rtl/cpu/v25/v25.qip
+
+#set_global_assignment -name VERILOG_MACRO "MISTER_FB=1"
+
+#enable it only if 8bit indexed mode is used in core
+#set_global_assignment -name VERILOG_MACRO "MISTER_FB_PALETTE=1"
+
+
+# disable bilinear filtering when downscaling
+set_global_assignment -name VERILOG_MACRO "MISTER_DOWNSCALE_NN=1"
+
+# Holosseum's native image is at most 416x224. Disable only scaler output modes
+# smaller than the source image to remove the remaining input-line RAM and
+# downscale routing; normal HDMI upscale and direct video remain available.
+set_global_assignment -name VERILOG_MACRO "MISTER_DISABLE_DOWNSCALE=1"
+
+# disable adaptive scanline filtering
+set_global_assignment -name VERILOG_MACRO "MISTER_DISABLE_ADAPTIVE=1"
+
+# Keep the HDMI datapath lean in the universal production profile. The optional CRT
+# shadow-mask effect is not part of the arcade video signal; compiling it out
+# removes its 256x11 dual-port LUT and multiplier/control stage while leaving
+# direct video, OSD, sync, and scaler output available.
+set_global_assignment -name VERILOG_MACRO "MISTER_DISABLE_SHADOWMASK=1"
+
+#use only 1MB per frame for scaler to free ~21MB DDR3 RAM
+#set_global_assignment -name VERILOG_MACRO "MISTER_SMALL_VBUF=1"
+
+# Disable YC / Composite output to save some resources
+set_global_assignment -name VERILOG_MACRO "MISTER_DISABLE_YC=1"
+
+# Disable ALSA audio output to save some resources
+set_global_assignment -name VERILOG_MACRO "MISTER_DISABLE_ALSA=1"
+
+source sys/sys.tcl
+source sys/sys_analog.tcl
+source files.qip

@@ -1,0 +1,51 @@
+{
+  "target": "flash_cmd",
+  "acceptance": "Pinned Crystal System cartridge command/query behavior; NOR erase/program timing not implemented",
+  "runtime": "native Windows PE / MSYS2 UCRT64",
+  "commands": [
+    [
+      "D:/vibes/fpga/bin/verilator.exe",
+      "--cc",
+      "--exe",
+      "--build",
+      "-j",
+      "4",
+      "-O3",
+      "--top-module",
+      "cs_flash_cmd",
+      "--Mdir",
+      "R:/Verilator/CrystalSystem/tool-20261006T014731019Z-58044-554689218/obj_dir",
+      "-CFLAGS",
+      "-O2",
+      "-MAKEFLAGS",
+      "OPT_FAST=-O2",
+      "-MAKEFLAGS",
+      "OPT_GLOBAL=-O2",
+      "-Wno-fatal",
+      "D:/Arcade/AI/aCORES/BRAZZ/Arcade-CrystalSystem_MiSTer/rtl/board/cs_flash_cmd.sv",
+      "D:/Arcade/AI/aCORES/BRAZZ/Arcade-CrystalSystem_MiSTer/sim/flash_cmd/main.cpp"
+    ],
+    [
+      "D:/vibes/fpga/bin/verilator.exe",
+      "sim",
+      "R:/Verilator/CrystalSystem/tool-20261006T014731019Z-58044-554689218/obj_dir/Vcs_flash_cmd.exe"
+    ]
+  ],
+  "exit_code": 0,
+  "run_seconds": 0.1368013999890536,
+  "sources": [
+    {
+      "path": "rtl/board/cs_flash_cmd.sv",
+      "sha256": "8dd94e9a5426d27556639175fa1f699acfb53cd8efcfd2b59276ac56cd4c40d8"
+    },
+    {
+      "path": "sim/flash_cmd/main.cpp",
+      "sha256": "deaf37fb637dac65f0fa9f79e76ab099e7a5ed1a73abfe7237e74072db8a36d5"
+    }
+  ],
+  "workspace": "R:/Verilator/CrystalSystem/tool-20261006T014731019Z-58044-554689218",
+  "timing_profile": null,
+  "stdout": "PASS cartridge command/query: 2048 command/bank combinations, three present 16MiB banks, absent-bank identity, FF normal-ROM selection, whole-word command replacement/reset; 6146 clocks. Pinned MAME profile; no NOR programming claim.\n",
+  "stderr": "",
+  "build_log": "sim/obj_dir/flash_cmd/build.log"
+}

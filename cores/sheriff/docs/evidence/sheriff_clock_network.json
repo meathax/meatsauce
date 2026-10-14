@@ -1,0 +1,336 @@
+{
+  "scope": "Zero-delay connected CPU clock derivation for related Bandido I/O drawing 77-3367-11",
+  "sources": [
+    {
+      "url": "https://www.ti.com/lit/ds/symlink/sn74ls109a.pdf",
+      "path": "_checks\\manuals\\ti-sn74ls109a.pdf",
+      "bytes": 422477,
+      "sha256": "8edcee0d0cda6243969a0d723ec1ba9aba316258f47baf252000d5df9fb15653",
+      "pages": 12,
+      "review_page_one_based": 1,
+      "render": "_checks\\manuals\\ti-sn74ls109a-render-page1.png"
+    },
+    {
+      "url": "https://www.ti.com/lit/ds/symlink/sn74ls164.pdf",
+      "path": "_checks\\manuals\\ti-sn74ls164.pdf",
+      "bytes": 1444696,
+      "sha256": "55d7259a296728e63da468b9ea8688e1044fb2fe2f4d44e166c7f3f7430a0bb7",
+      "pages": 25,
+      "review_page_one_based": 1,
+      "render": "_checks\\manuals\\ti-sn74ls164-render-page1.png"
+    },
+    {
+      "url": "https://microsin.net/images/stories/hard/DDR-Halbleiter/TTL/SN75361A.pdf",
+      "path": "_checks\\manuals\\ti-sn75361a.pdf",
+      "bytes": 265375,
+      "sha256": "5d088ba766a72655979f430672f44bcd313d5d4fff75613b06c5d58d506f3bfa",
+      "pages": 9,
+      "review_page_one_based": 1,
+      "render": "_checks\\manuals\\ti-sn75361a-render-page1.png"
+    }
+  ],
+  "schematic": {
+    "path": "_checks/manuals/bandido-1980.pdf",
+    "sha256": "aa68eb8538e404c2ee1e02b7b47c0e40c62e9d9800cefcf22981c733c4b30224",
+    "pdf_page_one_based": 33,
+    "viewport": "_checks/manuals/bandido-cpu-phase-connected.png",
+    "viewport_sha256": "53fe7446396ba16f130be9389284140dddb493474f5b8dbc633c219334d968ef",
+    "crop_of_page_33": [
+      1850,
+      900,
+      4030,
+      2710
+    ]
+  },
+  "connections": [
+    "20.160 MHz crystal -> 2A LS160 decade CK and 3A LS164 CK",
+    "2A QD pin11 -> 4H inverter -> 3A A/B pins1/2 and 3B /CLR pin1",
+    "3A QB pin4 -> 5A input1; 3A QC pin5 -> 3B CLK pin4",
+    "3B J pin2 and /K pin3 and /PRE pin5 tied high",
+    "3B /Q pin7 -> 5A input3; 5A common E pin2 drawn high",
+    "5A output7 -> P9 phi1 pin10; output6 -> P9 phi2 pin21"
+  ],
+  "initial_state_cases": 5120,
+  "settling_crystal_edges": 32,
+  "steady_state_nonoverlap": true,
+  "crystal_hz": 20160000,
+  "cpu_hz": 2016000,
+  "counter_waveform": [
+    {
+      "counter": 0,
+      "qd": 0,
+      "qb": 0,
+      "qc": 1,
+      "phi2_ff_q": 0,
+      "phi1": 1,
+      "phi2": 0
+    },
+    {
+      "counter": 1,
+      "qd": 0,
+      "qb": 0,
+      "qc": 0,
+      "phi2_ff_q": 0,
+      "phi1": 1,
+      "phi2": 0
+    },
+    {
+      "counter": 2,
+      "qd": 0,
+      "qb": 1,
+      "qc": 0,
+      "phi2_ff_q": 0,
+      "phi1": 0,
+      "phi2": 0
+    },
+    {
+      "counter": 3,
+      "qd": 0,
+      "qb": 1,
+      "qc": 1,
+      "phi2_ff_q": 1,
+      "phi1": 0,
+      "phi2": 1
+    },
+    {
+      "counter": 4,
+      "qd": 0,
+      "qb": 1,
+      "qc": 1,
+      "phi2_ff_q": 1,
+      "phi1": 0,
+      "phi2": 1
+    },
+    {
+      "counter": 5,
+      "qd": 0,
+      "qb": 1,
+      "qc": 1,
+      "phi2_ff_q": 1,
+      "phi1": 0,
+      "phi2": 1
+    },
+    {
+      "counter": 6,
+      "qd": 0,
+      "qb": 1,
+      "qc": 1,
+      "phi2_ff_q": 1,
+      "phi1": 0,
+      "phi2": 1
+    },
+    {
+      "counter": 7,
+      "qd": 0,
+      "qb": 1,
+      "qc": 1,
+      "phi2_ff_q": 1,
+      "phi1": 0,
+      "phi2": 1
+    },
+    {
+      "counter": 8,
+      "qd": 1,
+      "qb": 1,
+      "qc": 1,
+      "phi2_ff_q": 0,
+      "phi1": 0,
+      "phi2": 0
+    },
+    {
+      "counter": 9,
+      "qd": 1,
+      "qb": 1,
+      "qc": 1,
+      "phi2_ff_q": 0,
+      "phi1": 0,
+      "phi2": 0
+    }
+  ],
+  "ideal": {
+    "phi1_high_crystal_intervals": [
+      0,
+      1
+    ],
+    "phi2_high_crystal_intervals": [
+      3,
+      4,
+      5,
+      6,
+      7
+    ],
+    "phi1_high_ns": 99.2063492063492,
+    "phi2_high_ns": 248.015873015873,
+    "cycle_ns": 496.031746031746
+  },
+  "master_hz": 50400000,
+  "samples": [
+    {
+      "phase": 0,
+      "crystal_interval": 0,
+      "phi1": 1,
+      "phi2": 0
+    },
+    {
+      "phase": 1,
+      "crystal_interval": 0,
+      "phi1": 1,
+      "phi2": 0
+    },
+    {
+      "phase": 2,
+      "crystal_interval": 0,
+      "phi1": 1,
+      "phi2": 0
+    },
+    {
+      "phase": 3,
+      "crystal_interval": 1,
+      "phi1": 1,
+      "phi2": 0
+    },
+    {
+      "phase": 4,
+      "crystal_interval": 1,
+      "phi1": 1,
+      "phi2": 0
+    },
+    {
+      "phase": 5,
+      "crystal_interval": 2,
+      "phi1": 0,
+      "phi2": 0
+    },
+    {
+      "phase": 6,
+      "crystal_interval": 2,
+      "phi1": 0,
+      "phi2": 0
+    },
+    {
+      "phase": 7,
+      "crystal_interval": 2,
+      "phi1": 0,
+      "phi2": 0
+    },
+    {
+      "phase": 8,
+      "crystal_interval": 3,
+      "phi1": 0,
+      "phi2": 1
+    },
+    {
+      "phase": 9,
+      "crystal_interval": 3,
+      "phi1": 0,
+      "phi2": 1
+    },
+    {
+      "phase": 10,
+      "crystal_interval": 4,
+      "phi1": 0,
+      "phi2": 1
+    },
+    {
+      "phase": 11,
+      "crystal_interval": 4,
+      "phi1": 0,
+      "phi2": 1
+    },
+    {
+      "phase": 12,
+      "crystal_interval": 4,
+      "phi1": 0,
+      "phi2": 1
+    },
+    {
+      "phase": 13,
+      "crystal_interval": 5,
+      "phi1": 0,
+      "phi2": 1
+    },
+    {
+      "phase": 14,
+      "crystal_interval": 5,
+      "phi1": 0,
+      "phi2": 1
+    },
+    {
+      "phase": 15,
+      "crystal_interval": 6,
+      "phi1": 0,
+      "phi2": 1
+    },
+    {
+      "phase": 16,
+      "crystal_interval": 6,
+      "phi1": 0,
+      "phi2": 1
+    },
+    {
+      "phase": 17,
+      "crystal_interval": 6,
+      "phi1": 0,
+      "phi2": 1
+    },
+    {
+      "phase": 18,
+      "crystal_interval": 7,
+      "phi1": 0,
+      "phi2": 1
+    },
+    {
+      "phase": 19,
+      "crystal_interval": 7,
+      "phi1": 0,
+      "phi2": 1
+    },
+    {
+      "phase": 20,
+      "crystal_interval": 8,
+      "phi1": 0,
+      "phi2": 0
+    },
+    {
+      "phase": 21,
+      "crystal_interval": 8,
+      "phi1": 0,
+      "phi2": 0
+    },
+    {
+      "phase": 22,
+      "crystal_interval": 8,
+      "phi1": 0,
+      "phi2": 0
+    },
+    {
+      "phase": 23,
+      "crystal_interval": 9,
+      "phi1": 0,
+      "phi2": 0
+    },
+    {
+      "phase": 24,
+      "crystal_interval": 9,
+      "phi1": 0,
+      "phi2": 0
+    }
+  ],
+  "sampling_error": {
+    "phi1_edge_ns": 0,
+    "phi2_rise_late_ns": 9.920634920634921,
+    "phi2_fall_ns": 0,
+    "phi2_sampled_high_ns": 238.0952380952381
+  },
+  "previous_adapter": {
+    "phi1_high_master_clocks": 12,
+    "phi2_high_master_clocks": 13,
+    "nonoverlap_master_clocks": 0
+  },
+  "sheriff_connected_wiring_qualified": false,
+  "electrical_propagation_delays_qualified": false,
+  "absolute_pixel_cpu_phase_qualified": false,
+  "first_pixel_cause_qualified": false,
+  "strict_graphics_gate_pass": false,
+  "limits": "Sheriff own parts positions support the related clock topology but are not a complete net schematic. The zero-delay network captures pre-edge QD; analog propagation, supply thresholds and raster-origin/counter coupling are unqualified. The 50.4 MHz samples round the ideal phi2 rise to the next master edge, 9.920635 ns late. No IRQ offset or reference waiver is derived here."
+}

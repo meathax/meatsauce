@@ -1,0 +1,219 @@
+{
+  "scope": "Scaled 1024x16 isolated sound-ROM inference; non-ROM inputs external; no full-board or CPU equivalence claim",
+  "canonical_board_sha256": "1d96bcb640490b62fbe6f15a9dc0e4fcf8e80b496cc108f14bd91241eb85ca0c",
+  "probes": {
+    "SoundLegacy": {
+      "source_path": "D:\\Arcade\\AI\\aCORES\\Alpha68k N\\research\\quartus_check_current_stage\\sound_rom_inference_probe\\SoundLegacy.sv",
+      "source_sha256": "24b6fad889d093fc8bebc3aff296bb15c813858b86c47cb6f04feb8a8376d68d",
+      "report_path": "D:\\Arcade\\AI\\aCORES\\Alpha68k N\\sim\\captures\\diagnostics\\sound_rom_inference_miter\\SoundLegacy.map.rpt",
+      "report_sha256": "bf6f19a3bb157f8c8a36d0f0e8222ab20436baa4d71bc9fb0e8b6265773553dc",
+      "actual_exit": 0,
+      "decisive_lines": [
+        {
+          "line": 53,
+          "text": "; Total registers                 ; 16392                                       ;"
+        },
+        {
+          "line": 56,
+          "text": "; Total block memory bits         ; 0                                           ;"
+        },
+        {
+          "line": 223,
+          "text": "; Total registers                              ; 16392 ;"
+        },
+        {
+          "line": 300,
+          "text": "    Info (276007): RAM logic \"sound_rom\" is uninferred due to asynchronous read logic File: D:/Arcade/AI/aCORES/Alpha68k N/research/quartus_check_current_stage/sound_rom_inference_probe/SoundLegacy.sv Line: 9"
+        },
+        {
+          "line": 310,
+          "text": "Info: Quartus Prime Analysis & Synthesis was successful. 0 errors, 2 warnings"
+        }
+      ]
+    },
+    "SoundDedicated": {
+      "source_path": "D:\\Arcade\\AI\\aCORES\\Alpha68k N\\research\\quartus_check_current_stage\\sound_rom_inference_probe\\SoundDedicated.sv",
+      "source_sha256": "aba4e1fd189cecd6c1b742ab364af9691e8451e8816e9f52a9b2f92cd3a448ba",
+      "report_path": "D:\\Arcade\\AI\\aCORES\\Alpha68k N\\sim\\captures\\diagnostics\\sound_rom_inference_miter\\SoundDedicated.map.rpt",
+      "report_sha256": "415d53c35680a3aaebecfd1a45dd9d417f99f4ed865be82288fd56e6ef7d7560",
+      "actual_exit": 0,
+      "decisive_lines": [
+        {
+          "line": 16,
+          "text": "  8. Analysis & Synthesis RAM Summary"
+        },
+        {
+          "line": 20,
+          "text": " 12. Source assignments for altsyncram:sound_rom_rtl_0|altsyncram_ubn1:auto_generated"
+        },
+        {
+          "line": 21,
+          "text": " 13. Parameter Settings for Inferred Entity Instance: altsyncram:sound_rom_rtl_0"
+        },
+        {
+          "line": 58,
+          "text": "; Total registers                 ; 8                                           ;"
+        },
+        {
+          "line": 61,
+          "text": "; Total block memory bits         ; 16,384                                      ;"
+        },
+        {
+          "line": 213,
+          "text": "; Total block memory bits                     ; 16384     ;"
+        },
+        {
+          "line": 230,
+          "text": ";    |altsyncram:sound_rom_rtl_0|        ; 0 (0)               ; 0 (0)                     ; 16384             ; 0          ; 0    ; 0            ; |SoundDedicated|altsyncram:sound_rom_rtl_0                                ; altsyncram      ; work         ;"
+        },
+        {
+          "line": 231,
+          "text": ";       |altsyncram_ubn1:auto_generated| ; 0 (0)               ; 0 (0)                     ; 16384             ; 0          ; 0    ; 0            ; |SoundDedicated|altsyncram:sound_rom_rtl_0|altsyncram_ubn1:auto_generated ; altsyncram_ubn1 ; work         ;"
+        },
+        {
+          "line": 237,
+          "text": "; Analysis & Synthesis RAM Summary                                                                                                                                          ;"
+        },
+        {
+          "line": 241,
+          "text": "; altsyncram:sound_rom_rtl_0|altsyncram_ubn1:auto_generated|ALTSYNCRAM ; AUTO ; Simple Dual Port ; 1024         ; 16           ; 1024         ; 16           ; 16384 ; None ;"
+        },
+        {
+          "line": 250,
+          "text": "; Total registers                              ; 8     ;"
+        },
+        {
+          "line": 265,
+          "text": "; sound_rom_q[0..15] ; sound_rom_rtl_0 ; RAM   ;"
+        },
+        {
+          "line": 279,
+          "text": "; Source assignments for altsyncram:sound_rom_rtl_0|altsyncram_ubn1:auto_generated ;"
+        },
+        {
+          "line": 288,
+          "text": "; Parameter Settings for Inferred Entity Instance: altsyncram:sound_rom_rtl_0 ;"
+        },
+        {
+          "line": 354,
+          "text": "; Entity Instance                           ; altsyncram:sound_rom_rtl_0 ;"
+        },
+        {
+          "line": 427,
+          "text": "    Info (276029): Inferred altsyncram megafunction from the following design logic: \"sound_rom_rtl_0\" "
+        },
+        {
+          "line": 443,
+          "text": "Info (12130): Elaborated megafunction instantiation \"altsyncram:sound_rom_rtl_0\""
+        },
+        {
+          "line": 444,
+          "text": "Info (12133): Instantiated megafunction \"altsyncram:sound_rom_rtl_0\" with the following parameter:"
+        },
+        {
+          "line": 472,
+          "text": "Info: Quartus Prime Analysis & Synthesis was successful. 0 errors, 2 warnings"
+        }
+      ]
+    },
+    "SoundAligned": {
+      "source_path": "D:\\Arcade\\AI\\aCORES\\Alpha68k N\\research\\quartus_check_current_stage\\sound_rom_inference_probe\\SoundAligned.sv",
+      "source_sha256": "751de3ce27162efd903894cb9a3af9978922920c8b74f809ed42735be09ff7b6",
+      "report_path": "D:\\Arcade\\AI\\aCORES\\Alpha68k N\\sim\\captures\\diagnostics\\sound_rom_inference_miter\\SoundAligned.map.rpt",
+      "report_sha256": "7d20e6df5a8494473b7316564222182b9fd13b94bbad7d1e8fd85feb9b208af4",
+      "actual_exit": 0,
+      "decisive_lines": [
+        {
+          "line": 16,
+          "text": "  8. Analysis & Synthesis RAM Summary"
+        },
+        {
+          "line": 20,
+          "text": " 12. Source assignments for altsyncram:sound_rom_rtl_0|altsyncram_ubn1:auto_generated"
+        },
+        {
+          "line": 21,
+          "text": " 13. Parameter Settings for Inferred Entity Instance: altsyncram:sound_rom_rtl_0"
+        },
+        {
+          "line": 58,
+          "text": "; Total registers                 ; 10                                          ;"
+        },
+        {
+          "line": 61,
+          "text": "; Total block memory bits         ; 16,384                                      ;"
+        },
+        {
+          "line": 213,
+          "text": "; Total block memory bits                     ; 16384     ;"
+        },
+        {
+          "line": 230,
+          "text": ";    |altsyncram:sound_rom_rtl_0|        ; 0 (0)               ; 0 (0)                     ; 16384             ; 0          ; 0    ; 0            ; |SoundAligned|altsyncram:sound_rom_rtl_0                                ; altsyncram      ; work         ;"
+        },
+        {
+          "line": 231,
+          "text": ";       |altsyncram_ubn1:auto_generated| ; 0 (0)               ; 0 (0)                     ; 16384             ; 0          ; 0    ; 0            ; |SoundAligned|altsyncram:sound_rom_rtl_0|altsyncram_ubn1:auto_generated ; altsyncram_ubn1 ; work         ;"
+        },
+        {
+          "line": 237,
+          "text": "; Analysis & Synthesis RAM Summary                                                                                                                                          ;"
+        },
+        {
+          "line": 241,
+          "text": "; altsyncram:sound_rom_rtl_0|altsyncram_ubn1:auto_generated|ALTSYNCRAM ; AUTO ; Simple Dual Port ; 1024         ; 16           ; 1024         ; 16           ; 16384 ; None ;"
+        },
+        {
+          "line": 250,
+          "text": "; Total registers                              ; 10    ;"
+        },
+        {
+          "line": 265,
+          "text": "; word_q[0..15] ; sound_rom_rtl_0 ; RAM        ;"
+        },
+        {
+          "line": 280,
+          "text": "; Source assignments for altsyncram:sound_rom_rtl_0|altsyncram_ubn1:auto_generated ;"
+        },
+        {
+          "line": 289,
+          "text": "; Parameter Settings for Inferred Entity Instance: altsyncram:sound_rom_rtl_0 ;"
+        },
+        {
+          "line": 355,
+          "text": "; Entity Instance                           ; altsyncram:sound_rom_rtl_0 ;"
+        },
+        {
+          "line": 428,
+          "text": "    Info (276029): Inferred altsyncram megafunction from the following design logic: \"sound_rom_rtl_0\" "
+        },
+        {
+          "line": 444,
+          "text": "Info (12130): Elaborated megafunction instantiation \"altsyncram:sound_rom_rtl_0\""
+        },
+        {
+          "line": 445,
+          "text": "Info (12133): Instantiated megafunction \"altsyncram:sound_rom_rtl_0\" with the following parameter:"
+        },
+        {
+          "line": 473,
+          "text": "Info: Quartus Prime Analysis & Synthesis was successful. 0 errors, 2 warnings"
+        }
+      ]
+    }
+  },
+  "miter": {
+    "source_path": "D:\\Arcade\\AI\\aCORES\\Alpha68k N\\research\\quartus_check_current_stage\\sound_rom_inference_probe\\SoundInferenceTB.sv",
+    "source_sha256": "48555fa26b16ad08ed8402728259c1b29dbd1b54fcba02f577760b0b8622c662",
+    "build_first_exit": 1,
+    "build_first_failure": "GNU make refuses generated build path containing spaces",
+    "build_fixed_exit": 0,
+    "space_free_mdir": "/tmp/alpha68kn_sound_miter_751de3ce",
+    "run_exit": 0,
+    "stdout": "PASS checked=60000 explicit_same_address_writes=6000",
+    "runtime": "Ubuntu WSL Verilator 5.050",
+    "comparison": "Post-edge actual DI, deterministic mixed ROM/IO/RAM/latch/unmapped; preinitialized memory",
+    "limits": "Scaled interface miter; actual T80/board/game qualification remains peer-owned"
+  },
+  "preferred_variant": "SoundAligned; parallel full-word/control captures and combinational byte selection preserve existing post-edge DI. Dedicated variant adds an intermediate DI cycle and is not selected."
+}

@@ -1,0 +1,172 @@
+{
+  "scope": "ActualCPU61 exact-cycle soundROM/currentvideo, same original observer coverage. Entire old135 rows retained;32 expanded observer rows are accounted by exact compiled host predicates. No common rows/fields/ticks dropped.",
+  "checks": {
+    "actualbuild0": true,
+    "actualsimulation0": true,
+    "actual_ELF_pin": true,
+    "pinned_candidate_source": true,
+    "production_frozen": true,
+    "all61_actualframes": true,
+    "all_CPU_frame_metrics_exact": true,
+    "all_actual_inputs_exact": true,
+    "accepted_chip_and_DAC_rows_tick_exact": true,
+    "all_retained_available_native_RGB_exact": true,
+    "actual_CEN_ROMchecks_nonzero": true,
+    "actual_T2_ROMaccept_nonzero": true,
+    "actual_non_CEN_holdchecks_nonzero": true,
+    "allROM_hold_mismatches_zero": true,
+    "retainedsample_bytes_match_ROM": true,
+    "nonconstant_sample_expected": true,
+    "main_epoch_original_observer_coverage_tick_exact": true,
+    "expanded_observer_rows_source_accounted": true
+  },
+  "observer_checks": {
+    "old_exact_compiled_predicate_pinned": true,
+    "new_exact_compiled_predicate_pinned": true,
+    "old_actual_compiled_host_matches_build_manifest": true,
+    "new_actual_compiled_host_pin": true,
+    "reference_events_all_within_original_domain": true,
+    "all_candidate_events_within_expanded_source_domain": true,
+    "all135_original_observed_rows_exact": true,
+    "all32_extra_rows_accounted_by_expanded_source_domain": true,
+    "common_ordered_rows_nothing_dropped_or_changed": true,
+    "original_failure_preserved_only_fulltrace_bijection": true
+  },
+  "strict_boolean_all_true": true,
+  "source": [
+    {
+      "path": "D:\\vibes\\fpga\\temp\\alpha68kn-system.fmv0Nt\\system_main.cpp",
+      "sha256": "20963ffe29ee3c972cde600577d8256ec5c4d6ed6ce363207d130c35cd6d2212",
+      "lines": [
+        {
+          "line": 208,
+          "text": "            // Complete small causal stream for IRQ acknowledgments, frame"
+        },
+        {
+          "line": 209,
+          "text": "            // counters, and the frame-600 message strip; no bus sample cap."
+        },
+        {
+          "line": 210,
+          "text": "            if((attrs&8) || ((attrs&4)==0 && (address==0x0e0000 || (address>=0x20000 && address<=0x2000a)"
+        },
+        {
+          "line": 211,
+          "text": "                || (address>=0x40e1c && address<=0x40e3e))))"
+        },
+        {
+          "line": 212,
+          "text": "                epoch_events<<ticks-started<<','<<frame<<','<<raster_x<<','<<raster_y<<','<<address<<','"
+        },
+        {
+          "line": 213,
+          "text": "                    <<((attrs>>3)&1)<<','<<((attrs>>2)&1)<<','<<((attrs>>1)&1)<<','<<(attrs&1)<<','"
+        },
+        {
+          "line": 214,
+          "text": "                    <<dataout<<','<<top.debug_main_din<<'\\n';"
+        },
+        {
+          "line": 215,
+          "text": "        }"
+        },
+        {
+          "line": 216,
+          "text": "        if(top.video_ce && !top.video_hblank && !top.video_vblank) {"
+        },
+        {
+          "line": 217,
+          "text": "            if(top.video_y<16 || top.video_y>239)"
+        },
+        {
+          "line": 218,
+          "text": "                throw std::runtime_error(\"visible pixel outside native viewport\");"
+        }
+      ]
+    },
+    {
+      "path": "D:\\Arcade\\AI\\aCORES\\Alpha68k N\\sim\\captures\\diagnostics\\kyros_sound_rom_q61_source\\system_main.cpp",
+      "sha256": "0129bb249bbb4e42906632cd450f3202fb9dc84768eda4672e9ac6b883625d1d",
+      "lines": [
+        {
+          "line": 270,
+          "text": "            // Complete causal stream for IRQs, backdrop writes, frame counters"
+        },
+        {
+          "line": 271,
+          "text": "            // and the message strip; no bus sample cap or injected behavior."
+        },
+        {
+          "line": 272,
+          "text": "            if((attrs&8) || ((attrs&4)==0 && (address==0x060000 || address==0x0e0000 || (address>=0x20000 && address<=0x2000a)"
+        },
+        {
+          "line": 273,
+          "text": "                || (address>=0x40e1c && address<=0x40e3e)"
+        },
+        {
+          "line": 274,
+          "text": "                || (address>=0x40eea && address<=0x40ef0) || address==0x406c2"
+        },
+        {
+          "line": 275,
+          "text": "                || (frame>=330 && frame<=420 && address>=0x040000 && address<0x042000))))"
+        },
+        {
+          "line": 276,
+          "text": "                epoch_events<<ticks-started<<','<<frame<<','<<raster_x<<','<<raster_y<<','<<address<<','"
+        },
+        {
+          "line": 277,
+          "text": "                    <<((attrs>>3)&1)<<','<<((attrs>>2)&1)<<','<<((attrs>>1)&1)<<','<<(attrs&1)<<','"
+        },
+        {
+          "line": 278,
+          "text": "                    <<dataout<<','<<top.debug_main_din<<'\\n';"
+        },
+        {
+          "line": 279,
+          "text": "        }"
+        },
+        {
+          "line": 280,
+          "text": "        if(top.video_ce && !top.video_hblank && !top.video_vblank) {"
+        }
+      ]
+    }
+  ],
+  "candidate_epoch_rows": 167,
+  "old_epoch_rows": 135,
+  "original_coverage_rows": 135,
+  "expanded_extra_rows": 32,
+  "extras_by_address": {
+    "0x406c2": 14,
+    "0x40eea": 4,
+    "0x40eee": 4,
+    "0x40eec": 4,
+    "0x40ef0": 4,
+    "0x60000": 2
+  },
+  "first_common_difference": null,
+  "original_verification_sha256": "aa4161763157f23c90d150874d7e38325769a9ebefdb40bab4f578687fa3f03f",
+  "original_exact_trace_pass": false,
+  "ROM_contract": {
+    "scope": "actualCPU candidatehardwarepath readonlychecks",
+    "ROM_CEN_checks": 900530,
+    "T2_accept_checks": 900530,
+    "address_hold_checks": 45348857,
+    "mismatch_count": 0
+  },
+  "actual_frames": 61,
+  "chip_writes": 114,
+  "DACwrites": 1,
+  "finite_q61_same_observer_coverage_pass": true,
+  "full_sound_acceptance": false,
+  "canonical_MAME_graphics_pass": false,
+  "resource_timing_pass": false,
+  "limits": [
+    "Original exact-entire-epoch-log verifier16/17 failure and independent header-schema failure retained unchanged.",
+    "Candidate soundROM hardware path is exercised with currentvideo54af; no asyncsimulationbypass.",
+    "Finite native61 prefix parity does not close known MAME atomic RGB/startup mismatch, P5 semantic effects, full720, resources, or physical acceptance."
+  ]
+}

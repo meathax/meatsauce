@@ -1,0 +1,1981 @@
+{
+  "scope": "Source-bound integration contract, no game runtime or accepted name-route claim",
+  "bindings": [
+    {
+      "instruction": {
+        "CURPC": "0x2612",
+        "opcodes": "50ee0014",
+        "assembly": "st      ($14,A6)"
+      },
+      "CPU_byte_address": "0x20014",
+      "tap_word_address": "0x20014",
+      "byte_mask": "0xff00",
+      "data_shift": 8,
+      "meaning": "Name caller sets renderer/game-motion suppressionFF; supporting state only, not unique name predicate"
+    },
+    {
+      "instruction": {
+        "CURPC": "0x26da",
+        "opcodes": "1d7c00280105",
+        "assembly": "move.b  #$28, ($105,A6)"
+      },
+      "CPU_byte_address": "0x20105",
+      "tap_word_address": "0x20104",
+      "byte_mask": "0xff",
+      "data_shift": 0,
+      "meaning": "Authoritative source entry sets28;6cae also sets same address/value, so CURPC required"
+    },
+    {
+      "instruction": {
+        "CURPC": "0x28c8",
+        "opcodes": "422e0314",
+        "assembly": "clr.b   ($314,A6)"
+      },
+      "CPU_byte_address": "0x20314",
+      "tap_word_address": "0x20314",
+      "byte_mask": "0xff00",
+      "data_shift": 8,
+      "meaning": "Initialization clears edge/debounce"
+    },
+    {
+      "instruction": {
+        "CURPC": "0x28dc",
+        "opcodes": "422e031d",
+        "assembly": "clr.b   ($31d,A6)"
+      },
+      "CPU_byte_address": "0x2031d",
+      "tap_word_address": "0x2031c",
+      "byte_mask": "0xff",
+      "data_shift": 0,
+      "meaning": "Initialization clears accepted character count"
+    },
+    {
+      "instruction": {
+        "CURPC": "0x28e0",
+        "opcodes": "422e031a",
+        "assembly": "clr.b   ($31a,A6)"
+      },
+      "CPU_byte_address": "0x2031a",
+      "tap_word_address": "0x2031a",
+      "byte_mask": "0xff00",
+      "data_shift": 8,
+      "meaning": "Final name work-state initialization clear; retain preceding entry/count/debounce ancestry"
+    },
+    {
+      "instruction": {
+        "CURPC": "0x2b98",
+        "opcodes": "08ee00010314",
+        "assembly": "bset    #$1, ($314,A6)"
+      },
+      "CPU_byte_address": "0x20314",
+      "tap_word_address": "0x20314",
+      "byte_mask": "0xff00",
+      "data_shift": 8,
+      "meaning": "Button1 rising-edge accepted: bit1 set; one inflight selection"
+    },
+    {
+      "instruction": {
+        "CURPC": "0x29da",
+        "opcodes": "08ae00010314",
+        "assembly": "bclr    #$1, ($314,A6)"
+      },
+      "CPU_byte_address": "0x20314",
+      "tap_word_address": "0x20314",
+      "byte_mask": "0xff00",
+      "data_shift": 8,
+      "meaning": "Button1 released and consumed: bit1 clear"
+    },
+    {
+      "instruction": {
+        "CURPC": "0x2c98",
+        "opcodes": "062e0001031d",
+        "assembly": "addi.b  #$1, ($31d,A6)"
+      },
+      "CPU_byte_address": "0x2031d",
+      "tap_word_address": "0x2031c",
+      "byte_mask": "0xff",
+      "data_shift": 0,
+      "meaning": "Animation completed and normal character accepted: increment count"
+    },
+    {
+      "instruction": {
+        "CURPC": "0x2cbc",
+        "opcodes": "1d7c00010301",
+        "assembly": "move.b  #$1, ($301,A6)"
+      },
+      "CPU_byte_address": "0x20301",
+      "tap_word_address": "0x20300",
+      "byte_mask": "0xff",
+      "data_shift": 0,
+      "meaning": "After eighth accepted character, set countdown1"
+    },
+    {
+      "instruction": {
+        "CURPC": "0x2ce8",
+        "opcodes": "30bc00d2",
+        "assembly": "move.w  #$d2, (A0)"
+      },
+      "CPU_byte_address": "0x20301",
+      "tap_word_address": "0x20300",
+      "byte_mask": "0xff",
+      "data_shift": 0,
+      "meaning": "END glyphCC selected, set countdown1"
+    },
+    {
+      "instruction": {
+        "CURPC": "0x2924",
+        "opcodes": "1d410301",
+        "assembly": "move.b  D1, ($301,A6)"
+      },
+      "CPU_byte_address": "0x20301",
+      "tap_word_address": "0x20300",
+      "byte_mask": "0xff",
+      "data_shift": 0,
+      "meaning": "BCD countdown decremented; source02904 counts64 yielded iterations per unit"
+    },
+    {
+      "instruction": {
+        "CURPC": "0x16ce",
+        "opcodes": "2d410034",
+        "assembly": "move.l  D1, ($34,A6)"
+      },
+      "CPU_byte_address": "0x20034",
+      "tap_word_address": "0x20034",
+      "byte_mask": "0xff00",
+      "data_shift": 8,
+      "meaning": "P1 extra-life next-threshold updated"
+    },
+    {
+      "instruction": {
+        "CURPC": "0x16d8",
+        "opcodes": "1d40000e",
+        "assembly": "move.b  D0, ($e,A6)"
+      },
+      "CPU_byte_address": "0x2000e",
+      "tap_word_address": "0x2000e",
+      "byte_mask": "0xff00",
+      "data_shift": 8,
+      "meaning": "P1 spare increment"
+    },
+    {
+      "instruction": {
+        "CURPC": "0x171e",
+        "opcodes": "2d410038",
+        "assembly": "move.l  D1, ($38,A6)"
+      },
+      "CPU_byte_address": "0x20038",
+      "tap_word_address": "0x20038",
+      "byte_mask": "0xff00",
+      "data_shift": 8,
+      "meaning": "P2 extra-life next-threshold updated"
+    },
+    {
+      "instruction": {
+        "CURPC": "0x1728",
+        "opcodes": "1d40000f",
+        "assembly": "move.b  D0, ($f,A6)"
+      },
+      "CPU_byte_address": "0x2000f",
+      "tap_word_address": "0x2000e",
+      "byte_mask": "0xff",
+      "data_shift": 0,
+      "meaning": "P2 spare increment"
+    },
+    {
+      "instruction": {
+        "CURPC": "0x246c",
+        "opcodes": "532e000e",
+        "assembly": "subq.b  #1, ($e,A6)"
+      },
+      "CPU_byte_address": "0x2000e",
+      "tap_word_address": "0x2000e",
+      "byte_mask": "0xff00",
+      "data_shift": 8,
+      "meaning": "P1 genuine death decrement"
+    },
+    {
+      "instruction": {
+        "CURPC": "0x24bc",
+        "opcodes": "532e000f",
+        "assembly": "subq.b  #1, ($f,A6)"
+      },
+      "CPU_byte_address": "0x2000f",
+      "tap_word_address": "0x2000e",
+      "byte_mask": "0xff",
+      "data_shift": 0,
+      "meaning": "P2 genuine death decrement"
+    },
+    {
+      "instruction": {
+        "CURPC": "0x252c",
+        "opcodes": "422e000a",
+        "assembly": "clr.b   ($a,A6)"
+      },
+      "CPU_byte_address": "0x2000a",
+      "tap_word_address": "0x2000a",
+      "byte_mask": "0xff00",
+      "data_shift": 8,
+      "meaning": "Both exhausted: final gameplay clear; combine actual bothFF and preceding lifecycle source ancestry"
+    }
+  ],
+  "source_code": [
+    {
+      "CURPC": "0x1660",
+      "opcodes": "4ff900020ff8",
+      "assembly": "lea     $20ff8.l, A7"
+    },
+    {
+      "CURPC": "0x1666",
+      "opcodes": "4efa0790",
+      "assembly": "jmp     ($1df8,PC)"
+    },
+    {
+      "CURPC": "0x166a",
+      "opcodes": "44fc00ff",
+      "assembly": "move    #$ff, CCR"
+    },
+    {
+      "CURPC": "0x166e",
+      "opcodes": "4eb900001d56",
+      "assembly": "jsr     $1d56.l"
+    },
+    {
+      "CURPC": "0x1674",
+      "opcodes": "61000190",
+      "assembly": "bsr     $1806"
+    },
+    {
+      "CURPC": "0x1678",
+      "opcodes": "46fc2000",
+      "assembly": "move    #$2000, SR"
+    },
+    {
+      "CURPC": "0x167c",
+      "opcodes": "4eb900006ca6",
+      "assembly": "jsr     $6ca6.l"
+    },
+    {
+      "CURPC": "0x1682",
+      "opcodes": "4eb900006bf6",
+      "assembly": "jsr     $6bf6.l"
+    },
+    {
+      "CURPC": "0x1688",
+      "opcodes": "4ef900001aa4",
+      "assembly": "jmp     $1aa4.l"
+    },
+    {
+      "CURPC": "0x168e",
+      "opcodes": "082e0000000a",
+      "assembly": "btst    #$0, ($a,A6)"
+    },
+    {
+      "CURPC": "0x1694",
+      "opcodes": "6602",
+      "assembly": "bne     $1698"
+    },
+    {
+      "CURPC": "0x1696",
+      "opcodes": "4e75",
+      "assembly": "rts"
+    },
+    {
+      "CURPC": "0x1698",
+      "opcodes": "48e7f080",
+      "assembly": "movem.l D0-D3/A0, -(A7)"
+    },
+    {
+      "CURPC": "0x169c",
+      "opcodes": "4a2e005b",
+      "assembly": "tst.b   ($5b,A6)"
+    },
+    {
+      "CURPC": "0x16a0",
+      "opcodes": "6652",
+      "assembly": "bne     $16f4"
+    },
+    {
+      "CURPC": "0x16a2",
+      "opcodes": "222e0020",
+      "assembly": "move.l  ($20,A6), D1"
+    },
+    {
+      "CURPC": "0x16a6",
+      "opcodes": "6100013e",
+      "assembly": "bsr     $17e6"
+    },
+    {
+      "CURPC": "0x16aa",
+      "opcodes": "48ee00020020",
+      "assembly": "movem.l D1, ($20,A6)"
+    },
+    {
+      "CURPC": "0x16b0",
+      "opcodes": "0c8100999999",
+      "assembly": "cmpi.l  #$999999, D1"
+    },
+    {
+      "CURPC": "0x16b6",
+      "opcodes": "6700008c",
+      "assembly": "beq     $1744"
+    },
+    {
+      "CURPC": "0x16ba",
+      "opcodes": "202e0034",
+      "assembly": "move.l  ($34,A6), D0"
+    },
+    {
+      "CURPC": "0x16be",
+      "opcodes": "b280",
+      "assembly": "cmp.l   D0, D1"
+    },
+    {
+      "CURPC": "0x16c0",
+      "opcodes": "65000082",
+      "assembly": "bcs     $1744"
+    },
+    {
+      "CURPC": "0x16c4",
+      "opcodes": "223c00007770",
+      "assembly": "move.l  #$7770, D1"
+    },
+    {
+      "CURPC": "0x16ca",
+      "opcodes": "6100011a",
+      "assembly": "bsr     $17e6"
+    },
+    {
+      "CURPC": "0x16ce",
+      "opcodes": "2d410034",
+      "assembly": "move.l  D1, ($34,A6)"
+    },
+    {
+      "CURPC": "0x16d2",
+      "opcodes": "102e000e",
+      "assembly": "move.b  ($e,A6), D0"
+    },
+    {
+      "CURPC": "0x16d6",
+      "opcodes": "5200",
+      "assembly": "addq.b  #1, D0"
+    },
+    {
+      "CURPC": "0x16d8",
+      "opcodes": "1d40000e",
+      "assembly": "move.b  D0, ($e,A6)"
+    },
+    {
+      "CURPC": "0x16dc",
+      "opcodes": "61000620",
+      "assembly": "bsr     $1cfe"
+    },
+    {
+      "CURPC": "0x16e0",
+      "opcodes": "4a2e0004",
+      "assembly": "tst.b   ($4,A6)"
+    },
+    {
+      "CURPC": "0x16e4",
+      "opcodes": "6706",
+      "assembly": "beq     $16ec"
+    },
+    {
+      "CURPC": "0x16e6",
+      "opcodes": "426e0006",
+      "assembly": "clr.w   ($6,A6)"
+    },
+    {
+      "CURPC": "0x16ea",
+      "opcodes": "4e40",
+      "assembly": "trap    #$0"
+    },
+    {
+      "CURPC": "0x16ec",
+      "opcodes": "1d7c00510004",
+      "assembly": "move.b  #$51, ($4,A6)"
+    },
+    {
+      "CURPC": "0x16f2",
+      "opcodes": "6050",
+      "assembly": "bra     $1744"
+    },
+    {
+      "CURPC": "0x16f4",
+      "opcodes": "222e0024",
+      "assembly": "move.l  ($24,A6), D1"
+    },
+    {
+      "CURPC": "0x16f8",
+      "opcodes": "610000ec",
+      "assembly": "bsr     $17e6"
+    },
+    {
+      "CURPC": "0x16fc",
+      "opcodes": "48ee00020024",
+      "assembly": "movem.l D1, ($24,A6)"
+    },
+    {
+      "CURPC": "0x1702",
+      "opcodes": "0c8100999999",
+      "assembly": "cmpi.l  #$999999, D1"
+    },
+    {
+      "CURPC": "0x1708",
+      "opcodes": "673a",
+      "assembly": "beq     $1744"
+    },
+    {
+      "CURPC": "0x170a",
+      "opcodes": "202e0038",
+      "assembly": "move.l  ($38,A6), D0"
+    },
+    {
+      "CURPC": "0x170e",
+      "opcodes": "7600",
+      "assembly": "moveq   #$0, D3"
+    },
+    {
+      "CURPC": "0x1710",
+      "opcodes": "b280",
+      "assembly": "cmp.l   D0, D1"
+    },
+    {
+      "CURPC": "0x1712",
+      "opcodes": "6530",
+      "assembly": "bcs     $1744"
+    },
+    {
+      "CURPC": "0x1714",
+      "opcodes": "223c00007770",
+      "assembly": "move.l  #$7770, D1"
+    },
+    {
+      "CURPC": "0x171a",
+      "opcodes": "610000ca",
+      "assembly": "bsr     $17e6"
+    },
+    {
+      "CURPC": "0x171e",
+      "opcodes": "2d410038",
+      "assembly": "move.l  D1, ($38,A6)"
+    },
+    {
+      "CURPC": "0x1722",
+      "opcodes": "102e000f",
+      "assembly": "move.b  ($f,A6), D0"
+    },
+    {
+      "CURPC": "0x1726",
+      "opcodes": "5200",
+      "assembly": "addq.b  #1, D0"
+    },
+    {
+      "CURPC": "0x1728",
+      "opcodes": "1d40000f",
+      "assembly": "move.b  D0, ($f,A6)"
+    },
+    {
+      "CURPC": "0x172c",
+      "opcodes": "610005d0",
+      "assembly": "bsr     $1cfe"
+    },
+    {
+      "CURPC": "0x1730",
+      "opcodes": "4a2e0004",
+      "assembly": "tst.b   ($4,A6)"
+    },
+    {
+      "CURPC": "0x1734",
+      "opcodes": "6706",
+      "assembly": "beq     $173c"
+    },
+    {
+      "CURPC": "0x1736",
+      "opcodes": "426e0006",
+      "assembly": "clr.w   ($6,A6)"
+    },
+    {
+      "CURPC": "0x173a",
+      "opcodes": "4e40",
+      "assembly": "trap    #$0"
+    },
+    {
+      "CURPC": "0x173c",
+      "opcodes": "1d7c00510004",
+      "assembly": "move.b  #$51, ($4,A6)"
+    },
+    {
+      "CURPC": "0x1742",
+      "opcodes": "4e71",
+      "assembly": "nop"
+    },
+    {
+      "CURPC": "0x1af4",
+      "opcodes": "303c0040",
+      "assembly": "move.w  #$40, D0"
+    },
+    {
+      "CURPC": "0x1af8",
+      "opcodes": "3080",
+      "assembly": "move.w  D0, (A0)"
+    },
+    {
+      "CURPC": "0x1afa",
+      "opcodes": "5548",
+      "assembly": "subq.w  #2, A0"
+    },
+    {
+      "CURPC": "0x1afc",
+      "opcodes": "b1fc00040000",
+      "assembly": "cmpa.l  #$40000, A0"
+    },
+    {
+      "CURPC": "0x1b02",
+      "opcodes": "66f4",
+      "assembly": "bne     $1af8"
+    },
+    {
+      "CURPC": "0x1b04",
+      "opcodes": "102e0016",
+      "assembly": "move.b  ($16,A6), D0"
+    },
+    {
+      "CURPC": "0x1b08",
+      "opcodes": "02400030",
+      "assembly": "andi.w  #$30, D0"
+    },
+    {
+      "CURPC": "0x1b0c",
+      "opcodes": "e848",
+      "assembly": "lsr.w   #4, D0"
+    },
+    {
+      "CURPC": "0x1b0e",
+      "opcodes": "5440",
+      "assembly": "addq.w  #2, D0"
+    },
+    {
+      "CURPC": "0x1b10",
+      "opcodes": "082e0001000a",
+      "assembly": "btst    #$1, ($a,A6)"
+    },
+    {
+      "CURPC": "0x1b16",
+      "opcodes": "670a",
+      "assembly": "beq     $1b22"
+    },
+    {
+      "CURPC": "0x1b18",
+      "opcodes": "1d40000e",
+      "assembly": "move.b  D0, ($e,A6)"
+    },
+    {
+      "CURPC": "0x1b1c",
+      "opcodes": "1d40000f",
+      "assembly": "move.b  D0, ($f,A6)"
+    },
+    {
+      "CURPC": "0x1b20",
+      "opcodes": "6008",
+      "assembly": "bra     $1b2a"
+    },
+    {
+      "CURPC": "0x1b22",
+      "opcodes": "1d40000e",
+      "assembly": "move.b  D0, ($e,A6)"
+    },
+    {
+      "CURPC": "0x1b26",
+      "opcodes": "50ee000f",
+      "assembly": "st      ($f,A6)"
+    },
+    {
+      "CURPC": "0x243e",
+      "opcodes": "13fc0030000e0000",
+      "assembly": "move.b  #$30, $e0000.l"
+    },
+    {
+      "CURPC": "0x2446",
+      "opcodes": "426e0006",
+      "assembly": "clr.w   ($6,A6)"
+    },
+    {
+      "CURPC": "0x244a",
+      "opcodes": "4e40",
+      "assembly": "trap    #$0"
+    },
+    {
+      "CURPC": "0x244c",
+      "opcodes": "082e0000000a",
+      "assembly": "btst    #$0, ($a,A6)"
+    },
+    {
+      "CURPC": "0x2452",
+      "opcodes": "6612",
+      "assembly": "bne     $2466"
+    },
+    {
+      "CURPC": "0x2454",
+      "opcodes": "13fc0010000e0000",
+      "assembly": "move.b  #$10, $e0000.l"
+    },
+    {
+      "CURPC": "0x245c",
+      "opcodes": "426e0006",
+      "assembly": "clr.w   ($6,A6)"
+    },
+    {
+      "CURPC": "0x2460",
+      "opcodes": "4e40",
+      "assembly": "trap    #$0"
+    },
+    {
+      "CURPC": "0x2462",
+      "opcodes": "4efaf218",
+      "assembly": "jmp     ($167c,PC)"
+    },
+    {
+      "CURPC": "0x2466",
+      "opcodes": "4a2e005b",
+      "assembly": "tst.b   ($5b,A6)"
+    },
+    {
+      "CURPC": "0x246a",
+      "opcodes": "6650",
+      "assembly": "bne     $24bc"
+    },
+    {
+      "CURPC": "0x246c",
+      "opcodes": "532e000e",
+      "assembly": "subq.b  #1, ($e,A6)"
+    },
+    {
+      "CURPC": "0x2470",
+      "opcodes": "0c2effff000e",
+      "assembly": "cmpi.b  #-$1, ($e,A6)"
+    },
+    {
+      "CURPC": "0x2476",
+      "opcodes": "671a",
+      "assembly": "beq     $2492"
+    },
+    {
+      "CURPC": "0x2478",
+      "opcodes": "0c2effff000f",
+      "assembly": "cmpi.b  #-$1, ($f,A6)"
+    },
+    {
+      "CURPC": "0x247e",
+      "opcodes": "6700f6aa",
+      "assembly": "beq     $1b2a"
+    },
+    {
+      "CURPC": "0x2482",
+      "opcodes": "44fc0000",
+      "assembly": "move    #$0, CCR"
+    },
+    {
+      "CURPC": "0x2486",
+      "opcodes": "6100f8ce",
+      "assembly": "bsr     $1d56"
+    },
+    {
+      "CURPC": "0x248a",
+      "opcodes": "422e0014",
+      "assembly": "clr.b   ($14,A6)"
+    },
+    {
+      "CURPC": "0x248e",
+      "opcodes": "6000f69a",
+      "assembly": "bra     $1b2a"
+    },
+    {
+      "CURPC": "0x2492",
+      "opcodes": "41fa0204",
+      "assembly": "lea     ($2698,PC), A0"
+    },
+    {
+      "CURPC": "0x2496",
+      "opcodes": "43f900040cbe",
+      "assembly": "lea     $40cbe.l, A1"
+    },
+    {
+      "CURPC": "0x249c",
+      "opcodes": "4240",
+      "assembly": "clr.w   D0"
+    },
+    {
+      "CURPC": "0x249e",
+      "opcodes": "4e41",
+      "assembly": "trap    #$1"
+    },
+    {
+      "CURPC": "0x24a0",
+      "opcodes": "3d7c0080081a",
+      "assembly": "move.w  #$80, ($81a,A6)"
+    },
+    {
+      "CURPC": "0x24a6",
+      "opcodes": "3d7c00400006",
+      "assembly": "move.w  #$40, ($6,A6)"
+    },
+    {
+      "CURPC": "0x24ac",
+      "opcodes": "4e40",
+      "assembly": "trap    #$0"
+    },
+    {
+      "CURPC": "0x24ae",
+      "opcodes": "610000b8",
+      "assembly": "bsr     $2568"
+    },
+    {
+      "CURPC": "0x24b2",
+      "opcodes": "0c2effff000f",
+      "assembly": "cmpi.b  #-$1, ($f,A6)"
+    },
+    {
+      "CURPC": "0x24b8",
+      "opcodes": "66c8",
+      "assembly": "bne     $2482"
+    },
+    {
+      "CURPC": "0x24ba",
+      "opcodes": "604e",
+      "assembly": "bra     $250a"
+    },
+    {
+      "CURPC": "0x24bc",
+      "opcodes": "532e000f",
+      "assembly": "subq.b  #1, ($f,A6)"
+    },
+    {
+      "CURPC": "0x24c0",
+      "opcodes": "0c2effff000f",
+      "assembly": "cmpi.b  #-$1, ($f,A6)"
+    },
+    {
+      "CURPC": "0x24c6",
+      "opcodes": "671a",
+      "assembly": "beq     $24e2"
+    },
+    {
+      "CURPC": "0x24c8",
+      "opcodes": "0c2effff000e",
+      "assembly": "cmpi.b  #-$1, ($e,A6)"
+    },
+    {
+      "CURPC": "0x24ce",
+      "opcodes": "6700f65a",
+      "assembly": "beq     $1b2a"
+    },
+    {
+      "CURPC": "0x24d2",
+      "opcodes": "44fc00ff",
+      "assembly": "move    #$ff, CCR"
+    },
+    {
+      "CURPC": "0x24d6",
+      "opcodes": "6100f87e",
+      "assembly": "bsr     $1d56"
+    },
+    {
+      "CURPC": "0x24da",
+      "opcodes": "422e0014",
+      "assembly": "clr.b   ($14,A6)"
+    },
+    {
+      "CURPC": "0x24de",
+      "opcodes": "6000f64a",
+      "assembly": "bra     $1b2a"
+    },
+    {
+      "CURPC": "0x24e2",
+      "opcodes": "41fa01d5",
+      "assembly": "lea     ($26b9,PC), A0"
+    },
+    {
+      "CURPC": "0x24e6",
+      "opcodes": "43f900040cbe",
+      "assembly": "lea     $40cbe.l, A1"
+    },
+    {
+      "CURPC": "0x24ec",
+      "opcodes": "4240",
+      "assembly": "clr.w   D0"
+    },
+    {
+      "CURPC": "0x24ee",
+      "opcodes": "4e41",
+      "assembly": "trap    #$1"
+    },
+    {
+      "CURPC": "0x24f0",
+      "opcodes": "3d7c0080081a",
+      "assembly": "move.w  #$80, ($81a,A6)"
+    },
+    {
+      "CURPC": "0x24f6",
+      "opcodes": "3d7c00400006",
+      "assembly": "move.w  #$40, ($6,A6)"
+    },
+    {
+      "CURPC": "0x24fc",
+      "opcodes": "4e40",
+      "assembly": "trap    #$0"
+    },
+    {
+      "CURPC": "0x24fe",
+      "opcodes": "61000068",
+      "assembly": "bsr     $2568"
+    },
+    {
+      "CURPC": "0x2502",
+      "opcodes": "0c2effff000e",
+      "assembly": "cmpi.b  #-$1, ($e,A6)"
+    },
+    {
+      "CURPC": "0x2508",
+      "opcodes": "66c8",
+      "assembly": "bne     $24d2"
+    },
+    {
+      "CURPC": "0x250a",
+      "opcodes": "4a2e0004",
+      "assembly": "tst.b   ($4,A6)"
+    },
+    {
+      "CURPC": "0x250e",
+      "opcodes": "6706",
+      "assembly": "beq     $2516"
+    },
+    {
+      "CURPC": "0x2510",
+      "opcodes": "426e0006",
+      "assembly": "clr.w   ($6,A6)"
+    },
+    {
+      "CURPC": "0x2514",
+      "opcodes": "4e40",
+      "assembly": "trap    #$0"
+    },
+    {
+      "CURPC": "0x2516",
+      "opcodes": "1d7c001f0004",
+      "assembly": "move.b  #$1f, ($4,A6)"
+    },
+    {
+      "CURPC": "0x251c",
+      "opcodes": "3d7c01c00006",
+      "assembly": "move.w  #$1c0, ($6,A6)"
+    },
+    {
+      "CURPC": "0x2522",
+      "opcodes": "4e40",
+      "assembly": "trap    #$0"
+    },
+    {
+      "CURPC": "0x2524",
+      "opcodes": "44fc00ff",
+      "assembly": "move    #$ff, CCR"
+    },
+    {
+      "CURPC": "0x2528",
+      "opcodes": "6100f82c",
+      "assembly": "bsr     $1d56"
+    },
+    {
+      "CURPC": "0x252c",
+      "opcodes": "422e000a",
+      "assembly": "clr.b   ($a,A6)"
+    },
+    {
+      "CURPC": "0x2530",
+      "opcodes": "426e0006",
+      "assembly": "clr.w   ($6,A6)"
+    },
+    {
+      "CURPC": "0x2534",
+      "opcodes": "4e40",
+      "assembly": "trap    #$0"
+    },
+    {
+      "CURPC": "0x2536",
+      "opcodes": "422e0014",
+      "assembly": "clr.b   ($14,A6)"
+    },
+    {
+      "CURPC": "0x253a",
+      "opcodes": "13fcffff00080065",
+      "assembly": "move.b  #$ff, $80065.l"
+    },
+    {
+      "CURPC": "0x2542",
+      "opcodes": "13fcffff00080067",
+      "assembly": "move.b  #$ff, $80067.l"
+    },
+    {
+      "CURPC": "0x254a",
+      "opcodes": "422e0108",
+      "assembly": "clr.b   ($108,A6)"
+    },
+    {
+      "CURPC": "0x254e",
+      "opcodes": "422e001e",
+      "assembly": "clr.b   ($1e,A6)"
+    },
+    {
+      "CURPC": "0x2552",
+      "opcodes": "422e0109",
+      "assembly": "clr.b   ($109,A6)"
+    },
+    {
+      "CURPC": "0x2556",
+      "opcodes": "422e001f",
+      "assembly": "clr.b   ($1f,A6)"
+    },
+    {
+      "CURPC": "0x255a",
+      "opcodes": "13fc0010000e0000",
+      "assembly": "move.b  #$10, $e0000.l"
+    },
+    {
+      "CURPC": "0x2562",
+      "opcodes": "4ef90000166a",
+      "assembly": "jmp     $166a.l"
+    },
+    {
+      "CURPC": "0x2612",
+      "opcodes": "50ee0014",
+      "assembly": "st      ($14,A6)"
+    },
+    {
+      "CURPC": "0x2616",
+      "opcodes": "4eb9000026da",
+      "assembly": "jsr     $26da.l"
+    },
+    {
+      "CURPC": "0x261c",
+      "opcodes": "4cdf0181",
+      "assembly": "movem.l (A7)+, D0/D7/A0"
+    },
+    {
+      "CURPC": "0x2620",
+      "opcodes": "2848",
+      "assembly": "movea.l A0, A4"
+    },
+    {
+      "CURPC": "0x2622",
+      "opcodes": "4243",
+      "assembly": "clr.w   D3"
+    },
+    {
+      "CURPC": "0x2624",
+      "opcodes": "4a2e005b",
+      "assembly": "tst.b   ($5b,A6)"
+    },
+    {
+      "CURPC": "0x2628",
+      "opcodes": "6606",
+      "assembly": "bne     $2630"
+    },
+    {
+      "CURPC": "0x262a",
+      "opcodes": "162e0108",
+      "assembly": "move.b  ($108,A6), D3"
+    },
+    {
+      "CURPC": "0x262e",
+      "opcodes": "6004",
+      "assembly": "bra     $2634"
+    },
+    {
+      "CURPC": "0x2630",
+      "opcodes": "162e0109",
+      "assembly": "move.b  ($109,A6), D3"
+    },
+    {
+      "CURPC": "0x2634",
+      "opcodes": "48e70078",
+      "assembly": "movem.l A1-A4, -(A7)"
+    },
+    {
+      "CURPC": "0x2638",
+      "opcodes": "6100001e",
+      "assembly": "bsr     $2658"
+    },
+    {
+      "CURPC": "0x263c",
+      "opcodes": "51cffffa",
+      "assembly": "dbra    D7, $2638"
+    },
+    {
+      "CURPC": "0x2640",
+      "opcodes": "4cdf1e00",
+      "assembly": "movem.l (A7)+, A1-A4"
+    },
+    {
+      "CURPC": "0x2644",
+      "opcodes": "4a2e0004",
+      "assembly": "tst.b   ($4,A6)"
+    },
+    {
+      "CURPC": "0x2648",
+      "opcodes": "6706",
+      "assembly": "beq     $2650"
+    },
+    {
+      "CURPC": "0x264a",
+      "opcodes": "426e0006",
+      "assembly": "clr.w   ($6,A6)"
+    },
+    {
+      "CURPC": "0x264e",
+      "opcodes": "4e40",
+      "assembly": "trap    #$0"
+    },
+    {
+      "CURPC": "0x2650",
+      "opcodes": "1d7c00100004",
+      "assembly": "move.b  #$10, ($4,A6)"
+    },
+    {
+      "CURPC": "0x2656",
+      "opcodes": "4e75",
+      "assembly": "rts"
+    },
+    {
+      "CURPC": "0x2658",
+      "opcodes": "2250",
+      "assembly": "movea.l (A0), A1"
+    },
+    {
+      "CURPC": "0x265a",
+      "opcodes": "24680004",
+      "assembly": "movea.l ($4,A0), A2"
+    },
+    {
+      "CURPC": "0x265e",
+      "opcodes": "26680008",
+      "assembly": "movea.l ($8,A0), A3"
+    },
+    {
+      "CURPC": "0x2662",
+      "opcodes": "3868000c",
+      "assembly": "movea.w ($c,A0), A4"
+    },
+    {
+      "CURPC": "0x2666",
+      "opcodes": "2080",
+      "assembly": "move.l  D0, (A0)"
+    },
+    {
+      "CURPC": "0x2668",
+      "opcodes": "21410004",
+      "assembly": "move.l  D1, ($4,A0)"
+    },
+    {
+      "CURPC": "0x266c",
+      "opcodes": "21420008",
+      "assembly": "move.l  D2, ($8,A0)"
+    },
+    {
+      "CURPC": "0x2670",
+      "opcodes": "3143000c",
+      "assembly": "move.w  D3, ($c,A0)"
+    },
+    {
+      "CURPC": "0x2674",
+      "opcodes": "41e8000e",
+      "assembly": "lea     ($e,A0), A0"
+    },
+    {
+      "CURPC": "0x2678",
+      "opcodes": "2009",
+      "assembly": "move.l  A1, D0"
+    },
+    {
+      "CURPC": "0x267a",
+      "opcodes": "220a",
+      "assembly": "move.l  A2, D1"
+    },
+    {
+      "CURPC": "0x267c",
+      "opcodes": "240b",
+      "assembly": "move.l  A3, D2"
+    },
+    {
+      "CURPC": "0x267e",
+      "opcodes": "360c",
+      "assembly": "move.w  A4, D3"
+    },
+    {
+      "CURPC": "0x2680",
+      "opcodes": "4e75",
+      "assembly": "rts"
+    },
+    {
+      "CURPC": "0x2892",
+      "opcodes": "1d7c00300301",
+      "assembly": "move.b  #$30, ($301,A6)"
+    },
+    {
+      "CURPC": "0x2898",
+      "opcodes": "2d7c200000000304",
+      "assembly": "move.l  #$20000000, ($304,A6)"
+    },
+    {
+      "CURPC": "0x28a0",
+      "opcodes": "2d7c00040cf00308",
+      "assembly": "move.l  #$40cf0, ($308,A6)"
+    },
+    {
+      "CURPC": "0x28a8",
+      "opcodes": "2d6e0308030c",
+      "assembly": "move.l  ($308,A6), ($30c,A6)"
+    },
+    {
+      "CURPC": "0x28ae",
+      "opcodes": "2d7c000409ec0316",
+      "assembly": "move.l  #$409ec, ($316,A6)"
+    },
+    {
+      "CURPC": "0x28b6",
+      "opcodes": "3d7c03290312",
+      "assembly": "move.w  #$329, ($312,A6)"
+    },
+    {
+      "CURPC": "0x28bc",
+      "opcodes": "422e0310",
+      "assembly": "clr.b   ($310,A6)"
+    },
+    {
+      "CURPC": "0x28c0",
+      "opcodes": "422e0302",
+      "assembly": "clr.b   ($302,A6)"
+    },
+    {
+      "CURPC": "0x28c4",
+      "opcodes": "422e0303",
+      "assembly": "clr.b   ($303,A6)"
+    },
+    {
+      "CURPC": "0x28c8",
+      "opcodes": "422e0314",
+      "assembly": "clr.b   ($314,A6)"
+    },
+    {
+      "CURPC": "0x28cc",
+      "opcodes": "422e0315",
+      "assembly": "clr.b   ($315,A6)"
+    },
+    {
+      "CURPC": "0x28d0",
+      "opcodes": "422e031a",
+      "assembly": "clr.b   ($31a,A6)"
+    },
+    {
+      "CURPC": "0x28d4",
+      "opcodes": "422e031b",
+      "assembly": "clr.b   ($31b,A6)"
+    },
+    {
+      "CURPC": "0x28d8",
+      "opcodes": "422e031c",
+      "assembly": "clr.b   ($31c,A6)"
+    },
+    {
+      "CURPC": "0x28dc",
+      "opcodes": "422e031d",
+      "assembly": "clr.b   ($31d,A6)"
+    },
+    {
+      "CURPC": "0x28e0",
+      "opcodes": "422e031a",
+      "assembly": "clr.b   ($31a,A6)"
+    },
+    {
+      "CURPC": "0x28e4",
+      "opcodes": "41f900041f30",
+      "assembly": "lea     $41f30.l, A0"
+    },
+    {
+      "CURPC": "0x28ea",
+      "opcodes": "3e3c0004",
+      "assembly": "move.w  #$4, D7"
+    },
+    {
+      "CURPC": "0x28ee",
+      "opcodes": "30bc0040",
+      "assembly": "move.w  #$40, (A0)"
+    },
+    {
+      "CURPC": "0x28f2",
+      "opcodes": "41e8ff00",
+      "assembly": "lea     (-$100,A0), A0"
+    },
+    {
+      "CURPC": "0x28f6",
+      "opcodes": "51cffff6",
+      "assembly": "dbra    D7, $28ee"
+    },
+    {
+      "CURPC": "0x2900",
+      "opcodes": "522e0302",
+      "assembly": "addq.b  #1, ($302,A6)"
+    },
+    {
+      "CURPC": "0x2904",
+      "opcodes": "0c2e00400302",
+      "assembly": "cmpi.b  #$40, ($302,A6)"
+    },
+    {
+      "CURPC": "0x290a",
+      "opcodes": "6544",
+      "assembly": "bcs     $2950"
+    },
+    {
+      "CURPC": "0x290c",
+      "opcodes": "422e0302",
+      "assembly": "clr.b   ($302,A6)"
+    },
+    {
+      "CURPC": "0x2910",
+      "opcodes": "48a7c000",
+      "assembly": "movem.w D0-D1, -(A7)"
+    },
+    {
+      "CURPC": "0x2914",
+      "opcodes": "4241",
+      "assembly": "clr.w   D1"
+    },
+    {
+      "CURPC": "0x2916",
+      "opcodes": "103c0001",
+      "assembly": "move.b  #$1, D0"
+    },
+    {
+      "CURPC": "0x291a",
+      "opcodes": "122e0301",
+      "assembly": "move.b  ($301,A6), D1"
+    },
+    {
+      "CURPC": "0x291e",
+      "opcodes": "44fc0000",
+      "assembly": "move    #$0, CCR"
+    },
+    {
+      "CURPC": "0x2922",
+      "opcodes": "8300",
+      "assembly": "sbcd    D0, D1"
+    },
+    {
+      "CURPC": "0x2924",
+      "opcodes": "1d410301",
+      "assembly": "move.b  D1, ($301,A6)"
+    },
+    {
+      "CURPC": "0x2928",
+      "opcodes": "e859",
+      "assembly": "ror.w   #4, D1"
+    },
+    {
+      "CURPC": "0x292a",
+      "opcodes": "06010030",
+      "assembly": "addi.b  #$30, D1"
+    },
+    {
+      "CURPC": "0x292e",
+      "opcodes": "13c100040a1d",
+      "assembly": "move.b  D1, $40a1d.l"
+    },
+    {
+      "CURPC": "0x2934",
+      "opcodes": "e959",
+      "assembly": "rol.w   #4, D1"
+    },
+    {
+      "CURPC": "0x2936",
+      "opcodes": "0201000f",
+      "assembly": "andi.b  #$f, D1"
+    },
+    {
+      "CURPC": "0x293a",
+      "opcodes": "06010030",
+      "assembly": "addi.b  #$30, D1"
+    },
+    {
+      "CURPC": "0x293e",
+      "opcodes": "13c100040a1b",
+      "assembly": "move.b  D1, $40a1b.l"
+    },
+    {
+      "CURPC": "0x2944",
+      "opcodes": "4c9f0003",
+      "assembly": "movem.w (A7)+, D0-D1"
+    },
+    {
+      "CURPC": "0x2948",
+      "opcodes": "4a2e0301",
+      "assembly": "tst.b   ($301,A6)"
+    },
+    {
+      "CURPC": "0x294c",
+      "opcodes": "67000400",
+      "assembly": "beq     $2d4e"
+    },
+    {
+      "CURPC": "0x2950",
+      "opcodes": "522e0303",
+      "assembly": "addq.b  #1, ($303,A6)"
+    },
+    {
+      "CURPC": "0x2954",
+      "opcodes": "022e00070303",
+      "assembly": "andi.b  #$7, ($303,A6)"
+    },
+    {
+      "CURPC": "0x295a",
+      "opcodes": "6642",
+      "assembly": "bne     $299e"
+    },
+    {
+      "CURPC": "0x295c",
+      "opcodes": "202e0304",
+      "assembly": "move.l  ($304,A6), D0"
+    },
+    {
+      "CURPC": "0x2960",
+      "opcodes": "4840",
+      "assembly": "swap    D0"
+    },
+    {
+      "CURPC": "0x2962",
+      "opcodes": "2d400304",
+      "assembly": "move.l  D0, ($304,A6)"
+    },
+    {
+      "CURPC": "0x2966",
+      "opcodes": "206e0308",
+      "assembly": "movea.l ($308,A6), A0"
+    },
+    {
+      "CURPC": "0x296a",
+      "opcodes": "3210",
+      "assembly": "move.w  (A0), D1"
+    },
+    {
+      "CURPC": "0x296c",
+      "opcodes": "02411fff",
+      "assembly": "andi.w  #$1fff, D1"
+    },
+    {
+      "CURPC": "0x2970",
+      "opcodes": "8240",
+      "assembly": "or.w    D0, D1"
+    },
+    {
+      "CURPC": "0x2972",
+      "opcodes": "3081",
+      "assembly": "move.w  D1, (A0)"
+    },
+    {
+      "CURPC": "0x2974",
+      "opcodes": "206e0316",
+      "assembly": "movea.l ($316,A6), A0"
+    },
+    {
+      "CURPC": "0x2978",
+      "opcodes": "062e00010310",
+      "assembly": "addi.b  #$1, ($310,A6)"
+    },
+    {
+      "CURPC": "0x297e",
+      "opcodes": "082e00000310",
+      "assembly": "btst    #$0, ($310,A6)"
+    },
+    {
+      "CURPC": "0x2984",
+      "opcodes": "66000010",
+      "assembly": "bne     $2996"
+    },
+    {
+      "CURPC": "0x2988",
+      "opcodes": "226e0308",
+      "assembly": "movea.l ($308,A6), A1"
+    },
+    {
+      "CURPC": "0x298c",
+      "opcodes": "3011",
+      "assembly": "move.w  (A1), D0"
+    },
+    {
+      "CURPC": "0x298e",
+      "opcodes": "00402000",
+      "assembly": "ori.w   #$2000, D0"
+    },
+    {
+      "CURPC": "0x2992",
+      "opcodes": "3080",
+      "assembly": "move.w  D0, (A0)"
+    },
+    {
+      "CURPC": "0x2994",
+      "opcodes": "6008",
+      "assembly": "bra     $299e"
+    },
+    {
+      "CURPC": "0x2996",
+      "opcodes": "30bc00db",
+      "assembly": "move.w  #$db, (A0)"
+    },
+    {
+      "CURPC": "0x299a",
+      "opcodes": "60000002",
+      "assembly": "bra     $299e"
+    },
+    {
+      "CURPC": "0x299e",
+      "opcodes": "082e0000000d",
+      "assembly": "btst    #$0, ($d,A6)"
+    },
+    {
+      "CURPC": "0x29a4",
+      "opcodes": "66000086",
+      "assembly": "bne     $2a2c"
+    },
+    {
+      "CURPC": "0x29a8",
+      "opcodes": "082e0001000d",
+      "assembly": "btst    #$1, ($d,A6)"
+    },
+    {
+      "CURPC": "0x29ae",
+      "opcodes": "660000b8",
+      "assembly": "bne     $2a68"
+    },
+    {
+      "CURPC": "0x29b2",
+      "opcodes": "082e0002000d",
+      "assembly": "btst    #$2, ($d,A6)"
+    },
+    {
+      "CURPC": "0x29b8",
+      "opcodes": "660000ea",
+      "assembly": "bne     $2aa4"
+    },
+    {
+      "CURPC": "0x29bc",
+      "opcodes": "082e0003000d",
+      "assembly": "btst    #$3, ($d,A6)"
+    },
+    {
+      "CURPC": "0x29c2",
+      "opcodes": "66000150",
+      "assembly": "bne     $2b14"
+    },
+    {
+      "CURPC": "0x29c6",
+      "opcodes": "08ae00000314",
+      "assembly": "bclr    #$0, ($314,A6)"
+    },
+    {
+      "CURPC": "0x29cc",
+      "opcodes": "422e0315",
+      "assembly": "clr.b   ($315,A6)"
+    },
+    {
+      "CURPC": "0x29d0",
+      "opcodes": "082e0004000d",
+      "assembly": "btst    #$4, ($d,A6)"
+    },
+    {
+      "CURPC": "0x29d6",
+      "opcodes": "660001b6",
+      "assembly": "bne     $2b8e"
+    },
+    {
+      "CURPC": "0x29da",
+      "opcodes": "08ae00010314",
+      "assembly": "bclr    #$1, ($314,A6)"
+    },
+    {
+      "CURPC": "0x2b8e",
+      "opcodes": "082e00010314",
+      "assembly": "btst    #$1, ($314,A6)"
+    },
+    {
+      "CURPC": "0x2b94",
+      "opcodes": "6600fe4a",
+      "assembly": "bne     $29e0"
+    },
+    {
+      "CURPC": "0x2b98",
+      "opcodes": "08ee00010314",
+      "assembly": "bset    #$1, ($314,A6)"
+    },
+    {
+      "CURPC": "0x2b9e",
+      "opcodes": "4a2e0004",
+      "assembly": "tst.b   ($4,A6)"
+    },
+    {
+      "CURPC": "0x2ba2",
+      "opcodes": "6706",
+      "assembly": "beq     $2baa"
+    },
+    {
+      "CURPC": "0x2ba4",
+      "opcodes": "426e0006",
+      "assembly": "clr.w   ($6,A6)"
+    },
+    {
+      "CURPC": "0x2ba8",
+      "opcodes": "4e40",
+      "assembly": "trap    #$0"
+    },
+    {
+      "CURPC": "0x2baa",
+      "opcodes": "1d7c004e0004",
+      "assembly": "move.b  #$4e, ($4,A6)"
+    },
+    {
+      "CURPC": "0x2bb0",
+      "opcodes": "45ee0846",
+      "assembly": "lea     ($846,A6), A2"
+    },
+    {
+      "CURPC": "0x2bb4",
+      "opcodes": "41f900041f30",
+      "assembly": "lea     $41f30.l, A0"
+    },
+    {
+      "CURPC": "0x2bba",
+      "opcodes": "43ee031e",
+      "assembly": "lea     ($31e,A6), A1"
+    },
+    {
+      "CURPC": "0x2bbe",
+      "opcodes": "7e04",
+      "assembly": "moveq   #$4, D7"
+    },
+    {
+      "CURPC": "0x2c80",
+      "opcodes": "544a",
+      "assembly": "addq.w  #2, A2"
+    },
+    {
+      "CURPC": "0x2c82",
+      "opcodes": "3012",
+      "assembly": "move.w  (A2), D0"
+    },
+    {
+      "CURPC": "0x2c84",
+      "opcodes": "206e0316",
+      "assembly": "movea.l ($316,A6), A0"
+    },
+    {
+      "CURPC": "0x2c88",
+      "opcodes": "0c0000cb",
+      "assembly": "cmpi.b  #-$35, D0"
+    },
+    {
+      "CURPC": "0x2c8c",
+      "opcodes": "67000038",
+      "assembly": "beq     $2cc6"
+    },
+    {
+      "CURPC": "0x2c90",
+      "opcodes": "0c0000cc",
+      "assembly": "cmpi.b  #-$34, D0"
+    },
+    {
+      "CURPC": "0x2c94",
+      "opcodes": "67000052",
+      "assembly": "beq     $2ce8"
+    },
+    {
+      "CURPC": "0x2c98",
+      "opcodes": "062e0001031d",
+      "assembly": "addi.b  #$1, ($31d,A6)"
+    },
+    {
+      "CURPC": "0x2c9e",
+      "opcodes": "02401fff",
+      "assembly": "andi.w  #$1fff, D0"
+    },
+    {
+      "CURPC": "0x2ca2",
+      "opcodes": "00402000",
+      "assembly": "ori.w   #$2000, D0"
+    },
+    {
+      "CURPC": "0x2ca6",
+      "opcodes": "0c2e0008031d",
+      "assembly": "cmpi.b  #$8, ($31d,A6)"
+    },
+    {
+      "CURPC": "0x2cac",
+      "opcodes": "6400000c",
+      "assembly": "bcc     $2cba"
+    },
+    {
+      "CURPC": "0x2cb0",
+      "opcodes": "59ae0316",
+      "assembly": "subq.l  #4, ($316,A6)"
+    },
+    {
+      "CURPC": "0x2cb4",
+      "opcodes": "3080",
+      "assembly": "move.w  D0, (A0)"
+    },
+    {
+      "CURPC": "0x2cb6",
+      "opcodes": "6000fc42",
+      "assembly": "bra     $28fa"
+    },
+    {
+      "CURPC": "0x2cba",
+      "opcodes": "3080",
+      "assembly": "move.w  D0, (A0)"
+    },
+    {
+      "CURPC": "0x2cbc",
+      "opcodes": "1d7c00010301",
+      "assembly": "move.b  #$1, ($301,A6)"
+    },
+    {
+      "CURPC": "0x2cc2",
+      "opcodes": "6000fc4c",
+      "assembly": "bra     $2910"
+    },
+    {
+      "CURPC": "0x2cc6",
+      "opcodes": "4a2e031d",
+      "assembly": "tst.b   ($31d,A6)"
+    },
+    {
+      "CURPC": "0x2cca",
+      "opcodes": "6700fc2e",
+      "assembly": "beq     $28fa"
+    },
+    {
+      "CURPC": "0x2cce",
+      "opcodes": "30bc00db",
+      "assembly": "move.w  #$db, (A0)"
+    },
+    {
+      "CURPC": "0x2cd2",
+      "opcodes": "58ae0316",
+      "assembly": "addq.l  #4, ($316,A6)"
+    },
+    {
+      "CURPC": "0x2cd6",
+      "opcodes": "2d7c00040cf00308",
+      "assembly": "move.l  #$40cf0, ($308,A6)"
+    },
+    {
+      "CURPC": "0x2cde",
+      "opcodes": "7040",
+      "assembly": "moveq   #$40, D0"
+    },
+    {
+      "CURPC": "0x2ce0",
+      "opcodes": "532e031d",
+      "assembly": "subq.b  #1, ($31d,A6)"
+    },
+    {
+      "CURPC": "0x2ce4",
+      "opcodes": "6000002c",
+      "assembly": "bra     $2d12"
+    },
+    {
+      "CURPC": "0x2ce8",
+      "opcodes": "30bc00d2",
+      "assembly": "move.w  #$d2, (A0)"
+    },
+    {
+      "CURPC": "0x2cec",
+      "opcodes": "1d7c00010301",
+      "assembly": "move.b  #$1, ($301,A6)"
+    },
+    {
+      "CURPC": "0x2cf2",
+      "opcodes": "6000fc06",
+      "assembly": "bra     $28fa"
+    },
+    {
+      "CURPC": "0x2cf6",
+      "opcodes": "522e0315",
+      "assembly": "addq.b  #1, ($315,A6)"
+    },
+    {
+      "CURPC": "0x2cfa",
+      "opcodes": "022e001f0315",
+      "assembly": "andi.b  #$1f, ($315,A6)"
+    },
+    {
+      "CURPC": "0x2d4e",
+      "opcodes": "41f900041b00",
+      "assembly": "lea     $41b00.l, A0"
+    },
+    {
+      "CURPC": "0x2d54",
+      "opcodes": "303c0040",
+      "assembly": "move.w  #$40, D0"
+    },
+    {
+      "CURPC": "0x2d58",
+      "opcodes": "30c0",
+      "assembly": "move.w  D0, (A0)+"
+    },
+    {
+      "CURPC": "0x2d5a",
+      "opcodes": "b1fc00042000",
+      "assembly": "cmpa.l  #$42000, A0"
+    },
+    {
+      "CURPC": "0x2d60",
+      "opcodes": "66f6",
+      "assembly": "bne     $2d58"
+    },
+    {
+      "CURPC": "0x2d62",
+      "opcodes": "41f9000409d0",
+      "assembly": "lea     $409d0.l, A0"
+    },
+    {
+      "CURPC": "0x2d68",
+      "opcodes": "7e01",
+      "assembly": "moveq   #$1, D7"
+    },
+    {
+      "CURPC": "0x2d6a",
+      "opcodes": "263c40404040",
+      "assembly": "move.l  #$40404040, D3"
+    },
+    {
+      "CURPC": "0x2d70",
+      "opcodes": "7c03",
+      "assembly": "moveq   #$3, D6"
+    },
+    {
+      "CURPC": "0x2d72",
+      "opcodes": "3010",
+      "assembly": "move.w  (A0), D0"
+    },
+    {
+      "CURPC": "0x2d74",
+      "opcodes": "0c0000db",
+      "assembly": "cmpi.b  #-$25, D0"
+    },
+    {
+      "CURPC": "0x2d78",
+      "opcodes": "66000006",
+      "assembly": "bne     $2d80"
+    },
+    {
+      "CURPC": "0x2d7c",
+      "opcodes": "103c0040",
+      "assembly": "move.b  #$40, D0"
+    },
+    {
+      "CURPC": "0x2d80",
+      "opcodes": "1600",
+      "assembly": "move.b  D0, D3"
+    },
+    {
+      "CURPC": "0x2d82",
+      "opcodes": "e09b",
+      "assembly": "ror.l   #8, D3"
+    },
+    {
+      "CURPC": "0x2d84",
+      "opcodes": "5888",
+      "assembly": "addq.l  #4, A0"
+    },
+    {
+      "CURPC": "0x2d86",
+      "opcodes": "51ceffea",
+      "assembly": "dbra    D6, $2d72"
+    },
+    {
+      "CURPC": "0x2d8a",
+      "opcodes": "4a47",
+      "assembly": "tst.w   D7"
+    },
+    {
+      "CURPC": "0x2d8c",
+      "opcodes": "66000006",
+      "assembly": "bne     $2d94"
+    },
+    {
+      "CURPC": "0x2d90",
+      "opcodes": "2203",
+      "assembly": "move.l  D3, D1"
+    },
+    {
+      "CURPC": "0x2d92",
+      "opcodes": "6002",
+      "assembly": "bra     $2d96"
+    },
+    {
+      "CURPC": "0x2d94",
+      "opcodes": "2403",
+      "assembly": "move.l  D3, D2"
+    },
+    {
+      "CURPC": "0x2d96",
+      "opcodes": "51cfffd2",
+      "assembly": "dbra    D7, $2d6a"
+    }
+  ],
+  "extra_life_threshold_references": [
+    {
+      "CURPC": "0x16ba",
+      "opcodes": "202e0034",
+      "assembly": "move.l  ($34,A6), D0"
+    },
+    {
+      "CURPC": "0x16ce",
+      "opcodes": "2d410034",
+      "assembly": "move.l  D1, ($34,A6)"
+    },
+    {
+      "CURPC": "0x170a",
+      "opcodes": "202e0038",
+      "assembly": "move.l  ($38,A6), D0"
+    },
+    {
+      "CURPC": "0x171e",
+      "opcodes": "2d410038",
+      "assembly": "move.l  D1, ($38,A6)"
+    },
+    {
+      "CURPC": "0x1ace",
+      "opcodes": "2d400034",
+      "assembly": "move.l  D0, ($34,A6)"
+    },
+    {
+      "CURPC": "0x1ad2",
+      "opcodes": "2d400038",
+      "assembly": "move.l  D0, ($38,A6)"
+    }
+  ],
+  "table_writer": {
+    "CURPCs": {
+      "0x2666": {
+        "CURPC": "0x2666",
+        "opcodes": "2080",
+        "assembly": "move.l  D0, (A0)"
+      },
+      "0x2668": {
+        "CURPC": "0x2668",
+        "opcodes": "21410004",
+        "assembly": "move.l  D1, ($4,A0)"
+      },
+      "0x266c": {
+        "CURPC": "0x266c",
+        "opcodes": "21420008",
+        "assembly": "move.l  D2, ($8,A0)"
+      },
+      "0x2670": {
+        "CURPC": "0x2670",
+        "opcodes": "3143000c",
+        "assembly": "move.w  D3, ($c,A0)"
+      },
+      "0x2674": {
+        "CURPC": "0x2674",
+        "opcodes": "41e8000e",
+        "assembly": "lea     ($e,A0), A0"
+      },
+      "0x2638": {
+        "CURPC": "0x2638",
+        "opcodes": "6100001e",
+        "assembly": "bsr     $2658"
+      },
+      "0x263c": {
+        "CURPC": "0x263c",
+        "opcodes": "51cffffa",
+        "assembly": "dbra    D7, $2638"
+      }
+    },
+    "destinations": "Dynamic A0 in real rank table020770..0207fb; score4/name8/stage2; actual written lane data/mask required",
+    "name_finished_event": "First genuine table score insertion2666 proves name function returned; do not invent a generic mode byte. Stop Button1 at eighth acceptance/END/timeout and during all table writes.",
+    "save_acceptance": "Changed earned148 then actual loader/persistence/reload proof remains external gate"
+  },
+  "ready_predicate": {
+    "all": [
+      "authoritative26da entry retained for this selected turn",
+      "28c8 and28dc init ancestry observed then28e0 init completion",
+      "actual020014==FF supporting caller state",
+      "count02031d<8 and current BCDcountdown020301>1",
+      "no inflight character pending",
+      "actual bit1 of020314 is0 after source release consumption"
+    ],
+    "NOT_sufficient": [
+      "020105==28 by itself",
+      "020014==FF by itself",
+      "fixed field since death or fixed callback PC interval",
+      "current work value before tapped write commit"
+    ]
+  },
+  "serial_protocol": [
+    {
+      "state": "WAIT_ENTRY",
+      "output": "neutral",
+      "transition": "actual bound26da source write then init complete28e0"
+    },
+    {
+      "state": "READY",
+      "output": "selected legal Button1 HPSbit4 only",
+      "transition": "retain current accepted count; source2b98 sets debouncebit1"
+    },
+    {
+      "state": "PRESS_PENDING",
+      "output": "Button1 until legal pilot max3fields; then neutral",
+      "transition": "source2b98 acknowledgment required; if absent at max3 preserve unmet consumption and bounded retry/stop, never fabricate acceptance"
+    },
+    {
+      "state": "RELEASE_AND_ANIMATE",
+      "output": "neutral",
+      "transition": "must observe both source29da release bitclear AND source2c98 count increment exactly1; either may occur first. No second pulse while one inflight; wait until these actual observations and countdown>1"
+    },
+    {
+      "state": "CONTINUE_OR_DONE",
+      "output": "neutral",
+      "transition": "count<8 returnsREADY; count8/ENDcountdown1/timeout0 staysneutral through actual2666 table insertion"
+    },
+    {
+      "state": "POST_TABLE",
+      "output": "neutral",
+      "transition": "retained table lane writes and earned148 materialization; await otherplayer genuine exhaustion if active; bothsparesFF +actual252c gameplayclear; legal coin/start only after actual final lifecycle and persistence gate"
+    }
+  ],
+  "port_ownership": {
+    "P1": "source10e4 reads guestc0001",
+    "P2_cocktail": "source10ee guestc0000 only when cachedDIP020016 bit7 set andturn02005b nonzero",
+    "joy_bits": "Right0 Left1 Down2 Up3 Button1=4 Button2=5 Start=6 Coin=7; original accepted map [4,8,2,1,16,32,128] maps first7 into guestbits, coin separate",
+    "name_policy": "Freeze earning player selection through name namespace, neutral other joystick; rebind only actual turn transition, preserve guest accepted input evidence"
+  },
+  "both_player_lifecycle": {
+    "P1": "02000e decremented246c, compareFF2470, rank/name24ae",
+    "P2": "02000f decremented24bc, compareFF24c0, rank/name24fe",
+    "switch": "surviving-player branches2482/24d2 call1d56; never assume next death means finalgameover",
+    "final": "P1 branch24b2 andP2 branch2502 require otherplayerFF before250a..; actual252c clearsgameplay02000a",
+    "extra_life": "score>=next threshold020034/38; helper17e6 increments threshold byBCD7770 (77700display); actual16d8/1728 increments spare. Retain actual initialized threshold and sourcewrite; avoid fixeddeathcount."
+  },
+  "higher_value_reachability": "Normal type3=1000 radius28 andtype8=500 radius32 are candidates only if live eligible objects and legal clear geometry are observed. Direct2000/3000 bonus constants do not establish reachable/repeatable route. Owner handles LEFT/DOWN/cocktail sign qualification.",
+  "runtime_open": [
+    "mode-entry writer capture",
+    "Button1 consumed/rising/release edges",
+    "accepted letter animation/count order",
+    "END cursor route",
+    "table insertion/new148/reload",
+    "true finalboth-playergameover/restart"
+  ],
+  "ancestry": {
+    "first_hit": "remaining_gates firsthit_reference_v1 terminal v2 ae0fa1a69761494ea31fe1911de381d60f594ddf2d03c9b057d63a819a432329; first actual award1008 type15 BCD0010/100points",
+    "prior_source_manifest": "68d0ebac3b61ec00444852e1130c94287ee2b5df43314365ebb0972ff6a081ee"
+  }
+}

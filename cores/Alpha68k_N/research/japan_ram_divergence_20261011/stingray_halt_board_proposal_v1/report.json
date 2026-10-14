@@ -1,0 +1,45 @@
+{
+  "scope": "Source-only concrete board HALT correction proposal; no RTL mutation/build/runtime",
+  "decision": "Candidate board-only use of existing donor HALTn; source-supported for ordinary HALT bus inhibition, independent review and dynamic proof still required",
+  "donor_support": "HALTn sampled at enPhi1; Halti gates busAvail and canStart. Inflight bus states ignore busAvail and finish normally. Pending bus metadata and waitBusCycle/wClk retain the request and wait at the bus dependency. HALTn is functional despite single-step comment. BERR retry remains unsupported, but BERRn is constant high here. Read-modify-write pair is explicitly atomic via rmcIdle.",
+  "old_as_high_phase_sequence": "Normal AS deassertion is at phi2 with bcComplete; MCU freeze becomes true after that edge. Board uses old AS in the clocked phase update, so cpu_phase advances4\u21925 then freezes; both phase enables/E/input sampling stop. On MCU release it resumes retained5, then6/7/0, not a free-running CPU-clock phase. Reset and RMC-specific paths are separately governed and not this normal command proof.",
+  "new_phase_sequence": "cpu_phase continuously increments modulo8 when !pause_game; phi1 at0, phi2 at4. MCU HALT assertion is sampled on the next donor phi1, busAvail falls and ordinary subsequent bus start waits. Current accepted bus drains on normal DTACK/VPA. MCU release sampled on phi1 reopens a pending bus at a subsequent eligible bus phase. No new clock, fake wait count, E reinitialization, screenshot phase adjustment or guest mutation.",
+  "assert_release_limits": "Halti is sampled on phi1, and the busPhase update reads its previous value at that same edge. Physical assertion/release therefore includes donor sampling latency. Source does not alone prove absence of every possible additional in-flight request at a coincident S6 edge; observer must record command_valid/main_halt/HALTi/canStart/busPhase/AS and accepted services. Do not claim exact MAME zero-time scheduler equivalence.",
+  "vma_iack": "E/eCntr remains on normal phi2, while existing VPA synchronization, rVma phi1/phi2 and iStop/xVma are unchanged. IACK still uses VPAn=!iack; do not add special E-only enables or unfreeze arbitrary CPU state. Review actual next IACK phase after MCU release.",
+  "profile_equivalence": "For profiles0/1, is_stingray=0 makes HALTn1, old MCU freeze false, and phi enables/counter behavior exactly identical for every phase/pause/MCU signal/AS value. Profile2 with MCU halt0 identical. User/OSD/HS pause_game still gates both phase enables and phase counter, and MCU pause behavior remains unchanged. Pause does not become physical HALT; its existing whole-game freeze is intentionally retained.",
+  "reset_equivalence": "held_reset/extReset/pwrUp and phase initialization untouched. MCU reset clears main_halt; active profile0/1 keeps pin HALTn high. No firmware/ROM/sys/wrapper/clock source changed.",
+  "minimal_next_authorized_proof": [
+    "Independent timing_crossings source review of exact patch",
+    "If root approves implementation: smallest necessary elaboration/synthesis and isolated HALT-interface simulation, then bounded readonly accepted-edge diagnostic of genuine MCU command/release/E and next IACK against original qualified overlap; retain strict raw arrays/actual exits",
+    "Observe all applied guest controls at actual CPU reads; input-phase mistakes and returned-point journal alias remain independent open gates"
+  ],
+  "limits": [
+    "Original PCB HALT wiring/possible external clock gating unknown",
+    "No source proof of work119/sprite600/RGB600 cause",
+    "No runtime, fit/timing result or release qualification",
+    "MiSTer user pause and hiscore pause remain whole-game freezes by design"
+  ],
+  "independent_review": "Requested timing_crossings; pending when proposal frozen",
+  "equivalence_cases": 192,
+  "checks": {
+    "prior_halt_e_manifest_exact": true,
+    "baseline_board_fx_mcu_exact": true,
+    "mame_driver_exact": true,
+    "exact_unique_patch_hunk_0": true,
+    "exact_unique_patch_hunk_1": true,
+    "exact_unique_patch_hunk_2": true,
+    "exact_unique_patch_hunk_3": true,
+    "halt_implemented_bus_inhibit": true,
+    "inflight_drain_not_halt_aborted": true,
+    "architectural_wait_donor_owned": true,
+    "rmc_atomic_donor_exception_retained": true,
+    "bus_retry_irrelevant_to_tied_high_berr": true,
+    "pause_origin_and_mcu_pause_unchanged": true,
+    "reset_interface_unchanged": true,
+    "all_non_mcu_halt_and_user_pause_enable_cases_equivalent": true,
+    "kyros_halt_pin_constant_high": true,
+    "only_board_text_changes": true
+  },
+  "runtime_authorized": false,
+  "implementation_authorized": false
+}

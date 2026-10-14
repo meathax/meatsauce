@@ -1,0 +1,9 @@
+# Color clock and pixel bridge
+
+The corrected 3K clock captures once per16 common CK/4 counter clocks. The retained joined counter/serializer proof treats each counter clock as one pixel advance (1280 clocks,1024 active,256 blank,128 byte loads). MAME n8080.cpp:1172 sets a crystal/4 pixel clock and320 horizontal clocks; its lines497/499 address one PROM column per8 visible pixels. No source evidence supports a2:1 conversion that would make16 counter clocks equal8 pixels.
+
+Verified private parent PROM aggregate: even/odd column pairs have RGB equality in406/512, O4 equality in408/512, and both in336/512. All32 rows have complete even/odd RGB equality in4 rows and O4 equality in4 rows. The opposite adjacent pairing (odd/next even, excluding row wrap) has RGB equality in426/480 and O4 equality in432/480. Only aggregate counts and hashes are retained, with no ROM bytes exported.
+
+Even/odd equality can explain repeated8-pixel PROM tile values within16-pixel groups where both RGB and O4 match. It does not qualify the phase bridge: immediately before capture at phase15, H0=F and upper4J is old; immediately after the same counter edge, H0=!F and upper4J advances. Whether the physical3K sees old or new PROM pins depends on propagation, setup and hold. Serializer fetch/output phase and the mapping to MAME visible coordinates remain unresolved. No CE, source address, origin or reset offset is tuned by this report.
+
+Aggregate producer `_checks/agent-color-clock-review-20261010/pixel_bridge.py` verifies the parent/PROM identities, checks pinned MAME expressions, and retains the source excerpt and report hashes. Existing corrected native producer/build/run all exited0; no additional simulation was run. Complete counts, hashes and source handles are in `docs/evidence/sheriff_color_clock_pixel_bridge.json`.

@@ -1,0 +1,206 @@
+{
+  "checks": {
+    "native_terminal_actual0": true,
+    "actual1201_fields_coverage": true,
+    "all1200_source_phase_HPS_rows": true,
+    "CPU_earned_Japan_best_00001000_matches_reference1200": true,
+    "HPS_saved_exact178_and_full_restored_readback": true,
+    "held_reset_revokes_grant_and_actual_CPU_clears_earned_best": true,
+    "all178_physical_restore_commits_address_data_lane_exclusive_owner": false,
+    "CPU_transactions_resume_with_all_pause_reset_restore_access_clear": true,
+    "host_profile_config_and_protocol_flags": true
+  },
+  "passed": 8,
+  "total": 9,
+  "protocol_overall": false,
+  "native_result": {
+    "scope": "real emu/HPS/CPU/video/audio/SDRAM with ideal PLL and explicit framework scope adapter",
+    "frames": 1201,
+    "framework_settling_fields": 4,
+    "profile": 1,
+    "rom_words": 327680,
+    "wait_ticks": 1220361,
+    "main_transactions": 1494471,
+    "unmapped": 0,
+    "deadlines": 0,
+    "overflows": 0,
+    "device_writes": 393216,
+    "device_reads": 20711614,
+    "refreshes": 3375101,
+    "protocol_passed": true,
+    "gameplay_semantics_qualified": false
+  },
+  "native_host_flags": {
+    "profile": 1,
+    "saved_bytes": 178,
+    "upload_exact": 1,
+    "reset_cleared": 1,
+    "restore_exact": 1,
+    "physical_restore": 1,
+    "cpu_released": 1,
+    "synthetic_ram_writes": 0
+  },
+  "genuine_best": {
+    "boot119": 0,
+    "native1200": 4096,
+    "saved": 4096,
+    "official_reference1200": 4096
+  },
+  "accepted_CPU_score_writer_count": 1,
+  "CPU_score_writer_events": [
+    {
+      "tick": 832203714,
+      "frame": 1021,
+      "address": 131106,
+      "work_index": 17,
+      "write_hi": 1,
+      "write_lo": 1,
+      "data_out": 4096,
+      "data_hi": 16,
+      "data_lo": 0,
+      "pre_word": 0,
+      "post_word": 4096,
+      "tx_before": 23564248,
+      "tx_after": 23564249,
+      "pre_pc": 7986,
+      "pre_ir": 24718,
+      "pre_ird": 8320,
+      "pre_sr": 8192,
+      "pre_usp": 0,
+      "pre_ssp": 135152,
+      "post_pc": 7986,
+      "post_ir": 24718,
+      "post_ird": 8320
+    }
+  ],
+  "physical_restore_commits": 1068,
+  "unique_restored_byte_addresses": 178,
+  "physical_restore_failures": [
+    {
+      "row": 253,
+      "issue": "physical_write_owner_cardinality"
+    },
+    {
+      "row": 288,
+      "issue": "physical_write_owner_cardinality"
+    },
+    {
+      "row": 2295,
+      "issue": "physical_write_owner_cardinality"
+    },
+    {
+      "row": 2386,
+      "issue": "physical_write_owner_cardinality"
+    },
+    {
+      "row": 2477,
+      "issue": "physical_write_owner_cardinality"
+    },
+    {
+      "row": 4516,
+      "issue": "physical_write_owner_cardinality"
+    },
+    {
+      "row": 4614,
+      "issue": "physical_write_owner_cardinality"
+    },
+    {
+      "row": 4743,
+      "issue": "physical_write_owner_cardinality"
+    },
+    {
+      "row": 5255,
+      "issue": "physical_write_owner_cardinality"
+    },
+    {
+      "row": 5367,
+      "issue": "physical_write_owner_cardinality"
+    },
+    {
+      "row": 5461,
+      "issue": "physical_write_owner_cardinality"
+    },
+    {
+      "row": 5552,
+      "issue": "physical_write_owner_cardinality"
+    },
+    {
+      "row": 5810,
+      "issue": "physical_write_owner_cardinality"
+    }
+  ],
+  "reset_grant_revocation_rows": 239,
+  "CPU_zero_after_warm_reset_events": [
+    {
+      "tick": 1027474419,
+      "frame": 1201,
+      "phase": 2,
+      "reset": 0,
+      "paused": 0,
+      "hs_access": 0,
+      "hs_read_intent": 0,
+      "hs_write_intent": 0,
+      "hs_write": 0,
+      "hs_commit": 0,
+      "hs_addr": 134829,
+      "hs_data": 1,
+      "work_index": 17,
+      "write_hi": 1,
+      "write_lo": 1,
+      "cpu_owner": 1,
+      "mcu_owner": 0,
+      "hs_owner": 0,
+      "pre_word": 4096,
+      "post_word": 0
+    },
+    {
+      "tick": 1027474470,
+      "frame": 1201,
+      "phase": 2,
+      "reset": 0,
+      "paused": 0,
+      "hs_access": 0,
+      "hs_read_intent": 0,
+      "hs_write_intent": 0,
+      "hs_write": 0,
+      "hs_commit": 0,
+      "hs_addr": 134829,
+      "hs_data": 1,
+      "work_index": 16,
+      "write_hi": 1,
+      "write_lo": 1,
+      "cpu_owner": 1,
+      "mcu_owner": 0,
+      "hs_owner": 0,
+      "pre_word": 0,
+      "post_word": 0
+    }
+  ],
+  "reset_last_poll": {
+    "step": "2446",
+    "reset": "0",
+    "paused": "1",
+    "profile_reset_predicate": "1"
+  },
+  "CPU_release": [
+    {
+      "tx_before": "1494179",
+      "tx_after": "1494471",
+      "paused": "0",
+      "reset": "0",
+      "restoring": "0",
+      "hs_access": "0",
+      "qualified": "1"
+    }
+  ],
+  "originalJapan_READjournal_direction": "data=SIM_PORT_DATA=mdin=FXiEdb correct; no retraction applies",
+  "framework_settling_fields": 4,
+  "still_open": [
+    "No whole MAME graphics/work/instruction invariance pass inferred from protocol",
+    "Existing Japan601 strict raw RAM failure remains unwaived",
+    "B16/native CPU timing and physical MCU gates remain independent",
+    "Stingray148 earning/restore remains unqualified",
+    "hardware and RBF release gates remain open"
+  ],
+  "no_added_clock_eval_guest_RAM_or_score_write": true
+}

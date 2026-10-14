@@ -1,0 +1,25 @@
+{
+  "review_completed": true,
+  "approved_for_bounded_merge": true,
+  "findings": [],
+  "resolved_prior_P1": "Native recipe now copies/compiles MCU, copies T48 into flattened Verilog closure, and hashes T48.",
+  "manifest_sha256": "029088a70ad03611730d0ad0b9f6c4db9ad53a867859ed5f8ca4f3b29f82427b",
+  "manifest_files_verified": 96,
+  "prior_manifest_preserved_sha256": "b62087cbe7bea7854255ff3c3d6f5bc491c8cbcd1571d9117fc936be45b8e152",
+  "unchanged_candidate_files": 90,
+  "corrected_recipe_sha256": "61ef9977369596edd9ed098b36324c74ff9519a56d636cc620780e2276b9de31",
+  "compiled_HDL_files_modelled": 67,
+  "all_compiled_HDL_host_header_covered_by_hash_receipt": true,
+  "same_successful_private_recipe_except_observer_config": true,
+  "HDL_differences_from_private_graph": [
+    "rtl/alpha68kn_board.sv"
+  ],
+  "difference_scope": "Only existing sound diagnostic case2 VERILATOR guard; enabled body exact.",
+  "board_sha256": "714511ffa52963bd02e5b5b31a5335c7929bde281398267a5d7f981b8f4b9fa3",
+  "conditional_profile2_gate": "Retain <=1 until genuine181/realHPS wrapper gates; profile2 admission patch separate.",
+  "remaining_gates": [
+    "Shared SSG correction and all profiles need current-source replay binding.",
+    "Complete changed design needs all resource limits and all-corner timing/constraints acceptance."
+  ],
+  "builds_replays_Quartus": false
+}

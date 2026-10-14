@@ -1,0 +1,19 @@
+--- v3/readonly_tail_v4.patch
++++ v4/readonly_tail_v4.patch
+@@ -127,7 +127,15 @@
+     r.physical_restore=h.physical_restore_qualified();
+     if(!r.restore_exact || !r.physical_restore)
+         throw std::runtime_error("real donor restore bytes/physical ownership not qualified");
+-    h.pause();h.idle(10000);r.cpu_released=!top.SIM_PAUSED;
++    const auto release_tx=top.SIM_MAIN_TX;
++    h.pause();h.idle(10000);
++    r.cpu_released=!top.SIM_PAUSED && !top.SIM_GAME_RESET && !top.SIM_HS_RESTORING
++        && !top.SIM_HS_ACCESS && top.SIM_MAIN_TX>release_tx;
++    std::ofstream release_probe(output/"cpu_release_probe.csv");
++    release_probe<<"tx_before,tx_after,paused,reset,restoring,hs_access,qualified\n";
++    release_probe<<release_tx<<','<<top.SIM_MAIN_TX<<','<<unsigned(top.SIM_PAUSED)<<','
++        <<unsigned(top.SIM_GAME_RESET)<<','<<unsigned(top.SIM_HS_RESTORING)<<','
++        <<unsigned(top.SIM_HS_ACCESS)<<','<<r.cpu_released<<'\n';
+     if(!r.cpu_released) throw std::runtime_error("post-restore CPU release failed");
+     return r;
+ }

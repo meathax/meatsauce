@@ -1,0 +1,205 @@
+{
+  "scope": "Coverage inventory of recorded real gameplay output writes; not SN waveform or complete gameplay qualification.",
+  "equations": "Rising sound1 bit2 falls pins[6] and starts mono0, cancelling mono1; rising bit4 falls pins[4] and starts mono1. Both nominal durations 0.59895s. Apply mono0 before mono1 for simultaneous writes.",
+  "captures": [
+    {
+      "path": "sim/results/current-gameplay-1201-rtl-20261010/io.csv",
+      "sha256": "2873c77b5b50d13b26c2e0f3db1e3fdcce1b0cde02a3651aff2731a1791cf261",
+      "rows": 94841,
+      "native_tick_source": true,
+      "last_time": "19.51750103174603174603174603",
+      "counts": {
+        "mono0_triggers": 0,
+        "mono1_triggers": 5,
+        "mono0_retriggers": 0,
+        "mono1_retriggers": 0,
+        "mono0_cancels_mono1": 0,
+        "mono1_overlaps_mono0": 0,
+        "simultaneous_triggers": 0
+      },
+      "first_occurrences": {
+        "mono1_triggers": {
+          "time": "16.25804204365079365079365079",
+          "row": {
+            "tick": "819405319",
+            "frame": "1000",
+            "y": "48",
+            "x": "50",
+            "kind": "out",
+            "address": "1028",
+            "data": "17",
+            "status": "16",
+            "inte": "1"
+          }
+        }
+      }
+    },
+    {
+      "path": "sim/results/current-cocktail-4801-rtl-20261010/io.csv",
+      "sha256": "c8dc3ec699d9fc82432ce9e5275ebc931b055ae97ae98b4b7256806b9e18cc73",
+      "rows": 725275,
+      "native_tick_source": true,
+      "last_time": "78.03515579365079365079365079",
+      "counts": {
+        "mono0_triggers": 4,
+        "mono1_triggers": 61,
+        "mono0_retriggers": 0,
+        "mono1_retriggers": 0,
+        "mono0_cancels_mono1": 4,
+        "mono1_overlaps_mono0": 4,
+        "simultaneous_triggers": 0
+      },
+      "first_occurrences": {
+        "mono1_triggers": {
+          "time": "16.25799095238095238095238095",
+          "row": {
+            "tick": "819402744",
+            "frame": "1000",
+            "y": "47",
+            "x": "113",
+            "kind": "out",
+            "address": "1028",
+            "data": "17",
+            "status": "16",
+            "inte": "1"
+          }
+        },
+        "mono0_triggers": {
+          "time": "28.87177567460317460317460317",
+          "row": {
+            "tick": "1455137494",
+            "frame": "1776",
+            "y": "58",
+            "x": "148",
+            "kind": "out",
+            "address": "1028",
+            "data": "21",
+            "status": "16",
+            "inte": "0"
+          }
+        },
+        "mono0_cancels_mono1": {
+          "time": "28.87177567460317460317460317",
+          "row": {
+            "tick": "1455137494",
+            "frame": "1776",
+            "y": "58",
+            "x": "148",
+            "kind": "out",
+            "address": "1028",
+            "data": "21",
+            "status": "16",
+            "inte": "0"
+          }
+        },
+        "mono1_overlaps_mono0": {
+          "time": "29.39709363095238095238095238",
+          "row": {
+            "tick": "1481613519",
+            "frame": "1808",
+            "y": "140",
+            "x": "70",
+            "kind": "out",
+            "address": "1028",
+            "data": "17",
+            "status": "16",
+            "inte": "1"
+          }
+        }
+      }
+    },
+    {
+      "path": "sim/results/rounds-three-mame/io.csv",
+      "sha256": "d193fc0eb137e4392c8031ffa638a5e85ea21af1500389f17f9f1104200c19e3",
+      "rows": 1965478,
+      "native_tick_source": false,
+      "last_time": "260.061442955958",
+      "counts": {
+        "mono0_triggers": 35,
+        "mono1_triggers": 112,
+        "mono0_retriggers": 0,
+        "mono1_retriggers": 2,
+        "mono0_cancels_mono1": 26,
+        "mono1_overlaps_mono0": 13,
+        "simultaneous_triggers": 0
+      },
+      "first_occurrences": {
+        "mono1_triggers": {
+          "time": "15.380097222199",
+          "row": {
+            "time": "15.380097222199",
+            "frame": "946",
+            "y": "44",
+            "x": "170",
+            "kind": "out",
+            "address": "4",
+            "data": "17",
+            "pc": "9129"
+          }
+        },
+        "mono0_triggers": {
+          "time": "17.330474206323",
+          "row": {
+            "time": "17.330474206323",
+            "frame": "1066",
+            "y": "42",
+            "x": "310",
+            "kind": "out",
+            "address": "4",
+            "data": "21",
+            "pc": "9129"
+          }
+        },
+        "mono0_cancels_mono1": {
+          "time": "17.330474206323",
+          "row": {
+            "time": "17.330474206323",
+            "frame": "1066",
+            "y": "42",
+            "x": "310",
+            "kind": "out",
+            "address": "4",
+            "data": "21",
+            "pc": "9129"
+          }
+        },
+        "mono1_overlaps_mono0": {
+          "time": "21.589236111079",
+          "row": {
+            "time": "21.589236111079",
+            "frame": "1328",
+            "y": "46",
+            "x": "150",
+            "kind": "out",
+            "address": "4",
+            "data": "17",
+            "pc": "9129"
+          }
+        },
+        "mono1_retriggers": {
+          "time": "80.883847222101",
+          "row": {
+            "time": "80.883847222101",
+            "frame": "4976",
+            "y": "48",
+            "x": "190",
+            "kind": "out",
+            "address": "4",
+            "data": "17",
+            "pc": "9129"
+          }
+        }
+      }
+    }
+  ],
+  "source_sha256": {
+    "D:/Arcade/AI/aCORES/sherrif/tools/record_sound_control_coverage.py": "07f8b82607c24236570339d84f686343cf5d9d226b9eea978be400dc5155d167",
+    "rtl/n8080_mcs48.sv": "9add3d3ee9d50080dff1afa10d42970aa3e395251e0372f55eb1343f7dda5a7d"
+  },
+  "limits": [
+    "Decimal timestamps and nominal durations locate test cases; they do not qualify sample-edge scheduling.",
+    "Existing native captures predate the current gain conversion; source/receipt binding is required before replay qualification.",
+    "No native or MAME rerun, no waveform pass and no whole-audio pass."
+  ],
+  "whole_audio_gate_pass": false
+}

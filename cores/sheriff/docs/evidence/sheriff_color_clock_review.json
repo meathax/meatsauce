@@ -1,0 +1,192 @@
+{
+  "status": "previous_4J_QD_source_claim_withdrawn; corrected_source_HREAD_n_from_4I_QD",
+  "connected_route": [
+    "4I QD pin11 ->2L LS04 input5",
+    "2L output6 is HREAD_n",
+    "HREAD_n continues from sheet33 to sheet34 crossing 4J output risers without junction dots",
+    "Sheet34 continuation turns down near x1868,y2150, then right into3K CLK9 near y2868"
+  ],
+  "equations": {
+    "CLK9": "!phase_4i[3]",
+    "positive_edge_CE": "ce_counter && phase_4i==15",
+    "capture_period_counter_clocks": 16
+  },
+  "source_join_geometry": {
+    "sheet33_edge_x5000_white_rails": [
+      [
+        1962,
+        1968
+      ],
+      [
+        2009,
+        2015
+      ],
+      [
+        2164,
+        2169
+      ],
+      [
+        2228,
+        2234
+      ],
+      [
+        2258,
+        2264
+      ],
+      [
+        2290,
+        2294
+      ]
+    ],
+    "sheet34_x300_matching_rails": [
+      [
+        1943,
+        1949
+      ],
+      [
+        1989,
+        1994
+      ],
+      [
+        2143,
+        2149
+      ],
+      [
+        2210,
+        2215
+      ],
+      [
+        2239,
+        2243
+      ],
+      [
+        2270,
+        2276
+      ]
+    ],
+    "meaning": "Normal split-scan vertical offset is about19\u201321 pixels. CLK rail corresponds to HREAD_n, not a 4J output junction. Column runs aid identification; electrical junction decision is from retained images."
+  },
+  "views": [
+    {
+      "source": "_checks/manuals/bandido-page-34.png",
+      "source_sha256": "2a9b487489b7dfba1f394727e2f10ebaa621dfc5c2977e8b2f5cee6942a4a18c",
+      "page": 34,
+      "original_pixel_box": [
+        0,
+        900,
+        2450,
+        2980
+      ],
+      "scale": 1,
+      "path": "_checks/agent-color-clock-review-20261010/full-counter-clock-latch-join.png",
+      "sha256": "ca17c5159ed8559c6e3e0b902846c13f3ed66fcf6474b80f1dbfaac3342deec5"
+    },
+    {
+      "source": "_checks/manuals/bandido-page-34.png",
+      "source_sha256": "2a9b487489b7dfba1f394727e2f10ebaa621dfc5c2977e8b2f5cee6942a4a18c",
+      "page": 34,
+      "original_pixel_box": [
+        0,
+        850,
+        1150,
+        1700
+      ],
+      "scale": 2,
+      "path": "_checks/agent-color-clock-review-20261010/counter-output-origin.png",
+      "sha256": "0358ee153dd12d39b75cc88c598144be38c6cdb2043b619ea94966ced5dab1fc"
+    },
+    {
+      "source": "_checks/manuals/bandido-page-34.png",
+      "source_sha256": "2a9b487489b7dfba1f394727e2f10ebaa621dfc5c2977e8b2f5cee6942a4a18c",
+      "page": 34,
+      "original_pixel_box": [
+        0,
+        1600,
+        2450,
+        2980
+      ],
+      "scale": 1,
+      "path": "_checks/agent-color-clock-review-20261010/clock-latch-lower-continuation.png",
+      "sha256": "ece8a6ef7f3eb9e0ffb73f675ee41c7d5cf84d98a1ddd1a86c8b6c9e89c41346"
+    },
+    {
+      "source": "_checks/manuals/bandido-page-34.png",
+      "source_sha256": "2a9b487489b7dfba1f394727e2f10ebaa621dfc5c2977e8b2f5cee6942a4a18c",
+      "page": 34,
+      "original_pixel_box": [
+        0,
+        1780,
+        330,
+        2340
+      ],
+      "scale": 3,
+      "path": "_checks/agent-color-clock-review-20261010/left-counter-crossings.png",
+      "sha256": "4b1428a20e8e35539842dc085e9b7e7fb3364f29656d6675a62e1f3ab15db55d"
+    },
+    {
+      "source": "_checks/manuals/bandido-page-33.png",
+      "source_sha256": "80e074b2332cba831296ddc7c9c33136c1c0f6b31dfca4e3e32cbfd1cf1a9220",
+      "page": 33,
+      "original_pixel_box": [
+        4100,
+        1600,
+        5088,
+        2350
+      ],
+      "scale": 2,
+      "path": "_checks/agent-color-clock-review-20261010/page33-clock-continuation.png",
+      "sha256": "7ec9c89ba7c7bca62fee1b1c5be45e6938e039ad5bcf3c89dd71a817ec8cbbf9"
+    },
+    {
+      "source": "_checks/manuals/bandido-page-34.png",
+      "source_sha256": "2a9b487489b7dfba1f394727e2f10ebaa621dfc5c2977e8b2f5cee6942a4a18c",
+      "page": 34,
+      "original_pixel_box": [
+        1770,
+        1940,
+        2190,
+        2960
+      ],
+      "scale": 2,
+      "path": "_checks/agent-color-clock-review-20261010/page34-clock-riser.png",
+      "sha256": "e45a6abb42485d82e6373955719c14594245f5c34ba0f1486b538bc1ca43286d"
+    }
+  ],
+  "withdrawn_reports": [
+    {
+      "original": "docs/evidence/sheriff_prom_clock.json",
+      "archive": "_checks/agent-color-clock-review-20261010/withdrawn-4j-assumption/sheriff_prom_clock.json",
+      "sha256": "aa20e424fece3442a1830aed8873e4ab63f8aec3a9e5fcfe3a25e8f67c9cd629",
+      "classification": "valid only for its assumed 4J-QD clock; source-clock qualification withdrawn"
+    },
+    {
+      "original": "docs/evidence/sheriff_color_latch_native.json",
+      "archive": "_checks/agent-color-clock-review-20261010/withdrawn-4j-assumption/sheriff_color_latch_native.json",
+      "sha256": "54ffea65a6c212cf53cbe4eb0051c7947b21d07ebc027134fb279c189eff2015",
+      "classification": "valid only for its assumed 4J-QD clock; source-clock qualification withdrawn"
+    }
+  ],
+  "counter_and_PIO_evidence": "docs/evidence/sheriff_pio_counter_bridge.json",
+  "contradiction": {
+    "parent_observation": "28/32 Sheriff PROM rows have nonuniform RGB; up to6 RGB values per row",
+    "implication": "One held capture per320 counter clocks cannot produce that spatial variation in staticmode0",
+    "limit": "This contradiction motivates source review, but alone does not establish a replacement clock or MAME bug"
+  },
+  "propagation_limit": "Falling raw4I_QD changes both the inverted clock and address nets. This source audit does not settle physical setup/hold or whether the LS175 samples old/new PROM data. Digital qualifier must state its ordering explicitly.",
+  "source_sha256": {
+    "rtl/n8080_horizontal_counter.sv": "c969f57acf2e0aba2e33f4f24c02162a3f7a8984359fb4de214dcbf46a8f58f5",
+    "rtl/n8080_vertical_counter.sv": "fb9e4adccf03482a7067a81b3b4c7facab1fc52bec0f6dc5d9b13c8877abfddc",
+    "_checks/manuals/bandido-1980.pdf": "aa68eb8538e404c2ee1e02b7b47c0e40c62e9d9800cefcf22981c733c4b30224"
+  },
+  "verification": {
+    "source_hash_retention_exit_code": 0,
+    "new_native_qualifier": {
+      "path": "docs/evidence/sheriff_color_clock_native.json",
+      "actual_build_exit": 0,
+      "actual_native_exit": 0,
+      "result": "PASS source_clock_captures=800 holds=12000 static_addresses=12800 spans=40 flip_holds=15 serializer_on=3069 observed_RGB_values=4",
+      "physical_ordering_qualified": false
+    },
+    "no_production_or_Quartus_change": true
+  }
+}

@@ -1,0 +1,320 @@
+{
+  "coverage_complete": false,
+  "scope": "Complete B01-B16 disposition map; finite evidence and explicit physical/model limits do not establish full P7 coverage or all-game acceptance.",
+  "catalogue_complete": true,
+  "B03": {
+    "status": "finite punch/noise cleanup and active-noise reset qualified on producer pins; final semantic/source binding open",
+    "requirement": "Actual game-driven punch/release/death/reset semantics, no stuck noise/latch/DAC state, and measured per-profile rates, relative mix and clipping on the final graph. Phase-identical MAME/JT PCM is not required.",
+    "evidence": [
+      "docs/SOUND_HARDWARE.md",
+      "docs/SOUND_EVENT_COMPARISON.md",
+      "research/kyros_idle_death3601_sound_comparison.json",
+      "research/kyros_reset_background421_sound_comparison.json",
+      "research/kyros_punch_release1081_native_exit.json",
+      "research/kyros_punch_release1081_native_noise_cleanup.json",
+      "research/kyros_punch_release1081_native_sound_interleaving.json",
+      "research/kyros_punch_release1081_native_verification.json",
+      "research/kyros_punch_noise_chip_contract_exit.json",
+      "research/kyros_active_noise_reset_v3_import_manifest.json",
+      "research/kyros_active_noise_reset_v3_verification.json",
+      "research/kyros_active_noise_reset_v3_terminal_qualification.json",
+      "research/kyrosj_sound_fulltap720_verification.json"
+    ],
+    "remaining": "Bind applicable cleanup/reset and death-animation behavior to the final graph. Use measured rates/mix, clipping and semantic effects; do not demand phase-identical MAME/JT PCM.",
+    "finite_case": {
+      "fields": 1081,
+      "native_exit": 0,
+      "cleanup_checks_passed": 13,
+      "cleanup_checks_total": 13,
+      "single_punch_cleanup_composition_pass": true,
+      "full_B03_acceptance": false,
+      "whole_game_acceptance": false,
+      "global_sound_writes": 2750,
+      "AY1_writes": 480,
+      "AY2_writes": 452,
+      "YM2203_writes": 1818,
+      "all_chip_sequences_and_field_labels_equal": true,
+      "noise_onset_field": 715,
+      "noise_cleanup_field": 733,
+      "native_graphics_postcheck_exit": 1,
+      "sound_postcheck_exit": 0,
+      "limits": "CPU register trace plus unchanged production chip output contract; no direct isolated CPU-channel PCM or whole-game/physical qualification."
+    },
+    "finite_active_noise_reset": {
+      "actual_exit": 0,
+      "strict_boolean_checks": 20,
+      "trigger_field": 715,
+      "held_master_ticks": 64,
+      "post_master_ticks": 500000,
+      "pre_noise_transitions": 70,
+      "pre_channel_b_transitions": 70,
+      "held_post_channel_b_nonzero_ticks": 0,
+      "post_ay2_data_writes": 0,
+      "native_prefix_rgb_images": 42,
+      "full_B03_acceptance": false,
+      "whole_game_acceptance": false
+    },
+    "finite_japan720_events": {
+      "MAME_exit": 0,
+      "verification_exit": 0,
+      "strict_boolean_checks": 23,
+      "chip_writes": 406,
+      "main_sound_latch_writes": 9,
+      "DAC_writes": 29549,
+      "all_ordered_data_and_fields_equal": true,
+      "current_compiled_source_parity_proven": false,
+      "full_B03_acceptance": false
+    }
+  },
+  "B04": {
+    "status": "vblank IRQ/4kHz NMI and finite jump/hit evidence retained; ordinary pickup remains open",
+    "requirement": "Z80 IRQ0 once per screen vblank, independent4kHz NMI, correct latch/acknowledgements; verify punch, hit, jump and pickup effects.",
+    "evidence": [
+      "rtl/alpha68kn_board.sv",
+      "docs/SOUND_EVENT_COMPARISON.md",
+      "research/kyros_combat_hud3301_verification.json"
+    ],
+    "remaining": "Qualify one bounded legal ordinary-pickup reference/native replay and its actual effect. Retain completed jump/hit evidence; finish applicable Stingray action/explosion semantics on the final graph."
+  },
+  "B05": {
+    "status": "wide signed mixer and finite level calibration qualified; full all-game audio pending",
+    "requirement": "Retain MAME0.289 route gains, signed wide sums and saturation; avoid arithmetic wrap and clipped mix.",
+    "evidence": [
+      "docs/AUDIO_NORMALIZATION.md",
+      "docs/YM_SSG_CURVE.md",
+      "rtl/alpha68kn_mixer.sv"
+    ],
+    "remaining": "Qualify current full-core action/reset audio and Stingray. Finite corrected replay ratios and zero rail samples are not a complete waveform/physical analog pass."
+  },
+  "B06": {
+    "status": "sound chip/clock models and reviewed embedded-SSG period-zero correction integrated; final per-profile evidence binding open",
+    "requirement": "One YM2203 plus two external AY chips, correct per-set clocks, AY period-zero/envelope and YM SSG transfer behavior; one master with enables.",
+    "evidence": [
+      "board_profiles.json",
+      "docs/SOUND_HARDWARE.md",
+      "docs/YM_SSG_CURVE.md",
+      "rtl/alpha68kn_soundchips.sv"
+    ],
+    "remaining": "Retain donor pins/licenses and distinguish the donor period-zero repair from historical MAME bugs. Bind relevant per-profile clock/rate and effect evidence to current sources."
+  },
+  "B07": {
+    "status": "real8748/P2-latch interface and finite wrapper/181 credits/start evidence retained; strict Stingray RAM/lifecycle acceptance open",
+    "requirement": "Actual8748 firmware, command-triggered HALT, IRQ2 acknowledgement, shared-RAM arbitration and Stingray coin-DIP semantics.",
+    "evidence": [
+      "docs/STINGRAY_MCU_INTERFACE.md",
+      "research/t48_probe_result.json",
+      "rtl/alpha68kn_mcu.sv"
+    ],
+    "remaining": "Preserve unresolved12-byte work-RAM difference. Complete source-bound Stingray attract/gameplay and applicable coin/cabinet/DIP/handshake semantics; finite181 observations do not qualify complete181/1800 lifecycle."
+  },
+  "B08": {
+    "status": "audited Stingray PROM/load order and five completed displayed-frame matches retained; final lifecycle/source binding open",
+    "requirement": "Use audited0.289 PROM/CLUT data and exact palette/layout handling; do not restore old PROM colors.",
+    "evidence": [
+      "research/rom_manifest.json",
+      "board_profiles.json",
+      "mamebug.md"
+    ],
+    "remaining": "Bind palette/CLUT/load order and finite graphics receipts to affected current sources; qualify remaining gameplay/edge/sentinel coverage. Historical drawing-buffer comparisons remain artifact-selection failures."
+  },
+  "B09": {
+    "status": "explicit MAME-compatible Kyros HLE retained; original firmware/physical MCU identity unqualified",
+    "requirement": "Retain original partial BAD_DUMP and clean bootleg ROM independently; identify HLE strategy and never claim original firmware/physical timing accuracy.",
+    "evidence": [
+      "docs/HACKS.md",
+      "research/rom_manifest.json",
+      "rtl/alpha68kn_board.sv"
+    ],
+    "remaining": "Retain original underdump/HLE limit in STATE/HACKS and acceptance. Compatible behavior is the approved scope; unavailable firmware does not require speculative replacement or endless research."
+  },
+  "B10": {
+    "status": "documented imperfect Stingray MCU timing; production qualification pending",
+    "requirement": "Match0.289 baseline first and isolate the MCU clock; a physical correction needs board evidence.",
+    "evidence": [
+      "docs/STINGRAY_MCU_INTERFACE.md",
+      "board_profiles.json",
+      "mamebug.md"
+    ],
+    "remaining": "Actual integrated MCU/CPU event qualification, fit/STA and last-step hardware tests; retain physical uncertainty where unmeasured."
+  },
+  "B11": {
+    "status": "MAME wrap/transparency source doubts retained; Stingray boundary coverage pending",
+    "requirement": "Current signed-X wrap, Stingray sentinel0x40, Kyros sentinel0x20, pen-zero transparency and corrected Kyros CLUT255 behavior.",
+    "evidence": [
+      "mamebug.md",
+      "rtl/alpha68kn_renderer.sv",
+      "research/kyros_candidate5_lastroom_renderer_verification.json",
+      "research/kyrosj_candidate5_lastroom_renderer_verification.json"
+    ],
+    "remaining": "Stingray small wrap/sentinel/overlap cases and actual full-system graphics. No speculative mask or wrap correction without evidence."
+  },
+  "B12": {
+    "status": "raw raster model retained; complete-design resource/timing receipts remain separate from external I/O qualification",
+    "requirement": "6MHz pixel,384x264 totals,256x224 crop and59.185606Hz frame rate; do not replace with rounded older notes.",
+    "evidence": [
+      "board_profiles.json",
+      "docs/FEATURES.md",
+      "research/kyros_combat_hud3301_verification.json"
+    ],
+    "remaining": "Retain all seven strict resource limits and source-bound all-corner timing. Finish applicable framework modes and external I/O/CDC bounds; internal timing and diagnostic constraints do not qualify hardware I/O or release."
+  },
+  "B13": {
+    "status": "documented ignored sound I/O and analog/DAC identity limits",
+    "requirement": "Record actual accesses; preserve documented digital behavior. Analog filter/clock corrections require component/schematic evidence.",
+    "evidence": [
+      "docs/HACKS.md",
+      "docs/SOUND_EVENT_COMPARISON.md",
+      "docs/SOUND_ADDRESS_USAGE.md",
+      "research/kyros_sound_address_usage3600.json",
+      "mamebug.md"
+    ],
+    "remaining": "Per-profile ignored-port/DAC observations and final physical audio test. No digital-register proof is an analog-circuit pass."
+  },
+  "B14": {
+    "status": "MAME2KiB sound RAM baseline retained; physical capacity/alias unconfirmed",
+    "requirement": "Do not infer a1KiB alias solely from two2114 PCB notes; qualify accessed addresses before changing the map.",
+    "evidence": [
+      "mamebug.md",
+      "docs/HACKS.md",
+      "docs/SOUND_ADDRESS_USAGE.md",
+      "research/kyros_sound_address_usage3600.json",
+      "rtl/alpha68kn_board.sv"
+    ],
+    "finite_usage": "3600-field actual MAME writes: lower1KiB2325198 writes/1991777 nonzero; upper1KiB exactly1024 writes, one zero per address. Virtual alias-value witnesses do not prove both addresses are read or prove PCB capacity.",
+    "remaining": "Retain2KiB MAME baseline and explicit missing read/physical wiring evidence. A hardware alias correction requires stronger evidence; no physical capacity pass is invented."
+  },
+  "B15": {
+    "status": "MAME RAM/background byte behavior retained; original watchdog unqualified",
+    "requirement": "Preserve MSB watchdog RAM and LSB background strobes at60000..60001; do not invent a watchdog period or reset circuit.",
+    "evidence": [
+      "mamebug.md",
+      "docs/MAME_CLOCKED_RESET_EVIDENCE.md",
+      "rtl/alpha68kn_board.sv"
+    ],
+    "remaining": "Final byte-lane/reset audit and explicit physical watchdog limit. Warm-reset simulation does not prove original watchdog hardware."
+  },
+  "B16": {
+    "status": "timed18-pixel residual and CPU/IRQ/bus phase relationship unresolved; Japan retired-stack explanation is finite",
+    "requirement": "Use independently recorded raster-time writes without masks, frame shifts or phase-fitting clocks; preserve atomic-image failures.",
+    "evidence": [
+      "docs/COMBAT_HUD_DIAGNOSIS.md",
+      "docs/IRQ_TIMING_CONTEXT.md",
+      "research/combat_hud_native_causality_through3300.json",
+      "research/kyros_combat_hud3301_verification.json",
+      "research/irq_ipl_recognition61_timeline.json",
+      "research/irq_ipl_recognition61_verification.json",
+      "research/irq_ipl_recognition61_state_join.json",
+      "research/irq_fx_mame_nanocode_comparison.json"
+    ],
+    "remaining": "Preserve atomic failures and timed18-pixel residual. Japan raw8-byte endpoint values are retired stack, while control/timing remains unresolved; no mask or rewritten strict RAM result. Stingray12-byte RAM difference and complete181/1800 lifecycle remain open. No unsupported clock/IRQ phase patch.",
+    "irq_observer_limit": "Original frame-label coverage predicate superseded by actual assertion/IACK tick pairs: six assertions, five pairs, final field60 IRQ1 IACK outside finite stop. Exact native fidelity and source-rule results do not establish physical cause or timing fix.",
+    "source_join_limit": "Critical group-one assignments are inferred from uniquely constrained enT3 and source rules, not observed dispatch/rInterrupt rises. Unknown states remain explicit; no phase patch or closure."
+  },
+  "B01": {
+    "status": "finite stage-5 renderer regression qualified for both Kyros sets",
+    "setup": "Guarded MAME-only selector5 initialization at1a66, valid A6/SR/SP/return context, frame900. Explicit RAM/register fixture writes; no RTL CPU qualification.",
+    "renderer_receipt": "research/kyros_candidate5_entry_renderer_verification.json",
+    "fields": [
+      1200,
+      1500,
+      1800,
+      2100,
+      2399
+    ],
+    "complete_rgb_mismatches": [
+      0,
+      0,
+      0,
+      0,
+      0
+    ],
+    "color_ff_tiles": [
+      0,
+      4,
+      4,
+      4,
+      4
+    ],
+    "fault_probe": "research/kyros_candidate5_color_ff_suppression.json",
+    "fault_probe_changed_pixels": 0,
+    "late_room_setup": "ROM-derived scene5 descriptor8/9, room0900, spawn60b0, layout68/flagsf0; guarded MAME-only setup at1200. Per-ROM entry/return/table addresses validated against program hashes and opcodes.",
+    "late_room_cases": {
+      "kyros": {
+        "renderer_receipt": "research/kyros_candidate5_lastroom_renderer_verification.json",
+        "fields": [
+          1500,
+          1800,
+          2400,
+          3000,
+          3599
+        ],
+        "complete_rgb_mismatches": [
+          0,
+          0,
+          0,
+          0,
+          0
+        ],
+        "fault_probe": "research/kyros_candidate5_lastroom_renderer_color_ff_suppression_001500.json",
+        "fault_probe_changed_pixels": 500
+      },
+      "kyrosj": {
+        "renderer_receipt": "research/kyrosj_candidate5_lastroom_renderer_verification.json",
+        "fields": [
+          1500,
+          1800,
+          2400,
+          3000,
+          3600
+        ],
+        "complete_rgb_mismatches": [
+          0,
+          0,
+          0,
+          0,
+          0
+        ],
+        "fault_probe": "research/kyrosj_candidate5_lastroom_renderer_color_ff_suppression_001500.json",
+        "fault_probe_changed_pixels": 500
+      }
+    },
+    "remaining": "Retain corrected CLUT255 handling and bind the fifteen-field target audit to affected renderer sources. Natural stage5 progression is not an added gate; actual CPU attract/gameplay remains separate.",
+    "contract_audit": "research/kyros_late_scene_contract_audit.json",
+    "requirement": "Both Kyros sets: complete finite stage-5 late-room RGB fixtures, corrected CLUT255 handling and nonvacuous suppression sensitivity; retain affected-source parity. Natural CPU progression to stage5 is not an added gate."
+  },
+  "B02": {
+    "status": "finite ending renderer regression qualified; original priority preserved",
+    "requirement": "Complete finite ending RGB fixture preserving original strip overwrite priority and characters covering staff text; retain affected-source parity. Natural CPU progression to ending is not an added gate.",
+    "source_profile": "research/kyros_ending_fixture_profile.json",
+    "capture_receipt": "research/kyros_late_scene_candidates5400_centered_up_scene5_lastroom_ending_verification.json",
+    "renderer_receipt": "research/kyros_ending_renderer_verification.json",
+    "fields": [
+      2400,
+      3000,
+      3600,
+      4200,
+      5399
+    ],
+    "complete_rgb_mismatches": [
+      0,
+      0,
+      0,
+      0,
+      0
+    ],
+    "scope": "MAME-only guarded boss-state writes select the ROM ending without a further PC redirect. Actual staff text is checked in sprite RAM and visual character/text overlap is observed at2400/3600. Actual RTL renderer/SDRAM, not RTL CPU progression, is qualified.",
+    "contract_audit": "research/kyros_late_scene_contract_audit.json",
+    "remaining": "Preserve strip overwrite priority and final affected-source binding. Natural CPU progression to ending is not an added gate; actual CPU attract/gameplay remains required."
+  },
+  "current_disposition_20261011": {
+    "source_checkpoint": "6caf",
+    "producer_audit_sha256": "b998485ff25f3b969a72b538e998fe81019d0adb6f06af4705d993991d17447d",
+    "graphics_target_primary_sha256": "04949aa1b33db6e7f16e067a9649d91e3f1bff4a60d605c2cac87bc485c6395b",
+    "graphics_target_supplement_sha256": "8b06f900bd544b5ca77fee96bf905f3ff73648a49762c42c137e75fcbcb9d625",
+    "qualified_finite_RGB_fields": 15,
+    "CLUT255_fault_pixels_each_set": 500,
+    "whole_game_acceptance": false,
+    "external_IO_hardware_acceptance": false,
+    "historical_evidence": "Existing named fixtures/failures remain producer-scoped; current disposition supersedes historical pending wording."
+  }
+}

@@ -1,0 +1,715 @@
+{
+  "original_verification_sha256": "14b8ca8ab16ee2eaa1f0d3027e65e47f6cd737e3161f046ad5d0497cac1cb9ba",
+  "analyzer_sha256": "aa0761b8a20b197b69a03a5c4d36b8c1e46216b622757fe74bfa8758b3baf0b2",
+  "original_verification_receipt_preserved": true,
+  "qualification_correction": "Original coverage predicate grouped frame labels without pairing assertions to IACK. Supersede that coverage claim with these actual tick pairs. IRQ1 assertion and IACK cross fields.",
+  "finite_fidelity_and_source_transition_rules_pass": true,
+  "all_field59_60_assertions_through_iack_coverage": false,
+  "observer_tick_range": [
+    47038458,
+    49471481
+  ],
+  "actual_assertion_iack_pairs": [
+    {
+      "assertion": {
+        "tick": 47200000,
+        "frame": 58,
+        "irq": "irq2"
+      },
+      "iack": {
+        "tick": 47200169,
+        "frame": 58,
+        "address": 16777204,
+        "inl": 2
+      },
+      "finite_stop_before_iack": false,
+      "observed_through_tick": 47200169,
+      "boundaries": {
+        "rIpl": {
+          "tick": 47200005,
+          "frame": 58,
+          "relative_to_assertion": 5,
+          "clks_before": 17,
+          "enPhi1": 0,
+          "enPhi2": 1,
+          "enT1": 0,
+          "enT4": 1,
+          "updIll_before": 0,
+          "microLatch_before": 56064,
+          "microLatch_bit0": 0,
+          "pc_before": 2094,
+          "pc_after": 2094
+        },
+        "iIpl": {
+          "tick": 47200013,
+          "frame": 58,
+          "relative_to_assertion": 13,
+          "clks_before": 17,
+          "enPhi1": 0,
+          "enPhi2": 1,
+          "enT1": 0,
+          "enT4": 1,
+          "updIll_before": 0,
+          "microLatch_before": 56064,
+          "microLatch_bit0": 0,
+          "pc_before": 2094,
+          "pc_after": 2094
+        },
+        "intPend": {
+          "tick": 47200021,
+          "frame": 58,
+          "relative_to_assertion": 21,
+          "clks_before": 17,
+          "enPhi1": 0,
+          "enPhi2": 1,
+          "enT1": 0,
+          "enT4": 0,
+          "updIll_before": 0,
+          "microLatch_before": 56064,
+          "microLatch_bit0": 0,
+          "pc_before": 2094,
+          "pc_after": 2094
+        },
+        "inl": {
+          "tick": 47200049,
+          "frame": 58,
+          "relative_to_assertion": 49,
+          "clks_before": 18,
+          "enPhi1": 1,
+          "enPhi2": 0,
+          "enT1": 1,
+          "enT4": 0,
+          "updIll_before": 1,
+          "microLatch_before": 93217,
+          "microLatch_bit0": 1,
+          "pc_before": 2094,
+          "pc_after": 2094
+        },
+        "Iac": {
+          "tick": 47200161,
+          "frame": 58,
+          "relative_to_assertion": 161,
+          "clks_before": 18,
+          "enPhi1": 1,
+          "enPhi2": 0,
+          "enT1": 1,
+          "enT4": 0,
+          "updIll_before": 0,
+          "microLatch_before": 107264,
+          "microLatch_bit0": 0,
+          "pc_before": 2094,
+          "pc_after": 2094
+        }
+      }
+    },
+    {
+      "assertion": {
+        "tick": 47849465,
+        "frame": 58,
+        "irq": "irq1"
+      },
+      "iack": {
+        "tick": 47849609,
+        "frame": 59,
+        "address": 16777202,
+        "inl": 1
+      },
+      "finite_stop_before_iack": false,
+      "observed_through_tick": 47849609,
+      "boundaries": {
+        "rIpl": {
+          "tick": 47849469,
+          "frame": 59,
+          "relative_to_assertion": 4,
+          "clks_before": 17,
+          "enPhi1": 0,
+          "enPhi2": 1,
+          "enT1": 0,
+          "enT4": 1,
+          "updIll_before": 0,
+          "microLatch_before": 6314,
+          "microLatch_bit0": 0,
+          "pc_before": 2138,
+          "pc_after": 2138
+        },
+        "iIpl": {
+          "tick": 47849477,
+          "frame": 59,
+          "relative_to_assertion": 12,
+          "clks_before": 17,
+          "enPhi1": 0,
+          "enPhi2": 1,
+          "enT1": 0,
+          "enT4": 0,
+          "updIll_before": 0,
+          "microLatch_before": 6314,
+          "microLatch_bit0": 0,
+          "pc_before": 2140,
+          "pc_after": 2140
+        },
+        "intPend": {
+          "tick": 47849485,
+          "frame": 59,
+          "relative_to_assertion": 20,
+          "clks_before": 17,
+          "enPhi1": 0,
+          "enPhi2": 1,
+          "enT1": 0,
+          "enT4": 1,
+          "updIll_before": 0,
+          "microLatch_before": 72001,
+          "microLatch_bit0": 1,
+          "pc_before": 2140,
+          "pc_after": 2140
+        },
+        "inl": {
+          "tick": 47849489,
+          "frame": 59,
+          "relative_to_assertion": 24,
+          "clks_before": 18,
+          "enPhi1": 1,
+          "enPhi2": 0,
+          "enT1": 1,
+          "enT4": 0,
+          "updIll_before": 1,
+          "microLatch_before": 72001,
+          "microLatch_bit0": 1,
+          "pc_before": 2140,
+          "pc_after": 2140
+        },
+        "Iac": {
+          "tick": 47849601,
+          "frame": 59,
+          "relative_to_assertion": 136,
+          "clks_before": 18,
+          "enPhi1": 1,
+          "enPhi2": 0,
+          "enT1": 1,
+          "enT4": 0,
+          "updIll_before": 0,
+          "microLatch_before": 107264,
+          "microLatch_bit0": 0,
+          "pc_before": 2132,
+          "pc_after": 2132
+        }
+      }
+    },
+    {
+      "assertion": {
+        "tick": 48000000,
+        "frame": 59,
+        "irq": "irq2"
+      },
+      "iack": {
+        "tick": 48000153,
+        "frame": 59,
+        "address": 16777204,
+        "inl": 2
+      },
+      "finite_stop_before_iack": false,
+      "observed_through_tick": 48000153,
+      "boundaries": {
+        "rIpl": {
+          "tick": 48000005,
+          "frame": 59,
+          "relative_to_assertion": 5,
+          "clks_before": 17,
+          "enPhi1": 0,
+          "enPhi2": 1,
+          "enT1": 0,
+          "enT4": 0,
+          "updIll_before": 0,
+          "microLatch_before": 77472,
+          "microLatch_bit0": 0,
+          "pc_before": 2138,
+          "pc_after": 2138
+        },
+        "iIpl": {
+          "tick": 48000013,
+          "frame": 59,
+          "relative_to_assertion": 13,
+          "clks_before": 17,
+          "enPhi1": 0,
+          "enPhi2": 1,
+          "enT1": 0,
+          "enT4": 1,
+          "updIll_before": 0,
+          "microLatch_before": 6314,
+          "microLatch_bit0": 0,
+          "pc_before": 2138,
+          "pc_after": 2138
+        },
+        "intPend": {
+          "tick": 48000021,
+          "frame": 59,
+          "relative_to_assertion": 21,
+          "clks_before": 17,
+          "enPhi1": 0,
+          "enPhi2": 1,
+          "enT1": 0,
+          "enT4": 0,
+          "updIll_before": 0,
+          "microLatch_before": 6314,
+          "microLatch_bit0": 0,
+          "pc_before": 2140,
+          "pc_after": 2140
+        },
+        "inl": {
+          "tick": 48000033,
+          "frame": 59,
+          "relative_to_assertion": 33,
+          "clks_before": 18,
+          "enPhi1": 1,
+          "enPhi2": 0,
+          "enT1": 1,
+          "enT4": 0,
+          "updIll_before": 1,
+          "microLatch_before": 72001,
+          "microLatch_bit0": 1,
+          "pc_before": 2140,
+          "pc_after": 2140
+        },
+        "Iac": {
+          "tick": 48000145,
+          "frame": 59,
+          "relative_to_assertion": 145,
+          "clks_before": 18,
+          "enPhi1": 1,
+          "enPhi2": 0,
+          "enT1": 1,
+          "enT4": 0,
+          "updIll_before": 0,
+          "microLatch_before": 107264,
+          "microLatch_bit0": 0,
+          "pc_before": 2132,
+          "pc_after": 2132
+        }
+      }
+    },
+    {
+      "assertion": {
+        "tick": 48660473,
+        "frame": 59,
+        "irq": "irq1"
+      },
+      "iack": {
+        "tick": 48660665,
+        "frame": 60,
+        "address": 16777202,
+        "inl": 1
+      },
+      "finite_stop_before_iack": false,
+      "observed_through_tick": 48660665,
+      "boundaries": {
+        "rIpl": {
+          "tick": 48660477,
+          "frame": 60,
+          "relative_to_assertion": 4,
+          "clks_before": 17,
+          "enPhi1": 0,
+          "enPhi2": 1,
+          "enT1": 0,
+          "enT4": 1,
+          "updIll_before": 0,
+          "microLatch_before": 51072,
+          "microLatch_bit0": 0,
+          "pc_before": 4892,
+          "pc_after": 4892
+        },
+        "iIpl": {
+          "tick": 48660485,
+          "frame": 60,
+          "relative_to_assertion": 12,
+          "clks_before": 17,
+          "enPhi1": 0,
+          "enPhi2": 1,
+          "enT1": 0,
+          "enT4": 0,
+          "updIll_before": 0,
+          "microLatch_before": 51072,
+          "microLatch_bit0": 0,
+          "pc_before": 4894,
+          "pc_after": 4894
+        },
+        "intPend": {
+          "tick": 48660493,
+          "frame": 60,
+          "relative_to_assertion": 20,
+          "clks_before": 17,
+          "enPhi1": 0,
+          "enPhi2": 1,
+          "enT1": 0,
+          "enT4": 1,
+          "updIll_before": 0,
+          "microLatch_before": 53121,
+          "microLatch_bit0": 1,
+          "pc_before": 4894,
+          "pc_after": 4894
+        },
+        "inl": {
+          "tick": 48660513,
+          "frame": 60,
+          "relative_to_assertion": 40,
+          "clks_before": 18,
+          "enPhi1": 1,
+          "enPhi2": 0,
+          "enT1": 1,
+          "enT4": 0,
+          "updIll_before": 1,
+          "microLatch_before": 53121,
+          "microLatch_bit0": 1,
+          "pc_before": 4894,
+          "pc_after": 4894
+        },
+        "Iac": {
+          "tick": 48660657,
+          "frame": 60,
+          "relative_to_assertion": 184,
+          "clks_before": 18,
+          "enPhi1": 1,
+          "enPhi2": 0,
+          "enT1": 1,
+          "enT4": 0,
+          "updIll_before": 0,
+          "microLatch_before": 107264,
+          "microLatch_bit0": 0,
+          "pc_before": 4892,
+          "pc_after": 4892
+        }
+      }
+    },
+    {
+      "assertion": {
+        "tick": 48800000,
+        "frame": 60,
+        "irq": "irq2"
+      },
+      "iack": {
+        "tick": 48800313,
+        "frame": 60,
+        "address": 16777204,
+        "inl": 2
+      },
+      "finite_stop_before_iack": false,
+      "observed_through_tick": 48800313,
+      "boundaries": {
+        "rIpl": {
+          "tick": 48800005,
+          "frame": 60,
+          "relative_to_assertion": 5,
+          "clks_before": 17,
+          "enPhi1": 0,
+          "enPhi2": 1,
+          "enT1": 0,
+          "enT4": 0,
+          "updIll_before": 1,
+          "microLatch_before": 53121,
+          "microLatch_bit0": 1,
+          "pc_before": 4906,
+          "pc_after": 4906
+        },
+        "iIpl": {
+          "tick": 48800013,
+          "frame": 60,
+          "relative_to_assertion": 13,
+          "clks_before": 17,
+          "enPhi1": 0,
+          "enPhi2": 1,
+          "enT1": 0,
+          "enT4": 1,
+          "updIll_before": 1,
+          "microLatch_before": 65540,
+          "microLatch_bit0": 0,
+          "pc_before": 4906,
+          "pc_after": 4906
+        },
+        "intPend": {
+          "tick": 48800021,
+          "frame": 60,
+          "relative_to_assertion": 21,
+          "clks_before": 17,
+          "enPhi1": 0,
+          "enPhi2": 1,
+          "enT1": 0,
+          "enT4": 1,
+          "updIll_before": 0,
+          "microLatch_before": 65540,
+          "microLatch_bit0": 0,
+          "pc_before": 4906,
+          "pc_after": 4906
+        },
+        "inl": {
+          "tick": 48800161,
+          "frame": 60,
+          "relative_to_assertion": 161,
+          "clks_before": 18,
+          "enPhi1": 1,
+          "enPhi2": 0,
+          "enT1": 1,
+          "enT4": 0,
+          "updIll_before": 1,
+          "microLatch_before": 53121,
+          "microLatch_bit0": 1,
+          "pc_before": 4912,
+          "pc_after": 4912
+        },
+        "Iac": {
+          "tick": 48800305,
+          "frame": 60,
+          "relative_to_assertion": 305,
+          "clks_before": 18,
+          "enPhi1": 1,
+          "enPhi2": 0,
+          "enT1": 1,
+          "enT4": 0,
+          "updIll_before": 0,
+          "microLatch_before": 107264,
+          "microLatch_bit0": 0,
+          "pc_before": 4910,
+          "pc_after": 4910
+        }
+      }
+    },
+    {
+      "assertion": {
+        "tick": 49471481,
+        "frame": 60,
+        "irq": "irq1"
+      },
+      "iack": null,
+      "finite_stop_before_iack": true,
+      "observed_through_tick": 49471481,
+      "boundaries": {}
+    }
+  ],
+  "known_field59_relocated_write_cases": [
+    {
+      "tile_write": {
+        "tick": 47925314,
+        "frame": 59,
+        "raster_x": 265,
+        "raster_y": 0,
+        "address": 266676,
+        "iack": 0,
+        "rw": 0,
+        "uds_n": 0,
+        "lds_n": 0,
+        "data_out": 32,
+        "data_in_before": 20936,
+        "fc_after": 5,
+        "pc_after": 2138,
+        "ir_after": 20936,
+        "ird_after": 12540,
+        "phase_after": 2,
+        "cpu_phase_after": 2
+      },
+      "assertion": {
+        "tick": 47849465,
+        "frame": 58,
+        "irq": "irq1"
+      },
+      "recognition": {
+        "rIpl": {
+          "tick": 47849469,
+          "frame": 59,
+          "relative_to_assertion": 4,
+          "clks_before": 17,
+          "enPhi1": 0,
+          "enPhi2": 1,
+          "enT1": 0,
+          "enT4": 1,
+          "updIll_before": 0,
+          "microLatch_before": 6314,
+          "microLatch_bit0": 0,
+          "pc_before": 2138,
+          "pc_after": 2138
+        },
+        "iIpl": {
+          "tick": 47849477,
+          "frame": 59,
+          "relative_to_assertion": 12,
+          "clks_before": 17,
+          "enPhi1": 0,
+          "enPhi2": 1,
+          "enT1": 0,
+          "enT4": 0,
+          "updIll_before": 0,
+          "microLatch_before": 6314,
+          "microLatch_bit0": 0,
+          "pc_before": 2140,
+          "pc_after": 2140
+        },
+        "intPend": {
+          "tick": 47849485,
+          "frame": 59,
+          "relative_to_assertion": 20,
+          "clks_before": 17,
+          "enPhi1": 0,
+          "enPhi2": 1,
+          "enT1": 0,
+          "enT4": 1,
+          "updIll_before": 0,
+          "microLatch_before": 72001,
+          "microLatch_bit0": 1,
+          "pc_before": 2140,
+          "pc_after": 2140
+        },
+        "inl": {
+          "tick": 47849489,
+          "frame": 59,
+          "relative_to_assertion": 24,
+          "clks_before": 18,
+          "enPhi1": 1,
+          "enPhi2": 0,
+          "enT1": 1,
+          "enT4": 0,
+          "updIll_before": 1,
+          "microLatch_before": 72001,
+          "microLatch_bit0": 1,
+          "pc_before": 2140,
+          "pc_after": 2140
+        },
+        "Iac": {
+          "tick": 47849601,
+          "frame": 59,
+          "relative_to_assertion": 136,
+          "clks_before": 18,
+          "enPhi1": 1,
+          "enPhi2": 0,
+          "enT1": 1,
+          "enT4": 0,
+          "updIll_before": 0,
+          "microLatch_before": 107264,
+          "microLatch_bit0": 0,
+          "pc_before": 2132,
+          "pc_after": 2132
+        }
+      },
+      "iack": {
+        "tick": 47849609,
+        "frame": 59,
+        "address": 16777202,
+        "inl": 1
+      },
+      "write_after_iack_ticks": 75705
+    },
+    {
+      "tile_write": {
+        "tick": 48003170,
+        "frame": 59,
+        "raster_x": 13,
+        "raster_y": 26,
+        "address": 267526,
+        "iack": 0,
+        "rw": 0,
+        "uds_n": 0,
+        "lds_n": 0,
+        "data_out": 32,
+        "data_in_before": 20936,
+        "fc_after": 5,
+        "pc_after": 2138,
+        "ir_after": 20936,
+        "ird_after": 12540,
+        "phase_after": 2,
+        "cpu_phase_after": 2
+      },
+      "assertion": {
+        "tick": 48000000,
+        "frame": 59,
+        "irq": "irq2"
+      },
+      "recognition": {
+        "rIpl": {
+          "tick": 48000005,
+          "frame": 59,
+          "relative_to_assertion": 5,
+          "clks_before": 17,
+          "enPhi1": 0,
+          "enPhi2": 1,
+          "enT1": 0,
+          "enT4": 0,
+          "updIll_before": 0,
+          "microLatch_before": 77472,
+          "microLatch_bit0": 0,
+          "pc_before": 2138,
+          "pc_after": 2138
+        },
+        "iIpl": {
+          "tick": 48000013,
+          "frame": 59,
+          "relative_to_assertion": 13,
+          "clks_before": 17,
+          "enPhi1": 0,
+          "enPhi2": 1,
+          "enT1": 0,
+          "enT4": 1,
+          "updIll_before": 0,
+          "microLatch_before": 6314,
+          "microLatch_bit0": 0,
+          "pc_before": 2138,
+          "pc_after": 2138
+        },
+        "intPend": {
+          "tick": 48000021,
+          "frame": 59,
+          "relative_to_assertion": 21,
+          "clks_before": 17,
+          "enPhi1": 0,
+          "enPhi2": 1,
+          "enT1": 0,
+          "enT4": 0,
+          "updIll_before": 0,
+          "microLatch_before": 6314,
+          "microLatch_bit0": 0,
+          "pc_before": 2140,
+          "pc_after": 2140
+        },
+        "inl": {
+          "tick": 48000033,
+          "frame": 59,
+          "relative_to_assertion": 33,
+          "clks_before": 18,
+          "enPhi1": 1,
+          "enPhi2": 0,
+          "enT1": 1,
+          "enT4": 0,
+          "updIll_before": 1,
+          "microLatch_before": 72001,
+          "microLatch_bit0": 1,
+          "pc_before": 2140,
+          "pc_after": 2140
+        },
+        "Iac": {
+          "tick": 48000145,
+          "frame": 59,
+          "relative_to_assertion": 145,
+          "clks_before": 18,
+          "enPhi1": 1,
+          "enPhi2": 0,
+          "enT1": 1,
+          "enT4": 0,
+          "updIll_before": 0,
+          "microLatch_before": 107264,
+          "microLatch_bit0": 0,
+          "pc_before": 2132,
+          "pc_after": 2132
+        }
+      },
+      "iack": {
+        "tick": 48000153,
+        "frame": 59,
+        "address": 16777204,
+        "inl": 2
+      },
+      "write_after_iack_ticks": 3017
+    }
+  ],
+  "limitations": [
+    "Internal PcH/PcL and request trace pc_after are observed CPU state, not independent instruction-dispatch markers.",
+    "Finite 61-field stop can omit the final IRQ1 IACK in the next field. No additional replay was run.",
+    "Read-only sample boundaries explain native recognition chronology only; physical timing cause and correct hardware fix remain open."
+  ],
+  "B16_closed": false,
+  "physical_cause_proven": false,
+  "timing_fix_proven": false
+}

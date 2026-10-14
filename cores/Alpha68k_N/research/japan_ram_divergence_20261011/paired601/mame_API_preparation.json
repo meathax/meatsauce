@@ -1,0 +1,68 @@
+{
+  "scope": "Source-backed getters/taps, no runtime API or paired replay executed.",
+  "original_capture": {
+    "path": "D:\\Arcade\\AI\\aCORES\\Alpha68k N\\sim\\mame\\capture.lua",
+    "bytes": 9188,
+    "sha256": "174ed050b8776e11745dfb0211ee42995e582c91f9a5f110665663f368ab8c6c"
+  },
+  "observer": {
+    "path": "D:\\Arcade\\AI\\aCORES\\Alpha68k N\\research\\japan_ram_divergence_20261011\\paired601\\mame_observer.lua",
+    "bytes": 10954,
+    "sha256": "abb4ef224b618369877f1f680782bf249b7fbdfed7537234c458c451da03275e"
+  },
+  "prepare": {
+    "path": "D:\\Arcade\\AI\\aCORES\\Alpha68k N\\research\\japan_ram_divergence_20261011\\prepare_mame601.py",
+    "bytes": 4406,
+    "sha256": "cf49aba4815f6dbda7a3847c9dcc36352073e845d73ad29e779ed735c77afced"
+  },
+  "getters": {
+    "SR": "m68000.cpp347 m_sr",
+    "USP": "m68000.cpp352 m_da[15]",
+    "SP": "m68000.cpp353 m_da[16]",
+    "PC": "m68000.cpp344 m_pc",
+    "CURPC": "m68000.cpp343 m_ipc",
+    "IR": "m68000.cpp345 m_ir"
+  },
+  "active_A7": "m68000.cpp409..419 m_sp16 if SR_S else15; m68000.h255 map_sp",
+  "nil_tap": "luaengine_mem.cpp270..295 replaces data only for optional numeric callback result; nil leaves data unchanged",
+  "getter": "luaengine.cpp2096..2103 calls entry.value() without import",
+  "time": "schedule.cpp329..337 machine.time uses executing CPU local_time for synchronous access and timerexpiry during timer callback",
+  "reference": "mame_cutoff ordinary61 accepted import c5dc830087264c19; Kyros-only runtime proof, no Japan601 claim",
+  "source_pins": [
+    {
+      "path": "D:\\Arcade\\AI\\mame289\\src\\devices\\cpu\\m68000\\m68000.cpp",
+      "bytes": 14894,
+      "sha256": "ef095e786564a203b828ed8e1e517b6af2e0d8fd64090d432f8be67480a5fab3"
+    },
+    {
+      "path": "D:\\Arcade\\AI\\mame289\\src\\devices\\cpu\\m68000\\m68000.h",
+      "bytes": 21347,
+      "sha256": "0d11d147b5cedb684fe7256ab9133227003cf535417b0c393b59d7cd6a350157"
+    },
+    {
+      "path": "D:\\Arcade\\AI\\mame289\\src\\frontend\\mame\\luaengine.cpp",
+      "bytes": 96356,
+      "sha256": "9e0dfa31b26a268dd41b26de9ec0b448d135a50516a137323eb71db30cd296a4"
+    },
+    {
+      "path": "D:\\Arcade\\AI\\mame289\\src\\frontend\\mame\\luaengine_mem.cpp",
+      "bytes": 28498,
+      "sha256": "a0a33d223269b72516e75a377ec3ed4c63fce7da116e172f2a842b83ffdee7ef"
+    },
+    {
+      "path": "D:\\Arcade\\AI\\mame289\\src\\emu\\schedule.cpp",
+      "bytes": 29968,
+      "sha256": "b6649000fe6668185ae6868bb9d439e8d8c540cb2d57366cbd62fadb55630513"
+    }
+  ],
+  "unchanged": {
+    "original_drive_inputs": true,
+    "frame_callback_order": true,
+    "original_snapshot_binaries": true,
+    "original_PCM_sound_taps": true,
+    "no_cpu_patch": true,
+    "no_numeric_tap_return": true,
+    "no_extra_guest_memory_access": true
+  },
+  "paired_runtime_release": false
+}

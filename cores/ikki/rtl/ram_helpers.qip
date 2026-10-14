@@ -1,0 +1,4 @@
+# Small reusable BRAM helpers (vendored). Include from project files.qip:
+#   set_global_assignment -name QIP_FILE rtl/ram_helpers.qip
+set_global_assignment -name VHDL_FILE [file join $::quartus(qip_path) "gen_ram.vhd"]
+set_global_assignment -name VHDL_FILE [file join $::quartus(qip_path) "dpram.vhd"]

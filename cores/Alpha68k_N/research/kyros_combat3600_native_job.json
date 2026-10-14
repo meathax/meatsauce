@@ -1,0 +1,23 @@
+{
+  "worker_pid": 133634,
+  "started": 1791545964.7725644,
+  "command": [
+    "/mnt/d/Arcade/AI/aCORES/Alpha68k N/sim/build/kyros_combat3600_sim",
+    "/mnt/d/Arcade/AI/aCORES/Alpha68k N/roms/kyros/download.bin",
+    "3600",
+    "/mnt/d/Arcade/AI/aCORES/Alpha68k N/sim/captures/rtl/kyros_combat3600",
+    "gameplay",
+    "dac-probe",
+    "--inputs",
+    "/mnt/d/Arcade/AI/aCORES/Alpha68k N/sim/captures/kyros/combat3600_v2/frame_states.csv"
+  ],
+  "frames": 3600,
+  "revision": "7dce75aec19f71f8654b8b0af6237cd3f093ac50",
+  "executable_sha256": "88935c4fecb0dd98d5c4f60611122801e0c57bb494f5242e931059f10f6d2c03",
+  "ports_sha256": "17378a389bf597a0fa659fea008728aef3e6e10fa59f8efc5867e16676ca09b2",
+  "rom_sha256": "5cf728d5d40e9be14a4a9c07792bab9f44404a75c2c2eed92124ff96ee9b5ef6",
+  "rtl_manifest": "research/kyros_warm_reset960_prepared_inputs.sha256",
+  "reference": "research/kyros_combat3600_v2_exit.json",
+  "scope": "Real RTL CPUs/graphics/audio; read-only DAC bus/PCM tracing; no game memory patches or reset injection",
+  "simulation_pid": 133636
+}

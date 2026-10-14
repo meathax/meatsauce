@@ -1,0 +1,63 @@
+# s80x86 synthesis manifest for the Sega System 32 V25 wrapper.
+# Keep this order: several upstream types live in the compilation unit.
+
+set S80X86_QIP_DIR $::quartus(qip_path)
+
+# S80X86_PSEUDO_286_INT is set in the project QSF. Quartus 17 does not allow
+# VERILOG_MACRO in a QIP because it appends an unsupported QIP scope option.
+set_global_assignment -name SEARCH_PATH [file join $S80X86_QIP_DIR generated]
+set_global_assignment -name MIF_FILE [file join $S80X86_QIP_DIR generated microcode.mif]
+
+set_global_assignment -name SYSTEMVERILOG_FILE [file join $S80X86_QIP_DIR generated MicrocodeTypes.sv]
+
+set_global_assignment -name SYSTEMVERILOG_FILE [file join $S80X86_QIP_DIR rtl alu aaa.sv]
+set_global_assignment -name SYSTEMVERILOG_FILE [file join $S80X86_QIP_DIR rtl alu aas.sv]
+set_global_assignment -name SYSTEMVERILOG_FILE [file join $S80X86_QIP_DIR rtl alu adc.sv]
+set_global_assignment -name SYSTEMVERILOG_FILE [file join $S80X86_QIP_DIR rtl alu add.sv]
+set_global_assignment -name SYSTEMVERILOG_FILE [file join $S80X86_QIP_DIR rtl alu and.sv]
+set_global_assignment -name SYSTEMVERILOG_FILE [file join $S80X86_QIP_DIR rtl alu bound.sv]
+set_global_assignment -name SYSTEMVERILOG_FILE [file join $S80X86_QIP_DIR rtl alu daa.sv]
+set_global_assignment -name SYSTEMVERILOG_FILE [file join $S80X86_QIP_DIR rtl alu das.sv]
+set_global_assignment -name SYSTEMVERILOG_FILE [file join $S80X86_QIP_DIR rtl alu enter.sv]
+set_global_assignment -name SYSTEMVERILOG_FILE [file join $S80X86_QIP_DIR rtl alu extend.sv]
+set_global_assignment -name SYSTEMVERILOG_FILE [file join $S80X86_QIP_DIR rtl alu flags.sv]
+set_global_assignment -name SYSTEMVERILOG_FILE [file join $S80X86_QIP_DIR rtl alu mul.sv]
+set_global_assignment -name SYSTEMVERILOG_FILE [file join $S80X86_QIP_DIR rtl alu or.sv]
+set_global_assignment -name SYSTEMVERILOG_FILE [file join $S80X86_QIP_DIR rtl alu not.sv]
+set_global_assignment -name SYSTEMVERILOG_FILE [file join $S80X86_QIP_DIR rtl alu rcl.sv]
+set_global_assignment -name SYSTEMVERILOG_FILE [file join $S80X86_QIP_DIR rtl alu rcr.sv]
+set_global_assignment -name SYSTEMVERILOG_FILE [file join $S80X86_QIP_DIR rtl alu rol.sv]
+set_global_assignment -name SYSTEMVERILOG_FILE [file join $S80X86_QIP_DIR rtl alu ror.sv]
+set_global_assignment -name SYSTEMVERILOG_FILE [file join $S80X86_QIP_DIR rtl alu sar.sv]
+set_global_assignment -name SYSTEMVERILOG_FILE [file join $S80X86_QIP_DIR rtl alu shift_flags.sv]
+set_global_assignment -name SYSTEMVERILOG_FILE [file join $S80X86_QIP_DIR rtl alu shl.sv]
+set_global_assignment -name SYSTEMVERILOG_FILE [file join $S80X86_QIP_DIR rtl alu shr.sv]
+set_global_assignment -name SYSTEMVERILOG_FILE [file join $S80X86_QIP_DIR rtl alu sub.sv]
+set_global_assignment -name SYSTEMVERILOG_FILE [file join $S80X86_QIP_DIR rtl alu xor.sv]
+set_global_assignment -name SYSTEMVERILOG_FILE [file join $S80X86_QIP_DIR rtl alu ALU.sv]
+
+set_global_assignment -name SYSTEMVERILOG_FILE [file join $S80X86_QIP_DIR rtl RegisterEnum.sv]
+set_global_assignment -name SYSTEMVERILOG_FILE [file join $S80X86_QIP_DIR rtl Instruction.sv]
+set_global_assignment -name SYSTEMVERILOG_FILE [file join $S80X86_QIP_DIR generated InstructionDefinitions.sv]
+set_global_assignment -name SYSTEMVERILOG_FILE [file join $S80X86_QIP_DIR rtl InsnDecoder.sv]
+set_global_assignment -name SYSTEMVERILOG_FILE [file join $S80X86_QIP_DIR generated Microcode.sv]
+set_global_assignment -name SYSTEMVERILOG_FILE [file join $S80X86_QIP_DIR rtl FlagsEnum.sv]
+set_global_assignment -name SYSTEMVERILOG_FILE [file join $S80X86_QIP_DIR rtl Core.sv]
+set_global_assignment -name SYSTEMVERILOG_FILE [file join $S80X86_QIP_DIR rtl CSIPSync.sv]
+set_global_assignment -name SYSTEMVERILOG_FILE [file join $S80X86_QIP_DIR rtl Divider.sv]
+set_global_assignment -name SYSTEMVERILOG_FILE [file join $S80X86_QIP_DIR rtl Fifo.sv]
+set_global_assignment -name SYSTEMVERILOG_FILE [file join $S80X86_QIP_DIR rtl Flags.sv]
+set_global_assignment -name SYSTEMVERILOG_FILE [file join $S80X86_QIP_DIR rtl ImmediateReader.sv]
+set_global_assignment -name SYSTEMVERILOG_FILE [file join $S80X86_QIP_DIR rtl IP.sv]
+set_global_assignment -name SYSTEMVERILOG_FILE [file join $S80X86_QIP_DIR rtl JumpTest.sv]
+set_global_assignment -name SYSTEMVERILOG_FILE [file join $S80X86_QIP_DIR rtl LoadStore.sv]
+set_global_assignment -name SYSTEMVERILOG_FILE [file join $S80X86_QIP_DIR rtl LoopCounter.sv]
+set_global_assignment -name SYSTEMVERILOG_FILE [file join $S80X86_QIP_DIR rtl ModRMDecode.sv]
+set_global_assignment -name SYSTEMVERILOG_FILE [file join $S80X86_QIP_DIR rtl PosedgeToPulse.sv]
+set_global_assignment -name SYSTEMVERILOG_FILE [file join $S80X86_QIP_DIR rtl Prefetch.sv]
+set_global_assignment -name SYSTEMVERILOG_FILE [file join $S80X86_QIP_DIR rtl RegisterFile.sv]
+set_global_assignment -name SYSTEMVERILOG_FILE [file join $S80X86_QIP_DIR rtl SegmentOverride.sv]
+set_global_assignment -name SYSTEMVERILOG_FILE [file join $S80X86_QIP_DIR rtl SegmentRegisterFile.sv]
+set_global_assignment -name SYSTEMVERILOG_FILE [file join $S80X86_QIP_DIR rtl TempReg.sv]
+
+unset S80X86_QIP_DIR

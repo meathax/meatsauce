@@ -1,0 +1,32 @@
+{
+  "actual_source_blocks": [
+    {
+      "source": "D:\\Arcade\\AI\\aCORES\\Alpha68k N\\research\\joined_rom_inference_v2\\baseline\\alpha68kn_board.sv",
+      "source_sha256": "04f67f370afd744e64b35b88e5ac9dcb68cb062a5aad8cdb32818aedfe1f6699",
+      "blocks": {
+        "array_declaration": "    logic [7:0] clut_rom [0:511], color_rom [0:8191], mcu_rom [0:4095];\n",
+        "loader": "            if (load_addr >= 'h33000 && load_addr < 'h34000) begin\n                mcu_rom[load_addr[11:0]]<=load_data[7:0]; mcu_rom[load_addr[11:0]+12'd1]<=load_data[15:8];\n            end\n",
+        "program_q_declaration": "    logic [7:0] sting_mcu_program_q=0;\n",
+        "registered_read": "    always @(posedge clk) sting_mcu_program_q<=mcu_rom[sting_mcu_program_addr];\n",
+        "debug_read": "debug_rom_data<={mcu_rom[debug_rom_addr[11:0]],mcu_rom[debug_rom_addr[11:0]+12'd1]};",
+        "debug_function": ""
+      }
+    },
+    {
+      "source": "D:\\Arcade\\AI\\aCORES\\Alpha68k N\\research\\joined_rom_inference_v2\\candidate\\alpha68kn_board.sv",
+      "source_sha256": "43b8c6e7600e4c4089f0d3c0e4a15637be8bfcbdd626ddd0bc0e222b7b1553ce",
+      "blocks": {
+        "array_declaration": "    logic [7:0] mcu_rom_even [0:2047], mcu_rom_odd [0:2047];\n",
+        "loader": "            if (load_addr >= 'h33000 && load_addr < 'h34000) begin\n                if (load_addr[0]) begin\n                    mcu_rom_odd[load_addr[11:1]]<=load_data[7:0];\n                    mcu_rom_even[load_addr[11:1]+11'd1]<=load_data[15:8];\n                end else begin\n                    mcu_rom_even[load_addr[11:1]]<=load_data[7:0];\n                    mcu_rom_odd[load_addr[11:1]]<=load_data[15:8];\n                end\n            end\n",
+        "program_q_declaration": "    logic [7:0] sting_mcu_even_q=0, sting_mcu_odd_q=0;\n    logic sting_mcu_program_odd_q=0;\n    wire [7:0] sting_mcu_program_q=sting_mcu_program_odd_q ? sting_mcu_odd_q : sting_mcu_even_q;\n",
+        "registered_read": "    always @(posedge clk) begin\n        sting_mcu_even_q<=mcu_rom_even[sting_mcu_program_addr[11:1]];\n        sting_mcu_odd_q<=mcu_rom_odd[sting_mcu_program_addr[11:1]];\n        sting_mcu_program_odd_q<=sting_mcu_program_addr[0];\n    end\n",
+        "debug_read": "debug_rom_data<={mcu_debug_byte(debug_rom_addr[11:0]),mcu_debug_byte(debug_rom_addr[11:0]+12'd1)};",
+        "debug_function": "    function automatic [7:0] mcu_debug_byte(input [11:0] addr);\n        mcu_debug_byte=addr[0] ? mcu_rom_odd[addr[11:1]] : mcu_rom_even[addr[11:1]];\n    endfunction\n"
+      }
+    }
+  ],
+  "rtl": "D:\\Arcade\\AI\\aCORES\\Alpha68k N\\research\\joined_rom_inference_v2\\paired_memory_smoke\\mcu_rom_pair_tb.sv",
+  "rtl_sha256": "5f2d4ed96f11e32ca9e5ce159e89a66515abd303febd3a786370deba2e6977c4",
+  "limits": "This paired smoke extracts storage declaration, effective loader range/lane writes, registered MCU read and debug packing. It does not instantiate T48/CPU/gameplay/framework and cannot qualify coupled MCU timing, physical mixed-port collisions, whole-board timing or final current-image gameplay.",
+  "expected_checks": 79875
+}

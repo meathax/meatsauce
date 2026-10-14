@@ -1,0 +1,121 @@
+{
+  "all_reported_external_paths_source_classified": true,
+  "baseline_full_timing_pass": false,
+  "baseline_revision": "66f53ed9",
+  "cold_corner_scaler_setup_slack_ns": -0.008,
+  "complete_cdc_exception_audit_claimed": false,
+  "constraints_or_rtl_changed": false,
+  "evidence_sha256": {
+    "_checks/agent-platform-check-66f53ed9-20261010/all-corners/corner_1/unconstrained.txt": "39c50820dd17037b0c723c81ff3e1821103942b23d7810a920c366d794d87708",
+    "_checks/agent-platform-check-66f53ed9-20261010/all-corners/corner_2/unconstrained.txt": "39c50820dd17037b0c723c81ff3e1821103942b23d7810a920c366d794d87708",
+    "_checks/agent-platform-check-66f53ed9-20261010/all-corners/corner_3/unconstrained.txt": "39c50820dd17037b0c723c81ff3e1821103942b23d7810a920c366d794d87708",
+    "_checks/agent-platform-check-66f53ed9-20261010/all-corners/corner_4/unconstrained.txt": "39c50820dd17037b0c723c81ff3e1821103942b23d7810a920c366d794d87708",
+    "_checks/agent-platform-check-66f53ed9-20261010/all-corners/corner_5/unconstrained.txt": "39c50820dd17037b0c723c81ff3e1821103942b23d7810a920c366d794d87708",
+    "_checks/agent-platform-check-66f53ed9-20261010/all-corners/corner_6/unconstrained.txt": "39c50820dd17037b0c723c81ff3e1821103942b23d7810a920c366d794d87708",
+    "_checks/agent-platform-check-66f53ed9-20261010/all-corners/corner_7/unconstrained.txt": "39c50820dd17037b0c723c81ff3e1821103942b23d7810a920c366d794d87708",
+    "_checks/agent-platform-check-66f53ed9-20261010/all-corners/corner_8/unconstrained.txt": "39c50820dd17037b0c723c81ff3e1821103942b23d7810a920c366d794d87708",
+    "_checks/agent-platform-check-66f53ed9-20261010/source.zip": "5b9201d62084405818a69579f1404373ae3c5c83f2313b832ecd3a2151680dfc",
+    "_checks/agent-platform-check-66f53ed9-20261010/unconstrained-current.txt": "39c50820dd17037b0c723c81ff3e1821103942b23d7810a920c366d794d87708",
+    "_checks/agent-platform-io-review-66f53ed9-20261010/independent-verification.json": "c3954075a59e49d576874c42c9eac194d9e2e17b5e1d6cd52498adf0dc77529a",
+    "docs/evidence/sheriff_platform_timing_66f53ed9.json": "e894ac53e2149fa608a8b860e7678d9573106be05f4b984bd7aa5ddd43cd1c9f"
+  },
+  "external_interface_timing_qualified": false,
+  "frozen_snapshot": "D:\\Arcade\\AI\\aCORES\\meatsauce\\cores\\sheriff\\_checks\\agent-platform-check-66f53ed9-20261010\\source",
+  "genuine_remaining_interface_requirements": {
+    "expander_i2c": "Protocol sampling aperture and device/pullup/board timing; 500kHz bus sampled by gated 50MHz registers",
+    "hdmi_video": "Mode-specific receiver setup/hold, forwarded-clock relation and PCB skew",
+    "hps_i2c_interrupt": "Vendor hard-IP boundary/protocol and asynchronous input synchronization evidence",
+    "i2s_audio": "Receiver clock/data, PCB and mode-specific pullup/electrical budgets",
+    "led_status": "Documented no-clocked-receiver status exception candidate",
+    "shared_sd_analog_pins": "Static or safe mode-control contract; separate clocked SD/SPI and analog settling/skew evidence",
+    "spdif": "Encoded rate/jitter and electrical shared-pin-mode evidence"
+  },
+  "independent_verification": {
+    "actual_exit": 0,
+    "new_compiler_runs": 0,
+    "new_native_runs": 0,
+    "path": "D:\\Arcade\\AI\\aCORES\\meatsauce\\cores\\sheriff\\_checks\\agent-platform-io-review-66f53ed9-20261010\\independent-verification.json",
+    "raw_and_structured_setup_hold_paths_equal": true,
+    "selected_frozen_sources": 11
+  },
+  "limits": [
+    "Port classification does not approve inherited clock groups or false paths",
+    "No fictitious external delay or blanket exception proposed",
+    "No current-source fit, hardware, production DRAM or release qualification"
+  ],
+  "original_archive_sha256": "5b9201d62084405818a69579f1404373ae3c5c83f2313b832ecd3a2151680dfc",
+  "original_source_identity": "f499209fa579d3d9616174fc21214157d4c800fe8f5fcfacdcb542148317d638",
+  "path_roles": {
+    "analog_csync": {
+      "input_paths": 0,
+      "output_paths": 3
+    },
+    "analog_video": {
+      "input_paths": 0,
+      "output_paths": 28
+    },
+    "expander_i2c_input": {
+      "input_paths": 6,
+      "output_paths": 0
+    },
+    "expander_i2c_output": {
+      "input_paths": 0,
+      "output_paths": 3
+    },
+    "hdmi_clock": {
+      "input_paths": 0,
+      "output_paths": 2
+    },
+    "hdmi_video": {
+      "input_paths": 0,
+      "output_paths": 27
+    },
+    "hps_async_interrupt": {
+      "input_paths": 1,
+      "output_paths": 0
+    },
+    "hps_i2c": {
+      "input_paths": 1,
+      "output_paths": 2
+    },
+    "human_status": {
+      "input_paths": 0,
+      "output_paths": 19
+    },
+    "i2s_audio": {
+      "input_paths": 0,
+      "output_paths": 4
+    },
+    "sd_detect_mux": {
+      "input_paths": 6,
+      "output_paths": 6
+    },
+    "spdif_audio": {
+      "input_paths": 0,
+      "output_paths": 1
+    },
+    "user_i2s_audio": {
+      "input_paths": 0,
+      "output_paths": 3
+    }
+  },
+  "reported_unconstrained_board_path_requirement_met": true,
+  "scope": "Independent source-only review of frozen 66f53ed9 unconstrained endpoint classification",
+  "source_sha256": {
+    "_checks/agent-platform-check-66f53ed9-20261010/source/Nintendo8080.sdc": "a9315371a9b9cab1151c9f37f91a524f2044913ad2bc244d58eb36bd6f81c952",
+    "_checks/agent-platform-check-66f53ed9-20261010/source/Nintendo8080.sv": "d089441e89e0335ebd0571596da62be6f1c626e8c6fc3a481401b29f558540c6",
+    "_checks/agent-platform-check-66f53ed9-20261010/source/rtl/n8080_board.sv": "a3267486c736d4a8672f4681d3ab9247f2d5809a4fa3d88a12cba5963e7a2faa",
+    "_checks/agent-platform-check-66f53ed9-20261010/source/rtl/n8080_cpu.sv": "fd46ad43ceee26003b788b06bc5f79f0e85ca9d4e52a6bb0573077a1682286c8",
+    "_checks/agent-platform-check-66f53ed9-20261010/source/sys/ascal.vhd": "9b03f825284635ccb1ccaa1d8d47656e8199357455a4cd89ed92a690a48ecc32",
+    "_checks/agent-platform-check-66f53ed9-20261010/source/sys/audio_out.sv": "429407debad8260a8e9ff166b69c6f3f0373bdeb4b7eb2dce1fc8af1fb4f6541",
+    "_checks/agent-platform-check-66f53ed9-20261010/source/sys/i2c.v": "09bd7ebd5d84fb57f6a9d569e5214f3154c49e55826c15bd78884f3c781fec5b",
+    "_checks/agent-platform-check-66f53ed9-20261010/source/sys/i2s.v": "650c796742f69b2dd152c6871064c31be1e33a8aca046668b01a7a79712d689f",
+    "_checks/agent-platform-check-66f53ed9-20261010/source/sys/mcp23009.sv": "7f02c3d12c7dd9dac6ff3ebc14e1741c6e5d0685f05b8ab928399fee63d09dd2",
+    "_checks/agent-platform-check-66f53ed9-20261010/source/sys/sys_top.sdc": "0a5fa4015b82ad7ce38e56d1ae4aadea6209af59c5dd9eff56a11139cf16ce86",
+    "_checks/agent-platform-check-66f53ed9-20261010/source/sys/sys_top.v": "156f887ce0f35094926875b2195caa9b04dc3a3671b87d1ddec3b9c64da8672c",
+    "_checks/agent-platform-io-review-66f53ed9-20261010/source-audit.py": "133baec8827ab922d1ccfc8a8823fbd15ca99acc4b0331e34596c5792833553c",
+    "docs/PLATFORM_IO_REVIEW.md": "aeec605d1b44bf92e3636d5d3f5f55ce415509c00fbb9c30955befd04d4f4a03",
+    "docs/evidence/sheriff_platform_timing_66f53ed9.json": "e894ac53e2149fa608a8b860e7678d9573106be05f4b984bd7aa5ddd43cd1c9f"
+  },
+  "unexplained_reported_synchronous_board_paths": 0
+}

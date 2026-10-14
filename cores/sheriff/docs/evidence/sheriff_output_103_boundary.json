@@ -1,0 +1,292 @@
+{
+  "scope": "Earliest changed timing of an otherwise matching ordered output-write prefix; IRQ attribution diagnostic",
+  "observations_verified": true,
+  "reference_io_byte_prefix_equal": true,
+  "capture_stop_frame": 106,
+  "child_exit_code": null,
+  "child_exit_limit": "The existing launcher does not retain child exit status; terminal state and trace were inspected",
+  "first_output_timing_change": {
+    "ordinal": 1786,
+    "mame": {
+      "time": "1.683530753966",
+      "frame": "103",
+      "y": "131",
+      "x": "195",
+      "kind": "out",
+      "address": "2",
+      "data": "5",
+      "pc": "4261"
+    },
+    "rtl": {
+      "tick": "84850269",
+      "frame": "103",
+      "y": "131",
+      "x": "225",
+      "kind": "out",
+      "address": "514",
+      "data": "5",
+      "status": "16",
+      "inte": "0"
+    },
+    "delta_master_clocks": "-319.000113600000"
+  },
+  "irq_window": {
+    "frame": 104,
+    "irq": "mid",
+    "edge": 84838400,
+    "mame": [
+      {
+        "tick": 84838649.9998968,
+        "delta": 249.99989679455757,
+        "address": 32765,
+        "data": 15
+      },
+      {
+        "tick": 84838649.9998968,
+        "delta": 249.99989679455757,
+        "address": 32764,
+        "data": 239
+      },
+      {
+        "tick": 84838924.9998864,
+        "delta": 524.9998863935471,
+        "address": 32763,
+        "data": 1
+      },
+      {
+        "tick": 84838924.9998864,
+        "delta": 524.9998863935471,
+        "address": 32762,
+        "data": 2
+      },
+      {
+        "tick": 84839199.999876,
+        "delta": 799.9998760074377,
+        "address": 32761,
+        "data": 0
+      },
+      {
+        "tick": 84839199.999876,
+        "delta": 799.9998760074377,
+        "address": 32760,
+        "data": 11
+      },
+      {
+        "tick": 84839474.9998656,
+        "delta": 1074.9998656064272,
+        "address": 32759,
+        "data": 16
+      },
+      {
+        "tick": 84839474.9998656,
+        "delta": 1074.9998656064272,
+        "address": 32758,
+        "data": 51
+      },
+      {
+        "tick": 84839749.9998552,
+        "delta": 1349.9998552054167,
+        "address": 32757,
+        "data": 78
+      },
+      {
+        "tick": 84839749.9998552,
+        "delta": 1349.9998552054167,
+        "address": 32756,
+        "data": 16
+      }
+    ],
+    "rtl": [
+      {
+        "tick": 84838894,
+        "delta": 494,
+        "address": 32765,
+        "data": 15
+      },
+      {
+        "tick": 84838969,
+        "delta": 569,
+        "address": 32764,
+        "data": 242
+      },
+      {
+        "tick": 84839169,
+        "delta": 769,
+        "address": 32763,
+        "data": 1
+      },
+      {
+        "tick": 84839244,
+        "delta": 844,
+        "address": 32762,
+        "data": 2
+      },
+      {
+        "tick": 84839444,
+        "delta": 1044,
+        "address": 32761,
+        "data": 0
+      },
+      {
+        "tick": 84839519,
+        "delta": 1119,
+        "address": 32760,
+        "data": 11
+      },
+      {
+        "tick": 84839719,
+        "delta": 1319,
+        "address": 32759,
+        "data": 16
+      },
+      {
+        "tick": 84839794,
+        "delta": 1394,
+        "address": 32758,
+        "data": 51
+      },
+      {
+        "tick": 84839994,
+        "delta": 1594,
+        "address": 32757,
+        "data": 78
+      },
+      {
+        "tick": 84840069,
+        "delta": 1669,
+        "address": 32756,
+        "data": 16
+      }
+    ]
+  },
+  "return_pc": {
+    "mame": 4079,
+    "rtl": 4082
+  },
+  "reference_program_accesses_near_irq_without_rom_bytes": [
+    {
+      "tick_delta": -1050.000113606453,
+      "address": 4080,
+      "pc": 4081
+    },
+    {
+      "tick_delta": -1050.000113606453,
+      "address": 4081,
+      "pc": 4082
+    },
+    {
+      "tick_delta": -1050.000113606453,
+      "address": 4082,
+      "pc": 4083
+    },
+    {
+      "tick_delta": -950.0001128017902,
+      "address": 4083,
+      "pc": 4084
+    },
+    {
+      "tick_delta": -700.0001360028982,
+      "address": 4084,
+      "pc": 4085
+    },
+    {
+      "tick_delta": -700.0001360028982,
+      "address": 4085,
+      "pc": 4086
+    },
+    {
+      "tick_delta": -700.0001360028982,
+      "address": 4079,
+      "pc": 4080
+    },
+    {
+      "tick_delta": -375.0001208037138,
+      "address": 4080,
+      "pc": 4081
+    },
+    {
+      "tick_delta": -375.0001208037138,
+      "address": 4081,
+      "pc": 4082
+    },
+    {
+      "tick_delta": -375.0001208037138,
+      "address": 4082,
+      "pc": 4083
+    },
+    {
+      "tick_delta": -275.0001199990511,
+      "address": 4083,
+      "pc": 4084
+    },
+    {
+      "tick_delta": -25.000143200159073,
+      "address": 4084,
+      "pc": 4085
+    },
+    {
+      "tick_delta": -25.000143200159073,
+      "address": 4085,
+      "pc": 4086
+    },
+    {
+      "tick_delta": 249.99989679455757,
+      "address": 8,
+      "pc": 9
+    },
+    {
+      "tick_delta": 524.9998863935471,
+      "address": 9,
+      "pc": 10
+    },
+    {
+      "tick_delta": 799.9998760074377,
+      "address": 10,
+      "pc": 11
+    },
+    {
+      "tick_delta": 1074.9998656064272,
+      "address": 11,
+      "pc": 12
+    }
+  ],
+  "verified_instruction_classes": [
+    {
+      "pc": 4079,
+      "mnemonic": "LDA",
+      "t_states": 13
+    },
+    {
+      "pc": 4082,
+      "mnemonic": "ANA A",
+      "t_states": 4
+    },
+    {
+      "pc": 4083,
+      "mnemonic": "JNZ 0x0fef",
+      "t_states_taken": 10
+    }
+  ],
+  "observed_output_phase_change_master_clocks": -325.0001024,
+  "extra_instruction_clocks": 325,
+  "known": "MAME stacks 0x0fef; RTL stacks 0x0ff2. The first output timing offset changes by exactly one 13-T-state LDA, from approximately +6 to -319 master clocks.",
+  "hypothesis": "Instruction-atomic reference IRQ scheduling versus final-phi2 physical sampling selects opposite sides of this instruction boundary. The physical phase must be independently checked before qualifying the cause.",
+  "next_action": "Derive the final phi2 sampling window at this edge from the observed CPU phase and native bus events; then connect later recurring boundaries to the frame-2760/6780 pixel differences.",
+  "cause_qualified": false,
+  "pixel_2760_cause_qualified": false,
+  "complete_graphics_gate": false,
+  "complete_sheriff_gate": false,
+  "rtl_changed": false,
+  "quartus_executed": false,
+  "sha256": {
+    "_checks/output-103-adjacent-irqs.json": "f8c11df67b4202ddcf3b73b3e8577798b6b10e682058a89c297c15889457a407",
+    "sim/results/output-boundary-103-mame-20261009/io.csv": "41dff5d31ee06cb6aafed89f4cfdbaf96bc2cb252dc50558a2500dc44be0b1a3",
+    "sim/results/output-boundary-103-mame-20261009/states.csv": "b94c6c1ebc3438974fc87aeb1adec992fb143e4f250ce8ea393cb70aa63146d1",
+    "sim/results/output-boundary-103-mame-20261009/video_writes.csv": "1e94a5a8e02b64d76d23729d78370bc2a0561afb88944e0983b10d83e18e562f",
+    "sim/results/output-boundary-103-mame-20261009/irq_program_reads.csv": "ef09f2eb97543b10e9f4ae687734ee3f944e9d16016f72752cabcabcc015bfbd",
+    "sim/results/output-boundary-103-mame-20261009/capture_features.json": "f51d6c6a83fab2303aa6444d09420d17dac27b9c4c3d63dc61388255a2d97c96",
+    "docs/evidence/sheriff_input_scheduler_boundary.json": "6de57d44f15d3539cec81edb1aea9e299d8830752b9da41722184c708e4a0480",
+    "sim/results/restart-phase-ce-rtl/memory_writes.bin": "c396b3ce059560a2dc74f17bd79fe45033727bad1ac1c385a8dcc197a4bacbd7",
+    "D:/Arcade/AI/aCORES/sherrif/tools/probe_output_irq_boundary.py": "afd119b2a2f14364049dfc0de12f0d8c11d5ab6743171ac81751133a7a4c25b1"
+  }
+}

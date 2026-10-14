@@ -1,0 +1,1254 @@
+{
+  "scope": "Independent read-only review of canonical full sys_top project source scope and exact userresource/timing gates. No Quartus stage launched, no QSF/SDC/source modified, no quantitative fit/timing acceptance claimed.",
+  "canonical_root": "D:\\Arcade\\AI\\aCORES\\meatsauce-alpha68kn\\cores\\Alpha68k_N",
+  "project": "Alpha68k_N",
+  "revision": "Alpha68k_N",
+  "top": "sys_top",
+  "device": "5CSEBA6U23I7",
+  "family": "Cyclone V",
+  "checks": {
+    "revision_Alpha68k_N": true,
+    "top_is_full_sys_top": true,
+    "device_CycloneV_5CSEBA6U23I7": true,
+    "production_framework_imported": true,
+    "production_game_wrapper_and_system_included": true,
+    "no_simulation_macros_enabled": true,
+    "no_sim_or_fake_file_in_direct_game_qip": true,
+    "user_strictlimits_config_exact": true,
+    "one48MHz_game_master_configured": true,
+    "forwarded_sdram_clock_separately_identified": true
+  },
+  "static_scope_checks_pass": true,
+  "resource_limits": {
+    "comparison": "strictly_less_than",
+    "alm_pct": 80,
+    "labs_pct": 90,
+    "peak_interconnect_pct": 85,
+    "average_interconnect_pct": 60,
+    "m10k_pct": 90,
+    "block_memory_bits_pct": 85,
+    "dsp_pct": 90,
+    "game_clock_domains": 1,
+    "master_clock_target_hz": 48000000,
+    "timing": "Positive setup/hold slack in every required corner; recovery/removal and crossings reviewed; no unexplained unconstrained paths.",
+    "scope": "Complete fitted MiSTer design, including framework and all supported sets; existing framework clocks are separately enumerated."
+  },
+  "strict_metric_mapping": [
+    {
+      "key": "alm_pct",
+      "metric": "ALMs used for logic (complete fitted sys_top)",
+      "limit_pct": 80,
+      "rule": "100*used <80*reported_available; do not compare rounded percent or substitute combinationalALUTcount"
+    },
+    {
+      "key": "labs_pct",
+      "metric": "LABs partially or completely used",
+      "limit_pct": 90,
+      "rule": "100*used <90*reported_available; total partially/completely occupied LABs"
+    },
+    {
+      "key": "peak_interconnect_pct",
+      "metric": "Higher of peak horizontal and peak vertical interconnect usage",
+      "limit_pct": 85,
+      "rule": "max(peak_horizontal,peak_vertical)<85; require both directional values or documented equivalent panel metric"
+    },
+    {
+      "key": "average_interconnect_pct",
+      "metric": "Average interconnect usage",
+      "limit_pct": 60,
+      "rule": "reported average<60; do not replace with peak or derive an unreported average"
+    },
+    {
+      "key": "m10k_pct",
+      "metric": "M10K RAM blocks",
+      "limit_pct": 90,
+      "rule": "100*used <90*reported_available; do not substitute MLAB count or memorybits"
+    },
+    {
+      "key": "block_memory_bits_pct",
+      "metric": "Total block memory bits",
+      "limit_pct": 85,
+      "rule": "100*used <85*reported_available; use fitted total block memory bits panel"
+    },
+    {
+      "key": "dsp_pct",
+      "metric": "DSP blocks",
+      "limit_pct": 90,
+      "rule": "100*used <90*reported_available; reject mismatched 9bit/18bit multiplier denominator or ambiguousDSPunit"
+    }
+  ],
+  "findings": [
+    {
+      "id": "resource_gate_pending",
+      "severity": "required_before_resource_pass",
+      "finding": "Existing verify_preparation.py only checks configured limits. Existing preassembly runners execute stages but do not enforce fitted report resource metrics. New irq_timing report gate must fail closed on missing/ambiguous metrics and be independently validated against actual current complete fit.",
+      "evidence": [
+        {
+          "path": "D:\\Arcade\\AI\\aCORES\\meatsauce-alpha68kn\\cores\\Alpha68k_N\\scripts\\verify_preparation.py",
+          "start_line": 71,
+          "end_line": 72,
+          "lines": [
+            {
+              "line": 71,
+              "text": "    limits=json.loads((ROOT/'resource_limits.json').read_text())"
+            },
+            {
+              "line": 72,
+              "text": "    assert [limits[x] for x in ['alm_pct','labs_pct','peak_interconnect_pct','average_interconnect_pct','m10k_pct','block_memory_bits_pct','dsp_pct']] == [80,90,85,60,90,85,90]"
+            }
+          ]
+        },
+        {
+          "path": "D:\\Arcade\\AI\\aCORES\\meatsauce-alpha68kn\\cores\\Alpha68k_N\\scripts\\quartus_preassembly.tcl",
+          "start_line": 4,
+          "end_line": 9,
+          "lines": [
+            {
+              "line": 4,
+              "text": "project_open Alpha68k_N -revision Alpha68k_N"
+            },
+            {
+              "line": 5,
+              "text": "foreach tool {map fit sta} {"
+            },
+            {
+              "line": 6,
+              "text": "    puts \"ALPHA68KN_PREASSEMBLY_STAGE $tool\""
+            },
+            {
+              "line": 7,
+              "text": "    execute_module -tool $tool"
+            },
+            {
+              "line": 8,
+              "text": "}"
+            },
+            {
+              "line": 9,
+              "text": "project_close"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "external_SDRAM_timing_unqualified",
+      "severity": "required_before_full_timing_pass",
+      "finding": "Game SDC contains only derive_pll_clocks/derive_clock_uncertainty. No core SDRAM external input/output delay constraints are present. Related48MHz master/forwarded10416ps device clock and oppositeedge controller paths require properSTA and electricalsetup/hold review. Do not add falsepaths to silence them or claim no unexplained unconstrained paths.",
+      "evidence": [
+        {
+          "path": "D:\\Arcade\\AI\\aCORES\\meatsauce-alpha68kn\\cores\\Alpha68k_N\\Alpha68k_N.sdc",
+          "start_line": 1,
+          "end_line": 4,
+          "lines": [
+            {
+              "line": 1,
+              "text": "derive_pll_clocks"
+            },
+            {
+              "line": 2,
+              "text": "derive_clock_uncertainty"
+            },
+            {
+              "line": 3,
+              "text": ""
+            },
+            {
+              "line": 4,
+              "text": "# core specific constraints"
+            }
+          ]
+        },
+        {
+          "path": "D:\\Arcade\\AI\\aCORES\\meatsauce-alpha68kn\\cores\\Alpha68k_N\\rtl\\alpha68kn_pll.sv",
+          "start_line": 4,
+          "end_line": 12,
+          "lines": [
+            {
+              "line": 4,
+              "text": "    altera_pll #("
+            },
+            {
+              "line": 5,
+              "text": "        .fractional_vco_multiplier(\"false\"), .reference_clock_frequency(\"50.0 MHz\"),"
+            },
+            {
+              "line": 6,
+              "text": "        .operation_mode(\"direct\"), .number_of_clocks(2),"
+            },
+            {
+              "line": 7,
+              "text": "        .output_clock_frequency0(\"48.0 MHz\"), .phase_shift0(\"0 ps\"), .duty_cycle0(50),"
+            },
+            {
+              "line": 8,
+              "text": "        .output_clock_frequency1(\"48.0 MHz\"), .phase_shift1(\"10416 ps\"), .duty_cycle1(50),"
+            },
+            {
+              "line": 9,
+              "text": "        .pll_type(\"General\"), .pll_subtype(\"General\")"
+            },
+            {
+              "line": 10,
+              "text": "    ) pll (.refclk(refclk),.rst(rst),.outclk(clocks),.locked(locked),.fbclk(1'b0));"
+            },
+            {
+              "line": 11,
+              "text": "    assign clk_sys=clocks[0];"
+            },
+            {
+              "line": 12,
+              "text": "    assign clk_sdram=clocks[1];"
+            }
+          ]
+        },
+        {
+          "path": "D:\\Arcade\\AI\\aCORES\\meatsauce-alpha68kn\\cores\\Alpha68k_N\\docs\\LOADER_AND_CLOCKS.md",
+          "start_line": 11,
+          "end_line": 22,
+          "lines": [
+            {
+              "line": 11,
+              "text": "`rtl/alpha68kn_pll.sv` produces one 48 MHz master for game logic, CPUs, HPS I/O"
+            },
+            {
+              "line": 12,
+              "text": "and the SDRAM controller. Its second 48 MHz output, shifted 10416 ps, forwards"
+            },
+            {
+              "line": 13,
+              "text": "the SDRAM device clock only. The controller also uses the opposite edge of the"
+            },
+            {
+              "line": 14,
+              "text": "same master internally; this is an interface timing path that STA must review."
+            },
+            {
+              "line": 15,
+              "text": "The standard framework's clocks are retained without changing `sys/`."
+            },
+            {
+              "line": 16,
+              "text": ""
+            },
+            {
+              "line": 17,
+              "text": "PLL lock and external reset each enter a three-register synchronizer."
+            },
+            {
+              "line": 18,
+              "text": "A 10000-cycle power-up delay precedes the controller's own 5000-cycle"
+            },
+            {
+              "line": 19,
+              "text": "initialization delay. Cold reset initializes SDRAM; game/user reset does not."
+            },
+            {
+              "line": 20,
+              "text": "A free-running 3072-cycle counter triggers distributed refresh during download,"
+            },
+            {
+              "line": 21,
+              "text": "CPU reset and gameplay. The phase choice and external device setup/hold are"
+            },
+            {
+              "line": 22,
+              "text": "development settings, **not yet an electrically qualified SDRAM interface**."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "framework_exceptions_need_scope",
+      "severity": "required_for_timing_qualification",
+      "finding": "Pinned framework sys_top.sdc creates root clocks, derives PLL clocks and groups independent framework clocks exclusively. It also waives selected outputs/configuration paths. Preserve sys/; report actual clock collection, matched exceptions, setup/hold in each required corner, recovery/removal and unconstrained endpoints. Game clock domain count1 excludes necessary framework clocks and forwarded device clock.",
+      "evidence": [
+        {
+          "path": "D:\\Arcade\\AI\\aCORES\\meatsauce-alpha68kn\\cores\\Alpha68k_N\\sys\\sys_top.sdc",
+          "start_line": 2,
+          "end_line": 22,
+          "lines": [
+            {
+              "line": 2,
+              "text": "create_clock -period \"50.0 MHz\"  [get_ports FPGA_CLK1_50]"
+            },
+            {
+              "line": 3,
+              "text": "create_clock -period \"50.0 MHz\"  [get_ports FPGA_CLK2_50]"
+            },
+            {
+              "line": 4,
+              "text": "create_clock -period \"50.0 MHz\"  [get_ports FPGA_CLK3_50]"
+            },
+            {
+              "line": 5,
+              "text": "create_clock -period \"100.0 MHz\" [get_pins -compatibility_mode *|h2f_user0_clk] "
+            },
+            {
+              "line": 6,
+              "text": "create_clock -period \"100.0 MHz\" [get_pins -compatibility_mode spi|sclk_out] -name spi_sck"
+            },
+            {
+              "line": 7,
+              "text": "create_clock -period \"10.0 MHz\"  [get_pins -compatibility_mode hdmi_i2c|out_clk] -name hdmi_sck"
+            },
+            {
+              "line": 8,
+              "text": ""
+            },
+            {
+              "line": 9,
+              "text": "derive_pll_clocks"
+            },
+            {
+              "line": 10,
+              "text": "derive_clock_uncertainty"
+            },
+            {
+              "line": 11,
+              "text": ""
+            },
+            {
+              "line": 12,
+              "text": "# Decouple different clock groups (to simplify routing)"
+            },
+            {
+              "line": 13,
+              "text": "set_clock_groups -exclusive \\"
+            },
+            {
+              "line": 14,
+              "text": "   -group [get_clocks { *|pll|pll_inst|altera_pll_i|*[*].*|divclk}] \\"
+            },
+            {
+              "line": 15,
+              "text": "   -group [get_clocks { pll_hdmi|pll_hdmi_inst|altera_pll_i|*[0].*|divclk}] \\"
+            },
+            {
+              "line": 16,
+              "text": "   -group [get_clocks { pll_audio|pll_audio_inst|altera_pll_i|*[0].*|divclk}] \\"
+            },
+            {
+              "line": 17,
+              "text": "   -group [get_clocks { spi_sck}] \\"
+            },
+            {
+              "line": 18,
+              "text": "   -group [get_clocks { hdmi_sck}] \\"
+            },
+            {
+              "line": 19,
+              "text": "   -group [get_clocks { *|h2f_user0_clk}] \\"
+            },
+            {
+              "line": 20,
+              "text": "   -group [get_clocks { FPGA_CLK1_50 }] \\"
+            },
+            {
+              "line": 21,
+              "text": "   -group [get_clocks { FPGA_CLK2_50 }] \\"
+            },
+            {
+              "line": 22,
+              "text": "   -group [get_clocks { FPGA_CLK3_50 }]"
+            }
+          ]
+        },
+        {
+          "path": "D:\\Arcade\\AI\\aCORES\\meatsauce-alpha68kn\\cores\\Alpha68k_N\\sys\\sys_top.sdc",
+          "start_line": 24,
+          "end_line": 38,
+          "lines": [
+            {
+              "line": 24,
+              "text": "set_false_path -from [get_ports {KEY*}]"
+            },
+            {
+              "line": 25,
+              "text": "set_false_path -from [get_ports {BTN_*}]"
+            },
+            {
+              "line": 26,
+              "text": "set_false_path -to   [get_ports {LED_*}]"
+            },
+            {
+              "line": 27,
+              "text": "set_false_path -to   [get_ports {VGA_*}]"
+            },
+            {
+              "line": 28,
+              "text": "set_false_path -from [get_ports {VGA_EN}]"
+            },
+            {
+              "line": 29,
+              "text": "set_false_path -to   [get_ports {AUDIO_SPDIF}]"
+            },
+            {
+              "line": 30,
+              "text": "set_false_path -to   [get_ports {AUDIO_L}]"
+            },
+            {
+              "line": 31,
+              "text": "set_false_path -to   [get_ports {AUDIO_R}]"
+            },
+            {
+              "line": 32,
+              "text": "set_false_path -from {get_ports {SW[*]}}"
+            },
+            {
+              "line": 33,
+              "text": "set_false_path -to   {cfg[*]}"
+            },
+            {
+              "line": 34,
+              "text": "set_false_path -from {cfg[*]}"
+            },
+            {
+              "line": 35,
+              "text": "set_false_path -from {VSET[*]}"
+            },
+            {
+              "line": 36,
+              "text": "set_false_path -to   {wcalc[*] hcalc[*]}"
+            },
+            {
+              "line": 37,
+              "text": "set_false_path -to   {hdmi_width[*] hdmi_height[*]}"
+            },
+            {
+              "line": 38,
+              "text": "set_false_path -to   {deb_* btn_en btn_up}"
+            }
+          ]
+        },
+        {
+          "path": "D:\\Arcade\\AI\\aCORES\\meatsauce-alpha68kn\\cores\\Alpha68k_N\\sys\\sys_top.sdc",
+          "start_line": 76,
+          "end_line": 77,
+          "lines": [
+            {
+              "line": 76,
+              "text": "set_false_path -from {mcp23009|flg_*}"
+            },
+            {
+              "line": 77,
+              "text": "set_false_path -to   {sysmem|fpga_interfaces|clocks_resets|f2h*}"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "stale_queue_and_flow_scripts",
+      "severity": "execution_rule",
+      "finding": "Existing quartus_develop/preassembly scripts route through queue+quartus_sh and retain historicalhold. They must not be used for latest explicitlyauthorized direct check-only stages. New command spec must invoke onlymap/fit/sta with read_settings_files=on/write_settings_files=off; noassembler, quartus_sh flow or CPF.",
+      "evidence": [
+        {
+          "path": "D:\\Arcade\\AI\\aCORES\\meatsauce-alpha68kn\\cores\\Alpha68k_N\\scripts\\quartus_develop.py",
+          "start_line": 11,
+          "end_line": 17,
+          "lines": [
+            {
+              "line": 11,
+              "text": "    if args.stages!=[\"map\",\"fit\",\"sta\"]: parser.error(\"Submit one complete map/fit/STA job.\")"
+            },
+            {
+              "line": 12,
+              "text": "    if json.loads((ROOT/\"quartus_hold.json\").read_text()).get(\"disabled\",False): raise SystemExit(\"Quartus held by user.\")"
+            },
+            {
+              "line": 13,
+              "text": "    out=(ROOT/args.output).resolve()"
+            },
+            {
+              "line": 14,
+              "text": "    if not out.is_relative_to(ROOT): parser.error(\"Evidence must remain inside the checkout.\")"
+            },
+            {
+              "line": 15,
+              "text": "    out.mkdir(parents=True,exist_ok=True)"
+            },
+            {
+              "line": 16,
+              "text": "    cmd=[\"powershell\",\"-NoProfile\",\"-NonInteractive\",\"-File\",str(FLOW),\"-Action\",\"Start\",\"-RecipeId\",\"alpha68kn-preassembly\",\"-ProjectRoot\",str(ROOT),\"-Project\",\"Alpha68k_N\",\"-Revision\",\"Alpha68k_N\",\"-StateFile\",str(out/\"state.json\")]"
+            },
+            {
+              "line": 17,
+              "text": "    raise SystemExit(subprocess.call(cmd,cwd=ROOT))"
+            }
+          ]
+        },
+        {
+          "path": "D:\\Arcade\\AI\\aCORES\\meatsauce-alpha68kn\\cores\\Alpha68k_N\\scripts\\quartus_preassembly.ps1",
+          "start_line": 7,
+          "end_line": 13,
+          "lines": [
+            {
+              "line": 7,
+              "text": "$hold = Get-Content -LiteralPath quartus_hold.json -Raw | ConvertFrom-Json"
+            },
+            {
+              "line": 8,
+              "text": "if ($hold.disabled) { throw 'Quartus is held by the user.' }"
+            },
+            {
+              "line": 9,
+              "text": "New-Item -ItemType Directory -Force build | Out-Null"
+            },
+            {
+              "line": 10,
+              "text": "& 'D:\\q17\\quartus\\bin64\\quartus_sh.exe' -t sys/build_id.tcl compile Alpha68k_N Alpha68k_N *> build/quartus-preassembly-build-id.log"
+            },
+            {
+              "line": 11,
+              "text": "if ($LASTEXITCODE) { throw \"build-ID failed: $LASTEXITCODE\" }"
+            },
+            {
+              "line": 12,
+              "text": "& 'D:\\q17\\quartus\\bin64\\quartus_sh.exe' -t scripts/quartus_preassembly.tcl *> build/quartus-preassembly-flow.log"
+            },
+            {
+              "line": 13,
+              "text": "if ($LASTEXITCODE) { throw \"preassembly failed: $LASTEXITCODE\" }"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "RBF_enabled_but_not_authorized",
+      "severity": "execution_rule",
+      "finding": "QSF GENERATE_RBF_FILE ON is a standing projectsetting, not permission to run assembler. Map/fit/sta checkonly stages do not create an RBF. No assembly requested by this review.",
+      "evidence": [
+        {
+          "path": "D:\\Arcade\\AI\\aCORES\\meatsauce-alpha68kn\\cores\\Alpha68k_N\\Alpha68k_N.qsf",
+          "start_line": 18,
+          "end_line": 19,
+          "lines": [
+            {
+              "line": 18,
+              "text": "set_global_assignment -name GENERATE_RBF_FILE ON"
+            },
+            {
+              "line": 19,
+              "text": "set_global_assignment -name PROJECT_OUTPUT_DIRECTORY output_files"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "direct_stage_prerequisites",
+      "severity": "before_map",
+      "finding": "Direct map does not execute Template build-ID generation hook. Materialize an explicitly scoped ignored build_id.v and donor micro/nanorom at their exactreadmemh paths before map without running quartus_sh. Pin/sourcebridge preparation and stages separately; retain actual exitcodes and report source hashes.",
+      "evidence": [
+        {
+          "path": "D:\\Arcade\\AI\\aCORES\\meatsauce-alpha68kn\\cores\\Alpha68k_N\\docs\\LOADER_AND_CLOCKS.md",
+          "start_line": 75,
+          "end_line": 85,
+          "lines": [
+            {
+              "line": 75,
+              "text": "`python scripts/quartus_develop.py` invokes map, fit and STA separately and"
+            },
+            {
+              "line": 76,
+              "text": "records source hashes and stage exit codes under ignored `artifacts/quartus/`."
+            },
+            {
+              "line": 77,
+              "text": "The script has no assembly stage. It materializes the donor microcode files at"
+            },
+            {
+              "line": 78,
+              "text": "their exact `readmemh` paths and creates the Template build-date header before"
+            },
+            {
+              "line": 79,
+              "text": "analysis; generated copies remain ignored."
+            },
+            {
+              "line": 80,
+              "text": ""
+            },
+            {
+              "line": 81,
+              "text": "The first analysis failed because direct `quartus_map` does not execute the"
+            },
+            {
+              "line": 82,
+              "text": "Template flow's build-date generation hook. Failed evidence is retained at"
+            },
+            {
+              "line": 83,
+              "text": "`artifacts/quartus/20261009_115845/`. The restarted owned job is described by"
+            },
+            {
+              "line": 84,
+              "text": "`sim/build/quartus_initial2_job.json`; its evidence directory is"
+            },
+            {
+              "line": 85,
+              "text": "`artifacts/quartus/20261009_120221/`. Do not restart it while its PID is alive."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "current_supported_hardware_scope",
+      "severity": "acceptance_limit",
+      "finding": "This project scope covers the present full framework+productionKyros/Japan design. It does not make unsupportedStingray firmware/MCU hardware available; adding productionStingray/T48 later requires a fresh full map/fit/sta resource/timing check. No all-target-family resourceclaim is supported now.",
+      "evidence": [
+        {
+          "path": "D:\\Arcade\\AI\\aCORES\\meatsauce-alpha68kn\\cores\\Alpha68k_N\\docs\\LOADER_AND_CLOCKS.md",
+          "start_line": 26,
+          "end_line": 35,
+          "lines": [
+            {
+              "line": 26,
+              "text": "`rom_layout.json` remains the logical contract. The header is `A68N`, version"
+            },
+            {
+              "line": 27,
+              "text": "1. The wrapper checks those words, the Kyros/Japan profile and the final logical"
+            },
+            {
+              "line": 28,
+              "text": "address before releasing CPU reset, and waits for the graphics FIFO to drain."
+            },
+            {
+              "line": 29,
+              "text": "Stingray is deliberately held unsupported until P6."
+            },
+            {
+              "line": 30,
+              "text": ""
+            },
+            {
+              "line": 31,
+              "text": "The on-chip slots retain every byte of the program, sound, RGB PROM, CLUT,"
+            },
+            {
+              "line": 32,
+              "text": "color PROM and raw MCU images. The main CPU sees big-endian words; the download"
+            },
+            {
+              "line": 33,
+              "text": "transport carries its first byte in D7:0. MCU storage is preservation evidence,"
+            },
+            {
+              "line": 34,
+              "text": "not execution of the Kyros partial/bootleg MCU; the board still uses the named"
+            },
+            {
+              "line": 35,
+              "text": "MAME-compatible HLE."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "baseline_doc_stale",
+      "severity": "documentation",
+      "finding": "LOADER_AND_CLOCKS baseline lines5\u20137 still claim palette/DAC-only and lines86\u201387 refer to earlyfit excluding renderer/audio; these are historicalbaseline limits, not the current fullfit source scope. Current source hierarchy should identify the real integrated renderer/audio rather than treating those old notes as currenthardware.",
+      "evidence": [
+        {
+          "path": "D:\\Arcade\\AI\\aCORES\\meatsauce-alpha68kn\\cores\\Alpha68k_N\\docs\\LOADER_AND_CLOCKS.md",
+          "start_line": 3,
+          "end_line": 7,
+          "lines": [
+            {
+              "line": 3,
+              "text": "The active `Alpha68k_N.sv` now instantiates the real 68000/Z80 board and the"
+            },
+            {
+              "line": 4,
+              "text": "pinned JTFRAME SDRAM controller rather than the Template demonstration core."
+            },
+            {
+              "line": 5,
+              "text": "This is an incomplete core: it displays the palette background only and exposes"
+            },
+            {
+              "line": 6,
+              "text": "the software DAC only. The renderer, YM/AY chips, Stingray firmware, full MiSTer"
+            },
+            {
+              "line": 7,
+              "text": "features and final timing/resource qualification remain in the plan."
+            }
+          ]
+        },
+        {
+          "path": "D:\\Arcade\\AI\\aCORES\\meatsauce-alpha68kn\\cores\\Alpha68k_N\\docs\\LOADER_AND_CLOCKS.md",
+          "start_line": 86,
+          "end_line": 87,
+          "lines": [
+            {
+              "line": 86,
+              "text": "Any successful baseline fit still excludes planned renderer/audio/MCU features"
+            },
+            {
+              "line": 87,
+              "text": "and the unresolved external timing constraints; it cannot authorize assembly."
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "source_pins": {
+    "Alpha68k_N.qpf": "8554cfb7549f3d631c6ca5c8f574f60c1cbb58fc80c87491befdbb2efc703910",
+    "Alpha68k_N.qsf": "7b560a94ac5eb7c4800ffbd0dc47940eb911862fa78b1d5ea4a603e3f7e8e7e6",
+    "Alpha68k_N.sdc": "89cb176f5eeb8c2adf59d758e56a605bd711631a4bccb92e77c77f995b62e71f",
+    "files.qip": "826d76afdb60042064ec0c2fe6d6aa7d980ef81d6993b6f89932b14bb004e17f",
+    "sys/sys.tcl": "e9ab2b7c89b4347854810387550a65458aa3ec9de1bd26ad74328d73376f6a88",
+    "sys/sys_analog.tcl": "e4cbfd22985fa046b546c0cfc626fccf773d9098b7c6a595f8bea66d67d25203",
+    "sys/sys.qip": "ff265ba87bfa2922eb5870de27978b2dc55e32e1576d610e266ebffd6ec896d7",
+    "sys/sys_top.sdc": "0a5fa4015b82ad7ce38e56d1ae4aadea6209af59c5dd9eff56a11139cf16ce86",
+    "sys/sys_top.v": "156f887ce0f35094926875b2195caa9b04dc3a3671b87d1ddec3b9c64da8672c",
+    "rtl/alpha68kn_pll.sv": "4dc60ba22c062801682f7269ecf6cbb2eebbc9bd73abc84366f1edfe38e419d1",
+    "rtl/pll.qip": "cf17f22973e99727b789acdb18e5ba43b96bb2dea65e90e2bcd6a1873ad74c40",
+    "rtl/alpha68kn_audio.qip": "ac719966288b05620c42dd0b5f3cc2609287010aad03b7c7b0e406a20489ea2e",
+    "Alpha68k_N.sv": "e06df32e27980fd18930da274d05538396e8be3fc7379409043dd36bef383b61",
+    "rtl/alpha68kn_system.sv": "ca909f97d09875ecfe98b92e04d5fbad343a2e6fed20c84542b4265eb5060152",
+    "resource_limits.json": "5e167b29788b74c4ee7f182a58ae8475b75d9f565e5809958d863fedcbbe41c5",
+    "scripts/quartus_develop.py": "dfe9e72e53dd9b5de1ad34123a4405479a8f55bb6681de3cc822c72b219b2178",
+    "scripts/quartus_preassembly.ps1": "7826a5ee7efbcb05a2e3da17be617717777c9c90fae904def7ebfea37aa054f2",
+    "scripts/quartus_preassembly.tcl": "f76510bedf78808f86852c50cd1b33bdeb4339a67f0ed2867544c7b2a10b079e",
+    "scripts/verify_preparation.py": "617a87d95d7fa1e205fd526d448b8b34950a5b87c6484577a917fa46e98bbd49",
+    "docs/LOADER_AND_CLOCKS.md": "36ff17159fe63d686bee9c06018174e1ef3237554a3cec40167a6006f2455130"
+  },
+  "enabled_macros": [
+    "set_global_assignment -name VERILOG_MACRO \"MISTER_FB=1\""
+  ],
+  "hierarchy_evidence": [
+    {
+      "path": "D:\\Arcade\\AI\\aCORES\\meatsauce-alpha68kn\\cores\\Alpha68k_N\\Alpha68k_N.qpf",
+      "start_line": 1,
+      "end_line": 2,
+      "lines": [
+        {
+          "line": 1,
+          "text": "QUARTUS_VERSION = \"17.0\""
+        },
+        {
+          "line": 2,
+          "text": "PROJECT_REVISION = \"Alpha68k_N\""
+        }
+      ]
+    },
+    {
+      "path": "D:\\Arcade\\AI\\aCORES\\meatsauce-alpha68kn\\cores\\Alpha68k_N\\Alpha68k_N.qsf",
+      "start_line": 11,
+      "end_line": 11,
+      "lines": [
+        {
+          "line": 11,
+          "text": "set_global_assignment -name TOP_LEVEL_ENTITY sys_top"
+        }
+      ]
+    },
+    {
+      "path": "D:\\Arcade\\AI\\aCORES\\meatsauce-alpha68kn\\cores\\Alpha68k_N\\Alpha68k_N.qsf",
+      "start_line": 53,
+      "end_line": 59,
+      "lines": [
+        {
+          "line": 53,
+          "text": "set_global_assignment -name VERILOG_MACRO \"MISTER_FB=1\""
+        },
+        {
+          "line": 54,
+          "text": ""
+        },
+        {
+          "line": 55,
+          "text": "#enable it only if 8bit indexed mode is used in core"
+        },
+        {
+          "line": 56,
+          "text": "#set_global_assignment -name VERILOG_MACRO \"MISTER_FB_PALETTE=1\""
+        },
+        {
+          "line": 57,
+          "text": ""
+        },
+        {
+          "line": 58,
+          "text": "#do not enable DEBUG_NOHDMI in release!"
+        },
+        {
+          "line": 59,
+          "text": "#set_global_assignment -name VERILOG_MACRO \"MISTER_DEBUG_NOHDMI=1\""
+        }
+      ]
+    },
+    {
+      "path": "D:\\Arcade\\AI\\aCORES\\meatsauce-alpha68kn\\cores\\Alpha68k_N\\Alpha68k_N.qsf",
+      "start_line": 76,
+      "end_line": 79,
+      "lines": [
+        {
+          "line": 76,
+          "text": "source sys/sys.tcl"
+        },
+        {
+          "line": 77,
+          "text": "source sys/sys_analog.tcl"
+        },
+        {
+          "line": 78,
+          "text": "source files.qip"
+        },
+        {
+          "line": 79,
+          "text": "set_instance_assignment -name PARTITION_HIERARCHY root_partition -to | -section_id Top"
+        }
+      ]
+    },
+    {
+      "path": "D:\\Arcade\\AI\\aCORES\\meatsauce-alpha68kn\\cores\\Alpha68k_N\\sys\\sys.tcl",
+      "start_line": 1,
+      "end_line": 5,
+      "lines": [
+        {
+          "line": 1,
+          "text": "set_global_assignment -name FAMILY \"Cyclone V\""
+        },
+        {
+          "line": 2,
+          "text": "set_global_assignment -name DEVICE 5CSEBA6U23I7"
+        },
+        {
+          "line": 3,
+          "text": "set_global_assignment -name DEVICE_FILTER_PACKAGE UFBGA"
+        },
+        {
+          "line": 4,
+          "text": "set_global_assignment -name DEVICE_FILTER_PIN_COUNT 672"
+        },
+        {
+          "line": 5,
+          "text": "set_global_assignment -name DEVICE_FILTER_SPEED_GRADE 7"
+        }
+      ]
+    },
+    {
+      "path": "D:\\Arcade\\AI\\aCORES\\meatsauce-alpha68kn\\cores\\Alpha68k_N\\sys\\sys.tcl",
+      "start_line": 219,
+      "end_line": 220,
+      "lines": [
+        {
+          "line": 219,
+          "text": "set_global_assignment -name QIP_FILE sys/sys.qip"
+        },
+        {
+          "line": 220,
+          "text": ""
+        }
+      ]
+    },
+    {
+      "path": "D:\\Arcade\\AI\\aCORES\\meatsauce-alpha68kn\\cores\\Alpha68k_N\\sys\\sys.qip",
+      "start_line": 1,
+      "end_line": 5,
+      "lines": [
+        {
+          "line": 1,
+          "text": "set_global_assignment -name QIP_FILE           [join [list $::quartus(qip_path) pll_q [regexp -inline {[0-9]+} $quartus(version)] .qip] {}]"
+        },
+        {
+          "line": 2,
+          "text": "set_global_assignment -name VERILOG_FILE       [file join $::quartus(qip_path) sys_top.v ]"
+        },
+        {
+          "line": 3,
+          "text": "set_global_assignment -name SDC_FILE           [file join $::quartus(qip_path) sys_top.sdc ]"
+        },
+        {
+          "line": 4,
+          "text": "set_global_assignment -name VHDL_FILE          [file join $::quartus(qip_path) ascal.vhd ]"
+        },
+        {
+          "line": 5,
+          "text": "set_global_assignment -name VHDL_FILE          [file join $::quartus(qip_path) pll_hdmi_adj.vhd ]"
+        }
+      ]
+    },
+    {
+      "path": "D:\\Arcade\\AI\\aCORES\\meatsauce-alpha68kn\\cores\\Alpha68k_N\\sys\\sys.qip",
+      "start_line": 24,
+      "end_line": 34,
+      "lines": [
+        {
+          "line": 24,
+          "text": "set_global_assignment -name SYSTEMVERILOG_FILE [file join $::quartus(qip_path) audio_out.sv ]"
+        },
+        {
+          "line": 25,
+          "text": "set_global_assignment -name VERILOG_FILE       [file join $::quartus(qip_path) iir_filter.v ]"
+        },
+        {
+          "line": 26,
+          "text": "set_global_assignment -name SYSTEMVERILOG_FILE [file join $::quartus(qip_path) ltc2308.sv ]"
+        },
+        {
+          "line": 27,
+          "text": "set_global_assignment -name VERILOG_FILE       [file join $::quartus(qip_path) sigma_delta_dac.v ]"
+        },
+        {
+          "line": 28,
+          "text": "set_global_assignment -name SYSTEMVERILOG_FILE [file join $::quartus(qip_path) mt32pi.sv ]"
+        },
+        {
+          "line": 29,
+          "text": "set_global_assignment -name SYSTEMVERILOG_FILE [file join $::quartus(qip_path) mcp23009.sv ]"
+        },
+        {
+          "line": 30,
+          "text": "set_global_assignment -name SYSTEMVERILOG_FILE [file join $::quartus(qip_path) f2sdram_safe_terminator.sv ]"
+        },
+        {
+          "line": 31,
+          "text": "set_global_assignment -name SYSTEMVERILOG_FILE [file join $::quartus(qip_path) ddr_svc.sv ]"
+        },
+        {
+          "line": 32,
+          "text": "set_global_assignment -name SYSTEMVERILOG_FILE [file join $::quartus(qip_path) sysmem.sv ]"
+        },
+        {
+          "line": 33,
+          "text": "set_global_assignment -name SYSTEMVERILOG_FILE [file join $::quartus(qip_path) sd_card.sv ]"
+        },
+        {
+          "line": 34,
+          "text": "set_global_assignment -name SYSTEMVERILOG_FILE [file join $::quartus(qip_path) hps_io.sv ]"
+        }
+      ]
+    },
+    {
+      "path": "D:\\Arcade\\AI\\aCORES\\meatsauce-alpha68kn\\cores\\Alpha68k_N\\sys\\sys_top.v",
+      "start_line": 1756,
+      "end_line": 1759,
+      "lines": [
+        {
+          "line": 1756,
+          "text": "emu emu"
+        },
+        {
+          "line": 1757,
+          "text": "("
+        },
+        {
+          "line": 1758,
+          "text": "\t.CLK_50M(FPGA_CLK2_50),"
+        },
+        {
+          "line": 1759,
+          "text": "\t.RESET(reset),"
+        }
+      ]
+    },
+    {
+      "path": "D:\\Arcade\\AI\\aCORES\\meatsauce-alpha68kn\\cores\\Alpha68k_N\\sys\\sys_top.v",
+      "start_line": 1784,
+      "end_line": 1784,
+      "lines": [
+        {
+          "line": 1784,
+          "text": "\t.CLK_VIDEO(clk_vid),"
+        }
+      ]
+    },
+    {
+      "path": "D:\\Arcade\\AI\\aCORES\\meatsauce-alpha68kn\\cores\\Alpha68k_N\\sys\\sys_top.v",
+      "start_line": 1815,
+      "end_line": 1815,
+      "lines": [
+        {
+          "line": 1815,
+          "text": "\t.CLK_AUDIO(clk_audio),"
+        }
+      ]
+    },
+    {
+      "path": "D:\\Arcade\\AI\\aCORES\\meatsauce-alpha68kn\\cores\\Alpha68k_N\\files.qip",
+      "start_line": 1,
+      "end_line": 23,
+      "lines": [
+        {
+          "line": 1,
+          "text": "set_global_assignment -name QIP_FILE rtl/pll.qip"
+        },
+        {
+          "line": 2,
+          "text": "set_global_assignment -name SYSTEMVERILOG_FILE rtl/alpha68kn_pll.sv"
+        },
+        {
+          "line": 3,
+          "text": "set_global_assignment -name SYSTEMVERILOG_FILE rtl/alpha68kn_board.sv"
+        },
+        {
+          "line": 4,
+          "text": "set_global_assignment -name SYSTEMVERILOG_FILE rtl/alpha68kn_gfxmem.sv"
+        },
+        {
+          "line": 5,
+          "text": "set_global_assignment -name SYSTEMVERILOG_FILE rtl/alpha68kn_system.sv"
+        },
+        {
+          "line": 6,
+          "text": "set_global_assignment -name SYSTEMVERILOG_FILE rtl/alpha68kn_renderer.sv"
+        },
+        {
+          "line": 7,
+          "text": "set_global_assignment -name SYSTEMVERILOG_FILE rtl/alpha68kn_video_rom.sv"
+        },
+        {
+          "line": 8,
+          "text": "set_global_assignment -name QIP_FILE rtl/alpha68kn_audio.qip"
+        },
+        {
+          "line": 9,
+          "text": "set_global_assignment -name SYSTEMVERILOG_FILE rtl/vendor/fx68k/fx68k.sv"
+        },
+        {
+          "line": 10,
+          "text": "set_global_assignment -name SYSTEMVERILOG_FILE rtl/vendor/fx68k/fx68kAlu.sv"
+        },
+        {
+          "line": 11,
+          "text": "set_global_assignment -name SYSTEMVERILOG_FILE rtl/vendor/fx68k/uaddrPla.sv"
+        },
+        {
+          "line": 12,
+          "text": "set_global_assignment -name VERILOG_FILE rtl/vendor/t80/T80s.v"
+        },
+        {
+          "line": 13,
+          "text": "set_global_assignment -name VERILOG_FILE rtl/vendor/jtframe_sdram/jtframe_sdram64.v"
+        },
+        {
+          "line": 14,
+          "text": "set_global_assignment -name VERILOG_FILE rtl/vendor/jtframe_sdram/jtframe_sdram64_bank.v"
+        },
+        {
+          "line": 15,
+          "text": "set_global_assignment -name VERILOG_FILE rtl/vendor/jtframe_sdram/jtframe_sdram64_init.v"
+        },
+        {
+          "line": 16,
+          "text": "set_global_assignment -name VERILOG_FILE rtl/vendor/jtframe_sdram/jtframe_sdram64_latch.v"
+        },
+        {
+          "line": 17,
+          "text": "set_global_assignment -name VERILOG_FILE rtl/vendor/jtframe_sdram/jtframe_sdram64_rfsh.v"
+        },
+        {
+          "line": 18,
+          "text": "set_global_assignment -name SDC_FILE Alpha68k_N.sdc"
+        },
+        {
+          "line": 19,
+          "text": "set_global_assignment -name SYSTEMVERILOG_FILE Alpha68k_N.sv"
+        },
+        {
+          "line": 20,
+          "text": "set_global_assignment -name SYSTEMVERILOG_FILE rtl/alpha68kn_crt.sv"
+        },
+        {
+          "line": 21,
+          "text": "set_global_assignment -name SYSTEMVERILOG_FILE rtl/vendor/mister_features/crt_adjust.sv"
+        },
+        {
+          "line": 22,
+          "text": "set_global_assignment -name SYSTEMVERILOG_FILE rtl/vendor/mister_features/crt_vsize.sv"
+        },
+        {
+          "line": 23,
+          "text": "set_global_assignment -name VERILOG_FILE rtl/vendor/mister_features/hiscore.v"
+        }
+      ]
+    },
+    {
+      "path": "D:\\Arcade\\AI\\aCORES\\meatsauce-alpha68kn\\cores\\Alpha68k_N\\rtl\\alpha68kn_audio.qip",
+      "start_line": 1,
+      "end_line": 11,
+      "lines": [
+        {
+          "line": 1,
+          "text": "set_global_assignment -name SYSTEMVERILOG_FILE [file join $::quartus(qip_path) alpha68kn_soundchips.sv]"
+        },
+        {
+          "line": 2,
+          "text": "set_global_assignment -name SYSTEMVERILOG_FILE [file join $::quartus(qip_path) alpha68kn_mixer.sv]"
+        },
+        {
+          "line": 3,
+          "text": "set_global_assignment -name SYSTEMVERILOG_FILE [file join $::quartus(qip_path) alpha68kn_audio.sv]"
+        },
+        {
+          "line": 4,
+          "text": "set_global_assignment -name QIP_FILE [file join $::quartus(qip_path) vendor/jt12/target/quartus/jt03.qip]"
+        },
+        {
+          "line": 5,
+          "text": "set_global_assignment -name VERILOG_FILE [file join $::quartus(qip_path) vendor/ay49/hdl/a68n_ay49.v]"
+        },
+        {
+          "line": 6,
+          "text": "set_global_assignment -name VERILOG_FILE [file join $::quartus(qip_path) vendor/ay49/hdl/a68n_ay49_bus.v]"
+        },
+        {
+          "line": 7,
+          "text": "set_global_assignment -name VERILOG_FILE [file join $::quartus(qip_path) vendor/ay49/hdl/a68n_ay49_div.v]"
+        },
+        {
+          "line": 8,
+          "text": "set_global_assignment -name VERILOG_FILE [file join $::quartus(qip_path) vendor/ay49/hdl/a68n_ay49_cen.v]"
+        },
+        {
+          "line": 9,
+          "text": "set_global_assignment -name VERILOG_FILE [file join $::quartus(qip_path) vendor/ay49/hdl/a68n_ay49_eg.v]"
+        },
+        {
+          "line": 10,
+          "text": "set_global_assignment -name VERILOG_FILE [file join $::quartus(qip_path) vendor/ay49/hdl/a68n_ay49_exp.v]"
+        },
+        {
+          "line": 11,
+          "text": "set_global_assignment -name VERILOG_FILE [file join $::quartus(qip_path) vendor/ay49/hdl/a68n_ay49_noise.v]"
+        }
+      ]
+    },
+    {
+      "path": "D:\\Arcade\\AI\\aCORES\\meatsauce-alpha68kn\\cores\\Alpha68k_N\\Alpha68k_N.sv",
+      "start_line": 52,
+      "end_line": 66,
+      "lines": [
+        {
+          "line": 52,
+          "text": "    wire clk_sys,clk_sdram,locked;"
+        },
+        {
+          "line": 53,
+          "text": "`ifdef ALPHA_EMU_SIM"
+        },
+        {
+          "line": 54,
+          "text": "    // Ideal PLL output model only: real HPS/game/framework remain instantiated."
+        },
+        {
+          "line": 55,
+          "text": "    // The host supplies 48 MHz and the documented SDRAM half-cycle phase."
+        },
+        {
+          "line": 56,
+          "text": "    assign clk_sys=SIM_MASTER;assign clk_sdram=SIM_SDRAM;assign locked=SIM_LOCKED;"
+        },
+        {
+          "line": 57,
+          "text": "    // External HPS drives only these pins. A direct C++ assignment to the"
+        },
+        {
+          "line": 58,
+          "text": "    // inout port would be overwritten by the core's response drivers."
+        },
+        {
+          "line": 59,
+          "text": "    assign HPS_BUS[31:16]=SIM_HPS_HOST[31:16];"
+        },
+        {
+          "line": 60,
+          "text": "    assign HPS_BUS[35:33]=SIM_HPS_HOST[35:33];"
+        },
+        {
+          "line": 61,
+          "text": "    assign HPS_BUS[45:38]=SIM_HPS_HOST[45:38];"
+        },
+        {
+          "line": 62,
+          "text": "`else"
+        },
+        {
+          "line": 63,
+          "text": "    alpha68kn_pll pll(.refclk(CLK_50M),.rst(1'b0),"
+        },
+        {
+          "line": 64,
+          "text": "        .clk_sys(clk_sys),.clk_sdram(clk_sdram),.locked(locked));"
+        },
+        {
+          "line": 65,
+          "text": "`endif"
+        },
+        {
+          "line": 66,
+          "text": "    assign SDRAM_CLK=clk_sdram;"
+        }
+      ]
+    },
+    {
+      "path": "D:\\Arcade\\AI\\aCORES\\meatsauce-alpha68kn\\cores\\Alpha68k_N\\Alpha68k_N.sv",
+      "start_line": 177,
+      "end_line": 185,
+      "lines": [
+        {
+          "line": 177,
+          "text": "    alpha68kn_system system ("
+        },
+        {
+          "line": 178,
+          "text": "        .clk(clk_sys),.cold_reset(cold_reset),.reset(game_reset),.downloading(load),"
+        },
+        {
+          "line": 179,
+          "text": "        .load_wr(load_wr),.load_addr(board_load_addr),.load_data(board_load_data),"
+        },
+        {
+          "line": 180,
+          "text": "        .pause_game(pause_game),.paused(paused),.rotate180(status[7]),"
+        },
+        {
+          "line": 181,
+          "text": "        .hs_access(ram_hs_access),.hs_addr(ram_hs_addr),"
+        },
+        {
+          "line": 182,
+          "text": "        .hs_write(ram_hs_write),.hs_data_in(ram_hs_data),.hs_data_out(hs_from_ram),"
+        },
+        {
+          "line": 183,
+          "text": "        .controls({p1,p0}),.dips(dip_switches),.coins_n({!joy1[7],!joy0[7]}),"
+        },
+        {
+          "line": 184,
+          "text": "        .profile(profile),.dac(dac),.load_wait(gfx_wait),.load_busy(gfx_busy),.initialized(gfx_initialized),"
+        },
+        {
+          "line": 185,
+          "text": "        .raw_ce(raw_ce),.raw_x(raw_x),.raw_y(raw_y),.raw_hblank(),.raw_vblank(),.raw_hs(),.raw_vs(),"
+        }
+      ]
+    }
+  ],
+  "lessons_consulted": {
+    "index_search": [
+      "Quartus",
+      "unconstrained"
+    ],
+    "selected_index_lines": [
+      8979,
+      9000,
+      9509
+    ],
+    "applied": "Use latestexplicit direct check-only authorization, guard simulator-only constructs withactualQuartus17-supported preprocessing, and do not reuse earlybaselinefit as fullproductiontiming evidence."
+  },
+  "current_fit_resource_pass": false,
+  "current_timing_pass": false,
+  "whole_game_acceptance": false
+}

@@ -1,0 +1,67 @@
+{
+  "target": "sdram_registered",
+  "acceptance": "Registered pins and in-phase clock; requires source-matched fitted profiles and production I/O closure",
+  "runtime": "native Windows PE / MSYS2 UCRT64",
+  "commands": [
+    [
+      "D:/vibes/fpga/bin/verilator.exe",
+      "--cc",
+      "--exe",
+      "--build",
+      "-j",
+      "4",
+      "-O3",
+      "--top-module",
+      "cs_sdram_backend",
+      "--Mdir",
+      "R:/Verilator/CrystalSystem/tool-20261007T114633012Z-47396-92353640/obj_dir",
+      "-CFLAGS",
+      "-O2",
+      "-MAKEFLAGS",
+      "OPT_FAST=-O2",
+      "-MAKEFLAGS",
+      "OPT_GLOBAL=-O2",
+      "-Wno-fatal",
+      "-GREGISTERED_IO=1",
+      "-CFLAGS",
+      "-DCS_SDRAM_REGISTERED_IO=1",
+      "D:/Arcade/AI/aCORES/BRAZZ/Arcade-CrystalSystem_MiSTer/donors/sdram/src_v/sdram_axi_core.v",
+      "D:/Arcade/AI/aCORES/BRAZZ/Arcade-CrystalSystem_MiSTer/rtl/memory/cs_sdram_backend.sv",
+      "D:/Arcade/AI/aCORES/BRAZZ/Arcade-CrystalSystem_MiSTer/sim/memory/sdram_timed.cpp"
+    ],
+    [
+      "D:/vibes/fpga/bin/verilator.exe",
+      "sim",
+      "R:/Verilator/CrystalSystem/tool-20261007T114633012Z-47396-92353640/obj_dir/Vcs_sdram_backend.exe"
+    ]
+  ],
+  "exit_code": 1,
+  "run_seconds": 0.44340370000281837,
+  "sources": [
+    {
+      "path": "donors/sdram/src_v/sdram_axi_core.v",
+      "sha256": "bf7b3cdd53383051f8a108010bf5f19171eaff7e416b9b5b8d70ac1928b6af5f"
+    },
+    {
+      "path": "rtl/memory/cs_sdram_backend.sv",
+      "sha256": "3c37f33ef79ed101d8dac58259370750e41fd57a244113d27fa1da5057e92955"
+    },
+    {
+      "path": "sim/memory/sdram_timed.cpp",
+      "sha256": "5a587815511200fcc6e9c7d650912c75a145a41e0f57311355151f9c9a96ae7e"
+    },
+    {
+      "path": "sim/memory/sdram_model.hpp",
+      "sha256": "e7c98db0761c9794cec0cce0d8f274158a3bc7a186ea1b064130cfedea5e2f78"
+    },
+    {
+      "path": "sim/memory/sdram_timed_port.hpp",
+      "sha256": "d81b83e3ddf3ae3a2a7668224e63fbf2bd555097680f707827c7e446c702b34d"
+    }
+  ],
+  "workspace": "R:/Verilator/CrystalSystem/tool-20261007T114633012Z-47396-92353640",
+  "timing_profile": null,
+  "stdout": "PASS profile=slow_hot_latest transactions=210 clocks=11773 max_response_clocks=98\nPASS profile=slow_cold_latest transactions=210 clocks=11773 max_response_clocks=98\ndelayed_return_profiles=8 failed=6; provisional saved-fit pin-window qualification, not full board signoff\n",
+  "stderr": "profile=fast_hot_latest target=1 offset=0 actual=0xa148a148 expected=0xa148a137\nFAIL profile=fast_hot_latest clocks=9285 reason=delayed SDRAM halfword assembly mismatch\nprofile=fast_cold_latest target=1 offset=0 actual=0xa148a148 expected=0xa148a137\nFAIL profile=fast_cold_latest clocks=9285 reason=delayed SDRAM halfword assembly mismatch\nprofile=slow_hot_earliest target=1 offset=0 actual=0xa148a148 expected=0xa148a137\nFAIL profile=slow_hot_earliest clocks=9285 reason=delayed SDRAM halfword assembly mismatch\nprofile=slow_cold_earliest target=1 offset=0 actual=0xa148a148 expected=0xa148a137\nFAIL profile=slow_cold_earliest clocks=9285 reason=delayed SDRAM halfword assembly mismatch\nprofile=fast_hot_earliest target=1 offset=0 actual=0xa148a148 expected=0xa148a137\nFAIL profile=fast_hot_earliest clocks=9285 reason=delayed SDRAM halfword assembly mismatch\nprofile=fast_cold_earliest target=1 offset=0 actual=0xa148a148 expected=0xa148a137\nFAIL profile=fast_cold_earliest clocks=9285 reason=delayed SDRAM halfword assembly mismatch\n",
+  "build_log": "sim/obj_dir/sdram_registered/build.log"
+}

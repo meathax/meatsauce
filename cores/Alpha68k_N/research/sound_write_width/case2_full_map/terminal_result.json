@@ -1,0 +1,73 @@
+{
+  "status": "native_MAP_terminal",
+  "utc": "2026-10-10T15:59:23.326442+00:00",
+  "actual_exit_code": 0,
+  "actual_tool_chunk": "544b0f",
+  "native_session_id": 65792,
+  "source_pins_161_unchanged": true,
+  "candidate_board_sha256": "7ea61d03b20886e643c5d0be64c9f80bb93923975223f7c272621d3cab05aaa9",
+  "qsf_sha256": "387941e3c72c5f677feb9f2086a571584a3ab8f3de2a4ce851c0b32565061c28",
+  "baseline_actual_work": "C:\\Users\\meath\\QuartusFast\\cache\\d20de4d4c2de9e666184\\dev-fast-check",
+  "baseline_qsf_sha256": "44aa5437df8a7a8a44f0bf9ec28455f4d1ef84ba04abd5f0ed6d9ff08a997baf",
+  "effective_map_settings_match": true,
+  "source_delta": "15bit load index plus sound diagnostic case2 compiled only under VERILATOR",
+  "baseline15_map_metrics": {
+    "cells": 771962,
+    "registers": 548181,
+    "estimated_ALMs": 372510,
+    "block_bits": 1915224,
+    "DSP": 41
+  },
+  "report": {
+    "path": "D:\\Arcade\\AI\\aCORES\\Alpha68k N\\research\\sound_write_width\\case2_full_map\\output_files\\Alpha68k_N.map.rpt",
+    "sha256": "e6c6404e3f3d0ae331fb021269e9a72df1169f01c3e57a60ad9d0a8c6a3ce239"
+  },
+  "summary": {
+    "path": "D:\\Arcade\\AI\\aCORES\\Alpha68k N\\research\\sound_write_width\\case2_full_map\\output_files\\Alpha68k_N.map.summary",
+    "sha256": "0db5933303ba0d06e4a1fa71f67d9289ee83b5b21242e4da3a8dcee4df3b669e",
+    "text": "Analysis & Synthesis Status : Successful - Sun Oct 11 02:58:17 2026\nQuartus Prime Version : 17.0.2 Build 602 07/19/2017 SJ Lite Edition\nRevision Name : Alpha68k_N\nTop-level Entity Name : sys_top\nFamily : Cyclone V\nLogic utilization (in ALMs) : N/A\nTotal registers : 24000\nTotal pins : 145\nTotal virtual pins : 0\nTotal block memory bits : 2,439,512\nTotal DSP Blocks : 41\nTotal HSSI RX PCSs : 0\nTotal HSSI PMA RX Deserializers : 0\nTotal HSSI TX PCSs : 0\nTotal HSSI PMA TX Serializers : 0\nTotal PLLs : 3\nTotal DLLs : 0\n"
+  },
+  "resource_lines": [
+    "; Total registers                 ; 24000                                       ;",
+    "; Total block memory bits         ; 2,439,512                                   ;",
+    "; Total block memory bits                     ; 2439512                                                 ;",
+    "; Total number of DSP blocks        ; 41          ;",
+    "; Total registers                              ; 23996 ;"
+  ],
+  "sound_rom_lines": [
+    "120. Source assignments for emu:emu|alpha68kn_system:system|alpha68kn_board:board|altsyncram:sound_rom_rtl_0|altsyncram_fgn1:auto_generated",
+    "292. Parameter Settings for Inferred Entity Instance: emu:emu|alpha68kn_system:system|alpha68kn_board:board|altsyncram:sound_rom_rtl_0",
+    ";             |altsyncram:sound_rom_rtl_0|                       ; 20 (0)              ; 2 (0)                     ; 524288            ; 0          ; 0    ; 0            ; |sys_top|emu:emu|alpha68kn_system:system|alpha68kn_board:board|altsyncram:sound_rom_rtl_0                                                                                                                       ; altsyncram                  ; work         ;",
+    ";                |altsyncram_fgn1:auto_generated|                ; 20 (0)              ; 2 (2)                     ; 524288            ; 0          ; 0    ; 0            ; |sys_top|emu:emu|alpha68kn_system:system|alpha68kn_board:board|altsyncram:sound_rom_rtl_0|altsyncram_fgn1:auto_generated                                                                                        ; altsyncram_fgn1             ; work         ;",
+    ";                   |decode_8la:decode2|                         ; 4 (4)               ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |sys_top|emu:emu|alpha68kn_system:system|alpha68kn_board:board|altsyncram:sound_rom_rtl_0|altsyncram_fgn1:auto_generated|decode_8la:decode2                                                                     ; decode_8la                  ; work         ;",
+    ";                   |mux_7hb:mux3|                               ; 16 (16)             ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |sys_top|emu:emu|alpha68kn_system:system|alpha68kn_board:board|altsyncram:sound_rom_rtl_0|altsyncram_fgn1:auto_generated|mux_7hb:mux3                                                                           ; mux_7hb                     ; work         ;",
+    "; emu:emu|alpha68kn_system:system|alpha68kn_board:board|altsyncram:sound_rom_rtl_0|altsyncram_fgn1:auto_generated|ALTSYNCRAM                                                                                        ; AUTO       ; Simple Dual Port ; 32768        ; 16           ; 32768        ; 16           ; 524288  ; None                                                   ;",
+    "; emu:emu|alpha68kn_system:system|alpha68kn_board:board|sound_rom_q[0..15]                                                                                 ; emu:emu|alpha68kn_system:system|alpha68kn_board:board|sound_rom_rtl_0                                                                                        ; RAM  ;",
+    "; Source assignments for emu:emu|alpha68kn_system:system|alpha68kn_board:board|altsyncram:sound_rom_rtl_0|altsyncram_fgn1:auto_generated ;",
+    "; Parameter Settings for Inferred Entity Instance: emu:emu|alpha68kn_system:system|alpha68kn_board:board|altsyncram:sound_rom_rtl_0 ;",
+    "; Entity Instance                           ; emu:emu|alpha68kn_system:system|alpha68kn_board:board|altsyncram:sound_rom_rtl_0                                                                                        ;",
+    "    Info (276029): Inferred altsyncram megafunction from the following design logic: \"emu:emu|alpha68kn_system:system|alpha68kn_board:board|sound_rom_rtl_0\" ",
+    "Info (12130): Elaborated megafunction instantiation \"emu:emu|alpha68kn_system:system|alpha68kn_board:board|altsyncram:sound_rom_rtl_0\"",
+    "Info (12133): Instantiated megafunction \"emu:emu|alpha68kn_system:system|alpha68kn_board:board|altsyncram:sound_rom_rtl_0\" with the following parameter:"
+  ],
+  "fit": false,
+  "sta": false,
+  "assembly": false,
+  "hardware": false,
+  "all7_fitted_resources_qualified": false,
+  "timing_qualified": false,
+  "actual_native_output_metrics": {
+    "logic_cells": 40662,
+    "registers": 24000,
+    "RAM_segments": 1363,
+    "block_bits": 2439512,
+    "DSP": 41,
+    "elapsed_seconds": 191,
+    "CPU_seconds": 194,
+    "peak_virtual_MB": 6661,
+    "errors": 0,
+    "warnings": 1471
+  },
+  "source_bound_conclusion": "Given the proved write15 candidate, guarding the unused physical sound diagnostic case2 makes the complete real T80/sys_top graph infer all524288 soundROM bits. No CPUwordread/latency/clock change was made. The isolated write15 success alone had failed in full integration.",
+  "limit": "This native MAP closes inference only. No fit/STA, all-corner timing, fitted seven-resource thresholds, physical hardware, gameplay or audio acceptance is implied."
+}

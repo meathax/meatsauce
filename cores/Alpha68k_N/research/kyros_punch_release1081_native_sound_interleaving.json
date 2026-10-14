@@ -1,0 +1,38 @@
+{
+  "scope": "Diagnostic projection onto each physically independent sound chip. Preserves the failed global ordered comparison; does not qualify bus timing, PCM or physical audio.",
+  "source": "/mnt/d/Arcade/AI/mame289/src/mame/alpha/alpha68k_n.cpp",
+  "source_sha256": "5f9884076ea1b5c02d2169a58de5425ae5475a13a4f1438abae2e2b9f0fdab7d",
+  "mapping": "void alpha68k_N_state::sound_iomap(address_map &map)\n{\n\tmap.global_mask(0xff);\n\tmap(0x10, 0x11).w(\"ym\", FUNC(ym2203_device::write));\n\tmap(0x80, 0x80).w(\"aysnd1\", FUNC(ay8910_device::data_w));\n\tmap(0x81, 0x81).w(\"aysnd1\", FUNC(ay8910_device::address_w));\n\tmap(0x90, 0x90).w(\"aysnd2\", FUNC(ay8910_device::data_w));\n\tmap(0x91, 0x91).w(\"aysnd2\", FUNC(ay8910_device::address_w));\n}",
+  "fields": 1081,
+  "global_order_equal": true,
+  "global_reference_writes": 2750,
+  "global_rtl_writes": 2750,
+  "global_differing_indices": [],
+  "first_difference_context": null,
+  "unknown_reference_ports": [],
+  "unknown_rtl_ports": [],
+  "chips": {
+    "AY1": {
+      "reference_writes": 480,
+      "rtl_writes": 480,
+      "ordered_port_writes_equal": true,
+      "decoded_register_data_equal": true,
+      "field_label_differences": 0
+    },
+    "AY2": {
+      "reference_writes": 452,
+      "rtl_writes": 452,
+      "ordered_port_writes_equal": true,
+      "decoded_register_data_equal": true,
+      "field_label_differences": 0
+    },
+    "YM2203": {
+      "reference_writes": 1818,
+      "rtl_writes": 1818,
+      "ordered_port_writes_equal": true,
+      "decoded_register_data_equal": true,
+      "field_label_differences": 0
+    }
+  },
+  "all_chip_sequences_equal": true
+}

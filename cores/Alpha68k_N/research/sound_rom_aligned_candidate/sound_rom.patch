@@ -1,0 +1,30 @@
+--- a/rtl/alpha68kn_board.sv
++++ b/rtl/alpha68kn_board.sv
+@@ -182,13 +182,21 @@
+         .RD_n(zrd_n), .WR_n(zwr_n), .RFSH_n(), .HALT_n(), .BUSAK_n(),
+         .A(za), .DOUT(zdout)
+     );
++    // Parallel word/control captures preserve the original post-edge DI value.
++    logic [15:0] sound_rom_q;
++    logic sound_rom_lane_q, sound_rom_selected_q;
++    logic [7:0] sound_nonrom_q;
+     always_ff @(posedge clk) begin
+-        if (sound_io_rd) zdin <= sound_io_read_data;
+-        else if (za < 'hc000) zdin <= za[0] ? sound_rom[za[15:1]][15:8] : sound_rom[za[15:1]][7:0];
+-        else if (za < 'hc800) zdin <= sound_ram[za[10:0]];
+-        else if (za == 'he000) zdin <= sound_latch;
+-        else zdin <= 8'hff;
+-    end
++        sound_rom_q <= sound_rom[za[15:1]];
++        sound_rom_lane_q <= za[0];
++        sound_rom_selected_q <= !sound_io_rd && za < 'hc000;
++        if (sound_io_rd) sound_nonrom_q <= sound_io_read_data;
++        else if (za >= 'hc000 && za < 'hc800) sound_nonrom_q <= sound_ram[za[10:0]];
++        else if (za == 'he000) sound_nonrom_q <= sound_latch;
++        else sound_nonrom_q <= 8'hff;
++    end
++    assign zdin = sound_rom_selected_q ?
++        (sound_rom_lane_q ? sound_rom_q[15:8] : sound_rom_q[7:0]) : sound_nonrom_q;
+ 
+     logic coin_latch;
+     logic [3:0] deposits_a, deposits_b;

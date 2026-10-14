@@ -1,0 +1,231 @@
+{
+  "scope": "cs_sdram_backend RTL with synthetic synchronous registered interface boundaries; excludes bench pin segments and production wrapper/PLL/physical I/O closure",
+  "top_entity": "cs_timing_registered",
+  "simulation_target": "sdram",
+  "interface_model": "registered_boundary",
+  "stage": "D:\\Arcade\\AI\\aCORES\\BRAZZ\\Arcade-CrystalSystem_MiSTer\\sim\\obj_dir\\timing\\1791181838631412400",
+  "source_sha256": {
+    "donors/sdram/src_v/sdram_axi_core.v": "bf7b3cdd53383051f8a108010bf5f19171eaff7e416b9b5b8d70ac1928b6af5f",
+    "rtl/memory/cs_sdram_backend.sv": "eccca8a37345eb10e6fb0494247f13cd3d07a92faa75551bb001e9e3b2207cc9"
+  },
+  "clock_period_ns": 11.64,
+  "seed": 1,
+  "rbf_generated": false,
+  "requested_fit": true,
+  "steps": [
+    {
+      "tool": "quartus_map",
+      "returncode": 0,
+      "seconds": 15.503,
+      "errors": [],
+      "log": "D:\\Arcade\\AI\\aCORES\\BRAZZ\\Arcade-CrystalSystem_MiSTer\\sim\\obj_dir\\timing\\1791181838631412400\\quartus_map.log"
+    },
+    {
+      "tool": "quartus_fit",
+      "returncode": 0,
+      "seconds": 54.211,
+      "errors": [],
+      "log": "D:\\Arcade\\AI\\aCORES\\BRAZZ\\Arcade-CrystalSystem_MiSTer\\sim\\obj_dir\\timing\\1791181838631412400\\quartus_fit.log"
+    },
+    {
+      "tool": "quartus_sta",
+      "returncode": 0,
+      "seconds": 6.586,
+      "errors": [],
+      "log": "D:\\Arcade\\AI\\aCORES\\BRAZZ\\Arcade-CrystalSystem_MiSTer\\sim\\obj_dir\\timing\\1791181838631412400\\quartus_sta.log"
+    }
+  ],
+  "configuration_sha256": {
+    "board.qpf": "8242ee5e59a70da6149cb823d27ca626c19cecce70342b4e21184bb2adb3d6c3",
+    "board.qsf": "22e8dd7d1d9270951dd8d49abce165baf624b68f4b6090c0b7aeba2016752a56",
+    "board.sdc": "b61ac1abee6795146bccbea3caef9c18f4b8baf15807779f2d5452ac0e902978",
+    "board_registered.sv": "79d1564ef3f99f6b43381e01f746b66413de5d7e674f859d38ec9c9ce24925d2"
+  },
+  "status": "TIMING_FAIL",
+  "timing_summary": "------------------------------------------------------------\nTimeQuest Timing Analyzer Summary\n------------------------------------------------------------\n\nType  : Slow 1100mV 100C Model Setup 'board_clk'\nSlack : -0.270\nTNS   : -0.270\n\nType  : Slow 1100mV 100C Model Hold 'board_clk'\nSlack : 0.336\nTNS   : 0.000\n\nType  : Slow 1100mV 100C Model Recovery 'board_clk'\nSlack : 9.136\nTNS   : 0.000\n\nType  : Slow 1100mV 100C Model Removal 'board_clk'\nSlack : 0.556\nTNS   : 0.000\n\nType  : Slow 1100mV 100C Model Minimum Pulse Width 'board_clk'\nSlack : 5.078\nTNS   : 0.000\n\nType  : Slow 1100mV -40C Model Setup 'board_clk'\nSlack : 0.321\nTNS   : 0.000\n\nType  : Slow 1100mV -40C Model Hold 'board_clk'\nSlack : -0.077\nTNS   : -0.077\n\nType  : Slow 1100mV -40C Model Recovery 'board_clk'\nSlack : 9.230\nTNS   : 0.000\n\nType  : Slow 1100mV -40C Model Removal 'board_clk'\nSlack : 0.502\nTNS   : 0.000\n\nType  : Slow 1100mV -40C Model Minimum Pulse Width 'board_clk'\nSlack : 4.994\nTNS   : 0.000\n\nType  : Fast 1100mV 100C Model Setup 'board_clk'\nSlack : 1.341\nTNS   : 0.000\n\nType  : Fast 1100mV 100C Model Hold 'board_clk'\nSlack : 0.148\nTNS   : 0.000\n\nType  : Fast 1100mV 100C Model Recovery 'board_clk'\nSlack : 10.278\nTNS   : 0.000\n\nType  : Fast 1100mV 100C Model Removal 'board_clk'\nSlack : 0.273\nTNS   : 0.000\n\nType  : Fast 1100mV 100C Model Minimum Pulse Width 'board_clk'\nSlack : 5.405\nTNS   : 0.000\n\nType  : Fast 1100mV -40C Model Setup 'board_clk'\nSlack : 2.438\nTNS   : 0.000\n\nType  : Fast 1100mV -40C Model Hold 'board_clk'\nSlack : 0.128\nTNS   : 0.000\n\nType  : Fast 1100mV -40C Model Recovery 'board_clk'\nSlack : 10.484\nTNS   : 0.000\n\nType  : Fast 1100mV -40C Model Removal 'board_clk'\nSlack : 0.208\nTNS   : 0.000\n\nType  : Fast 1100mV -40C Model Minimum Pulse Width 'board_clk'\nSlack : 5.398\nTNS   : 0.000\n\n------------------------------------------------------------\n",
+  "slacks_ns": [
+    -0.27,
+    0.336,
+    9.136,
+    0.556,
+    5.078,
+    0.321,
+    -0.077,
+    9.23,
+    0.502,
+    4.994,
+    1.341,
+    0.148,
+    10.278,
+    0.273,
+    5.405,
+    2.438,
+    0.128,
+    10.484,
+    0.208,
+    5.398
+  ],
+  "resources": "Fitter Status : Successful - Mon Oct 05 17:31:47 2026\nQuartus Prime Version : 17.0.2 Build 602 07/19/2017 SJ Lite Edition\nRevision Name : board\nTop-level Entity Name : cs_timing_registered\nFamily : Cyclone V\nDevice : 5CSEBA6U23I7\nTiming Models : Final\nLogic utilization (in ALMs) : 229 / 41,910 ( < 1 % )\nTotal registers : 411\nTotal pins : 0 / 314 ( 0 % )\nTotal virtual pins : 167\nTotal block memory bits : 0 / 5,662,720 ( 0 % )\nTotal RAM Blocks : 0 / 553 ( 0 % )\nTotal DSP Blocks : 0 / 112 ( 0 % )\nTotal HSSI RX PCSs : 0\nTotal HSSI PMA RX Deserializers : 0\nTotal HSSI TX PCSs : 0\nTotal HSSI PMA TX Serializers : 0\nTotal PLLs : 0 / 6 ( 0 % )\nTotal DLLs : 0 / 4 ( 0 % )\n",
+  "path_audit": {
+    "returncode": 0,
+    "errors": [],
+    "seconds": 2.352,
+    "log": "D:\\Arcade\\AI\\aCORES\\BRAZZ\\Arcade-CrystalSystem_MiSTer\\sim\\obj_dir\\timing\\1791181838631412400\\timing_audit.log",
+    "audit_script_sha256": "1031578eac9ea14babde51ff874f1ef1da90dc0d6e8d202f1821014b6f883100",
+    "corners": [
+      {
+        "model": "Slow 1100mV 100C Model",
+        "setup": {
+          "slack_ns": -0.27,
+          "report": "D:\\Arcade\\AI\\aCORES\\BRAZZ\\Arcade-CrystalSystem_MiSTer\\sim\\obj_dir\\timing\\1791181838631412400\\timing_paths\\corner0_setup.rpt",
+          "from_node": "clk",
+          "to_node": "sdram_clk~reg0",
+          "data_delay": "9.506"
+        },
+        "hold": {
+          "slack_ns": 0.336,
+          "report": "D:\\Arcade\\AI\\aCORES\\BRAZZ\\Arcade-CrystalSystem_MiSTer\\sim\\obj_dir\\timing\\1791181838631412400\\timing_paths\\corner0_hold.rpt",
+          "from_node": "cs_sdram_backend:core|sdram_axi_core:controller|dqm_buffer_q[0]",
+          "to_node": "cs_sdram_backend:core|sdram_axi_core:controller|dqm_q[0]",
+          "data_delay": "0.456"
+        },
+        "internal_setup": {
+          "slack_ns": 3.532,
+          "report": "D:\\Arcade\\AI\\aCORES\\BRAZZ\\Arcade-CrystalSystem_MiSTer\\sim\\obj_dir\\timing\\1791181838631412400\\timing_paths\\corner0_internal_setup.rpt",
+          "from_node": "core_req_offset[10]",
+          "to_node": "cs_sdram_backend:core|sdram_axi_core:controller|delay_state_q.STATE_ACTIVATE",
+          "data_delay": "7.508"
+        },
+        "internal_hold": {
+          "slack_ns": 0.336,
+          "report": "D:\\Arcade\\AI\\aCORES\\BRAZZ\\Arcade-CrystalSystem_MiSTer\\sim\\obj_dir\\timing\\1791181838631412400\\timing_paths\\corner0_internal_hold.rpt",
+          "from_node": "cs_sdram_backend:core|sdram_axi_core:controller|dqm_buffer_q[0]",
+          "to_node": "cs_sdram_backend:core|sdram_axi_core:controller|dqm_q[0]",
+          "data_delay": "0.456"
+        }
+      },
+      {
+        "model": "Slow 1100mV -40C Model",
+        "setup": {
+          "slack_ns": 0.321,
+          "report": "D:\\Arcade\\AI\\aCORES\\BRAZZ\\Arcade-CrystalSystem_MiSTer\\sim\\obj_dir\\timing\\1791181838631412400\\timing_paths\\corner1_setup.rpt",
+          "from_node": "clk",
+          "to_node": "sdram_clk~reg0",
+          "data_delay": "8.973"
+        },
+        "hold": {
+          "slack_ns": -0.077,
+          "report": "D:\\Arcade\\AI\\aCORES\\BRAZZ\\Arcade-CrystalSystem_MiSTer\\sim\\obj_dir\\timing\\1791181838631412400\\timing_paths\\corner1_hold.rpt",
+          "from_node": "clk",
+          "to_node": "sdram_clk~reg0",
+          "data_delay": "6.086"
+        },
+        "internal_setup": {
+          "slack_ns": 3.716,
+          "report": "D:\\Arcade\\AI\\aCORES\\BRAZZ\\Arcade-CrystalSystem_MiSTer\\sim\\obj_dir\\timing\\1791181838631412400\\timing_paths\\corner1_internal_setup.rpt",
+          "from_node": "core_req_offset[10]",
+          "to_node": "cs_sdram_backend:core|sdram_axi_core:controller|delay_state_q.STATE_WRITE0",
+          "data_delay": "7.332"
+        },
+        "internal_hold": {
+          "slack_ns": 0.316,
+          "report": "D:\\Arcade\\AI\\aCORES\\BRAZZ\\Arcade-CrystalSystem_MiSTer\\sim\\obj_dir\\timing\\1791181838631412400\\timing_paths\\corner1_internal_hold.rpt",
+          "from_node": "cs_sdram_backend:core|sdram_axi_core:controller|dqm_buffer_q[0]",
+          "to_node": "cs_sdram_backend:core|sdram_axi_core:controller|dqm_q[0]",
+          "data_delay": "0.425"
+        }
+      },
+      {
+        "model": "Fast 1100mV 100C Model",
+        "setup": {
+          "slack_ns": 1.341,
+          "report": "D:\\Arcade\\AI\\aCORES\\BRAZZ\\Arcade-CrystalSystem_MiSTer\\sim\\obj_dir\\timing\\1791181838631412400\\timing_paths\\corner2_setup.rpt",
+          "from_node": "clk",
+          "to_node": "sdram_clk~reg0",
+          "data_delay": "6.154"
+        },
+        "hold": {
+          "slack_ns": 0.148,
+          "report": "D:\\Arcade\\AI\\aCORES\\BRAZZ\\Arcade-CrystalSystem_MiSTer\\sim\\obj_dir\\timing\\1791181838631412400\\timing_paths\\corner2_hold.rpt",
+          "from_node": "core_req_offset[14]",
+          "to_node": "cs_sdram_backend:core|sdram_axi_core:controller|active_row_q[0][2]",
+          "data_delay": "0.372"
+        },
+        "internal_setup": {
+          "slack_ns": 7.425,
+          "report": "D:\\Arcade\\AI\\aCORES\\BRAZZ\\Arcade-CrystalSystem_MiSTer\\sim\\obj_dir\\timing\\1791181838631412400\\timing_paths\\corner2_internal_setup.rpt",
+          "from_node": "cs_sdram_backend:core|sdram_axi_core:controller|active_row_q[2][3]",
+          "to_node": "cs_sdram_backend:core|sdram_axi_core:controller|delay_state_q.STATE_ACTIVATE",
+          "data_delay": "4.103"
+        },
+        "internal_hold": {
+          "slack_ns": 0.148,
+          "report": "D:\\Arcade\\AI\\aCORES\\BRAZZ\\Arcade-CrystalSystem_MiSTer\\sim\\obj_dir\\timing\\1791181838631412400\\timing_paths\\corner2_internal_hold.rpt",
+          "from_node": "core_req_offset[14]",
+          "to_node": "cs_sdram_backend:core|sdram_axi_core:controller|active_row_q[0][2]",
+          "data_delay": "0.372"
+        }
+      },
+      {
+        "model": "Fast 1100mV -40C Model",
+        "setup": {
+          "slack_ns": 2.438,
+          "report": "D:\\Arcade\\AI\\aCORES\\BRAZZ\\Arcade-CrystalSystem_MiSTer\\sim\\obj_dir\\timing\\1791181838631412400\\timing_paths\\corner3_setup.rpt",
+          "from_node": "clk",
+          "to_node": "sdram_clk~reg0",
+          "data_delay": "4.940"
+        },
+        "hold": {
+          "slack_ns": 0.128,
+          "report": "D:\\Arcade\\AI\\aCORES\\BRAZZ\\Arcade-CrystalSystem_MiSTer\\sim\\obj_dir\\timing\\1791181838631412400\\timing_paths\\corner3_hold.rpt",
+          "from_node": "core_req_offset[14]",
+          "to_node": "cs_sdram_backend:core|sdram_axi_core:controller|active_row_q[0][2]",
+          "data_delay": "0.345"
+        },
+        "internal_setup": {
+          "slack_ns": 8.086,
+          "report": "D:\\Arcade\\AI\\aCORES\\BRAZZ\\Arcade-CrystalSystem_MiSTer\\sim\\obj_dir\\timing\\1791181838631412400\\timing_paths\\corner3_internal_setup.rpt",
+          "from_node": "core_req_offset[11]",
+          "to_node": "cs_sdram_backend:core|sdram_axi_core:controller|delay_state_q.STATE_IDLE",
+          "data_delay": "3.272"
+        },
+        "internal_hold": {
+          "slack_ns": 0.128,
+          "report": "D:\\Arcade\\AI\\aCORES\\BRAZZ\\Arcade-CrystalSystem_MiSTer\\sim\\obj_dir\\timing\\1791181838631412400\\timing_paths\\corner3_internal_hold.rpt",
+          "from_node": "core_req_offset[14]",
+          "to_node": "cs_sdram_backend:core|sdram_axi_core:controller|active_row_q[0][2]",
+          "data_delay": "0.345"
+        }
+      }
+    ],
+    "unconstrained": {
+      "Illegal Clocks": [
+        0,
+        0
+      ],
+      "Unconstrained Clocks": [
+        0,
+        0
+      ],
+      "Unconstrained Input Port Paths": [
+        0,
+        0
+      ],
+      "Unconstrained Input Ports": [
+        0,
+        0
+      ],
+      "Unconstrained Output Port Paths": [
+        0,
+        0
+      ],
+      "Unconstrained Output Ports": [
+        0,
+        0
+      ]
+    },
+    "fully_constrained": true,
+    "internal_status": "INTERNAL_PASS",
+    "status": "AUDIT_FAIL"
+  }
+}

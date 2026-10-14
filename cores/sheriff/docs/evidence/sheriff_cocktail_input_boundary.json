@@ -1,0 +1,94 @@
+{
+  "scope": "First shared-input read discrepancy in the finite cocktail scenario.",
+  "receipt": {
+    "exit_code": 0,
+    "finished_utc": "2026-10-09T17:01:52.8652992Z",
+    "process_id": 22684,
+    "frames_requested": 3802,
+    "started_utc": "2026-10-09T17:01:30.9680436Z",
+    "lua_sha256": "5E214EC7ED3DBF63C7550F87EBF6E967EA4E52688500E30923DB5B50B6665481",
+    "launcher_sha256": "3E8937DC09367ABE0194417F6D959B06AE5F06E4A6844CC55B2EC3E2D5E7F96B"
+  },
+  "unchanged_reference_IO_prefix": true,
+  "reference_event_order": {
+    "read_before_callback": {
+      "sequence": "597964",
+      "time": "61.765082837209",
+      "frame": "3799",
+      "y": "240",
+      "x": "18",
+      "kind": "in",
+      "event_frame": "",
+      "p0": "0",
+      "p1": "66",
+      "p2": "0",
+      "dip": "124",
+      "address": "2",
+      "data": "0",
+      "pc": "2288"
+    },
+    "input_callback": {
+      "sequence": "597965",
+      "time": "61.765079364862",
+      "frame": "3800",
+      "y": "240",
+      "x": "0",
+      "kind": "apply",
+      "event_frame": "3800",
+      "p0": "0",
+      "p1": "66",
+      "p2": "1",
+      "dip": "124",
+      "address": "",
+      "data": "",
+      "pc": "2288"
+    },
+    "read_after_callback": {
+      "sequence": "597966",
+      "time": "61.765139880859",
+      "frame": "3800",
+      "y": "240",
+      "x": "305",
+      "kind": "in",
+      "event_frame": "",
+      "p0": "0",
+      "p1": "66",
+      "p2": "1",
+      "dip": "124",
+      "address": "2",
+      "data": "1",
+      "pc": "737"
+    }
+  },
+  "native_read": {
+    "tick": "3112960177",
+    "frame": "3800",
+    "y": "240",
+    "x": "16",
+    "kind": "in",
+    "address": "514",
+    "data": "1",
+    "status": "66",
+    "inte": "1"
+  },
+  "CPU_local_time_ahead_of_input_callback_master_clocks": 175.00628898687864,
+  "explanation": "MAME dispatches a CPU-local future I/O read before the frame callback updates the external input. Native samples the updated pin after the raster boundary.",
+  "evidence_sha256": {
+    "D:/Arcade/AI/aCORES/sherrif/tools/record_cocktail_input_boundary.py": "d96915bb0fc54c1025dbb379840d1eb3421fdadd578038f324421fab740e90a0",
+    "sim/results/cocktail-input-boundary-mame-20261010/exit.json": "151c838aab0bf50ec834c9556b1e462193478e8cb96bac1ae08ea9675872d914",
+    "sim/results/cocktail-input-boundary-mame-20261010/input_observations.csv": "9974ddf07689f7713ef6d7b170cf09154b92b1cdc4419fc5438337e64ad557d5",
+    "sim/results/cocktail-input-boundary-mame-20261010/io.csv": "5d49915140b85ddd6b964b4346720a63e7b702161861e6990ac1c12729d3cf5c",
+    "docs/evidence/sheriff_current_cocktail.json": "22170f443cc16e2fc16a40eb95340f5373b961542c765a9ebc1db28e66835e46",
+    "sim/board_harness.cpp": "6e18f5ee13a910d8d280aa973fb59875feb6bf45b9b396e3875175d6842cd02a",
+    "sim/mame_capture.lua": "5e214ec7ed3dbf63c7550f87ebf6e967ea4e52688500e30923db5b50b6665481",
+    "tools/mame_capture.ps1": "3e8937dc09367abe0194417f6d959b06ae5f06e4a6844cc55b2ec3e2d5e7f96b"
+  },
+  "first_difference_explained": true,
+  "limitations": [
+    "One callback-ordering boundary; not a complete CPU/RAM/I/O qualification.",
+    "No RTL offset, stream realignment or altered frozen inputs applied.",
+    "Captured-field graphics results retain their original finite scope."
+  ],
+  "release_qualified": false,
+  "rbf_built": false
+}

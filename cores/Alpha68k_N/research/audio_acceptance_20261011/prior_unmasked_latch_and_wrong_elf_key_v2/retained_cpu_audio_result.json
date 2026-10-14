@@ -1,0 +1,400 @@
+{
+  "scope": "Finite actual CPU-produced event comparison; live prefix only, no terminal receipt or semantic hit/jump/pickup claim.",
+  "live_complete_fields": 2588,
+  "build_actual_exit": 0,
+  "build_receipt_sha256": "ac7571775c74b5372c6437dcc788780ef9ef9fca921c99cf99bb6c875b420285",
+  "actual_elf_sha256": "9315e2530060034cd1cae053574c3109f3bb1c3669e1f7ac94685089cc75fbaa",
+  "build_elf_pin_equal": false,
+  "current_source_bindings": {
+    "rtl/alpha68kn_board.sv": true,
+    "rtl/alpha68kn_renderer.sv": true,
+    "rtl/alpha68kn_video_rom.sv": true,
+    "rtl/alpha68kn_gfxmem.sv": true,
+    "rtl/alpha68kn_system.sv": true,
+    "rtl/alpha68kn_audio.sv": true,
+    "rtl/alpha68kn_soundchips.sv": true,
+    "rtl/alpha68kn_mixer.sv": true,
+    "rtl/vendor/fx68k/fx68k.sv": true,
+    "rtl/vendor/fx68k/fx68kAlu.sv": true,
+    "rtl/vendor/fx68k/uaddrPla.sv": true,
+    "rtl/vendor/t80/T80s.v": true,
+    "rtl/vendor/jtframe_sdram/jtframe_sdram64.v": true,
+    "rtl/vendor/jtframe_sdram/jtframe_sdram64_bank.v": true,
+    "rtl/vendor/jtframe_sdram/jtframe_sdram64_init.v": true,
+    "rtl/vendor/jtframe_sdram/jtframe_sdram64_latch.v": true,
+    "rtl/vendor/jtframe_sdram/jtframe_sdram64_rfsh.v": true,
+    "rtl/vendor/jt12/hdl/jt03.v": true,
+    "rtl/vendor/jt12/hdl/jt03_acc.v": true,
+    "rtl/vendor/jt12/hdl/jt12_csr.v": true,
+    "rtl/vendor/jt12/hdl/jt12_div.v": true,
+    "rtl/vendor/jt12/hdl/jt12_dout.v": true,
+    "rtl/vendor/jt12/hdl/jt12_eg.v": true,
+    "rtl/vendor/jt12/hdl/jt12_eg_cnt.v": true,
+    "rtl/vendor/jt12/hdl/jt12_eg_comb.v": true,
+    "rtl/vendor/jt12/hdl/jt12_eg_ctrl.v": true,
+    "rtl/vendor/jt12/hdl/jt12_eg_final.v": true,
+    "rtl/vendor/jt12/hdl/jt12_eg_pure.v": true,
+    "rtl/vendor/jt12/hdl/jt12_eg_step.v": true,
+    "rtl/vendor/jt12/hdl/jt12_exprom.v": true,
+    "rtl/vendor/jt12/hdl/jt12_kon.v": true,
+    "rtl/vendor/jt12/hdl/jt12_lfo.v": true,
+    "rtl/vendor/jt12/hdl/jt12_logsin.v": true,
+    "rtl/vendor/jt12/hdl/jt12_mmr.v": true,
+    "rtl/vendor/jt12/hdl/jt12_mod.v": true,
+    "rtl/vendor/jt12/hdl/jt12_op.v": true,
+    "rtl/vendor/jt12/hdl/jt12_pg.v": true,
+    "rtl/vendor/jt12/hdl/jt12_pg_comb.v": true,
+    "rtl/vendor/jt12/hdl/jt12_pg_dt.v": true,
+    "rtl/vendor/jt12/hdl/jt12_pg_inc.v": true,
+    "rtl/vendor/jt12/hdl/jt12_pg_sum.v": true,
+    "rtl/vendor/jt12/hdl/jt12_pm.v": true,
+    "rtl/vendor/jt12/hdl/jt12_reg.v": true,
+    "rtl/vendor/jt12/hdl/jt12_reg_ch.v": true,
+    "rtl/vendor/jt12/hdl/jt12_sh.v": true,
+    "rtl/vendor/jt12/hdl/jt12_sh24.v": true,
+    "rtl/vendor/jt12/hdl/jt12_sh_rst.v": true,
+    "rtl/vendor/jt12/hdl/jt12_single_acc.v": true,
+    "rtl/vendor/jt12/hdl/jt12_sumch.v": true,
+    "rtl/vendor/jt12/hdl/jt12_timers.v": true,
+    "rtl/vendor/jt12/hdl/jt12_top.v": true,
+    "rtl/vendor/jt12/jt49/hdl/jt49.v": true,
+    "rtl/vendor/jt12/jt49/hdl/jt49_bus.v": true,
+    "rtl/vendor/jt12/jt49/hdl/jt49_cen.v": true,
+    "rtl/vendor/jt12/jt49/hdl/jt49_div.v": true,
+    "rtl/vendor/jt12/jt49/hdl/jt49_eg.v": true,
+    "rtl/vendor/jt12/jt49/hdl/jt49_exp.v": true,
+    "rtl/vendor/jt12/jt49/hdl/jt49_noise.v": true,
+    "rtl/vendor/ay49/hdl/a68n_ay49.v": true,
+    "rtl/vendor/ay49/hdl/a68n_ay49_bus.v": true,
+    "rtl/vendor/ay49/hdl/a68n_ay49_cen.v": true,
+    "rtl/vendor/ay49/hdl/a68n_ay49_div.v": true,
+    "rtl/vendor/ay49/hdl/a68n_ay49_eg.v": true,
+    "rtl/vendor/ay49/hdl/a68n_ay49_exp.v": true,
+    "rtl/vendor/ay49/hdl/a68n_ay49_noise.v": true,
+    "sim/system_main.cpp": true,
+    "sim/sdram_model.h": true,
+    "rtl/vendor/fx68k/microrom.mem": true,
+    "rtl/vendor/fx68k/nanorom.mem": true
+  },
+  "pairs": [
+    {
+      "name": "merged_lifecycle_finite_prefix",
+      "fields": 2588,
+      "comparisons": {
+        "YM": {
+          "reference_count": 6438,
+          "native_count": 6438,
+          "nonvacuous": true,
+          "ordered_address_data_equal": true,
+          "field_label_differences": 0,
+          "first_difference_index": null,
+          "reference_first": null,
+          "native_first": null,
+          "reference_sequence_sha256": "838cfbc4688d19506e63c66e8e9082031a8ac8fcccb623449778d4d889fb34ca",
+          "native_sequence_sha256": "838cfbc4688d19506e63c66e8e9082031a8ac8fcccb623449778d4d889fb34ca"
+        },
+        "AY1": {
+          "reference_count": 1922,
+          "native_count": 1922,
+          "nonvacuous": true,
+          "ordered_address_data_equal": true,
+          "field_label_differences": 0,
+          "first_difference_index": null,
+          "reference_first": null,
+          "native_first": null,
+          "reference_sequence_sha256": "ea84969644a024ef43afa412f5bf06846415a2f9be20a7c86e13fdca50067941",
+          "native_sequence_sha256": "ea84969644a024ef43afa412f5bf06846415a2f9be20a7c86e13fdca50067941"
+        },
+        "AY2": {
+          "reference_count": 2248,
+          "native_count": 2248,
+          "nonvacuous": true,
+          "ordered_address_data_equal": true,
+          "field_label_differences": 0,
+          "first_difference_index": null,
+          "reference_first": null,
+          "native_first": null,
+          "reference_sequence_sha256": "eaa876ab7058cc9530b8aba0cca511189ff5fe8bdce7e060c33ef7cb97e9e153",
+          "native_sequence_sha256": "eaa876ab7058cc9530b8aba0cca511189ff5fe8bdce7e060c33ef7cb97e9e153"
+        },
+        "DAC": {
+          "reference_count": 32091,
+          "native_count": 32091,
+          "nonvacuous": true,
+          "ordered_address_data_equal": true,
+          "field_label_differences": 0,
+          "first_difference_index": null,
+          "reference_first": null,
+          "native_first": null,
+          "reference_sequence_sha256": "84e8d6f43bea82612fdb54bcc8eccc86fbb19133f65d59742bd5cc2952fd9557",
+          "native_sequence_sha256": "84e8d6f43bea82612fdb54bcc8eccc86fbb19133f65d59742bd5cc2952fd9557"
+        },
+        "latch": {
+          "reference_count": 21,
+          "native_count": 21,
+          "nonvacuous": true,
+          "ordered_address_data_equal": false,
+          "field_label_differences": 0,
+          "first_difference_index": 0,
+          "reference_first": {
+            "frame": "60",
+            "screen_frame": "60",
+            "area": "sound_latch_write",
+            "address": "917504",
+            "data": "4112",
+            "mask": "65280",
+            "vpos": "97"
+          },
+          "native_first": {
+            "tick": "49033234",
+            "frame": "60",
+            "raster_x": "131",
+            "raster_y": "97",
+            "address": "917504",
+            "iack": "0",
+            "rw": "0",
+            "uds_n": "0",
+            "lds_n": "1",
+            "data_out": "4112",
+            "data_in": "52991",
+            "data": "4096"
+          },
+          "reference_sequence_sha256": "bbee176c1be56c0112fac7ed447a825354082084a86cb601f8a1ddd1bd9056b5",
+          "native_sequence_sha256": "c3362f41e81a8a38c2dd80169c10f6a3b3c1b299a5fa8f021afedaf2f14bf128"
+        },
+        "global_ports": {
+          "reference_count": 10608,
+          "native_count": 10608,
+          "nonvacuous": true,
+          "ordered_address_data_equal": true,
+          "field_label_differences": 0,
+          "first_difference_index": null,
+          "reference_first": null,
+          "native_first": null,
+          "reference_sequence_sha256": "194cfc8e7036561de7e153d2dbe55183443a06111235e4aae92210dc6a6839cb",
+          "native_sequence_sha256": "194cfc8e7036561de7e153d2dbe55183443a06111235e4aae92210dc6a6839cb"
+        }
+      },
+      "native_event_kinds": [
+        "dac",
+        "write"
+      ],
+      "native_directory": "D:\\Arcade\\AI\\aCORES\\Alpha68k N\\sim\\captures\\rtl\\kyros_merged_lifecycle_v2",
+      "reference_directory": "D:\\Arcade\\AI\\aCORES\\Alpha68k N\\sim\\captures\\kyros\\idle_death_restart_actions4401"
+    },
+    {
+      "name": "combat3301_retained_DAC",
+      "fields": 3301,
+      "comparisons": {
+        "YM": {
+          "reference_count": 9322,
+          "native_count": 9322,
+          "nonvacuous": true,
+          "ordered_address_data_equal": true,
+          "field_label_differences": 7,
+          "first_difference_index": null,
+          "reference_first": null,
+          "native_first": null,
+          "reference_sequence_sha256": "8c646db4b329bdcb0693330ffff9889497da242336c3374c58ac5a47843fbff2",
+          "native_sequence_sha256": "8c646db4b329bdcb0693330ffff9889497da242336c3374c58ac5a47843fbff2"
+        },
+        "AY1": {
+          "reference_count": 2818,
+          "native_count": 2818,
+          "nonvacuous": true,
+          "ordered_address_data_equal": true,
+          "field_label_differences": 0,
+          "first_difference_index": null,
+          "reference_first": null,
+          "native_first": null,
+          "reference_sequence_sha256": "72c0917144612575b89032cd13e92d869f05b3e51c3233c14ccb61af32be19b2",
+          "native_sequence_sha256": "72c0917144612575b89032cd13e92d869f05b3e51c3233c14ccb61af32be19b2"
+        },
+        "AY2": {
+          "reference_count": 7732,
+          "native_count": 7732,
+          "nonvacuous": true,
+          "ordered_address_data_equal": true,
+          "field_label_differences": 0,
+          "first_difference_index": null,
+          "reference_first": null,
+          "native_first": null,
+          "reference_sequence_sha256": "c815ec2c3dced47a04c4ba7e03eecec3a87fbf2311f2afc54893c8fd8ed6c5e4",
+          "native_sequence_sha256": "c815ec2c3dced47a04c4ba7e03eecec3a87fbf2311f2afc54893c8fd8ed6c5e4"
+        },
+        "DAC": {
+          "reference_count": 32091,
+          "native_count": 32091,
+          "nonvacuous": true,
+          "ordered_address_data_equal": true,
+          "field_label_differences": 0,
+          "first_difference_index": null,
+          "reference_first": null,
+          "native_first": null,
+          "reference_sequence_sha256": "84e8d6f43bea82612fdb54bcc8eccc86fbb19133f65d59742bd5cc2952fd9557",
+          "native_sequence_sha256": "84e8d6f43bea82612fdb54bcc8eccc86fbb19133f65d59742bd5cc2952fd9557"
+        },
+        "latch": {
+          "reference_count": 134,
+          "native_count": 134,
+          "nonvacuous": true,
+          "ordered_address_data_equal": false,
+          "field_label_differences": 0,
+          "first_difference_index": 0,
+          "reference_first": {
+            "frame": "60",
+            "screen_frame": "60",
+            "area": "sound_latch_write",
+            "address": "917504",
+            "data": "4112",
+            "mask": "65280",
+            "vpos": "97",
+            "hpos": "113",
+            "master_ticks": "49033095"
+          },
+          "native_first": {
+            "tick": "49033234",
+            "frame": "60",
+            "raster_x": "131",
+            "raster_y": "97",
+            "address": "917504",
+            "iack": "0",
+            "rw": "0",
+            "uds_n": "0",
+            "lds_n": "1",
+            "data_out": "4112",
+            "data_in": "36607",
+            "data": "4096"
+          },
+          "reference_sequence_sha256": "6e096cc5207dbe7d5bfb888ba51fb31914b11222906e7217211551ecca12bce9",
+          "native_sequence_sha256": "e10d69094acb3ff10f928e4303563f163c53a339d70c733883f7b632ba1a183f"
+        },
+        "global_ports": {
+          "reference_count": 19872,
+          "native_count": 19872,
+          "nonvacuous": true,
+          "ordered_address_data_equal": false,
+          "field_label_differences": 7,
+          "first_difference_index": 896,
+          "reference_first": {
+            "frame": "787",
+            "screen_frame": "786",
+            "area": "sound_io",
+            "address": "16",
+            "data": "1",
+            "mask": "255",
+            "vpos": "240",
+            "hpos": "3",
+            "master_ticks": "638263320"
+          },
+          "native_first": {
+            "tick": "638285150",
+            "frame": "787",
+            "kind": "write",
+            "address": "145",
+            "data": "6"
+          },
+          "reference_sequence_sha256": "1f55c9f2fc192951274f620a9b4260b09350c06b10ea048d042e7fdebb3c9907",
+          "native_sequence_sha256": "b64bb148df78561329b5b5071085a360b7ebc92d4d6ff728ae21180720f7072c"
+        }
+      },
+      "native_event_kinds": [
+        "dac",
+        "write"
+      ],
+      "native_directory": "D:\\Arcade\\AI\\aCORES\\Alpha68k N\\sim\\captures\\rtl\\kyros_combat_hud3301",
+      "reference_directory": "D:\\Arcade\\AI\\aCORES\\Alpha68k N\\sim\\captures\\kyros\\combat3600_clocked"
+    }
+  ],
+  "same_field_input_differences": {
+    "count": 0,
+    "first_fields": [],
+    "native_to_reference_port_map": {
+      "controls": "in0",
+      "dips": "in1",
+      "coins_n": "in2"
+    },
+    "limit": "Same-field diagnostic only; recorder uses apply-after-snapshot epoch, not proof of invalid inputs."
+  },
+  "pins": [
+    {
+      "path": "D:\\Arcade\\AI\\aCORES\\Alpha68k N\\sim\\captures\\rtl\\kyros_merged_lifecycle_v2\\frames.csv",
+      "read_bytes": 198405,
+      "read_raw_prefix_sha256": "85d076f500a90f3ac383050f04900b6a8c865fe122c151099dc13ac497b3104d",
+      "finite_rows": 2588,
+      "normalized_selected_rows_sha256": "85d076f500a90f3ac383050f04900b6a8c865fe122c151099dc13ac497b3104d",
+      "frame_limit": null
+    },
+    {
+      "path": "D:\\Arcade\\AI\\aCORES\\Alpha68k N\\sim\\captures\\rtl\\kyros_merged_lifecycle_v2\\audio_events.csv",
+      "read_bytes": 1185512,
+      "read_raw_prefix_sha256": "bd73c173042685ef87e63c7cd224f66c98266e974e8d5ceabeee485d4fad2313",
+      "finite_rows": 42699,
+      "normalized_selected_rows_sha256": "bd73c173042685ef87e63c7cd224f66c98266e974e8d5ceabeee485d4fad2313",
+      "frame_limit": 2588
+    },
+    {
+      "path": "D:\\Arcade\\AI\\aCORES\\Alpha68k N\\sim\\captures\\kyros\\idle_death_restart_actions4401\\events.csv",
+      "read_bytes": 223092069,
+      "read_raw_prefix_sha256": "a373d95993112d7c628ea00d046667ef21ac8d97f2bde9a4e073f9c09345ca29",
+      "finite_rows": 42720,
+      "normalized_selected_rows_sha256": "64252a50e0d716b7bf46d6760e3a7636fd0c15947523ed2782ffb2fa967f04fe",
+      "frame_limit": 2588
+    },
+    {
+      "path": "D:\\Arcade\\AI\\aCORES\\Alpha68k N\\sim\\captures\\rtl\\kyros_merged_lifecycle_v2\\epoch_events.csv",
+      "read_bytes": 2426277,
+      "read_raw_prefix_sha256": "af94ac27abe29e1681838bdb5d0b89a60089bbec577c00b182243b31d942b13c",
+      "finite_rows": 21,
+      "normalized_selected_rows_sha256": "5d30a21b76b4e3ce1a923a22a197f0598c15cab255453b0a9f1429eb3820b8f4",
+      "frame_limit": 2588
+    },
+    {
+      "path": "D:\\Arcade\\AI\\aCORES\\Alpha68k N\\sim\\captures\\rtl\\kyros_combat_hud3301\\audio_events.csv",
+      "read_bytes": 1446582,
+      "read_raw_prefix_sha256": "2dbfcac1b29d4d2d8b32a8ae42d9c019012a3e763140606f966fddd8a2e60a17",
+      "finite_rows": 51963,
+      "normalized_selected_rows_sha256": "2dbfcac1b29d4d2d8b32a8ae42d9c019012a3e763140606f966fddd8a2e60a17",
+      "frame_limit": 3301
+    },
+    {
+      "path": "D:\\Arcade\\AI\\aCORES\\Alpha68k N\\sim\\captures\\kyros\\combat3600_clocked\\events.csv",
+      "read_bytes": 400894290,
+      "read_raw_prefix_sha256": "d140e1868939add26b8bbd62f2cda2182fc223b162beba7182084f62d2a6c870",
+      "finite_rows": 52097,
+      "normalized_selected_rows_sha256": "e24dde39b77e86a5d2689c1f50ee80318196a82b383d3e5434284a214c8967c3",
+      "frame_limit": 3301
+    },
+    {
+      "path": "D:\\Arcade\\AI\\aCORES\\Alpha68k N\\sim\\captures\\rtl\\kyros_combat_hud3301\\epoch_events.csv",
+      "read_bytes": 2871840,
+      "read_raw_prefix_sha256": "19c26f30396d0429e673c3e5100735573b30cee0abc95de5c2d33611fd0c2597",
+      "finite_rows": 134,
+      "normalized_selected_rows_sha256": "e8bf9ab3186e073a3892790cad028567909c9441ded761258b2a0fb3323a3ce8",
+      "frame_limit": 3301
+    },
+    {
+      "path": "D:\\Arcade\\AI\\aCORES\\Alpha68k N\\sim\\captures\\rtl\\kyros_merged_lifecycle_v2\\applied_inputs.csv",
+      "read_bytes": 90763,
+      "read_raw_prefix_sha256": "49324036a3ad36442fb4680ee877987474d8999ddb899fc07fc39c29fcabfcd4",
+      "finite_rows": 2589,
+      "normalized_selected_rows_sha256": "49324036a3ad36442fb4680ee877987474d8999ddb899fc07fc39c29fcabfcd4",
+      "frame_limit": 2588
+    },
+    {
+      "path": "D:\\Arcade\\AI\\aCORES\\Alpha68k N\\sim\\captures\\kyros\\idle_death_restart_actions4401\\frame_states.csv",
+      "read_bytes": 93910,
+      "read_raw_prefix_sha256": "4d8b922bbffdf1445441ef3680dc94298740d797c8604fa3e33c8675e305f810",
+      "finite_rows": 2588,
+      "normalized_selected_rows_sha256": "3590bb05ae128be51e2c3f622988dc95564589e5787ca5b855f764919a557bb6",
+      "frame_limit": 2588
+    }
+  ],
+  "required_remaining": [
+    "Source-qualified successful hit/jump/pickup semantic windows; legal button pulses do not prove the effects.",
+    "Merged lifecycle actual terminal receipt and full audio sample/clipping/reset qualification.",
+    "Japan current-source replay/oracle epoch qualification; complete sound integration map/fit/STA.",
+    "B03-B06/B13 full phase gate remains open; physical listening reserved for P9."
+  ],
+  "full_P5_pass": false
+}

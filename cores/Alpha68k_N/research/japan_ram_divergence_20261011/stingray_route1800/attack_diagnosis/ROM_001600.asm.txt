@@ -1,0 +1,73 @@
+01600: 3280            move.w  D0, (A1)
+01602: 5549            subq.w  #2, A1
+01604: 60f2            bra     $15f8
+01606: 4e73            rte
+01608: 3140 0002       move.w  D0, ($2,A0)
+0160c: 5240            addq.w  #1, D0
+0160e: 3140 0000       move.w  D0, ($0,A0)
+01612: 5240            addq.w  #1, D0
+01614: 3140 ffc2       move.w  D0, (-$3e,A0)
+01618: 5240            addq.w  #1, D0
+0161a: 3140 ffc0       move.w  D0, (-$40,A0)
+0161e: 5240            addq.w  #1, D0
+01620: 4e73            rte
+01622: 48e7 0080       movem.l A0, -(A7)
+01626: 5848            addq.w  #4, A0
+01628: 4e42            trap    #$2
+0162a: 5948            subq.w  #4, A0
+0162c: 4e42            trap    #$2
+0162e: 41e8 ff84       lea     (-$7c,A0), A0
+01632: 4e42            trap    #$2
+01634: 5948            subq.w  #4, A0
+01636: 4e42            trap    #$2
+01638: 4cdf 0100       movem.l (A7)+, A0
+0163c: 4e73            rte
+0163e: 4e73            rte
+01640: 4e73            rte
+01642: 4e73            rte
+01644: 4e73            rte
+01646: 4e73            rte
+01648: 4e73            rte
+0164a: 4cdf 7fff       movem.l (A7)+, D0-D7/A0-A6
+0164e: 4fee 0ff8       lea     ($ff8,A6), A7
+01652: 46fc 2000       move    #$2000, SR
+01656: 4ef9 0000 1aa4  jmp     $1aa4.l
+0165c: 46fc 2700       move    #$2700, SR
+01660: 4ff9 0002 0ff8  lea     $20ff8.l, A7
+01666: 4efa 0790       jmp     ($1df8,PC)
+0166a: 44fc 00ff       move    #$ff, CCR
+0166e: 4eb9 0000 1d56  jsr     $1d56.l
+01674: 6100 0190       bsr     $1806
+01678: 46fc 2000       move    #$2000, SR
+0167c: 4eb9 0000 6ca6  jsr     $6ca6.l
+01682: 4eb9 0000 6bf6  jsr     $6bf6.l
+01688: 4ef9 0000 1aa4  jmp     $1aa4.l
+0168e: 082e 0000 000a  btst    #$0, ($a,A6)
+01694: 6602            bne     $1698
+01696: 4e75            rts
+01698: 48e7 f080       movem.l D0-D3/A0, -(A7)
+0169c: 4a2e 005b       tst.b   ($5b,A6)
+016a0: 6652            bne     $16f4
+016a2: 222e 0020       move.l  ($20,A6), D1
+016a6: 6100 013e       bsr     $17e6
+016aa: 48ee 0002 0020  movem.l D1, ($20,A6)
+016b0: 0c81 0099 9999  cmpi.l  #$999999, D1
+016b6: 6700 008c       beq     $1744
+016ba: 202e 0034       move.l  ($34,A6), D0
+016be: b280            cmp.l   D0, D1
+016c0: 6500 0082       bcs     $1744
+016c4: 223c 0000 7770  move.l  #$7770, D1
+016ca: 6100 011a       bsr     $17e6
+016ce: 2d41 0034       move.l  D1, ($34,A6)
+016d2: 102e 000e       move.b  ($e,A6), D0
+016d6: 5200            addq.b  #1, D0
+016d8: 1d40 000e       move.b  D0, ($e,A6)
+016dc: 6100 0620       bsr     $1cfe
+016e0: 4a2e 0004       tst.b   ($4,A6)
+016e4: 6706            beq     $16ec
+016e6: 426e 0006       clr.w   ($6,A6)
+016ea: 4e40            trap    #$0
+016ec: 1d7c 0051 0004  move.b  #$51, ($4,A6)
+016f2: 6050            bra     $1744
+016f4: 222e 0024       move.l  ($24,A6), D1
+016f8: 6100 00ec       bsr     $17e6

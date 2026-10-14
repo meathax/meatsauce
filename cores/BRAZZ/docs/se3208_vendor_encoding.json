@@ -1,0 +1,447 @@
+{
+  "scope": "Primary vendor tool encoding evidence only; control-register side effects unresolved",
+  "version": "GNU assembler 2.9.1",
+  "source": "http://www.adc.co.kr/download/EISC_Studio/ES3_setup3615.zip",
+  "tools": {
+    "scope": "Portable primary vendor assembler/runtime only; no SDK installation",
+    "source": "http://www.adc.co.kr/download/EISC_Studio/ES3_setup3615.zip",
+    "assembler_sha256": "92b82c18b13dde9720ba243e3aaf68f30db63477b1b5dd6ca99e9d9550b8c42d",
+    "objdump_sha256": "594d52675ece595fc622ec036fe9c2b27b377693c26bf668daa87c5c2b929478",
+    "runtime_sha256": "afa7d4f7aecf999e6d102bf586b400e6cd0408087119c03b15df9cb20f0632e9",
+    "runtime_zip_sha256": "0b0dcd18ce8ecedee8c671762d6cb2ecf9f4c03a9fd69b30d0319a40c4c607f1",
+    "pe_machine": "i386 (0x14c)",
+    "runtime_source_member": "bin/cygwin1.dll"
+  },
+  "canonical_cases": [
+    {
+      "opcode": "fc60",
+      "mnemonic": "mvtc",
+      "operand": 0,
+      "register": 0
+    },
+    {
+      "opcode": "fc61",
+      "mnemonic": "mvtc",
+      "operand": 0,
+      "register": 1
+    },
+    {
+      "opcode": "fc62",
+      "mnemonic": "mvtc",
+      "operand": 0,
+      "register": 2
+    },
+    {
+      "opcode": "fc63",
+      "mnemonic": "mvtc",
+      "operand": 0,
+      "register": 3
+    },
+    {
+      "opcode": "fc64",
+      "mnemonic": "mvtc",
+      "operand": 0,
+      "register": 4
+    },
+    {
+      "opcode": "fc65",
+      "mnemonic": "mvtc",
+      "operand": 0,
+      "register": 5
+    },
+    {
+      "opcode": "fc66",
+      "mnemonic": "mvtc",
+      "operand": 0,
+      "register": 6
+    },
+    {
+      "opcode": "fc67",
+      "mnemonic": "mvtc",
+      "operand": 0,
+      "register": 7
+    },
+    {
+      "opcode": "fd60",
+      "mnemonic": "mvtc",
+      "operand": 1,
+      "register": 0
+    },
+    {
+      "opcode": "fd61",
+      "mnemonic": "mvtc",
+      "operand": 1,
+      "register": 1
+    },
+    {
+      "opcode": "fd62",
+      "mnemonic": "mvtc",
+      "operand": 1,
+      "register": 2
+    },
+    {
+      "opcode": "fd63",
+      "mnemonic": "mvtc",
+      "operand": 1,
+      "register": 3
+    },
+    {
+      "opcode": "fd64",
+      "mnemonic": "mvtc",
+      "operand": 1,
+      "register": 4
+    },
+    {
+      "opcode": "fd65",
+      "mnemonic": "mvtc",
+      "operand": 1,
+      "register": 5
+    },
+    {
+      "opcode": "fd66",
+      "mnemonic": "mvtc",
+      "operand": 1,
+      "register": 6
+    },
+    {
+      "opcode": "fd67",
+      "mnemonic": "mvtc",
+      "operand": 1,
+      "register": 7
+    },
+    {
+      "opcode": "fe60",
+      "mnemonic": "mvtc",
+      "operand": 2,
+      "register": 0
+    },
+    {
+      "opcode": "fe61",
+      "mnemonic": "mvtc",
+      "operand": 2,
+      "register": 1
+    },
+    {
+      "opcode": "fe62",
+      "mnemonic": "mvtc",
+      "operand": 2,
+      "register": 2
+    },
+    {
+      "opcode": "fe63",
+      "mnemonic": "mvtc",
+      "operand": 2,
+      "register": 3
+    },
+    {
+      "opcode": "fe64",
+      "mnemonic": "mvtc",
+      "operand": 2,
+      "register": 4
+    },
+    {
+      "opcode": "fe65",
+      "mnemonic": "mvtc",
+      "operand": 2,
+      "register": 5
+    },
+    {
+      "opcode": "fe66",
+      "mnemonic": "mvtc",
+      "operand": 2,
+      "register": 6
+    },
+    {
+      "opcode": "fe67",
+      "mnemonic": "mvtc",
+      "operand": 2,
+      "register": 7
+    },
+    {
+      "opcode": "ff60",
+      "mnemonic": "mvtc",
+      "operand": 3,
+      "register": 0
+    },
+    {
+      "opcode": "ff61",
+      "mnemonic": "mvtc",
+      "operand": 3,
+      "register": 1
+    },
+    {
+      "opcode": "ff62",
+      "mnemonic": "mvtc",
+      "operand": 3,
+      "register": 2
+    },
+    {
+      "opcode": "ff63",
+      "mnemonic": "mvtc",
+      "operand": 3,
+      "register": 3
+    },
+    {
+      "opcode": "ff64",
+      "mnemonic": "mvtc",
+      "operand": 3,
+      "register": 4
+    },
+    {
+      "opcode": "ff65",
+      "mnemonic": "mvtc",
+      "operand": 3,
+      "register": 5
+    },
+    {
+      "opcode": "ff66",
+      "mnemonic": "mvtc",
+      "operand": 3,
+      "register": 6
+    },
+    {
+      "opcode": "ff67",
+      "mnemonic": "mvtc",
+      "operand": 3,
+      "register": 7
+    },
+    {
+      "opcode": "fc68",
+      "mnemonic": "mvfc",
+      "operand": 0,
+      "register": 0
+    },
+    {
+      "opcode": "fc69",
+      "mnemonic": "mvfc",
+      "operand": 0,
+      "register": 1
+    },
+    {
+      "opcode": "fc6a",
+      "mnemonic": "mvfc",
+      "operand": 0,
+      "register": 2
+    },
+    {
+      "opcode": "fc6b",
+      "mnemonic": "mvfc",
+      "operand": 0,
+      "register": 3
+    },
+    {
+      "opcode": "fc6c",
+      "mnemonic": "mvfc",
+      "operand": 0,
+      "register": 4
+    },
+    {
+      "opcode": "fc6d",
+      "mnemonic": "mvfc",
+      "operand": 0,
+      "register": 5
+    },
+    {
+      "opcode": "fc6e",
+      "mnemonic": "mvfc",
+      "operand": 0,
+      "register": 6
+    },
+    {
+      "opcode": "fc6f",
+      "mnemonic": "mvfc",
+      "operand": 0,
+      "register": 7
+    },
+    {
+      "opcode": "fd68",
+      "mnemonic": "mvfc",
+      "operand": 1,
+      "register": 0
+    },
+    {
+      "opcode": "fd69",
+      "mnemonic": "mvfc",
+      "operand": 1,
+      "register": 1
+    },
+    {
+      "opcode": "fd6a",
+      "mnemonic": "mvfc",
+      "operand": 1,
+      "register": 2
+    },
+    {
+      "opcode": "fd6b",
+      "mnemonic": "mvfc",
+      "operand": 1,
+      "register": 3
+    },
+    {
+      "opcode": "fd6c",
+      "mnemonic": "mvfc",
+      "operand": 1,
+      "register": 4
+    },
+    {
+      "opcode": "fd6d",
+      "mnemonic": "mvfc",
+      "operand": 1,
+      "register": 5
+    },
+    {
+      "opcode": "fd6e",
+      "mnemonic": "mvfc",
+      "operand": 1,
+      "register": 6
+    },
+    {
+      "opcode": "fd6f",
+      "mnemonic": "mvfc",
+      "operand": 1,
+      "register": 7
+    },
+    {
+      "opcode": "fe68",
+      "mnemonic": "mvfc",
+      "operand": 2,
+      "register": 0
+    },
+    {
+      "opcode": "fe69",
+      "mnemonic": "mvfc",
+      "operand": 2,
+      "register": 1
+    },
+    {
+      "opcode": "fe6a",
+      "mnemonic": "mvfc",
+      "operand": 2,
+      "register": 2
+    },
+    {
+      "opcode": "fe6b",
+      "mnemonic": "mvfc",
+      "operand": 2,
+      "register": 3
+    },
+    {
+      "opcode": "fe6c",
+      "mnemonic": "mvfc",
+      "operand": 2,
+      "register": 4
+    },
+    {
+      "opcode": "fe6d",
+      "mnemonic": "mvfc",
+      "operand": 2,
+      "register": 5
+    },
+    {
+      "opcode": "fe6e",
+      "mnemonic": "mvfc",
+      "operand": 2,
+      "register": 6
+    },
+    {
+      "opcode": "fe6f",
+      "mnemonic": "mvfc",
+      "operand": 2,
+      "register": 7
+    },
+    {
+      "opcode": "ff68",
+      "mnemonic": "mvfc",
+      "operand": 3,
+      "register": 0
+    },
+    {
+      "opcode": "ff69",
+      "mnemonic": "mvfc",
+      "operand": 3,
+      "register": 1
+    },
+    {
+      "opcode": "ff6a",
+      "mnemonic": "mvfc",
+      "operand": 3,
+      "register": 2
+    },
+    {
+      "opcode": "ff6b",
+      "mnemonic": "mvfc",
+      "operand": 3,
+      "register": 3
+    },
+    {
+      "opcode": "ff6c",
+      "mnemonic": "mvfc",
+      "operand": 3,
+      "register": 4
+    },
+    {
+      "opcode": "ff6d",
+      "mnemonic": "mvfc",
+      "operand": 3,
+      "register": 5
+    },
+    {
+      "opcode": "ff6e",
+      "mnemonic": "mvfc",
+      "operand": 3,
+      "register": 6
+    },
+    {
+      "opcode": "ff6f",
+      "mnemonic": "mvfc",
+      "operand": 3,
+      "register": 7
+    }
+  ],
+  "canonical_case_count": 64,
+  "formula": "opcode=0xfc60 | (first_operand<<8) | (read?8:0) | register",
+  "first_operand_bits": [
+    8,
+    9
+  ],
+  "register_bits": [
+    0,
+    2
+  ],
+  "direction_bit": 3,
+  "family_classification_counts": {
+    "ccmd": 256,
+    "getc": 64,
+    "exc": 64,
+    "mvtc": 32,
+    "mvfc": 32,
+    "unknown": 512,
+    "ldc": 32,
+    "stc": 32
+  },
+  "boot_words": {
+    "fc65": {
+      "opcode": 64613,
+      "mnemonic": "mvtc",
+      "operands": "0x0, %cr5"
+    },
+    "fc67": {
+      "opcode": 64615,
+      "mnemonic": "mvtc",
+      "operands": "0x0, %cr7"
+    },
+    "fc6e": {
+      "opcode": 64622,
+      "mnemonic": "mvfc",
+      "operands": "0x0, %cr6"
+    }
+  },
+  "matrix_sha256": "b737adc4f0d8994a83abf4c2407bd14a0f20bdbb3ff2ff4bc412a98a983f5c27",
+  "family_sha256": "b7a7e8bd59231b6de825451f3f5e5e3b7572cbbcec833ad30b30ad126a39d9fe",
+  "limits": [
+    "First operand meaning not inferred merely from encoding",
+    "Implicit payload register not proven by these tools",
+    "No CR5/CR6/CR7 effects or busy semantics proven",
+    "No boot bypass or state injection"
+  ]
+}

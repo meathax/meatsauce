@@ -1,0 +1,747 @@
+{
+  "scope": "Current-source full-emu Preflight fast boot with original installed models and explicit HPS gamma-disable command; not full gameplay qualification.",
+  "run": ".preflight\\runs\\20261009-143613",
+  "source_hash": "27436ef947949a4e",
+  "summary": {
+    "core": "Nintendo8080",
+    "verdict": "PASS",
+    "mode": "Fast run",
+    "n_runs": 4,
+    "profiles": [
+      "board",
+      "hostile"
+    ],
+    "seeds": "1..2",
+    "wall_s": 501.53554487228394,
+    "source_hash": "27436ef947949a4e",
+    "ladder": {
+      "Clocks": {
+        "state": "ok",
+        "note": "50.4 MHz"
+      },
+      "Reset": {
+        "state": "ok",
+        "note": "held by reboot() for 2.0 ms, released at the firmware's first command"
+      },
+      "ROM download": {
+        "state": "ok",
+        "note": "2 index(es), 18,456 bytes; ioctl_wait held 0 us"
+      },
+      "Memory": {
+        "state": "n/a",
+        "note": "SDRAM not used"
+      },
+      "Core activity": {
+        "state": "ok",
+        "note": "13 distinct frames after boot"
+      },
+      "Video timing": {
+        "state": "ok",
+        "note": "256x224, 15.75 kHz, 61.52 Hz, pixel clock 5.040 MHz"
+      },
+      "Picture": {
+        "state": "ok",
+        "note": "17 of 20 sampled frames show a picture"
+      },
+      "Audio": {
+        "state": "ok",
+        "note": "peak 4915, rms 3817.2"
+      },
+      "Inputs": {
+        "state": "risk",
+        "note": "no visible response to coin/start"
+      },
+      "Stability": {
+        "state": "ok",
+        "note": "4 runs agree"
+      }
+    },
+    "mra": "Sheriff.mra",
+    "video_mode": "256x224, 15.75 kHz, 61.52 Hz, pixel clock 5.040 MHz",
+    "next": "all clear in the fast tier; run preflight --full before building an RBF",
+    "limits": [
+      "timing after place-and-route (run --release)"
+    ],
+    "run_dir": ".preflight/runs/20261009-143613",
+    "rom_set": [
+      {
+        "index": 0,
+        "file": "D:\\Arcade\\AI\\aCORES\\sherrif\\.preflight\\cache\\roms\\rom_0.bin",
+        "bytes": 18432,
+        "md5": "e2889ae21c47ba9890c0fc403b78d07a",
+        "md5_expected": null,
+        "md5_ok": null,
+        "address": null,
+        "sources": [
+          {
+            "part": "sh.f1",
+            "zip": "sheriff.zip",
+            "bytes": 1024
+          },
+          {
+            "part": "sh.f2",
+            "zip": "sheriff.zip",
+            "bytes": 1024
+          },
+          {
+            "part": "sh.g1",
+            "zip": "sheriff.zip",
+            "bytes": 1024
+          },
+          {
+            "part": "sh.g2",
+            "zip": "sheriff.zip",
+            "bytes": 1024
+          },
+          {
+            "part": "sh.h1",
+            "zip": "sheriff.zip",
+            "bytes": 1024
+          },
+          {
+            "part": "sh.h2",
+            "zip": "sheriff.zip",
+            "bytes": 1024
+          },
+          {
+            "part": "sh.i1",
+            "zip": "sheriff.zip",
+            "bytes": 1024
+          },
+          {
+            "part": "sh.i2",
+            "zip": "sheriff.zip",
+            "bytes": 1024
+          },
+          {
+            "part": "sh.j1",
+            "zip": "sheriff.zip",
+            "bytes": 1024
+          },
+          {
+            "part": "(inline data)",
+            "bytes": 1
+          },
+          {
+            "part": "sh.snd",
+            "zip": "sheriff.zip",
+            "bytes": 1024
+          },
+          {
+            "part": "82s137.3l",
+            "zip": "sheriff.zip",
+            "bytes": 1024
+          }
+        ]
+      },
+      {
+        "index": 3,
+        "file": "D:\\Arcade\\AI\\aCORES\\sherrif\\.preflight\\cache\\roms\\rom_3.bin",
+        "bytes": 24,
+        "md5": "80b91d0d8b879545e59b6e84c258ab3c",
+        "md5_expected": "none",
+        "md5_ok": null,
+        "address": null,
+        "sources": [
+          {
+            "part": "(inline data)",
+            "bytes": 24
+          }
+        ]
+      }
+    ],
+    "out_rel": ".preflight/latest",
+    "primary_run": "board-s1",
+    "contact": "D:\\Arcade\\AI\\aCORES\\sherrif\\.preflight\\runs\\20261009-143613\\report\\contact.png",
+    "tiles": [
+      {
+        "tile": 1,
+        "frame": 0,
+        "t_ms": 28.7276,
+        "why": "boot finished",
+        "label": "black",
+        "png": "D:\\Arcade\\AI\\aCORES\\sherrif\\.preflight\\runs\\20261009-143613\\sim\\board-s1\\frames\\f000000.png"
+      },
+      {
+        "tile": 2,
+        "frame": 6,
+        "t_ms": 126.2514,
+        "why": "",
+        "label": "black",
+        "png": "D:\\Arcade\\AI\\aCORES\\sherrif\\.preflight\\runs\\20261009-143613\\sim\\board-s1\\frames\\f000006.png"
+      },
+      {
+        "tile": 3,
+        "frame": 18,
+        "t_ms": 321.299,
+        "why": "",
+        "label": "black",
+        "png": "D:\\Arcade\\AI\\aCORES\\sherrif\\.preflight\\runs\\20261009-143613\\sim\\board-s1\\frames\\f000018.png"
+      },
+      {
+        "tile": 4,
+        "frame": 24,
+        "t_ms": 418.8228,
+        "why": "first picture",
+        "label": "picture",
+        "png": "D:\\Arcade\\AI\\aCORES\\sherrif\\.preflight\\runs\\20261009-143613\\sim\\board-s1\\frames\\f000024.png"
+      },
+      {
+        "tile": 5,
+        "frame": 36,
+        "t_ms": 613.8704,
+        "why": "",
+        "label": "picture",
+        "png": "D:\\Arcade\\AI\\aCORES\\sherrif\\.preflight\\runs\\20261009-143613\\sim\\board-s1\\frames\\f000036.png"
+      },
+      {
+        "tile": 6,
+        "frame": 48,
+        "t_ms": 808.9181,
+        "why": "",
+        "label": "picture",
+        "png": "D:\\Arcade\\AI\\aCORES\\sherrif\\.preflight\\runs\\20261009-143613\\sim\\board-s1\\frames\\f000048.png"
+      },
+      {
+        "tile": 7,
+        "frame": 60,
+        "t_ms": 1003.9657,
+        "why": "",
+        "label": "picture",
+        "png": "D:\\Arcade\\AI\\aCORES\\sherrif\\.preflight\\runs\\20261009-143613\\sim\\board-s1\\frames\\f000060.png"
+      },
+      {
+        "tile": 8,
+        "frame": 72,
+        "t_ms": 1199.0133,
+        "why": "",
+        "label": "picture",
+        "png": "D:\\Arcade\\AI\\aCORES\\sherrif\\.preflight\\runs\\20261009-143613\\sim\\board-s1\\frames\\f000072.png"
+      },
+      {
+        "tile": 9,
+        "frame": 84,
+        "t_ms": 1394.0609,
+        "why": "",
+        "label": "picture",
+        "png": "D:\\Arcade\\AI\\aCORES\\sherrif\\.preflight\\runs\\20261009-143613\\sim\\board-s1\\frames\\f000084.png"
+      },
+      {
+        "tile": 10,
+        "frame": 96,
+        "t_ms": 1589.1085,
+        "why": "",
+        "label": "picture",
+        "png": "D:\\Arcade\\AI\\aCORES\\sherrif\\.preflight\\runs\\20261009-143613\\sim\\board-s1\\frames\\f000096.png"
+      },
+      {
+        "tile": 11,
+        "frame": 108,
+        "t_ms": 1784.1562,
+        "why": "",
+        "label": "picture",
+        "png": "D:\\Arcade\\AI\\aCORES\\sherrif\\.preflight\\runs\\20261009-143613\\sim\\board-s1\\frames\\f000108.png"
+      },
+      {
+        "tile": 12,
+        "frame": 119,
+        "t_ms": 1962.9498,
+        "why": "last frame",
+        "label": "picture",
+        "png": "D:\\Arcade\\AI\\aCORES\\sherrif\\.preflight\\runs\\20261009-143613\\sim\\board-s1\\frames\\f000119.png"
+      }
+    ],
+    "clip": "D:\\Arcade\\AI\\aCORES\\sherrif\\.preflight\\runs\\20261009-143613\\report\\boot.webp",
+    "raster": "D:\\Arcade\\AI\\aCORES\\sherrif\\.preflight\\runs\\20261009-143613\\report\\shots\\raster.png",
+    "spectrogram": "D:\\Arcade\\AI\\aCORES\\sherrif\\.preflight\\runs\\20261009-143613\\report\\audio\\spectrogram.png",
+    "audio": {
+      "samples": 94221,
+      "seconds": 1.963,
+      "peak": 4915,
+      "rms": 3817.2,
+      "clip_fraction": 0.0,
+      "dc": 2964.6,
+      "changes": 221,
+      "silent": false
+    },
+    "findings": [
+      {
+        "id": "F-001",
+        "severity": "info",
+        "class": "build.compat_patch",
+        "title": "A framework file needed a Verilator-only syntax fix",
+        "rung": "Clocks",
+        "likely_caused_by": null
+      }
+    ]
+  },
+  "findings": [
+    {
+      "class": "build.compat_patch",
+      "severity": "info",
+      "rung": "Clocks",
+      "title": "A framework file needed a Verilator-only syntax fix",
+      "detail": "sys/hps_io.sv: kbd_*/mouse_* declarations moved before first use (Verilator syntax only)",
+      "id": "F-001",
+      "dossier": ".preflight/runs/20261009-143613/report/findings/F-001/README.md",
+      "verify": "preflight verify F-001"
+    }
+  ],
+  "raw_cases": [
+    {
+      "name": "board-s1",
+      "summary": {
+        "stop_reason": "frames_after_boot",
+        "sim_ms": 1962.95,
+        "wall_s": 459.26,
+        "frames": 120,
+        "seed": 1,
+        "hps": {
+          "ops_done": 35,
+          "ops_total": 35,
+          "words": 19047,
+          "stalled_by_ioctl_wait_us": 0.0,
+          "confstr": "Nintendo8080;;F,Sheriff ROM;O[9:8],Lives,3,4,5,6;O[10],Cabinet,Upright,Cocktail;O[11],Aiming,Directions,Rotate;O[12],Orientation,Vertical,Horizontal;O[15:13],Scandoubler Fx,None,HQ2x,CRT 25%,CRT 50%,CRT 75%;O[16],CRT Adjust,Off,On;O[20:17],CRT H-Size,0,+1,+2,+3,+4,-1,-2,-3,-4;O[24:21],CRT H-Position,0,+4,+8,+12,+16,-4,-8,-12,-16;O[28:25],CRT V-Position,0,+1,+2,+3,+4,-1,-2,-3,-4;H0O[29],Autosave Hiscore,Off,On;J,Fire,Start 1,Start 2,Coin,Aim Right,Aim Left,Aim Up,Aim Down,Pause;T[0],Reset;R[0],Reset and close OSD;V,v261009"
+        },
+        "sdram": {
+          "used": false,
+          "cl": 0,
+          "burst": 1,
+          "init_ok": false,
+          "reads": 0,
+          "writes": 0,
+          "activates": 0,
+          "refreshes": 0,
+          "clock_mhz": 0.0,
+          "unwritten_reads": 0,
+          "unwritten_samples": [],
+          "violations": {}
+        },
+        "ddr3": {
+          "used": true,
+          "reads": 0,
+          "writes": 6766592
+        },
+        "audio_samples": 94221
+      },
+      "frames": 120,
+      "nonblack_frames": 96,
+      "boot_script_sha256": "abe90f4b6a913cea45f16fba9fd010d06a2e414a08cd6e116c96e625b68f08f6",
+      "gamma_disable_command_present": true,
+      "frames_jsonl_sha256": "6021da31751a7c628a1acd86e0fb9abbac01d5a14007fccb881113077f4f9f88"
+    },
+    {
+      "name": "board-s2",
+      "summary": {
+        "stop_reason": "frames_after_boot",
+        "sim_ms": 1962.95,
+        "wall_s": 461.81,
+        "frames": 120,
+        "seed": 2,
+        "hps": {
+          "ops_done": 35,
+          "ops_total": 35,
+          "words": 19047,
+          "stalled_by_ioctl_wait_us": 0.0,
+          "confstr": "Nintendo8080;;F,Sheriff ROM;O[9:8],Lives,3,4,5,6;O[10],Cabinet,Upright,Cocktail;O[11],Aiming,Directions,Rotate;O[12],Orientation,Vertical,Horizontal;O[15:13],Scandoubler Fx,None,HQ2x,CRT 25%,CRT 50%,CRT 75%;O[16],CRT Adjust,Off,On;O[20:17],CRT H-Size,0,+1,+2,+3,+4,-1,-2,-3,-4;O[24:21],CRT H-Position,0,+4,+8,+12,+16,-4,-8,-12,-16;O[28:25],CRT V-Position,0,+1,+2,+3,+4,-1,-2,-3,-4;H0O[29],Autosave Hiscore,Off,On;J,Fire,Start 1,Start 2,Coin,Aim Right,Aim Left,Aim Up,Aim Down,Pause;T[0],Reset;R[0],Reset and close OSD;V,v261009"
+        },
+        "sdram": {
+          "used": false,
+          "cl": 0,
+          "burst": 1,
+          "init_ok": false,
+          "reads": 0,
+          "writes": 0,
+          "activates": 0,
+          "refreshes": 0,
+          "clock_mhz": 0.0,
+          "unwritten_reads": 0,
+          "unwritten_samples": [],
+          "violations": {}
+        },
+        "ddr3": {
+          "used": true,
+          "reads": 0,
+          "writes": 6766592
+        },
+        "audio_samples": 94221
+      },
+      "frames": 120,
+      "nonblack_frames": 96,
+      "boot_script_sha256": "abe90f4b6a913cea45f16fba9fd010d06a2e414a08cd6e116c96e625b68f08f6",
+      "gamma_disable_command_present": true,
+      "frames_jsonl_sha256": "6021da31751a7c628a1acd86e0fb9abbac01d5a14007fccb881113077f4f9f88"
+    },
+    {
+      "name": "hostile-s1",
+      "summary": {
+        "stop_reason": "frames_after_boot",
+        "sim_ms": 1946.696,
+        "wall_s": 456.03,
+        "frames": 120,
+        "seed": 1,
+        "hps": {
+          "ops_done": 35,
+          "ops_total": 35,
+          "words": 19047,
+          "stalled_by_ioctl_wait_us": 0.0,
+          "confstr": "Nintendo8080;;F,Sheriff ROM;O[9:8],Lives,3,4,5,6;O[10],Cabinet,Upright,Cocktail;O[11],Aiming,Directions,Rotate;O[12],Orientation,Vertical,Horizontal;O[15:13],Scandoubler Fx,None,HQ2x,CRT 25%,CRT 50%,CRT 75%;O[16],CRT Adjust,Off,On;O[20:17],CRT H-Size,0,+1,+2,+3,+4,-1,-2,-3,-4;O[24:21],CRT H-Position,0,+4,+8,+12,+16,-4,-8,-12,-16;O[28:25],CRT V-Position,0,+1,+2,+3,+4,-1,-2,-3,-4;H0O[29],Autosave Hiscore,Off,On;J,Fire,Start 1,Start 2,Coin,Aim Right,Aim Left,Aim Up,Aim Down,Pause;T[0],Reset;R[0],Reset and close OSD;V,v261009"
+        },
+        "sdram": {
+          "used": false,
+          "cl": 0,
+          "burst": 1,
+          "init_ok": false,
+          "reads": 0,
+          "writes": 0,
+          "activates": 0,
+          "refreshes": 0,
+          "clock_mhz": 0.0,
+          "unwritten_reads": 0,
+          "unwritten_samples": [],
+          "violations": {}
+        },
+        "ddr3": {
+          "used": true,
+          "reads": 0,
+          "writes": 6709248
+        },
+        "audio_samples": 93441
+      },
+      "frames": 120,
+      "nonblack_frames": 96,
+      "boot_script_sha256": "abe90f4b6a913cea45f16fba9fd010d06a2e414a08cd6e116c96e625b68f08f6",
+      "gamma_disable_command_present": true,
+      "frames_jsonl_sha256": "5b827e2194fa8819be4e43bf39f45ec7d2b59c5cb740809e5666aba9542d53d4"
+    },
+    {
+      "name": "hostile-s2",
+      "summary": {
+        "stop_reason": "frames_after_boot",
+        "sim_ms": 1962.95,
+        "wall_s": 460.78,
+        "frames": 120,
+        "seed": 2,
+        "hps": {
+          "ops_done": 35,
+          "ops_total": 35,
+          "words": 19047,
+          "stalled_by_ioctl_wait_us": 0.0,
+          "confstr": "Nintendo8080;;F,Sheriff ROM;O[9:8],Lives,3,4,5,6;O[10],Cabinet,Upright,Cocktail;O[11],Aiming,Directions,Rotate;O[12],Orientation,Vertical,Horizontal;O[15:13],Scandoubler Fx,None,HQ2x,CRT 25%,CRT 50%,CRT 75%;O[16],CRT Adjust,Off,On;O[20:17],CRT H-Size,0,+1,+2,+3,+4,-1,-2,-3,-4;O[24:21],CRT H-Position,0,+4,+8,+12,+16,-4,-8,-12,-16;O[28:25],CRT V-Position,0,+1,+2,+3,+4,-1,-2,-3,-4;H0O[29],Autosave Hiscore,Off,On;J,Fire,Start 1,Start 2,Coin,Aim Right,Aim Left,Aim Up,Aim Down,Pause;T[0],Reset;R[0],Reset and close OSD;V,v261009"
+        },
+        "sdram": {
+          "used": false,
+          "cl": 0,
+          "burst": 1,
+          "init_ok": false,
+          "reads": 0,
+          "writes": 0,
+          "activates": 0,
+          "refreshes": 0,
+          "clock_mhz": 0.0,
+          "unwritten_reads": 0,
+          "unwritten_samples": [],
+          "violations": {}
+        },
+        "ddr3": {
+          "used": true,
+          "reads": 0,
+          "writes": 6823936
+        },
+        "audio_samples": 94221
+      },
+      "frames": 120,
+      "nonblack_frames": 96,
+      "boot_script_sha256": "abe90f4b6a913cea45f16fba9fd010d06a2e414a08cd6e116c96e625b68f08f6",
+      "gamma_disable_command_present": true,
+      "frames_jsonl_sha256": "d0d99a7695a3e4764e653da97cbf3a8a7d239792de5cfd3ff14b51f3446fe2fc"
+    }
+  ],
+  "attract_field_stability": [
+    {
+      "t_ms": 435.0768,
+      "all_present": true,
+      "hashes": [
+        "5fcdca55845209bc",
+        "5fcdca55845209bc",
+        "5fcdca55845209bc",
+        "5fcdca55845209bc"
+      ]
+    },
+    {
+      "t_ms": 451.3308,
+      "all_present": true,
+      "hashes": [
+        "5fcdca55845209bc",
+        "5fcdca55845209bc",
+        "5fcdca55845209bc",
+        "5fcdca55845209bc"
+      ]
+    },
+    {
+      "t_ms": 467.5847,
+      "all_present": true,
+      "hashes": [
+        "5fcdca55845209bc",
+        "5fcdca55845209bc",
+        "5fcdca55845209bc",
+        "5fcdca55845209bc"
+      ]
+    },
+    {
+      "t_ms": 483.8387,
+      "all_present": true,
+      "hashes": [
+        "5fcdca55845209bc",
+        "5fcdca55845209bc",
+        "5fcdca55845209bc",
+        "5fcdca55845209bc"
+      ]
+    },
+    {
+      "t_ms": 500.0927,
+      "all_present": true,
+      "hashes": [
+        "5fcdca55845209bc",
+        "5fcdca55845209bc",
+        "5fcdca55845209bc",
+        "5fcdca55845209bc"
+      ]
+    },
+    {
+      "t_ms": 516.3466,
+      "all_present": true,
+      "hashes": [
+        "5fcdca55845209bc",
+        "5fcdca55845209bc",
+        "5fcdca55845209bc",
+        "5fcdca55845209bc"
+      ]
+    },
+    {
+      "t_ms": 532.6006,
+      "all_present": true,
+      "hashes": [
+        "5fcdca55845209bc",
+        "5fcdca55845209bc",
+        "5fcdca55845209bc",
+        "5fcdca55845209bc"
+      ]
+    },
+    {
+      "t_ms": 548.8546,
+      "all_present": true,
+      "hashes": [
+        "5fcdca55845209bc",
+        "5fcdca55845209bc",
+        "5fcdca55845209bc",
+        "5fcdca55845209bc"
+      ]
+    },
+    {
+      "t_ms": 565.1085,
+      "all_present": true,
+      "hashes": [
+        "5fcdca55845209bc",
+        "5fcdca55845209bc",
+        "5fcdca55845209bc",
+        "5fcdca55845209bc"
+      ]
+    },
+    {
+      "t_ms": 581.3625,
+      "all_present": true,
+      "hashes": [
+        "5fcdca55845209bc",
+        "5fcdca55845209bc",
+        "5fcdca55845209bc",
+        "5fcdca55845209bc"
+      ]
+    },
+    {
+      "t_ms": 597.6165,
+      "all_present": true,
+      "hashes": [
+        "5fcdca55845209bc",
+        "5fcdca55845209bc",
+        "5fcdca55845209bc",
+        "5fcdca55845209bc"
+      ]
+    }
+  ],
+  "report_recovery": {
+    "action": "UTF-8 report-only recovery with installed report.html_report",
+    "simulation_repeated": false,
+    "findings_changed": false,
+    "source_hash": "27436ef947949a4e",
+    "simulator_verdict": "PASS",
+    "cases": [
+      {
+        "name": "board-s1",
+        "summary": {
+          "stop_reason": "frames_after_boot",
+          "sim_ms": 1962.95,
+          "wall_s": 459.26,
+          "frames": 120,
+          "seed": 1,
+          "hps": {
+            "ops_done": 35,
+            "ops_total": 35,
+            "words": 19047,
+            "stalled_by_ioctl_wait_us": 0.0,
+            "confstr": "Nintendo8080;;F,Sheriff ROM;O[9:8],Lives,3,4,5,6;O[10],Cabinet,Upright,Cocktail;O[11],Aiming,Directions,Rotate;O[12],Orientation,Vertical,Horizontal;O[15:13],Scandoubler Fx,None,HQ2x,CRT 25%,CRT 50%,CRT 75%;O[16],CRT Adjust,Off,On;O[20:17],CRT H-Size,0,+1,+2,+3,+4,-1,-2,-3,-4;O[24:21],CRT H-Position,0,+4,+8,+12,+16,-4,-8,-12,-16;O[28:25],CRT V-Position,0,+1,+2,+3,+4,-1,-2,-3,-4;H0O[29],Autosave Hiscore,Off,On;J,Fire,Start 1,Start 2,Coin,Aim Right,Aim Left,Aim Up,Aim Down,Pause;T[0],Reset;R[0],Reset and close OSD;V,v261009"
+          },
+          "sdram": {
+            "used": false,
+            "cl": 0,
+            "burst": 1,
+            "init_ok": false,
+            "reads": 0,
+            "writes": 0,
+            "activates": 0,
+            "refreshes": 0,
+            "clock_mhz": 0.0,
+            "unwritten_reads": 0,
+            "unwritten_samples": [],
+            "violations": {}
+          },
+          "ddr3": {
+            "used": true,
+            "reads": 0,
+            "writes": 6766592
+          },
+          "audio_samples": 94221
+        }
+      },
+      {
+        "name": "board-s2",
+        "summary": {
+          "stop_reason": "frames_after_boot",
+          "sim_ms": 1962.95,
+          "wall_s": 461.81,
+          "frames": 120,
+          "seed": 2,
+          "hps": {
+            "ops_done": 35,
+            "ops_total": 35,
+            "words": 19047,
+            "stalled_by_ioctl_wait_us": 0.0,
+            "confstr": "Nintendo8080;;F,Sheriff ROM;O[9:8],Lives,3,4,5,6;O[10],Cabinet,Upright,Cocktail;O[11],Aiming,Directions,Rotate;O[12],Orientation,Vertical,Horizontal;O[15:13],Scandoubler Fx,None,HQ2x,CRT 25%,CRT 50%,CRT 75%;O[16],CRT Adjust,Off,On;O[20:17],CRT H-Size,0,+1,+2,+3,+4,-1,-2,-3,-4;O[24:21],CRT H-Position,0,+4,+8,+12,+16,-4,-8,-12,-16;O[28:25],CRT V-Position,0,+1,+2,+3,+4,-1,-2,-3,-4;H0O[29],Autosave Hiscore,Off,On;J,Fire,Start 1,Start 2,Coin,Aim Right,Aim Left,Aim Up,Aim Down,Pause;T[0],Reset;R[0],Reset and close OSD;V,v261009"
+          },
+          "sdram": {
+            "used": false,
+            "cl": 0,
+            "burst": 1,
+            "init_ok": false,
+            "reads": 0,
+            "writes": 0,
+            "activates": 0,
+            "refreshes": 0,
+            "clock_mhz": 0.0,
+            "unwritten_reads": 0,
+            "unwritten_samples": [],
+            "violations": {}
+          },
+          "ddr3": {
+            "used": true,
+            "reads": 0,
+            "writes": 6766592
+          },
+          "audio_samples": 94221
+        }
+      },
+      {
+        "name": "hostile-s1",
+        "summary": {
+          "stop_reason": "frames_after_boot",
+          "sim_ms": 1946.696,
+          "wall_s": 456.03,
+          "frames": 120,
+          "seed": 1,
+          "hps": {
+            "ops_done": 35,
+            "ops_total": 35,
+            "words": 19047,
+            "stalled_by_ioctl_wait_us": 0.0,
+            "confstr": "Nintendo8080;;F,Sheriff ROM;O[9:8],Lives,3,4,5,6;O[10],Cabinet,Upright,Cocktail;O[11],Aiming,Directions,Rotate;O[12],Orientation,Vertical,Horizontal;O[15:13],Scandoubler Fx,None,HQ2x,CRT 25%,CRT 50%,CRT 75%;O[16],CRT Adjust,Off,On;O[20:17],CRT H-Size,0,+1,+2,+3,+4,-1,-2,-3,-4;O[24:21],CRT H-Position,0,+4,+8,+12,+16,-4,-8,-12,-16;O[28:25],CRT V-Position,0,+1,+2,+3,+4,-1,-2,-3,-4;H0O[29],Autosave Hiscore,Off,On;J,Fire,Start 1,Start 2,Coin,Aim Right,Aim Left,Aim Up,Aim Down,Pause;T[0],Reset;R[0],Reset and close OSD;V,v261009"
+          },
+          "sdram": {
+            "used": false,
+            "cl": 0,
+            "burst": 1,
+            "init_ok": false,
+            "reads": 0,
+            "writes": 0,
+            "activates": 0,
+            "refreshes": 0,
+            "clock_mhz": 0.0,
+            "unwritten_reads": 0,
+            "unwritten_samples": [],
+            "violations": {}
+          },
+          "ddr3": {
+            "used": true,
+            "reads": 0,
+            "writes": 6709248
+          },
+          "audio_samples": 93441
+        }
+      },
+      {
+        "name": "hostile-s2",
+        "summary": {
+          "stop_reason": "frames_after_boot",
+          "sim_ms": 1962.95,
+          "wall_s": 460.78,
+          "frames": 120,
+          "seed": 2,
+          "hps": {
+            "ops_done": 35,
+            "ops_total": 35,
+            "words": 19047,
+            "stalled_by_ioctl_wait_us": 0.0,
+            "confstr": "Nintendo8080;;F,Sheriff ROM;O[9:8],Lives,3,4,5,6;O[10],Cabinet,Upright,Cocktail;O[11],Aiming,Directions,Rotate;O[12],Orientation,Vertical,Horizontal;O[15:13],Scandoubler Fx,None,HQ2x,CRT 25%,CRT 50%,CRT 75%;O[16],CRT Adjust,Off,On;O[20:17],CRT H-Size,0,+1,+2,+3,+4,-1,-2,-3,-4;O[24:21],CRT H-Position,0,+4,+8,+12,+16,-4,-8,-12,-16;O[28:25],CRT V-Position,0,+1,+2,+3,+4,-1,-2,-3,-4;H0O[29],Autosave Hiscore,Off,On;J,Fire,Start 1,Start 2,Coin,Aim Right,Aim Left,Aim Up,Aim Down,Pause;T[0],Reset;R[0],Reset and close OSD;V,v261009"
+          },
+          "sdram": {
+            "used": false,
+            "cl": 0,
+            "burst": 1,
+            "init_ok": false,
+            "reads": 0,
+            "writes": 0,
+            "activates": 0,
+            "refreshes": 0,
+            "clock_mhz": 0.0,
+            "unwritten_reads": 0,
+            "unwritten_samples": [],
+            "violations": {}
+          },
+          "ddr3": {
+            "used": true,
+            "reads": 0,
+            "writes": 6823936
+          },
+          "audio_samples": 94221
+        }
+      }
+    ],
+    "report": "D:\\Arcade\\AI\\aCORES\\sherrif\\.preflight\\runs\\20261009-143613\\report\\report.html",
+    "report_bytes": 147324,
+    "latest_link_updated": false
+  },
+  "original_cli_exit_code": 2,
+  "cli_failure": "Windows cp1252 HTML checkmark encoding after all simulation and analysis finished. Recovered using original report API under Python -X utf8, without reruns.",
+  "limits": [
+    "Input responsiveness is a risk in this short early coin/start fixture.",
+    "The .preflight/latest alias predates this recovered run; use the exact run report path.",
+    "No current-source fit or STA during the Quartus hold.",
+    "Native full-game mismatch and complete gameplay/audio/persistence gates remain open."
+  ],
+  "gates": {
+    "fast_boot": true,
+    "four_seed_pre_coin_attract_fields_identical": true,
+    "coin_start_response": false,
+    "complete_sheriff": false,
+    "release": false
+  }
+}

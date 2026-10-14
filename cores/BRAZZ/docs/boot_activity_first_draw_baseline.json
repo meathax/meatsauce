@@ -1,0 +1,287 @@
+{
+  "schema": 1,
+  "run_id": "1791143421264181300",
+  "private_directory": "sim/obj_dir/boot_probe/activity/1791143421264181300",
+  "terminal_snapshot": true,
+  "structural_checks": "pass",
+  "activity_rows": 41,
+  "last_activity": {
+    "clock": "1905049721",
+    "instructions": "98334328",
+    "pc": "02015fcc",
+    "sr": "000030a0",
+    "sp": "021fc484",
+    "er": "00000000",
+    "cache_enabled": "1",
+    "cache_hits": "118215871",
+    "cache_misses": "2399580",
+    "cache_invalidations": "1785",
+    "cp_transfers": "7",
+    "memory_requests": "82535262",
+    "mmio": "63748",
+    "cpu_memory": "31313844",
+    "dma_memory": "0",
+    "gpu_memory": "77859",
+    "spu_memory": "0",
+    "scanout_memory": "51143559",
+    "sound_mmio": "403",
+    "audio_samples": "979963",
+    "audio_nonzero": "0",
+    "gpu_packets": "1",
+    "gpu_pixels": "482",
+    "scanout_words": "51143559",
+    "raster_frames": "1331",
+    "active_pixels": "102285615",
+    "irq_acks": "60",
+    "architectural_accesses": "133372672",
+    "access_cycles": "590614165",
+    "enabled_accesses": "121961172",
+    "enabled_cycles": "499400137",
+    "disabled_accesses": "11411500",
+    "disabled_cycles": "91214028"
+  },
+  "recent_windows": [
+    {
+      "from_clock": 1750000000,
+      "to_clock": 1800000000,
+      "instructions": 2655714,
+      "system_clocks_per_instruction": 18.827328545167138,
+      "mean_architectural_access_latency": 4.045875956397424,
+      "architectural_wait_fraction": 0.29902082,
+      "pc_at_end": "02085160",
+      "gpu_packets": 0,
+      "raster_frames": 1258,
+      "scanout_reads": 48322119,
+      "audio_nonzero": 0
+    },
+    {
+      "from_clock": 1800000000,
+      "to_clock": 1850000000,
+      "instructions": 2651601,
+      "system_clocks_per_instruction": 18.85653233650161,
+      "mean_architectural_access_latency": 4.044783885344941,
+      "architectural_wait_fraction": 0.29897554,
+      "pc_at_end": "02085164",
+      "gpu_packets": 0,
+      "raster_frames": 1293,
+      "scanout_reads": 49664199,
+      "audio_nonzero": 0
+    },
+    {
+      "from_clock": 1850000000,
+      "to_clock": 1900000000,
+      "instructions": 2650734,
+      "system_clocks_per_instruction": 18.862699916325063,
+      "mean_architectural_access_latency": 4.040992024413735,
+      "architectural_wait_fraction": 0.29873276,
+      "pc_at_end": "02085168",
+      "gpu_packets": 0,
+      "raster_frames": 1328,
+      "scanout_reads": 51006119,
+      "audio_nonzero": 0
+    },
+    {
+      "from_clock": 1900000000,
+      "to_clock": 1905049721,
+      "instructions": 268122,
+      "system_clocks_per_instruction": 18.833669001424724,
+      "mean_architectural_access_latency": 4.251073501337432,
+      "architectural_wait_fraction": 0.30779977745305137,
+      "pc_at_end": "02015fcc",
+      "gpu_packets": 1,
+      "raster_frames": 1331,
+      "scanout_reads": 51143559,
+      "audio_nonzero": 0
+    }
+  ],
+  "observed_state": {
+    "schema": 1,
+    "run_id": "1791143421264181300",
+    "natural_rtl_observation": true,
+    "restorable_checkpoint": false,
+    "clock": 1905049721,
+    "instructions": 98334328,
+    "reason": "packet_probe",
+    "pc": "02015fcc",
+    "sr": "000030a0",
+    "sp": "021fc484",
+    "er": "00000000",
+    "registers": [
+      "00000001",
+      "020ad400",
+      "020ad3fb",
+      "020ad17b",
+      "020ad3ee",
+      "05124eee",
+      "038e6670",
+      "020c7f30"
+    ],
+    "flash_bank": 2,
+    "cache_enabled": 1,
+    "cache_hits": 118215871,
+    "cache_misses": 2399580,
+    "cp_transfers": 7,
+    "gpu_packets": 1,
+    "gpu_pixels": 482,
+    "raster_frames": 1331,
+    "active_pixels": 102285615,
+    "irq_acks": 60,
+    "audio_samples": 979963,
+    "audio_nonzero": 0,
+    "architectural_accesses": 133372672,
+    "access_cycles": 590614165,
+    "enabled_accesses": 121961172,
+    "enabled_cycles": 499400137,
+    "disabled_accesses": 11411500,
+    "disabled_cycles": 91214028,
+    "access_latency_histogram": [
+      0,
+      0,
+      0,
+      109257567,
+      1114571,
+      1440954,
+      2391267,
+      2688155,
+      2830429,
+      2920305,
+      2984694,
+      1914879,
+      1626268,
+      696960,
+      405497,
+      273062,
+      191498,
+      135218,
+      97766,
+      80323,
+      81457,
+      94624,
+      116268,
+      139427,
+      159098,
+      173946,
+      180293,
+      178593,
+      167934,
+      150474,
+      128690,
+      103157,
+      79630,
+      57793,
+      40160,
+      27047,
+      18345,
+      12869,
+      10876,
+      10801,
+      12196,
+      14115,
+      16866,
+      19524,
+      21747,
+      24280,
+      25745,
+      26957,
+      27156,
+      27048,
+      25955,
+      24615,
+      22458,
+      20095,
+      17681,
+      14812,
+      12364,
+      10041,
+      7775,
+      5994,
+      4470,
+      3180,
+      2339,
+      4364
+    ],
+    "latency_last_bucket": "63 or more clocks",
+    "interval_hot_pages": [
+      {
+        "page": "02015000",
+        "instructions": 127678
+      },
+      {
+        "page": "02085000",
+        "instructions": 109264
+      },
+      {
+        "page": "02014000",
+        "instructions": 10382
+      },
+      {
+        "page": "02016000",
+        "instructions": 6970
+      },
+      {
+        "page": "02013000",
+        "instructions": 4962
+      },
+      {
+        "page": "02066000",
+        "instructions": 3098
+      },
+      {
+        "page": "02068000",
+        "instructions": 1429
+      },
+      {
+        "page": "02017000",
+        "instructions": 975
+      },
+      {
+        "page": "02067000",
+        "instructions": 925
+      },
+      {
+        "page": "0206d000",
+        "instructions": 427
+      },
+      {
+        "page": "02020000",
+        "instructions": 390
+      },
+      {
+        "page": "02084000",
+        "instructions": 361
+      }
+    ],
+    "scanout_image_complete_frame": false,
+    "scanout_coordinates_clipped": false,
+    "scanout_rect": [
+      0,
+      0,
+      639,
+      239
+    ],
+    "memories_saved": true
+  },
+  "terminal_memory_hashes": {
+    "workram.bin": {
+      "bytes": 8388608,
+      "sha256": "b44fbbd5270a5c75b4907d9dd9adc63164e5ce9f0bdebfc633a0b60b0c3c0032"
+    },
+    "texture.bin": {
+      "bytes": 8388608,
+      "sha256": "d7c7df277256e74ea912dba7c42469accebe4c6906be6dfa77cf61647d584151"
+    },
+    "framebuffer.bin": {
+      "bytes": 8388608,
+      "sha256": "c1fad88a7874499d24fd9bc028ed093eb0b93a9df847065db4772771278750ca"
+    },
+    "nvram.bin": {
+      "bytes": 65536,
+      "sha256": "5b75f4c98b1c49a6dddfb12102eff4f660e5bd8e14bab4f6753fbf8994d58a73"
+    },
+    "reset_ram.bin": {
+      "bytes": 52,
+      "sha256": "fd0ce6a4e35f6dc66d796accba6b8efd1bc8b4637debb43b6fb054b88e8ed346"
+    }
+  },
+  "acceptance": "natural RTL boot diagnostic only; does not prove attract/gameplay or physical memory timing"
+}

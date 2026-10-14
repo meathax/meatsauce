@@ -1,0 +1,38 @@
+{
+  "scope": "Synthetic reset-driven diagnostic BIOS using the unchanged integrated RTL board, not original game acceptance",
+  "command": "python -X utf8 scripts/sim.py bios_sound",
+  "result": "PASS",
+  "matched_cpu_instructions": 2854,
+  "sound_mmio_accesses": 26,
+  "spu_shared_memory_reads": 8,
+  "checked_outputs_after_start": 24,
+  "cpu_sound_irq_entries_returns": 2,
+  "voices": [
+    0,
+    31
+  ],
+  "restored_stack": "021ff000",
+  "restored_interrupt_enable": true,
+  "stereo_oracle": "Separate translation unit with unchanged pinned MAME channel write/render_audio bodies; asymmetric panning",
+  "production_rtl_changed": false,
+  "state_load_injection": false,
+  "latency": "Request-ready backpressure plus 1\u20137-cycle replies, shared CPU/SPU/scanout bus",
+  "remaining": [
+    "Original game control instruction at 020820c4/fc65 unresolved",
+    "DMA/GPU traffic not active in this diagnostic",
+    "No real SDRAM refresh/turnaround modeling yet",
+    "Sound high-bank physical layout unresolved",
+    "This short diagnostic does not reach the first armed full video frame"
+  ],
+  "sha256": {
+    "sim/boot/sound_fixture.hpp": "8590a237d0c8d456934e0ffe4ae4384d455504756a6c27444fdde4243ae75001",
+    "sim/boot/sound_fixture_oracle.cpp": "4bb4a7909b921d237d8e1aefbb907663dd573aeee95608d2b0372130c56c7105",
+    "sim/boot/main.cpp": "91b4f498ca1857d1938b4812a64e0875e5c910ec2cba1812369635656c529ff6",
+    "rtl/board/cs_boot_probe.sv": "df75af22f4ccf886c5ffb1e45f0558ae7ac5595a4ea6b7ca9bcde28c992123cd",
+    "rtl/audio/vr0_spu.sv": "d70cfcc2a522d3c5618ba985addb172d2e8264206884a182aa63336dd177cbc2"
+  },
+  "scanout_shared_memory_reads": 1712,
+  "scanout_line_buffer_words": 1712,
+  "scanout_video_faults": 0,
+  "scanout_video_underruns": 0
+}

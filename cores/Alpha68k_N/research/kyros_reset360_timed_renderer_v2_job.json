@@ -1,0 +1,25 @@
+{
+  "launcher_pid": 3396,
+  "started": 1791560094.5277286,
+  "source_revision": "2d326a55c3e1f3323f4f5300bbe7e93dbe1fdea2",
+  "command": [
+    "wsl.exe",
+    "-d",
+    "Ubuntu",
+    "--cd",
+    "D:\\Arcade\\AI\\aCORES\\Alpha68k N",
+    "--exec",
+    "python3",
+    "-c",
+    "\nfrom pathlib import Path\nimport json,subprocess,time,hashlib,os\nr=Path('/mnt/d/Arcade/AI/aCORES/Alpha68k N')\nout=r/'sim/captures/diagnostics/reset360_timed_renderer_v2'\nmeta=json.loads((r/'research/kyros_reset360_timed_renderer_preparation.json').read_text())\njob={'worker_pid':os.getpid(),'started':time.time(),'scope':'Isolated actual renderer replay; no CPU acceptance'}\nsha=lambda p:hashlib.sha256(p.read_bytes()).hexdigest()\nwith (out/'build.log').open('w') as log:\n cmd=['bash','sim/build_renderer_timed.sh']\n p=subprocess.Popen(cmd,cwd=r,stdout=log,stderr=subprocess.STDOUT)\n job['build_pid']=p.pid;job['build_command']=cmd\n (r/'research/kyros_reset360_timed_renderer_v2_worker.json').write_text(json.dumps(job,indent=2)+'\\n')\n code=p.wait()\n (r/'research/kyros_reset360_timed_renderer_v2_build_exit.json').write_text(json.dumps({'exit_code':code,'command':cmd,'ended':time.time()},indent=2)+'\\n')\n if code:raise SystemExit(code)\nbinary=r/'sim/build/alpha68kn_render_timed_sim'\nmanifest=r/'sim/build/renderer_timed_inputs.sha256'\n(r/'research/kyros_reset360_timed_renderer_v2_inputs.sha256').write_bytes(manifest.read_bytes())\ncmd=[str(binary),str(r/'roms/kyros/download.bin'),str(r/'sim/captures/rtl/kyros_reset_background421/frame_000330.sprites.bin'),str(meta['background']),str(out),'0',str(r/'sim/captures/rtl/kyros_reset_background421/frame_000360.rgb'),str(out/'writes.csv'),str(meta['elapsed_start']),str(meta['elapsed_end'])]\nwith (out/'run.log').open('w') as log:\n p=subprocess.Popen(cmd,cwd=r,stdout=log,stderr=subprocess.STDOUT)\n job.update(simulation_pid=p.pid,command=cmd,executable_sha256=sha(binary),started_run=time.time())\n (r/'research/kyros_reset360_timed_renderer_v2_worker.json').write_text(json.dumps(job,indent=2)+'\\n')\n code=p.wait()\n job.update(exit_code=code,ended=time.time())\n (r/'research/kyros_reset360_timed_renderer_v2_exit.json').write_text(json.dumps(job,indent=2)+'\\n')\n"
+  ],
+  "preparation": "D:\\Arcade\\AI\\aCORES\\Alpha68k N\\research\\kyros_reset360_timed_renderer_preparation.json",
+  "files_sha256": {
+    "D:\\Arcade\\AI\\aCORES\\Alpha68k N\\sim\\render_timed_main.cpp": "7d62a9e54505423b7a0d3aa299740284b406d6df8bd5d7978a943fc6e897a8f1",
+    "D:\\Arcade\\AI\\aCORES\\Alpha68k N\\sim\\render_fixture.sv": "f8098117ed844830bd99b9e8ccbb84473fb499cf83b91132c7c994ab065f6052",
+    "D:\\Arcade\\AI\\aCORES\\Alpha68k N\\sim\\build_renderer_timed.sh": "1e5d763349775d40598c35ec0b5c9c354f430b590ccf2e36c5452b84b8d489ad",
+    "D:\\Arcade\\AI\\aCORES\\Alpha68k N\\rtl\\alpha68kn_renderer.sv": "53d16c6ff5d105a3643377c48c067452b3c83431fe4c159edceda7854a8b47bb",
+    "D:\\Arcade\\AI\\aCORES\\Alpha68k N\\rtl\\alpha68kn_video_rom.sv": "b000479a8d41ac4d17fcd60fc129912c6a437cf2f690873fc7d62aac4094d10e",
+    "D:\\Arcade\\AI\\aCORES\\Alpha68k N\\rtl\\alpha68kn_gfxmem.sv": "ec21f32d4108d6e18352efbff8e58490a84d57af2252b1a2d656c7152639943e"
+  }
+}

@@ -1,0 +1,192 @@
+{
+  "scope": "Private source overlay/build plan only. No build, emulator launch, canonical edit, or alteration of the live native4401.",
+  "official_reference": {
+    "executable": {
+      "path": "D:\\Arcade\\AI\\aCORES\\Alpha68k N\\tools\\mame0289\\mame.exe",
+      "sha256": "af6966108d9b52c22465c6d50f4e5d50cc371b50f2d27dc443935f287aad37a3",
+      "bytes": 316431360
+    },
+    "job": {
+      "path": "D:\\Arcade\\AI\\aCORES\\Alpha68k N\\research\\irq_sampling_edge_mame61_job.json",
+      "sha256": "fa7617ea6118b8ec7f112209b9f01140260a97bba317ac872daf2a081e2e5fe8",
+      "bytes": 2054
+    },
+    "verification": {
+      "path": "D:\\Arcade\\AI\\aCORES\\Alpha68k N\\research\\irq_sampling_edge_mame61_verification.json",
+      "sha256": "e42247ea0c2acf34e110cee6bb16ed10878b30b67288478b1dfa8d032e02cd63",
+      "bytes": 3436
+    },
+    "recorder": {
+      "path": "D:\\Arcade\\AI\\aCORES\\Alpha68k N\\sim\\captures\\kyros\\irq_sampling_edge_mame61\\loaded_recorder.lua",
+      "sha256": "36c4d4d8391488f8ca4764d486b25e40ae75b106a0f5e4c3b71035327795c684",
+      "bytes": 11277
+    },
+    "input_sha256": "9d6711c7e3c3467452a6185a219bcf1272f202517239d9d8a6314ff53fec4788",
+    "actual_terminal_exit0": true,
+    "all12_reference_checks_true": true
+  },
+  "source": [
+    {
+      "path": "D:\\Arcade\\AI\\mame289\\src\\devices\\cpu\\m68000\\m68000.h",
+      "sha256": "0d11d147b5cedb684fe7256ab9133227003cf535417b0c393b59d7cd6a350157",
+      "bytes": 21347
+    },
+    {
+      "path": "D:\\Arcade\\AI\\mame289\\src\\devices\\cpu\\m68000\\m68000.cpp",
+      "sha256": "ef095e786564a203b828ed8e1e517b6af2e0d8fd64090d432f8be67480a5fab3",
+      "bytes": 14894
+    },
+    {
+      "path": "D:\\Arcade\\AI\\mame289\\src\\devices\\cpu\\m68000\\m68000gen.py",
+      "sha256": "0679ed7a9ceae276f67998832af0b998421f7792096ae4932c8cc6cb933e9d33",
+      "bytes": 124176
+    },
+    {
+      "path": "D:\\Arcade\\AI\\mame289\\src\\emu\\diexec.cpp",
+      "sha256": "f4a1f9fb027848876bf4b8726cac760eebdcf9619c8d39348eaa6035b256918d",
+      "bytes": 23942
+    },
+    {
+      "path": "D:\\Arcade\\AI\\mame289\\src\\emu\\distate.h",
+      "sha256": "b2603c7fc3b1cfbbda0a94222b745d109fb0ea8bb15c4176e08f2260669dd562",
+      "bytes": 15964
+    },
+    {
+      "path": "D:\\Arcade\\AI\\mame289\\makefile",
+      "sha256": "f6db551cb64337c94ce144e57f79c26bef3e00880392780cb40195f8382da20d",
+      "bytes": 50534
+    },
+    {
+      "path": "D:\\Arcade\\AI\\mame289\\scripts\\src\\cpu.lua",
+      "sha256": "053e9837d2e67ddc82a9599cb182da188aec09382120fd049af86716e39a27a4",
+      "bytes": 173144
+    },
+    {
+      "path": "D:\\Arcade\\AI\\mame289\\src\\mame\\alpha\\alpha68k_n.cpp",
+      "sha256": "5f9884076ea1b5c02d2169a58de5425ae5475a13a4f1438abae2e2b9f0fdab7d",
+      "bytes": 43931
+    },
+    {
+      "path": "D:\\Arcade\\AI\\mame289\\src\\devices\\cpu\\m68000\\m68000.lst",
+      "sha256": "87e58752f508f0eba81ca43fbd8f1b9b9ead70f9b08e11f697fc3f2c7c13c263",
+      "bytes": 43711
+    }
+  ],
+  "primary_build_documentation": [
+    {
+      "url": "https://docs.mamedev.org/initialsetup/compilingmame.html",
+      "version": "0.289",
+      "facts": "C++20; GCC11+/clang13+; native Windows uses MSYS2; driver subset via SUBTARGET/SOURCES/REGENIE=1."
+    },
+    {
+      "url": "https://www.mamedev.org/tools/",
+      "facts": "Official Windows MSYS2 toolchain setup."
+    }
+  ],
+  "available_environment": {
+    "g++": "D:/vibes/fpga/toolchains/msys64/ucrt64/bin/g++.exe",
+    "version": "GCC16.1.0 Rev5 MSYS2; --version actual success",
+    "make": "D:/vibes/fpga/toolchains/msys64/usr/bin/make.exe",
+    "make_version": "GNU Make4.4.1; --version actual success",
+    "python": "D:/vibes/fpga/toolchains/msys64/ucrt64/bin/python.exe",
+    "bash": "D:/vibes/fpga/toolchains/msys64/usr/bin/bash.exe",
+    "genie_present": true,
+    "full_dependencies_and_link_not_tested": true
+  },
+  "custom_exporter_or_prior_custom_build_receipt": null,
+  "overlay": {
+    "state_exports": "Seven .readonly() state entries; exact sampled state still requires the generator observation, not a frame poll.",
+    "runtime_hook": "Before and after exact IR-to-IRD plus m_next_state snapshot, and after execute_set_input update. Logging reads state only; one diagnostic sequence counter.",
+    "time_coordinates": "Both CPU local_time and machine time at48MHz, plus total_cycles and icount. These are explicitly distinct; not physical MC68000 nanocode strobes.",
+    "windows": [
+      [
+        47847465,
+        47851465
+      ],
+      [
+        47998000,
+        48002000
+      ]
+    ],
+    "window_basis": "Original pinned native assertions47849465/48000000 +/-2000ticks. Must prove both MAME input_applied assertions and bracketing cutoffs actually present; absence is failure, never timing evidence.",
+    "regeneration": [
+      "python src/devices/cpu/m68000/m68000gen.py sdf src/devices/cpu/m68000/m68000.lst src/devices/cpu/m68000/m68000-sdf.cpp",
+      "python src/devices/cpu/m68000/m68000gen.py sif src/devices/cpu/m68000/m68000.lst src/devices/cpu/m68000/m68000-sif.cpp",
+      "python src/devices/cpu/m68000/m68000gen.py sdp src/devices/cpu/m68000/m68000.lst src/devices/cpu/m68000/m68000-sdp.cpp",
+      "python src/devices/cpu/m68000/m68000gen.py sip src/devices/cpu/m68000/m68000.lst src/devices/cpu/m68000/m68000-sip.cpp"
+    ],
+    "functional_assignments_unchanged": true,
+    "runtime_equivalence_unproven": true
+  },
+  "build_after_copy_and_overlay_review": {
+    "cwd": "D:/vibes/fpga/temp/mame289-irq-cutoff-private",
+    "shell": "Explicit MSYS2 UCRT64 Bash environment; MSYSTEM=UCRT64, MINGW_PREFIX=/ucrt64 and PATH=/ucrt64/bin:/usr/bin:$PATH.",
+    "command": "make SUBTARGET=kyros_irqcut SOURCES=src/mame/alpha/alpha68k_n.cpp REGENIE=1 -j2",
+    "generated_source_join": "cpu.lua2149\u20132163 compiles checked-in/generated m68000-{sdf,sif,sdp,sip}.cpp; regenerate all four in private tree before make. Do not mistake generator-only edit for compiled observation.",
+    "blocked_until": "Separate full source copy/overlay/source manifest and the four generator commands reviewed; ordinary missing build dependencies handled explicitly. No existing executable identity transferred to the custom binary."
+  },
+  "reference61_run_after_build": {
+    "base_command": [
+      "D:\\Arcade\\AI\\aCORES\\Alpha68k N\\tools\\mame0289\\mame.exe",
+      "kyros",
+      "-rompath",
+      "D:\\Arcade\\AI\\aCORES\\Alpha68k N\\roms",
+      "-noreadconfig",
+      "-skip_gameinfo",
+      "-video",
+      "none",
+      "-sound",
+      "none",
+      "-nothrottle",
+      "-noautoframeskip",
+      "-frameskip",
+      "0",
+      "-autoboot_delay",
+      "0",
+      "-autoboot_script",
+      "D:\\Arcade\\AI\\aCORES\\Alpha68k N\\sim\\captures\\kyros\\irq_sampling_edge_mame61\\loaded_recorder.lua",
+      "-pluginspath",
+      "D:\\Arcade\\AI\\aCORES\\Alpha68k N\\tools\\mame0289\\plugins",
+      "-seconds_to_run",
+      "3",
+      "-snapshot_directory",
+      "D:\\Arcade\\AI\\aCORES\\Alpha68k N\\sim\\captures\\kyros\\warm_reset960_refv2",
+      "-cfg_directory",
+      "D:\\Arcade\\AI\\aCORES\\Alpha68k N\\sim\\captures\\kyros\\warm_reset960_refv2\\cfg",
+      "-nvram_directory",
+      "D:\\Arcade\\AI\\aCORES\\Alpha68k N\\sim\\captures\\kyros\\warm_reset960_refv2\\nvram",
+      "-state_directory",
+      "D:\\Arcade\\AI\\aCORES\\Alpha68k N\\sim\\captures\\kyros\\warm_reset960_refv2\\states",
+      "-wavwrite",
+      "D:\\Arcade\\AI\\aCORES\\Alpha68k N\\sim\\captures\\kyros\\irq_sampling_edge_mame61\\audio.wav"
+    ],
+    "required_changes_only": "Use newly pinned private kyros_irqcut.exe, separate research/capture namespace and cloned recorder output paths; add -log with a separate debug.log. Preserve kyros profile, exact legal first61 inputs, ROM region pins and frame epoch.",
+    "optional_readonly_tap_fields": [
+      "IRQ_PENDING_STATE",
+      "IRQ_NEXT_STATE",
+      "IRQ_LEVEL",
+      "IRQ_INST_STATE",
+      "IRQ_INST_SUBSTATE",
+      "IRQ_IRD",
+      "IRQ_IRC"
+    ],
+    "qualification": [
+      "Actual new build exit0/exe SHA/full source identity",
+      "Actual new MAME terminal0 and no Lua failure",
+      "Exact61 state/PC/SR/input prefix and all reference whole retained images",
+      "Exact original four CPU-space events and program write/latch ordering, ticks retained",
+      "Nonvacuous input_applied and cutoff_before/after pairs covering both original IRQs",
+      "Preserve before/after IR/IRD/pending/next state, local_time and machine time; no shifted fields or offsets",
+      "Only then compare software cutoff ordering with directly observed native group-one and IR-to-IRD; physical cause remains unproven"
+    ]
+  },
+  "native_direct_receipt": {
+    "path": "D:\\Arcade\\AI\\aCORES\\Alpha68k N\\research\\irq_dispatch61\\compact_acceptance_v2.json",
+    "sha256": "4950b06d47e7df9aba2e2c9d77077eac3e5a7c4340bcf81640770c8aee23fbf6",
+    "bytes": 28923
+  },
+  "B16_closed": false,
+  "physical_cause_proven": false,
+  "CPU_or_clock_correction_justified": false,
+  "runtime_mame_cutoff_observed": false
+}

@@ -1,0 +1,19 @@
+{
+  "scope": "test-only unchanged MAME voice render body and table; 32-channel scheduling/MMIO and integrated game audio remain pending",
+  "source_sha256": "d5c7b821cf05ec3780ad7aa7ab08797557eb6853df6ff6c0cf20e110d2ae062e",
+  "generated_sha256": "8b538289584660a4270f3c0dc0d72ec5df540ad0cb0e353c2a2bddacbe1ede5b",
+  "ulaw_rom_sha256": "a922fe95e199ab6a94ac6f17807e3781ebe59ae9fd725a4537dbae550b5b954c",
+  "unchanged_function_bodies": [
+    "u16 vr0sound_device::channel_t::read",
+    "void vr0sound_device::channel_t::write",
+    "void vr0sound_device::render_audio"
+  ],
+  "initial_real_voice_jobs": 1,
+  "voice_fixture_sha256": "1c1e809bb70580eefe3475d725feec037d958593e05240732c0711a54eb4b016",
+  "integer_contract": "32-bit wrap products, tested with -fwrapv; compare unclamped signed mixer contributions",
+  "physical_limits": [
+    "MAME envelopes/IRQs/divider unverified",
+    "reverb, sustain and pingpong absent from reference",
+    "global high-bank shifts in source contradict its own register comments"
+  ]
+}

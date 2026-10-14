@@ -1,0 +1,35 @@
+{
+  "program_sha256": {
+    "kyros": "6949ea5dc91dfced8c1afccbadee18c2e795ab38d8adbc3795f05a19b8f3b2b3",
+    "kyrosj": "6fec354d3fd5d4d7a1347a6409793c53fed1bc23bc09efba8093377973378917"
+  },
+  "blocks": [
+    {
+      "address": 122880,
+      "hex": "4a2e0d10664c4a2e090b66024e751d6e01010d10"
+    },
+    {
+      "address": 122978,
+      "hex": "0001e1680001e1680001e1680001e16a0001e6360001e81a0001e1680001e168"
+    },
+    {
+      "address": 124972,
+      "hex": "0001e83c0001e8600001eca80001edd4"
+    },
+    {
+      "address": 126382,
+      "hex": "49ee04204e711d7c001c035f4e4413fc000a00060001426e0d1a61000412610003fa6000f3de"
+    },
+    {
+      "address": 126980,
+      "hex": "302e0d1a123b002c67260c0100206606526e0d1a60ea0c010018671434000240000f0242fff0d040e54a9440318120004e75"
+    }
+  ],
+  "fixture_writes": {
+    "0x20d10": 5,
+    "0x20d11": 2,
+    "0x20d12": 2
+  },
+  "derivation": "Natural main-loop JSR1e000 dispatches d10=5 to1e81a. d11=2 selects1eca8; d12=2 selects1edae. It initializes staff text and advances d11=3, where1edd4 calls1f004 every8 iterations, copying text from1f036 into411b0 onward. No ending PC redirect.",
+  "scope": "Explicit MAME-only final-boss state fixture; not legal playthrough or RTL CPU acceptance."
+}

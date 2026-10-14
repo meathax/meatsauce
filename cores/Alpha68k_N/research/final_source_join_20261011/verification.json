@@ -1,0 +1,56 @@
+{
+  "actual_exit_code": 0,
+  "checks": {
+    "profile0_and_1_board_specialization": "Entire legacy board token stream exact after is_stingray=false specialization; MCU isolated and output consumers gated.",
+    "profile0_1_tokens": 4780,
+    "ram_guard_truth_table_cases": 1024,
+    "sound_loader_legal_address_cases": 65536,
+    "sound_VERILATOR_reader": "Candidate differs from private joined board only by VERILATOR guard; defined-reader body exact.",
+    "P2_baseline_vs_canonical_donor_tokens": 93252,
+    "production_profile2_admission": "Disabled <=1; conditional patch separate.",
+    "pinned_sys": "No copies or edits",
+    "native_builds_runs_Quartus_RBF_hardware": "None"
+  },
+  "translation_rules": [
+    {
+      "start": "    wire held_reset =",
+      "end": "    logic [2:0] phase,cpu_phase;",
+      "reason": "Substitution of profile2 predicates by false; legacy conditional branch and unaffected statements retained."
+    },
+    {
+      "start": "    wire [2:0] level =",
+      "end": "    wire vblank_edge =",
+      "reason": "Substitution of profile2 predicates by false; legacy conditional branch and unaffected statements retained."
+    },
+    {
+      "removed": "MCU instantiation/ROM and outputs",
+      "reason": "reset = held_reset || !is_stingray, every output consumer gated by is_stingray; no game clock, loader or CPU input modified for profile0/1."
+    },
+    {
+      "start": "    always_ff @(posedge clk) begin\n        sound_rom_q",
+      "end": "    assign zdin =",
+      "reason": "Substitution of profile2 predicates by false; legacy conditional branch and unaffected statements retained."
+    },
+    {
+      "removed": "MCU RAM arbitration and disabled HLE alternative",
+      "reason": "sting_mcu_work_service=false; command_valid=false; hle_service reduces to legacy. Truth table below enumerates legacy and MCU conflict guards."
+    },
+    {
+      "start": "            if (vblank_edge) begin",
+      "end": "            if (nmi_width!=0)",
+      "reason": "Substitution of profile2 predicates by false; legacy conditional branch and unaffected statements retained."
+    },
+    {
+      "start": "                end else if (maddr >= 'h080000",
+      "end": "                    end else case(ma[8:1])",
+      "reason": "Substitution of profile2 predicates by false; legacy conditional branch and unaffected statements retained."
+    }
+  ],
+  "limits": [
+    "Structural specialization and exhaustive finite expression checks; not a new replay or sequential formal model.",
+    "Shared SSG zero-period behavior intentionally changes all profiles and needs final-source binding.",
+    "Actual181 gameplay and realHPS wrapper admission gate remain parent-owned.",
+    "Complete fitted 161-source image excludes this changed board, MCU, T48 and shared divider.",
+    "Additive SDC remains parent timing-agent owned and is not merged here."
+  ]
+}

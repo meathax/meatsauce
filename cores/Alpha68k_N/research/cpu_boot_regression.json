@@ -1,0 +1,47 @@
+{
+  "kind": "real CPU early-boot regression, not attract pass",
+  "stack_write": {
+    "tick": "3408897",
+    "address": "135158",
+    "transaction": "98331",
+    "iack": "0",
+    "rw": "0",
+    "uds_n": "0",
+    "lds_n": "0",
+    "data_out": "1058",
+    "data_in": "0"
+  },
+  "stack_read": {
+    "tick": "3409609",
+    "address": "135158",
+    "transaction": "98352",
+    "iack": "0",
+    "rw": "1",
+    "uds_n": "0",
+    "lds_n": "0",
+    "data_out": "63479",
+    "data_in": "1058"
+  },
+  "source_inputs": "cb3453f0ab3926193d6945bebbfc2131af4e955e84e84b8408f278ea26923747  rtl/alpha68kn_board.sv\n797566aa6c1dfb308d88a458550d55f86e0d023e670ab179cc39f594d9d4f73d  rtl/vendor/fx68k/fx68k.sv\n3f22006cbdb8cb661e5f54cc779f79bb697b587c86d586103478703fca38bcce  rtl/vendor/fx68k/fx68kAlu.sv\n07ceb3b1fbbd74f255c2a909151fe5efd38a575ba4f6aa47c6208050d2e27326  rtl/vendor/fx68k/uaddrPla.sv\n765e1262ad7020bff0969446f97902c10f6f0918db64b45962d6f5c439e35b5a  rtl/vendor/t80/T80s.v\n3bea3815aed7d843563d43eeb2aabac9253b3b1d044ec24b7d79ed8e1dea9c86  sim/board_main.cpp\n",
+  "artifacts": [
+    {
+      "path": "sim/captures/rtl/kyros_cpu10_strobes/bus.csv",
+      "sha256": "7f6d6aae9e7355594622ffbbd92a04fa414a686ef07f46cc155215ed794b9c11"
+    },
+    {
+      "path": "sim/captures/rtl/kyros_cpu10_strobes/frames.csv",
+      "sha256": "514b78025b186fa1c71a9bef8432e032d4617d5ec72ab3e30a19a2323975b197"
+    },
+    {
+      "path": "sim/captures/rtl/kyros_cpu10_strobes/sprites.bin",
+      "sha256": "9f1dcbc35c350d6027f98be0f5c8b43b42ca52b7604459c0c42be3aa88913d47"
+    },
+    {
+      "path": "sim/captures/rtl/kyros_cpu10_strobes/work.bin",
+      "sha256": "3c14726172174d1acec8efcf7f89238390d50de5898d9aa5c84e886ed003bfdd"
+    }
+  ],
+  "executable_sha256": "79049fa5b0687854b57e859bd7c968d662cb88cc781011142f95dd0b8b6db337",
+  "payload_sha256": "5cf728d5d40e9be14a4a9c07792bab9f44404a75c2c2eed92124ff96ee9b5ef6",
+  "verilator": "Verilator 5.050 2026-07-01 rev v5.050"
+}

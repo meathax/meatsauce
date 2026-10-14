@@ -1,0 +1,358 @@
+{
+  "pass": true,
+  "baseline_sha256": "a9ee073877dcb63434ab9282ce97b87cbdcbfe93ced24462bf198fccc85dcf6d",
+  "candidate_sha256": "5adad4cdbac0382e9d3a55582b7629ef69a69ddfac97d85dffe49a52980028a3",
+  "policy_ast_unchanged_outside_target": true,
+  "collector_pins": {
+    "D:\\Arcade\\AI\\aCORES\\Alpha68k N\\research\\sound_write_width\\case2_fit_sta\\all-corners.tcl": "3309f3c72b10bdc50443f4891f5791f08748dd4ce9df5fc451d4ec650176780a",
+    "D:\\Arcade\\AI\\aCORES\\Alpha68k N\\research\\sound_write_width\\case2_fit_sta\\all-corners-detail.tcl": "ab3bffea354fa2dd1aa70cc98d8e128cd7c6bf64045c7b14e86e0f93bac02aab"
+  },
+  "source_replay_receipts": {
+    "qualification.json": {
+      "sha256": "69d2ef9309eb720dfac5428e4bdc0633e00fb6eae7d5fc9f8ab56bed850efd6c",
+      "source_case_count": 155
+    },
+    "collector_qualification.json": {
+      "sha256": "82183bf81a230fc778130b71ed81be451b0d8ac899dd4c1544396c735ae233b5",
+      "source_case_count": 181
+    },
+    "detail_qualification.json": {
+      "sha256": "67b59f156283e9bbcfc68a146abd1356c1373a1bceffd2e93dff1204d8600971",
+      "source_case_count": 204
+    },
+    "standard_qualification.json": {
+      "sha256": "8d03871d7a3ce1f68312ce61512b2f33aac1658c3a76f264fa97305ed24df745",
+      "source_case_count": 231
+    }
+  },
+  "independent_cases": 52,
+  "executed_quartus_or_tcl": false,
+  "global_deployment": false,
+  "findings": [],
+  "inherited_normalization": [
+    {
+      "name": "arg_0_2",
+      "direct_predicates_reject": true,
+      "old_pair_adapter_outputs_equal_and_allow": true,
+      "baseline_tokens": [
+        "D:/q17/quartus/bin64/quartus_sta.exe",
+        "-t ",
+        "D:/Arcade/AI/aCORES/Alpha68k N/research/sound_write_width/case2_fit_sta/all-corners-detail.tcl",
+        "D:/Arcade/AI/aCORES/Alpha68k N/research/sound_write_width/case2_standard_fit/Alpha68k_N",
+        "Alpha68k_N",
+        "D:/Arcade/AI/aCORES/Alpha68k N/research/sound_write_width/case2_standard_fit_evidence/all-corners"
+      ],
+      "candidate_tokens": [
+        "D:/q17/quartus/bin64/quartus_sta.exe",
+        "-t ",
+        "D:/Arcade/AI/aCORES/Alpha68k N/research/sound_write_width/case2_fit_sta/all-corners-detail.tcl",
+        "D:/Arcade/AI/aCORES/Alpha68k N/research/sound_write_width/case2_standard_fit/Alpha68k_N",
+        "Alpha68k_N",
+        "D:/Arcade/AI/aCORES/Alpha68k N/research/sound_write_width/case2_standard_fit_evidence/all-corners"
+      ],
+      "baseline_original_pair_output": {
+        "hookSpecificOutput": {
+          "hookEventName": "PreToolUse",
+          "permissionDecision": "allow",
+          "permissionDecisionReason": "User-authorized analysis/synthesis/fit/STA check: direct, unqueued; no RBF assembly."
+        }
+      },
+      "candidate_original_pair_output": {
+        "hookSpecificOutput": {
+          "hookEventName": "PreToolUse",
+          "permissionDecision": "allow",
+          "permissionDecisionReason": "User-authorized analysis/synthesis/fit/STA check: direct, unqueued; no RBF assembly."
+        }
+      },
+      "classification": "inherited flag spelling handling; exact tokens preserved in evidence"
+    }
+  ],
+  "results": [
+    {
+      "name": "old_pair_all-corners.tcl",
+      "accepted": true,
+      "baseline_accepted": true,
+      "shell_adapter_accepted": true
+    },
+    {
+      "name": "old_pair_all-corners-detail.tcl",
+      "accepted": true,
+      "baseline_accepted": true,
+      "shell_adapter_accepted": true
+    },
+    {
+      "name": "new_pair",
+      "accepted": true,
+      "baseline_accepted": false,
+      "shell_adapter_accepted": true
+    },
+    {
+      "name": "new_pair_backslashes",
+      "accepted": true,
+      "baseline_accepted": false,
+      "shell_adapter_accepted": true
+    },
+    {
+      "name": "matrix_case2_full_map_case2_fit_sta_all-corners.tcl",
+      "accepted": true,
+      "baseline_accepted": true,
+      "shell_adapter_accepted": true
+    },
+    {
+      "name": "matrix_case2_full_map_case2_fit_sta_all-corners-detail.tcl",
+      "accepted": true,
+      "baseline_accepted": true,
+      "shell_adapter_accepted": true
+    },
+    {
+      "name": "matrix_case2_full_map_case2_standard_fit_evidence_all-corners.tcl",
+      "accepted": false,
+      "baseline_accepted": false,
+      "shell_adapter_accepted": false
+    },
+    {
+      "name": "matrix_case2_full_map_case2_standard_fit_evidence_all-corners-detail.tcl",
+      "accepted": false,
+      "baseline_accepted": false,
+      "shell_adapter_accepted": false
+    },
+    {
+      "name": "matrix_case2_standard_fit_case2_fit_sta_all-corners.tcl",
+      "accepted": false,
+      "baseline_accepted": false,
+      "shell_adapter_accepted": false
+    },
+    {
+      "name": "matrix_case2_standard_fit_case2_fit_sta_all-corners-detail.tcl",
+      "accepted": false,
+      "baseline_accepted": false,
+      "shell_adapter_accepted": false
+    },
+    {
+      "name": "matrix_case2_standard_fit_case2_standard_fit_evidence_all-corners.tcl",
+      "accepted": false,
+      "baseline_accepted": false,
+      "shell_adapter_accepted": false
+    },
+    {
+      "name": "matrix_case2_standard_fit_case2_standard_fit_evidence_all-corners-detail.tcl",
+      "accepted": true,
+      "baseline_accepted": false,
+      "shell_adapter_accepted": true
+    },
+    {
+      "name": "arg_0_0",
+      "accepted": false,
+      "baseline_accepted": false,
+      "shell_adapter_accepted": false
+    },
+    {
+      "name": "arg_0_1",
+      "accepted": false,
+      "baseline_accepted": false,
+      "shell_adapter_accepted": false
+    },
+    {
+      "name": "arg_0_2",
+      "accepted": false,
+      "baseline_accepted": false,
+      "shell_adapter_accepted": true
+    },
+    {
+      "name": "arg_1_0",
+      "accepted": false,
+      "baseline_accepted": false,
+      "shell_adapter_accepted": false
+    },
+    {
+      "name": "arg_1_1",
+      "accepted": false,
+      "baseline_accepted": false,
+      "shell_adapter_accepted": false
+    },
+    {
+      "name": "arg_1_2",
+      "accepted": false,
+      "baseline_accepted": false,
+      "shell_adapter_accepted": false
+    },
+    {
+      "name": "arg_2_0",
+      "accepted": false,
+      "baseline_accepted": false,
+      "shell_adapter_accepted": false
+    },
+    {
+      "name": "arg_2_1",
+      "accepted": false,
+      "baseline_accepted": false,
+      "shell_adapter_accepted": false
+    },
+    {
+      "name": "arg_2_2",
+      "accepted": false,
+      "baseline_accepted": false,
+      "shell_adapter_accepted": false
+    },
+    {
+      "name": "arg_3_0",
+      "accepted": false,
+      "baseline_accepted": false,
+      "shell_adapter_accepted": false
+    },
+    {
+      "name": "arg_3_1",
+      "accepted": false,
+      "baseline_accepted": false,
+      "shell_adapter_accepted": false
+    },
+    {
+      "name": "arg_3_2",
+      "accepted": false,
+      "baseline_accepted": false,
+      "shell_adapter_accepted": false
+    },
+    {
+      "name": "arg_4_0",
+      "accepted": false,
+      "baseline_accepted": false,
+      "shell_adapter_accepted": false
+    },
+    {
+      "name": "arg_4_1",
+      "accepted": false,
+      "baseline_accepted": false,
+      "shell_adapter_accepted": false
+    },
+    {
+      "name": "arg_4_2",
+      "accepted": false,
+      "baseline_accepted": false,
+      "shell_adapter_accepted": false
+    },
+    {
+      "name": "wrong_executable_quartus_sh.exe",
+      "accepted": false,
+      "baseline_accepted": false,
+      "shell_adapter_accepted": false
+    },
+    {
+      "name": "wrong_executable_quartus_asm.exe",
+      "accepted": false,
+      "baseline_accepted": false,
+      "shell_adapter_accepted": false
+    },
+    {
+      "name": "wrong_executable_quartus_cpf.exe",
+      "accepted": false,
+      "baseline_accepted": false,
+      "shell_adapter_accepted": false
+    },
+    {
+      "name": "wrong_executable_quartus_fit.exe",
+      "accepted": false,
+      "baseline_accepted": false,
+      "shell_adapter_accepted": false
+    },
+    {
+      "name": "wrong_tool_D:/other/quartus_sta.exe",
+      "accepted": false,
+      "baseline_accepted": false,
+      "shell_adapter_accepted": false
+    },
+    {
+      "name": "wrong_tool_D:/q17/quartus/bin/quartus_sta.exe",
+      "accepted": false,
+      "baseline_accepted": false,
+      "shell_adapter_accepted": false
+    },
+    {
+      "name": "wrong_tool_quartus_sta.exe",
+      "accepted": false,
+      "baseline_accepted": false,
+      "shell_adapter_accepted": false
+    },
+    {
+      "name": "extra_--eval",
+      "accepted": false,
+      "baseline_accepted": false,
+      "shell_adapter_accepted": false
+    },
+    {
+      "name": "extra_--allow-rbf",
+      "accepted": false,
+      "baseline_accepted": false,
+      "shell_adapter_accepted": false
+    },
+    {
+      "name": "extra_-t",
+      "accepted": false,
+      "baseline_accepted": false,
+      "shell_adapter_accepted": false
+    },
+    {
+      "name": "extra_;",
+      "accepted": false,
+      "baseline_accepted": false,
+      "shell_adapter_accepted": false
+    },
+    {
+      "name": "missing_argument",
+      "accepted": false,
+      "baseline_accepted": false,
+      "shell_adapter_accepted": false
+    },
+    {
+      "name": "modified_hash",
+      "accepted": false
+    },
+    {
+      "name": "oversized",
+      "accepted": false
+    },
+    {
+      "name": "empty",
+      "accepted": false
+    },
+    {
+      "name": "unreadable",
+      "accepted": false
+    },
+    {
+      "name": "compound_'; quartus_asm x'",
+      "accepted": false
+    },
+    {
+      "name": "compound_'\\nquartus_asm x'",
+      "accepted": false
+    },
+    {
+      "name": "compound_'\\rquartus_cpf x'",
+      "accepted": false
+    },
+    {
+      "name": "compound_'\\r\\nquartus_sh x'",
+      "accepted": false
+    },
+    {
+      "name": "compound_' | quartus_asm x'",
+      "accepted": false
+    },
+    {
+      "name": "compound_'; Stop-Process -Id 123'",
+      "accepted": false
+    },
+    {
+      "name": "compound_' && quartus_sh x'",
+      "accepted": false
+    },
+    {
+      "name": "structured_capsule_1",
+      "accepted": false
+    },
+    {
+      "name": "structured_capsule_2",
+      "accepted": false
+    }
+  ]
+}

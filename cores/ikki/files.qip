@@ -1,0 +1,19 @@
+set_global_assignment -name QIP_FILE rtl/t80/t80.qip
+set_global_assignment -name QIP_FILE rtl/jt89/jt89.qip
+set_global_assignment -name QIP_FILE rtl/ram_helpers.qip
+
+set_global_assignment -name SYSTEMVERILOG_FILE rtl/crt_adjust/crt_adjust.sv
+set_global_assignment -name SYSTEMVERILOG_FILE rtl/pause.v
+set_global_assignment -name SYSTEMVERILOG_FILE rtl/ikki_dpram.sv
+set_global_assignment -name SYSTEMVERILOG_FILE rtl/ikki_linebuf.sv
+set_global_assignment -name SYSTEMVERILOG_FILE rtl/ikki_tdpram.sv
+set_global_assignment -name SYSTEMVERILOG_FILE rtl/ikki_shared.sv
+set_global_assignment -name SYSTEMVERILOG_FILE rtl/ikki_rom.sv
+set_global_assignment -name SYSTEMVERILOG_FILE rtl/ikki_main.sv
+set_global_assignment -name SYSTEMVERILOG_FILE rtl/ikki_sub.sv
+set_global_assignment -name SYSTEMVERILOG_FILE rtl/ikki_video.sv
+set_global_assignment -name SYSTEMVERILOG_FILE rtl/ikki_core.sv
+set_global_assignment -name SYSTEMVERILOG_FILE rtl/ikki_top.sv
+
+set_global_assignment -name SDC_FILE Ikki.sdc
+set_global_assignment -name SYSTEMVERILOG_FILE Ikki.sv

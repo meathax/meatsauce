@@ -1,0 +1,219 @@
+{
+  "scope": "Source bridge for the unchanged main-board projection with user flip disabled; saved gameplay checkpoint overview, not final current full-wrapper/whole-audio/graphics qualification.",
+  "saved_native_terminal": {
+    "model_provenance": "_checks/physical-cpu-restart-corners-20261009/model-source.json",
+    "bus_windows": [
+      2758,
+      2759,
+      6778,
+      6779
+    ],
+    "executable": "_checks/physical-cpu-restart-corners-20261009/Vn8080_board",
+    "inputs": "_checks/physical-cpu-restart-corners-20261009/inputs_restart.csv",
+    "started_utc": "2026-10-09T09:08:59.1832907Z",
+    "output": "sim/results/physical-cpu-restart-corners-rtl-20261009",
+    "inputs_sha256": "15E27F7747D95C53762259B136B7B8AEFF7E8A7C24DCF75AC81EDAD85456DB3D",
+    "executable_sha256": "518A6614F5D1B865378805A37AEEE5E7513747154E1F017CE906A10BF158C0DA",
+    "finished_utc": "2026-10-09T10:36:03.5169787Z",
+    "exit_code": 0,
+    "frames_requested": 6781
+  },
+  "frozen_revision": "cb67879202407d2c9f98126fa76f2a1c2abe247d",
+  "current_main_board_user_flip_off_equals_frozen_board": true,
+  "unchanged_main_CPU_kernels": [
+    "rtl/n8080_cpu.sv",
+    "rtl/n8080_vm80a_ce.v"
+  ],
+  "source_bridge_assumption": "flip_screen=0; the only board changes are the input and its two scanout coordinate XORs. Sound implementation/gain and framework are outside this main-board projection claim.",
+  "input_event_count": 1449,
+  "coin_start_edges": [
+    {
+      "frame": "600",
+      "p0": "0",
+      "p1": "0",
+      "p2": "128",
+      "dip": "252"
+    },
+    {
+      "frame": "605",
+      "p0": "0",
+      "p1": "0",
+      "p2": "0",
+      "dip": "252"
+    },
+    {
+      "frame": "690",
+      "p0": "0",
+      "p1": "0",
+      "p2": "4",
+      "dip": "252"
+    },
+    {
+      "frame": "750",
+      "p0": "0",
+      "p1": "0",
+      "p2": "0",
+      "dip": "252"
+    },
+    {
+      "frame": "6200",
+      "p0": "0",
+      "p1": "0",
+      "p2": "128",
+      "dip": "252"
+    },
+    {
+      "frame": "6205",
+      "p0": "0",
+      "p1": "0",
+      "p2": "0",
+      "dip": "252"
+    },
+    {
+      "frame": "6290",
+      "p0": "0",
+      "p1": "0",
+      "p2": "4",
+      "dip": "252"
+    },
+    {
+      "frame": "6350",
+      "p0": "0",
+      "p1": "0",
+      "p2": "0",
+      "dip": "252"
+    }
+  ],
+  "checkpoint_observations": [
+    {
+      "field": 600,
+      "state": "tick=491520009 address=24768 mode=1 color=2 flip=0 shift=0 count=0 inte=1 irq=1",
+      "ram_6000_603f_hex": "000000ff02b8d400101000070319320000504000000000000000000000000000000000941300100000040000000000000010048214ff68790004ef0101000001",
+      "image": "sim/results/physical-cpu-restart-corners-rtl-20261009/frame_00600.ppm"
+    },
+    {
+      "field": 780,
+      "state": "tick=638976009 address=4062 mode=0 color=0 flip=0 shift=2 count=4 inte=1 irq=1",
+      "ram_6000_603f_hex": "000000ff01b8a800101000070319320000504000000000000000000000000000000000941300100000040000000000000010048214ff68790004ef0101000001",
+      "image": "sim/results/physical-cpu-restart-corners-rtl-20261009/frame_00780.ppm"
+    },
+    {
+      "field": 1200,
+      "state": "tick=983040009 address=32762 mode=0 color=0 flip=0 shift=0 count=7 inte=1 irq=1",
+      "ram_6000_603f_hex": "0000ff8001cccc00101000070313320000504000000000000000000000000000000000941300106814042685fc0000000000028214ff747f020101010100fd01",
+      "image": "sim/results/physical-cpu-restart-corners-rtl-20261009/frame_01200.ppm"
+    },
+    {
+      "field": 1800,
+      "state": "tick=1474560009 address=1433 mode=0 color=0 flip=0 shift=0 count=4 inte=1 irq=1",
+      "ram_6000_603f_hex": "0000ff0400a212000f0f00070305320000504000000000000000000000000000000000941302107b00041ee4fd0300100000008214ff6e8b020101020100fd09",
+      "image": "sim/results/physical-cpu-restart-corners-rtl-20261009/frame_01800.ppm"
+    },
+    {
+      "field": 2400,
+      "state": "tick=1966080009 address=32763 mode=0 color=0 flip=0 shift=0 count=4 inte=1 irq=1",
+      "ram_6000_603f_hex": "0000ff0301ba12000e0e010702113210005040bd0000000000000000000000000000009413030e6814048fe7030300100000008214ff65bb020101030100fd0a",
+      "image": "sim/results/physical-cpu-restart-corners-rtl-20261009/frame_02400.ppm"
+    },
+    {
+      "field": 2700,
+      "state": "tick=2211840009 address=32763 mode=0 color=0 flip=0 shift=0 count=7 inte=1 irq=1",
+      "ram_6000_603f_hex": "0000ff11003644000d0d010702033210005040bd000000000000000000000000000000941302107300042d7ffdfd00100000048214ff6bbe0004fb0701000007",
+      "image": "sim/results/physical-cpu-restart-corners-rtl-20261009/frame_02700.ppm"
+    },
+    {
+      "field": 2760,
+      "state": "tick=2260992009 address=32762 mode=0 color=0 flip=0 shift=1 count=5 inte=1 irq=1",
+      "ram_6000_603f_hex": "0000ff03019612000d0d010701183210005040bd000000000000000000000000000000941303016814044ee7fd0300100000018214ff6bbe0002fb0201000001",
+      "image": "sim/results/physical-cpu-restart-corners-rtl-20261009/frame_02760.ppm"
+    },
+    {
+      "field": 3300,
+      "state": "tick=2703360009 address=32763 mode=0 color=0 flip=0 shift=0 count=4 inte=1 irq=1",
+      "ram_6000_603f_hex": "ff80ff160124ba00090b010700190a10005040bd0000000000000000000000000000009413021077000431c1fc0000100000018214ff6bbe0002fb0801000008",
+      "image": "sim/results/physical-cpu-restart-corners-rtl-20261009/frame_03300.ppm"
+    },
+    {
+      "field": 3900,
+      "state": "tick=3194880009 address=24625 mode=0 color=0 flip=0 shift=0 count=4 inte=1 irq=1",
+      "ram_6000_603f_hex": "0000ff0a0104c810090a010704113210ff5040bd0000000000000000000000000000009413030168140405c1fc0000100000038214ff6bbe0002fb0101000001",
+      "image": "sim/results/physical-cpu-restart-corners-rtl-20261009/frame_03900.ppm"
+    },
+    {
+      "field": 4800,
+      "state": "tick=3932160009 address=1425 mode=0 color=0 flip=0 shift=9 count=6 inte=1 irq=1",
+      "ram_6000_603f_hex": "0000ff1201367e10090a010703053210ff5040bd0000000000000000000000000000009413030e6814046e2900fb00100000008214ff68bd0001fb0701000006",
+      "image": "sim/results/physical-cpu-restart-corners-rtl-20261009/frame_04800.ppm"
+    },
+    {
+      "field": 6000,
+      "state": "tick=4915200009 address=4079 mode=0 color=0 flip=0 shift=0 count=0 inte=1 irq=1",
+      "ram_6000_603f_hex": "000000130170a8100506010701053210ff5040bd0000000000000000000000000000009413001068140495e903030000fe00028214ff68bd0004fb030200000d",
+      "image": "sim/results/physical-cpu-restart-corners-rtl-20261009/frame_06000.ppm"
+    },
+    {
+      "field": 6780,
+      "state": "tick=5554176009 address=2177 mode=0 color=0 flip=0 shift=0 count=4 inte=1 irq=1",
+      "ram_6000_603f_hex": "0000ff07002a12000f0f000703143200005040bd0000000000000000000000000000009413030c6814046e2b00fb00100000028214ff68790001fb0603000006",
+      "image": "sim/results/physical-cpu-restart-corners-rtl-20261009/frame_06780.ppm"
+    }
+  ],
+  "contact_sheet": "_checks/gameplay-source-bridge-20261010/native-lifecycle-checkpoints.png",
+  "source_sha256": {
+    "D:/Arcade/AI/aCORES/sherrif/tools/record_gameplay_source_bridge.py": "ae5e1ff407d6aeaa8fedbb8db5382bb78c48d0107ed325af7894273af45ea271",
+    "docs/evidence/sheriff_clock_restart6780.json": "1aceef9d17e23c53736b6a469960a76cb051be17ba49ce57d0278f0f5ec8662e",
+    "rtl/n8080_board.sv": "2022043c4178c8b6d11360ce43d2f6632a9cd128d6fdc67f108d5027f837a568",
+    "rtl/n8080_cpu.sv": "9d7047ab0edd7f46f9aa674d8820889164486dea460639a11a79ff2db6c865ff",
+    "rtl/n8080_vm80a_ce.v": "55b1df11c49078ebbaaa7343c430129a1f8fa58076a077a2abd1c22cdfde851a"
+  },
+  "evidence_sha256": {
+    "sim/results/physical-cpu-restart-corners-rtl-20261009/frame_00600.ppm": "c777ca0426fde3d6bee528f1843e46690e2f62b7909f673736e9459088d6b73c",
+    "sim/results/physical-cpu-restart-corners-rtl-20261009/frame_00600.ram": "649ff7b1204676d50a7061a02a736dfb60960e3552a754ed6cbe65fc8c7f78fd",
+    "sim/results/physical-cpu-restart-corners-rtl-20261009/frame_00600.state": "711a903087ceaf203fe8c81dad49c1b8c3d9b01342c6648aaa20a0481abc4102",
+    "sim/results/physical-cpu-restart-corners-rtl-20261009/frame_00780.ppm": "41853ec8eef5b4615adedf2f6e5a0dae502cb44ec581fbc736d829519b92fee6",
+    "sim/results/physical-cpu-restart-corners-rtl-20261009/frame_00780.ram": "8c422692e6368530a972d6fb5f03c9a4c399a56e344685391d912367bb76f027",
+    "sim/results/physical-cpu-restart-corners-rtl-20261009/frame_00780.state": "93770dbe7db6db366a5d781c28fc61c0bf595f9219bebce0392e7e8ddfce22c3",
+    "sim/results/physical-cpu-restart-corners-rtl-20261009/frame_01200.ppm": "9d89f403123b05553ae36f6fa1dc97cb3a9b9d38f391efa2fbece05af9ed5793",
+    "sim/results/physical-cpu-restart-corners-rtl-20261009/frame_01200.ram": "8254e2f2016b7bfb42c4f9d73ed1c49853458e186cfc174795f5643dcd316534",
+    "sim/results/physical-cpu-restart-corners-rtl-20261009/frame_01200.state": "0d44ea3465a48373bdd437146e6f4ae93658566c65f0d01adc7417fb4aaf3415",
+    "sim/results/physical-cpu-restart-corners-rtl-20261009/frame_01800.ppm": "2d4538595d95e16fa6d6c8c987a00c046f278d18e64b5dcbe1d1a8f762365c86",
+    "sim/results/physical-cpu-restart-corners-rtl-20261009/frame_01800.ram": "efce55696e8e6ba03074a6c590bc53ff81ba440c8991d46f193a871b5b27e21a",
+    "sim/results/physical-cpu-restart-corners-rtl-20261009/frame_01800.state": "70e3b27704118b7bac790e867c691d201804fa5c2cb26bb911fc0d25842abeb5",
+    "sim/results/physical-cpu-restart-corners-rtl-20261009/frame_02400.ppm": "69ee1c3b104a801f2bb2d970fd6c9cea4a165997f5cbe3ef995ee35dd72ff9e3",
+    "sim/results/physical-cpu-restart-corners-rtl-20261009/frame_02400.ram": "2e2330aea0cbf8ebd5aedfb9e4cf50a8d9a3df8aa0b09a0cf9a3b615fdc33ac7",
+    "sim/results/physical-cpu-restart-corners-rtl-20261009/frame_02400.state": "4737e34996d40214fef29ca001f76f30e1e7482c10b6c8dc5a70e842b9583853",
+    "sim/results/physical-cpu-restart-corners-rtl-20261009/frame_02700.ppm": "e3b6ab86011e70b905a45cfafe5aaba39bd16dd8a241acbb08d6e4cb0fa5eaf8",
+    "sim/results/physical-cpu-restart-corners-rtl-20261009/frame_02700.ram": "72ff843f46be1e6301b57170dd721b2860e5abca7afb5b0912f5e1db0b6a265d",
+    "sim/results/physical-cpu-restart-corners-rtl-20261009/frame_02700.state": "f083c93175f54270a67c0e98c13d94ec324c43a99787368fd066ae22623ae6c9",
+    "sim/results/physical-cpu-restart-corners-rtl-20261009/frame_02760.ppm": "1a4ec5195072b5eabab062b09f6a2902797084b154a4a6e9e3504a4756b24c51",
+    "sim/results/physical-cpu-restart-corners-rtl-20261009/frame_02760.ram": "25e83214698837122ed19fcf1593d4ac70172f721bfd92f4bffc074b3711b24c",
+    "sim/results/physical-cpu-restart-corners-rtl-20261009/frame_02760.state": "0ac443f26bceb5e6fad7ee084a3f9c909371124963f0cfc27e2d29ce40703215",
+    "sim/results/physical-cpu-restart-corners-rtl-20261009/frame_03300.ppm": "a072a50bc77a4c35450ee86f9dafc815da8d91143916127e7287613ac2daf751",
+    "sim/results/physical-cpu-restart-corners-rtl-20261009/frame_03300.ram": "ed6f98073ff59a0555c6abd3f75bc094b24ff9f93718353b0f9a4e6103579cdd",
+    "sim/results/physical-cpu-restart-corners-rtl-20261009/frame_03300.state": "35d34ce1d8e76e4f691279237eb1e07af0bc7e2d3a1e72e72686f6b1aa735912",
+    "sim/results/physical-cpu-restart-corners-rtl-20261009/frame_03900.ppm": "5315493fcd64666be7d99a9ba3b5e3c28538419b461c18f020b7738859463351",
+    "sim/results/physical-cpu-restart-corners-rtl-20261009/frame_03900.ram": "cc2316e9d837dc5fd3d48b3d1b319ba0ec088a4bad8621b33cc30a0fe4d64c2b",
+    "sim/results/physical-cpu-restart-corners-rtl-20261009/frame_03900.state": "4711970a80db0cfb458cbf029671188eff594c5724cacddd30e85b44a923a8fc",
+    "sim/results/physical-cpu-restart-corners-rtl-20261009/frame_04800.ppm": "a0f3373dd64f913f468b8ed2a7721b807ad3dd1ff74461661144d1d8d3f90784",
+    "sim/results/physical-cpu-restart-corners-rtl-20261009/frame_04800.ram": "88b5afb6b2c443d7714d314e095a4d86e10deba3e24c790da04859a60d342f34",
+    "sim/results/physical-cpu-restart-corners-rtl-20261009/frame_04800.state": "fa0a1b321cb91cf72b7d4bad3f1f1bd2b6b4d1eb32c814f197b82e3da56e0d7c",
+    "sim/results/physical-cpu-restart-corners-rtl-20261009/frame_06000.ppm": "85ff919e54d70b7befe9097789af4a810c139d7e301c3850d3c686b501b2bfbd",
+    "sim/results/physical-cpu-restart-corners-rtl-20261009/frame_06000.ram": "49a78095dff62c9ddc6b876524091c6f7758b161f8c26ccf42dd6070952160f7",
+    "sim/results/physical-cpu-restart-corners-rtl-20261009/frame_06000.state": "4f1d1f539a81064134ffb8fbc23d02acb603b822c5f57d64b1f96184e0872884",
+    "sim/results/physical-cpu-restart-corners-rtl-20261009/frame_06780.ppm": "fedd9c242d92f2460d8cb2070907db5b793c52050f2d90c63cc7a7ee06f76803",
+    "sim/results/physical-cpu-restart-corners-rtl-20261009/frame_06780.ram": "d2a0835bb93a6646bf26268082affbda257794afc33f10ed53d61de99ead80b8",
+    "sim/results/physical-cpu-restart-corners-rtl-20261009/frame_06780.state": "f190ed0e1bf6e8632fda7eb77179954face69a8d8943dfc751c3a5d36e2971f1",
+    "_checks/gameplay-source-bridge-20261010/native-lifecycle-checkpoints.png": "67169b29672917460b39410e05ad42de4f42f127863d73d3bda41198c2deedb5",
+    "_checks/gameplay-source-bridge-20261010/frozen_board.sv": "f70a5f758145c3f07d0b436eb4203edbf3b99e58874d3932170fbb2d73e98bd6",
+    "_checks/gameplay-source-bridge-20261010/current_board_user_flip_off.sv": "f70a5f758145c3f07d0b436eb4203edbf3b99e58874d3932170fbb2d73e98bd6"
+  },
+  "native_simulation_rerun": false,
+  "complete_gameplay_gate_pass": false,
+  "strict_graphics_gate_pass": false,
+  "limits": [
+    "Main source projection reuse does not qualify changed sound or current complete wrapper.",
+    "HUD lifecycle observations require inspection and independent reference context; CPU activity alone does not prove all game events.",
+    "The saved field2760 pixel mismatch and physical raster/DRAM/READY/serializer remain open.",
+    "No new synthesis/fit/STA/resource report or RBF follows."
+  ]
+}

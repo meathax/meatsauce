@@ -1,0 +1,59 @@
+{
+  "scope": "ONE isolated incremental private MAME build and ONE unchanged Kyros61 replay, then read-only qualification repairs; no native rerun, guest timing changes, RTL changes or RBF.",
+  "actual_exits": {
+    "compile": 0,
+    "archive": 0,
+    "link": 0,
+    "build": 0,
+    "MAME": 0,
+    "original_qualifier": 1,
+    "original_worker": 1,
+    "corrected_consumer1": 1,
+    "corrected_consumer2": 1,
+    "corrected_consumer3": 0
+  },
+  "actual_PIDs": {
+    "controller_worker": 8108,
+    "compile": 23704,
+    "archive": 37908,
+    "link": 54016,
+    "MAME": 42332
+  },
+  "jobs": {
+    "compile": 1,
+    "archive": 1,
+    "link": 1,
+    "MAME_replay": 1
+  },
+  "accepted_checks": {
+    "actual_build0": true,
+    "actual_MAME0": true,
+    "original12CSVsexact": true,
+    "originalwholearrays_exact": true,
+    "audioPCM_exact": true,
+    "original_recorder_exact": true,
+    "all_original_cutoff_records_exact": true,
+    "no_LUA_error": true,
+    "17fields_wellformed": true,
+    "bounded_request_window": true,
+    "original_return_algorithm_exact": true,
+    "ten_returngroups_ordered_active_SR_next_IACK_levels": true,
+    "all_protected_and_required_pins_unchanged": true
+  },
+  "accepted_guest_scope": "12 original CSVs; all nine full RGB/work/sprite arrays at fields0/30/60; audio PCM; original Lua; all130 original IRQ cutoff records. Frozen baseline mame_cutoff_observer61 is unchanged.",
+  "observer_scope": "17 read-only fields; ten request/return groups inside5500000..6200000 mainCPUcycles; original VPA branch/results preserved exactly.",
+  "failure_history": {
+    "original": "Raw current m_int_level was incorrectly treated as the active IACK service level. Original pin-dictionary predicate failed, but did not retain per-pin differences; its exact first-time cause is unavailable.",
+    "consumer1": "Relocated generated qualifier resolved HERE into the wrong nested recipe directory; genuine consumer exit1 preserved.",
+    "consumer2": "Source-correct active SR/next-state mapping passes. Fresh per-pin comparisons retain157 full expected/actual pairs with equal bytes/SHA and only path separator differences. This does not retroactively prove original first-time mismatches.",
+    "consumer3": "Only path separators are normalized for target identity; SHA/bytes remain exact. All13 checks pass with an empty mismatch list. Existing guest capture reused.",
+    "tool_limits": "Capsule reported EPERM after consumer1/2 executions; durable actual exit receipts control status. No duplicate guest was launched."
+  },
+  "isolation": "New CPP/object/dependency/archive/PE/tmp outputs only. Original private CPP/PE, PCH, official MAME source/PE, original archives and baseline captures remain byte-pinned. Unique m68000.o archive replacement; every other non-symbol member body/order unchanged.",
+  "responsible_layer_finding": "First extra8 masterticks localizes to IACK E/VPA service, after matching32-tick PClo-to-IACK-request intervals. Native IACK AS-to-SR AS176 versus MAME VPA-request-to-SR-callback168. Ordinary stackwrite AS-to-DS8 and DS-to-acceptedRAMcommit1 do not explain it.",
+  "source_hypothesis": "MAME uses synthetic CPU-cycle modulo10 E synchronization; native FX68K uses free-running Ecounter plus registered VPA/iStop/bus completion. This is an E-phase/sample/callback convention candidate, not a proven donor or PCB defect. The primary MC68000 manual leaves initial power-on E/CLK phase unspecified.",
+  "minimum_candidate": "Do not retime the CPU or phase-fit to pixels. A board-level VPA decoder correction is justified only if the actual PCB FC/AS/VPA contract or waveform establishes a mismatch with current !ASn&&FC7 generation. A donor change requires a demonstrated violation of the manual sampling/completion contract. Neither is established here.",
+  "remaining_evidence": "Additional24 masterticks from initial42 to later66 remains open: native stack evidence is absent for four frame57/58 IACKs. Available later +64 is a separate phase, with different-PC limits on two earlier pairs; it cannot prove three +8 increments. Physical board timing is not qualified.",
+  "gate_limits": "B16 strict RAM/CPU timing remains OPEN. Native57 is the retained historical69 temporal graph, not current43b complete-game proof. No claim of MiSTer/PCB fidelity, complete-game closure or graphics-pixel cause follows from this finite observer.",
+  "next_action": "Root source-only independent E/VPA physical-contract review; retain original evidence and unresolved gates before selecting any RTL correction."
+}

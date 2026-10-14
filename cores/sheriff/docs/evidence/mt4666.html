@@ -1,0 +1,489 @@
+  <!DOCTYPE html>
+  <html lang="en">
+<head>
+<!-- Global site tag (gtag.js) - Google Analytics -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=UA-41192733-1"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'UA-41192733-1');
+</script>
+  <meta http-equiv="cache-control" content="private, max-age=5400, pre-check=5400">
+  <meta http-equiv="expires" content="Thu, 15 Oct 26 14:55:08 +0000">
+    <link rel="stylesheet" type="text/css" href="https://mametesters.org/css/default.css?v=180622">
+  <meta http-equiv="Expires" content="Thu, 15 Oct 2026 14:55:08 GMT">
+  <link rel="shortcut icon" href="images/favicon.ico" type="image/x-icon">
+  <title>04666: spacelnc: Missing one DAC sound. - MAME Testers</title>
+ <script src="javascript/common.js"></script>
+    <script src="javascript/ajax.js"></script>
+    <script
+      src="https://code.jquery.com/jquery-3.7.1.min.js"
+      integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo="
+      crossorigin="anonymous"></script>
+    <script src="js/script.js?v=12"></script>
+    <meta property="og:title" content="MAME Testers - 04666: spacelnc: Missing one DAC sound.">
+  <meta property="og:type" content="mametesters:article">
+</head>
+
+  <body>
+    <div class="content">
+    
+
+<!-- navigator -->
+<nav>
+ <div class="nav-inner">
+  <div id="navcontent">
+    <ul>
+      <li class="first"><a href="./main_page.php" class="home">&nbsp;</a></li>
+      <li><a href="./my_view_page.php">My View</a></li>
+      <li><a href="./view_all_bug_page.php">View &amp; Search</a></li>
+      <li class="has-submenu"><a href="#">Change Log</a>
+        <ul class="sub_menu">
+          <li class="first"><a href="./changelog_page.php">MAME Change Log</a></li>
+          <li><a href="./changelog_mess_page.php">Old MESS Change Log</a></li>
+        </ul>
+      </li>
+    <li class="has-submenu"><a href="#" class="links"></a>
+      <div class="dev-menu-wrapper">
+        <div class="dev-menu">
+          <ul>
+            <li><a href="https://www.mamedev.org/" target="_blank" class="mamedev">mamedev.org</a></li>
+            <li><a href="https://github.com/mamedev/mame" target="_blank" class="git">mamedev git</a></li>
+            <li><a href="https://mashinfo.github.io/mameinfo//" target="_blank">MASH's MAMEINFO</a></li>
+            <li><a href="https://mamedev.org/devwiki/index.php/Frequently_Asked_Questions" target="_blank" class="mamedev">MAME FAQ</a></li>
+            <li><a href="https://flyers.arcade-museum.com/" target="_blank" class="tafa">TAFA</a></li>
+            <li><a href="http://www.system16.com/" target="_blank" class="sys16">System 16</a></li>
+            <li><a href="https://www.arcade-history.com/" target="_blank" class="archis">Arcade History</a></li>
+            <li><a href="https://www.tamdb.net/" target="_blank" class="amdb">Arcade Manual DB</a></li>
+            <li><a href="http://www.arcadecollecting.com/" target="_blank" class="arcadecollect">ArcadeCollecting</a></li>
+            <li><a href="https://auctions.yahoo.co.jp/search/search?p=%E3%82%A2%E3%83%BC%E3%82%B1%E3%83%BC%E3%83%89%20%E5%9F%BA%E6%9D%BF" target="_blank" class="yahoo">Yahoo Auctions (JP)</a></li>
+
+            <li><a href="https://e2j.net/bugs/" target="_blank" class="e2j">Japanese Database</a></li>
+            <li><a href="https://e2j.net/files/mameinfo_en.zip" class="download">mameinfo.dat (bug only)</a></li>
+
+          </ul>
+          <ul>
+            <li><a target="_blank" href="https://aarongiles.com/">Aaron Giles</a></li>
+            <li><a target="_blank" href="http://web.archive.org/web/20200616084501id_/http://andreasnaive.blogspot.com/search/label/emulaci%C3%B3n/">Andreas Naive</a></li>
+            <li><a target="_blank" href="https://ajg.mameworld.info/">Andrew Gardner</a></li>
+            <li><a target="_blank" href="http://mamedev.emulab.it/kale/">Angelo Salese / Kale</a></li>
+            <li><a target="_blank" href="http://mess.redump.net/people/mahlemiut">Barry Rodewald</a></li>
+            <li><a target="_blank" href="http://www.bryanmcphail.com/wp/?cat=25">Bryan McPhail / Mish</a></li>
+            <li><a target="_blank" href="http://www.techno-junk.org/">Charles MacDonald</a></li>
+            <li><a target="_blank" href="http://mess.redump.net/people/curt_coder">Curt Coder</a></li>
+            <li><a target="_blank" href="http://mamedev.emulab.it/haze/">David Haywood / Haze</a></li>
+            <li><a target="_blank" href="http://derrick.mameworld.info/">Derrick Renaud</a></li>
+            <li><a target="_blank" href="https://redump.net/">Dirk Best / Duke</a></li>
+            <li><a target="_blank" href="http://mamedev.emulab.it/etabeta/?cat=4">Fabio Priuli / etabeta</a></li>
+            <li><a target="_blank" href="https://www.firehawke.net/posts/">Firehawke</a></li>
+            <li><a target="_blank" href="http://avoidspikes.blogspot.jp/">Frank Palazzolo</a></li>
+            <li><a target="_blank" href="http://agemame.mameworld.info/">James Wallace</a></li>
+            <li><a target="_blank" href="http://agemame.mameworld.info/">Jarek Burczynski</a></li>
+            <li><a target="_blank" href="http://stolistic.blogspot.jp/">Jim Stolis / Stolistic</a></li>
+            <li><a target="_blank" href="http://mess.redump.net/people/lord_nightmare">Lord Nightmare</a></li>
+
+          </ul>
+          <ul>
+            <li><a target="_blank" href="http://www.lucaelia.com/mame.php">Luca Elia</a></li>
+            <li><a target="_blank" href="http://web.archive.org/web/20210128044540/http://www.manuelabadia.com/blog/CategoryView,category,MAME.aspx">Manuel Abadia</a></li>
+            <li><a target="_blank" href="http://mess.redump.net/people/mizapf">Michael Zapf / mizapf</a></li>
+            <li><a target="_blank" href="http://nebula.emulatronia.com/">Miguel Ángel Horna / ElSemi</a></li>
+            <li><a target="_blank" href="http://micko-wip.blogspot.jp/">Miodrag Milanovic / Micko</a></li>
+            <li><a target="_blank" href="http://mamelife.blogspot.com/">Nicola Salmoria</a></li>
+            <li><a target="_blank" href="https://web.archive.org/web/20040816085654id_/http://www.mamehot.net:80/php/bujar.php">Norbert Kehrer</a></li>
+            <li><a target="_blank" href="http://philwip.mameworld.info/">Philip Bennett</a></li>
+            <li><a target="_blank" href="http://reip.mameworld.info/">Pierpaolo Prazzoli / Reip</a></li>
+            <li><a target="_blank" href="http://rbelmont.mameworld.info/">R. Belmont</a></li>
+            <li><a target="_blank" href="https://robbie.mameworld.info//">Roberto Fresca</a></li>
+            <li><a target="_blank" href="http://mamedev.emulab.it/robiza/">Roberto Zandonà / Robiza</a></li>
+            <li><a target="_blank" href="http://slanina.pl/mame.html">Tomasz Slanina / dox</a></li>
+            <li><a target="_blank" href="http://tourniquet.mameworld.info/">Tourniquet / Paul Priest</a></li>
+            <li><a target="_blank" href="https://rants.vastheman.com/category/technology/mame/">Vas Crabb</a></li>
+            <li><a target="_blank" href="http://vlinde.mameworld.info/">Ville Linde</a></li>
+            <li><a target="_blank" href="http://mess.redump.net/people/wilbert_pol">Wilbert Pol / Judge</a></li>
+
+          </ul>
+        </div>
+      </div>
+    </li>
+    </ul></div>      <div id="navcontent-r">
+        <ul>
+          <li class="has-submenu"><a href="#" class="dropdown">Help</a>
+            <ul class="sub_menu" style="display: none;">
+              <li class="first"><a href="./rules.html" target="_blank">Rules and Guidelines</a></li>
+              <li><a href="./legend.html" target="_blank">Legend</a></li>
+              <li><a href="./tutorial.html" target="_blank">Tutorial</a></li>
+              <li><a href="./roles.html" target="_blank">User Levels</a></li>
+              <li><a href="./faq.html" target="_blank">FAQ</a></li>
+            </ul>
+          </li>
+          <li class="devider">|</li>
+          <li class="has-submenu"><a href="#" class="dropdown  header-username-flex">Guest</a>
+            <ul class="sub_menu" style="display: none;">
+              <li class="first"><a href="./login_page.php?return=%2Fview.php%3Fid%3D4666">Login</a></li>
+              <li><a href="./signup_page.php">Join Testers</a></li>
+            </ul>
+          </li>
+                <li class="devider">|</li>
+      <li><a href="./login_page.php?return=%2Fview.php%3Fid%3D4666">Login</a>
+        </ul>
+      </div>
+
+    </div>
+    </nav>
+
+    <!-- sub navigator -->
+    <div id="navsub">
+      <div id="login2">
+
+        <ul>
+          <li><span id="utc" style="white-space: nowrap;">--</span></li>
+          <li>
+            <form method="post" action="jump_to_bug.php"><input name="bug_id" size="4" maxlength="5" class="inp_txt" placeholder="BugID" type="text"></form>
+          </li>
+          <li>
+            <form method="post" action="./view_all_set.php" style="margin-left: 5px;"><input type="hidden" name="type" value="1"><input type="hidden" name="temporary" value="y"><input name="search" size="12" maxlength="20" class="inp_txt_search" value="" type="text" placeholder="Search"></form>
+          </li>
+        </ul>
+
+      </div>
+    </div>
+
+    <!-- Main Contents -->
+<main>
+
+<div>
+<section class="widget">
+  <div class="widget-title">
+    <div class="widget-title-left">
+      <span class="ico_bug">Viewing Issue Advanced Details</span>
+    </div>
+  </div>
+  <div class="widget-header">
+    <div class="widget-header-left">
+      <!-- Jump to Bugnotes -->
+      <span class="bracket-link">[&nbsp;<a href="#bugnotes">Jump to Notes</a>&nbsp;]</span>       <!-- Send Bug Reminder -->
+          </div>
+    <div class="widget-header-right">
+      <a href="https://github.com/mamedev/mame/tree/master/src/mame/nintendo/n8080.cpp" target="_blank" class="gitlink">nintendo/n8080.cpp</a>    </div>
+  </div>
+  <div class="widget-client">
+
+    <table class="general">
+
+      <!-- Labels -->
+      <tr class="row-category">
+        <th width="15%">
+          ID        </th>
+        <th width="20%">
+          Category <span class="hint">[<a href="./legend.html#category" target="_blank">?</a>]</span>        </th>
+        <th width="15%">
+          Severity <span class="hint">[<a href="./legend.html#severity" target="_blank">?</a>]</span>        </th>
+        <th width="20%">
+          Reproducibility        </th>
+        <th width="15%">
+          Date Submitted        </th>
+        <th width="15%">
+          Last Update        </th>
+      </tr>
+
+      <tr class="row-category-items">
+        <!-- Bug ID -->
+        <td>
+          04666        </td>
+
+        <!-- Category -->
+        <td>
+          Sound        </td>
+
+        <!-- Severity -->
+        <td>
+          Minor        </td>
+
+        <!-- Reproducibility -->
+        <td>
+          Have not tried        </td>
+
+        <!-- Date Submitted -->
+        <td>
+          Feb 8, 2012, 00:13        </td>
+
+        <!-- Date Updated -->
+        <td>
+          Feb 11, 2012, 10:07        </td>
+
+      </tr>
+
+      <!-- spacer -->
+      <tr class="spacer">
+        <td colspan="6"></td>
+      </tr>
+      <tr class="hidden"></tr>
+
+      <tr>
+        <!-- Reporter -->
+        <th>
+          Tester        </th>
+        <td>
+          M.A.S.H.        </td>
+
+        <!-- View Status -->
+        <th>
+          View Status        </th>
+        <td>
+          Public        </td>
+
+        <!-- Platform -->
+        <th>
+          Platform        </th>
+        <td>
+          MAME (Self-compiled)        </td>
+
+      </tr>
+
+
+      <!-- Handler -->
+      <tr>
+        <th>
+          Assigned To        </th>
+        <td>
+          hap        </td>
+
+        <!-- Resolution -->
+        <th>
+          Resolution        </th>
+        <td>
+          Fixed        </td>
+
+        <!-- Operating System -->
+        <th>
+          OS        </th>
+        <td>
+          Windows XP (32-bit)        </td>
+
+      </tr>
+
+      <tr>
+
+        <!-- Status -->
+        <th>Status <span class="hint">[<a href="./legend.html#status" target="_blank">?</a>]</span></th>
+        <td class="resolved">Resolved</td>
+
+        <!-- Github pull request  -->
+
+        <td colspan="2"></td>
+
+        <!-- OS Version -->
+        <th>Driver</th>
+        <td><div class="row_driver"><a href="view_all_set.php?type=1&temporary=y&search=nintendo/n8080.cpp" target="_blank">nintendo/n8080.cpp</a></div></td>
+      </tr>
+
+      <tr>
+        <!-- version -->
+        <th>
+          Version        </th>
+        <td>
+          0.145        </td>
+        <!-- fixed in version -->
+        <th>
+          Fixed in Version        </th>
+        <td>
+          0.145u1        </td>
+        <th>
+          Build        </th>
+        <td>
+          Normal        </td>
+      </tr>
+
+
+      
+      <tr>
+        <th></th>
+        <td></td>
+
+        <th>Fixed in Git Commit</th>
+        <td></td>
+
+        <th>Github Pull Request #</th>
+        <td></td>
+      </tr>
+
+      
+      <!-- spacer -->
+      <tr class="spacer">
+        <td colspan="6"></td>
+      </tr>
+      <tr class="hidden"></tr>
+
+      <!-- Summary -->
+      <tr>
+        <th>
+          Summary        </th>
+        <td colspan="5" class="largefont">
+          04666:  <b><a href="http://adb.arcadeitalia.net/dettaglio_mame.php?game_name=spacelnc&lang=en" target="_blank"> spacelnc</a></b>: Missing one DAC sound.        </td>
+      </tr>
+
+
+      <!-- Description -->
+      <tr>
+        <th>
+          Description        </th>
+        <td colspan="5" class="largefont">
+          Space Launcher is missing since MAME 0.138u2 one DAC sound. This is the sound when you destroy one of the alien<br />
+in upper formation (see snapshot).        </td>
+      </tr>
+
+
+      <!-- Steps to Reproduce -->
+      <tr>
+        <th>
+          Steps To Reproduce        </th>
+        <td colspan="5" class="largefont">
+                  </td>
+      </tr>
+
+
+      <!-- Additional Information -->
+      <tr>
+        <th>
+          Additional Information        </th>
+        <td colspan="5" class="largefont">
+                  </td>
+      </tr>
+
+      <!-- GIT Commit -->
+      <tr>
+        <th>Github Commit</th>
+        <td colspan="5"></td>
+      </tr>
+
+
+
+      <!-- Tagging -->
+      
+      
+
+      <!-- spacer -->
+      <tr class="spacer">
+        <td colspan="6"></td>
+      </tr>
+      <tr class="hidden"></tr>
+
+      <!-- Custom Fields -->
+              <tr>
+          <th>
+            Flags          </th>
+          <td colspan="5">
+                      </td>
+        </tr>
+              <tr>
+          <th>
+            Regression Version          </th>
+          <td colspan="5">
+            0.138u2          </td>
+        </tr>
+              <tr>
+          <th>
+            Affected Sets / Systems          </th>
+          <td colspan="5">
+            spacelnc          </td>
+        </tr>
+      
+              <!-- spacer -->
+        <tr class="spacer">
+          <td colspan="6"></td>
+        </tr>
+        <tr class="hidden"></tr>
+      
+      <!-- Attachments -->
+                <tr>
+            <th rowspan="1">
+              <div id="attachments">Attached Files</div>
+            </th>
+            <td colspan="5" class="bug-attachment"><div class="file-info"><a href="file_download.php?file_id=3297&amp;type=bug"><img src="https://mametesters.org/images/fileicons/gif.png" alt="gif file icon" width="16" height="16" class="attchment_icon"></a>&nbsp;<a href="file_download.php?file_id=3297&amp;type=bug">spacelnc.gif</a> (2,054 bytes) Feb 8, 2012, 00:13 Uploaded by <b>M.A.S.H.</b></div>
+<a href="file_download.php?file_id=3297&amp;type=bug"><img alt="M.A.S.H." style=" max-height:512px; max-width: 100%; height: auto;" src="file_download.php?file_id=3297&amp;type=bug"></a></td></tr>
+        
+        <!-- Buttons -->
+          <tr class="center">
+            <td colspan="6"><div class="bug_manipulate"></div></td>
+          </tr>
+    </table>
+
+  </div>
+  <!--/.widget-client-->
+</section>
+<!--/.widget-->
+
+
+<section class="widget widget-accordion" id="view-relationships">
+  <div class="widget-title">
+    <div class="widget-title-left">
+      <span class="ico_link">Relationships</span>
+		</div>
+    <div class="widget-toggle"></div>
+  </div>
+  <div class="widget-client">
+
+		<table class="general">
+
+                  <tr>
+              <td class="center" colspan="2">
+                There are no relationship linked to this issue.
+              </td>
+            </tr>
+		</table>
+
+	</div>
+</section>
+
+
+<section class="widget widget-accordion" id="bugnotes">
+  <div class="widget-title">
+    <div class="widget-title-left">
+      <span class="ico_chat">Notes</span>
+      <div class="widget-numbers">0</div>
+    </div>
+    <div class="widget-toggle"></div>
+  </div>
+  <div class="widget-client">
+    <table class="general">
+
+            <tr>
+        <td class="center">
+          There are no notes attached to this issue.        </td>
+      </tr>
+          </table>
+  </div>
+</section>
+
+</div>    </main>
+    </div><!--/.content-->
+
+    <footer>
+      <div class="footer-row">
+        <div class="footer-col footer-logo"></div>
+        <div class="footer-col">
+          <dl>
+            <dt>Project Coordinators</dt>
+            <dd>Fujix, Tafoid, B2K24</dd>
+            <dt>Project Founders</dt>
+            <dd>RocLobsta, KiLLerCloWn</dd>
+            <dt>MT Hall of Fame</dt>
+            <dd>Mevi, The Dog, Karasu, Shifty, tECHIDNA, Uncle Vom, etabeta, Smitdogg</dd>
+            <dt>Server Host</dt>
+            <dd>Fujix</dd>
+          </dl>
+        </div>
+        <div class="footer-col">
+          <div class="logo-mantis"><a href="http://www.mantisbt.org" title="Free Web Based Bug Tracker"><img src="./testersimgs/mantis_logo_button.png" alt="Powered by Mantis Bugtracker" id="ico_mantis"></a><br> Powered by Mantis Bugtracker</div>
+
+          MAME Testers &copy; 1999 - 2026<br>
+          Process Time: 0.000000 seconds.<br><br>
+
+        </div>
+      </div>
+    </footer>
+      <div id="backtotop"></div>
+  </body>
+  </html>

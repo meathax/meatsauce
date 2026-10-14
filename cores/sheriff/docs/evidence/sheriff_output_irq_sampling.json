@@ -1,0 +1,131 @@
+{
+  "scope": "Physical final-phi2 IRQ sampling and earliest output timing change at one frame-103 midscreen boundary",
+  "boundary_explanation_pass": true,
+  "native_exit_code": 0,
+  "native_frames": 106,
+  "native_harness_source_recovery": {
+    "revision": "caac6cd",
+    "path": "sim/board_harness.cpp",
+    "snapshot": "_checks/output-103-native-20261009/board_harness-caac6cd.cpp"
+  },
+  "fresh_native_cpu_io_and_memory_byte_prefix_equal": true,
+  "raster_edge_tick": 84838400,
+  "startup_phi1_epoch": 18,
+  "opcode_dbin_offset_from_phi1": 38,
+  "independently_observed_instruction_bus_calibration": {
+    "CALL": [
+      {
+        "opcode_pc": 229,
+        "phi1_tick": 1193,
+        "write_offsets": [
+          326,
+          401
+        ],
+        "duration_master_clocks": 425
+      },
+      {
+        "opcode_pc": 1519,
+        "phi1_tick": 1618,
+        "write_offsets": [
+          326,
+          401
+        ],
+        "duration_master_clocks": 425
+      },
+      {
+        "opcode_pc": 1722,
+        "phi1_tick": 2043,
+        "write_offsets": [
+          326,
+          401
+        ],
+        "duration_master_clocks": 425
+      }
+    ],
+    "MOV M,A": [
+      {
+        "opcode_pc": 3950,
+        "phi1_tick": 3568,
+        "write_offsets": [
+          151
+        ],
+        "duration_master_clocks": 175
+      },
+      {
+        "opcode_pc": 3950,
+        "phi1_tick": 4543,
+        "write_offsets": [
+          151
+        ],
+        "duration_master_clocks": 175
+      },
+      {
+        "opcode_pc": 3950,
+        "phi1_tick": 5518,
+        "write_offsets": [
+          151
+        ],
+        "duration_master_clocks": 175
+      }
+    ]
+  },
+  "native_observed_opcode_fetches": [
+    {
+      "pc": 4083,
+      "tick": 84838181
+    },
+    {
+      "pc": 4079,
+      "tick": 84838431
+    }
+  ],
+  "jnz_phi1_tick": 84838143,
+  "jnz_final_phi2_close_tick": 84838392,
+  "lda_phi1_tick": 84838393,
+  "lda_final_phi2_close_tick": 84838717,
+  "predicted_rst_phi1_tick": 84838718,
+  "predicted_bus_ticks": {
+    "ack": 84838731,
+    "stack_high": 84838894,
+    "stack_low": 84838969
+  },
+  "actual_bus_ticks": {
+    "ack": 84838731,
+    "stack_high": 84838894,
+    "stack_low": 84838969
+  },
+  "predicted_hardware_return_pc": 4082,
+  "actual_hardware_return_pc": 4082,
+  "mame_return_pc": 4079,
+  "prediction_uses_irq_stack_for_instruction_anchor": false,
+  "mame_scheduler": {
+    "cpu_cycle_as": 496031746031,
+    "pixel_cycle_as": 198412698412,
+    "residual_as": 496028352495,
+    "sub_cycle_deficit_as": 3393536,
+    "old_local_boundary_nominal_tick": 84838375,
+    "atomic_stack_nominal_tick": 84838650
+  },
+  "explanation": "The JNZ final phi2 aperture closes eight clocks before IRQ. The actual CPU starts LDA seven clocks before IRQ and completes its 13 T states before interrupt entry. MAME processes the timer before resuming at its older instruction boundary, stacking the pre-LDA PC. Independent ISA durations and observed opcode fetches predict actual ACK, both stack writes and the return PC exactly.",
+  "manual_url": "https://bitsavers.org/components/intel/MCS80/Intellec_8_Mod_80/Intel_Intellec_8_Mod_80_Reference_Manual_Feb75.pdf",
+  "manual_rule": "Interrupt Sequences/Figure 2-8: enabled asynchronous INT is reclocked with phi2 in the final instruction state",
+  "raw_timing_difference_retained": true,
+  "pixel_2760_cause_qualified": false,
+  "complete_irq_gate": false,
+  "complete_graphics_gate": false,
+  "complete_sheriff_gate": false,
+  "rtl_changed": false,
+  "quartus_executed": false,
+  "sha256": {
+    "_checks/output-103-native-20261009/result.json": "30a9ada9a5aad576a2ec0802013573cb8796d43463103639c13a5aaa37a1ca5f",
+    "sim/results/output-boundary-103-rtl-20261009/bus.csv": "7bea4e4ae3eb30e15d44bfd9b04c6d54d253a8fd0006d45642f10e23d9dcfd36",
+    "sim/results/output-boundary-103-rtl-20261009/cpu_startup.csv": "d4836d82c145b0e7b688895ff52efa69bc416658e94b13e200daddbe5d9a188a",
+    "sim/results/output-boundary-103-rtl-20261009/io.csv": "e0fdf608aa561622fe5c5fc379ce128066eccd2f1f0f22a22f508e30e3b9fe31",
+    "sim/results/output-boundary-103-rtl-20261009/memory_writes.bin": "ea0d79216638f8cca645159435272b820d2d996c6d973c514913d6e51f331c59",
+    "sim/results/output-boundary-103-mame-20261009/video_writes.csv": "1e94a5a8e02b64d76d23729d78370bc2a0561afb88944e0983b10d83e18e562f",
+    "sim/build/dac-level-fix/board/Vn8080_board": "2c37c55670b04230a103fa3a3f1e01442565cd9bdb29f0135afa29fd06a88d28",
+    "_checks/output-103-native-20261009/board_harness-caac6cd.cpp": "835e02f7f9bc9213445c89ee901fa772aab9661f097a8faad82397cccdbd8383",
+    "D:/Arcade/AI/aCORES/sherrif/tools/qualify_output_irq_sampling.py": "79f91ed5e6cde855565b57abe866f21207c6f7eec7fe5900d3065e07dd4f65c3",
+    "docs/evidence/sheriff_output_103_boundary.json": "d650dd107a6cd0146b09cc839efc982573fcf76ee8f892ba69cf0069c1d86e30"
+  }
+}

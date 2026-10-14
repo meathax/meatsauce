@@ -1,0 +1,90 @@
+{
+  "set": "zeroteam",
+  "frame": 900,
+  "mame": "0.289",
+  "directory": "sim/results/mame-play-900-play-4p",
+  "pristine_roms": true,
+  "known_reference_limitations": "MAME marks the target not working; sort/priority behavior is incomplete.",
+  "files": {
+    "bg_src.bin": {
+      "bytes": 2048,
+      "sha256": "bc22fba5a82766345a0954a9bfc8c23fc5fdf0a522d545d7979119da1d67a0a3"
+    },
+    "cop-events.csv": {
+      "bytes": 647516,
+      "sha256": "965dc3e112ba4d67db3d7cbd9ce732bc00e53640331e96f2902f3f6b4a4581ef"
+    },
+    "fg_src.bin": {
+      "bytes": 2048,
+      "sha256": "04d9d49843cc0e4629c2da4d978e2fdce7f7890ac425e0951238e113e8f8bd84"
+    },
+    "input-events.csv": {
+      "bytes": 2058,
+      "sha256": "4c1b22796c6d42b5a2c174240bbc711642df50b40e945fe4d5d9cb5e8ee00eaf"
+    },
+    "ivt.bin": {
+      "bytes": 1024,
+      "sha256": "78bf4bbb8b9a02dee228a55426fde15a29d024bafa4779bbbfecf2ff2b6c650a"
+    },
+    "manifest.txt": {
+      "bytes": 53,
+      "sha256": "9b854dcfcb8514c2c4fa94945cae1b45a216a24feb0c909bae8d681ff58d8778"
+    },
+    "mg_src.bin": {
+      "bytes": 2048,
+      "sha256": "c1f2e7b99fd21fbe76d15263c2e4460f4f0d2a9426bd63657f741e2adf5ba00b"
+    },
+    "pal_src.bin": {
+      "bytes": 4096,
+      "sha256": "ebe21162a5fcdf43897481b9cfb6d91dcb382f9f4859da9af7cc4916843eac4b"
+    },
+    "reference.png": {
+      "bytes": 18684,
+      "sha256": "7b8fd4539152f0534f2b522044b65b6d2eddedbf25d6ad2e0f38a5b63a16cde2"
+    },
+    "reg_cop.bin": {
+      "bytes": 512,
+      "sha256": "9a0519121b14724f09b6b5c0582510d6ae6f24028b1a6b88b0a9e29f27c9ed80"
+    },
+    "reg_crtc.bin": {
+      "bytes": 64,
+      "sha256": "282268415b0f9a115951288b91d68c6117eee215ac5b00639379bdb15e08ccc9"
+    },
+    "reg_sound.bin": {
+      "bytes": 32,
+      "sha256": "2385e91faf7619c457a25077843823afc5d9d7f6e3fad04bb974d004ce7a8ce5"
+    },
+    "reg_sprite_key.bin": {
+      "bytes": 192,
+      "sha256": "4838fd798f6b5f6e4c364ccb71f13e195e09b91c520cc94de5be734000cd4325"
+    },
+    "sound-events.csv": {
+      "bytes": 552774,
+      "sha256": "d9b2261a8708076f23c4192bd8a692064a82ec1aa935b62afbc6e77c0981676a"
+    },
+    "sprite_src.bin": {
+      "bytes": 4096,
+      "sha256": "297a4914f4012f0e402801494c37ea3c110209dc958d318f3450accabc3364ec"
+    },
+    "text_src.bin": {
+      "bytes": 4096,
+      "sha256": "b92ad42181ae0c079d0e1ceb3d7e0da4642fde385a98ae4ba9d0f7a1818ba0ff"
+    },
+    "upper_work.bin": {
+      "bytes": 65536,
+      "sha256": "a5c8781ffd7e45408745290ee7addf8e246286c325bbe40ebac4cd449133f8d8"
+    },
+    "work.bin": {
+      "bytes": 45056,
+      "sha256": "8d9bc06f96610cf9bd03027264d3ac5cea86f904528319035baae47420770bd6"
+    }
+  },
+  "helper_hashes": {
+    "capture.lua": "6e1077b67ee988e85cc1e53821b5d86104261329ef7ce56dcc1a1973d44f05e8",
+    "run.lua": "4fafce6e4c7549c54ec4e955b1cded95b5d73417dfe254734d0e765be536952a"
+  },
+  "input_schedule": "sim/inputs/play-4p.csv",
+  "input_sha256": "a14d55e07513ca9920cdeecafb1fa8d9e42c234500f25e383801bfbca89756d1",
+  "playback_sha256": "1e271d169d92687b9fa24106f0b3de3d4b8ebdecbab6893ae925f4040288cebf",
+  "input_delivery": "Physical ioport fields only; no game RAM, ROM or CPU writes"
+}

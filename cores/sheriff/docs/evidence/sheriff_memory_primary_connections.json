@@ -1,0 +1,88 @@
+{
+  "scope": "Connected related-Bandido RAM data/readback and memory-request observations; transaction timing remains open",
+  "source": {
+    "url": "https://arcarc.xmission.com/PDF_Arcade_Manuals_and_Schematics/Bandido.pdf",
+    "path": "_checks/manuals/bandido-1980.pdf",
+    "sha256": "aa68eb8538e404c2ee1e02b7b47c0e40c62e9d9800cefcf22981c733c4b30224",
+    "cpu_pdf_pages": [
+      35,
+      36
+    ]
+  },
+  "memory_request": {
+    "STSTB": "4B LS08 pins 1/2 take inverted phi1 TTL and CPU SYNC; output 3 clocks status latch 1E",
+    "RAMSTB_n": "3F LS00 pins 1/2 take STSTB and CPU A14; output 3 connects READY flip-flop 3D CLR_n pin 13. The drawn address input is A14, not the latched MEMR status bit.",
+    "readback_clear": "4F/4G CLR pin1 share RAMSTB_n from 3F output3 across sheets 35/36; READY 3D CLR pin13 shares that net. Full pulse width and READY response remain unqualified."
+  },
+  "ram_dataflow": {
+    "video_RD": "4E/4H LS08 outputs buffer 4116 DO0..DO7 to CP2 RD0..RD7 and CPU readback latches. The shared other-input net is held high by R4 1k to +5 V, not phase controlled. DRAM valid-output timing remains open.",
+    "4F_data": "LS174 D3/pin6=RD0, D5/pin13=RD1, D6/pin14=RD2, D4/pin11=RD3; Q3/Q5/Q6/Q4 feed DI10/DI11/DI12/DI13",
+    "4G_data": "LS174 D1..D4 receive RD4..RD7; Q1..Q4 feed DI14..DI17",
+    "4F_controls": "D1 pin3 receives Q2 pin5 feedback; Q1 pin2 drives RDY IN and 4T pin1. D2 pin4 is tied high; Q2 feeds D1 and 4T pins2/4. HREAD_n separately enters 4T pin5. LS86 output6 drives readback CLK pin9; output3 is Q1 XOR Q2.",
+    "separation": "CPU readback latches and the parallel video RD bus are distinct paths. Do not model the video RD byte as automatically held by 4F/4G."
+  },
+  "viewport_recovery": [
+    {
+      "original": "_checks/manuals/bandido-page-36.png",
+      "box": [
+        1520,
+        4350,
+        4090,
+        5580
+      ],
+      "viewport": "_checks/manuals/bandido-read-latches-connected.png"
+    },
+    {
+      "original": "_checks/manuals/bandido-page-36.png",
+      "box": [
+        0,
+        4250,
+        2450,
+        5590
+      ],
+      "viewport": "_checks/manuals/bandido-memory-control-connected.png"
+    },
+    {
+      "original": "_checks/manuals/bandido-page-36.png",
+      "box": [
+        1180,
+        4600,
+        2150,
+        5560
+      ],
+      "viewport": "_checks/manuals/bandido-memory-xor-pins.png"
+    },
+    {
+      "original": "_checks/manuals/bandido-page-35.png",
+      "box": [
+        2320,
+        4270,
+        4110,
+        6240
+      ],
+      "viewport": "_checks/manuals/bandido-ready-strobe-connected.png"
+    }
+  ],
+  "limits": [
+    "The conditional LS174/XOR control sequence is derived separately in sheriff_ram_handshake.json. Complete CLR, CAS/RAS/WE, address-mux and valid-data waveforms remain unqualified; no board wait-state count is asserted.",
+    "Related Bandido connectivity remains conditional for Sheriff.",
+    "No physical byte-fetch/address timing, permanent READY=1, current gameplay graphics, Quartus timing or release pass follows from these observations."
+  ],
+  "production_rtl_changed": false,
+  "physical_memory_timing_qualified": false,
+  "quartus_executed": false,
+  "correction_history": [
+    {
+      "date": "2026-10-09",
+      "superseded_observation": "D1 pin3 receives HREAD_n, Q1 pin2 is RDY IN. D2 pin4 is tied high, Q2 pin5 participates in the XOR control network. RDY IN is not a latch of a constant-high D input.",
+      "reason": "Wider connected original-page viewports resolve the separate Q2 feedback and HREAD_n paths.",
+      "derivation": "docs/evidence/sheriff_ram_handshake.json"
+    },
+    {
+      "date": "2026-10-09",
+      "superseded_observation": "4E/4H LS08 outputs drive CP2 RD0..RD7. Each combines a 4116 DO with a common control input. These outputs also feed the CPU readback latches. The common gating waveform is not qualified here.",
+      "reason": "Connected DO-net viewports show the common LS08 input terminating at R4 1k to +5 V, with no control-gate driver.",
+      "derivation": "docs/evidence/sheriff_memory_mux_connections.json"
+    }
+  ]
+}

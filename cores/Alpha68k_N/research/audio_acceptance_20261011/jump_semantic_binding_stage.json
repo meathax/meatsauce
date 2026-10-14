@@ -1,0 +1,3029 @@
+{
+  "scope": "Pinned ROM input-to-jump state/effect path with actual accepted mainCPU sound commands and retained native player RAM. No old raw-RGB semantics or physical audio claim.",
+  "rom_sha256": "6949ea5dc91dfced8c1afccbadee18c2e795ab38d8adbc3795f05a19b8f3b2b3",
+  "disassembly_sha256": "da4e0ed81c446f9c77107fbac9e30f950d7e4cce20f2285fe78f14115f8d707d",
+  "instruction_pins": [
+    {
+      "pc_hex": "0x4ae",
+      "opcode_hex": "1d79000c00010012",
+      "instruction": "move.b  $c0001.l, ($12,A6)"
+    },
+    {
+      "pc_hex": "0x4946",
+      "opcode_hex": "610011bc",
+      "instruction": "bsr     $5b04"
+    },
+    {
+      "pc_hex": "0x494c",
+      "opcode_hex": "102e0907",
+      "instruction": "move.b  ($907,A6), D0"
+    },
+    {
+      "pc_hex": "0x4968",
+      "opcode_hex": "60001282",
+      "instruction": "bra     $5bec"
+    },
+    {
+      "pc_hex": "0x49ac",
+      "opcode_hex": "0c2e00020907",
+      "instruction": "cmpi.b  #$2, ($907,A6)"
+    },
+    {
+      "pc_hex": "0x49b2",
+      "opcode_hex": "64001238",
+      "instruction": "bcc     $5bec"
+    },
+    {
+      "pc_hex": "0x5b22",
+      "opcode_hex": "102e0012",
+      "instruction": "move.b  ($12,A6), D0"
+    },
+    {
+      "pc_hex": "0x5b26",
+      "opcode_hex": "e808",
+      "instruction": "lsr.b   #4, D0"
+    },
+    {
+      "pc_hex": "0x5b28",
+      "opcode_hex": "02400003",
+      "instruction": "andi.w  #$3, D0"
+    },
+    {
+      "pc_hex": "0x5b48",
+      "opcode_hex": "1d400907",
+      "instruction": "move.b  D0, ($907,A6)"
+    },
+    {
+      "pc_hex": "0x5bec",
+      "opcode_hex": "08ec00030003",
+      "instruction": "bset    #$3, ($3,A4)"
+    },
+    {
+      "pc_hex": "0x5bf8",
+      "opcode_hex": "002c00400003",
+      "instruction": "ori.b   #$40, ($3,A4)"
+    },
+    {
+      "pc_hex": "0x5c0a",
+      "opcode_hex": "197c00040008",
+      "instruction": "move.b  #$4, ($8,A4)"
+    },
+    {
+      "pc_hex": "0x5c10",
+      "opcode_hex": "002c0003000a",
+      "instruction": "ori.b   #$3, ($a,A4)"
+    },
+    {
+      "pc_hex": "0x5c1c",
+      "opcode_hex": "1d7c002d035f",
+      "instruction": "move.b  #$2d, ($35f,A6)"
+    },
+    {
+      "pc_hex": "0x5c22",
+      "opcode_hex": "4e44",
+      "instruction": "trap    #$4"
+    },
+    {
+      "pc_hex": "0x5c24",
+      "opcode_hex": "610002e0",
+      "instruction": "bsr     $5f06"
+    }
+  ],
+  "actual_native_latch_events": [
+    {
+      "frame": 840,
+      "tick": 681317746,
+      "command": 53
+    },
+    {
+      "frame": 844,
+      "tick": 684561746,
+      "command": 45
+    },
+    {
+      "frame": 878,
+      "tick": 712135986,
+      "command": 53
+    },
+    {
+      "frame": 894,
+      "tick": 725112146,
+      "command": 53
+    },
+    {
+      "frame": 896,
+      "tick": 726734146,
+      "command": 88
+    },
+    {
+      "frame": 897,
+      "tick": 727545106,
+      "command": 88
+    },
+    {
+      "frame": 912,
+      "tick": 739710306,
+      "command": 53
+    },
+    {
+      "frame": 930,
+      "tick": 754308386,
+      "command": 53
+    },
+    {
+      "frame": 948,
+      "tick": 768906546,
+      "command": 53
+    },
+    {
+      "frame": 966,
+      "tick": 783504706,
+      "command": 53
+    },
+    {
+      "frame": 984,
+      "tick": 798102866,
+      "command": 53
+    },
+    {
+      "frame": 1002,
+      "tick": 812700946,
+      "command": 53
+    },
+    {
+      "frame": 1020,
+      "tick": 827299106,
+      "command": 53
+    },
+    {
+      "frame": 1024,
+      "tick": 830543186,
+      "command": 45
+    },
+    {
+      "frame": 1058,
+      "tick": 858117426,
+      "command": 53
+    },
+    {
+      "frame": 1074,
+      "tick": 871093586,
+      "command": 53
+    },
+    {
+      "frame": 1092,
+      "tick": 885691666,
+      "command": 53
+    },
+    {
+      "frame": 1110,
+      "tick": 900289906,
+      "command": 53
+    }
+  ],
+  "retained_reference_latch_events": [
+    {
+      "frame": 840,
+      "command": 53
+    },
+    {
+      "frame": 844,
+      "command": 45
+    },
+    {
+      "frame": 878,
+      "command": 53
+    },
+    {
+      "frame": 894,
+      "command": 53
+    },
+    {
+      "frame": 896,
+      "command": 88
+    },
+    {
+      "frame": 897,
+      "command": 88
+    },
+    {
+      "frame": 912,
+      "command": 53
+    },
+    {
+      "frame": 930,
+      "command": 53
+    },
+    {
+      "frame": 948,
+      "command": 53
+    },
+    {
+      "frame": 966,
+      "command": 53
+    },
+    {
+      "frame": 984,
+      "command": 53
+    },
+    {
+      "frame": 1002,
+      "command": 53
+    },
+    {
+      "frame": 1020,
+      "command": 53
+    },
+    {
+      "frame": 1024,
+      "command": 45
+    },
+    {
+      "frame": 1058,
+      "command": 53
+    },
+    {
+      "frame": 1074,
+      "command": 53
+    },
+    {
+      "frame": 1092,
+      "command": 53
+    },
+    {
+      "frame": 1110,
+      "command": 53
+    }
+  ],
+  "native_snapshots": [
+    {
+      "frame": 840,
+      "sha256": "a8f6edd93156257cd9cdc5dc490b5fa9775da602f4c604b7c1d035451cfd932c",
+      "player_state_20408": 3,
+      "player_flags_20403": 4,
+      "player_motion_flags_2040a": 0,
+      "player_position1c_2041c": 232,
+      "input_20012": 24,
+      "new_action_20907": 1
+    },
+    {
+      "frame": 870,
+      "sha256": "bb068f5d0663701452f54861230817f6b5aa1842333bd63610a002d53ec687cc",
+      "player_state_20408": 4,
+      "player_flags_20403": 76,
+      "player_motion_flags_2040a": 3,
+      "player_position1c_2041c": 226,
+      "input_20012": 1,
+      "new_action_20907": 0
+    },
+    {
+      "frame": 900,
+      "sha256": "e9853b040c7bd026f546b800e2ae8736e53fb0a5a4e914ecf729b19c78041371",
+      "player_state_20408": 12,
+      "player_flags_20403": 0,
+      "player_motion_flags_2040a": 0,
+      "player_position1c_2041c": 0,
+      "input_20012": 17,
+      "new_action_20907": 0
+    },
+    {
+      "frame": 1020,
+      "sha256": "4d22d85ef2d4590bfa0664a7f890f1b1e36679e19c203eff4ee75985aebf8c65",
+      "player_state_20408": 1,
+      "player_flags_20403": 0,
+      "player_motion_flags_2040a": 0,
+      "player_position1c_2041c": 0,
+      "input_20012": 17,
+      "new_action_20907": 1
+    },
+    {
+      "frame": 1050,
+      "sha256": "00ab2c7998df8907db97d47116f5b9f2ab011824fe80db1542964dbe7af23048",
+      "player_state_20408": 4,
+      "player_flags_20403": 72,
+      "player_motion_flags_2040a": 3,
+      "player_position1c_2041c": 0,
+      "input_20012": 1,
+      "new_action_20907": 0
+    },
+    {
+      "frame": 1080,
+      "sha256": "053ca990f54b6e256d480d9ee43fb6d19c4e46b2999ed49430fb9fb7023aea41",
+      "player_state_20408": 2,
+      "player_flags_20403": 0,
+      "player_motion_flags_2040a": 0,
+      "player_position1c_2041c": 0,
+      "input_20012": 17,
+      "new_action_20907": 0
+    }
+  ],
+  "reference_RAM_event_areas": [
+    "work"
+  ],
+  "reference_RAM_events": [
+    {
+      "frame": "831",
+      "screen_frame": "830",
+      "area": "work",
+      "address": "132098",
+      "data": "1028",
+      "mask": "255",
+      "vpos": "3",
+      "hpos": "141",
+      "master_ticks": "674031719"
+    },
+    {
+      "frame": "833",
+      "screen_frame": "832",
+      "area": "work",
+      "address": "132098",
+      "data": "1028",
+      "mask": "255",
+      "vpos": "3",
+      "hpos": "139",
+      "master_ticks": "675653719"
+    },
+    {
+      "frame": "833",
+      "screen_frame": "832",
+      "area": "work",
+      "address": "132104",
+      "data": "0",
+      "mask": "65280",
+      "vpos": "3",
+      "hpos": "281",
+      "master_ticks": "675654855"
+    },
+    {
+      "frame": "833",
+      "screen_frame": "832",
+      "area": "work",
+      "address": "132098",
+      "data": "1028",
+      "mask": "255",
+      "vpos": "3",
+      "hpos": "305",
+      "master_ticks": "675655047"
+    },
+    {
+      "frame": "833",
+      "screen_frame": "832",
+      "area": "work",
+      "address": "132106",
+      "data": "0",
+      "mask": "65280",
+      "vpos": "3",
+      "hpos": "321",
+      "master_ticks": "675655175"
+    },
+    {
+      "frame": "833",
+      "screen_frame": "832",
+      "area": "work",
+      "address": "132098",
+      "data": "1028",
+      "mask": "255",
+      "vpos": "3",
+      "hpos": "341",
+      "master_ticks": "675655335"
+    },
+    {
+      "frame": "835",
+      "screen_frame": "834",
+      "area": "work",
+      "address": "132098",
+      "data": "3084",
+      "mask": "255",
+      "vpos": "3",
+      "hpos": "223",
+      "master_ticks": "677276407"
+    },
+    {
+      "frame": "839",
+      "screen_frame": "838",
+      "area": "work",
+      "address": "132100",
+      "data": "771",
+      "mask": "65280",
+      "vpos": "3",
+      "hpos": "259",
+      "master_ticks": "680520727"
+    },
+    {
+      "frame": "839",
+      "screen_frame": "838",
+      "area": "work",
+      "address": "132104",
+      "data": "771",
+      "mask": "65280",
+      "vpos": "5",
+      "hpos": "337",
+      "master_ticks": "680527495"
+    },
+    {
+      "frame": "839",
+      "screen_frame": "838",
+      "area": "work",
+      "address": "132098",
+      "data": "1028",
+      "mask": "255",
+      "vpos": "5",
+      "hpos": "361",
+      "master_ticks": "680527687"
+    },
+    {
+      "frame": "839",
+      "screen_frame": "838",
+      "area": "work",
+      "address": "131934",
+      "data": "13621",
+      "mask": "255",
+      "vpos": "5",
+      "hpos": "373",
+      "master_ticks": "680527783"
+    },
+    {
+      "frame": "839",
+      "screen_frame": "838",
+      "area": "work",
+      "address": "131934",
+      "data": "0",
+      "mask": "255",
+      "vpos": "6",
+      "hpos": "107",
+      "master_ticks": "680528727"
+    },
+    {
+      "frame": "841",
+      "screen_frame": "840",
+      "area": "work",
+      "address": "132098",
+      "data": "1028",
+      "mask": "255",
+      "vpos": "3",
+      "hpos": "277",
+      "master_ticks": "682142887"
+    },
+    {
+      "frame": "841",
+      "screen_frame": "840",
+      "area": "work",
+      "address": "132098",
+      "data": "13364",
+      "mask": "255",
+      "vpos": "3",
+      "hpos": "307",
+      "master_ticks": "682143127"
+    },
+    {
+      "frame": "843",
+      "screen_frame": "842",
+      "area": "work",
+      "address": "132098",
+      "data": "15420",
+      "mask": "255",
+      "vpos": "3",
+      "hpos": "161",
+      "master_ticks": "683763975"
+    },
+    {
+      "frame": "843",
+      "screen_frame": "842",
+      "area": "work",
+      "address": "132098",
+      "data": "3084",
+      "mask": "255",
+      "vpos": "3",
+      "hpos": "181",
+      "master_ticks": "683764135"
+    },
+    {
+      "frame": "843",
+      "screen_frame": "842",
+      "area": "work",
+      "address": "132098",
+      "data": "19532",
+      "mask": "255",
+      "vpos": "3",
+      "hpos": "201",
+      "master_ticks": "683764295"
+    },
+    {
+      "frame": "843",
+      "screen_frame": "842",
+      "area": "work",
+      "address": "132104",
+      "data": "1028",
+      "mask": "65280",
+      "vpos": "3",
+      "hpos": "253",
+      "master_ticks": "683764711"
+    },
+    {
+      "frame": "843",
+      "screen_frame": "842",
+      "area": "work",
+      "address": "132106",
+      "data": "771",
+      "mask": "65280",
+      "vpos": "3",
+      "hpos": "277",
+      "master_ticks": "683764903"
+    },
+    {
+      "frame": "843",
+      "screen_frame": "842",
+      "area": "work",
+      "address": "131934",
+      "data": "11565",
+      "mask": "255",
+      "vpos": "5",
+      "hpos": "301",
+      "master_ticks": "683771239"
+    },
+    {
+      "frame": "843",
+      "screen_frame": "842",
+      "area": "work",
+      "address": "131934",
+      "data": "0",
+      "mask": "255",
+      "vpos": "6",
+      "hpos": "35",
+      "master_ticks": "683772183"
+    },
+    {
+      "frame": "875",
+      "screen_frame": "874",
+      "area": "work",
+      "address": "132104",
+      "data": "0",
+      "mask": "65280",
+      "vpos": "3",
+      "hpos": "9",
+      "master_ticks": "709715015"
+    },
+    {
+      "frame": "875",
+      "screen_frame": "874",
+      "area": "work",
+      "address": "132098",
+      "data": "17476",
+      "mask": "255",
+      "vpos": "3",
+      "hpos": "33",
+      "master_ticks": "709715207"
+    },
+    {
+      "frame": "875",
+      "screen_frame": "874",
+      "area": "work",
+      "address": "132106",
+      "data": "0",
+      "mask": "65280",
+      "vpos": "3",
+      "hpos": "49",
+      "master_ticks": "709715335"
+    },
+    {
+      "frame": "875",
+      "screen_frame": "874",
+      "area": "work",
+      "address": "132098",
+      "data": "1028",
+      "mask": "255",
+      "vpos": "3",
+      "hpos": "69",
+      "master_ticks": "709715495"
+    },
+    {
+      "frame": "877",
+      "screen_frame": "876",
+      "area": "work",
+      "address": "132098",
+      "data": "2056",
+      "mask": "255",
+      "vpos": "3",
+      "hpos": "201",
+      "master_ticks": "711338567"
+    },
+    {
+      "frame": "877",
+      "screen_frame": "876",
+      "area": "work",
+      "address": "132104",
+      "data": "257",
+      "mask": "65280",
+      "vpos": "4",
+      "hpos": "201",
+      "master_ticks": "711341639"
+    },
+    {
+      "frame": "877",
+      "screen_frame": "876",
+      "area": "work",
+      "address": "132098",
+      "data": "0",
+      "mask": "255",
+      "vpos": "4",
+      "hpos": "225",
+      "master_ticks": "711341831"
+    },
+    {
+      "frame": "877",
+      "screen_frame": "876",
+      "area": "work",
+      "address": "131934",
+      "data": "13621",
+      "mask": "255",
+      "vpos": "4",
+      "hpos": "237",
+      "master_ticks": "711341927"
+    },
+    {
+      "frame": "877",
+      "screen_frame": "876",
+      "area": "work",
+      "address": "131934",
+      "data": "0",
+      "mask": "255",
+      "vpos": "4",
+      "hpos": "355",
+      "master_ticks": "711342871"
+    },
+    {
+      "frame": "879",
+      "screen_frame": "878",
+      "area": "work",
+      "address": "132098",
+      "data": "0",
+      "mask": "255",
+      "vpos": "3",
+      "hpos": "279",
+      "master_ticks": "712961207"
+    },
+    {
+      "frame": "879",
+      "screen_frame": "878",
+      "area": "work",
+      "address": "132098",
+      "data": "8224",
+      "mask": "255",
+      "vpos": "3",
+      "hpos": "309",
+      "master_ticks": "712961447"
+    },
+    {
+      "frame": "881",
+      "screen_frame": "880",
+      "area": "work",
+      "address": "132104",
+      "data": "514",
+      "mask": "65280",
+      "vpos": "3",
+      "hpos": "213",
+      "master_ticks": "714582695"
+    },
+    {
+      "frame": "881",
+      "screen_frame": "880",
+      "area": "work",
+      "address": "132098",
+      "data": "8224",
+      "mask": "255",
+      "vpos": "3",
+      "hpos": "237",
+      "master_ticks": "714582887"
+    },
+    {
+      "frame": "883",
+      "screen_frame": "882",
+      "area": "work",
+      "address": "132098",
+      "data": "0",
+      "mask": "255",
+      "vpos": "3",
+      "hpos": "129",
+      "master_ticks": "716204039"
+    },
+    {
+      "frame": "885",
+      "screen_frame": "884",
+      "area": "work",
+      "address": "132098",
+      "data": "0",
+      "mask": "255",
+      "vpos": "3",
+      "hpos": "127",
+      "master_ticks": "717826039"
+    },
+    {
+      "frame": "887",
+      "screen_frame": "886",
+      "area": "work",
+      "address": "132098",
+      "data": "0",
+      "mask": "255",
+      "vpos": "3",
+      "hpos": "155",
+      "master_ticks": "719448279"
+    },
+    {
+      "frame": "889",
+      "screen_frame": "888",
+      "area": "work",
+      "address": "132098",
+      "data": "0",
+      "mask": "255",
+      "vpos": "3",
+      "hpos": "125",
+      "master_ticks": "721070055"
+    },
+    {
+      "frame": "889",
+      "screen_frame": "888",
+      "area": "work",
+      "address": "132104",
+      "data": "0",
+      "mask": "65280",
+      "vpos": "3",
+      "hpos": "267",
+      "master_ticks": "721071191"
+    },
+    {
+      "frame": "889",
+      "screen_frame": "888",
+      "area": "work",
+      "address": "132098",
+      "data": "0",
+      "mask": "255",
+      "vpos": "3",
+      "hpos": "291",
+      "master_ticks": "721071383"
+    },
+    {
+      "frame": "889",
+      "screen_frame": "888",
+      "area": "work",
+      "address": "132106",
+      "data": "0",
+      "mask": "65280",
+      "vpos": "3",
+      "hpos": "307",
+      "master_ticks": "721071511"
+    },
+    {
+      "frame": "889",
+      "screen_frame": "888",
+      "area": "work",
+      "address": "132098",
+      "data": "0",
+      "mask": "255",
+      "vpos": "3",
+      "hpos": "327",
+      "master_ticks": "721071671"
+    },
+    {
+      "frame": "891",
+      "screen_frame": "890",
+      "area": "work",
+      "address": "132098",
+      "data": "2056",
+      "mask": "255",
+      "vpos": "3",
+      "hpos": "169",
+      "master_ticks": "722692423"
+    },
+    {
+      "frame": "893",
+      "screen_frame": "892",
+      "area": "work",
+      "address": "132104",
+      "data": "771",
+      "mask": "65280",
+      "vpos": "3",
+      "hpos": "309",
+      "master_ticks": "724315559"
+    },
+    {
+      "frame": "893",
+      "screen_frame": "892",
+      "area": "work",
+      "address": "132098",
+      "data": "0",
+      "mask": "255",
+      "vpos": "3",
+      "hpos": "333",
+      "master_ticks": "724315751"
+    },
+    {
+      "frame": "893",
+      "screen_frame": "892",
+      "area": "work",
+      "address": "131934",
+      "data": "13621",
+      "mask": "255",
+      "vpos": "3",
+      "hpos": "345",
+      "master_ticks": "724315847"
+    },
+    {
+      "frame": "893",
+      "screen_frame": "892",
+      "area": "work",
+      "address": "131934",
+      "data": "0",
+      "mask": "255",
+      "vpos": "4",
+      "hpos": "79",
+      "master_ticks": "724316791"
+    },
+    {
+      "frame": "895",
+      "screen_frame": "894",
+      "area": "work",
+      "address": "132098",
+      "data": "0",
+      "mask": "255",
+      "vpos": "3",
+      "hpos": "255",
+      "master_ticks": "725937143"
+    },
+    {
+      "frame": "895",
+      "screen_frame": "894",
+      "area": "work",
+      "address": "132098",
+      "data": "12336",
+      "mask": "255",
+      "vpos": "3",
+      "hpos": "285",
+      "master_ticks": "725937383"
+    },
+    {
+      "frame": "895",
+      "screen_frame": "895",
+      "area": "work",
+      "address": "131934",
+      "data": "22616",
+      "mask": "255",
+      "vpos": "62",
+      "hpos": "245",
+      "master_ticks": "726118311"
+    },
+    {
+      "frame": "895",
+      "screen_frame": "895",
+      "area": "work",
+      "address": "131934",
+      "data": "0",
+      "mask": "255",
+      "vpos": "62",
+      "hpos": "363",
+      "master_ticks": "726119255"
+    },
+    {
+      "frame": "895",
+      "screen_frame": "895",
+      "area": "work",
+      "address": "131934",
+      "data": "22616",
+      "mask": "255",
+      "vpos": "66",
+      "hpos": "93",
+      "master_ticks": "726129383"
+    },
+    {
+      "frame": "895",
+      "screen_frame": "895",
+      "area": "work",
+      "address": "131934",
+      "data": "0",
+      "mask": "255",
+      "vpos": "66",
+      "hpos": "229",
+      "master_ticks": "726130471"
+    },
+    {
+      "frame": "897",
+      "screen_frame": "896",
+      "area": "work",
+      "address": "132104",
+      "data": "3084",
+      "mask": "65280",
+      "vpos": "3",
+      "hpos": "203",
+      "master_ticks": "727558743"
+    },
+    {
+      "frame": "897",
+      "screen_frame": "896",
+      "area": "work",
+      "address": "132098",
+      "data": "12336",
+      "mask": "255",
+      "vpos": "3",
+      "hpos": "227",
+      "master_ticks": "727558935"
+    },
+    {
+      "frame": "899",
+      "screen_frame": "898",
+      "area": "work",
+      "address": "132098",
+      "data": "0",
+      "mask": "255",
+      "vpos": "3",
+      "hpos": "125",
+      "master_ticks": "729180135"
+    },
+    {
+      "frame": "901",
+      "screen_frame": "900",
+      "area": "work",
+      "address": "132098",
+      "data": "0",
+      "mask": "255",
+      "vpos": "3",
+      "hpos": "123",
+      "master_ticks": "730802135"
+    },
+    {
+      "frame": "903",
+      "screen_frame": "902",
+      "area": "work",
+      "address": "132098",
+      "data": "0",
+      "mask": "255",
+      "vpos": "3",
+      "hpos": "121",
+      "master_ticks": "732424135"
+    },
+    {
+      "frame": "905",
+      "screen_frame": "904",
+      "area": "work",
+      "address": "132098",
+      "data": "0",
+      "mask": "255",
+      "vpos": "3",
+      "hpos": "119",
+      "master_ticks": "734046135"
+    },
+    {
+      "frame": "905",
+      "screen_frame": "904",
+      "area": "work",
+      "address": "132104",
+      "data": "0",
+      "mask": "65280",
+      "vpos": "3",
+      "hpos": "261",
+      "master_ticks": "734047271"
+    },
+    {
+      "frame": "905",
+      "screen_frame": "904",
+      "area": "work",
+      "address": "132098",
+      "data": "0",
+      "mask": "255",
+      "vpos": "3",
+      "hpos": "285",
+      "master_ticks": "734047463"
+    },
+    {
+      "frame": "905",
+      "screen_frame": "904",
+      "area": "work",
+      "address": "132106",
+      "data": "0",
+      "mask": "65280",
+      "vpos": "3",
+      "hpos": "301",
+      "master_ticks": "734047591"
+    },
+    {
+      "frame": "905",
+      "screen_frame": "904",
+      "area": "work",
+      "address": "132098",
+      "data": "0",
+      "mask": "255",
+      "vpos": "3",
+      "hpos": "321",
+      "master_ticks": "734047751"
+    },
+    {
+      "frame": "907",
+      "screen_frame": "906",
+      "area": "work",
+      "address": "132098",
+      "data": "2056",
+      "mask": "255",
+      "vpos": "3",
+      "hpos": "203",
+      "master_ticks": "735668823"
+    },
+    {
+      "frame": "911",
+      "screen_frame": "910",
+      "area": "work",
+      "address": "132100",
+      "data": "1028",
+      "mask": "65280",
+      "vpos": "3",
+      "hpos": "239",
+      "master_ticks": "738913143"
+    },
+    {
+      "frame": "911",
+      "screen_frame": "910",
+      "area": "work",
+      "address": "132104",
+      "data": "257",
+      "mask": "65280",
+      "vpos": "5",
+      "hpos": "305",
+      "master_ticks": "738919815"
+    },
+    {
+      "frame": "911",
+      "screen_frame": "910",
+      "area": "work",
+      "address": "132098",
+      "data": "0",
+      "mask": "255",
+      "vpos": "5",
+      "hpos": "329",
+      "master_ticks": "738920007"
+    },
+    {
+      "frame": "911",
+      "screen_frame": "910",
+      "area": "work",
+      "address": "131934",
+      "data": "13621",
+      "mask": "255",
+      "vpos": "5",
+      "hpos": "341",
+      "master_ticks": "738920103"
+    },
+    {
+      "frame": "911",
+      "screen_frame": "910",
+      "area": "work",
+      "address": "131934",
+      "data": "0",
+      "mask": "255",
+      "vpos": "6",
+      "hpos": "75",
+      "master_ticks": "738921047"
+    },
+    {
+      "frame": "913",
+      "screen_frame": "912",
+      "area": "work",
+      "address": "132098",
+      "data": "0",
+      "mask": "255",
+      "vpos": "3",
+      "hpos": "267",
+      "master_ticks": "740535383"
+    },
+    {
+      "frame": "913",
+      "screen_frame": "912",
+      "area": "work",
+      "address": "132098",
+      "data": "8224",
+      "mask": "255",
+      "vpos": "3",
+      "hpos": "297",
+      "master_ticks": "740535623"
+    },
+    {
+      "frame": "915",
+      "screen_frame": "914",
+      "area": "work",
+      "address": "132104",
+      "data": "514",
+      "mask": "65280",
+      "vpos": "3",
+      "hpos": "201",
+      "master_ticks": "742156871"
+    },
+    {
+      "frame": "915",
+      "screen_frame": "914",
+      "area": "work",
+      "address": "132098",
+      "data": "8224",
+      "mask": "255",
+      "vpos": "3",
+      "hpos": "225",
+      "master_ticks": "742157063"
+    },
+    {
+      "frame": "917",
+      "screen_frame": "916",
+      "area": "work",
+      "address": "132098",
+      "data": "0",
+      "mask": "255",
+      "vpos": "3",
+      "hpos": "117",
+      "master_ticks": "743778215"
+    },
+    {
+      "frame": "919",
+      "screen_frame": "918",
+      "area": "work",
+      "address": "132098",
+      "data": "0",
+      "mask": "255",
+      "vpos": "3",
+      "hpos": "125",
+      "master_ticks": "745400295"
+    },
+    {
+      "frame": "921",
+      "screen_frame": "920",
+      "area": "work",
+      "address": "132098",
+      "data": "0",
+      "mask": "255",
+      "vpos": "3",
+      "hpos": "123",
+      "master_ticks": "747022295"
+    },
+    {
+      "frame": "923",
+      "screen_frame": "922",
+      "area": "work",
+      "address": "132098",
+      "data": "0",
+      "mask": "255",
+      "vpos": "3",
+      "hpos": "121",
+      "master_ticks": "748644295"
+    },
+    {
+      "frame": "923",
+      "screen_frame": "922",
+      "area": "work",
+      "address": "132104",
+      "data": "0",
+      "mask": "65280",
+      "vpos": "3",
+      "hpos": "263",
+      "master_ticks": "748645431"
+    },
+    {
+      "frame": "923",
+      "screen_frame": "922",
+      "area": "work",
+      "address": "132098",
+      "data": "0",
+      "mask": "255",
+      "vpos": "3",
+      "hpos": "287",
+      "master_ticks": "748645623"
+    },
+    {
+      "frame": "923",
+      "screen_frame": "922",
+      "area": "work",
+      "address": "132106",
+      "data": "0",
+      "mask": "65280",
+      "vpos": "3",
+      "hpos": "303",
+      "master_ticks": "748645751"
+    },
+    {
+      "frame": "923",
+      "screen_frame": "922",
+      "area": "work",
+      "address": "132098",
+      "data": "0",
+      "mask": "255",
+      "vpos": "3",
+      "hpos": "323",
+      "master_ticks": "748645911"
+    },
+    {
+      "frame": "925",
+      "screen_frame": "924",
+      "area": "work",
+      "address": "132098",
+      "data": "2056",
+      "mask": "255",
+      "vpos": "3",
+      "hpos": "185",
+      "master_ticks": "750266823"
+    },
+    {
+      "frame": "927",
+      "screen_frame": "926",
+      "area": "work",
+      "address": "132100",
+      "data": "1285",
+      "mask": "65280",
+      "vpos": "3",
+      "hpos": "233",
+      "master_ticks": "751889223"
+    },
+    {
+      "frame": "929",
+      "screen_frame": "928",
+      "area": "work",
+      "address": "132104",
+      "data": "771",
+      "mask": "65280",
+      "vpos": "3",
+      "hpos": "303",
+      "master_ticks": "753511799"
+    },
+    {
+      "frame": "929",
+      "screen_frame": "928",
+      "area": "work",
+      "address": "132098",
+      "data": "0",
+      "mask": "255",
+      "vpos": "3",
+      "hpos": "327",
+      "master_ticks": "753511991"
+    },
+    {
+      "frame": "929",
+      "screen_frame": "928",
+      "area": "work",
+      "address": "131934",
+      "data": "13621",
+      "mask": "255",
+      "vpos": "3",
+      "hpos": "339",
+      "master_ticks": "753512087"
+    },
+    {
+      "frame": "929",
+      "screen_frame": "928",
+      "area": "work",
+      "address": "131934",
+      "data": "0",
+      "mask": "255",
+      "vpos": "4",
+      "hpos": "73",
+      "master_ticks": "753513031"
+    },
+    {
+      "frame": "931",
+      "screen_frame": "930",
+      "area": "work",
+      "address": "132098",
+      "data": "0",
+      "mask": "255",
+      "vpos": "3",
+      "hpos": "259",
+      "master_ticks": "755133463"
+    },
+    {
+      "frame": "931",
+      "screen_frame": "930",
+      "area": "work",
+      "address": "132098",
+      "data": "12336",
+      "mask": "255",
+      "vpos": "3",
+      "hpos": "289",
+      "master_ticks": "755133703"
+    },
+    {
+      "frame": "933",
+      "screen_frame": "932",
+      "area": "work",
+      "address": "132104",
+      "data": "3084",
+      "mask": "65280",
+      "vpos": "3",
+      "hpos": "203",
+      "master_ticks": "756755031"
+    },
+    {
+      "frame": "933",
+      "screen_frame": "932",
+      "area": "work",
+      "address": "132098",
+      "data": "12336",
+      "mask": "255",
+      "vpos": "3",
+      "hpos": "227",
+      "master_ticks": "756755223"
+    },
+    {
+      "frame": "935",
+      "screen_frame": "934",
+      "area": "work",
+      "address": "132098",
+      "data": "0",
+      "mask": "255",
+      "vpos": "3",
+      "hpos": "119",
+      "master_ticks": "758376375"
+    },
+    {
+      "frame": "937",
+      "screen_frame": "936",
+      "area": "work",
+      "address": "132098",
+      "data": "0",
+      "mask": "255",
+      "vpos": "3",
+      "hpos": "107",
+      "master_ticks": "759998295"
+    },
+    {
+      "frame": "939",
+      "screen_frame": "938",
+      "area": "work",
+      "address": "132098",
+      "data": "0",
+      "mask": "255",
+      "vpos": "4",
+      "hpos": "117",
+      "master_ticks": "761623463"
+    },
+    {
+      "frame": "941",
+      "screen_frame": "940",
+      "area": "work",
+      "address": "132098",
+      "data": "0",
+      "mask": "255",
+      "vpos": "4",
+      "hpos": "115",
+      "master_ticks": "763245463"
+    },
+    {
+      "frame": "941",
+      "screen_frame": "940",
+      "area": "work",
+      "address": "132104",
+      "data": "0",
+      "mask": "65280",
+      "vpos": "4",
+      "hpos": "257",
+      "master_ticks": "763246599"
+    },
+    {
+      "frame": "941",
+      "screen_frame": "940",
+      "area": "work",
+      "address": "132098",
+      "data": "0",
+      "mask": "255",
+      "vpos": "4",
+      "hpos": "281",
+      "master_ticks": "763246791"
+    },
+    {
+      "frame": "941",
+      "screen_frame": "940",
+      "area": "work",
+      "address": "132106",
+      "data": "0",
+      "mask": "65280",
+      "vpos": "4",
+      "hpos": "297",
+      "master_ticks": "763246919"
+    },
+    {
+      "frame": "941",
+      "screen_frame": "940",
+      "area": "work",
+      "address": "132098",
+      "data": "0",
+      "mask": "255",
+      "vpos": "4",
+      "hpos": "317",
+      "master_ticks": "763247079"
+    },
+    {
+      "frame": "943",
+      "screen_frame": "942",
+      "area": "work",
+      "address": "132098",
+      "data": "2056",
+      "mask": "255",
+      "vpos": "4",
+      "hpos": "189",
+      "master_ticks": "764868071"
+    },
+    {
+      "frame": "947",
+      "screen_frame": "946",
+      "area": "work",
+      "address": "132104",
+      "data": "257",
+      "mask": "65280",
+      "vpos": "3",
+      "hpos": "303",
+      "master_ticks": "768109943"
+    },
+    {
+      "frame": "947",
+      "screen_frame": "946",
+      "area": "work",
+      "address": "132098",
+      "data": "0",
+      "mask": "255",
+      "vpos": "3",
+      "hpos": "327",
+      "master_ticks": "768110135"
+    },
+    {
+      "frame": "947",
+      "screen_frame": "946",
+      "area": "work",
+      "address": "131934",
+      "data": "13621",
+      "mask": "255",
+      "vpos": "3",
+      "hpos": "339",
+      "master_ticks": "768110231"
+    },
+    {
+      "frame": "947",
+      "screen_frame": "946",
+      "area": "work",
+      "address": "131934",
+      "data": "0",
+      "mask": "255",
+      "vpos": "4",
+      "hpos": "73",
+      "master_ticks": "768111175"
+    },
+    {
+      "frame": "949",
+      "screen_frame": "948",
+      "area": "work",
+      "address": "132098",
+      "data": "0",
+      "mask": "255",
+      "vpos": "3",
+      "hpos": "251",
+      "master_ticks": "769731543"
+    },
+    {
+      "frame": "949",
+      "screen_frame": "948",
+      "area": "work",
+      "address": "132098",
+      "data": "8224",
+      "mask": "255",
+      "vpos": "3",
+      "hpos": "281",
+      "master_ticks": "769731783"
+    },
+    {
+      "frame": "951",
+      "screen_frame": "950",
+      "area": "work",
+      "address": "132104",
+      "data": "514",
+      "mask": "65280",
+      "vpos": "3",
+      "hpos": "261",
+      "master_ticks": "771353639"
+    },
+    {
+      "frame": "951",
+      "screen_frame": "950",
+      "area": "work",
+      "address": "132098",
+      "data": "8224",
+      "mask": "255",
+      "vpos": "3",
+      "hpos": "285",
+      "master_ticks": "771353831"
+    },
+    {
+      "frame": "953",
+      "screen_frame": "952",
+      "area": "work",
+      "address": "132098",
+      "data": "0",
+      "mask": "255",
+      "vpos": "3",
+      "hpos": "167",
+      "master_ticks": "772974903"
+    },
+    {
+      "frame": "955",
+      "screen_frame": "954",
+      "area": "work",
+      "address": "132098",
+      "data": "0",
+      "mask": "255",
+      "vpos": "3",
+      "hpos": "175",
+      "master_ticks": "774596983"
+    },
+    {
+      "frame": "957",
+      "screen_frame": "956",
+      "area": "work",
+      "address": "132098",
+      "data": "0",
+      "mask": "255",
+      "vpos": "3",
+      "hpos": "163",
+      "master_ticks": "776218903"
+    },
+    {
+      "frame": "959",
+      "screen_frame": "958",
+      "area": "work",
+      "address": "132098",
+      "data": "0",
+      "mask": "255",
+      "vpos": "3",
+      "hpos": "161",
+      "master_ticks": "777840903"
+    },
+    {
+      "frame": "959",
+      "screen_frame": "958",
+      "area": "work",
+      "address": "132104",
+      "data": "0",
+      "mask": "65280",
+      "vpos": "3",
+      "hpos": "303",
+      "master_ticks": "777842039"
+    },
+    {
+      "frame": "959",
+      "screen_frame": "958",
+      "area": "work",
+      "address": "132098",
+      "data": "0",
+      "mask": "255",
+      "vpos": "3",
+      "hpos": "327",
+      "master_ticks": "777842231"
+    },
+    {
+      "frame": "959",
+      "screen_frame": "958",
+      "area": "work",
+      "address": "132106",
+      "data": "0",
+      "mask": "65280",
+      "vpos": "3",
+      "hpos": "343",
+      "master_ticks": "777842359"
+    },
+    {
+      "frame": "959",
+      "screen_frame": "958",
+      "area": "work",
+      "address": "132098",
+      "data": "0",
+      "mask": "255",
+      "vpos": "3",
+      "hpos": "363",
+      "master_ticks": "777842519"
+    },
+    {
+      "frame": "961",
+      "screen_frame": "960",
+      "area": "work",
+      "address": "132098",
+      "data": "2056",
+      "mask": "255",
+      "vpos": "3",
+      "hpos": "245",
+      "master_ticks": "779463591"
+    },
+    {
+      "frame": "965",
+      "screen_frame": "964",
+      "area": "work",
+      "address": "132104",
+      "data": "771",
+      "mask": "65280",
+      "vpos": "3",
+      "hpos": "373",
+      "master_ticks": "782708647"
+    },
+    {
+      "frame": "965",
+      "screen_frame": "964",
+      "area": "work",
+      "address": "132098",
+      "data": "0",
+      "mask": "255",
+      "vpos": "4",
+      "hpos": "13",
+      "master_ticks": "782708839"
+    },
+    {
+      "frame": "965",
+      "screen_frame": "964",
+      "area": "work",
+      "address": "131934",
+      "data": "13621",
+      "mask": "255",
+      "vpos": "4",
+      "hpos": "25",
+      "master_ticks": "782708935"
+    },
+    {
+      "frame": "965",
+      "screen_frame": "964",
+      "area": "work",
+      "address": "131934",
+      "data": "0",
+      "mask": "255",
+      "vpos": "4",
+      "hpos": "143",
+      "master_ticks": "782709879"
+    },
+    {
+      "frame": "967",
+      "screen_frame": "966",
+      "area": "work",
+      "address": "132098",
+      "data": "0",
+      "mask": "255",
+      "vpos": "3",
+      "hpos": "309",
+      "master_ticks": "784330151"
+    },
+    {
+      "frame": "967",
+      "screen_frame": "966",
+      "area": "work",
+      "address": "132098",
+      "data": "12336",
+      "mask": "255",
+      "vpos": "3",
+      "hpos": "339",
+      "master_ticks": "784330391"
+    },
+    {
+      "frame": "969",
+      "screen_frame": "968",
+      "area": "work",
+      "address": "132104",
+      "data": "3084",
+      "mask": "65280",
+      "vpos": "3",
+      "hpos": "253",
+      "master_ticks": "785951719"
+    },
+    {
+      "frame": "969",
+      "screen_frame": "968",
+      "area": "work",
+      "address": "132098",
+      "data": "12336",
+      "mask": "255",
+      "vpos": "3",
+      "hpos": "277",
+      "master_ticks": "785951911"
+    },
+    {
+      "frame": "971",
+      "screen_frame": "970",
+      "area": "work",
+      "address": "132098",
+      "data": "0",
+      "mask": "255",
+      "vpos": "3",
+      "hpos": "159",
+      "master_ticks": "787572983"
+    },
+    {
+      "frame": "973",
+      "screen_frame": "972",
+      "area": "work",
+      "address": "132098",
+      "data": "0",
+      "mask": "255",
+      "vpos": "3",
+      "hpos": "167",
+      "master_ticks": "789195063"
+    },
+    {
+      "frame": "975",
+      "screen_frame": "974",
+      "area": "work",
+      "address": "132098",
+      "data": "0",
+      "mask": "255",
+      "vpos": "3",
+      "hpos": "175",
+      "master_ticks": "790817143"
+    },
+    {
+      "frame": "977",
+      "screen_frame": "976",
+      "area": "work",
+      "address": "132098",
+      "data": "0",
+      "mask": "255",
+      "vpos": "3",
+      "hpos": "173",
+      "master_ticks": "792439143"
+    },
+    {
+      "frame": "977",
+      "screen_frame": "976",
+      "area": "work",
+      "address": "132104",
+      "data": "0",
+      "mask": "65280",
+      "vpos": "3",
+      "hpos": "315",
+      "master_ticks": "792440279"
+    },
+    {
+      "frame": "977",
+      "screen_frame": "976",
+      "area": "work",
+      "address": "132098",
+      "data": "0",
+      "mask": "255",
+      "vpos": "3",
+      "hpos": "339",
+      "master_ticks": "792440471"
+    },
+    {
+      "frame": "977",
+      "screen_frame": "976",
+      "area": "work",
+      "address": "132106",
+      "data": "0",
+      "mask": "65280",
+      "vpos": "3",
+      "hpos": "355",
+      "master_ticks": "792440599"
+    },
+    {
+      "frame": "977",
+      "screen_frame": "976",
+      "area": "work",
+      "address": "132098",
+      "data": "0",
+      "mask": "255",
+      "vpos": "3",
+      "hpos": "375",
+      "master_ticks": "792440759"
+    },
+    {
+      "frame": "979",
+      "screen_frame": "978",
+      "area": "work",
+      "address": "132098",
+      "data": "2056",
+      "mask": "255",
+      "vpos": "3",
+      "hpos": "237",
+      "master_ticks": "794061671"
+    },
+    {
+      "frame": "983",
+      "screen_frame": "982",
+      "area": "work",
+      "address": "132100",
+      "data": "1542",
+      "mask": "65280",
+      "vpos": "3",
+      "hpos": "303",
+      "master_ticks": "797306231"
+    },
+    {
+      "frame": "983",
+      "screen_frame": "982",
+      "area": "work",
+      "address": "132104",
+      "data": "257",
+      "mask": "65280",
+      "vpos": "5",
+      "hpos": "369",
+      "master_ticks": "797312903"
+    },
+    {
+      "frame": "983",
+      "screen_frame": "982",
+      "area": "work",
+      "address": "132098",
+      "data": "0",
+      "mask": "255",
+      "vpos": "6",
+      "hpos": "9",
+      "master_ticks": "797313095"
+    },
+    {
+      "frame": "983",
+      "screen_frame": "982",
+      "area": "work",
+      "address": "131934",
+      "data": "13621",
+      "mask": "255",
+      "vpos": "6",
+      "hpos": "21",
+      "master_ticks": "797313191"
+    },
+    {
+      "frame": "983",
+      "screen_frame": "982",
+      "area": "work",
+      "address": "131934",
+      "data": "0",
+      "mask": "255",
+      "vpos": "6",
+      "hpos": "139",
+      "master_ticks": "797314135"
+    },
+    {
+      "frame": "985",
+      "screen_frame": "984",
+      "area": "work",
+      "address": "132098",
+      "data": "0",
+      "mask": "255",
+      "vpos": "3",
+      "hpos": "321",
+      "master_ticks": "798928391"
+    },
+    {
+      "frame": "985",
+      "screen_frame": "984",
+      "area": "work",
+      "address": "132098",
+      "data": "8224",
+      "mask": "255",
+      "vpos": "3",
+      "hpos": "351",
+      "master_ticks": "798928631"
+    },
+    {
+      "frame": "987",
+      "screen_frame": "986",
+      "area": "work",
+      "address": "132104",
+      "data": "514",
+      "mask": "65280",
+      "vpos": "3",
+      "hpos": "245",
+      "master_ticks": "800549799"
+    },
+    {
+      "frame": "987",
+      "screen_frame": "986",
+      "area": "work",
+      "address": "132098",
+      "data": "8224",
+      "mask": "255",
+      "vpos": "3",
+      "hpos": "269",
+      "master_ticks": "800549991"
+    },
+    {
+      "frame": "989",
+      "screen_frame": "988",
+      "area": "work",
+      "address": "132098",
+      "data": "0",
+      "mask": "255",
+      "vpos": "3",
+      "hpos": "171",
+      "master_ticks": "802171223"
+    },
+    {
+      "frame": "991",
+      "screen_frame": "990",
+      "area": "work",
+      "address": "132098",
+      "data": "0",
+      "mask": "255",
+      "vpos": "3",
+      "hpos": "159",
+      "master_ticks": "803793143"
+    },
+    {
+      "frame": "993",
+      "screen_frame": "992",
+      "area": "work",
+      "address": "132098",
+      "data": "0",
+      "mask": "255",
+      "vpos": "3",
+      "hpos": "167",
+      "master_ticks": "805415223"
+    },
+    {
+      "frame": "995",
+      "screen_frame": "994",
+      "area": "work",
+      "address": "132098",
+      "data": "0",
+      "mask": "255",
+      "vpos": "3",
+      "hpos": "175",
+      "master_ticks": "807037303"
+    },
+    {
+      "frame": "995",
+      "screen_frame": "994",
+      "area": "work",
+      "address": "132104",
+      "data": "0",
+      "mask": "65280",
+      "vpos": "3",
+      "hpos": "317",
+      "master_ticks": "807038439"
+    },
+    {
+      "frame": "995",
+      "screen_frame": "994",
+      "area": "work",
+      "address": "132098",
+      "data": "0",
+      "mask": "255",
+      "vpos": "3",
+      "hpos": "341",
+      "master_ticks": "807038631"
+    },
+    {
+      "frame": "995",
+      "screen_frame": "994",
+      "area": "work",
+      "address": "132106",
+      "data": "0",
+      "mask": "65280",
+      "vpos": "3",
+      "hpos": "357",
+      "master_ticks": "807038759"
+    },
+    {
+      "frame": "995",
+      "screen_frame": "994",
+      "area": "work",
+      "address": "132098",
+      "data": "0",
+      "mask": "255",
+      "vpos": "3",
+      "hpos": "377",
+      "master_ticks": "807038919"
+    },
+    {
+      "frame": "997",
+      "screen_frame": "996",
+      "area": "work",
+      "address": "132098",
+      "data": "2056",
+      "mask": "255",
+      "vpos": "3",
+      "hpos": "249",
+      "master_ticks": "808659911"
+    },
+    {
+      "frame": "999",
+      "screen_frame": "998",
+      "area": "work",
+      "address": "132100",
+      "data": "1799",
+      "mask": "65280",
+      "vpos": "3",
+      "hpos": "307",
+      "master_ticks": "810282391"
+    },
+    {
+      "frame": "1001",
+      "screen_frame": "1000",
+      "area": "work",
+      "address": "132104",
+      "data": "771",
+      "mask": "65280",
+      "vpos": "3",
+      "hpos": "367",
+      "master_ticks": "811904887"
+    },
+    {
+      "frame": "1001",
+      "screen_frame": "1000",
+      "area": "work",
+      "address": "132098",
+      "data": "0",
+      "mask": "255",
+      "vpos": "4",
+      "hpos": "7",
+      "master_ticks": "811905079"
+    },
+    {
+      "frame": "1001",
+      "screen_frame": "1000",
+      "area": "work",
+      "address": "131934",
+      "data": "13621",
+      "mask": "255",
+      "vpos": "4",
+      "hpos": "19",
+      "master_ticks": "811905175"
+    },
+    {
+      "frame": "1001",
+      "screen_frame": "1000",
+      "area": "work",
+      "address": "131934",
+      "data": "0",
+      "mask": "255",
+      "vpos": "4",
+      "hpos": "137",
+      "master_ticks": "811906119"
+    },
+    {
+      "frame": "1003",
+      "screen_frame": "1002",
+      "area": "work",
+      "address": "132098",
+      "data": "0",
+      "mask": "255",
+      "vpos": "3",
+      "hpos": "323",
+      "master_ticks": "813526551"
+    },
+    {
+      "frame": "1003",
+      "screen_frame": "1002",
+      "area": "work",
+      "address": "132098",
+      "data": "12336",
+      "mask": "255",
+      "vpos": "3",
+      "hpos": "353",
+      "master_ticks": "813526791"
+    },
+    {
+      "frame": "1005",
+      "screen_frame": "1004",
+      "area": "work",
+      "address": "132104",
+      "data": "3084",
+      "mask": "65280",
+      "vpos": "3",
+      "hpos": "257",
+      "master_ticks": "815148039"
+    },
+    {
+      "frame": "1005",
+      "screen_frame": "1004",
+      "area": "work",
+      "address": "132098",
+      "data": "12336",
+      "mask": "255",
+      "vpos": "3",
+      "hpos": "281",
+      "master_ticks": "815148231"
+    },
+    {
+      "frame": "1007",
+      "screen_frame": "1006",
+      "area": "work",
+      "address": "132098",
+      "data": "0",
+      "mask": "255",
+      "vpos": "3",
+      "hpos": "173",
+      "master_ticks": "816769383"
+    },
+    {
+      "frame": "1009",
+      "screen_frame": "1008",
+      "area": "work",
+      "address": "132098",
+      "data": "0",
+      "mask": "255",
+      "vpos": "3",
+      "hpos": "181",
+      "master_ticks": "818391463"
+    },
+    {
+      "frame": "1011",
+      "screen_frame": "1010",
+      "area": "work",
+      "address": "132098",
+      "data": "0",
+      "mask": "255",
+      "vpos": "4",
+      "hpos": "173",
+      "master_ticks": "820016487"
+    },
+    {
+      "frame": "1013",
+      "screen_frame": "1012",
+      "area": "work",
+      "address": "132098",
+      "data": "0",
+      "mask": "255",
+      "vpos": "4",
+      "hpos": "163",
+      "master_ticks": "821638423"
+    },
+    {
+      "frame": "1013",
+      "screen_frame": "1012",
+      "area": "work",
+      "address": "132104",
+      "data": "0",
+      "mask": "65280",
+      "vpos": "4",
+      "hpos": "305",
+      "master_ticks": "821639559"
+    },
+    {
+      "frame": "1013",
+      "screen_frame": "1012",
+      "area": "work",
+      "address": "132098",
+      "data": "0",
+      "mask": "255",
+      "vpos": "4",
+      "hpos": "329",
+      "master_ticks": "821639751"
+    },
+    {
+      "frame": "1013",
+      "screen_frame": "1012",
+      "area": "work",
+      "address": "132106",
+      "data": "0",
+      "mask": "65280",
+      "vpos": "4",
+      "hpos": "345",
+      "master_ticks": "821639879"
+    },
+    {
+      "frame": "1013",
+      "screen_frame": "1012",
+      "area": "work",
+      "address": "132098",
+      "data": "0",
+      "mask": "255",
+      "vpos": "4",
+      "hpos": "365",
+      "master_ticks": "821640039"
+    },
+    {
+      "frame": "1015",
+      "screen_frame": "1014",
+      "area": "work",
+      "address": "132098",
+      "data": "2056",
+      "mask": "255",
+      "vpos": "4",
+      "hpos": "255",
+      "master_ticks": "823261175"
+    },
+    {
+      "frame": "1019",
+      "screen_frame": "1018",
+      "area": "work",
+      "address": "132104",
+      "data": "257",
+      "mask": "65280",
+      "vpos": "3",
+      "hpos": "329",
+      "master_ticks": "826502727"
+    },
+    {
+      "frame": "1019",
+      "screen_frame": "1018",
+      "area": "work",
+      "address": "132098",
+      "data": "0",
+      "mask": "255",
+      "vpos": "3",
+      "hpos": "353",
+      "master_ticks": "826502919"
+    },
+    {
+      "frame": "1019",
+      "screen_frame": "1018",
+      "area": "work",
+      "address": "131934",
+      "data": "13621",
+      "mask": "255",
+      "vpos": "3",
+      "hpos": "365",
+      "master_ticks": "826503015"
+    },
+    {
+      "frame": "1019",
+      "screen_frame": "1018",
+      "area": "work",
+      "address": "131934",
+      "data": "0",
+      "mask": "255",
+      "vpos": "4",
+      "hpos": "99",
+      "master_ticks": "826503959"
+    },
+    {
+      "frame": "1021",
+      "screen_frame": "1020",
+      "area": "work",
+      "address": "132098",
+      "data": "0",
+      "mask": "255",
+      "vpos": "3",
+      "hpos": "277",
+      "master_ticks": "828124327"
+    },
+    {
+      "frame": "1021",
+      "screen_frame": "1020",
+      "area": "work",
+      "address": "132098",
+      "data": "8224",
+      "mask": "255",
+      "vpos": "3",
+      "hpos": "307",
+      "master_ticks": "828124567"
+    },
+    {
+      "frame": "1023",
+      "screen_frame": "1022",
+      "area": "work",
+      "address": "132098",
+      "data": "10280",
+      "mask": "255",
+      "vpos": "3",
+      "hpos": "161",
+      "master_ticks": "829745415"
+    },
+    {
+      "frame": "1023",
+      "screen_frame": "1022",
+      "area": "work",
+      "address": "132098",
+      "data": "2056",
+      "mask": "255",
+      "vpos": "3",
+      "hpos": "181",
+      "master_ticks": "829745575"
+    },
+    {
+      "frame": "1023",
+      "screen_frame": "1022",
+      "area": "work",
+      "address": "132098",
+      "data": "18504",
+      "mask": "255",
+      "vpos": "3",
+      "hpos": "201",
+      "master_ticks": "829745735"
+    },
+    {
+      "frame": "1023",
+      "screen_frame": "1022",
+      "area": "work",
+      "address": "132104",
+      "data": "1028",
+      "mask": "65280",
+      "vpos": "3",
+      "hpos": "253",
+      "master_ticks": "829746151"
+    },
+    {
+      "frame": "1023",
+      "screen_frame": "1022",
+      "area": "work",
+      "address": "132106",
+      "data": "771",
+      "mask": "65280",
+      "vpos": "3",
+      "hpos": "277",
+      "master_ticks": "829746343"
+    },
+    {
+      "frame": "1023",
+      "screen_frame": "1022",
+      "area": "work",
+      "address": "131934",
+      "data": "11565",
+      "mask": "255",
+      "vpos": "5",
+      "hpos": "301",
+      "master_ticks": "829752679"
+    },
+    {
+      "frame": "1023",
+      "screen_frame": "1022",
+      "area": "work",
+      "address": "131934",
+      "data": "0",
+      "mask": "255",
+      "vpos": "6",
+      "hpos": "35",
+      "master_ticks": "829753623"
+    },
+    {
+      "frame": "1055",
+      "screen_frame": "1054",
+      "area": "work",
+      "address": "132104",
+      "data": "0",
+      "mask": "65280",
+      "vpos": "2",
+      "hpos": "375",
+      "master_ticks": "855696311"
+    },
+    {
+      "frame": "1055",
+      "screen_frame": "1054",
+      "area": "work",
+      "address": "132098",
+      "data": "16448",
+      "mask": "255",
+      "vpos": "3",
+      "hpos": "15",
+      "master_ticks": "855696503"
+    },
+    {
+      "frame": "1055",
+      "screen_frame": "1054",
+      "area": "work",
+      "address": "132106",
+      "data": "0",
+      "mask": "65280",
+      "vpos": "3",
+      "hpos": "31",
+      "master_ticks": "855696631"
+    },
+    {
+      "frame": "1055",
+      "screen_frame": "1054",
+      "area": "work",
+      "address": "132098",
+      "data": "0",
+      "mask": "255",
+      "vpos": "3",
+      "hpos": "51",
+      "master_ticks": "855696791"
+    },
+    {
+      "frame": "1057",
+      "screen_frame": "1056",
+      "area": "work",
+      "address": "132098",
+      "data": "2056",
+      "mask": "255",
+      "vpos": "3",
+      "hpos": "173",
+      "master_ticks": "857319783"
+    },
+    {
+      "frame": "1057",
+      "screen_frame": "1056",
+      "area": "work",
+      "address": "132104",
+      "data": "771",
+      "mask": "65280",
+      "vpos": "4",
+      "hpos": "185",
+      "master_ticks": "857322951"
+    },
+    {
+      "frame": "1057",
+      "screen_frame": "1056",
+      "area": "work",
+      "address": "132098",
+      "data": "0",
+      "mask": "255",
+      "vpos": "4",
+      "hpos": "209",
+      "master_ticks": "857323143"
+    },
+    {
+      "frame": "1057",
+      "screen_frame": "1056",
+      "area": "work",
+      "address": "131934",
+      "data": "13621",
+      "mask": "255",
+      "vpos": "4",
+      "hpos": "221",
+      "master_ticks": "857323239"
+    },
+    {
+      "frame": "1057",
+      "screen_frame": "1056",
+      "area": "work",
+      "address": "131934",
+      "data": "0",
+      "mask": "255",
+      "vpos": "4",
+      "hpos": "339",
+      "master_ticks": "857324183"
+    },
+    {
+      "frame": "1059",
+      "screen_frame": "1058",
+      "area": "work",
+      "address": "132098",
+      "data": "0",
+      "mask": "255",
+      "vpos": "3",
+      "hpos": "271",
+      "master_ticks": "858942583"
+    },
+    {
+      "frame": "1059",
+      "screen_frame": "1058",
+      "area": "work",
+      "address": "132098",
+      "data": "12336",
+      "mask": "255",
+      "vpos": "3",
+      "hpos": "301",
+      "master_ticks": "858942823"
+    },
+    {
+      "frame": "1061",
+      "screen_frame": "1060",
+      "area": "work",
+      "address": "132104",
+      "data": "3084",
+      "mask": "65280",
+      "vpos": "3",
+      "hpos": "205",
+      "master_ticks": "860564071"
+    },
+    {
+      "frame": "1061",
+      "screen_frame": "1060",
+      "area": "work",
+      "address": "132098",
+      "data": "12336",
+      "mask": "255",
+      "vpos": "3",
+      "hpos": "229",
+      "master_ticks": "860564263"
+    },
+    {
+      "frame": "1063",
+      "screen_frame": "1062",
+      "area": "work",
+      "address": "132098",
+      "data": "0",
+      "mask": "255",
+      "vpos": "3",
+      "hpos": "111",
+      "master_ticks": "862185335"
+    },
+    {
+      "frame": "1065",
+      "screen_frame": "1064",
+      "area": "work",
+      "address": "132098",
+      "data": "0",
+      "mask": "255",
+      "vpos": "3",
+      "hpos": "109",
+      "master_ticks": "863807335"
+    },
+    {
+      "frame": "1067",
+      "screen_frame": "1066",
+      "area": "work",
+      "address": "132098",
+      "data": "0",
+      "mask": "255",
+      "vpos": "3",
+      "hpos": "107",
+      "master_ticks": "865429335"
+    },
+    {
+      "frame": "1069",
+      "screen_frame": "1068",
+      "area": "work",
+      "address": "132098",
+      "data": "0",
+      "mask": "255",
+      "vpos": "3",
+      "hpos": "105",
+      "master_ticks": "867051335"
+    },
+    {
+      "frame": "1069",
+      "screen_frame": "1068",
+      "area": "work",
+      "address": "132104",
+      "data": "0",
+      "mask": "65280",
+      "vpos": "3",
+      "hpos": "247",
+      "master_ticks": "867052471"
+    },
+    {
+      "frame": "1069",
+      "screen_frame": "1068",
+      "area": "work",
+      "address": "132098",
+      "data": "0",
+      "mask": "255",
+      "vpos": "3",
+      "hpos": "271",
+      "master_ticks": "867052663"
+    },
+    {
+      "frame": "1069",
+      "screen_frame": "1068",
+      "area": "work",
+      "address": "132106",
+      "data": "0",
+      "mask": "65280",
+      "vpos": "3",
+      "hpos": "287",
+      "master_ticks": "867052791"
+    },
+    {
+      "frame": "1069",
+      "screen_frame": "1068",
+      "area": "work",
+      "address": "132098",
+      "data": "0",
+      "mask": "255",
+      "vpos": "3",
+      "hpos": "307",
+      "master_ticks": "867052951"
+    },
+    {
+      "frame": "1071",
+      "screen_frame": "1070",
+      "area": "work",
+      "address": "132098",
+      "data": "2056",
+      "mask": "255",
+      "vpos": "3",
+      "hpos": "189",
+      "master_ticks": "868674023"
+    },
+    {
+      "frame": "1073",
+      "screen_frame": "1072",
+      "area": "work",
+      "address": "132104",
+      "data": "257",
+      "mask": "65280",
+      "vpos": "3",
+      "hpos": "287",
+      "master_ticks": "870296823"
+    },
+    {
+      "frame": "1073",
+      "screen_frame": "1072",
+      "area": "work",
+      "address": "132098",
+      "data": "0",
+      "mask": "255",
+      "vpos": "3",
+      "hpos": "311",
+      "master_ticks": "870297015"
+    },
+    {
+      "frame": "1073",
+      "screen_frame": "1072",
+      "area": "work",
+      "address": "131934",
+      "data": "13621",
+      "mask": "255",
+      "vpos": "3",
+      "hpos": "323",
+      "master_ticks": "870297111"
+    },
+    {
+      "frame": "1073",
+      "screen_frame": "1072",
+      "area": "work",
+      "address": "131934",
+      "data": "0",
+      "mask": "255",
+      "vpos": "4",
+      "hpos": "57",
+      "master_ticks": "870298055"
+    },
+    {
+      "frame": "1075",
+      "screen_frame": "1074",
+      "area": "work",
+      "address": "132098",
+      "data": "0",
+      "mask": "255",
+      "vpos": "3",
+      "hpos": "265",
+      "master_ticks": "871918663"
+    },
+    {
+      "frame": "1075",
+      "screen_frame": "1074",
+      "area": "work",
+      "address": "132098",
+      "data": "8224",
+      "mask": "255",
+      "vpos": "3",
+      "hpos": "295",
+      "master_ticks": "871918903"
+    },
+    {
+      "frame": "1077",
+      "screen_frame": "1076",
+      "area": "work",
+      "address": "132104",
+      "data": "514",
+      "mask": "65280",
+      "vpos": "3",
+      "hpos": "189",
+      "master_ticks": "873540071"
+    },
+    {
+      "frame": "1077",
+      "screen_frame": "1076",
+      "area": "work",
+      "address": "132098",
+      "data": "8224",
+      "mask": "255",
+      "vpos": "3",
+      "hpos": "213",
+      "master_ticks": "873540263"
+    },
+    {
+      "frame": "1079",
+      "screen_frame": "1078",
+      "area": "work",
+      "address": "132098",
+      "data": "0",
+      "mask": "255",
+      "vpos": "3",
+      "hpos": "105",
+      "master_ticks": "875161415"
+    },
+    {
+      "frame": "1081",
+      "screen_frame": "1080",
+      "area": "work",
+      "address": "132098",
+      "data": "0",
+      "mask": "255",
+      "vpos": "3",
+      "hpos": "113",
+      "master_ticks": "876783495"
+    },
+    {
+      "frame": "1083",
+      "screen_frame": "1082",
+      "area": "work",
+      "address": "132098",
+      "data": "0",
+      "mask": "255",
+      "vpos": "4",
+      "hpos": "121",
+      "master_ticks": "878408647"
+    },
+    {
+      "frame": "1085",
+      "screen_frame": "1084",
+      "area": "work",
+      "address": "132098",
+      "data": "0",
+      "mask": "255",
+      "vpos": "4",
+      "hpos": "113",
+      "master_ticks": "880030599"
+    },
+    {
+      "frame": "1085",
+      "screen_frame": "1084",
+      "area": "work",
+      "address": "132104",
+      "data": "0",
+      "mask": "65280",
+      "vpos": "4",
+      "hpos": "255",
+      "master_ticks": "880031735"
+    },
+    {
+      "frame": "1085",
+      "screen_frame": "1084",
+      "area": "work",
+      "address": "132098",
+      "data": "0",
+      "mask": "255",
+      "vpos": "4",
+      "hpos": "279",
+      "master_ticks": "880031927"
+    },
+    {
+      "frame": "1085",
+      "screen_frame": "1084",
+      "area": "work",
+      "address": "132106",
+      "data": "0",
+      "mask": "65280",
+      "vpos": "4",
+      "hpos": "295",
+      "master_ticks": "880032055"
+    },
+    {
+      "frame": "1085",
+      "screen_frame": "1084",
+      "area": "work",
+      "address": "132098",
+      "data": "0",
+      "mask": "255",
+      "vpos": "4",
+      "hpos": "315",
+      "master_ticks": "880032215"
+    },
+    {
+      "frame": "1087",
+      "screen_frame": "1086",
+      "area": "work",
+      "address": "132098",
+      "data": "2056",
+      "mask": "255",
+      "vpos": "4",
+      "hpos": "183",
+      "master_ticks": "881653175"
+    },
+    {
+      "frame": "1091",
+      "screen_frame": "1090",
+      "area": "work",
+      "address": "132104",
+      "data": "771",
+      "mask": "65280",
+      "vpos": "3",
+      "hpos": "301",
+      "master_ticks": "884895079"
+    },
+    {
+      "frame": "1091",
+      "screen_frame": "1090",
+      "area": "work",
+      "address": "132098",
+      "data": "0",
+      "mask": "255",
+      "vpos": "3",
+      "hpos": "325",
+      "master_ticks": "884895271"
+    },
+    {
+      "frame": "1091",
+      "screen_frame": "1090",
+      "area": "work",
+      "address": "131934",
+      "data": "13621",
+      "mask": "255",
+      "vpos": "3",
+      "hpos": "337",
+      "master_ticks": "884895367"
+    },
+    {
+      "frame": "1091",
+      "screen_frame": "1090",
+      "area": "work",
+      "address": "131934",
+      "data": "0",
+      "mask": "255",
+      "vpos": "4",
+      "hpos": "71",
+      "master_ticks": "884896311"
+    },
+    {
+      "frame": "1093",
+      "screen_frame": "1092",
+      "area": "work",
+      "address": "132098",
+      "data": "0",
+      "mask": "255",
+      "vpos": "3",
+      "hpos": "267",
+      "master_ticks": "886516823"
+    },
+    {
+      "frame": "1093",
+      "screen_frame": "1092",
+      "area": "work",
+      "address": "132098",
+      "data": "12336",
+      "mask": "255",
+      "vpos": "3",
+      "hpos": "297",
+      "master_ticks": "886517063"
+    },
+    {
+      "frame": "1095",
+      "screen_frame": "1094",
+      "area": "work",
+      "address": "132104",
+      "data": "3084",
+      "mask": "65280",
+      "vpos": "3",
+      "hpos": "191",
+      "master_ticks": "888138231"
+    },
+    {
+      "frame": "1095",
+      "screen_frame": "1094",
+      "area": "work",
+      "address": "132098",
+      "data": "12336",
+      "mask": "255",
+      "vpos": "3",
+      "hpos": "215",
+      "master_ticks": "888138423"
+    },
+    {
+      "frame": "1097",
+      "screen_frame": "1096",
+      "area": "work",
+      "address": "132098",
+      "data": "0",
+      "mask": "255",
+      "vpos": "3",
+      "hpos": "107",
+      "master_ticks": "889759575"
+    },
+    {
+      "frame": "1099",
+      "screen_frame": "1098",
+      "area": "work",
+      "address": "132098",
+      "data": "0",
+      "mask": "255",
+      "vpos": "3",
+      "hpos": "115",
+      "master_ticks": "891381655"
+    },
+    {
+      "frame": "1101",
+      "screen_frame": "1100",
+      "area": "work",
+      "address": "132098",
+      "data": "0",
+      "mask": "255",
+      "vpos": "3",
+      "hpos": "103",
+      "master_ticks": "893003575"
+    },
+    {
+      "frame": "1103",
+      "screen_frame": "1102",
+      "area": "work",
+      "address": "132098",
+      "data": "0",
+      "mask": "255",
+      "vpos": "3",
+      "hpos": "121",
+      "master_ticks": "894625735"
+    },
+    {
+      "frame": "1103",
+      "screen_frame": "1102",
+      "area": "work",
+      "address": "132104",
+      "data": "0",
+      "mask": "65280",
+      "vpos": "3",
+      "hpos": "263",
+      "master_ticks": "894626871"
+    },
+    {
+      "frame": "1103",
+      "screen_frame": "1102",
+      "area": "work",
+      "address": "132098",
+      "data": "0",
+      "mask": "255",
+      "vpos": "3",
+      "hpos": "287",
+      "master_ticks": "894627063"
+    },
+    {
+      "frame": "1103",
+      "screen_frame": "1102",
+      "area": "work",
+      "address": "132106",
+      "data": "0",
+      "mask": "65280",
+      "vpos": "3",
+      "hpos": "303",
+      "master_ticks": "894627191"
+    },
+    {
+      "frame": "1103",
+      "screen_frame": "1102",
+      "area": "work",
+      "address": "132098",
+      "data": "0",
+      "mask": "255",
+      "vpos": "3",
+      "hpos": "323",
+      "master_ticks": "894627351"
+    },
+    {
+      "frame": "1105",
+      "screen_frame": "1104",
+      "area": "work",
+      "address": "132098",
+      "data": "2056",
+      "mask": "255",
+      "vpos": "3",
+      "hpos": "195",
+      "master_ticks": "896248343"
+    },
+    {
+      "frame": "1109",
+      "screen_frame": "1108",
+      "area": "work",
+      "address": "132104",
+      "data": "257",
+      "mask": "65280",
+      "vpos": "3",
+      "hpos": "291",
+      "master_ticks": "899493143"
+    },
+    {
+      "frame": "1109",
+      "screen_frame": "1108",
+      "area": "work",
+      "address": "132098",
+      "data": "0",
+      "mask": "255",
+      "vpos": "3",
+      "hpos": "315",
+      "master_ticks": "899493335"
+    },
+    {
+      "frame": "1109",
+      "screen_frame": "1108",
+      "area": "work",
+      "address": "131934",
+      "data": "13621",
+      "mask": "255",
+      "vpos": "3",
+      "hpos": "327",
+      "master_ticks": "899493431"
+    },
+    {
+      "frame": "1109",
+      "screen_frame": "1108",
+      "area": "work",
+      "address": "131934",
+      "data": "0",
+      "mask": "255",
+      "vpos": "4",
+      "hpos": "61",
+      "master_ticks": "899494375"
+    }
+  ],
+  "reference_jump_inputs": [
+    {
+      "frame": "840",
+      "port": "IN0",
+      "mask": "32",
+      "active": "1",
+      "name": "P1 Button 2"
+    },
+    {
+      "frame": "844",
+      "port": "IN0",
+      "mask": "32",
+      "active": "0",
+      "name": "P1 Button 2"
+    },
+    {
+      "frame": "1020",
+      "port": "IN0",
+      "mask": "32",
+      "active": "1",
+      "name": "P1 Button 2"
+    },
+    {
+      "frame": "1024",
+      "port": "IN0",
+      "mask": "32",
+      "active": "0",
+      "name": "P1 Button 2"
+    }
+  ],
+  "full_P5_pass": false
+}

@@ -1,0 +1,150 @@
+{
+  "scope": "SOURCE ONLY physicalT48 versus officialMAME0289 Stingray semantic/scheduling contract",
+  "source_pins": {
+    "driver": {
+      "path": "D:\\Arcade\\AI\\mame289\\src\\mame\\alpha\\alpha68k_n.cpp",
+      "bytes": 43931,
+      "sha256": "5f9884076ea1b5c02d2169a58de5425ae5475a13a4f1438abae2e2b9f0fdab7d"
+    },
+    "video": {
+      "path": "D:\\Arcade\\AI\\mame289\\src\\mame\\alpha\\alpha68k.cpp",
+      "bytes": 114217,
+      "sha256": "282968ef4f8bf2c8b3a700814b8110c96dec318bd4caf625bff10e0094054b3c"
+    },
+    "MAME_state": {
+      "path": "D:\\Arcade\\AI\\mame289\\src\\mame\\alpha\\alpha68k.h",
+      "bytes": 13080,
+      "sha256": "7265faf19c6e1c01a7a45febe8df01c02f07e0c3a7a1bd0fc98b9b3a9afca2a0"
+    },
+    "MAME_clock": {
+      "path": "D:\\Arcade\\AI\\mame289\\src\\devices\\cpu\\mcs48\\mcs48.h",
+      "bytes": 19909,
+      "sha256": "6b3d88b6f2750f431aad6a76e012c9a96f90d7b0bc3c748c58132cf2e12ea701"
+    },
+    "board": {
+      "path": "D:\\Arcade\\AI\\aCORES\\meatsauce-alpha68kn\\cores\\Alpha68k_N\\rtl\\alpha68kn_board.sv",
+      "bytes": 25556,
+      "sha256": "43b8c6e7600e4c4089f0d3c0e4a15637be8bfcbdd626ddd0bc0e222b7b1553ce"
+    },
+    "physical_MCU": {
+      "path": "D:\\Arcade\\AI\\aCORES\\meatsauce-alpha68kn\\cores\\Alpha68k_N\\rtl\\alpha68kn_mcu.sv",
+      "bytes": 3434,
+      "sha256": "2626a02c97db973f0935703685fced12a08525dcbc81a9bfc6bfb07dcfecac0c"
+    },
+    "T48": {
+      "path": "D:\\Arcade\\AI\\aCORES\\meatsauce-alpha68kn\\cores\\Alpha68k_N\\rtl\\vendor\\t48\\t48_core.v",
+      "bytes": 728540,
+      "sha256": "63dcf132100d8798951bd2b8d31997d28d5a377101a6ba6159e0d3e1b19faf71"
+    },
+    "compiled_MCU_source": {
+      "path": "D:\\Arcade\\AI\\aCORES\\Alpha68k N\\research\\wrapper_feature_gates_20261011\\unified_emu_admission_v5\\source\\rtl\\alpha68kn_mcu.sv",
+      "bytes": 3434,
+      "sha256": "2626a02c97db973f0935703685fced12a08525dcbc81a9bfc6bfb07dcfecac0c"
+    },
+    "compiled_T48_source": {
+      "path": "D:\\Arcade\\AI\\aCORES\\Alpha68k N\\research\\wrapper_feature_gates_20261011\\unified_emu_admission_v5\\source\\rtl\\vendor\\t48\\t48_core.v",
+      "bytes": 728540,
+      "sha256": "63dcf132100d8798951bd2b8d31997d28d5a377101a6ba6159e0d3e1b19faf71"
+    }
+  },
+  "checks": {
+    "exact_driver_pin": true,
+    "exact_board_pin": true,
+    "current_and_compiled_MCU_sources_equal": true,
+    "current_and_compiled_T48_sources_equal": true,
+    "firmware_matches_MAME_8748_dump": true,
+    "MAME_real_I8748_not_HLE": true,
+    "nominal_oscillator_equal": true,
+    "MAME_machine_cycle15": true,
+    "Stingray_HLE_excluded": true,
+    "Stingray_fixed_periodic_IRQ2_excluded": true
+  },
+  "firmware": {
+    "offset_hex": "0x33000",
+    "bytes": 1024,
+    "CRC32": "7fcbfc30",
+    "SHA1": "6d087a3d44e475b6c8260a5134952097f26459b7",
+    "download": {
+      "path": "D:\\Arcade\\AI\\aCORES\\Alpha68k N\\roms\\sstingry\\download.bin",
+      "bytes": 655360,
+      "sha256": "9c60564786045834e97f98350e8310ef37a6027dadecc31cf89f1fa8bfe4358d"
+    }
+  },
+  "contracts": [
+    {
+      "item": "MCU execution/clock",
+      "MAME": "Real I8748 at9,263,750 oscillator clocks/s; mcs48 machinecycle=15clocks, one/two-cycle opcodes",
+      "RTL": "Same9,263,750/48,000,000 fractionaloscillator enable; T48 divides3 oscillator steps and5machine states",
+      "verdict": "Nominal ratios match. Mastertick quantization/reset phase differs implementation; original PCBclock remains unqualified."
+    },
+    {
+      "item": "Main CPU/video/sound clock",
+      "MAME": "M68000 6MHz, rawvideo6MHz/384x264 visible16..239, Z80 3,579,545Hz",
+      "RTL": "48MHz master CPUphase0/4 over8ticks, pixelphase0/8,384x264, StingrayZ80fraction3,579,545/48MHz",
+      "verdict": "Same nominal ratios; exact autovector/bus acceptance phase is not proven byfrequency agreement."
+    },
+    {
+      "item": "MCU command",
+      "MAME": "0080000..0801ff lowbyte: read schedules attotimezero offset/readmode/ff latch, write schedules lowdata; sync callback IRQ/HALT when controlbit4",
+      "RTL": "Same lowlane,wordoffset ma8:1,readFF/write mdout7:0; commandlatch on board ram_bus_service masteredge; effective_control samples pending P2",
+      "verdict": "Same data protocol; deferred scheduler callback versus synchronousacceptededge is a real scheduling implementation difference, not a proven wrong response."
+    },
+    {
+      "item": "MCU P2 output",
+      "MAME": "bit4low clearsIRQ/HALT; bit5high HOLDIRQ2 on eachwrite; bit6low writes sharedRAMlow andpreserveshigh; flip=!bit7",
+      "RTL": "Same predicates eachdecoderP2write, delayedpending/control event; boardstickyIRQ2 clearedIACK, setwins sameedge; MCUlowwrite priority",
+      "verdict": "Logical predicates match. P2-to-board lowwrite/IRQ/release ordering and mainHALT drain boundary remain phase-sensitive."
+    },
+    {
+      "item": "Inputs/DIP/coin",
+      "MAME": "IN0 activehigh shared16bit controls0c0000; DIP byte0e0000; coins active-low IN2bits0/1 intoMCU T0/T1. init invert_controlsfalse",
+      "RTL": "Directcontrols16bit0c0000, {dips,ff} word0e0000 supplies evenhighbyte; directcoins_n T0/T1. No Kyros HLE coin path forprofile2",
+      "verdict": "Polarity/lanes/nominal mappings match. Nativefirsthit tape uses originalprecallbackrawF aftercompletedF; same-index postcallback route differs; actualguest read timing is stillunqualified."
+    },
+    {
+      "item": "Vblank IRQ1",
+      "MAME": "Screen set_vblank_int IRQ1 HOLD atvisibleend/rawvblankstart line240",
+      "RTL": "vblank_edge when ce_pix x383/y239 raisesIRQ1 asrasterwraps0/240; soundIRQsameedge; no60Hz periodicIRQ2forStingray",
+      "verdict": "Nominal rasteredge matches. IRQ2 firmwaretimers independent fromscreen; crossCPU scheduling/IACK phase remains unresolved."
+    }
+  ],
+  "hypotheses": [
+    {
+      "priority": 1,
+      "claim": "Input transition timing may explain guest divergence",
+      "proven": "1010selectedrawrows exactlymatchMAME precallback frame_states; rawF equals appliedF-1;10same-index transitiondeltas preserved",
+      "missing": "Actual accepted nativecontrols/coin reads and guestconsumer writes alignedtoofficial CPU tap ticks/beam, particularly firstboot119 and earliestlivechangebefore600",
+      "next_step": "Use only alreadyplanned privateinput-read/physicalwriter observers; do notshiftinputlabels. Compare normalizedreset/releaseepochs and actualCPUreadvalues beforeone centrally released diagnostic."
+    },
+    {
+      "priority": 2,
+      "claim": "MCU command/HALT/sharedwrite/IRQ2 phase may alter CPU instruction/raster opportunity",
+      "proven": "MAME deferredattotimezero andlineHALT versusRTL acceptedlaneedge, AS-high enablefreeze, delayedP2/sharedwrite; same clock/firmware/commanddata",
+      "missing": "Matched MCU request->BUS/P2->sharedcommit->HALTrelease->IRQ2->actualCPU IACK/read event times acrossfirst119 andfirstspritewriterbefore600",
+      "next_step": "Localize earliestactualconsumedCPUword/writer first, then compare alreadyretained MCU event tuples atthatbound. No firmware/clock change without a specific mismatch."
+    },
+    {
+      "priority": 3,
+      "claim": "MCU clock/firmware nominal mismatch",
+      "proven": "Source ratios anddumpCRC/SHA1 match; legacy38commandtuple equality is narrow evidence only",
+      "missing": "ActualoriginalPCBoscillator evidence and phase calibration",
+      "next_step": "Do not treatMAME TODO as causeorchangeclock tohidevisualerror. Retain PCBaccuracy bug aslaterphysicalresearch gate; currenttargetMAME0289clockalready matched."
+    }
+  ],
+  "already_qualified": {
+    "firsthit1009_DIP_byte": "93,hostwrongword9300widthguard separate",
+    "firstphysicalscore": "CPU0->16 at020022 field1008 proves100displaypoints, no graphicsqualification",
+    "firsthit_strict": "Whole33arrays retain native1/RGB60036321pixels andsprite40bytes/firstwork1195bytes failures"
+  },
+  "lessons_consulted": {
+    "index": "C:/Users/meath/.codex/lessons-index.md",
+    "selected": "C:/Users/meath/.codex/lessons.md:9843..9850",
+    "lesson": "MCUprogramparitybanks preserve synchronous1masterticklatency/OLD_DATA andresetduringdownload; resource inference proof is not gameplay/IRQphasequalification"
+  },
+  "limits": [
+    "No HDL/core/source edits, native build/replay, MAMEcapture, Quartus or hardware work",
+    "MAME source says oscillatoralmostcertainlywrong andquestions whether8748dump camefrombootleg/originalHitachi ALPHA-8511; sourceagreement provesMAMEbaseline not originalPCBclock/partaccuracy",
+    "Source implementation differences are not a demonstrated cause or acceptanceexemption for graphics/work failures",
+    "Pointwordwrongalias and FX consumed-word phase scope61e5aeaf remainopen"
+  ]
+}

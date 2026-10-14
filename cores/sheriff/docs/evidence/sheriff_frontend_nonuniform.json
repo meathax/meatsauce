@@ -1,0 +1,76 @@
+{
+  "scope": "Actual synthesizable frontend, synthetic eight-colour 8x8-block pattern. Five complete native/scandoubled/HQ periods; no new hardware HDL changes.",
+  "source_sha256": {
+    "sim/video_qualification.cpp": "669cc6cdff141a266e0ecf4f0f462b62b43b94c17c07b9c19cac4b015eb00e4b",
+    "sim/hq2x_reference.c": "fcb09b0d9157c64f7e630db2718d5bfbda519f89809eb5f800b4d58cec23306b",
+    "rtl/n8080_video.sv": "9b9d0d8646ad6bca9e39cd0fd0f2848896ad87d6b714872ae6433a2245da50ee",
+    "rtl/n8080_video_mixer.sv": "a2b4b27c0d5df2e80dab001dcaa3cc2b8c8c8bbb5f5b56a23231f78cb8d79760",
+    "sys/scandoubler.v": "e165eed142dbe525872038d7fe7fa4c6a50581473189cd4ee5d5d1cdbf5497c2",
+    "sys/hq2x.sv": "add2820efe5574abae4cd8a2bdb22d468daedfb2af7b58f9c6585e7915f8ebed"
+  },
+  "reference": {
+    "repository": "https://github.com/grom358/hqx",
+    "revision": "a1c7d415f4bb7b947c4c2e47faf220b0148f4bac",
+    "path": "donors/hqx-reference",
+    "license": "LGPL-2.1-or-later, notices/COPYING retained locally",
+    "use": "Independent host-side test oracle only; excluded from FPGA RTL/RBF",
+    "boundary": "Black left-neighbour column as explicitly cleared by sys/hq2x.sv:211; other viewport neighbours come from the synthetic raster.",
+    "source_sha256": {
+      "donors\\hqx-reference\\src\\hq2x.c": "00b30c352e54094573f4612aa0dccbd4ad3e44bba8c559b43c8065be1c498dbd",
+      "donors\\hqx-reference\\src\\init.c": "9166ad97129082da0220effee60a5622bc69d53a6e5b2e27d75ae99d020d9ac1",
+      "donors\\hqx-reference\\COPYING": "1e7e6bae5a5bde32f1ae5a7c37a082d1ab03cf89354f7f936ac40be9e39a6531"
+    }
+  },
+  "initial_results": [
+    {
+      "case": "scandoubler-pattern",
+      "exit_code": 0,
+      "stdout": "scandoubler-pattern frontend frames=5 pixel_errors=0 first_bad=4294967295",
+      "stderr": ""
+    },
+    {
+      "case": "hq2x-pattern",
+      "exit_code": 1,
+      "stdout": "hq2x-pattern frontend frames=5 pixel_errors=168 first_bad=0",
+      "stderr": ""
+    }
+  ],
+  "initial_reference_failure": {
+    "reason": "Fixture assumed a wrapped left neighbour. Raw RTL frame has 28 different pixels, all x=0, against that reference; scalar bench saw 168 over its active periods. No RTL patch or tolerance.",
+    "first_frame": "_checks\\video-nonuniform-20261009\\first-frame.rgb",
+    "bad_reference": "sim/build/video-nonuniform-20261009/checker.rgb",
+    "bad_reference_sha256": "92c1ad398fef7925634dd3e0beced8c2e4fc9bc2ead67e9dd0b6091826892ecc"
+  },
+  "qualified_results": [
+    {
+      "case": "reference-blank-build",
+      "exit_code": 0,
+      "stdout": "",
+      "stderr": ""
+    },
+    {
+      "case": "reference-blank-generate",
+      "exit_code": 0,
+      "stdout": "",
+      "stderr": ""
+    },
+    {
+      "case": "hq2x-blank-border",
+      "exit_code": 0,
+      "stdout": "hq2x-pattern frontend frames=5 pixel_errors=0 first_bad=4294967295",
+      "stderr": ""
+    }
+  ],
+  "rgb_equality": {
+    "pixels": 229376,
+    "bytes": 688128,
+    "actual_sha256": "f496418b9dddbe6cceb92d5cc079ef1bd649ea45c854f912e70cb9cce0949a75",
+    "expected_sha256": "f496418b9dddbe6cceb92d5cc079ef1bd649ea45c854f912e70cb9cce0949a75",
+    "mismatches": 0
+  },
+  "native_and_pattern_scandoubler": true,
+  "nonuniform_hq_checker": true,
+  "executable": "sim/build/video-nonuniform-probe-20261009/video/Vn8080_video",
+  "executable_sha256": "a862cd8a1de68271ee8bbdb3b1a42c0c68667776c9004aaadb4722f1316b6173",
+  "limits": "This corpus does not exhaust all HQ neighbourhoods or full-game graphics. Complete Sheriff/native mismatch gates remain false."
+}

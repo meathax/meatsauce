@@ -1,0 +1,52 @@
+{
+  "scope": "Finite ordered CPU sound writes; callback labels reported separately; no PCM/effect/physical pass",
+  "frames": 3600,
+  "mame": "D:\\Arcade\\AI\\aCORES\\Alpha68k N\\sim\\captures\\kyros\\combat3600_v2",
+  "rtl": "D:\\Arcade\\AI\\aCORES\\Alpha68k N\\sim\\captures\\rtl\\kyros_combat3600",
+  "dac_capture_available": true,
+  "comparisons": {
+    "sound_io": {
+      "reference_writes": 22418,
+      "rtl_writes": 22418,
+      "ordered_writes_equal": false,
+      "field_label_differences": 7,
+      "first_difference_index": 896,
+      "reference_first": {
+        "frame": 787,
+        "address": 16,
+        "data": 1,
+        "mask": 255
+      },
+      "rtl_first": {
+        "frame": 787,
+        "address": 145,
+        "data": 6,
+        "mask": 255
+      },
+      "reference_sequence_sha256": "4ac0f0e363d5e3cbdec1de8d247226604796fb0d4da95de67c918ca2955feba2",
+      "rtl_sequence_sha256": "ef83ec5c83b5628dcdd639182e4440c5d3551028f99327f1de84adc447dc1d68"
+    },
+    "sound_latch_write": {
+      "reference_writes": 157,
+      "rtl_writes": 157,
+      "ordered_writes_equal": true,
+      "field_label_differences": 0,
+      "first_difference_index": null,
+      "reference_first": null,
+      "rtl_first": null,
+      "reference_sequence_sha256": "da7bbb06aac529c782b396a9493da4d9fade2777207c85254931ad41b9be13ba",
+      "rtl_sequence_sha256": "da7bbb06aac529c782b396a9493da4d9fade2777207c85254931ad41b9be13ba"
+    },
+    "dac_write": {
+      "reference_writes": 42246,
+      "rtl_writes": 42246,
+      "ordered_writes_equal": true,
+      "field_label_differences": 1,
+      "first_difference_index": null,
+      "reference_first": null,
+      "rtl_first": null,
+      "reference_sequence_sha256": "79a8ddf1c2bec028decc60f79b7160c93f95638a9f3fb914f5fbb67bcb676532",
+      "rtl_sequence_sha256": "79a8ddf1c2bec028decc60f79b7160c93f95638a9f3fb914f5fbb67bcb676532"
+    }
+  }
+}

@@ -1,0 +1,119 @@
+{
+  "date": "2026-10-04",
+  "queries": [
+    {
+      "query": "se3208",
+      "url": "https://api.github.com/search/repositories?per_page=12&q=se3208",
+      "total_count": 0,
+      "results": []
+    },
+    {
+      "query": "vrender0",
+      "url": "https://api.github.com/search/repositories?per_page=12&q=vrender0",
+      "total_count": 0,
+      "results": []
+    },
+    {
+      "query": "CrystalSystem FPGA",
+      "url": "https://api.github.com/search/repositories?per_page=12&q=CrystalSystem%20FPGA",
+      "total_count": 0,
+      "results": []
+    },
+    {
+      "query": "ds1302 verilog",
+      "url": "https://api.github.com/search/repositories?per_page=12&q=ds1302%20verilog",
+      "total_count": 2,
+      "results": [
+        {
+          "repository": "ChenJianyunp/DS1302_verilog",
+          "url": "https://github.com/ChenJianyunp/DS1302_verilog",
+          "description": null,
+          "license": null
+        },
+        {
+          "repository": "lvandesigner/Indu_Monitor",
+          "url": "https://github.com/lvandesigner/Indu_Monitor",
+          "description": "Indu_Monitor 是一个基于 Xilinx Spartan-7 FPGA 的工业信号监测与数据处理系统。系统通过 I2C 接口的 ADC 采集模拟电压信号，利用 DS1302 实时时钟为每帧数据打上时间戳，在片内完成 4 种可选信号处理算法的计算，并通过 8 位数码管和 UART 串口将结果输出。",
+          "license": "Apache-2.0"
+        }
+      ]
+    },
+    {
+      "query": "pic16c57 verilog",
+      "url": "https://api.github.com/search/repositories?per_page=12&q=pic16c57%20verilog",
+      "total_count": 3,
+      "results": [
+        {
+          "repository": "EddieHyun/PIC16C57",
+          "url": "https://github.com/EddieHyun/PIC16C57",
+          "description": "Implementation of PIC16C57 in Verilog.",
+          "license": null
+        },
+        {
+          "repository": "hcyang1012/PIC16C57-Verilog",
+          "url": "https://github.com/hcyang1012/PIC16C57-Verilog",
+          "description": null,
+          "license": null
+        },
+        {
+          "repository": "collectivertl/risc8_tcoonan",
+          "url": "https://github.com/collectivertl/risc8_tcoonan",
+          "description": "A Verilog implementation of a simple 8-bit processor. The RISC8 is binary code compatible with the Microchip PIC16C57 processor.",
+          "license": "GPL-2.0"
+        }
+      ]
+    }
+  ],
+  "mame_source_comparison": [
+    {
+      "path": "src/mame/misc/crystal.cpp",
+      "url": "https://raw.githubusercontent.com/mamedev/mame/mame0289/src/mame/misc/crystal.cpp",
+      "local_sha256": "28e81f35782541ec5b0e6855efd4a5df4ce3f477fd852b31b3e009705a78aefd",
+      "upstream_sha256": "4b18a290c89c9cf98c653adbfe2e69d1c12d3e69361ff5a395b6f52c66b38b90",
+      "matches_after_newline_normalization": true
+    },
+    {
+      "path": "src/devices/cpu/se3208/se3208.cpp",
+      "url": "https://raw.githubusercontent.com/mamedev/mame/mame0289/src/devices/cpu/se3208/se3208.cpp",
+      "local_sha256": "52615b893722ef1bbfcaa88b235cf80167655421bf83cbd716e3477e37525ec5",
+      "upstream_sha256": "ffd3005f736e5a8653eb7f404af987acf12162198783fcf14c958dc4f8124f99",
+      "matches_after_newline_normalization": true
+    },
+    {
+      "path": "src/devices/machine/vrender0.cpp",
+      "url": "https://raw.githubusercontent.com/mamedev/mame/mame0289/src/devices/machine/vrender0.cpp",
+      "local_sha256": "167b925fb23b1a1e156b19c839d99f7db54c95c0ce207c244735ea26a550dbb8",
+      "upstream_sha256": "ac3e2b4e337cfc758f74ab3a526262980e64254c1579daf5ef93d876fe4551f3",
+      "matches_after_newline_normalization": true
+    },
+    {
+      "path": "src/devices/machine/vr0uart.cpp",
+      "url": "https://raw.githubusercontent.com/mamedev/mame/mame0289/src/devices/machine/vr0uart.cpp",
+      "local_sha256": "204f4f0c09458f058be28def65a87791002c7be969c963c6ef0209af73171bb9",
+      "upstream_sha256": "155b3e8fed3d95ba593e2f50562a5c855cbd2c27ee2ca5135c6ab8a761378ba5",
+      "matches_after_newline_normalization": true
+    },
+    {
+      "path": "src/devices/video/vrender0.cpp",
+      "url": "https://raw.githubusercontent.com/mamedev/mame/mame0289/src/devices/video/vrender0.cpp",
+      "local_sha256": "204d069888f07e85fa13dbcc52e8bfa9a37c9558ff155e0b565a69b351f24e46",
+      "upstream_sha256": "53bd6b54b348259d248ad9e4bb037e6ed5c94156dcbbbf0e2b5ff1385e7a7cf7",
+      "matches_after_newline_normalization": true
+    },
+    {
+      "path": "src/devices/sound/vrender0.cpp",
+      "url": "https://raw.githubusercontent.com/mamedev/mame/mame0289/src/devices/sound/vrender0.cpp",
+      "local_sha256": "d5c7b821cf05ec3780ad7aa7ab08797557eb6853df6ff6c0cf20e110d2ae062e",
+      "upstream_sha256": "db1392e848dfa5d0861f6825118743c8a95a45f70c1dac05f1d5d20abe0a37fd",
+      "matches_after_newline_normalization": true
+    },
+    {
+      "path": "src/devices/machine/ds1302.cpp",
+      "url": "https://raw.githubusercontent.com/mamedev/mame/mame0289/src/devices/machine/ds1302.cpp",
+      "local_sha256": "e1d4be800a5b373bdf56b7e9edb1fa04e1840c0ecb5c4ab7701ed9c6bcb002b6",
+      "upstream_sha256": "f139e737b2f65d25d6577b2f4d2bfa159882baacbbf0b68bf8581581e7e99dd9",
+      "matches_after_newline_normalization": true
+    }
+  ],
+  "jtcores_submodules": "[submodule \"modules/fx68k\"]\n\tpath = modules/fx68k\n\turl = https://github.com/jtfpga/fx68k\n[submodule \"modules/jt51\"]\n\tpath = modules/jt51\n\turl = https://github.com/jotego/jt51\n[submodule \"modules/jt5205\"]\n\tpath = modules/jt5205\n\turl = https://github.com/jotego/jt5205\n[submodule \"modules/j12\"]\n\tpath = modules/jt12\n\turl = https://github.com/jotego/jt12\n[submodule \"modules/jtopl\"]\n\tpath = modules/jtopl\n\turl = https://github.com/jotego/jtopl.git\n[submodule \"modules/jt6295\"]\n\tpath = modules/jt6295\n\turl = https://github.com/jotego/jt6295.git\n[submodule \"modules/jteeprom\"]\n\tpath = modules/jteeprom\n\turl = https://github.com/jotego/jteeprom.git\n[submodule \"modules/jttms\"]\n\tpath = modules/jttms\n\turl = https://github.com/jotego/jttms.git\n[submodule \"modules/jt49\"]\n\tpath = modules/jt49\n\turl = https://github.com/jotego/jt49.git\n[submodule \"modules/jt89\"]\n\tpath = modules/jt89\n\turl = https://github.com/jotego/jt89.git\n[submodule \"modules/jt7759\"]\n\tpath = modules/jt7759\n\turl = https://github.com/jotego/jt7759.git\n[submodule \"modules/jtdsp16\"]\n\tpath = modules/jtdsp16\n\turl = https://github.com/jotego/jtdsp16.git\n[submodule \"modules/jt8255\"]\n\tpath = modules/jt8255\n\turl = https://www.github.com/jotego/jt8255\n[submodule \"modules/jtkcpu\"]\n\tpath = modules/jtkcpu\n\turl = https://github.com/jotego/jtkcpu.git\n[submodule \"modules/jt900h\"]\n\tpath = modules/jt900h\n\turl = git@github.com:jotego/jt900h.git\n[submodule \"modules/jt539\"]\n\tpath = modules/jt539\n\turl = https://github.com/jotego/jt539.git\n[submodule \"modules/jt680x/crasm\"]\n\tpath = modules/jt680x/crasm\n\turl = git@github.com:colinbourassa/crasm.git\n\n"
+}

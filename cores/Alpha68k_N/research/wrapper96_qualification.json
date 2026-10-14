@@ -1,0 +1,157 @@
+{
+  "scope": "finite real-wrapper transport/boot and normalized-framework comparison; not complete game/P8 hardware qualification",
+  "terminal": {
+    "source_baseline": "693cfdf",
+    "worker_pid": 42480,
+    "started": 1791527851.580276,
+    "scope": "real emu/HPS/game/framework; ideal PLL outputs and scope adapter",
+    "executable_sha256": "88352a15f9a1efd81d8152cf62e078f2b0ad5cf58935046e7760de1ad82ececc",
+    "inputs_manifest": "research/wrapper96_settle_inputs.sha256",
+    "scope_adapter": "research/wrapper96_settle_scope_adapter.json",
+    "frames": 96,
+    "command": [
+      "wsl.exe",
+      "-d",
+      "Ubuntu",
+      "--cd",
+      "D:\\Arcade\\AI\\aCORES\\Alpha68k N\\sim\\build",
+      "--exec",
+      "./alpha68kn_wrapper96_settle_sim",
+      "../../roms/kyros/download.bin",
+      "96",
+      "../captures/rtl/kyros_wrapper96_settle"
+    ],
+    "exit_code": 0,
+    "ended": 1791528204.1608076
+  },
+  "result": {
+    "scope": "real emu/HPS/CPU/video/audio/SDRAM with ideal PLL and explicit framework scope adapter",
+    "frames": 96,
+    "framework_settling_fields": 4,
+    "profile": 0,
+    "rom_words": 327680,
+    "wait_ticks": 2006830,
+    "main_transactions": 2155467,
+    "unmapped": 0,
+    "deadlines": 0,
+    "overflows": 0,
+    "device_writes": 393216,
+    "device_reads": 2693008,
+    "refreshes": 250201,
+    "passed": true
+  },
+  "checkpoints": [
+    {
+      "frame": 0,
+      "kind": "core",
+      "bytes": 172032,
+      "mame_bytes": 172032,
+      "same_shape": true,
+      "different_pixels": 0,
+      "sha256": "9a4b97b4b079955bac86930724c8bcdd30aba4732f1dcbcbac2ec270f5f5e485",
+      "mame_sha256": "9a4b97b4b079955bac86930724c8bcdd30aba4732f1dcbcbac2ec270f5f5e485"
+    },
+    {
+      "frame": 0,
+      "kind": "vga",
+      "bytes": 172806,
+      "mame_bytes": 172032,
+      "same_shape": false,
+      "different_pixels": null,
+      "sha256": "20fd0e2e757209f98ccd1374f3d48ec6678ad29d2bb8e6893e259cb5ffe3fb62",
+      "mame_sha256": "9a4b97b4b079955bac86930724c8bcdd30aba4732f1dcbcbac2ec270f5f5e485"
+    },
+    {
+      "frame": 30,
+      "kind": "core",
+      "bytes": 172032,
+      "mame_bytes": 172032,
+      "same_shape": true,
+      "different_pixels": 0,
+      "sha256": "9a4b97b4b079955bac86930724c8bcdd30aba4732f1dcbcbac2ec270f5f5e485",
+      "mame_sha256": "9a4b97b4b079955bac86930724c8bcdd30aba4732f1dcbcbac2ec270f5f5e485"
+    },
+    {
+      "frame": 30,
+      "kind": "vga",
+      "bytes": 172032,
+      "mame_bytes": 172032,
+      "same_shape": true,
+      "different_pixels": 0,
+      "sha256": "9a4b97b4b079955bac86930724c8bcdd30aba4732f1dcbcbac2ec270f5f5e485",
+      "mame_sha256": "9a4b97b4b079955bac86930724c8bcdd30aba4732f1dcbcbac2ec270f5f5e485"
+    },
+    {
+      "frame": 90,
+      "kind": "core",
+      "bytes": 172032,
+      "mame_bytes": 172032,
+      "same_shape": true,
+      "different_pixels": 0,
+      "sha256": "3bcac5c304a6099c1684bffb103dc2964200a2616be78baa744dcf123d7f8e72",
+      "mame_sha256": "3bcac5c304a6099c1684bffb103dc2964200a2616be78baa744dcf123d7f8e72"
+    },
+    {
+      "frame": 90,
+      "kind": "vga",
+      "bytes": 172032,
+      "mame_bytes": 172032,
+      "same_shape": true,
+      "different_pixels": 0,
+      "sha256": "3bcac5c304a6099c1684bffb103dc2964200a2616be78baa744dcf123d7f8e72",
+      "mame_sha256": "3bcac5c304a6099c1684bffb103dc2964200a2616be78baa744dcf123d7f8e72"
+    }
+  ],
+  "field_count": 96,
+  "startup_fields": [
+    {
+      "frame": "0",
+      "core_pixels": "57344",
+      "vga_pixels": "57602",
+      "duplicates": "0",
+      "main_transactions": "23392",
+      "unmapped": "0",
+      "deadlines": "0",
+      "overflows": "0",
+      "worst_line": "2299"
+    },
+    {
+      "frame": "1",
+      "core_pixels": "57344",
+      "vga_pixels": "57344",
+      "duplicates": "0",
+      "main_transactions": "46786",
+      "unmapped": "0",
+      "deadlines": "0",
+      "overflows": "0",
+      "worst_line": "2299"
+    },
+    {
+      "frame": "2",
+      "core_pixels": "57344",
+      "vga_pixels": "57344",
+      "duplicates": "0",
+      "main_transactions": "70181",
+      "unmapped": "0",
+      "deadlines": "0",
+      "overflows": "0",
+      "worst_line": "2299"
+    },
+    {
+      "frame": "3",
+      "core_pixels": "57344",
+      "vga_pixels": "57344",
+      "duplicates": "0",
+      "main_transactions": "93575",
+      "unmapped": "0",
+      "deadlines": "0",
+      "overflows": "0",
+      "worst_line": "2299"
+    }
+  ],
+  "qualified_fields": {
+    "first": 4,
+    "last": 95,
+    "bad": []
+  }
+}

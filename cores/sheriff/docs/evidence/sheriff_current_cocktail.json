@@ -1,0 +1,876 @@
+{
+  "scope": "Current bare board through first P2 cocktail turn, field4801; 85 exported fields.",
+  "native_receipt": {
+    "started_utc": "2026-10-09T15:23:16.1647660Z",
+    "finished_utc": "2026-10-09T16:39:05.4538364Z",
+    "exit_code": 0,
+    "error": null,
+    "source_sha256": {
+      "rtl/n8080_board.sv": "2022043c4178c8b6d11360ce43d2f6632a9cd128d6fdc67f108d5027f837a568",
+      "rtl/n8080_cpu.sv": "9d7047ab0edd7f46f9aa674d8820889164486dea460639a11a79ff2db6c865ff",
+      "rtl/n8080_vm80a_ce.v": "55b1df11c49078ebbaaa7343c430129a1f8fa58076a077a2abd1c22cdfde851a",
+      "rtl/n8080_mcs48.sv": "9add3d3ee9d50080dff1afa10d42970aa3e395251e0372f55eb1343f7dda5a7d",
+      "rtl/vendor/t48/t48_core.v": "8e8cb0a18e6f99c6da4ec258280294008ba1488c829d453846f24562d1010125",
+      "rtl/sheriff_sn76477.sv": "e4be6daec69f507efaead7779a2fdd9fbebc9db72d942d07c45ac81ea36e1381",
+      "sim/board_harness.cpp": "6e18f5ee13a910d8d280aa973fb59875feb6bf45b9b396e3875175d6842cd02a",
+      "rtl/sheriff_sn_constants.svh": "538b6a5ccef0b264f99f10fc4266abedee70e928dc29a9335e81248fc503acea"
+    },
+    "source_changed_during_run": [],
+    "frames_requested": 4801,
+    "seed": 1,
+    "model": "_checks/current-board-boot-20261010/Vn8080_board",
+    "model_sha256": "6b98d5757c16f6958f1dfea5d40c1254b6f5ebfe9f456b961e3b2f12a6e41d09",
+    "inputs": "sim/inputs/sheriff_cocktail_two_player.csv",
+    "inputs_sha256": "93df2be1a9e143b9daff0c9176ee07d7c77e7e15fe94bda44630177d253eb6c4",
+    "runtime_output": "sim/results/current-cocktail-4801-rtl-20261010",
+    "scope": "Current bare board two-player cocktail/P2 movement/aim/fire diagnostic regression; full wrapper, full gameplay and release remain open"
+  },
+  "source_closure_verified": true,
+  "mame_reference": "docs/evidence/sheriff_cocktail_reference.json",
+  "timed_MAME_scanout": {
+    "scope": "Diagnostic observation of exported native fields against stored timed MAME writes; not live frame-gated MAME equivalence",
+    "checks": [
+      {
+        "frame": 1,
+        "mismatch_count": 0,
+        "first_mismatches": []
+      },
+      {
+        "frame": 2,
+        "mismatch_count": 0,
+        "first_mismatches": []
+      },
+      {
+        "frame": 3,
+        "mismatch_count": 0,
+        "first_mismatches": []
+      },
+      {
+        "frame": 4,
+        "mismatch_count": 0,
+        "first_mismatches": []
+      },
+      {
+        "frame": 60,
+        "mismatch_count": 0,
+        "first_mismatches": []
+      },
+      {
+        "frame": 120,
+        "mismatch_count": 0,
+        "first_mismatches": []
+      },
+      {
+        "frame": 180,
+        "mismatch_count": 0,
+        "first_mismatches": []
+      },
+      {
+        "frame": 240,
+        "mismatch_count": 0,
+        "first_mismatches": []
+      },
+      {
+        "frame": 300,
+        "mismatch_count": 0,
+        "first_mismatches": []
+      },
+      {
+        "frame": 360,
+        "mismatch_count": 0,
+        "first_mismatches": []
+      },
+      {
+        "frame": 420,
+        "mismatch_count": 0,
+        "first_mismatches": []
+      },
+      {
+        "frame": 480,
+        "mismatch_count": 0,
+        "first_mismatches": []
+      },
+      {
+        "frame": 540,
+        "mismatch_count": 0,
+        "first_mismatches": []
+      },
+      {
+        "frame": 600,
+        "mismatch_count": 0,
+        "first_mismatches": []
+      },
+      {
+        "frame": 660,
+        "mismatch_count": 0,
+        "first_mismatches": []
+      },
+      {
+        "frame": 720,
+        "mismatch_count": 0,
+        "first_mismatches": []
+      },
+      {
+        "frame": 780,
+        "mismatch_count": 0,
+        "first_mismatches": []
+      },
+      {
+        "frame": 840,
+        "mismatch_count": 0,
+        "first_mismatches": []
+      },
+      {
+        "frame": 900,
+        "mismatch_count": 0,
+        "first_mismatches": []
+      },
+      {
+        "frame": 960,
+        "mismatch_count": 0,
+        "first_mismatches": []
+      },
+      {
+        "frame": 1020,
+        "mismatch_count": 0,
+        "first_mismatches": []
+      },
+      {
+        "frame": 1080,
+        "mismatch_count": 0,
+        "first_mismatches": []
+      },
+      {
+        "frame": 1140,
+        "mismatch_count": 0,
+        "first_mismatches": []
+      },
+      {
+        "frame": 1200,
+        "mismatch_count": 0,
+        "first_mismatches": []
+      },
+      {
+        "frame": 1260,
+        "mismatch_count": 0,
+        "first_mismatches": []
+      },
+      {
+        "frame": 1320,
+        "mismatch_count": 0,
+        "first_mismatches": []
+      },
+      {
+        "frame": 1380,
+        "mismatch_count": 0,
+        "first_mismatches": []
+      },
+      {
+        "frame": 1440,
+        "mismatch_count": 0,
+        "first_mismatches": []
+      },
+      {
+        "frame": 1500,
+        "mismatch_count": 0,
+        "first_mismatches": []
+      },
+      {
+        "frame": 1560,
+        "mismatch_count": 0,
+        "first_mismatches": []
+      },
+      {
+        "frame": 1620,
+        "mismatch_count": 0,
+        "first_mismatches": []
+      },
+      {
+        "frame": 1680,
+        "mismatch_count": 0,
+        "first_mismatches": []
+      },
+      {
+        "frame": 1740,
+        "mismatch_count": 0,
+        "first_mismatches": []
+      },
+      {
+        "frame": 1800,
+        "mismatch_count": 0,
+        "first_mismatches": []
+      },
+      {
+        "frame": 1860,
+        "mismatch_count": 0,
+        "first_mismatches": []
+      },
+      {
+        "frame": 1920,
+        "mismatch_count": 0,
+        "first_mismatches": []
+      },
+      {
+        "frame": 1980,
+        "mismatch_count": 0,
+        "first_mismatches": []
+      },
+      {
+        "frame": 2040,
+        "mismatch_count": 0,
+        "first_mismatches": []
+      },
+      {
+        "frame": 2100,
+        "mismatch_count": 0,
+        "first_mismatches": []
+      },
+      {
+        "frame": 2160,
+        "mismatch_count": 0,
+        "first_mismatches": []
+      },
+      {
+        "frame": 2220,
+        "mismatch_count": 0,
+        "first_mismatches": []
+      },
+      {
+        "frame": 2280,
+        "mismatch_count": 0,
+        "first_mismatches": []
+      },
+      {
+        "frame": 2340,
+        "mismatch_count": 0,
+        "first_mismatches": []
+      },
+      {
+        "frame": 2400,
+        "mismatch_count": 0,
+        "first_mismatches": []
+      },
+      {
+        "frame": 2460,
+        "mismatch_count": 0,
+        "first_mismatches": []
+      },
+      {
+        "frame": 2520,
+        "mismatch_count": 0,
+        "first_mismatches": []
+      },
+      {
+        "frame": 2580,
+        "mismatch_count": 0,
+        "first_mismatches": []
+      },
+      {
+        "frame": 2640,
+        "mismatch_count": 0,
+        "first_mismatches": []
+      },
+      {
+        "frame": 2700,
+        "mismatch_count": 0,
+        "first_mismatches": []
+      },
+      {
+        "frame": 2760,
+        "mismatch_count": 0,
+        "first_mismatches": []
+      },
+      {
+        "frame": 2820,
+        "mismatch_count": 0,
+        "first_mismatches": []
+      },
+      {
+        "frame": 2880,
+        "mismatch_count": 0,
+        "first_mismatches": []
+      },
+      {
+        "frame": 2940,
+        "mismatch_count": 0,
+        "first_mismatches": []
+      },
+      {
+        "frame": 3000,
+        "mismatch_count": 0,
+        "first_mismatches": []
+      },
+      {
+        "frame": 3060,
+        "mismatch_count": 0,
+        "first_mismatches": []
+      },
+      {
+        "frame": 3120,
+        "mismatch_count": 0,
+        "first_mismatches": []
+      },
+      {
+        "frame": 3180,
+        "mismatch_count": 0,
+        "first_mismatches": []
+      },
+      {
+        "frame": 3240,
+        "mismatch_count": 0,
+        "first_mismatches": []
+      },
+      {
+        "frame": 3300,
+        "mismatch_count": 0,
+        "first_mismatches": []
+      },
+      {
+        "frame": 3360,
+        "mismatch_count": 0,
+        "first_mismatches": []
+      },
+      {
+        "frame": 3420,
+        "mismatch_count": 0,
+        "first_mismatches": []
+      },
+      {
+        "frame": 3480,
+        "mismatch_count": 0,
+        "first_mismatches": []
+      },
+      {
+        "frame": 3540,
+        "mismatch_count": 0,
+        "first_mismatches": []
+      },
+      {
+        "frame": 3600,
+        "mismatch_count": 0,
+        "first_mismatches": []
+      },
+      {
+        "frame": 3660,
+        "mismatch_count": 0,
+        "first_mismatches": []
+      },
+      {
+        "frame": 3720,
+        "mismatch_count": 0,
+        "first_mismatches": []
+      },
+      {
+        "frame": 3780,
+        "mismatch_count": 0,
+        "first_mismatches": []
+      },
+      {
+        "frame": 3840,
+        "mismatch_count": 0,
+        "first_mismatches": []
+      },
+      {
+        "frame": 3900,
+        "mismatch_count": 0,
+        "first_mismatches": []
+      },
+      {
+        "frame": 3960,
+        "mismatch_count": 0,
+        "first_mismatches": []
+      },
+      {
+        "frame": 4020,
+        "mismatch_count": 0,
+        "first_mismatches": []
+      },
+      {
+        "frame": 4080,
+        "mismatch_count": 0,
+        "first_mismatches": []
+      },
+      {
+        "frame": 4140,
+        "mismatch_count": 0,
+        "first_mismatches": []
+      },
+      {
+        "frame": 4200,
+        "mismatch_count": 0,
+        "first_mismatches": []
+      },
+      {
+        "frame": 4260,
+        "mismatch_count": 0,
+        "first_mismatches": []
+      },
+      {
+        "frame": 4320,
+        "mismatch_count": 0,
+        "first_mismatches": []
+      },
+      {
+        "frame": 4380,
+        "mismatch_count": 0,
+        "first_mismatches": []
+      },
+      {
+        "frame": 4440,
+        "mismatch_count": 0,
+        "first_mismatches": []
+      },
+      {
+        "frame": 4500,
+        "mismatch_count": 0,
+        "first_mismatches": []
+      },
+      {
+        "frame": 4560,
+        "mismatch_count": 0,
+        "first_mismatches": []
+      },
+      {
+        "frame": 4620,
+        "mismatch_count": 0,
+        "first_mismatches": []
+      },
+      {
+        "frame": 4680,
+        "mismatch_count": 0,
+        "first_mismatches": []
+      },
+      {
+        "frame": 4740,
+        "mismatch_count": 0,
+        "first_mismatches": []
+      },
+      {
+        "frame": 4800,
+        "mismatch_count": 0,
+        "first_mismatches": []
+      },
+      {
+        "frame": 4801,
+        "mismatch_count": 0,
+        "first_mismatches": []
+      }
+    ],
+    "total_mismatch_pixels": 0,
+    "expected_fields": [
+      1,
+      2,
+      3,
+      4,
+      60,
+      120,
+      180,
+      240,
+      300,
+      360,
+      420,
+      480,
+      540,
+      600,
+      660,
+      720,
+      780,
+      840,
+      900,
+      960,
+      1020,
+      1080,
+      1140,
+      1200,
+      1260,
+      1320,
+      1380,
+      1440,
+      1500,
+      1560,
+      1620,
+      1680,
+      1740,
+      1800,
+      1860,
+      1920,
+      1980,
+      2040,
+      2100,
+      2160,
+      2220,
+      2280,
+      2340,
+      2400,
+      2460,
+      2520,
+      2580,
+      2640,
+      2700,
+      2760,
+      2820,
+      2880,
+      2940,
+      3000,
+      3060,
+      3120,
+      3180,
+      3240,
+      3300,
+      3360,
+      3420,
+      3480,
+      3540,
+      3600,
+      3660,
+      3720,
+      3780,
+      3840,
+      3900,
+      3960,
+      4020,
+      4080,
+      4140,
+      4200,
+      4260,
+      4320,
+      4380,
+      4440,
+      4500,
+      4560,
+      4620,
+      4680,
+      4740,
+      4800,
+      4801
+    ],
+    "exit_reason": "complete_exported_fields_match",
+    "native_receipt": "_checks\\current-cocktail-4801-20261010\\terminal-v2.json",
+    "native_launch": "_checks\\current-cocktail-4801-20261010\\launch-v2.json",
+    "reference_uses_fpga_ram_or_pixels": false,
+    "limits": [
+      "Only completed exported images are observed; no intermediate-field or all-domain acceptance.",
+      "Native execution is not controlled by this observer; archived boundary RAM remains available.",
+      "Physical RAM/READY/serializer and absolute CPU/raster phase remain unqualified."
+    ]
+  },
+  "observed_controls": {
+    "native": {
+      "flip_transitions": [
+        {
+          "tick": "6782594",
+          "frame": "8",
+          "y": "55",
+          "x": "178",
+          "kind": "out",
+          "address": "1542",
+          "data": "10",
+          "status": "16",
+          "inte": "0"
+        },
+        {
+          "tick": "3446700869",
+          "frame": "4207",
+          "y": "86",
+          "x": "5",
+          "kind": "out",
+          "address": "1542",
+          "data": "32",
+          "status": "16",
+          "inte": "1"
+        }
+      ],
+      "first_p2_read": {
+        "tick": "3555276652",
+        "frame": "4339",
+        "y": "223",
+        "x": "304",
+        "kind": "in",
+        "address": "257",
+        "data": "18",
+        "status": "66",
+        "inte": "1"
+      },
+      "p2_read_counts": {
+        "18": 40,
+        "81": 44,
+        "84": 48,
+        "68": 47,
+        "66": 32,
+        "98": 23,
+        "104": 22,
+        "40": 23,
+        "161": 23,
+        "129": 24,
+        "132": 24,
+        "148": 24,
+        "146": 23,
+        "17": 24
+      },
+      "shared_read_counts": {
+        "0": 16654,
+        "128": 10,
+        "8": 61,
+        "1": 8680
+      }
+    },
+    "mame": {
+      "flip_transitions": [
+        {
+          "time": "0.134574900793",
+          "frame": "8",
+          "y": "55",
+          "x": "178",
+          "kind": "out",
+          "address": "6",
+          "data": "10",
+          "pc": "9109"
+        },
+        {
+          "time": "68.386921626881",
+          "frame": "4207",
+          "y": "86",
+          "x": "5",
+          "kind": "out",
+          "address": "6",
+          "data": "32",
+          "pc": "9109"
+        }
+      ],
+      "first_p2_read": {
+        "time": "70.541203372910",
+        "frame": "4339",
+        "y": "223",
+        "x": "305",
+        "kind": "in",
+        "address": "1",
+        "data": "18",
+        "pc": "6769"
+      },
+      "p2_read_counts": {
+        "18": 40,
+        "81": 44,
+        "84": 48,
+        "68": 47,
+        "66": 33,
+        "98": 23,
+        "104": 22,
+        "40": 23,
+        "161": 23,
+        "129": 24,
+        "132": 24,
+        "148": 24,
+        "146": 23,
+        "17": 24
+      },
+      "shared_read_counts": {
+        "0": 16655,
+        "128": 10,
+        "8": 61,
+        "1": 8698
+      }
+    }
+  },
+  "input_read_differences": {
+    "1": {
+      "native_count": 421,
+      "reference_count": 422,
+      "matching_value_prefix_length": 421,
+      "value_difference_in_common_prefix": false,
+      "native_context": [
+        {
+          "tick": "3931932902",
+          "frame": "4799",
+          "y": "169",
+          "x": "9",
+          "kind": "in",
+          "address": "257",
+          "data": "66",
+          "status": "66",
+          "inte": "0"
+        },
+        {
+          "tick": "3932833952",
+          "frame": "4800",
+          "y": "194",
+          "x": "194",
+          "kind": "in",
+          "address": "257",
+          "data": "66",
+          "status": "66",
+          "inte": "0"
+        }
+      ],
+      "reference_context": [
+        {
+          "time": "78.014541666549",
+          "frame": "4799",
+          "y": "169",
+          "x": "10",
+          "kind": "in",
+          "address": "1",
+          "data": "66",
+          "pc": "6769"
+        },
+        {
+          "time": "78.032419642740",
+          "frame": "4800",
+          "y": "194",
+          "x": "195",
+          "kind": "in",
+          "address": "1",
+          "data": "66",
+          "pc": "6769"
+        },
+        {
+          "time": "78.047053571311",
+          "frame": "4801",
+          "y": "169",
+          "x": "30",
+          "kind": "in",
+          "address": "1",
+          "data": "66",
+          "pc": "6769"
+        }
+      ]
+    },
+    "2": {
+      "native_count": 25405,
+      "reference_count": 25424,
+      "matching_value_prefix_length": 11044,
+      "value_difference_in_common_prefix": true,
+      "native_context": [
+        {
+          "tick": "3112931727",
+          "frame": "3799",
+          "y": "231",
+          "x": "51",
+          "kind": "in",
+          "address": "514",
+          "data": "0",
+          "status": "66",
+          "inte": "1"
+        },
+        {
+          "tick": "3112945952",
+          "frame": "3799",
+          "y": "235",
+          "x": "194",
+          "kind": "in",
+          "address": "514",
+          "data": "0",
+          "status": "66",
+          "inte": "1"
+        },
+        {
+          "tick": "3112960177",
+          "frame": "3800",
+          "y": "240",
+          "x": "16",
+          "kind": "in",
+          "address": "514",
+          "data": "1",
+          "status": "66",
+          "inte": "1"
+        },
+        {
+          "tick": "3112963052",
+          "frame": "3800",
+          "y": "240",
+          "x": "304",
+          "kind": "in",
+          "address": "514",
+          "data": "1",
+          "status": "66",
+          "inte": "0"
+        },
+        {
+          "tick": "3113782077",
+          "frame": "3801",
+          "y": "240",
+          "x": "286",
+          "kind": "in",
+          "address": "514",
+          "data": "1",
+          "status": "66",
+          "inte": "0"
+        }
+      ],
+      "reference_context": [
+        {
+          "time": "61.764518353082",
+          "frame": "3799",
+          "y": "231",
+          "x": "53",
+          "kind": "in",
+          "address": "2",
+          "data": "0",
+          "pc": "2288"
+        },
+        {
+          "time": "61.764800595145",
+          "frame": "3799",
+          "y": "235",
+          "x": "195",
+          "kind": "in",
+          "address": "2",
+          "data": "0",
+          "pc": "2288"
+        },
+        {
+          "time": "61.765082837209",
+          "frame": "3799",
+          "y": "240",
+          "x": "18",
+          "kind": "in",
+          "address": "2",
+          "data": "0",
+          "pc": "2288"
+        },
+        {
+          "time": "61.765139880859",
+          "frame": "3800",
+          "y": "240",
+          "x": "305",
+          "kind": "in",
+          "address": "2",
+          "data": "1",
+          "pc": "737"
+        },
+        {
+          "time": "61.768982638796",
+          "frame": "3800",
+          "y": "45",
+          "x": "153",
+          "kind": "in",
+          "address": "2",
+          "data": "1",
+          "pc": "2288"
+        }
+      ]
+    }
+  },
+  "captured_cocktail_video_qualified": true,
+  "input_read_equivalence_qualified": false,
+  "evidence_sha256": {
+    "D:/Arcade/AI/aCORES/sherrif/tools/record_current_cocktail.py": "b622146426760a8d04f1d14a511ffa1156518d86416a48d213a88db2e74f6d19",
+    "_checks/current-cocktail-4801-20261010/terminal-v2.json": "098cb1ebc069393ae859b20d79a4b4e3d2128104dd48b97b7d695061a62f6237",
+    "_checks/current-cocktail-4801-20261010/watch-receipt.json": "cf0dec218c95f75a80bbf61769b13faeb5013a9252125fc74623775dcdcfb3ff",
+    "_checks/current-cocktail-4801-20261010/progressive-comparison.json": "7964077907367eb739c391b7111fd2069e2e665bd7a6c3e0c0ccc34ec1c4f4f0",
+    "docs/evidence/sheriff_cocktail_reference.json": "ba6bdf234d4e1b57a9c369b474b4511187e66ccce77c28ba358cb3ef7aefe396",
+    "sim/results/current-cocktail-4801-rtl-20261010/io.csv": "c8dc3ec699d9fc82432ce9e5275ebc931b055ae97ae98b4b7256806b9e18cc73",
+    "sim/results/current-cocktail-4801-rtl-20261010/memory_writes.bin": "74b7a23af451b35a39248e784af305c9049e6882ea97aadfd429efc7a12a39d3",
+    "sim/results/current-cocktail-4801-rtl-20261010/sound.csv": "ca5e4135b82f117f68d3da592b62bf90b3b457dfd32e395c7f83dff62c65d023"
+  },
+  "limitations": [
+    "Stored reference and captured fields; no all-domain live lockstep qualification.",
+    "Complete two-player lifecycle, round/bonus/game-over/restart and mixed audio remain open.",
+    "Full-wrapper hostile boot and final-source fit/STA/resource gates remain open.",
+    "Shared input values first diverge at ordinal11044 near the field3800 boundary.",
+    "MAME includes later field4801 reads beyond the native stop; counts are retained without trimming.",
+    "Physical RAM/READY/serializer and absolute CPU/raster phase remain unqualified."
+  ],
+  "full_gameplay_gate_qualified": false,
+  "release_qualified": false,
+  "rbf_built": false
+}

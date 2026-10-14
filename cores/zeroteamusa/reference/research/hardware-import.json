@@ -1,0 +1,717 @@
+{
+  "donor": {
+    "name": "raiden2-rmonic",
+    "repository": "rmonic79/Arcade-Raiden2_MiSTer",
+    "url": "https://github.com/rmonic79/Arcade-Raiden2_MiSTer.git",
+    "commit": "534c84c5803959e76538b65ac71808616f1caa41",
+    "submodules": [],
+    "license_files": [
+      "LICENSE"
+    ],
+    "status": "staged"
+  },
+  "copied_files": [
+    {
+      "path": "rtl/ucore/pla3_tables.svh",
+      "upstream": "rtl/ucore/pla3_tables.svh",
+      "sha256": "0d9693c01a289c7eb258ef9478c3405c93492417ee2cf42a28e4552360f61302"
+    },
+    {
+      "path": "rtl/ucore/ucdecode.hex",
+      "upstream": "rtl/ucore/ucdecode.hex",
+      "sha256": "f5cf6e2bef1d3bec371d0b0227fb7cbcaaf62fd68f2ba3e505d345f492e08bda"
+    },
+    {
+      "path": "rtl/ucore/ucrom.hex",
+      "upstream": "rtl/ucore/ucrom.hex",
+      "sha256": "d9cfcddd4cb473f0c21f112bd64419e91d9395a256158e0205137e12ba3e531d"
+    },
+    {
+      "path": "rtl/ucore/v30u_biu.sv",
+      "upstream": "rtl/ucore/v30u_biu.sv",
+      "sha256": "5de2b78627d33cc04e43dfeca1feaf69906af2d3009a4a6631355f5b28882530"
+    },
+    {
+      "path": "rtl/ucore/v30u_eu.sv",
+      "upstream": "rtl/ucore/v30u_eu.sv",
+      "sha256": "353d0adf1af2f177f5fffea4ee5e25ee0a3bc844aa99c3f7d47a252ac7197937"
+    },
+    {
+      "path": "rtl/ucore/v30u_eu_1bl.svh",
+      "upstream": "rtl/ucore/v30u_eu_1bl.svh",
+      "sha256": "8f22d7cd81a85092cb084996b17f8d70b70d19705ef79645dfd2a68bd83798f2"
+    },
+    {
+      "path": "rtl/ucore/v30u_eu_cond.svh",
+      "upstream": "rtl/ucore/v30u_eu_cond.svh",
+      "sha256": "6de177d93c0572b2b5804b08c708eb4c9de70d14ebe208cfcc4ad8aa33ac81b3"
+    },
+    {
+      "path": "rtl/ucore/v30u_eu_iend_late.svh",
+      "upstream": "rtl/ucore/v30u_eu_iend_late.svh",
+      "sha256": "5dcf16f01584ae258d5c63b9bd969a8623cc7ffba827506f04f5753c1e5df20a"
+    },
+    {
+      "path": "rtl/ucore/v30u_eu_poste.svh",
+      "upstream": "rtl/ucore/v30u_eu_poste.svh",
+      "sha256": "e8644de45bd67f0b04726f384d1cb250f8d6b8413d4b8058203fb6c46162cfd1"
+    },
+    {
+      "path": "rtl/ucore/v30u_eu_row.svh",
+      "upstream": "rtl/ucore/v30u_eu_row.svh",
+      "sha256": "692c8cf49961f1f0e47b66349ddd70f6907c1c84eb87dbdb7ae056bd81220f4c"
+    },
+    {
+      "path": "rtl/ucore/v30u_eu_ss_read.svh",
+      "upstream": "rtl/ucore/v30u_eu_ss_read.svh",
+      "sha256": "877a63d21dc92483c18ed0fe126bb247d60dc7ee143446b6a1d04f676a640fdb"
+    },
+    {
+      "path": "rtl/ucore/v30u_eu_ss_write.svh",
+      "upstream": "rtl/ucore/v30u_eu_ss_write.svh",
+      "sha256": "3c233d019d92a773fcc5c67d71fef730efcc9b45b20c7c1c04bf38f91184d579"
+    },
+    {
+      "path": "rtl/ucore/v30u_eu_step.svh",
+      "upstream": "rtl/ucore/v30u_eu_step.svh",
+      "sha256": "420894d2aaaab49914fe27b2e7c973cd47f03c34502fb0571add32f30610e5c5"
+    },
+    {
+      "path": "rtl/ucore/v30u_eu_wd1.svh",
+      "upstream": "rtl/ucore/v30u_eu_wd1.svh",
+      "sha256": "a6bd4ac45f8b6ca304f9b6eadee3ee8d8d504def574e20566c297b2f8348b65d"
+    },
+    {
+      "path": "rtl/ucore/v30u_ss_pkg.sv",
+      "upstream": "rtl/ucore/v30u_ss_pkg.sv",
+      "sha256": "c9d198f0cbead26f1f797468ef16b72f4cabf67f2fb58599cf0375b291a32aed"
+    },
+    {
+      "path": "rtl/ucore/v30u_ucrom.sv",
+      "upstream": "rtl/ucore/v30u_ucrom.sv",
+      "sha256": "60aa81810bbccaa3ab6041394429e1762ab880b051f5aa037ffe15b1df931718"
+    },
+    {
+      "path": "rtl/ucore/v30_bus_demux.sv",
+      "upstream": "rtl/ucore/v30_bus_demux.sv",
+      "sha256": "322249cb3bb8f649fa3d8806ee4aa87bf15cfb206114919a6b7412febe9e7427"
+    },
+    {
+      "path": "rtl/ucore/v30_core.sv",
+      "upstream": "rtl/ucore/v30_core.sv",
+      "sha256": "a36bfa02b14466a3566fb966961cbcf5cfb345f262f89eee461be96af0744036"
+    },
+    {
+      "path": "rtl/Raiden2/analog_hsize.sv",
+      "upstream": "rtl/Raiden2/analog_hsize.sv",
+      "sha256": "097393a15605c86bf20f7a8f83ad0c353adf6051208fa6c146ae8776c48e559c"
+    },
+    {
+      "path": "rtl/Raiden2/crt_adjust.sv",
+      "upstream": "rtl/Raiden2/crt_adjust.sv",
+      "sha256": "e66c4bae75ca86606c134fa82e57f63274331422a2c8931188495dfeac5afc21"
+    },
+    {
+      "path": "rtl/Raiden2/crt_vsize.sv",
+      "upstream": "rtl/Raiden2/crt_vsize.sv",
+      "sha256": "30d79e246eb38c9d644416541a4c36008323c8d6b0de16a64156d95bcd1278e9"
+    },
+    {
+      "path": "rtl/Raiden2/ddram_sprite.sv",
+      "upstream": "rtl/Raiden2/ddram_sprite.sv",
+      "sha256": "a0c5199092c340447243c476184f6bf12289deef84b1fcc8a111860e4d6f4aba"
+    },
+    {
+      "path": "rtl/Raiden2/main_ram_zeros_64k.mem",
+      "upstream": "rtl/Raiden2/main_ram_zeros_64k.mem",
+      "sha256": "705ade0caf8613845b793a870707172a96aa462bfb2a878ac5fd1837f1f24c11"
+    },
+    {
+      "path": "rtl/Raiden2/palette_overlay.sv",
+      "upstream": "rtl/Raiden2/palette_overlay.sv",
+      "sha256": "b40164a00f8fdc51c3e0f9b4f0d5a3d3185a2b806a80d47120f6c0a291fc26e6"
+    },
+    {
+      "path": "rtl/Raiden2/pause_overlay.sv",
+      "upstream": "rtl/Raiden2/pause_overlay.sv",
+      "sha256": "a720ba67f3ac875a347583d58eec24e5b71d2dc99d696b725df7c82297578b99"
+    },
+    {
+      "path": "rtl/Raiden2/pause_text.sv",
+      "upstream": "rtl/Raiden2/pause_text.sv",
+      "sha256": "b851c3623a29994a2fc727a6c1354f9d910dbc4c6ee1422de844eefa5dc68573"
+    },
+    {
+      "path": "rtl/Raiden2/raiden2_addr_main.sv",
+      "upstream": "rtl/Raiden2/raiden2_addr_main.sv",
+      "sha256": "251af57323d607e268e5e592ecb95a75a354e161be5fcaf568b4fb168117d3f0"
+    },
+    {
+      "path": "rtl/Raiden2/raiden2_audio_limiter.sv",
+      "upstream": "rtl/Raiden2/raiden2_audio_limiter.sv",
+      "sha256": "51722b4a468f68f08c745cf94cc7752c4592e8fd4723cf5e4a4188bdbbf17106"
+    },
+    {
+      "path": "rtl/Raiden2/Raiden2_audio_z80.sv",
+      "upstream": "rtl/Raiden2/Raiden2_audio_z80.sv",
+      "sha256": "40e9b4d3d4a2870eb9c2d970c065c4b4c923413634df75bea02974954f48c0c5"
+    },
+    {
+      "path": "rtl/Raiden2/raiden2_blend.mem",
+      "upstream": "rtl/Raiden2/raiden2_blend.mem",
+      "sha256": "cfccbf898cba58a154b5354b85f5d1d0d318e2d50057650ed3ca628493d8a119"
+    },
+    {
+      "path": "rtl/Raiden2/raiden2_ce_gen.sv",
+      "upstream": "rtl/Raiden2/raiden2_ce_gen.sv",
+      "sha256": "899eab1490e84adbeca43cdaeb2380e574f411b78a9cf345396c5c17cd2b6139"
+    },
+    {
+      "path": "rtl/Raiden2/Raiden2_cop3.sv",
+      "upstream": "rtl/Raiden2/Raiden2_cop3.sv",
+      "sha256": "d301976821db7c018331fb9ca15acada184e5357bf083196edab47501f3bb25e"
+    },
+    {
+      "path": "rtl/Raiden2/raiden2_ddram.sv",
+      "upstream": "rtl/Raiden2/raiden2_ddram.sv",
+      "sha256": "dedcaef71da79ec2e3165e4c2e20f148ae77242b181484c5ea3dd02aa92371b4"
+    },
+    {
+      "path": "rtl/Raiden2/raiden2_ddr_if.sv",
+      "upstream": "rtl/Raiden2/raiden2_ddr_if.sv",
+      "sha256": "e9142764124d1804512985d99d6edebc634ca53bd40f6cef879ed8ad01b23f5a"
+    },
+    {
+      "path": "rtl/Raiden2/raiden2_decrypt.sv",
+      "upstream": "rtl/Raiden2/raiden2_decrypt.sv",
+      "sha256": "b4cf1c2f5a24cdb8209b6fed780c42b67a7769f8793844c187ef59fafed5d393"
+    },
+    {
+      "path": "rtl/Raiden2/Raiden2_main_top.sv",
+      "upstream": "rtl/Raiden2/Raiden2_main_top.sv",
+      "sha256": "be4631e9b6d30ab9644a9590ffa6f5f844622d4c488b19276cdcf12c3b727728"
+    },
+    {
+      "path": "rtl/Raiden2/raiden2_mixer.sv",
+      "upstream": "rtl/Raiden2/raiden2_mixer.sv",
+      "sha256": "a3b4caccd4014295b80e564ac7f44f7cfb0817d6134f1b7adb42ec4d2fad97eb"
+    },
+    {
+      "path": "rtl/Raiden2/raiden2_osd_iso.sv",
+      "upstream": "rtl/Raiden2/raiden2_osd_iso.sv",
+      "sha256": "965eaf1bbe675847a23991ee84ba016b78f38a40e3fbe541d5ec1a20602c13ae"
+    },
+    {
+      "path": "rtl/Raiden2/raiden2_rotate_fifo.sv",
+      "upstream": "rtl/Raiden2/raiden2_rotate_fifo.sv",
+      "sha256": "d6f47ec3c99d13042cf4ba60f04217721450cf0547d109a2e5efa0a0b9e91c89"
+    },
+    {
+      "path": "rtl/Raiden2/raiden2_sdram_bridge_cpu.sv",
+      "upstream": "rtl/Raiden2/raiden2_sdram_bridge_cpu.sv",
+      "sha256": "8061a8523f061e2ac15776e6276f3c70166734badce8fd8973da629c3708fa53"
+    },
+    {
+      "path": "rtl/Raiden2/Raiden2_seibu_crtc.sv",
+      "upstream": "rtl/Raiden2/Raiden2_seibu_crtc.sv",
+      "sha256": "df082cf145a07b02437fa9e9c87228a24da3fff7e03baafe130336681cb3a526"
+    },
+    {
+      "path": "rtl/Raiden2/raiden2_shared_ram.sv",
+      "upstream": "rtl/Raiden2/raiden2_shared_ram.sv",
+      "sha256": "64b176710a1e427a02427354dd17fb895e985419bcefb8ec1cc15425f5b32300"
+    },
+    {
+      "path": "rtl/Raiden2/raiden2_sprite_ddr_client.sv",
+      "upstream": "rtl/Raiden2/raiden2_sprite_ddr_client.sv",
+      "sha256": "4d862909b053db790e7001cf03f8210fafab7d1ba2a610016c03c74e53e828c6"
+    },
+    {
+      "path": "rtl/Raiden2/raiden2_sprite_mainbus.sv",
+      "upstream": "rtl/Raiden2/raiden2_sprite_mainbus.sv",
+      "sha256": "a6aec852bc5ed1b47f8f8197abe6c7822ea086c3a52cacd3727930c89f37ba62"
+    },
+    {
+      "path": "rtl/Raiden2/Raiden2_sprite_renderer.sv",
+      "upstream": "rtl/Raiden2/Raiden2_sprite_renderer.sv",
+      "sha256": "5d8df594182721615a58b7103cbee80a63d398e65e802e94eb056422a8f363bf"
+    },
+    {
+      "path": "rtl/Raiden2/raiden2_sprite_rom_cache.sv",
+      "upstream": "rtl/Raiden2/raiden2_sprite_rom_cache.sv",
+      "sha256": "ad3536c2c44903e4845442e460f83416aa9a6f02c426e9131df0e3e76810075d"
+    },
+    {
+      "path": "rtl/Raiden2/raiden2_ss_manager.sv",
+      "upstream": "rtl/Raiden2/raiden2_ss_manager.sv",
+      "sha256": "2334e71979e884089eb8332f58efca659e057421037c1505f99164c5c00a97ee"
+    },
+    {
+      "path": "rtl/Raiden2/Raiden2_text_renderer.sv",
+      "upstream": "rtl/Raiden2/Raiden2_text_renderer.sv",
+      "sha256": "54ca9ce0a10ecfa727603b81351a151ac2cc383b9dea9d46287cb88eff959458"
+    },
+    {
+      "path": "rtl/Raiden2/Raiden2_tile_layer.sv",
+      "upstream": "rtl/Raiden2/Raiden2_tile_layer.sv",
+      "sha256": "92572d8a6046952b5773151e0ff7ed0eb635a74d2cb11a494643271ed1c99f9f"
+    },
+    {
+      "path": "rtl/Raiden2/raiden2_v30_ss.sv",
+      "upstream": "rtl/Raiden2/raiden2_v30_ss.sv",
+      "sha256": "88501dc7cceaec3c39769b74d60a8945281d1b8746912eab5bb5a47e0cfb4c5e"
+    },
+    {
+      "path": "rtl/Raiden2/Raiden2_video_timing.sv",
+      "upstream": "rtl/Raiden2/Raiden2_video_timing.sv",
+      "sha256": "0a0942f6dd8c46094fdf75d12d64de6dc139f56337855fc97c989f26e5bdcd23"
+    },
+    {
+      "path": "rtl/Raiden2/rom_cache.sv",
+      "upstream": "rtl/Raiden2/rom_cache.sv",
+      "sha256": "f1e70a7c15efc336f021d694684010eb85a38e9f1d7387d67fe5c58c8fe15ee6"
+    },
+    {
+      "path": "rtl/Raiden2/sdram_bridge.sv",
+      "upstream": "rtl/Raiden2/sdram_bridge.sv",
+      "sha256": "70c4d3dc05bb32f3b1124d513389af04fed9c3e5831061fcc4424571328d8db8"
+    },
+    {
+      "path": "rtl/Raiden2/sei80bu.v",
+      "upstream": "rtl/Raiden2/sei80bu.v",
+      "sha256": "66b814953c5dc6fa2559126d0196dda85297544257eb2f557301cd1b7034d731"
+    },
+    {
+      "path": "rtl/Raiden2/spram_dp.sv",
+      "upstream": "rtl/Raiden2/spram_dp.sv",
+      "sha256": "7c23f26749c0e4898de53a92a9bd53e9828767763ced63598d42b055c4bebb1f"
+    },
+    {
+      "path": "rtl/Raiden2/ss_null_slave.sv",
+      "upstream": "rtl/Raiden2/ss_null_slave.sv",
+      "sha256": "c034914514073789571bd8f6c85a858bee6ffde459892259d579d4c8b7a38d96"
+    },
+    {
+      "path": "rtl/Raiden2/tile_rom_arbiter.sv",
+      "upstream": "rtl/Raiden2/tile_rom_arbiter.sv",
+      "sha256": "0f40d4390856ff4409e7b490f002683075ae0db2684d4167b40dc7ed6dccc621"
+    },
+    {
+      "path": "rtl/Raiden2/crypt/raiden2_sprite_decrypt.sv",
+      "upstream": "rtl/Raiden2/crypt/raiden2_sprite_decrypt.sv",
+      "sha256": "73bf2eea5f39b9bb08d64fb134e978fb219c4bd0f8d3b6ca7e6fb39356c1b7d4"
+    },
+    {
+      "path": "rtl/Raiden2/crypt/rotate_r2.hex",
+      "upstream": "rtl/Raiden2/crypt/rotate_r2.hex",
+      "sha256": "c1261f456fad568dd8c933cc750b135a9276cab1e12d7602612f5c035b580c2b"
+    },
+    {
+      "path": "rtl/Raiden2/crypt/x11_r2.hex",
+      "upstream": "rtl/Raiden2/crypt/x11_r2.hex",
+      "sha256": "77ad85fac291ccc2a3cd39acb4f6fda30bfdfe820438c44ec17bf16dc448d3d7"
+    },
+    {
+      "path": "rtl/Raiden2/crypt/x5_r2.hex",
+      "upstream": "rtl/Raiden2/crypt/x5_r2.hex",
+      "sha256": "b914b5eb3efc495ff49cc9359f5054bc7984a8a37179e1b7bd40254a56eab6ee"
+    },
+    {
+      "path": "rtl/Raiden2/v30/bus_savestates.vhd",
+      "upstream": "rtl/Raiden2/v30/bus_savestates.vhd",
+      "sha256": "12cfcdcec1633086d487b9312e4384cd9e8837a77a6094fe423c155a8acb4270"
+    },
+    {
+      "path": "rtl/Raiden2/v30/cpu.vhd",
+      "upstream": "rtl/Raiden2/v30/cpu.vhd",
+      "sha256": "40a8eb8ef0fed5406c2562713c83c4f3bfb769433b3555becbf965bb605a170a"
+    },
+    {
+      "path": "rtl/Raiden2/v30/cpu_v30_bridge.sv",
+      "upstream": "rtl/Raiden2/v30/cpu_v30_bridge.sv",
+      "sha256": "ffb5acaeb2da85825156c94d7bbee15f257843b2193e6d31c2a9e6d6323b107b"
+    },
+    {
+      "path": "rtl/Raiden2/v30/divider.vhd",
+      "upstream": "rtl/Raiden2/v30/divider.vhd",
+      "sha256": "70e25ad6d5dd51b8e41cad76f069be52ba00d4000d5d5141db2c3c9c18715deb"
+    },
+    {
+      "path": "rtl/Raiden2/v30/export.vhd",
+      "upstream": "rtl/Raiden2/v30/export.vhd",
+      "sha256": "f041e333cdedb792e6606dc0baf316426e72f7903e248d028769ee8c632e41dc"
+    },
+    {
+      "path": "rtl/Raiden2/v30/registerpackage.vhd",
+      "upstream": "rtl/Raiden2/v30/registerpackage.vhd",
+      "sha256": "47d336a2c5fc078bb8f229c13265d86c73b0f7f8d88bb99efb84de98e7763b93"
+    },
+    {
+      "path": "rtl/Raiden2/v30/reg_savestates.vhd",
+      "upstream": "rtl/Raiden2/v30/reg_savestates.vhd",
+      "sha256": "94236511ebfae3e369c2df83ae66853629813e28b464348484f86df3945e255f"
+    },
+    {
+      "path": "rtl/common/memory_stream.sv",
+      "upstream": "rtl/common/memory_stream.sv",
+      "sha256": "3d9fac9681e8826960be89f18fdf01aac64531df2779b3c0f6eef00df90d706f"
+    },
+    {
+      "path": "rtl/common/savestate.sv",
+      "upstream": "rtl/common/savestate.sv",
+      "sha256": "0a6a3634166ee9e664c993a7331d7f07a46b0360664e54977bf959a00a206839"
+    },
+    {
+      "path": "rtl/common/savestate_ram.sv",
+      "upstream": "rtl/common/savestate_ram.sv",
+      "sha256": "8ef9ed759ef2a85cce6f60590eecaf187ae1d6cb58691f40dd242dae0c4bfb2c"
+    },
+    {
+      "path": "rtl/common/savestate_ui.sv",
+      "upstream": "rtl/common/savestate_ui.sv",
+      "sha256": "d909d785689607e77089cc8388b30716c4d0f13a5e96e36c59d1b84d5058906f"
+    },
+    {
+      "path": "rtl/common/ss_ddr_gate.sv",
+      "upstream": "rtl/common/ss_ddr_gate.sv",
+      "sha256": "7e65ff4fda4c5b8ee510d45faff0a6619f6022b1b4b2b0e51ecbf0a58cb5e8fd"
+    },
+    {
+      "path": "rtl/sound/jtframe_dual_ram.v",
+      "upstream": "rtl/sound/jtframe_dual_ram.v",
+      "sha256": "752301ce243a4df67d121c020e98c5173a66be995801838a64e4797db27adfa5"
+    },
+    {
+      "path": "rtl/sound/jtframe_fir_mono.v",
+      "upstream": "rtl/sound/jtframe_fir_mono.v",
+      "sha256": "129af3fb0a20bebb1074c0037b23973a8c8505bdb2bead0f2be4231224cdd821"
+    },
+    {
+      "path": "rtl/sound/jtframe_mixer.v",
+      "upstream": "rtl/sound/jtframe_mixer.v",
+      "sha256": "efee7f16bdccc7f277942ae3cd54b51727517cdd28f34174ac41eea045852b64"
+    },
+    {
+      "path": "rtl/sound/jt51/jt51.f",
+      "upstream": "rtl/sound/jt51/jt51.f",
+      "sha256": "aad1d01bdc6a10c35119f99baa6bfd9a83eca9cf6ffe57551b19c34286047b79"
+    },
+    {
+      "path": "rtl/sound/jt51/jt51.qip",
+      "upstream": "rtl/sound/jt51/jt51.qip",
+      "sha256": "5b4ead61fd46c29c1f95d21f834553341a79497940da858300e9d49471721955"
+    },
+    {
+      "path": "rtl/sound/jt51/jt51.v",
+      "upstream": "rtl/sound/jt51/jt51.v",
+      "sha256": "f4b269d284517a2f0d113062537fb5a92c36ffd8c1e956337cfbdb86a634afa6"
+    },
+    {
+      "path": "rtl/sound/jt51/jt51_acc.v",
+      "upstream": "rtl/sound/jt51/jt51_acc.v",
+      "sha256": "df259aa3a7962f11e1bdcc62204e872fb41535a33d5f27bad50e8e9cdce9787d"
+    },
+    {
+      "path": "rtl/sound/jt51/jt51_csr_op.v",
+      "upstream": "rtl/sound/jt51/jt51_csr_op.v",
+      "sha256": "b129bf97cc155bc0e4312287af79b2c7985852ef65c1768f23ffa31badd5b648"
+    },
+    {
+      "path": "rtl/sound/jt51/jt51_eg.v",
+      "upstream": "rtl/sound/jt51/jt51_eg.v",
+      "sha256": "6e7c5f315edc82b70918ea61d6d5c992204d4e8b272e33fb3ce539a9843cac5e"
+    },
+    {
+      "path": "rtl/sound/jt51/jt51_exp2lin.v",
+      "upstream": "rtl/sound/jt51/jt51_exp2lin.v",
+      "sha256": "cecc44acf6d7c8a81e80638e4a6eeb46f17d6c8d809e7a928338553bb23fb400"
+    },
+    {
+      "path": "rtl/sound/jt51/jt51_exprom.v",
+      "upstream": "rtl/sound/jt51/jt51_exprom.v",
+      "sha256": "c9f33ede4c1c0af6f54ae45620d986a2c5a2f0ef16b453dc7d2eeeac85f8cbb5"
+    },
+    {
+      "path": "rtl/sound/jt51/jt51_kon.v",
+      "upstream": "rtl/sound/jt51/jt51_kon.v",
+      "sha256": "e1bb08fe65a53d2dc871459cc91e4beeec9efb9e839b3a39a941fa27ac19ba0f"
+    },
+    {
+      "path": "rtl/sound/jt51/jt51_lfo.v",
+      "upstream": "rtl/sound/jt51/jt51_lfo.v",
+      "sha256": "2bb0e19b51982f761fd50eb992c90f6dbadf467528ac09fa033b48020cd8d193"
+    },
+    {
+      "path": "rtl/sound/jt51/jt51_lin2exp.v",
+      "upstream": "rtl/sound/jt51/jt51_lin2exp.v",
+      "sha256": "c4351ea7711364ab394ab510326111dc5047f4e57830bddef15163cbc4dcb98e"
+    },
+    {
+      "path": "rtl/sound/jt51/jt51_mmr.v",
+      "upstream": "rtl/sound/jt51/jt51_mmr.v",
+      "sha256": "e8e72b68a928adf767f95bd39a89ea45bbff8c98480ca21cfc936668bfa80245"
+    },
+    {
+      "path": "rtl/sound/jt51/jt51_mod.v",
+      "upstream": "rtl/sound/jt51/jt51_mod.v",
+      "sha256": "1a04fe51a56756a98b577547bbd95cf984283288f2da2e4946d75063a69d357c"
+    },
+    {
+      "path": "rtl/sound/jt51/jt51_noise.v",
+      "upstream": "rtl/sound/jt51/jt51_noise.v",
+      "sha256": "87b70082becc58ece4c223ea5ed01b0c0bc0b05ae95ace9b498768429232f360"
+    },
+    {
+      "path": "rtl/sound/jt51/jt51_noise_lfsr.v",
+      "upstream": "rtl/sound/jt51/jt51_noise_lfsr.v",
+      "sha256": "6b58949a51dbfe8c96f19eac3aa84aaace7fcc5cc4e1902c084a93d3d1c4da91"
+    },
+    {
+      "path": "rtl/sound/jt51/jt51_op.v",
+      "upstream": "rtl/sound/jt51/jt51_op.v",
+      "sha256": "5dbb743c49af67e6dff7e6c65691a66371aaf5a126834525f9501a8af1420bbf"
+    },
+    {
+      "path": "rtl/sound/jt51/jt51_pg.v",
+      "upstream": "rtl/sound/jt51/jt51_pg.v",
+      "sha256": "d52c369e535196ee260243b2342c6a526a1d95425440512037f3f3b5185f0a8a"
+    },
+    {
+      "path": "rtl/sound/jt51/jt51_phinc_rom.v",
+      "upstream": "rtl/sound/jt51/jt51_phinc_rom.v",
+      "sha256": "41fefe0b9bc9a3b71a036d12d723666e4b588c57625228eee278f9704a6f53b1"
+    },
+    {
+      "path": "rtl/sound/jt51/jt51_phrom.v",
+      "upstream": "rtl/sound/jt51/jt51_phrom.v",
+      "sha256": "b3fb0623737dd22befa0bfa9a130d7b1437e81ff3e1842538251d5cd29a75c89"
+    },
+    {
+      "path": "rtl/sound/jt51/jt51_pm.v",
+      "upstream": "rtl/sound/jt51/jt51_pm.v",
+      "sha256": "9625bda77a523371fc4704ac66cfec95a9d1aff343c2e770ea5aba11eb50c8f3"
+    },
+    {
+      "path": "rtl/sound/jt51/jt51_reg.v",
+      "upstream": "rtl/sound/jt51/jt51_reg.v",
+      "sha256": "832b8bd248d8a8dc00935bacde74ed4a8fcfaab44eb80794aa47584428f6b0c7"
+    },
+    {
+      "path": "rtl/sound/jt51/jt51_reg_ch.v",
+      "upstream": "rtl/sound/jt51/jt51_reg_ch.v",
+      "sha256": "2303d898fa49bf67fa8aace6c1a1e00e48d2951f9a221e75058233953f670aad"
+    },
+    {
+      "path": "rtl/sound/jt51/jt51_sh.v",
+      "upstream": "rtl/sound/jt51/jt51_sh.v",
+      "sha256": "71246f6b6989f922220cdd370cee52ecd56c7244e11073ddc618028a4136f0aa"
+    },
+    {
+      "path": "rtl/sound/jt51/jt51_timers.v",
+      "upstream": "rtl/sound/jt51/jt51_timers.v",
+      "sha256": "e885ffd11d62c2bf42aafb90eb30e681c3d98ae9c4fe6714b13d72f491347e70"
+    },
+    {
+      "path": "rtl/sound/jt6295/jt12_comb.v",
+      "upstream": "rtl/sound/jt6295/jt12_comb.v",
+      "sha256": "96df7dae4dfe0e3d1c003e97b1ceaa26d785a7c76ff1c7ebc8a572f08b7fda5e"
+    },
+    {
+      "path": "rtl/sound/jt6295/jt12_interpol.v",
+      "upstream": "rtl/sound/jt6295/jt12_interpol.v",
+      "sha256": "cf735da30db48cb22f1753dcdb344a35fc60a011597da9e514ec1dc69998882a"
+    },
+    {
+      "path": "rtl/sound/jt6295/jt6295.qip",
+      "upstream": "rtl/sound/jt6295/jt6295.qip",
+      "sha256": "f47cfaf2b634ec6f2d0a60c943b1553b1b3c411cd4bbb52e9e0dcbe289e463ac"
+    },
+    {
+      "path": "rtl/sound/jt6295/jt6295.v",
+      "upstream": "rtl/sound/jt6295/jt6295.v",
+      "sha256": "376a2736b10e2ba27d94a5d766c2beadbf1783b4dbdd6a852c90d8c8d66383c8"
+    },
+    {
+      "path": "rtl/sound/jt6295/jt6295_acc.v",
+      "upstream": "rtl/sound/jt6295/jt6295_acc.v",
+      "sha256": "2d1941ac24afae30e6d92423cd9109a1db78dfbbb7ad316f36aad84e5de566f4"
+    },
+    {
+      "path": "rtl/sound/jt6295/jt6295_adpcm.v",
+      "upstream": "rtl/sound/jt6295/jt6295_adpcm.v",
+      "sha256": "8bd7533fd90275cdf7d225f8155b522701bda79aafa663347bbfe6024a9700b0"
+    },
+    {
+      "path": "rtl/sound/jt6295/jt6295_ctrl.v",
+      "upstream": "rtl/sound/jt6295/jt6295_ctrl.v",
+      "sha256": "69e4de2d1193db79bb5df204a36b07c7fad8b0d138d30931a04001664d73c270"
+    },
+    {
+      "path": "rtl/sound/jt6295/jt6295_rom.v",
+      "upstream": "rtl/sound/jt6295/jt6295_rom.v",
+      "sha256": "29f31e9e146a757ea47136be7b53809f105ddc5ec257311d4814243e5ee2a56e"
+    },
+    {
+      "path": "rtl/sound/jt6295/jt6295_serial.v",
+      "upstream": "rtl/sound/jt6295/jt6295_serial.v",
+      "sha256": "b6eb2ed6e3f8278f330ca62f2f1e27552d14427034b6ae15cdced690aeb63845"
+    },
+    {
+      "path": "rtl/sound/jt6295/jt6295_sh_rst.v",
+      "upstream": "rtl/sound/jt6295/jt6295_sh_rst.v",
+      "sha256": "54cdff6be71dc6aa577871ca5573dda7f54825426249ff3014067450b0bd4ea5"
+    },
+    {
+      "path": "rtl/sound/jt6295/jt6295_timing.v",
+      "upstream": "rtl/sound/jt6295/jt6295_timing.v",
+      "sha256": "a27b7aec8f5d2ebd9c25afd48c0629277018e7df225a9c8efbd9b48783a7af9c"
+    },
+    {
+      "path": "rtl/sound/jt6295/jt6295_up4.hex",
+      "upstream": "rtl/sound/jt6295/jt6295_up4.hex",
+      "sha256": "7e91466498270a98319023d24e4b837a41a46ddf46b3663f38e106a00a74f78a"
+    },
+    {
+      "path": "rtl/sound/jt6295/jt6295_up4_soft.hex",
+      "upstream": "rtl/sound/jt6295/jt6295_up4_soft.hex",
+      "sha256": "94302bb62a6ff4ab6388e89dfd67d4d56a2cde0e221ee3a05be889e6414c2695"
+    },
+    {
+      "path": "rtl/sound/jt6295/jtframe_fir4.m",
+      "upstream": "rtl/sound/jt6295/jtframe_fir4.m",
+      "sha256": "955f9730d2fc125609e729c2edb9862b55f6371ff8f02680c731563770ef9d71"
+    },
+    {
+      "path": "rtl/sound/jtframe_audio/jtframe_dual_ram.v",
+      "upstream": "rtl/sound/jtframe_audio/jtframe_dual_ram.v",
+      "sha256": "8b6d561f1e877bb8e2d5b54fc06e0f2c50bb1129e4f78806e3e42f2321c2e473"
+    },
+    {
+      "path": "rtl/sound/jtframe_audio/jtframe_fir_mono.v",
+      "upstream": "rtl/sound/jtframe_audio/jtframe_fir_mono.v",
+      "sha256": "ce268b50ae93c7a3c7b8d56a0f78f8eb001b7d8cf1cb6117b03e1968e94d9345"
+    },
+    {
+      "path": "rtl/sound/t80/t80.qip",
+      "upstream": "rtl/sound/t80/t80.qip",
+      "sha256": "b53d39fad2a9561224f27b3d0f0a3be953e554e856636feb6288051251e6e141"
+    },
+    {
+      "path": "rtl/sound/t80/T80.vhd",
+      "upstream": "rtl/sound/t80/T80.vhd",
+      "sha256": "483782e74f6f2db13cc584448531cfbd557913aefc6c624a02e2cdded2c74ae0"
+    },
+    {
+      "path": "rtl/sound/t80/T80pa.vhd",
+      "upstream": "rtl/sound/t80/T80pa.vhd",
+      "sha256": "bfb4ee048d36f33ab130f6ca1d9e53736d61a00ff8c59106ca35271e0b00590a"
+    },
+    {
+      "path": "rtl/sound/t80/T80s.vhd",
+      "upstream": "rtl/sound/t80/T80s.vhd",
+      "sha256": "687f673d8c5c38db31ffc4f447bac487ece62d10f6e247194d2bee3aa4c7c283"
+    },
+    {
+      "path": "rtl/sound/t80/T80_ALU.vhd",
+      "upstream": "rtl/sound/t80/T80_ALU.vhd",
+      "sha256": "8e1dfd1c47fc0ce4a902f3d789f657a93f2b9faa6a72df70e1f12f27649291b8"
+    },
+    {
+      "path": "rtl/sound/t80/T80_MCode.vhd",
+      "upstream": "rtl/sound/t80/T80_MCode.vhd",
+      "sha256": "a73c512d7f03bc34759de560efe78c1813785c5ae3f52714df149455b876e5a5"
+    },
+    {
+      "path": "rtl/sound/t80/T80_Reg.vhd",
+      "upstream": "rtl/sound/t80/T80_Reg.vhd",
+      "sha256": "b40f92eb96fc55fa0adc8ca1bbb20d99133ae1dfe3728b146e37ee00ef588783"
+    },
+    {
+      "path": "rtl/sound/jt51/deprecated/jt51_sh2.v",
+      "upstream": "rtl/sound/jt51/deprecated/jt51_sh2.v",
+      "sha256": "3a286be057e4224830f6f21b0d7cfe9b0fd1236a79b67438a8d1dcecc30c1448"
+    },
+    {
+      "path": "rtl/sound/jt51/filter/jt51_dac2.v",
+      "upstream": "rtl/sound/jt51/filter/jt51_dac2.v",
+      "sha256": "4d885c6eebf1f5fb8fb25d531b6206711b18a79600ba5d14b6de6d4ab910476b"
+    },
+    {
+      "path": "rtl/sound/jt51/filter/jt51_fir.v",
+      "upstream": "rtl/sound/jt51/filter/jt51_fir.v",
+      "sha256": "4f8fa82b4422d306c5e8e39eac52ffa2ec35a5871433493b1fb2740ccbe4b7e4"
+    },
+    {
+      "path": "rtl/sound/jt51/filter/jt51_fir4.v",
+      "upstream": "rtl/sound/jt51/filter/jt51_fir4.v",
+      "sha256": "86366e6894d7e3bc04e351e6617f7f771f637a90902def074caf5f5acb9d87da"
+    },
+    {
+      "path": "rtl/sound/jt51/filter/jt51_fir8.v",
+      "upstream": "rtl/sound/jt51/filter/jt51_fir8.v",
+      "sha256": "499824da72696e17cba3b667c3012eb28cb9c6e359d7c9542ecdbd3fe2022a8c"
+    },
+    {
+      "path": "rtl/sound/jt51/filter/jt51_fir_ram.v",
+      "upstream": "rtl/sound/jt51/filter/jt51_fir_ram.v",
+      "sha256": "b4f9b07965950908aaefc6925fad706179efdeb997b32fa9187e91ff99929e4b"
+    },
+    {
+      "path": "rtl/sound/jt51/filter/jt51_interpol.v",
+      "upstream": "rtl/sound/jt51/filter/jt51_interpol.v",
+      "sha256": "90c6472e81d5f5b7205cfc5c104f5503807b0dd97c353f36d3a34d5a177009b2"
+    },
+    {
+      "path": "rtl/sound/jt51/filter/jt51_sincf.v",
+      "upstream": "rtl/sound/jt51/filter/jt51_sincf.v",
+      "sha256": "a4d4737f3a38bf5da7b27da60bc766c4021c7bb003f5309eff6bd1d06c2c333c"
+    },
+    {
+      "path": "rtl/jtframe/jtframe_68kdtack_cen.v",
+      "upstream": "rtl/jtframe/jtframe_68kdtack_cen.v",
+      "sha256": "c62f50ce25fd59e6eb7b32a841a7e9b60681b44af583348c872b37e6b4406748"
+    },
+    {
+      "path": "rtl/jtframe/jtframe_bcd_cnt.v",
+      "upstream": "rtl/jtframe/jtframe_bcd_cnt.v",
+      "sha256": "caa25bbb0969b64f375fd11ebfed0f9e54f7b004ac0f9038d4f98e2a1604ee63"
+    },
+    {
+      "path": "rtl/jtframe/jtframe_freqinfo.v",
+      "upstream": "rtl/jtframe/jtframe_freqinfo.v",
+      "sha256": "1faf7a70690afb7908f29bd24da13c6feda7ccd0d9fa555fa38daefa30a73fa6"
+    },
+    {
+      "path": "rtl/pll/pll_0002.qip",
+      "upstream": "rtl/pll/pll_0002.qip",
+      "sha256": "98c91540a36e672f25f071bfaae965b8c9f60c679db4fbe226578c8c78c5052a"
+    },
+    {
+      "path": "rtl/pll/pll_0002.v",
+      "upstream": "rtl/pll/pll_0002.v",
+      "sha256": "09e4f6e3f077a047a0ddc4832b1aff289f7bb5cd506ec725e65508234dc33a90"
+    },
+    {
+      "path": "rtl/pll/pll_0002_q13.qip",
+      "upstream": "rtl/pll/pll_0002_q13.qip",
+      "sha256": "58d1281c86501f8926b2b156edeada9bc7c27c4156f456eb3568a5ba40baea0f"
+    },
+    {
+      "path": "rtl/sdram.sv",
+      "upstream": "rtl/sdram.sv",
+      "sha256": "5801022bd585532e5652769bdbe6400497c1f186da931a48aa66aa1356b6b18f"
+    },
+    {
+      "path": "rtl/pll.v",
+      "upstream": "rtl/pll.v",
+      "sha256": "93fa74d8ff94a5f8946f13ad3b0b06fff866f7ecfedafa5750e4a4bd7ff3155a"
+    },
+    {
+      "path": "rtl/pll.qip",
+      "upstream": "rtl/pll.qip",
+      "sha256": "60c0c7b517dc7ecb736f6df65dd360c1b8493f04fc72c4518f073a29fc04a19f"
+    }
+  ],
+  "top_source": "Raiden2.sv",
+  "status": "imported; target adaptations pending"
+}

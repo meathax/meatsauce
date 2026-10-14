@@ -1,0 +1,57 @@
+{
+  "scope": "cs_crystal_board RTL with synthetic synchronous registered interface boundaries; excludes bench pin segments and production wrapper/PLL/physical I/O closure",
+  "top_entity": "cs_timing_registered",
+  "simulation_target": "physical_boot",
+  "interface_model": "registered_boundary",
+  "stage": "D:\\Arcade\\AI\\aCORES\\BRAZZ\\Arcade-CrystalSystem_MiSTer\\sim\\obj_dir\\timing\\1791187294356330400",
+  "source_sha256": {
+    "rtl/cpu/se3208_pkg.sv": "63bdde59a9eb369742ad68baabddf3be191571408bcacf7f71fa958e222e1b99",
+    "rtl/cpu/se3208_decode.sv": "c03060740f22ad0c8fd0fb1c3d5cdf75093fb66adef4a01983cf5602734c2a00",
+    "rtl/cpu/se3208_execute.sv": "301566890500a19b407393d07c29653a544ecccdf7518c4ee2e27d232c01d180",
+    "rtl/cpu/se3208_bus_access.sv": "6148290e6962342651d6f486f461da1e3e17e0ea37c1bd808d931993afda0f61",
+    "rtl/cpu/se3208_cp_access.sv": "4af771f1526ac8ce0a4455ede36964c3fc1ec40c6d31007a512983e1a8b7ecd5",
+    "rtl/cpu/se3208.sv": "f060ac6147c1e95a4962e28b405aa10c37ac143ceb9ba8e0d432c2426e8ceb21",
+    "rtl/memory/cs_bus_arbiter.sv": "ee120afd6bb8a1a6f22fb07c7cb15e10920ed8d902c6b96e5feafeb2e063948a",
+    "rtl/soc/vr0_cp0.sv": "8fb8f2cc685685210e429f888fe6544284df86ee6f30a27d5226ca2328eeb14c",
+    "rtl/soc/vr0_control.sv": "bbc5d03868a523817ad84578bebefae64a3c2d720d101a4cfd1e7d455d393b6a",
+    "rtl/soc/vr0_dma.sv": "adcd8bf0f4c47babea595e33deca38ed117406fdffac45ffbe381644548f9578",
+    "rtl/soc/ds1302.sv": "e02fb71e427120eaa61877e2ec2d50dd90973287cb3a2fc43b1ed0ddd4032cb6",
+    "rtl/soc/vr0_gpio.sv": "65368b4c214fd8974c065fa9bdd6bcce5b55d209c9092ed3845a847d90a785a4",
+    "rtl/video/vr0_pixel_pkg.sv": "2494e80157a94fb6c8a47b340689204ce8441caa1a60daca2b0f52fdcac4fee0",
+    "rtl/video/vr0_gpu.sv": "2a3aa6bc0e76c1da15b688c70e45961fb475cb4dbae07d5208022c49c5252d14",
+    "rtl/video/vr0_crtc.sv": "834df84e81d84d1cff0ab17daf03e4166017d8cf1f3e3579509d52ca628a6447",
+    "rtl/video/vr0_scanout.sv": "6d350d01639ba9adba9b5068b04b6282bce39b0812a958665f04db374f25ba13",
+    "rtl/board/cs_address_decode.sv": "13c257b19ddff4f1d8e70edb1ef482f3387993d1d20f0e795ebff68ae616e4c4",
+    "rtl/board/cs_board_io.sv": "2c7c71ebc43df90d759ae2000e58b5f3858342ad7aecabb0d2f589ac277427b5",
+    "rtl/board/cs_flash_cmd.sv": "8dd94e9a5426d27556639175fa1f699acfb53cd8efcfd2b59276ac56cd4c40d8",
+    "rtl/audio/vr0_audio_pkg.sv": "a922fe95e199ab6a94ac6f17807e3781ebe59ae9fd725a4537dbae550b5b954c",
+    "rtl/audio/vr0_voice.sv": "051e305e9e070ad9220c1af4efa65f9ca5c07e1fbc76846031a9f246a128d69a",
+    "rtl/audio/vr0_spu.sv": "7d10d098e47f5f71b8dea36eaee910bfa3b8560e2abb167534f818abd5cd75dc",
+    "rtl/board/cs_boot_probe.sv": "ab5b371451a3bbf21488818450bfc7e623764489bcf140284e98d25309ea53f1",
+    "donors/sdram/src_v/sdram_axi_core.v": "bf7b3cdd53383051f8a108010bf5f19171eaff7e416b9b5b8d70ac1928b6af5f",
+    "rtl/memory/cs_sdram_backend.sv": "c203453ae99f21301d8ffcbec10311ffb67e393902805bdd26209ba4ed9cec38",
+    "rtl/memory/cs_ddr_rom_backend.sv": "b02b06760dd99f50e65ae1f54a2d19d7458d6c2176c468e2f1b5194c99897486",
+    "rtl/memory/cs_memory_fabric.sv": "dbba98138933157c8e597a4e2c1dac547de9fbd3307dde9baf7c57645cca915b",
+    "rtl/board/cs_crystal_board.sv": "c800f1512a2206efb3835ffd9a34e1c4f3489abc4745ab5adbe84e814360b95d"
+  },
+  "clock_period_ns": 11.64,
+  "seed": 1,
+  "rbf_generated": false,
+  "requested_fit": true,
+  "steps": [
+    {
+      "tool": "quartus_map",
+      "returncode": 4294967295,
+      "seconds": 873.109,
+      "errors": [],
+      "log": "D:\\Arcade\\AI\\aCORES\\BRAZZ\\Arcade-CrystalSystem_MiSTer\\sim\\obj_dir\\timing\\1791187294356330400\\quartus_map.log"
+    }
+  ],
+  "configuration_sha256": {
+    "board.qpf": "8242ee5e59a70da6149cb823d27ca626c19cecce70342b4e21184bb2adb3d6c3",
+    "board.qsf": "0889a9e9eb3b79015689bb8cba9b6cd97ee289105208d86d5d8df025096a8528",
+    "board.sdc": "baa5db0ebe577a093d1b45a5cf8ec12836f10d7ff18ba16eab683edb9f12ac47",
+    "board_registered.sv": "3e6eb1402f7f8e00623a22bc9c32cd80ae9a707914723a01f57c6ec70478bbe6"
+  },
+  "status": "FAIL"
+}

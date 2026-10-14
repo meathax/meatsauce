@@ -1,0 +1,44 @@
+# Do not add files through the Quartus GUI. Keep the project source list here.
+set_global_assignment -name SDC_FILE Suna8bit.sdc
+set_global_assignment -name SYSTEMVERILOG_FILE Suna8bit.sv
+set_global_assignment -name SYSTEMVERILOG_FILE rtl/suna8_profile_pkg.sv
+set_global_assignment -name SYSTEMVERILOG_FILE rtl/suna8_media_pkg.sv
+set_global_assignment -name SYSTEMVERILOG_FILE rtl/suna8_bus_pkg.sv
+set_global_assignment -name SYSTEMVERILOG_FILE rtl/suna8_rom_loader.sv
+set_global_assignment -name SYSTEMVERILOG_FILE rtl/suna8_media_sdram.sv
+set_global_assignment -name SYSTEMVERILOG_FILE rtl/suna8_rom_shadow.sv
+set_global_assignment -name SYSTEMVERILOG_FILE rtl/suna8_raster.sv
+set_global_assignment -name SYSTEMVERILOG_FILE rtl/suna8_boot_diag.sv
+set_global_assignment -name SYSTEMVERILOG_FILE rtl/suna8_video_cdc.sv
+set_global_assignment -name SYSTEMVERILOG_FILE rtl/suna8_palette.sv
+set_global_assignment -name SYSTEMVERILOG_FILE rtl/suna8_sprite_ram.sv
+set_global_assignment -name SYSTEMVERILOG_FILE rtl/suna8_sprite_decode.sv
+set_global_assignment -name SYSTEMVERILOG_FILE rtl/suna8_gfx_layout.sv
+set_global_assignment -name SYSTEMVERILOG_FILE rtl/suna8_main_memory.sv
+set_global_assignment -name SYSTEMVERILOG_FILE rtl/suna8_main_cpu.sv
+set_global_assignment -name SYSTEMVERILOG_FILE rtl/suna8_sound_memory.sv
+set_global_assignment -name SYSTEMVERILOG_FILE rtl/suna8_sound_chips.sv
+set_global_assignment -name SYSTEMVERILOG_FILE rtl/suna8_pcm.sv
+set_global_assignment -name SYSTEMVERILOG_FILE rtl/suna8_sprite_render.sv
+set_global_assignment -name SYSTEMVERILOG_FILE rtl/suna8_framebuffer.sv
+set_global_assignment -name SYSTEMVERILOG_FILE rtl/suna8_core.sv
+set_global_assignment -name VERILOG_FILE third_party/hiscore/hiscore.v
+set_global_assignment -name SYSTEMVERILOG_FILE rtl/suna8_dial.sv
+set_global_assignment -name SYSTEMVERILOG_FILE rtl/suna8_fm_write_queue.sv
+set_global_assignment -name QIP_FILE rtl/pll.qip
+
+# Vendored device snapshots. The current bring-up shell does not instantiate
+# every device yet; keeping the exact source membership here makes the
+# dependency boundary explicit for the hardware-family phases.
+foreach suna8_t80 [glob -nocomplain third_party/t80/*.vhd] {
+    set_global_assignment -name VHDL_FILE $suna8_t80
+}
+foreach suna8_jt49 [glob -nocomplain third_party/jt49/*.v] {
+    set_global_assignment -name VERILOG_FILE $suna8_jt49
+}
+foreach suna8_jt12 [glob -nocomplain third_party/jt12/*.v] {
+    set_global_assignment -name VERILOG_FILE $suna8_jt12
+}
+foreach suna8_jtopl [glob -nocomplain third_party/jtopl/*.v] {
+    set_global_assignment -name VERILOG_FILE $suna8_jtopl
+}

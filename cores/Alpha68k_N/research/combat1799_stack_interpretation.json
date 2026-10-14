@@ -1,0 +1,80 @@
+{
+  "source_parent": "aacb98f574135f3f89d0b4c6c690d6b607ec7488",
+  "source_sha256": {
+    "sim\\captures\\rtl\\kyros_combat_hud3301\\frame_001799.work.bin": "4ba1e20c33cffed202898c815fa90b15588dc3b904396145f564bd9e073ac520",
+    "sim\\captures\\kyros\\combat3600_clocked\\frame_001799.work.bin": "434e7a0661a4757bd7191670ef880e419e9ad10969e8f45e448db67ebf440369",
+    "roms\\kyros\\maincpu.bin": "6949ea5dc91dfced8c1afccbadee18c2e795ab38d8adbc3795f05a19b8f3b2b3",
+    "tools\\mame0289\\unidasm.exe": "5d27d3c7bc349d63d3511d86d9eb30ce348eb4f0e61f2bd2609f87aa5a5a98e0",
+    "research\\kyros_combat_hud3301_checkpoint1799_work_difference.json": "57a0c26e6cdf1d524a25087d965775232d11045de934c4f7431e235de5f92fa3"
+  },
+  "differences": [
+    {
+      "offset": 4083,
+      "cpu_address": 135155,
+      "native": 146,
+      "mame": 142
+    }
+  ],
+  "decoded_stack_candidates": [
+    {
+      "source": "native",
+      "candidate_frame_address": 135150,
+      "status_register": 8196,
+      "program_counter": 40594,
+      "following_return_address": 40414,
+      "stack_tail_hex": "044000020000200400009e9200009dde0000000000000000"
+    },
+    {
+      "source": "mame",
+      "candidate_frame_address": 135150,
+      "status_register": 8196,
+      "program_counter": 40590,
+      "following_return_address": 40414,
+      "stack_tail_hex": "044000020000200400009e8e00009dde0000000000000000"
+    }
+  ],
+  "disassembly": [
+    {
+      "command": [
+        "D:\\Arcade\\AI\\aCORES\\Alpha68k N\\tools\\mame0289\\unidasm.exe",
+        "D:\\Arcade\\AI\\aCORES\\Alpha68k N\\roms\\kyros\\maincpu.bin",
+        "-arch",
+        "m68000",
+        "-skip",
+        "0x9dd0",
+        "-count",
+        "32",
+        "-basepc",
+        "0x9dd0"
+      ],
+      "exit_code": 0,
+      "stdout": "09dd0: 544b            addq.w  #2, A3\n09dd2: 4ff9 0002 0ff8  lea     $20ff8.l, A7\n09dd8: 4eb9 0000 19a8  jsr     $19a8.l\n09dde: 6000 0014       bra     $9df4\n09de2: 4ff9 0002 0ff8  lea     $20ff8.l, A7\n09de8: 4eb9 0000 19d8  jsr     $19d8.l\n09dee: 4ef9 0000 19e2  jmp     $19e2.l\n",
+      "stderr": ""
+    },
+    {
+      "command": [
+        "D:\\Arcade\\AI\\aCORES\\Alpha68k N\\tools\\mame0289\\unidasm.exe",
+        "D:\\Arcade\\AI\\aCORES\\Alpha68k N\\roms\\kyros\\maincpu.bin",
+        "-arch",
+        "m68000",
+        "-skip",
+        "0x9e80",
+        "-count",
+        "32",
+        "-basepc",
+        "0x9e80"
+      ],
+      "exit_code": 0,
+      "stdout": "09e80: 4a2e 090c       tst.b   ($90c,A6)\n09e84: 6700 0008       beq     $9e8e\n09e88: 4ef9 0000 1aa6  jmp     $1aa6.l\n09e8e: 4a2e 0004       tst.b   ($4,A6)\n09e92: 67fa            beq     $9e8e\n09e94: 532e 0004       subq.b  #1, ($4,A6)\n09e98: 6000 ff60       bra     $9dfa\n09e9c: 4e75            rts\n09e9e: 41f9 0001 2820  lea     $12820.l, A0\n",
+      "stderr": ""
+    }
+  ],
+  "manufacturer_reference": {
+    "url": "https://www.nxp.com/docs/en/reference-manual/MC68000UM.pdf",
+    "section": "6.2.4 / Figure 6-5, printed page 6-10, PDF index94",
+    "fact": "MC68000 group1/2 exception frame contains SR followed by PC high/low words",
+    "retrieval": "Web tool verified text; no downloaded PDF hash claimed"
+  },
+  "interpretation": "Consistent with a retained six-byte exception frame above the JSR return: native and MAME PCs are adjacent valid TST/BEQ wait-loop instruction boundaries, with identical SR and following return address.",
+  "limits": "Snapshot/source interpretation only. No native stack-write timing was captured at1799; this does not establish interrupt identity, a physical clock/phase fault or whole-game equivalence. Preserve the raw byte difference; no acceptance mask or RTL fix follows."
+}

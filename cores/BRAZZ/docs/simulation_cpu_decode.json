@@ -1,0 +1,80 @@
+{
+  "target": "cpu_decode",
+  "acceptance": "unit verification",
+  "runtime": "native Windows PE / MSYS2 UCRT64",
+  "commands": [
+    [
+      "D:/vibes/fpga/bin/verilator.exe",
+      "--cc",
+      "--exe",
+      "--build",
+      "-j",
+      "4",
+      "-O3",
+      "--top-module",
+      "se3208_decode",
+      "--Mdir",
+      "R:/Verilator/CrystalSystem/tool-20261007T221424109Z-51060-130023140/obj_dir",
+      "-CFLAGS",
+      "-O2",
+      "-MAKEFLAGS",
+      "OPT_FAST=-O2",
+      "-MAKEFLAGS",
+      "OPT_GLOBAL=-O2",
+      "-Wno-fatal",
+      "D:/Arcade/AI/aCORES/BRAZZ/Arcade-CrystalSystem_MiSTer/rtl/cpu/se3208_pkg.sv",
+      "D:/Arcade/AI/aCORES/BRAZZ/Arcade-CrystalSystem_MiSTer/rtl/cpu/se3208_decode.sv",
+      "D:/Arcade/AI/aCORES/BRAZZ/Arcade-CrystalSystem_MiSTer/sim/cpu_decode/main.cpp"
+    ],
+    [
+      "D:/vibes/fpga/bin/verilator.exe",
+      "sim",
+      "R:/Verilator/CrystalSystem/tool-20261007T221424109Z-51060-130023140/obj_dir/Vse3208_decode.exe"
+    ]
+  ],
+  "exit_code": 0,
+  "run_seconds": 0.1157517999963602,
+  "sources": [
+    {
+      "path": "rtl/cpu/se3208_pkg.sv",
+      "sha256": "63bdde59a9eb369742ad68baabddf3be191571408bcacf7f71fa958e222e1b99"
+    },
+    {
+      "path": "rtl/cpu/se3208_decode.sv",
+      "sha256": "c03060740f22ad0c8fd0fb1c3d5cdf75093fb66adef4a01983cf5602734c2a00"
+    },
+    {
+      "path": "sim/cpu_decode/main.cpp",
+      "sha256": "69c5361b4c7efcb446f52cc8b008ca09fcf51a38d8d584bace713e290d71c48e"
+    },
+    {
+      "path": "sim/obj_dir/cpu_reference/decode.csv",
+      "sha256": "09f76f210fea29748ea1fb010520955d29f3a2ab0c9c6a9e03415d206fc77d91"
+    },
+    {
+      "path": "sim/obj_dir/isa_research/vendor_bin/control_family.csv",
+      "sha256": "b7a7e8bd59231b6de825451f3f5e5e3b7572cbbcec833ad30b30ad126a39d9fe"
+    },
+    {
+      "path": "scripts/se3208_vendor_probe.py",
+      "sha256": "246300879b6e94dd8bf507922af6e72ecef9d256b0e45b0ebf91bd04e6f1f296"
+    },
+    {
+      "path": "docs/se3208_vendor_tools.json",
+      "sha256": "88f6afdd6070dd8548bb8367b18959efa3971c0068daa4d1970d4bdd4b93e6cd"
+    },
+    {
+      "path": "scripts/cpu_reference.py",
+      "sha256": "8827c40560a47ed62d3e20e761a717a871964bcf1a12f381272d18cc4c509dcf"
+    },
+    {
+      "path": "docs/reference/mame/src/devices/cpu/se3208/se3208.cpp",
+      "sha256": "52615b893722ef1bbfcaa88b235cf80167655421bf83cbd716e3477e37525ec5"
+    }
+  ],
+  "workspace": "R:/Verilator/CrystalSystem/tool-20261007T221424109Z-51060-130023140",
+  "timing_profile": null,
+  "stdout": "PASS SE3208 decoder: 64512 MAME encodings + 1024 primary ADChips encodings; 736 vendor corrections to MAME. Effects of coprocessor instructions remain unsupported.\n",
+  "stderr": "",
+  "build_log": "sim/obj_dir/cpu_decode/build.log"
+}

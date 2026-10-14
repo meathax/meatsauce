@@ -1,0 +1,62 @@
+{
+  "worker_pid": 7024,
+  "command": [
+    "D:\\vibes\\fpga\\temp\\mame289-irq-cutoff-private\\kyros_irqcut.exe",
+    "kyros",
+    "-rompath",
+    "D:\\Arcade\\AI\\aCORES\\Alpha68k N\\roms",
+    "-noreadconfig",
+    "-skip_gameinfo",
+    "-video",
+    "none",
+    "-sound",
+    "none",
+    "-nothrottle",
+    "-noautoframeskip",
+    "-frameskip",
+    "0",
+    "-autoboot_delay",
+    "0",
+    "-autoboot_script",
+    "D:\\Arcade\\AI\\aCORES\\Alpha68k N\\sim\\captures\\kyros\\mame_startup_phase2\\loaded_recorder.lua",
+    "-pluginspath",
+    "D:\\Arcade\\AI\\aCORES\\Alpha68k N\\tools\\mame0289\\plugins;D:\\Arcade\\AI\\aCORES\\Alpha68k N\\research\\mame_cutoff_observer_stage\\startup_corrected_mame1\\plugins",
+    "-seconds_to_run",
+    "3",
+    "-snapshot_directory",
+    "D:\\Arcade\\AI\\aCORES\\Alpha68k N\\sim\\captures\\kyros\\mame_startup_phase2",
+    "-cfg_directory",
+    "D:\\Arcade\\AI\\aCORES\\Alpha68k N\\sim\\captures\\kyros\\mame_startup_phase2\\cfg",
+    "-nvram_directory",
+    "D:\\Arcade\\AI\\aCORES\\Alpha68k N\\sim\\captures\\kyros\\mame_startup_phase2\\nvram",
+    "-state_directory",
+    "D:\\Arcade\\AI\\aCORES\\Alpha68k N\\sim\\captures\\kyros\\mame_startup_phase2\\states",
+    "-wavwrite",
+    "D:\\Arcade\\AI\\aCORES\\Alpha68k N\\sim\\captures\\kyros\\mame_startup_phase2\\audio.wav",
+    "-plugins",
+    "-plugin",
+    "alpha_startup_observer",
+    "-log"
+  ],
+  "cwd": "D:\\Arcade\\AI\\aCORES\\Alpha68k N\\sim\\captures\\kyros\\mame_startup_phase2",
+  "cfg_seeds": [
+    {
+      "path": "D:\\Arcade\\AI\\aCORES\\Alpha68k N\\sim\\captures\\kyros\\warm_reset960_refv2\\cfg\\default.cfg",
+      "sha256": "ce6f92d4260cfa730a9cda509e6b19e58813b279f1d85a3408cccb2abb49f236"
+    },
+    {
+      "path": "D:\\Arcade\\AI\\aCORES\\Alpha68k N\\sim\\captures\\kyros\\warm_reset960_refv2\\cfg\\kyros.cfg",
+      "sha256": "ca7eccf3ea41ede14fbea9be5e0107154dbc208d6577ec6ab6d0b017e1cb6cc6"
+    }
+  ],
+  "executable_sha256": "cb9ac0f56d97ac0cac97190b2e9e028fa68f7dc9c19235d9b3e364387c218c6d",
+  "admission_sha256": "0df22c7eca15336b2e0d3bea29e1fdfa1d8841c97239bf21b54a10dc28ba2425",
+  "started": 1791656487.9442163,
+  "environment": {
+    "ALPHA_CAPTURE_DIR": "D:\\Arcade\\AI\\aCORES\\Alpha68k N\\sim\\captures\\kyros\\mame_startup_phase2",
+    "ALPHA_CAPTURE_FRAMES": "1",
+    "ALPHA_CAPTURE_MODE": "warm-reset",
+    "ALPHA_STARTUP_CAPTURE_DIR": "D:\\Arcade\\AI\\aCORES\\Alpha68k N\\sim\\captures\\kyros\\mame_startup_phase2"
+  },
+  "mame_pid": 42220
+}

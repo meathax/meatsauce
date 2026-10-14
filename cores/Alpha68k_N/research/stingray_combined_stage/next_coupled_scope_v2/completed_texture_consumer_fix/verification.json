@@ -1,0 +1,78 @@
+{
+  "schema": "minimal_completed_texture_reference_consumer_v1",
+  "source_original": {
+    "path": "D:\\Arcade\\AI\\aCORES\\Alpha68k N\\research\\stingray_combined_stage\\verify_next_coupled181.py",
+    "sha256": "dd4db4c2ca7e30f65b0daf19d949fc33f886d98d940fd820ea67fb7717406092",
+    "bytes": 13620
+  },
+  "staged_candidate": {
+    "path": "D:\\Arcade\\AI\\aCORES\\Alpha68k N\\research\\stingray_combined_stage\\next_coupled_scope_v2\\completed_texture_consumer_fix\\verify_next_coupled181_completed_texture.py",
+    "sha256": "b9501bceab6c2bac636fc4233166408b1393b2a14664231557e38086030a29a3",
+    "bytes": 13892
+  },
+  "patch": {
+    "path": "D:\\Arcade\\AI\\aCORES\\Alpha68k N\\research\\stingray_combined_stage\\next_coupled_scope_v2\\completed_texture_consumer_fix\\checkpoint_reference.patch",
+    "sha256": "395ae3abd353f7e7fbbf7e8cc3804d9b6664f22fdde925068c34076798a2fec8",
+    "bytes": 934
+  },
+  "syntax_compile_pass": true,
+  "actual_built_in_normalizer_already_correct": true,
+  "existing_canonical_pipeline_pins": [
+    {
+      "path": "D:\\Arcade\\AI\\aCORES\\meatsauce-alpha68kn\\cores\\Alpha68k_N\\scripts\\normalize_oracle_display.py",
+      "sha256": "1f5c549261d988bc21d56b3dc8a374a2bd9ba57f49d78251e5ec73f608eb5162",
+      "bytes": 2671
+    },
+    {
+      "path": "D:\\Arcade\\AI\\aCORES\\meatsauce-alpha68kn\\cores\\Alpha68k_N\\scripts\\capture_oracle.py",
+      "sha256": "799f6bae01738e412520e4d5156357583eeaae69de79ff56ed9ea71de1fb4007",
+      "bytes": 7575
+    },
+    {
+      "path": "D:\\Arcade\\AI\\aCORES\\meatsauce-alpha68kn\\cores\\Alpha68k_N\\scripts\\analyze_system_capture.py",
+      "sha256": "6143975cf81bce11a4bcc9eb5b32ff7274d8be379a8eb7b3e68f5ce2bbcb56a1",
+      "bytes": 4153
+    }
+  ],
+  "historical_diagnose_zero_and_old_181_evidence_preserved": true,
+  "semantic_delta": "MAME RGB reference only: .rgb -> .display.rgb; source PNG/RGB identities retained. Native RGB, RAM, inputs, source checks, clock/RTL and existing diagnostic outputs unchanged.",
+  "consumer_verified_by_completed_PNG_diagnosis": {
+    "path": "D:\\Arcade\\AI\\aCORES\\Alpha68k N\\research\\stingray_combined_stage\\next_coupled_scope_v2\\completed_png_diagnosis\\qualification.json",
+    "sha256": "5c2dc0343c64bd21c3905a42958873078ab43fad35564ea2d7a6f169ff2b1e69",
+    "bytes": 9598
+  },
+  "existing_reference_display": [
+    {
+      "path": "D:\\Arcade\\AI\\aCORES\\meatsauce-alpha68kn\\cores\\Alpha68k_N\\sim\\captures\\sstingry\\gameplay\\frame_000000.display.rgb",
+      "sha256": "627f1db9ee518cc0fb2a9a223be1aa86c3a0b4fde0184de9d4334b94c1d1f27a",
+      "bytes": 172032
+    },
+    {
+      "path": "D:\\Arcade\\AI\\aCORES\\meatsauce-alpha68kn\\cores\\Alpha68k_N\\sim\\captures\\sstingry\\gameplay\\frame_000030.display.rgb",
+      "sha256": "b31ecbebe7313f11da2ad0a89510ebe70aec1893a34e78ae5ba70ef7f9ed58ee",
+      "bytes": 172032
+    },
+    {
+      "path": "D:\\Arcade\\AI\\aCORES\\meatsauce-alpha68kn\\cores\\Alpha68k_N\\sim\\captures\\sstingry\\gameplay\\frame_000090.display.rgb",
+      "sha256": "b31ecbebe7313f11da2ad0a89510ebe70aec1893a34e78ae5ba70ef7f9ed58ee",
+      "bytes": 172032
+    },
+    {
+      "path": "D:\\Arcade\\AI\\aCORES\\meatsauce-alpha68kn\\cores\\Alpha68k_N\\sim\\captures\\sstingry\\gameplay\\frame_000119.display.rgb",
+      "sha256": "48a964e7a8f8231c428f9838017b70d8d0195893ea77730302dc78f7045564c5",
+      "bytes": 172032
+    },
+    {
+      "path": "D:\\Arcade\\AI\\aCORES\\meatsauce-alpha68kn\\cores\\Alpha68k_N\\sim\\captures\\sstingry\\gameplay\\frame_000179.display.rgb",
+      "sha256": "30440d85a4387837f3148d5307ed1968497ce35275a99d9b447bb17103c11362",
+      "bytes": 172032
+    }
+  ],
+  "production_or_registered_worker_modified": false,
+  "no_whole_game_acceptance_or_new_replay": true,
+  "helper": {
+    "path": "D:\\Arcade\\AI\\aCORES\\Alpha68k N\\research\\stingray_combined_stage\\stage_completed_texture_consumer_fix.py",
+    "sha256": "17d10c0eafe944210a89a7874fea741806f02ca5029a6e3fed2a433a0ea87592",
+    "bytes": 3982
+  }
+}

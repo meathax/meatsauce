@@ -1,0 +1,37 @@
+{
+  "checkpoint": 4,
+  "mame_frame": 240,
+  "different_pixels": 0,
+  "difference_bbox": null,
+  "rtl_nonblack": 13402,
+  "mame_nonblack": 13402,
+  "limits": "Completed raster checkpoint; approximate cycle/frame alignment, not a gameplay-completion claim.",
+  "rtl_image": {
+    "path": "sim/results/rtl-live-checkpoint-4.ppm",
+    "sha256": "dfc2e2ada55a362b21b608d66f7f0c8b53fa211e33b2523c0c213b989c1b5f4a"
+  },
+  "mame_image": {
+    "path": "sim/results/mame-attract-240/reference.png",
+    "sha256": "54ae7c08cfeb3125a64ed5172dfc3244e8575baf1df701eba102236e5411e701"
+  },
+  "comparison": "All RGB pixels in the actual 320x256 image; no shift, crop or color remapping.",
+  "frozen_build_inventory": {
+    "path": "sim/results/av-checkpoint-416000000.json",
+    "sha256": "7271576dffa4fae903001e812523ca5d215c43ed2c9a9a9351f827dad16dce73"
+  },
+  "model_config": {
+    "top": "zero_av_top",
+    "savable": true,
+    "defines": [
+      "CE_HALF_PLUS2",
+      "READY_FIXED_HIGH",
+      "CE_STALL_ON"
+    ]
+  },
+  "model_binary_sha256": "0c9e069aa452be72d8d588ba83e6af6aea8c5ba69017ae616b7ab4088727be19",
+  "relevant_sources": {
+    "rtl/Raiden2/Raiden2_cop3.sv": "e10f614782e8da15f1570bef604d05bdfa9c04b0226370a2e37d9ed0b6219f43",
+    "sim/zero_av_top.sv": "2c92d49ec1824a3d6f9a2f5bf0b1f70580d31a933562e883ac5b56704ee8f034",
+    "rtl/Raiden2/Raiden2_sprite_renderer.sv": "33a5006fac919583f1e279d1a138736c016579c5659f9e900d641bb24285b71c"
+  }
+}

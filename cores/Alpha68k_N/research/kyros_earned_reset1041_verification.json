@@ -1,0 +1,20 @@
+{
+  "scope": "Legal actual MAME CPU gameplay and soft reset; no RAM/register/PC injection; not native RTL reset qualification",
+  "checks": {
+    "exit_zero": true,
+    "no_lua_failure": true,
+    "complete_marker": true,
+    "complete_sequence": true,
+    "exact_legal_input_prefix": true,
+    "actual_earned_best": true
+  },
+  "oracle_capture_pass": true,
+  "earned_best_raw": 8192,
+  "first_reset_clear_field_offset": 57,
+  "reset_readiness_field_offsets": [
+    69
+  ],
+  "failed_native_wait_fields": 24.66066919191919,
+  "probe_sha256": "615ab88a90f6c03cf80c30f1efb1f98f6f4235a59ec48bd8d6bc0fca9e2e2e83",
+  "reference_ports_sha256": "17378a389bf597a0fa659fea008728aef3e6e10fa59f8efc5867e16676ca09b2"
+}

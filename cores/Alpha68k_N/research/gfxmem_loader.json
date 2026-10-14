@@ -1,0 +1,26 @@
+{
+  "download_words": 196608,
+  "physical_writes": 393216,
+  "checked_bytes": 393216,
+  "read_pairs": 24576,
+  "max_read_cycles": 10,
+  "refresh_commands": 8561,
+  "mode_commands": 1,
+  "download_cycles": 2793464,
+  "result": "pass",
+  "simulator": "Verilator 5.050",
+  "profile": "kyros",
+  "payload_sha256": "5cf728d5d40e9be14a4a9c07792bab9f44404a75c2c2eed92124ff96ee9b5ef6",
+  "executable_sha256": "2afc1249e40b800bfd019d6eb45caa6176d540c75ba52939d01891a6d3f9df71",
+  "source_sha256": {
+    "rtl\\alpha68kn_gfxmem.sv": "ec21f32d4108d6e18352efbff8e58490a84d57af2252b1a2d656c7152639943e",
+    "sim\\gfxmem_main.cpp": "c3658a824258b37571bba643d5b55ac3d4ffa79b16a0cebfffaeb68bfc045be0",
+    "sim\\build_gfxmem.sh": "0e243b7e63537bb5a8d6c408c39b25483e159848895b3efb4fe9d958c62b4ec8",
+    "rtl\\vendor\\jtframe_sdram\\jtframe_sdram64.v": "039cccd60d203635de1acad84c1d505309086600aabd4c7e5fa9076c79183668",
+    "rtl\\vendor\\jtframe_sdram\\jtframe_sdram64_bank.v": "50078e5732eae354cf7459b415c022f24cfbb2f411e68db2bffd00bcfa40adde",
+    "rtl\\vendor\\jtframe_sdram\\jtframe_sdram64_init.v": "6874abf941b538f72ad1cd654f3d7cd6c300e70e13fd8ea2a0464d0a187eb248",
+    "rtl\\vendor\\jtframe_sdram\\jtframe_sdram64_latch.v": "881da704d7c3e66e4b3ed66b876f0024eed2af0e757bf74e5dce0a866ae1345f",
+    "rtl\\vendor\\jtframe_sdram\\jtframe_sdram64_rfsh.v": "44cbe280aece9f68b133b70656236f2b316ee6d1aaf6691310ed674de82a02b4"
+  },
+  "scope": "actual controller and FIFO at SDRAM pins; external SDR SDRAM functional model, CL2/burst1; not electrical timing/retention or full-core acceptance"
+}

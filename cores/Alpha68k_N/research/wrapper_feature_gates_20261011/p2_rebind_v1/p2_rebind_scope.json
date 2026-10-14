@@ -1,0 +1,26 @@
+{
+  "parent_wrapper_manifest_sha256": "eef484fadea361d1885bf0a711097b20f18c3febef45843bd6c1886612de6962",
+  "approved_p2_manifest_sha256": "bc0af87993a78ba9ce95127f50b5324a5749e605b9c0227a9b138f92fa255334",
+  "approved_p2_changes": [
+    {
+      "path": "rtl/alpha68kn_mcu.sv",
+      "previous_sha256": "623e1c4c2ca319306887e9d76c1e24ac83adc5355165a618f703cee40e2186bd",
+      "candidate_path": "D:\\Arcade\\AI\\aCORES\\Alpha68k N\\research\\stingray_game_divergence_20261011\\p2_candidate_qualification_v7\\candidate\\alpha68kn_mcu.sv",
+      "candidate_sha256": "26614f565524e7dc136c3c898eb044807d22d2c6ce473dcc64d7f54258a97120"
+    },
+    {
+      "path": "rtl/vendor/t48/t48_core.v",
+      "previous_sha256": "cd171c5c1cb044c50343387cf4b9b726c2795c4224d4265c4812921fe3d6b8fd",
+      "candidate_path": "D:\\Arcade\\AI\\aCORES\\Alpha68k N\\research\\stingray_game_divergence_20261011\\p2_candidate_qualification_v7\\candidate\\t48_core.v",
+      "candidate_sha256": "2ad3acf392e1deec18d5d7f2c8d878b33b00073c55a7c032cd0155dfac46bf6d"
+    }
+  ],
+  "unchanged_test_host_sha256": "27952fe8da9dc09bb24d4fb579f7bbd8a7fddd05d12d390f5db237d988f90a1c",
+  "native_metadata_caveat": "The unchanged C++ fixture retains its earlier conservative pre-MCU-fix limit string in features.json. The actual P2-corrected source epoch is authoritative in preparation.json, effective source pins and this rebind scope receipt. No host or test assertion changed.",
+  "actual_exits": {
+    "build_recipe": 1,
+    "native_make_recovery": 0,
+    "one_runtime": 0
+  },
+  "qualification": "Same 14 finite protocol checks passed against the two approved P2 changes. This does not qualify gameplay181, every coincident pause edge or earned-score donor persistence."
+}

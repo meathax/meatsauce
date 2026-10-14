@@ -1,0 +1,19 @@
+{
+  "cancelled_at": 1791518548.2735767,
+  "reason": "Verified reset raster origin and capture numbering mismatch; superseded by corrected source, not observation timeout",
+  "owned_job": "research/system_audio1800_started.json",
+  "linux_actions": [
+    {
+      "pid": 89942,
+      "argv": [
+        "./alpha68kn_system_audio_sim",
+        "../../roms/kyros/download.bin",
+        "1800",
+        "../captures/rtl/kyros_audio1800",
+        "gameplay"
+      ],
+      "result": "SIGTERM sent to exact owned simulation"
+    }
+  ],
+  "command_exit": 0
+}

@@ -1,0 +1,268 @@
+{
+  "scope": "Current bare-board P1 output-latch sequence and pure-DAC levels through preset1200-field time scope.",
+  "native_receipt": {
+    "started_utc": "2026-10-09T14:48:33.6589653Z",
+    "finished_utc": "2026-10-09T15:08:45.7619116Z",
+    "exit_code": 0,
+    "error": null,
+    "source_sha256": {
+      "rtl/n8080_board.sv": "2022043c4178c8b6d11360ce43d2f6632a9cd128d6fdc67f108d5027f837a568",
+      "rtl/n8080_cpu.sv": "9d7047ab0edd7f46f9aa674d8820889164486dea460639a11a79ff2db6c865ff",
+      "rtl/n8080_vm80a_ce.v": "55b1df11c49078ebbaaa7343c430129a1f8fa58076a077a2abd1c22cdfde851a",
+      "rtl/n8080_mcs48.sv": "9add3d3ee9d50080dff1afa10d42970aa3e395251e0372f55eb1343f7dda5a7d",
+      "rtl/vendor/t48/t48_core.v": "8e8cb0a18e6f99c6da4ec258280294008ba1488c829d453846f24562d1010125",
+      "rtl/sheriff_sn76477.sv": "e4be6daec69f507efaead7779a2fdd9fbebc9db72d942d07c45ac81ea36e1381",
+      "sim/board_harness.cpp": "6e18f5ee13a910d8d280aa973fb59875feb6bf45b9b396e3875175d6842cd02a",
+      "rtl/sheriff_sn_constants.svh": "538b6a5ccef0b264f99f10fc4266abedee70e928dc29a9335e81248fc503acea"
+    },
+    "source_changed_during_run": [],
+    "frames_requested": 1201,
+    "seed": 1,
+    "model": "_checks/current-board-boot-20261010/Vn8080_board",
+    "model_sha256": "6b98d5757c16f6958f1dfea5d40c1254b6f5ebfe9f456b961e3b2f12a6e41d09",
+    "inputs": "_checks/physical-cpu-restart-corners-20261009/inputs_restart.csv",
+    "inputs_sha256": "15e27f7747d95c53762259b136b7b8aeff7e8a7c24dcf75ac81edad85456db3d",
+    "runtime_output": "sim/results/current-gameplay-1201-rtl-20261010",
+    "scope": "Current bare board coin/P1 start/movement/aim/fire diagnostic regression; full wrapper, full gameplay and release remain open"
+  },
+  "reference_receipt": {
+    "exit_code": 0,
+    "finished_utc": "2026-10-09T19:02:35.9527727Z",
+    "process_id": 17616,
+    "frames_requested": 1201,
+    "started_utc": "2026-10-09T19:02:19.2731916Z",
+    "lua_sha256": "5E214EC7ED3DBF63C7550F87EBF6E967EA4E52688500E30923DB5B50B6665481",
+    "launcher_sha256": "3E8937DC09367ABE0194417F6D959B06AE5F06E4A6844CC55B2EC3E2D5E7F96B"
+  },
+  "reference_features": {
+    "launcher_sha256": "3E8937DC09367ABE0194417F6D959B06AE5F06E4A6844CC55B2EC3E2D5E7F96B",
+    "write_probe_frame": -1,
+    "irq_probe": false,
+    "irq_frame": null,
+    "sound_probe": true,
+    "input_policy_sha256": null,
+    "lua_sha256": "5E214EC7ED3DBF63C7550F87EBF6E967EA4E52688500E30923DB5B50B6665481",
+    "input_probe_frame": -1
+  },
+  "reference_observer_unchanged": {
+    "io.csv": true,
+    "audio.wav": true,
+    "states.csv": true
+  },
+  "comparison_receipt": {
+    "exit_code": 0,
+    "argv": [
+      "C:\\Users\\meath\\.cache\\codex-runtimes\\codex-primary-runtime\\dependencies\\python\\python.exe",
+      "-X",
+      "utf8",
+      "tools/compare_integrated_sound.py",
+      "--mame",
+      "sim/results/current-sound-pins-1201-mame-20261010",
+      "--rtl",
+      "sim/results/current-gameplay-1201-rtl-20261010",
+      "--frames",
+      "1200",
+      "--output",
+      "_checks/current-sound-pins-20261010/pin-report.json",
+      "--source-label",
+      "6b98d5757c16f6958f1dfea5d40c1254b6f5ebfe9f456b961e3b2f12a6e41d09"
+    ],
+    "started_utc": "2026-10-09T19:06:12.422827+00:00",
+    "finished_utc": "2026-10-09T19:06:13.056867+00:00"
+  },
+  "pin_report": {
+    "scope": "Real Sheriff ROM integrated sound prefix; connected DAC level and output-latch sequence qualification",
+    "source_label": "6b98d5757c16f6958f1dfea5d40c1254b6f5ebfe9f456b961e3b2f12a6e41d09",
+    "mame": "sim\\results\\current-sound-pins-1201-mame-20261010",
+    "rtl": "sim\\results\\current-gameplay-1201-rtl-20261010",
+    "frames": 1200,
+    "sample_count": 936228,
+    "mame_port_events": 1331,
+    "rtl_port_events": 1331,
+    "compared_output_masks": {
+      "p1": 255,
+      "p2": 240
+    },
+    "p2_low_nibble_excluded_reason": "Physical external-ROM address during fetch, not the MAME stored port latch; DAC is P2 bit 7",
+    "pin_sequence_pass": true,
+    "first_pin_difference": null,
+    "port_timing_delta_master_ticks": {
+      "minimum": 0.0,
+      "maximum": 1167.0000000208347
+    },
+    "pure_dac_intervals": [
+      {
+        "dac": 1,
+        "start_sample": 472742,
+        "end_sample": 472790,
+        "expected_level": 4915,
+        "actual_min": 4915,
+        "actual_max": 4915,
+        "max_error": 0,
+        "pass": true
+      },
+      {
+        "dac": 0,
+        "start_sample": 472926,
+        "end_sample": 472974,
+        "expected_level": 0,
+        "actual_min": 0,
+        "actual_max": 0,
+        "max_error": 0,
+        "pass": true
+      },
+      {
+        "dac": 1,
+        "start_sample": 473110,
+        "end_sample": 473158,
+        "expected_level": 4915,
+        "actual_min": 4915,
+        "actual_max": 4915,
+        "max_error": 0,
+        "pass": true
+      },
+      {
+        "dac": 0,
+        "start_sample": 473294,
+        "end_sample": 473342,
+        "expected_level": 0,
+        "actual_min": 0,
+        "actual_max": 0,
+        "max_error": 0,
+        "pass": true
+      },
+      {
+        "dac": 1,
+        "start_sample": 473478,
+        "end_sample": 473526,
+        "expected_level": 4915,
+        "actual_min": 4915,
+        "actual_max": 4915,
+        "max_error": 0,
+        "pass": true
+      },
+      {
+        "dac": 0,
+        "start_sample": 473663,
+        "end_sample": 473711,
+        "expected_level": 0,
+        "actual_min": 0,
+        "actual_max": 0,
+        "max_error": 0,
+        "pass": true
+      },
+      {
+        "dac": 1,
+        "start_sample": 473847,
+        "end_sample": 473895,
+        "expected_level": 4915,
+        "actual_min": 4915,
+        "actual_max": 4915,
+        "max_error": 0,
+        "pass": true
+      },
+      {
+        "dac": 0,
+        "start_sample": 474031,
+        "end_sample": 474079,
+        "expected_level": 0,
+        "actual_min": 0,
+        "actual_max": 0,
+        "max_error": 0,
+        "pass": true
+      },
+      {
+        "dac": 1,
+        "start_sample": 474215,
+        "end_sample": 474263,
+        "expected_level": 4915,
+        "actual_min": 4915,
+        "actual_max": 4915,
+        "max_error": 0,
+        "pass": true
+      },
+      {
+        "dac": 0,
+        "start_sample": 474399,
+        "end_sample": 474447,
+        "expected_level": 0,
+        "actual_min": 0,
+        "actual_max": 0,
+        "max_error": 0,
+        "pass": true
+      },
+      {
+        "dac": 1,
+        "start_sample": 474583,
+        "end_sample": 474631,
+        "expected_level": 4915,
+        "actual_min": 4915,
+        "actual_max": 4915,
+        "max_error": 0,
+        "pass": true
+      },
+      {
+        "dac": 0,
+        "start_sample": 474767,
+        "end_sample": 474815,
+        "expected_level": 0,
+        "actual_min": 0,
+        "actual_max": 0,
+        "max_error": 0,
+        "pass": true
+      }
+    ],
+    "integrated_dac_levels_pass": true,
+    "reference_audio": {
+      "samples": 936228,
+      "minimum": -6444,
+      "maximum": 10993,
+      "rms": 3920.2595933821226,
+      "clipped_samples": 0
+    },
+    "actual_audio": {
+      "samples": 936228,
+      "minimum": -6444,
+      "maximum": 10727,
+      "rms": 3921.1039329156365,
+      "clipped_samples": 0
+    },
+    "whole_sound_gate_pass": false,
+    "limits": [
+      "Prefix covers these actual coin/start/play commands, not every Sheriff sound class",
+      "Port event values are exact; MCU/reference scheduling offsets are retained rather than hidden",
+      "The 12 measured pure-DAC windows qualify integration gain/polarity, not all analog oscillators",
+      "MAME resampling/startup transient and physical analog calibration remain separate"
+    ],
+    "input_sha256": {
+      "sim\\results\\current-sound-pins-1201-mame-20261010\\sound_pins.csv": "587c4d0981430a6bed0fc09fa19b14000bcc30c9461e32234aadf2f02a063d00",
+      "sim\\results\\current-sound-pins-1201-mame-20261010\\capture_features.json": "7d6e70d748b5cdc5ad4f5c058294abd8e5eab614ae49e7562ef6004b239ff786"
+    },
+    "pass": true
+  },
+  "evidence_sha256": {
+    "D:/Arcade/AI/aCORES/sherrif/tools/record_current_sound_pins.py": "6cded80b72a175fd2066275d8fea323c9c6ad8b78d9134e9d441483d74680205",
+    "tools/compare_integrated_sound.py": "c3d125cb98ed5a37c1dad387fe0139e59c1750c592bc207f1e522ed02054ff9d",
+    "_checks/current-gameplay-1201-20261010/terminal.json": "c35015047081ff67f3786c6a2c29a529d89f86c627cccf10232f7f9beeccd6cb",
+    "sim/results/current-sound-pins-1201-mame-20261010/exit.json": "c83ee3cd7f7cd5109ea14ce614f99c72e62d0d2b2e9eda73f1d8873669e6f496",
+    "sim/results/current-sound-pins-1201-mame-20261010/capture_features.json": "7d6e70d748b5cdc5ad4f5c058294abd8e5eab614ae49e7562ef6004b239ff786",
+    "sim/results/current-sound-pins-1201-mame-20261010/input_sha256.json": "61ebd1d41361e961a029652cb51bd57dba587ff0881c4d80874bee651c144b79",
+    "sim/results/current-sound-pins-1201-mame-20261010/sound_pins.csv": "587c4d0981430a6bed0fc09fa19b14000bcc30c9461e32234aadf2f02a063d00",
+    "sim/results/current-sound-pins-1201-mame-20261010/audio.wav": "543e0156a5809158c7789a84c4f47f511a7aaf12907e0e004425ce3651cf8faa",
+    "sim/results/current-gameplay-1201-rtl-20261010/sound.csv": "0feb543f27d5cf23424e36d713cd2fede639244edb49a0a0244010e6fc8eee82",
+    "sim/results/current-gameplay-1201-rtl-20261010/audio.raw": "b5f4bd4ead2aa9de288581e8d3c55bd3e2819543f4708a939f07e5604a1c746a",
+    "_checks/current-sound-pins-20261010/receipt.json": "576236506635a8569cf1913480f3f32a4bae93d8650140d6c3e0e0dc358b060e",
+    "_checks/current-sound-pins-20261010/stdout.log": "97ada8e51c62fcc924cbf2db8ac11b1a95b00268689a0178fd8b6d9f76260d34",
+    "_checks/current-sound-pins-20261010/stderr.log": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "_checks/current-sound-pins-20261010/pin-report.json": "1497300d92daf99679477ef8812e41595eb43c7b0a046c2d2a7e14f7ecef12e0"
+  },
+  "limitations": [
+    "The1200-field time scope was selected before comparison; full1201 PCM length mismatch is retained.",
+    "Original sample indices retained; no offset, resynchronization, padding or pin-value masking beyond physical P2 ROM mux.",
+    "Exact output-latch values and pure-DAC levels do not prove physical event timing or mixed-waveform equivalence.",
+    "Current full-wrapper centered-input replay remains a separate running scenario."
+  ],
+  "whole_sound_gate_pass": false,
+  "release_qualified": false,
+  "rbf_built": false
+}

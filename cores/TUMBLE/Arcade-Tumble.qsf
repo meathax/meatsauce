@@ -1,0 +1,117 @@
+# --------------------------------------------------------------------------
+#  Arcade-Tumble - Tumble Pop bootlegs and related arcade boards.
+#  MiSTer-devel Template_MiSTer project. Top entity is sys_top.
+#  Do NOT add files via the Quartus IDE ? edit files.qip instead.
+# --------------------------------------------------------------------------
+
+set_global_assignment -name TOP_LEVEL_ENTITY sys_top
+set_global_assignment -name PARTITION_NETLIST_TYPE SOURCE -section_id Top
+set_global_assignment -name PARTITION_FITTER_PRESERVATION_LEVEL PLACEMENT_AND_ROUTING -section_id Top
+set_global_assignment -name PARTITION_COLOR 16764057 -section_id Top
+
+set_global_assignment -name LAST_QUARTUS_VERSION "17.0.2 Lite Edition"
+
+set_global_assignment -name GENERATE_RBF_FILE ON
+set_global_assignment -name PROJECT_OUTPUT_DIRECTORY output_files
+set_global_assignment -name NUM_PARALLEL_PROCESSORS 4
+set_global_assignment -name SAVE_DISK_SPACE OFF
+set_global_assignment -name SMART_RECOMPILE ON
+set_global_assignment -name MIN_CORE_JUNCTION_TEMP "-40"
+set_global_assignment -name MAX_CORE_JUNCTION_TEMP 100
+set_global_assignment -name POWER_PRESET_COOLING_SOLUTION "23 MM HEAT SINK WITH 200 LFPM AIRFLOW"
+set_global_assignment -name POWER_BOARD_THERMAL_MODEL "NONE (CONSERVATIVE)"
+set_global_assignment -name TIMEQUEST_MULTICORNER_ANALYSIS ON
+set_global_assignment -name TIMEQUEST_REPORT_WORST_CASE_TIMING_PATHS ON
+set_global_assignment -name TIMEQUEST_REPORT_NUM_WORST_CASE_TIMING_PATHS 5
+set_global_assignment -name TIMEQUEST_REPORT_SCRIPT tools/timing-report.tcl
+set_global_assignment -name TIMEQUEST_REPORT_SCRIPT_INCLUDE_DEFAULT_ANALYSIS ON
+set_global_assignment -name OPTIMIZE_POWER_DURING_FITTING OFF
+set_global_assignment -name FINAL_PLACEMENT_OPTIMIZATION ALWAYS
+set_global_assignment -name FITTER_EFFORT "STANDARD FIT"
+set_global_assignment -name OPTIMIZATION_MODE "HIGH PERFORMANCE EFFORT"
+set_global_assignment -name ALLOW_POWER_UP_DONT_CARE ON
+set_global_assignment -name QII_AUTO_PACKED_REGISTERS NORMAL
+set_global_assignment -name ROUTER_LCELL_INSERTION_AND_LOGIC_DUPLICATION ON
+set_global_assignment -name PHYSICAL_SYNTHESIS_COMBO_LOGIC ON
+set_global_assignment -name PHYSICAL_SYNTHESIS_REGISTER_DUPLICATION ON
+set_global_assignment -name PHYSICAL_SYNTHESIS_REGISTER_RETIMING ON
+set_global_assignment -name OPTIMIZATION_TECHNIQUE SPEED
+set_global_assignment -name MUX_RESTRUCTURE ON
+set_global_assignment -name REMOVE_REDUNDANT_LOGIC_CELLS ON
+set_global_assignment -name AUTO_DELAY_CHAINS_FOR_HIGH_FANOUT_INPUT_PINS ON
+set_global_assignment -name PHYSICAL_SYNTHESIS_COMBO_LOGIC_FOR_AREA ON
+set_global_assignment -name ADV_NETLIST_OPT_SYNTH_WYSIWYG_REMAP ON
+set_global_assignment -name SYNTH_GATED_CLOCK_CONVERSION ON
+set_global_assignment -name PRE_MAPPING_RESYNTHESIS ON
+set_global_assignment -name ROUTER_CLOCKING_TOPOLOGY_ANALYSIS ON
+set_global_assignment -name ECO_OPTIMIZE_TIMING ON
+set_global_assignment -name PERIPHERY_TO_CORE_PLACEMENT_AND_ROUTING_OPTIMIZATION ON
+set_global_assignment -name PHYSICAL_SYNTHESIS_ASYNCHRONOUS_SIGNAL_PIPELINING ON
+set_global_assignment -name ALM_REGISTER_PACKING_EFFORT MEDIUM
+set_global_assignment -name SEED 1
+
+# ==========================================================================
+#  JTFRAME / TUMBLE macros shared by the RTL and simulation harness.
+# ==========================================================================
+set_global_assignment -name VERILOG_MACRO "JTFRAME_MEMGEN=1"
+set_global_assignment -name VERILOG_MACRO "JTFRAME_BUTTONS=3"
+set_global_assignment -name VERILOG_MACRO "JTFRAME_COLORW=8"
+set_global_assignment -name VERILOG_MACRO "JTFRAME_WIDTH=320"
+set_global_assignment -name VERILOG_MACRO "JTFRAME_HEIGHT=240"
+set_global_assignment -name VERILOG_MACRO "JTFRAME_PXLCLK=6"
+set_global_assignment -name VERILOG_MACRO "JTFRAME_STATUS=1"
+set_global_assignment -name VERILOG_MACRO "JTFRAME_DIPBASE=16"
+set_global_assignment -name VERILOG_MACRO "JTFRAME_HEADER=16"
+set_global_assignment -name VERILOG_MACRO "JTFRAME_JOY_RLDU=1"
+set_global_assignment -name VERILOG_MACRO "JTFRAME_MCLK=48000000"
+set_global_assignment -name VERILOG_MACRO "JTFRAME_ARX=4"
+set_global_assignment -name VERILOG_MACRO "JTFRAME_ARY=3"
+# MiSTer DDR3 framebuffer plumbing; the released TUMBLE games are horizontal.
+set_global_assignment -name VERILOG_MACRO "MISTER_FB=1"
+# Fixed ROM-region boundaries (byte addresses). Runtime board profiles and
+# tumble_dwnld.sv determine routing.
+set_global_assignment -name VERILOG_MACRO "SND_START=1048576"
+set_global_assignment -name VERILOG_MACRO "JTFRAME_BA1_START=2097152"
+set_global_assignment -name VERILOG_MACRO "GFX3_START=2097152"
+set_global_assignment -name VERILOG_MACRO "JTFRAME_BA2_START=4194304"
+set_global_assignment -name VERILOG_MACRO "PCM_START=8388608"
+set_global_assignment -name VERILOG_MACRO "PCM2_START=9437184"
+set_global_assignment -name VERILOG_MACRO "JTFRAME_BA3_START=8388608"
+set_global_assignment -name VERILOG_MACRO "GFX1_START=8388608"
+set_global_assignment -name VERILOG_MACRO "GFX2_START=8388608"
+
+# SDRAM read-data capture edge. jtframe's MiSTer (DE10) target uses SHIFT=1 /
+# 180SHIFT=0 -> SDRAM_SHIFT = 1^^0 = 1 (confirmed via `jtframe cfgstr cninja
+# -t mister`). The SiDi128 target uses SHIFT=0, which is what misled an earlier
+# build. With clk48sh driving SDRAM_CLK, SHIFT=1 is the correct capture edge on
+# this board; SHIFT=0 (the default) captures a half-cycle off -> garbled reads.
+set_global_assignment -name VERILOG_MACRO "JTFRAME_SHIFT=1"
+set_global_assignment -name VERILOG_MACRO "JTFRAME_180SHIFT=0"
+
+# Core clock IP copied from the matching Deco16 donor configuration. The
+# Template PLL remains in-tree but produces only a single 20 MHz output.
+set_instance_assignment -name PLL_COMPENSATION_MODE DIRECT -to "*tumble_pll_0002*|altera_pll:altera_pll_i*|*"
+set_instance_assignment -name PLL_AUTO_RESET ON -to "*tumble_pll_0002*|altera_pll:altera_pll_i*|*"
+set_instance_assignment -name PLL_BANDWIDTH_PRESET AUTO -to "*tumble_pll_0002*|altera_pll:altera_pll_i*|*"
+set_instance_assignment -name PLL_CHANNEL_SPACING "0.0 KHz" -to "*tumble_pll_0002*|altera_pll:altera_pll_i*|*"
+
+# SDRAM output slew-rate. jtframe's MiSTer build sets SLEW_RATE 0 on all SDRAM
+# output pins "for non-96 MHz SDRAM" (the 48 MHz case). Stock sys/ leaves the
+# default (fast) slew, which causes edge ringing/overshoot on the 48 MHz SDRAM
+# bus -> marginal reads. Match jtframe exactly (DQ is bidirectional -> not set).
+set_instance_assignment -name SLEW_RATE 0 -to SDRAM_A[*]
+set_instance_assignment -name SLEW_RATE 0 -to SDRAM_BA[*]
+set_instance_assignment -name SLEW_RATE 0 -to SDRAM_CLK
+set_instance_assignment -name SLEW_RATE 0 -to SDRAM_DQML
+set_instance_assignment -name SLEW_RATE 0 -to SDRAM_DQMH
+set_instance_assignment -name SLEW_RATE 0 -to SDRAM_nWE
+set_instance_assignment -name SLEW_RATE 0 -to SDRAM_nCAS
+set_instance_assignment -name SLEW_RATE 0 -to SDRAM_nRAS
+set_instance_assignment -name SLEW_RATE 0 -to SDRAM_nCS
+set_instance_assignment -name SLEW_RATE 0 -to SDRAM_CKE
+
+source sys/sys.tcl
+source sys/sys_analog.tcl
+source files.qip
+set_instance_assignment -name PARTITION_HIERARCHY root_partition -to | -section_id Top
+

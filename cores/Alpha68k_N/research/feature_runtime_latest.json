@@ -1,0 +1,35 @@
+{
+  "path": "sim\\captures\\rtl\\features_protocol8",
+  "result": {
+    "scope": "real emu/HPS/CPU/video/audio/SDRAM with ideal PLL and explicit framework scope adapter",
+    "frames": 1,
+    "framework_settling_fields": 4,
+    "profile": 0,
+    "rom_words": 327680,
+    "wait_ticks": 1220361,
+    "main_transactions": 5,
+    "unmapped": 0,
+    "deadlines": 0,
+    "overflows": 0,
+    "device_writes": 393216,
+    "device_reads": 2924544,
+    "refreshes": 191463,
+    "passed": true
+  },
+  "features": {
+    "passed": true,
+    "dip_values": 256,
+    "hiscore_bytes": 178,
+    "pause_bus_frozen": true,
+    "osd_changed_upload": true,
+    "osd_unchanged_no_upload": true,
+    "crt_modes": 5,
+    "quarter_turn_modes": 2,
+    "quarter_turn_pixels_verified": true,
+    "rotate180_pixels_verified": true,
+    "integer_scale_modes": 4,
+    "native_line_master_cycles": 3072,
+    "native_frame_master_cycles": 811008,
+    "limit": "RAM protocol fixture uses explicit synthetic scores; earned-gameplay reload and physical outputs remain pending"
+  }
+}

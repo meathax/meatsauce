@@ -1,0 +1,735 @@
+{
+  "scope": "Bounded known-run retained audio inventory and actual route-source excerpts. No waveform phase identity, semantic action closure or new replay.",
+  "input_receipts": [
+    {
+      "path": "D:\\Arcade\\AI\\aCORES\\Alpha68k N\\research\\kyros_sound_acceptance_contract_audit.json",
+      "sha256": "1a9d1e39ae4a8cf0f4fbbf026ddcc535afa742fb655108c304f3c3e97791feb1"
+    },
+    {
+      "path": "D:\\Arcade\\AI\\aCORES\\Alpha68k N\\research\\kyros_punch_release1081_cleanup_prefix.json",
+      "sha256": "c7ac5d70e07b183a04d3c089f0b1148e69a7e3f66494ff5a93e4e1cf54261f5d"
+    },
+    {
+      "path": "D:\\Arcade\\AI\\aCORES\\Alpha68k N\\research\\kyros_punch_release1081_components_artifact_recovery.json",
+      "sha256": "b79d8a3d6af796a523c53f8c82a7aca0837bc482413ca31ece4c9530be842eaa"
+    },
+    {
+      "path": "D:\\Arcade\\AI\\aCORES\\Alpha68k N\\research\\kyros_punch_release1081_components_job.json",
+      "sha256": "8881ba0642418285e6382c217df16552b6357c0203ba01573b70042a8f4c62bd"
+    },
+    {
+      "path": "D:\\Arcade\\AI\\aCORES\\Alpha68k N\\research\\kyros_punch_release1081_exit.json",
+      "sha256": "40afcd43394c8c73bcecf9ae59b761a6bfc69d134c5f53657937648c50cbea3d"
+    },
+    {
+      "path": "D:\\Arcade\\AI\\aCORES\\Alpha68k N\\research\\kyros_punch_release1081_job.json",
+      "sha256": "8537557090b455126f2b04d99f4842dc44bfd1fede41a57d2b7bfaede6f094e9"
+    },
+    {
+      "path": "D:\\Arcade\\AI\\aCORES\\Alpha68k N\\research\\kyros_punch_release1081_native_check0_exit.json",
+      "sha256": "3cba8b2e5ff25550b79ecda5b798fd201974f59da4d3c40ce6cd7dba6f1195dc"
+    },
+    {
+      "path": "D:\\Arcade\\AI\\aCORES\\Alpha68k N\\research\\kyros_punch_release1081_native_check1_exit.json",
+      "sha256": "fc699c40639c1984ee75e6785396992132a2867957599d2d9de4b866840116bf"
+    },
+    {
+      "path": "D:\\Arcade\\AI\\aCORES\\Alpha68k N\\research\\kyros_punch_release1081_native_exit.json",
+      "sha256": "ab15f1e85894c40476623768bb0ce4848d2e24de1d10a827a6de4f75cb12d41f"
+    },
+    {
+      "path": "D:\\Arcade\\AI\\aCORES\\Alpha68k N\\research\\kyros_punch_release1081_native_job.json",
+      "sha256": "5e809b685ab1b2a3a58b67e229b9e9e9c552ae703d30c4d24f9ac42f83ca0ac4"
+    },
+    {
+      "path": "D:\\Arcade\\AI\\aCORES\\Alpha68k N\\research\\kyros_punch_release1081_native_launcher.json",
+      "sha256": "a58d978704be442f5d930039755b5be182c3eb91b4a94fc14ea8fe376b2f4b43"
+    },
+    {
+      "path": "D:\\Arcade\\AI\\aCORES\\Alpha68k N\\research\\kyros_punch_release1081_native_noise_cleanup.json",
+      "sha256": "a6dab8000ee89ff5d56f49ff3acaf6077ad74b1953b329eb33a6da974fc3caee"
+    },
+    {
+      "path": "D:\\Arcade\\AI\\aCORES\\Alpha68k N\\research\\kyros_punch_release1081_native_sound_interleaving.json",
+      "sha256": "69110eb09b0b38dca38d868f85c9421b4cdab430b8df1061580bd0256ddd5318"
+    },
+    {
+      "path": "D:\\Arcade\\AI\\aCORES\\Alpha68k N\\research\\kyros_punch_release1081_native_verification.json",
+      "sha256": "a2702c6a98bd84362452b2e9293afbdebac0418d94c1645c301820ad6e6efff3"
+    },
+    {
+      "path": "D:\\Arcade\\AI\\aCORES\\Alpha68k N\\research\\kyros_punch_release1081_noise_oracle.json",
+      "sha256": "7f3cb77dc69d805d8289aa97f6d3f2e6691c09c8b65585465e51fdaa09990c1e"
+    },
+    {
+      "path": "D:\\Arcade\\AI\\aCORES\\Alpha68k N\\research\\kyros_idle_death3601_exit.json",
+      "sha256": "ed5f7ada19ccd0862b8b1b71ff48e10bca16f2bc18622479d9efc1353713f0f3"
+    },
+    {
+      "path": "D:\\Arcade\\AI\\aCORES\\Alpha68k N\\research\\kyros_idle_death3601_job.json",
+      "sha256": "d213eba5cc40aa31bfadd3ebaa36cb75f61852be9064338bf12d4f1cb998297d"
+    },
+    {
+      "path": "D:\\Arcade\\AI\\aCORES\\Alpha68k N\\research\\kyros_idle_death3601_sound_comparison.json",
+      "sha256": "5e3624464dfe590be31fbd43cdf11c58a8f0d6e94372507e1517052c74051d15"
+    },
+    {
+      "path": "D:\\Arcade\\AI\\aCORES\\Alpha68k N\\research\\kyros_idle_death3601_sound_comparison_run.json",
+      "sha256": "189c1aa360acc37cdf405944b63a59ebddd451c6e364f205fc22f8bd0c523b7c"
+    },
+    {
+      "path": "D:\\Arcade\\AI\\aCORES\\Alpha68k N\\research\\kyros_idle_death3601_verification.json",
+      "sha256": "5eb0e5e657cf00b5958af7c509b62684f8e119ed949bb97e1d1ab886f1f04930"
+    },
+    {
+      "path": "D:\\Arcade\\AI\\aCORES\\Alpha68k N\\research\\kyros_idle_death3601_verification_run.json",
+      "sha256": "51232a08d99a94c4516fb1010d6dff28c951cc4ecb0d112ada76eca2f87ea059"
+    }
+  ],
+  "capture_directories_checked": [
+    "D:\\Arcade\\AI\\aCORES\\Alpha68k N\\sim\\captures\\kyros\\gameplay",
+    "D:\\Arcade\\AI\\aCORES\\Alpha68k N\\sim\\captures\\kyros\\idle_death7200_v2",
+    "D:\\Arcade\\AI\\aCORES\\Alpha68k N\\sim\\captures\\kyros\\punch_release1081",
+    "D:\\Arcade\\AI\\aCORES\\Alpha68k N\\sim\\captures\\kyros\\punch_release1081\\cfg",
+    "D:\\Arcade\\AI\\aCORES\\Alpha68k N\\sim\\captures\\kyros\\punch_release1081_components",
+    "D:\\Arcade\\AI\\aCORES\\Alpha68k N\\sim\\captures\\kyros\\punch_release1081_components\\cfg",
+    "D:\\Arcade\\AI\\aCORES\\Alpha68k N\\sim\\captures\\kyrosj\\gameplay",
+    "D:\\Arcade\\AI\\aCORES\\Alpha68k N\\sim\\captures\\kyrosj\\kyrosj_sound_fulltap720",
+    "D:\\Arcade\\AI\\aCORES\\Alpha68k N\\sim\\captures\\rtl\\kyros_combat_hud3301",
+    "D:\\Arcade\\AI\\aCORES\\Alpha68k N\\sim\\captures\\rtl\\kyros_idle_death3601",
+    "D:\\Arcade\\AI\\aCORES\\Alpha68k N\\sim\\captures\\rtl\\kyros_punch_release1081",
+    "D:\\Arcade\\AI\\aCORES\\Alpha68k N\\sim\\captures\\rtl\\kyrosj_current720_curvefixed_drive"
+  ],
+  "retained_audio": [
+    {
+      "path": "D:\\Arcade\\AI\\aCORES\\Alpha68k N\\sim\\captures\\kyros\\gameplay\\audio.wav",
+      "bytes": 2918446,
+      "sha256": "119e843b22a0b1358f8b953afcda2d43f91a292805c69dbe2da743821a3244bf",
+      "channels": 1,
+      "sample_width_bytes": 2,
+      "sample_rate": 48000,
+      "samples": 1459201,
+      "duration_seconds": 30.400020833333333,
+      "minimum": -28471,
+      "maximum": 13563,
+      "endpoint_saturation_samples": 0,
+      "nonzero_samples": 1459189,
+      "rms": 10511.708369135484
+    },
+    {
+      "path": "D:\\Arcade\\AI\\aCORES\\Alpha68k N\\sim\\captures\\kyros\\idle_death7200_v2\\audio.wav",
+      "bytes": 11677486,
+      "sha256": "95b6abaf1033a40645cfa820be44ef1bddd577c83b44d9969bd50475bbc2c650",
+      "channels": 1,
+      "sample_width_bytes": 2,
+      "sample_rate": 48000,
+      "samples": 5838721,
+      "duration_seconds": 121.64002083333334,
+      "minimum": -28471,
+      "maximum": 5926,
+      "endpoint_saturation_samples": 0,
+      "nonzero_samples": 5838700,
+      "rms": 10325.767683089718
+    },
+    {
+      "path": "D:\\Arcade\\AI\\aCORES\\Alpha68k N\\sim\\captures\\kyros\\punch_release1081\\audio.wav",
+      "bytes": 1753006,
+      "sha256": "b4e85750ac40b9073cba664e2b68803c50cfb393bad11dc7d14e44eb4ca5c3ea",
+      "channels": 1,
+      "sample_width_bytes": 2,
+      "sample_rate": 48000,
+      "samples": 876481,
+      "duration_seconds": 18.260020833333332,
+      "minimum": -28471,
+      "maximum": 3800,
+      "endpoint_saturation_samples": 0,
+      "nonzero_samples": 876477,
+      "rms": 12056.531968958308
+    },
+    {
+      "path": "D:\\Arcade\\AI\\aCORES\\Alpha68k N\\sim\\captures\\kyros\\punch_release1081_components\\audio.wav",
+      "bytes": 1753006,
+      "sha256": "b4e85750ac40b9073cba664e2b68803c50cfb393bad11dc7d14e44eb4ca5c3ea",
+      "channels": 1,
+      "sample_width_bytes": 2,
+      "sample_rate": 48000,
+      "samples": 876481,
+      "duration_seconds": 18.260020833333332,
+      "minimum": -28471,
+      "maximum": 3800,
+      "endpoint_saturation_samples": 0,
+      "nonzero_samples": 876477,
+      "rms": 12056.531968958308
+    },
+    {
+      "path": "D:\\Arcade\\AI\\aCORES\\Alpha68k N\\sim\\captures\\kyrosj\\gameplay\\audio.wav",
+      "bytes": 2918446,
+      "sha256": "119e843b22a0b1358f8b953afcda2d43f91a292805c69dbe2da743821a3244bf",
+      "channels": 1,
+      "sample_width_bytes": 2,
+      "sample_rate": 48000,
+      "samples": 1459201,
+      "duration_seconds": 30.400020833333333,
+      "minimum": -28471,
+      "maximum": 13563,
+      "endpoint_saturation_samples": 0,
+      "nonzero_samples": 1459189,
+      "rms": 10511.708369135484
+    },
+    {
+      "path": "D:\\Arcade\\AI\\aCORES\\Alpha68k N\\sim\\captures\\kyrosj\\kyrosj_sound_fulltap720\\audio.wav",
+      "bytes": 1167406,
+      "sha256": "1af3609f6d151a445d3ea47c101f42474e5b6e2dbaede0c7bf417e61132ab06f",
+      "channels": 1,
+      "sample_width_bytes": 2,
+      "sample_rate": 48000,
+      "samples": 583681,
+      "duration_seconds": 12.160020833333334,
+      "minimum": -28471,
+      "maximum": 923,
+      "endpoint_saturation_samples": 0,
+      "nonzero_samples": 583679,
+      "rms": 13378.005537438989
+    },
+    {
+      "path": "D:\\Arcade\\AI\\aCORES\\Alpha68k N\\sim\\captures\\rtl\\kyros_combat_hud3301\\audio.wav",
+      "bytes": 5354318,
+      "sha256": "7f9b8efdbe05d511494529ec16c4286e07d6daafafd009c55e88730b52409c3c",
+      "channels": 1,
+      "sample_width_bytes": 2,
+      "sample_rate": 48000,
+      "samples": 2677137,
+      "duration_seconds": 55.7736875,
+      "minimum": -27444,
+      "maximum": 19776,
+      "endpoint_saturation_samples": 0,
+      "nonzero_samples": 2677118,
+      "rms": 9091.105791487127
+    },
+    {
+      "path": "D:\\Arcade\\AI\\aCORES\\Alpha68k N\\sim\\captures\\rtl\\kyros_idle_death3601\\audio.wav",
+      "bytes": 5840922,
+      "sha256": "d9d6b33bc825af4afc66980fa6387f5d4c0e0d67a3f47c8f93f76e141fe80ac8",
+      "channels": 1,
+      "sample_width_bytes": 2,
+      "sample_rate": 48000,
+      "samples": 2920439,
+      "duration_seconds": 60.842479166666664,
+      "minimum": -27444,
+      "maximum": 5721,
+      "endpoint_saturation_samples": 0,
+      "nonzero_samples": 2920431,
+      "rms": 9309.287500623182
+    },
+    {
+      "path": "D:\\Arcade\\AI\\aCORES\\Alpha68k N\\sim\\captures\\rtl\\kyros_punch_release1081\\audio.wav",
+      "bytes": 1753442,
+      "sha256": "cf63a99d3615a65387cd409734df1c72c04791487a79de02b6564511b334d426",
+      "channels": 1,
+      "sample_width_bytes": 2,
+      "sample_rate": 48000,
+      "samples": 876699,
+      "duration_seconds": 18.2645625,
+      "minimum": -27444,
+      "maximum": 2572,
+      "endpoint_saturation_samples": 0,
+      "nonzero_samples": 876698,
+      "rms": 12054.895526208093
+    },
+    {
+      "path": "D:\\Arcade\\AI\\aCORES\\Alpha68k N\\sim\\captures\\rtl\\kyrosj_current720_curvefixed_drive\\audio.wav",
+      "bytes": 1167894,
+      "sha256": "ef6301bbe50a9004c1a17224ca6ce696ff9f5effee5e23d9e83b95b880cabd09",
+      "channels": 1,
+      "sample_width_bytes": 2,
+      "sample_rate": 48000,
+      "samples": 583925,
+      "duration_seconds": 12.165104166666667,
+      "minimum": -27444,
+      "maximum": -820,
+      "endpoint_saturation_samples": 0,
+      "nonzero_samples": 583925,
+      "rms": 13378.716882687515
+    }
+  ],
+  "source": {
+    "rtl/alpha68kn_mixer.sv": {
+      "sha256": "93df0e2464cae387fc473bbcab830494d043c3d219fc3f3c5fff69ed67cc40f0",
+      "lines": [
+        {
+          "line": 1,
+          "text": "// MAME 0.289 nominal mono routes: YMFM SSG and legacy standalone AY differ."
+        },
+        {
+          "line": 2,
+          "text": "// Inputs are donor numerical samples; physical analog calibration remains separate."
+        },
+        {
+          "line": 3,
+          "text": "module alpha68kn_mixer ("
+        },
+        {
+          "line": 4,
+          "text": "    input wire clk,reset,"
+        },
+        {
+          "line": 5,
+          "text": "    input wire [7:0] profile,dac,"
+        },
+        {
+          "line": 6,
+          "text": "    input wire signed [15:0] fm,"
+        },
+        {
+          "line": 7,
+          "text": "    input wire [9:0] ym_psg,ay1_psg,ay2_psg,"
+        },
+        {
+          "line": 8,
+          "text": "    output reg signed [15:0] sample,"
+        },
+        {
+          "line": 9,
+          "text": "    output reg sample_ce,"
+        },
+        {
+          "line": 10,
+          "text": "    output reg [31:0] clipped_samples"
+        },
+        {
+          "line": 11,
+          "text": ");"
+        },
+        {
+          "line": 12,
+          "text": "    // Q16: FM route .30. YMFM SSG maps each channel u8 to [0,16382]."
+        },
+        {
+          "line": 13,
+          "text": "    // Standalone AY maps each channel u8 to [-.125,.375] of full scale,"
+        },
+        {
+          "line": 14,
+          "text": "    // matching build_single_table before MAME's frontend limiter."
+        },
+        {
+          "line": 15,
+          "text": "    // PSG gains .30/.30/.60 (Kyros/Japan), .30/.30/.45 (Stingray); DAC .50."
+        },
+        {
+          "line": 16,
+          "text": "    reg signed [39:0] fm_q,ym_q,ay1_q,ay2_q,dac_q;"
+        },
+        {
+          "line": 17,
+          "text": "    reg signed [39:0] pair0_q,pair1_q,dac_delay_q,mix_q;"
+        },
+        {
+          "line": 18,
+          "text": "    wire signed [39:0] pcm=mix_q >>> 16;"
+        },
+        {
+          "line": 19,
+          "text": "    reg [9:0] sample_div;"
+        },
+        {
+          "line": 20,
+          "text": "    always @(posedge clk) begin"
+        },
+        {
+          "line": 21,
+          "text": "        if(reset) begin"
+        },
+        {
+          "line": 22,
+          "text": "            fm_q<=0;ym_q<=0;ay1_q<=0;ay2_q<=0;dac_q<=0;"
+        },
+        {
+          "line": 23,
+          "text": "            pair0_q<=0;pair1_q<=0;dac_delay_q<=0;mix_q<=0;"
+        },
+        {
+          "line": 24,
+          "text": "            sample<=0;sample_ce<=0;sample_div<=0;clipped_samples<=0;"
+        },
+        {
+          "line": 25,
+          "text": "        end else begin"
+        },
+        {
+          "line": 26,
+          "text": "            fm_q <= $signed(fm) * 40'sd19661;"
+        },
+        {
+          "line": 27,
+          "text": "            ym_q <= $signed({1'b0,ym_psg}) * 40'sd1263071;"
+        },
+        {
+          "line": 28,
+          "text": "            ay1_q <= $signed({1'b0,ay1_psg}) * 40'sd1263226 - 40'sd241591910;"
+        },
+        {
+          "line": 29,
+          "text": "            ay2_q <= $signed({1'b0,ay2_psg}) *"
+        },
+        {
+          "line": 30,
+          "text": "                (profile==2 ? 40'sd1894839 : 40'sd2526451) -"
+        },
+        {
+          "line": 31,
+          "text": "                (profile==2 ? 40'sd362387866 : 40'sd483183821);"
+        },
+        {
+          "line": 32,
+          "text": "            dac_q <= ($signed({1'b0,dac})-40'sd128) * 40'sd8388608;"
+        },
+        {
+          "line": 33,
+          "text": "            pair0_q<=fm_q+ym_q;pair1_q<=ay1_q+ay2_q;dac_delay_q<=dac_q;"
+        },
+        {
+          "line": 34,
+          "text": "            mix_q<=pair0_q+pair1_q+dac_delay_q;"
+        },
+        {
+          "line": 35,
+          "text": "            sample_ce<=sample_div==999;"
+        },
+        {
+          "line": 36,
+          "text": "            sample_div<=sample_div==999 ? 0 : sample_div+1'b1;"
+        },
+        {
+          "line": 37,
+          "text": "            if(sample_div==999) begin"
+        },
+        {
+          "line": 38,
+          "text": "                if(pcm>32767) begin sample<=32767;clipped_samples<=clipped_samples+1'b1;end"
+        },
+        {
+          "line": 39,
+          "text": "                else if(pcm< -32768) begin sample<=-32768;clipped_samples<=clipped_samples+1'b1;end"
+        },
+        {
+          "line": 40,
+          "text": "                else sample<=pcm[15:0];"
+        },
+        {
+          "line": 41,
+          "text": "            end"
+        },
+        {
+          "line": 42,
+          "text": "        end"
+        },
+        {
+          "line": 43,
+          "text": "    end"
+        },
+        {
+          "line": 44,
+          "text": "endmodule"
+        }
+      ]
+    },
+    "rtl/alpha68kn_soundchips.sv": {
+      "sha256": "5031188ac069c50e0deb4594947395b5440ac288e41f29c09fec8a80e1a45e37",
+      "lines": []
+    },
+    "rtl/alpha68kn_audio.sv": {
+      "sha256": "1aa458aab8c8ebbf061c6f371cbd506cbc1b3a5d21206f2006532ff70be6113e",
+      "lines": [
+        {
+          "line": 6,
+          "text": "    output wire signed [15:0] sample,"
+        },
+        {
+          "line": 7,
+          "text": "    output wire sample_ce,"
+        },
+        {
+          "line": 8,
+          "text": "    output wire [31:0] clipped_samples,"
+        },
+        {
+          "line": 9,
+          "text": "    output wire signed [15:0] debug_fm,"
+        },
+        {
+          "line": 10,
+          "text": "    output wire [9:0] debug_ym_psg,debug_ay1_psg,debug_ay2_psg,"
+        },
+        {
+          "line": 11,
+          "text": "    output wire [31:0] ym_writes,ay1_writes,ay2_writes"
+        },
+        {
+          "line": 21,
+          "text": "        .clk(clk),.reset(reset),.profile(profile),.dac(dac),.fm(debug_fm),"
+        },
+        {
+          "line": 22,
+          "text": "        .ym_psg(debug_ym_psg),.ay1_psg(debug_ay1_psg),.ay2_psg(debug_ay2_psg),"
+        },
+        {
+          "line": 23,
+          "text": "        .sample(sample),.sample_ce(sample_ce),.clipped_samples(clipped_samples)"
+        },
+        {
+          "line": 24,
+          "text": "    );"
+        },
+        {
+          "line": 25,
+          "text": "endmodule"
+        }
+      ]
+    },
+    "sim/system_main.cpp": {
+      "sha256": "ac8fc5de33ba606dca879ecaa337e37d0cfee9f23c96125f4e2781ed7b776202",
+      "lines": [
+        {
+          "line": 95,
+          "text": "    audio_events<<\"tick,frame,kind,address,data\\n\";"
+        },
+        {
+          "line": 96,
+          "text": "    epoch_events<<\"tick,frame,raster_x,raster_y,address,iack,rw,uds_n,lds_n,data_out,data_in\\n\";"
+        },
+        {
+          "line": 97,
+          "text": "    std::ofstream sound_bus,pcm_stream;"
+        },
+        {
+          "line": 98,
+          "text": "    if(dac_probe) {"
+        },
+        {
+          "line": 99,
+          "text": "        sound_bus.open(output/\"sound_bus_events.csv\");"
+        },
+        {
+          "line": 100,
+          "text": "        sound_bus<<\"tick,frame,kind,address,data,m1_n\\n\";"
+        },
+        {
+          "line": 101,
+          "text": "        pcm_stream.open(output/\"audio.pcm\",std::ios::binary);"
+        },
+        {
+          "line": 102,
+          "text": "    }"
+        },
+        {
+          "line": 103,
+          "text": "    events<<\"tick,address,transaction,iack,rw,uds_n,lds_n,data_out,data_in\\n\";"
+        },
+        {
+          "line": 104,
+          "text": "    summary<<\"frame,main_address,sound_address,main_transactions,work_writes,strip_writes,mcu_transactions,irq1_acks,irq2_acks,unmapped,pixels,duplicates,worst_line_cycles,completed_lines,deadline_misses,row_overflows\\n\";"
+        },
+        {
+          "line": 148,
+          "text": "        <<\" device_writes=\"<<device.writes<<\" refreshes=\"<<device.refreshes<<std::endl;"
+        },
+        {
+          "line": 149,
+          "text": "    top.reset=0;"
+        },
+        {
+          "line": 150,
+          "text": "    std::vector<uint8_t> rgb(256*224*3),seen(256*224);"
+        },
+        {
+          "line": 151,
+          "text": "    unsigned frame=0,pixels=0,duplicates=0,sampled=0,extra_samples=0;"
+        },
+        {
+          "line": 152,
+          "text": "    uint32_t previous=0;"
+        },
+        {
+          "line": 153,
+          "text": "    bool capture_ok=true;"
+        },
+        {
+          "line": 154,
+          "text": "    const uint64_t started=ticks;"
+        },
+        {
+          "line": 155,
+          "text": "    std::vector<int16_t> pcm;"
+        },
+        {
+          "line": 156,
+          "text": "    pcm.reserve(uint64_t(requested)*48000/59+1000);"
+        },
+        {
+          "line": 157,
+          "text": "    uint32_t previous_sound=top.sound_transactions;"
+        },
+        {
+          "line": 158,
+          "text": "    auto inputs=[&](unsigned f) {"
+        },
+        {
+          "line": 159,
+          "text": "        if(!ports.empty()) {"
+        },
+        {
+          "line": 199,
+          "text": "        tick();"
+        },
+        {
+          "line": 200,
+          "text": "        if(top.audio_sample_ce) {"
+        },
+        {
+          "line": 201,
+          "text": "            pcm.push_back(static_cast<int16_t>(top.audio_sample));"
+        },
+        {
+          "line": 202,
+          "text": "            if(dac_probe) {pcm_stream.put(top.audio_sample&255);pcm_stream.put((top.audio_sample>>8)&255);}"
+        },
+        {
+          "line": 203,
+          "text": "        }"
+        },
+        {
+          "line": 204,
+          "text": "        if(top.sound_io_wr) audio_events<<ticks-started<<','<<frame<<\",write,\""
+        },
+        {
+          "line": 205,
+          "text": "            <<unsigned(top.sound_io_addr)<<','<<unsigned(top.sound_io_data)<<'\\n';"
+        },
+        {
+          "line": 266,
+          "text": "        }"
+        },
+        {
+          "line": 267,
+          "text": "        if(!boundary) continue;"
+        },
+        {
+          "line": 268,
+          "text": "        capture_ok &= pixels==256*224 && duplicates==0;"
+        },
+        {
+          "line": 269,
+          "text": "        summary<<frame<<','<<top.debug_main_addr<<','<<top.debug_sound_addr<<','"
+        },
+        {
+          "line": 270,
+          "text": "            <<top.main_transactions<<','<<top.work_writes<<','<<top.strip_writes<<','"
+        },
+        {
+          "line": 271,
+          "text": "            <<top.mcu_transactions<<','<<top.irq1_acks<<','<<top.irq2_acks<<','<<top.unmapped_accesses<<','"
+        },
+        {
+          "line": 274,
+          "text": "        summary.flush();"
+        },
+        {
+          "line": 275,
+          "text": "        audio_events.flush();epoch_events.flush();"
+        },
+        {
+          "line": 276,
+          "text": "        if(dac_probe) {sound_bus.flush();pcm_stream.flush();}"
+        },
+        {
+          "line": 277,
+          "text": "        if(frame<=16 || frame%30==0 || frame==119 || frame==179 || frame==1799 || frame+1==requested) {"
+        },
+        {
+          "line": 278,
+          "text": "            char name[40];std::snprintf(name,sizeof name,\"frame_%06u.rgb\",frame);"
+        },
+        {
+          "line": 279,
+          "text": "            std::ofstream f(output/name,std::ios::binary);"
+        },
+        {
+          "line": 328,
+          "text": "        <<\" unmapped=\"<<top.unmapped_accesses<<\" reads=\"<<device.reads"
+        },
+        {
+          "line": 329,
+          "text": "        <<\" refreshes=\"<<device.refreshes<<\" capture_ok=\"<<capture_ok<<std::endl;"
+        },
+        {
+          "line": 330,
+          "text": "    // 48 kHz mono PCM16 from the real sound-chip/mixer output, including DC."
+        },
+        {
+          "line": 331,
+          "text": "    // No normalization or filter conceals clipping or route-gain defects."
+        },
+        {
+          "line": 332,
+          "text": "    std::ofstream wav(output/\"audio.wav\",std::ios::binary);"
+        },
+        {
+          "line": 333,
+          "text": "    auto le=[&](uint32_t value,unsigned width) {for(unsigned i=0;i<width;i++) wav.put((value>>(8*i))&255);};"
+        },
+        {
+          "line": 334,
+          "text": "    const uint32_t audio_bytes=pcm.size()*2;"
+        },
+        {
+          "line": 335,
+          "text": "    wav.write(\"RIFF\",4);le(36+audio_bytes,4);wav.write(\"WAVEfmt \",8);le(16,4);"
+        },
+        {
+          "line": 336,
+          "text": "    le(1,2);le(1,2);le(48000,4);le(96000,4);le(2,2);le(16,2);"
+        },
+        {
+          "line": 337,
+          "text": "    wav.write(\"data\",4);le(audio_bytes,4);"
+        },
+        {
+          "line": 338,
+          "text": "    int minimum=32767,maximum=-32768;uint64_t changed_samples=0;"
+        },
+        {
+          "line": 339,
+          "text": "    for(unsigned i=0;i<pcm.size();i++) {"
+        }
+      ]
+    }
+  },
+  "retained_reference_paths": [
+    "/mnt/d/Arcade/AI/aCORES/Alpha68k N/sim/captures/kyros/idle_death7200_v2/frame_states.csv",
+    "/mnt/d/Arcade/AI/aCORES/Alpha68k N/sim/captures/kyros/punch_release1081",
+    "/mnt/d/Arcade/AI/aCORES/Alpha68k N/sim/captures/kyros/punch_release1081/frame_states.csv",
+    "/mnt/d/Arcade/AI/aCORES/Alpha68k N/sim/captures/rtl/kyros_combat_hud3301/alpha68kn_system_sim",
+    "/mnt/d/Arcade/AI/aCORES/Alpha68k N/sim/captures/rtl/kyros_idle_death3601",
+    "/mnt/d/Arcade/AI/aCORES/Alpha68k N/sim/captures/rtl/kyros_punch_release1081",
+    "D:\\Arcade\\AI\\aCORES\\Alpha68k N\\sim\\captures\\kyros\\idle_death7200_v2",
+    "D:\\Arcade\\AI\\aCORES\\Alpha68k N\\sim\\captures\\kyros\\punch_release1081",
+    "D:\\Arcade\\AI\\aCORES\\Alpha68k N\\sim\\captures\\kyros\\punch_release1081\\audio.wav",
+    "D:\\Arcade\\AI\\aCORES\\Alpha68k N\\sim\\captures\\kyros\\punch_release1081\\cfg",
+    "D:\\Arcade\\AI\\aCORES\\Alpha68k N\\sim\\captures\\kyros\\punch_release1081\\nvram",
+    "D:\\Arcade\\AI\\aCORES\\Alpha68k N\\sim\\captures\\kyros\\punch_release1081\\states",
+    "D:\\Arcade\\AI\\aCORES\\Alpha68k N\\sim\\captures\\kyros\\punch_release1081_components",
+    "D:\\Arcade\\AI\\aCORES\\Alpha68k N\\sim\\captures\\kyros\\punch_release1081_components\\audio.wav",
+    "D:\\Arcade\\AI\\aCORES\\Alpha68k N\\sim\\captures\\kyros\\punch_release1081_components\\cfg",
+    "D:\\Arcade\\AI\\aCORES\\Alpha68k N\\sim\\captures\\kyros\\punch_release1081_components\\nvram",
+    "D:\\Arcade\\AI\\aCORES\\Alpha68k N\\sim\\captures\\kyros\\punch_release1081_components\\states",
+    "D:\\Arcade\\AI\\aCORES\\Alpha68k N\\sim\\captures\\rtl\\kyros_idle_death3601",
+    "sim/captures/kyrosj/gameplay/events.csv",
+    "sim/captures/kyrosj/gameplay/frame_states.csv",
+    "sim/captures/rtl/kyros_combat_hud3301/audio.json",
+    "sim/captures/rtl/kyrosj_current720_curvefixed_drive/applied_inputs.csv",
+    "sim/captures/rtl/kyrosj_current720_curvefixed_drive/audio.json",
+    "sim/captures/rtl/kyrosj_current720_curvefixed_drive/audio_events.csv"
+  ],
+  "fullP5pass": false
+}

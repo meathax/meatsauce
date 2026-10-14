@@ -1,0 +1,109 @@
+{
+  "scope": "Prepared commands only; root release required before paired runtime.",
+  "native_command": [
+    "wsl.exe",
+    "-d",
+    "Ubuntu",
+    "--cd",
+    "D:\\Arcade\\AI\\aCORES\\Alpha68k N\\research\\japan_ram_divergence_20261011\\paired601\\source\\sim\\build",
+    "--exec",
+    "./alpha68kn_system_sim",
+    "/mnt/d/Arcade/AI/aCORES/Alpha68k N/roms/kyrosj/download.bin",
+    "601",
+    "/mnt/d/Arcade/AI/aCORES/Alpha68k N/research/japan_ram_divergence_20261011/paired601/native_capture",
+    "gameplay",
+    "dac-probe",
+    "--inputs",
+    "/mnt/d/Arcade/AI/aCORES/Alpha68k N/sim/captures/kyrosj/gameplay/frame_states.csv"
+  ],
+  "MAME_command": [
+    "D:\\Arcade\\AI\\aCORES\\Alpha68k N\\tools\\mame0289\\mame.exe",
+    "kyrosj",
+    "-rompath",
+    "D:\\Arcade\\AI\\aCORES\\Alpha68k N\\roms",
+    "-noreadconfig",
+    "-skip_gameinfo",
+    "-video",
+    "none",
+    "-sound",
+    "none",
+    "-nothrottle",
+    "-noautoframeskip",
+    "-frameskip",
+    "0",
+    "-autoboot_delay",
+    "0",
+    "-autoboot_script",
+    "D:\\Arcade\\AI\\aCORES\\Alpha68k N\\research\\japan_ram_divergence_20261011\\paired601\\mame_observer.lua",
+    "-pluginspath",
+    "D:\\Arcade\\AI\\aCORES\\Alpha68k N\\tools\\mame0289\\plugins",
+    "-seconds_to_run",
+    "20",
+    "-snapshot_directory",
+    "D:\\Arcade\\AI\\aCORES\\Alpha68k N\\research\\japan_ram_divergence_20261011\\paired601\\mame_capture",
+    "-cfg_directory",
+    "D:\\Arcade\\AI\\aCORES\\Alpha68k N\\research\\japan_ram_divergence_20261011\\paired601\\mame_capture\\cfg",
+    "-nvram_directory",
+    "D:\\Arcade\\AI\\aCORES\\Alpha68k N\\research\\japan_ram_divergence_20261011\\paired601\\mame_capture\\nvram",
+    "-state_directory",
+    "D:\\Arcade\\AI\\aCORES\\Alpha68k N\\research\\japan_ram_divergence_20261011\\paired601\\mame_capture\\states",
+    "-wavwrite",
+    "D:\\Arcade\\AI\\aCORES\\Alpha68k N\\research\\japan_ram_divergence_20261011\\paired601\\mame_capture\\audio.wav"
+  ],
+  "MAME_environment": {
+    "ALPHA_CAPTURE_DIR": "D:\\Arcade\\AI\\aCORES\\Alpha68k N\\research\\japan_ram_divergence_20261011\\paired601\\mame_capture",
+    "ALPHA_CAPTURE_MODE": "gameplay",
+    "ALPHA_CAPTURE_FRAMES": "601"
+  },
+  "MAME_binary": {
+    "path": "D:\\Arcade\\AI\\aCORES\\Alpha68k N\\tools\\mame0289\\mame.exe",
+    "bytes": 316431360,
+    "sha256": "af6966108d9b52c22465c6d50f4e5d50cc371b50f2d27dc443935f287aad37a3"
+  },
+  "MAME_observer": {
+    "path": "D:\\Arcade\\AI\\aCORES\\Alpha68k N\\research\\japan_ram_divergence_20261011\\paired601\\mame_observer.lua",
+    "bytes": 10954,
+    "sha256": "abb4ef224b618369877f1f680782bf249b7fbdfed7537234c458c451da03275e"
+  },
+  "MAME_API": {
+    "path": "D:\\Arcade\\AI\\aCORES\\Alpha68k N\\research\\japan_ram_divergence_20261011\\paired601\\mame_API_preparation.json",
+    "bytes": 2890,
+    "sha256": "6de973e13287495ccecca40ee42bb1bcad22363a6347dcc29d852b7c36a13299"
+  },
+  "native_API": {
+    "path": "D:\\Arcade\\AI\\aCORES\\Alpha68k N\\research\\japan_ram_divergence_20261011\\paired601\\native_API_qualification.json",
+    "bytes": 21774,
+    "sha256": "bd8f1fde45b1e60d191b52c68353f457180a8c34a793e5cf6d84509565681045"
+  },
+  "input_reference": {
+    "path": "D:\\Arcade\\AI\\aCORES\\Alpha68k N\\sim\\captures\\kyrosj\\gameplay\\frame_states.csv",
+    "bytes": 64983,
+    "sha256": "ed826d092dab4e09aaa0b5ed8222e13c74aed5dc53d211f48b0e548a26776bc5"
+  },
+  "ROM": {
+    "path": "D:\\Arcade\\AI\\aCORES\\Alpha68k N\\roms\\kyrosj\\download.bin",
+    "bytes": 655360,
+    "sha256": "07d3dbbbc22d8ba039fbbf105106bc54d484d2868b930b0eaef7a49317bea20d"
+  },
+  "original_reference_import": {
+    "path": "D:\\Arcade\\AI\\aCORES\\Alpha68k N\\research\\remaining_gates_20261011\\japan_joined720\\canonical_v2_import_manifest.json",
+    "bytes": 9925,
+    "sha256": "b4e102521239681a5d41957a27850cb7f8e33d0aabb928444f1b6c511e4e3484"
+  },
+  "pre_admission": {
+    "time": 1791654376.2410965,
+    "owned_native_matches": [],
+    "owned_native_ps_exit": 0,
+    "windows_process_scan": "",
+    "note": "Qualifying observer process may list itself; no game runtime has been launched. Repeat exact ownership scan at release admission."
+  },
+  "qualification_order": [
+    "Actual native/MAME exits and complete601 outputs",
+    "Native existingjoined720 RGB/work/strip/audio/input prefix invariant",
+    "OfficialMAME original completedPNG/work/strip/ports/audio overlap invariant",
+    "Paired strictRGB/strip/work comparisons",
+    "ArchitecturalSP and lastwriter diagnosis"
+  ],
+  "never_loosen_strict_work": true,
+  "runtime_release": false
+}

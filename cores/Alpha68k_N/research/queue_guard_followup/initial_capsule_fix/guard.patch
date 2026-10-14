@@ -1,0 +1,47 @@
+--- shared_quartus_queue_hook.py
++++ shared_quartus_queue_hook.py
+@@ -265,6 +265,21 @@
+     except (SyntaxError,ValueError,KeyError,IndexError,TypeError):return False
+ 
+ 
++def readonly_shell_evidence(command: str, shell: str) -> bool:
++    """Only one literal read command; rg's executable preprocessor is excluded."""
++    try:
++        tokens=words(command,shell)
++        if not tokens:return False
++        if tokens[0].lower() in READERS:
++            if tokens[0].lower()=='rg' and any(a.lower()=='--pre' or a.lower().startswith('--pre=') for a in tokens[1:]):return False
++            return True
++        exe,args=unwrap(tokens,shell)
++        if ntpath.basename(exe).lower() in {'python','python.exe','python3','python3.exe'}:
++            return readonly_python(args)
++        return False
++    except (Refusal,ValueError,IndexError):return False
++
++
+ def classify(exe: str,args: list[str]) -> str:
+     path=canonical(exe);stem=ntpath.splitext(ntpath.basename(path))[0].lower()
+     low=[a.lower() for a in args]
+@@ -329,7 +344,7 @@
+     if is_check_only(command,shell):return None,None
+     try:
+         token=words(command,shell)
+-        if token and token[0].lower() in READERS:return None,None
++        if readonly_shell_evidence(command,shell):return None,None
+         exe,args=unwrap(token,shell)
+         if ntpath.basename(exe).lower() in {"python","python.exe","python3","python3.exe"}:
+             if readonly_python(args):return None,None
+@@ -361,6 +376,13 @@
+         field="command";shell="powershell" if name=="PowerShell" else default_shell
+     elif compat_exec and name in {"exec_command","functions.exec_command"}:field="cmd"
+     else:
++        # Capsule run is a known command carrier. Exempt only the same finite
++        # read grammar; never convert, forward, approve or launch Quartus here.
++        if name=="mcp__capsule__capsule" and inp.get("action")=="run":
++            packet=inp.get("payload")
++            if isinstance(packet,dict) and packet.get("args",[])==[]:
++                literal=packet.get("command")
++                if isinstance(literal,str) and readonly_shell_evidence(literal,default_shell):return {}
+         # Unknown typed MCP execution cannot be safely converted into shell syntax.
+         known=inp.get("command",inp.get("cmd",inp.get("executable","")))
+         if isinstance(known,str) and re.search(r"(?i)quartus[_-]",known):return deny("Unsupported structured MCP Quartus execution")

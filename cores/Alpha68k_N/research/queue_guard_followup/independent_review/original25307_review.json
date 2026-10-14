@@ -1,0 +1,52 @@
+{
+  "scope": "Independent pure classification of reader Capsule exception; no command execution/deployment/FPGA job.",
+  "reviewed_source_sha256": "25307fcc82a89954efe918a7b916cb807a034528c98e81806e380f010cc0654c",
+  "reviewer_sha256": "afb70b4392c1fe3aa481adfdd0e82fe9b98fc02f2ecd6f7059325508a6ecbf28",
+  "results": [
+    {
+      "name": "benign_quoted_tool_literal",
+      "command_is_test_data_only": "rg -n 'quartus_asm' source.txt",
+      "expected_reader": true,
+      "actual_reader": true,
+      "expected_deny": false,
+      "actual_deny": false,
+      "hook_result": {},
+      "passed": true
+    },
+    {
+      "name": "unquoted_LF_delegate",
+      "command_is_test_data_only": "rg pattern source.txt\nquartus_asm project",
+      "expected_reader": false,
+      "actual_reader": true,
+      "expected_deny": true,
+      "actual_deny": false,
+      "hook_result": {},
+      "passed": false
+    },
+    {
+      "name": "unquoted_CRLF_delegate",
+      "command_is_test_data_only": "rg pattern source.txt\r\nD:\\q17\\bin64\\quartus_asm.exe project",
+      "expected_reader": false,
+      "actual_reader": true,
+      "expected_deny": true,
+      "actual_deny": false,
+      "hook_result": {},
+      "passed": false
+    },
+    {
+      "name": "quoted_multiline_data",
+      "command_is_test_data_only": "rg -n 'first\nquartus_asm' source.txt",
+      "expected_reader": true,
+      "actual_reader": true,
+      "expected_deny": false,
+      "actual_deny": false,
+      "hook_result": {},
+      "passed": true
+    }
+  ],
+  "all_cases_pass": false,
+  "finding": "Outside quoted strings, CR/LF are consumed by isspace before the forbidden-syntax check. A reader prefix can therefore exempt an actual second shell command from the typed Quartus fence.",
+  "minimal_correction": "Reject unquoted CR/LF before isspace, preserving quoted multiline data and existing typed Python validation.",
+  "unsafe_test_commands_executed": false,
+  "global_guard_modified": false
+}

@@ -1,0 +1,10 @@
+{
+  "scope": "wrapper harness initialization; no core RTL cause asserted",
+  "terminal": "research/wrapper96_exit.json",
+  "exit_code": 1,
+  "error": "unexpected SDRAM burst/CAS mode: cycle=1 address=0",
+  "source_snapshot": "/tmp/alpha68kn-wrapper.xxwAHn",
+  "cause": "first model command sampled before reset-driven device pins settled",
+  "fix": "same two unsampled reset edges used by sim/system_main.cpp",
+  "next_job": "research/wrapper96_reset_job.json"
+}

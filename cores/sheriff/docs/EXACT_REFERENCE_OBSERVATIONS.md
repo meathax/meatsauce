@@ -1,0 +1,13 @@
+# Exact reference callback observations
+
+The optional `-ExactObservations` switch on `tools/mame_capture.ps1` adds `observations_exact.csv`. It records one common callback sequence and integer seconds/attoseconds for RAM writes, main-CPU I/O, observed sound output latches, frame entry/exit and RAM snapshots. Combine seconds and attoseconds with integer arithmetic; do not convert through a floating timestamp. `-SoundProbe` enables sound-latch observations. Existing CSV schemas, pixel payloads and RAM dumps are unchanged.
+
+The exact time is context-dependent. Local MAME0.289 `device_scheduler::time()` (src/emu/schedule.cpp:329) returns timer expiration time while in a timer callback, the executing device's local time during CPU execution, and global base time otherwise. Therefore sort neither cross-device nor frame events solely by machine.time. Callback sequence records actual observation order; it does not convert an instruction-atomic emulator write into a physical 8080 bus event.
+
+A four-field real Sheriff run exited0. Its3553 ledger events contain3538 RAM writes, four frame entry/exit pairs, four RAM snapshots, one input read and two sound-latch observations. All eight saved RAM/RGB payloads and the original I/O/state/write-log prefixes match the unchanged restart-MAME capture; the audio PCM prefix is identical. See docs/evidence/sheriff_exact_capture_observations.json.
+
+Two timestamp reversals are retained: a main-CPU write is followed by a sound-device observation at an earlier device-local time; sequence2663 enters the frame callback after a RAM write timestamp about150 master clocks later than the frame time. This directly demonstrates why a frame RAM dump may already contain a write whose logged CPU-local time lies beyond the frame boundary. The saved field6240 address6856 observation remains documented separately; no exact ledger was retroactively invented for it.
+
+Use this optional ledger in the next otherwise-required capture of the first unresolved graphics/IRQ boundary or mixed sound class. Do not rerun completed long campaigns solely to replace their metadata. New ledger support is qualified only for the tested short startup case; the long gameplay, graphics, audio, physical propagation and exact-source resource gates remain open. No production RTL, Quartus or RBF changed.
+
+Recovery command for the completed test: `python -X utf8 tools/qualify_exact_capture_observations.py`. Its unique output `_checks/exact-capture-observations-20261010/` is preserved; do not invoke the unchanged case again. Use the existing report and actual exit.json receipt.

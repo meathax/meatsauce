@@ -1,0 +1,22 @@
+{
+  "scope": "Sheriff SN76477 capacitor engine qualification; board audio acceptance pending",
+  "reference": "Independent floating point equations and measured gains from MAME 0.289 SN76477 with Sheriff R/C values",
+  "sample_rate_hz": 48000,
+  "samples": 96000,
+  "fixed_point": "Q32 volts",
+  "maximum_capacitor_error_volts": 0.00000284845,
+  "noise_comparator_mismatches": 0,
+  "vco_comparator_mismatches": 0,
+  "pcm_rms_error_lsb": 0,
+  "pcm_maximum_error_lsb": 0,
+  "log": "sim/build/audio/stdout-q32.log",
+  "detailed_evidence": "sim/build/audio/sn/qualification.csv",
+  "earlier_failure": "Q24 rounded gain-table boundary crossings differently: RMS 2.28306 LSB, maximum 304 LSB; retained sim/build/audio/stdout.log",
+  "correction": "Increase capacitor arithmetic precision to Q32; keep original strict PCM/comparator acceptance thresholds",
+  "limits": [
+    "This is a deterministic component input corpus, not a complete gameplay audio recording comparison",
+    "The analog model follows MAME measured equations; physical PCB calibration remains unresolved",
+    "Integrated 8035 command/DAC timing and final waveform comparison remain pending"
+  ],
+  "release_gate_pass": false
+}

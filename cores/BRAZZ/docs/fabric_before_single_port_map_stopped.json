@@ -1,0 +1,33 @@
+{
+  "scope": "cs_memory_fabric RTL with synthetic synchronous registered interface boundaries; excludes bench pin segments and production wrapper/PLL/physical I/O closure",
+  "top_entity": "cs_timing_registered",
+  "simulation_target": "memory_fabric",
+  "interface_model": "registered_boundary",
+  "stage": "D:\\Arcade\\AI\\aCORES\\BRAZZ\\Arcade-CrystalSystem_MiSTer\\sim\\obj_dir\\timing\\1791186335300299100",
+  "source_sha256": {
+    "donors/sdram/src_v/sdram_axi_core.v": "bf7b3cdd53383051f8a108010bf5f19171eaff7e416b9b5b8d70ac1928b6af5f",
+    "rtl/memory/cs_sdram_backend.sv": "eccca8a37345eb10e6fb0494247f13cd3d07a92faa75551bb001e9e3b2207cc9",
+    "rtl/memory/cs_ddr_rom_backend.sv": "b02b06760dd99f50e65ae1f54a2d19d7458d6c2176c468e2f1b5194c99897486",
+    "rtl/memory/cs_memory_fabric.sv": "03f2bdd45179c216a3d2ff99754b8d5eb63fd9454465ce72c0d2c3595be54a39"
+  },
+  "clock_period_ns": 11.64,
+  "seed": 1,
+  "rbf_generated": false,
+  "requested_fit": true,
+  "steps": [
+    {
+      "tool": "quartus_map",
+      "returncode": 4294967295,
+      "seconds": 1003.047,
+      "errors": [],
+      "log": "D:\\Arcade\\AI\\aCORES\\BRAZZ\\Arcade-CrystalSystem_MiSTer\\sim\\obj_dir\\timing\\1791186335300299100\\quartus_map.log"
+    }
+  ],
+  "configuration_sha256": {
+    "board.qpf": "8242ee5e59a70da6149cb823d27ca626c19cecce70342b4e21184bb2adb3d6c3",
+    "board.qsf": "5309a027916619c26d4ffe88002f8177c175cd1227ae618af188039f382649c3",
+    "board.sdc": "baa5db0ebe577a093d1b45a5cf8ec12836f10d7ff18ba16eab683edb9f12ac47",
+    "board_registered.sv": "8872d36cfc4e2f0aeb2c58d149b48db68980a58b2558830c22d4eb6edbb6a18f"
+  },
+  "status": "FAIL"
+}

@@ -1,0 +1,30 @@
+{
+  "pid": 11780,
+  "supervisor_pid": 50980,
+  "started": 1791654491.8990202,
+  "command": [
+    "wsl.exe",
+    "-d",
+    "Ubuntu",
+    "--cd",
+    "D:\\Arcade\\AI\\aCORES\\Alpha68k N\\research\\japan_ram_divergence_20261011\\paired601\\source\\sim\\build",
+    "--exec",
+    "/bin/bash",
+    "-c",
+    "printf \"native_linux_pid=%s\\n\" \"$$\"\nexec \"$@\"",
+    "paired601_native",
+    "./alpha68kn_system_sim",
+    "/mnt/d/Arcade/AI/aCORES/Alpha68k N/roms/kyrosj/download.bin",
+    "601",
+    "/mnt/d/Arcade/AI/aCORES/Alpha68k N/research/japan_ram_divergence_20261011/paired601/native_capture",
+    "gameplay",
+    "dac-probe",
+    "--inputs",
+    "/mnt/d/Arcade/AI/aCORES/Alpha68k N/sim/captures/kyrosj/gameplay/frame_states.csv"
+  ],
+  "ELF": {
+    "path": "D:\\Arcade\\AI\\aCORES\\Alpha68k N\\research\\japan_ram_divergence_20261011\\paired601\\source\\sim\\build\\alpha68kn_system_sim",
+    "bytes": 793016,
+    "sha256": "eeecca042772f69f6c2bfa718b5eca036e532c05580db9fa36982e5bef927bbc"
+  }
+}

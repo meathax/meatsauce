@@ -1,0 +1,240 @@
+{
+  "worker_pid": 27612,
+  "started": 1791577547.939215,
+  "command": [
+    "D:\\Arcade\\AI\\aCORES\\Alpha68k N\\tools\\mame0289\\mame.exe",
+    "kyros",
+    "-rompath",
+    "D:\\Arcade\\AI\\aCORES\\Alpha68k N\\roms",
+    "-noreadconfig",
+    "-skip_gameinfo",
+    "-video",
+    "none",
+    "-sound",
+    "none",
+    "-nothrottle",
+    "-noautoframeskip",
+    "-frameskip",
+    "0",
+    "-autoboot_delay",
+    "0",
+    "-autoboot_script",
+    "D:\\Arcade\\AI\\aCORES\\Alpha68k N\\sim\\mame\\capture_late_scene_candidates.lua",
+    "-pluginspath",
+    "D:\\Arcade\\AI\\aCORES\\Alpha68k N\\tools\\mame0289\\plugins",
+    "-seconds_to_run",
+    "55",
+    "-snapshot_directory",
+    "D:\\Arcade\\AI\\aCORES\\Alpha68k N\\sim\\captures\\kyros\\late_scene_candidates2400_centered_up_scene5",
+    "-cfg_directory",
+    "D:\\Arcade\\AI\\aCORES\\Alpha68k N\\sim\\captures\\kyros\\late_scene_candidates2400_centered_up_scene5\\cfg",
+    "-nvram_directory",
+    "D:\\Arcade\\AI\\aCORES\\Alpha68k N\\sim\\captures\\kyros\\late_scene_candidates2400_centered_up_scene5\\nvram",
+    "-state_directory",
+    "D:\\Arcade\\AI\\aCORES\\Alpha68k N\\sim\\captures\\kyros\\late_scene_candidates2400_centered_up_scene5\\states"
+  ],
+  "source_parent": "361e94e1d5f30c542d424d2dea62c294674a0074",
+  "source_sha256": {
+    "sim\\mame\\capture_late_scene_candidates.lua": "98f6008d90059a643f7388f42d03a94ca2e32635d49d3ea130f2a5620bf93c3c",
+    "scripts\\record_late_scene_candidates.py": "cf220b2e6aeb137f6750d74ca7cd28b3dc2adea2d2761d50ce0e352084fc31cf",
+    "research/late_scene_cheat_historical_definitions.json": "987bcae0585dffef375f5a9b94afeecead4dbd36c4b10b6a390c5f54fcd86dbb"
+  },
+  "executable_sha256": "af6966108d9b52c22465c6d50f4e5d50cc371b50f2d27dc443935f287aad37a3",
+  "set": "kyros",
+  "frames": 2400,
+  "route": "centered-up",
+  "scene": "candidate-5",
+  "scope": "MAME scene discovery with explicit fixture RAM cheats; not real RTL gameplay or late-scene acceptance",
+  "mame_pid": 50744,
+  "exit_code": 0,
+  "ended": 1791577551.519198,
+  "fixture_setup": {
+    "frame": 900,
+    "pc_before": 40592,
+    "sr": 8212,
+    "a6": 131072,
+    "sp": 135156,
+    "return_address": 40414,
+    "selector_before": 3,
+    "selector_after": 5,
+    "entry_pc": 6758,
+    "fixture_only": true
+  },
+  "artifacts": [
+    {
+      "path": "sim\\captures\\kyros\\late_scene_candidates2400_centered_up_scene5\\frame_000000.display.rgb",
+      "sha256": "9a4b97b4b079955bac86930724c8bcdd30aba4732f1dcbcbac2ec270f5f5e485"
+    },
+    {
+      "path": "sim\\captures\\kyros\\late_scene_candidates2400_centered_up_scene5\\frame_000000.png",
+      "sha256": "27ab769c7d70ea6f343800bcb8ecb87e43bccdec012c2a385047f8d01290b278"
+    },
+    {
+      "path": "sim\\captures\\kyros\\late_scene_candidates2400_centered_up_scene5\\frame_000000.sprites.bin",
+      "sha256": "9f1dcbc35c350d6027f98be0f5c8b43b42ca52b7604459c0c42be3aa88913d47"
+    },
+    {
+      "path": "sim\\captures\\kyros\\late_scene_candidates2400_centered_up_scene5\\frame_000000.work.bin",
+      "sha256": "ad7facb2586fc6e966c004d7d1d16b024f5805ff7cb47c7a85dabd8b48892ca7"
+    },
+    {
+      "path": "sim\\captures\\kyros\\late_scene_candidates2400_centered_up_scene5\\frame_000179.display.rgb",
+      "sha256": "159db246e6c1ca749ddf242ec71367a07727892df17a5f760446eb58941b8cdd"
+    },
+    {
+      "path": "sim\\captures\\kyros\\late_scene_candidates2400_centered_up_scene5\\frame_000179.png",
+      "sha256": "a737aadd5ec024d17b735efa86e2d156e088d8f20804149bb4526d900374fdee"
+    },
+    {
+      "path": "sim\\captures\\kyros\\late_scene_candidates2400_centered_up_scene5\\frame_000179.sprites.bin",
+      "sha256": "3d8918435b6cf7e2132037e5f603e6f114428e7bd08b7455cb6de6aa077733c7"
+    },
+    {
+      "path": "sim\\captures\\kyros\\late_scene_candidates2400_centered_up_scene5\\frame_000179.work.bin",
+      "sha256": "e1db108e08bb7a4b5b58c1f9902631e1d625a62bce9f3fde775778c51feaae69"
+    },
+    {
+      "path": "sim\\captures\\kyros\\late_scene_candidates2400_centered_up_scene5\\frame_000300.display.rgb",
+      "sha256": "7f943b9faa4dbf246526e278a9e1a4bce65587ac9c5d30cfbdd0517c922cddc0"
+    },
+    {
+      "path": "sim\\captures\\kyros\\late_scene_candidates2400_centered_up_scene5\\frame_000300.png",
+      "sha256": "2c588454f4d05e7d1859aed604d84e0376a3e8008d413e885052795914843390"
+    },
+    {
+      "path": "sim\\captures\\kyros\\late_scene_candidates2400_centered_up_scene5\\frame_000300.sprites.bin",
+      "sha256": "e3ea0214928e2e06aaf738f95d162a8edafc00dde9563a2d07c158ec98d28249"
+    },
+    {
+      "path": "sim\\captures\\kyros\\late_scene_candidates2400_centered_up_scene5\\frame_000300.work.bin",
+      "sha256": "e965ed8944f6e0deb865fc5d6d3866db2069aad8c024a8596fe2348ad61f0944"
+    },
+    {
+      "path": "sim\\captures\\kyros\\late_scene_candidates2400_centered_up_scene5\\frame_000600.display.rgb",
+      "sha256": "870367cea2cc090698af979491e7a9c75e56ca3048a484753ad11186728f9bc8"
+    },
+    {
+      "path": "sim\\captures\\kyros\\late_scene_candidates2400_centered_up_scene5\\frame_000600.png",
+      "sha256": "b9ca58fd5715b21891b77c6f42b068554c1ce96a41ceb2a07fde1b64075e00f0"
+    },
+    {
+      "path": "sim\\captures\\kyros\\late_scene_candidates2400_centered_up_scene5\\frame_000600.sprites.bin",
+      "sha256": "e5278764380265c52fa179824aa7f940340123f17d548435f0c3f9d4ca30eb9a"
+    },
+    {
+      "path": "sim\\captures\\kyros\\late_scene_candidates2400_centered_up_scene5\\frame_000600.work.bin",
+      "sha256": "1ee34d8ee38c8a2d1ad1099065bfff98ff527193221339cf0731b3a223f548e8"
+    },
+    {
+      "path": "sim\\captures\\kyros\\late_scene_candidates2400_centered_up_scene5\\frame_000900.display.rgb",
+      "sha256": "be82b4879192741944905c454144e6715e4f4c45a5e165fcf1c4068c075e139e"
+    },
+    {
+      "path": "sim\\captures\\kyros\\late_scene_candidates2400_centered_up_scene5\\frame_000900.png",
+      "sha256": "634b3d4811f768ba36e83de9782635200b3a69692003e38fc6087484e37c3e9d"
+    },
+    {
+      "path": "sim\\captures\\kyros\\late_scene_candidates2400_centered_up_scene5\\frame_000900.sprites.bin",
+      "sha256": "d8ab2269f00fa6534d934186beede454d7df171c892cec647326bdd0a621ae1f"
+    },
+    {
+      "path": "sim\\captures\\kyros\\late_scene_candidates2400_centered_up_scene5\\frame_000900.work.bin",
+      "sha256": "35443c540d748906e55f903c8ef5f8952d0ce0568470c396c878624ab1ef2df6"
+    },
+    {
+      "path": "sim\\captures\\kyros\\late_scene_candidates2400_centered_up_scene5\\frame_001200.display.rgb",
+      "sha256": "23dcd9697d68a8517af4953f62b7c306508579e0063c10ce88e7ec5a374dbb4d"
+    },
+    {
+      "path": "sim\\captures\\kyros\\late_scene_candidates2400_centered_up_scene5\\frame_001200.png",
+      "sha256": "03c0ac2a82afd4f31c5ab2298126fdbfe6bdf67c028e8b5e473b3ec6abc5230f"
+    },
+    {
+      "path": "sim\\captures\\kyros\\late_scene_candidates2400_centered_up_scene5\\frame_001200.sprites.bin",
+      "sha256": "f03dd8dc7568f21e04d15da4d199db77aecf74c1457f653770780689f8d5e79e"
+    },
+    {
+      "path": "sim\\captures\\kyros\\late_scene_candidates2400_centered_up_scene5\\frame_001200.work.bin",
+      "sha256": "ea8587dee32a713ac4e77a8494c9d1f1fe51a5ad5a32eb64b0d34717f5c2cdb4"
+    },
+    {
+      "path": "sim\\captures\\kyros\\late_scene_candidates2400_centered_up_scene5\\frame_001500.display.rgb",
+      "sha256": "8ea9a6b39ec6bcd79e6cebcc2dbb275033908708d1b56bd89e8fd6085ff988ac"
+    },
+    {
+      "path": "sim\\captures\\kyros\\late_scene_candidates2400_centered_up_scene5\\frame_001500.png",
+      "sha256": "1119abc912ae53ec79c97b028b09543c18566d0b2dc01af57d76135fb9a8a1b9"
+    },
+    {
+      "path": "sim\\captures\\kyros\\late_scene_candidates2400_centered_up_scene5\\frame_001500.sprites.bin",
+      "sha256": "cb22480ec016e42759e8dbda761f966b71001e4d0659c9ba25e58b28ec79e1d1"
+    },
+    {
+      "path": "sim\\captures\\kyros\\late_scene_candidates2400_centered_up_scene5\\frame_001500.work.bin",
+      "sha256": "abadda88d1645a27190f698386e5a270f588ca45ef577bbe83b3f20d73fca9de"
+    },
+    {
+      "path": "sim\\captures\\kyros\\late_scene_candidates2400_centered_up_scene5\\frame_001800.display.rgb",
+      "sha256": "8a5790edbf06a6fc1bd0920c9a556185a957001ec6e3d8ada7188e739df1985a"
+    },
+    {
+      "path": "sim\\captures\\kyros\\late_scene_candidates2400_centered_up_scene5\\frame_001800.png",
+      "sha256": "4274a629bf27e2217d7c6c18a5f86a3f1991c2eaa8e5224d03d7968af810746e"
+    },
+    {
+      "path": "sim\\captures\\kyros\\late_scene_candidates2400_centered_up_scene5\\frame_001800.sprites.bin",
+      "sha256": "af051c7d530a8e68480da257019dbac0f4282ecb44d210b5bf8cce438699ab62"
+    },
+    {
+      "path": "sim\\captures\\kyros\\late_scene_candidates2400_centered_up_scene5\\frame_001800.work.bin",
+      "sha256": "9fb7deac01a0a7272e6b2d458fd000a40dff6f01281ee59b2265d1096970c9d2"
+    },
+    {
+      "path": "sim\\captures\\kyros\\late_scene_candidates2400_centered_up_scene5\\frame_002100.display.rgb",
+      "sha256": "f3558cc1182cc585215b4cedee03a9eaecee887777fe9407ca4b107e7231b187"
+    },
+    {
+      "path": "sim\\captures\\kyros\\late_scene_candidates2400_centered_up_scene5\\frame_002100.png",
+      "sha256": "4957d5588b1e16d5610742b68a1134c24a889359e4188354a385581cb322df6d"
+    },
+    {
+      "path": "sim\\captures\\kyros\\late_scene_candidates2400_centered_up_scene5\\frame_002100.sprites.bin",
+      "sha256": "99b4c119060434be3f9b8a935f057934fe2f140a345dd0ae1d0bfbd2163f7ec7"
+    },
+    {
+      "path": "sim\\captures\\kyros\\late_scene_candidates2400_centered_up_scene5\\frame_002100.work.bin",
+      "sha256": "301b610c62d6ee353a4c1f26f097a1eeabedb4d5fb7c4fd53baef16016ef80a9"
+    },
+    {
+      "path": "sim\\captures\\kyros\\late_scene_candidates2400_centered_up_scene5\\frame_002399.display.rgb",
+      "sha256": "7b406a8c0a1c16ac0f94f7914f141903de42490ace2b56b57a7bc29c797a026f"
+    },
+    {
+      "path": "sim\\captures\\kyros\\late_scene_candidates2400_centered_up_scene5\\frame_002399.png",
+      "sha256": "1c740c40a4e18447d04fe55e20b07c7a3a9555ea5a901d43452395b2c5504aee"
+    },
+    {
+      "path": "sim\\captures\\kyros\\late_scene_candidates2400_centered_up_scene5\\frame_002399.sprites.bin",
+      "sha256": "56dcc1342ddbd496b84c65d00c726bcb1da7d3bb10570e9e229afd4d8ba07718"
+    },
+    {
+      "path": "sim\\captures\\kyros\\late_scene_candidates2400_centered_up_scene5\\frame_002399.work.bin",
+      "sha256": "69eca8170caefb8268bb2a275602fc04945aa6ad44df3bfa06cf5d4033c24c7d"
+    },
+    {
+      "path": "sim\\captures\\kyros\\late_scene_candidates2400_centered_up_scene5\\frame_states.csv",
+      "sha256": "0c080338deef11b4608f6a64dad78f2da2ce5b5a12f667aaaca04f4e3845346e"
+    }
+  ],
+  "checks": {
+    "exit_zero": true,
+    "completion_marker": true,
+    "no_lua_failure": true,
+    "guarded_scene_setup": true,
+    "all_frames_observed": true,
+    "expected_snapshot_count": true,
+    "complete_assets": true
+  },
+  "passed": true,
+  "wall_seconds": 3.7884445190429688
+}

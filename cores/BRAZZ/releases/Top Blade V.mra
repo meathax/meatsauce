@@ -1,0 +1,47 @@
+<?xml version='1.0' encoding='utf-8'?>
+<misterromdescription>
+  <name>Top Blade V</name>
+  <setname>topbladv</setname>
+  <rbf>Arcade-CrystalSystem</rbf>
+  <mameversion>0289</mameversion>
+  <year>2003</year>
+  <manufacturer>Sonokong / Expotato</manufacturer>
+  <category>Action</category>
+  <players>2</players>
+  <joystick>8-way</joystick>
+  <rotation>horizontal</rotation>
+  <resolution>15kHz</resolution>
+  <homebrew>no</homebrew>
+  <bootleg>no</bootleg>
+  <rom index="1">
+    <part>43 52 59 53 01 03 01 00 00 00 00 00 00 00 00 00</part>
+  </rom>
+  <rom index="0" zip="topbladv.zip|crysbios.zip" address="0x30000000">
+    <part name="flash.u1" crc="bd23f640" offset="0x0" length="0x12d7a" />
+    <part>FC 90</part>
+    <part>01 90</part>
+    <part name="flash.u1" crc="bd23f640" offset="0x12d7e" length="0x5b02" />
+    <part>04 90</part>
+    <part>01 90</part>
+    <part name="flash.u1" crc="bd23f640" offset="0x18884" length="0x164c0" />
+    <part>E9 DF</part>
+    <part>C2 C3</part>
+    <part name="flash.u1" crc="bd23f640" offset="0x2ed48" length="0x10d0" />
+    <part>01 90</part>
+    <part>00 92</part>
+    <part name="flash.u1" crc="bd23f640" offset="0x2fe1c" length="0xfd01e4" />
+    <part name="mx27l1000.u14" crc="beff39a9" />
+  </rom>
+  <nvram index="4" size="65536" />
+  <switches default="FF" base="0">
+    <dip name="Pause" bits="0" ids="On,Off" />
+    <dip name="Free Play" bits="1" ids="On,Off" />
+    <dip name="Unknown DSW 3" bits="2" ids="On,Off" />
+    <dip name="Unknown DSW 4" bits="3" ids="On,Off" />
+    <dip name="Unknown DSW 5" bits="4" ids="On,Off" />
+    <dip name="Unknown DSW 6" bits="5" ids="On,Off" />
+    <dip name="Unknown DSW 7" bits="6" ids="On,Off" />
+    <dip name="Test" bits="7" ids="On,Off" />
+  </switches>
+  <buttons names="Attack (Red),Jump (Blue),-,-,Start,Coin,Pause,Service Credit,Service Menu" default="A,B,-,-,Start,Select,L,-,-" />
+</misterromdescription>

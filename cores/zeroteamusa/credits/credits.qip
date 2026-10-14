@@ -1,0 +1,6 @@
+# Add this QIP to the host core's files.qip. No changes to MiSTer's sys/ needed.
+set_global_assignment -name SEARCH_PATH [file join $::quartus(qip_path) generated]
+set_global_assignment -name SYSTEMVERILOG_FILE [file join $::quartus(qip_path) rtl credits_overlay.sv]
+set_global_assignment -name SYSTEMVERILOG_FILE [file join $::quartus(qip_path) generated credits_rom.sv]
+set_global_assignment -name MIF_FILE [file join $::quartus(qip_path) generated meatcore_credits.mif]
+set_global_assignment -name SYSTEMVERILOG_FILE [file join $::quartus(qip_path) generated meat_osd_rom.sv]

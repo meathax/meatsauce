@@ -1,0 +1,211 @@
+{
+  "target": "boot_probe",
+  "acceptance": "diagnostic CPU BIOS probe with observed chip inputs; active chips validated separately; not full-board/game acceptance",
+  "runtime": "native Windows PE / MSYS2 UCRT64",
+  "commands": [
+    [
+      "D:\\vibes\\fpga\\bin\\verilator.exe",
+      "--cc",
+      "--exe",
+      "--build",
+      "-j",
+      "4",
+      "-O3",
+      "--top-module",
+      "cs_boot_probe",
+      "--Mdir",
+      "R:/Verilator/CrystalSystem/tool-20261005T042532775Z-46864-477772531/obj_dir",
+      "-CFLAGS",
+      "-O2",
+      "-MAKEFLAGS",
+      "OPT_FAST=-O2",
+      "-MAKEFLAGS",
+      "OPT_GLOBAL=-O2",
+      "-Wno-fatal",
+      "D:/Arcade/AI/aCORES/BRAZZ/Arcade-CrystalSystem_MiSTer/rtl/cpu/se3208_pkg.sv",
+      "D:/Arcade/AI/aCORES/BRAZZ/Arcade-CrystalSystem_MiSTer/rtl/cpu/se3208_decode.sv",
+      "D:/Arcade/AI/aCORES/BRAZZ/Arcade-CrystalSystem_MiSTer/rtl/cpu/se3208_execute.sv",
+      "D:/Arcade/AI/aCORES/BRAZZ/Arcade-CrystalSystem_MiSTer/rtl/cpu/se3208_bus_access.sv",
+      "D:/Arcade/AI/aCORES/BRAZZ/Arcade-CrystalSystem_MiSTer/rtl/cpu/se3208_cp_access.sv",
+      "D:/Arcade/AI/aCORES/BRAZZ/Arcade-CrystalSystem_MiSTer/rtl/cpu/se3208.sv",
+      "D:/Arcade/AI/aCORES/BRAZZ/Arcade-CrystalSystem_MiSTer/rtl/memory/cs_bus_arbiter.sv",
+      "D:/Arcade/AI/aCORES/BRAZZ/Arcade-CrystalSystem_MiSTer/rtl/soc/vr0_cp0.sv",
+      "D:/Arcade/AI/aCORES/BRAZZ/Arcade-CrystalSystem_MiSTer/rtl/soc/vr0_control.sv",
+      "D:/Arcade/AI/aCORES/BRAZZ/Arcade-CrystalSystem_MiSTer/rtl/soc/vr0_dma.sv",
+      "D:/Arcade/AI/aCORES/BRAZZ/Arcade-CrystalSystem_MiSTer/rtl/soc/ds1302.sv",
+      "D:/Arcade/AI/aCORES/BRAZZ/Arcade-CrystalSystem_MiSTer/rtl/soc/vr0_gpio.sv",
+      "D:/Arcade/AI/aCORES/BRAZZ/Arcade-CrystalSystem_MiSTer/rtl/video/vr0_pixel_pkg.sv",
+      "D:/Arcade/AI/aCORES/BRAZZ/Arcade-CrystalSystem_MiSTer/rtl/video/vr0_gpu.sv",
+      "D:/Arcade/AI/aCORES/BRAZZ/Arcade-CrystalSystem_MiSTer/rtl/video/vr0_crtc.sv",
+      "D:/Arcade/AI/aCORES/BRAZZ/Arcade-CrystalSystem_MiSTer/rtl/video/vr0_scanout.sv",
+      "D:/Arcade/AI/aCORES/BRAZZ/Arcade-CrystalSystem_MiSTer/rtl/board/cs_address_decode.sv",
+      "D:/Arcade/AI/aCORES/BRAZZ/Arcade-CrystalSystem_MiSTer/rtl/board/cs_board_io.sv",
+      "D:/Arcade/AI/aCORES/BRAZZ/Arcade-CrystalSystem_MiSTer/rtl/board/cs_flash_cmd.sv",
+      "D:/Arcade/AI/aCORES/BRAZZ/Arcade-CrystalSystem_MiSTer/rtl/audio/vr0_audio_pkg.sv",
+      "D:/Arcade/AI/aCORES/BRAZZ/Arcade-CrystalSystem_MiSTer/rtl/audio/vr0_voice.sv",
+      "D:/Arcade/AI/aCORES/BRAZZ/Arcade-CrystalSystem_MiSTer/rtl/audio/vr0_spu.sv",
+      "D:/Arcade/AI/aCORES/BRAZZ/Arcade-CrystalSystem_MiSTer/rtl/board/cs_boot_probe.sv",
+      "D:/Arcade/AI/aCORES/BRAZZ/Arcade-CrystalSystem_MiSTer/sim/boot/main.cpp"
+    ],
+    [
+      "D:\\vibes\\fpga\\bin\\verilator.exe",
+      "sim",
+      "R:\\Verilator\\CrystalSystem\\tool-20261005T042532775Z-46864-477772531\\obj_dir\\Vcs_boot_probe.exe",
+      "9000000000",
+      "0",
+      "50000000"
+    ]
+  ],
+  "exit_code": 1,
+  "run_seconds": 6711.878090300015,
+  "sources": [
+    {
+      "path": "rtl/cpu/se3208_pkg.sv",
+      "sha256": "63bdde59a9eb369742ad68baabddf3be191571408bcacf7f71fa958e222e1b99"
+    },
+    {
+      "path": "rtl/cpu/se3208_decode.sv",
+      "sha256": "c03060740f22ad0c8fd0fb1c3d5cdf75093fb66adef4a01983cf5602734c2a00"
+    },
+    {
+      "path": "rtl/cpu/se3208_execute.sv",
+      "sha256": "74c1ae1941bacaae7f6af03020249c53646ca4f8ea7fa926c0f40383551a5881"
+    },
+    {
+      "path": "rtl/cpu/se3208_bus_access.sv",
+      "sha256": "6148290e6962342651d6f486f461da1e3e17e0ea37c1bd808d931993afda0f61"
+    },
+    {
+      "path": "rtl/cpu/se3208_cp_access.sv",
+      "sha256": "4af771f1526ac8ce0a4455ede36964c3fc1ec40c6d31007a512983e1a8b7ecd5"
+    },
+    {
+      "path": "rtl/cpu/se3208.sv",
+      "sha256": "6d9a517924ec1171ee159126d426a2a0ea7f79a2854c12d8a380c2656434f835"
+    },
+    {
+      "path": "rtl/memory/cs_bus_arbiter.sv",
+      "sha256": "9663eabded16ef7d32ee72d378a739a7ef34976f9d42cea2e2839fd021ae98ac"
+    },
+    {
+      "path": "rtl/soc/vr0_cp0.sv",
+      "sha256": "48c5a0dbcc1e9f447587a33ac9b05232626d23293b3466a694f6f60ab65a0854"
+    },
+    {
+      "path": "rtl/soc/vr0_control.sv",
+      "sha256": "505692267b29f6563a842b2517ab78b7327a4f4b029e596f5b02218869105041"
+    },
+    {
+      "path": "rtl/soc/vr0_dma.sv",
+      "sha256": "adcd8bf0f4c47babea595e33deca38ed117406fdffac45ffbe381644548f9578"
+    },
+    {
+      "path": "rtl/soc/ds1302.sv",
+      "sha256": "e02fb71e427120eaa61877e2ec2d50dd90973287cb3a2fc43b1ed0ddd4032cb6"
+    },
+    {
+      "path": "rtl/soc/vr0_gpio.sv",
+      "sha256": "65368b4c214fd8974c065fa9bdd6bcce5b55d209c9092ed3845a847d90a785a4"
+    },
+    {
+      "path": "rtl/video/vr0_pixel_pkg.sv",
+      "sha256": "8fc4c932cab3725c9f9412c650c8f90efa3834225e0a0058d1d6ed5fe22119d9"
+    },
+    {
+      "path": "rtl/video/vr0_gpu.sv",
+      "sha256": "afade167874035f1fa0563af52f21e68ca99f142d56a373e33793764cbc181eb"
+    },
+    {
+      "path": "rtl/video/vr0_crtc.sv",
+      "sha256": "834df84e81d84d1cff0ab17daf03e4166017d8cf1f3e3579509d52ca628a6447"
+    },
+    {
+      "path": "rtl/video/vr0_scanout.sv",
+      "sha256": "21bb75b87db31b1adf69b19b837cbabd1894e65730b791716c99883aa03ef325"
+    },
+    {
+      "path": "rtl/board/cs_address_decode.sv",
+      "sha256": "13c257b19ddff4f1d8e70edb1ef482f3387993d1d20f0e795ebff68ae616e4c4"
+    },
+    {
+      "path": "rtl/board/cs_board_io.sv",
+      "sha256": "2c7c71ebc43df90d759ae2000e58b5f3858342ad7aecabb0d2f589ac277427b5"
+    },
+    {
+      "path": "rtl/board/cs_flash_cmd.sv",
+      "sha256": "8dd94e9a5426d27556639175fa1f699acfb53cd8efcfd2b59276ac56cd4c40d8"
+    },
+    {
+      "path": "rtl/audio/vr0_audio_pkg.sv",
+      "sha256": "a922fe95e199ab6a94ac6f17807e3781ebe59ae9fd725a4537dbae550b5b954c"
+    },
+    {
+      "path": "rtl/audio/vr0_voice.sv",
+      "sha256": "c2d5ff9ea2769e0dede51cdab19ac38fc9400e59ac31741f31b20fa14fbe1135"
+    },
+    {
+      "path": "rtl/audio/vr0_spu.sv",
+      "sha256": "d70cfcc2a522d3c5618ba985addb172d2e8264206884a182aa63336dd177cbc2"
+    },
+    {
+      "path": "rtl/board/cs_boot_probe.sv",
+      "sha256": "c5cf71ad8b942ec555d4851e24369b4d54404f8128d35ac0d4046f8ba2e5f27b"
+    },
+    {
+      "path": "sim/boot/main.cpp",
+      "sha256": "2cb34ee3d45d499d6d6c246d0994a1785e56fc21e04eae15b385b39e9bf68fd2"
+    },
+    {
+      "path": "sim/obj_dir/cpu_reference/se3208_reference.hpp",
+      "sha256": "a9e775d2f920afc94f3fe474669ae732174f18aa7b9d223d0f39d5af3a0fdd79"
+    },
+    {
+      "path": "docs/rom_image_layout.json",
+      "sha256": "13ca61649e699400cadad8140ea7cdc907439c7af483b7ab0a5431f5d7a9d547"
+    },
+    {
+      "path": "sim/boot/board_memory.hpp",
+      "sha256": "9525be1664bc70eb4a81a3f8d9a707c70a0be6ed677994a427d375a946a794e8"
+    },
+    {
+      "path": "scripts/cpu_reference.py",
+      "sha256": "8827c40560a47ed62d3e20e761a717a871964bcf1a12f381272d18cc4c509dcf"
+    },
+    {
+      "path": "docs/reference/mame/src/devices/cpu/se3208/se3208.cpp",
+      "sha256": "52615b893722ef1bbfcaa88b235cf80167655421bf83cbd716e3477e37525ec5"
+    },
+    {
+      "path": "scripts/stage_roms.py",
+      "sha256": "91dae408589fda3d9a15cf57e5a6c4cb78b8edd6893670eb62d2d51c27fabd4f"
+    },
+    {
+      "path": "roms/images/bios.bin",
+      "sha256": "bf1b97393d77f798b23c668295e49da355451340200b3110b5a73426244f578e"
+    },
+    {
+      "path": "roms/images/crysking.bin",
+      "sha256": "ad50ede37191fc55c9590ac7f172253488351fd5f960eaebfff616daf7e03727"
+    },
+    {
+      "path": "sim/boot/board_memory.hpp",
+      "sha256": "9525be1664bc70eb4a81a3f8d9a707c70a0be6ed677994a427d375a946a794e8"
+    },
+    {
+      "path": "sim/boot/boot_observer.hpp",
+      "sha256": "c38f33f1be7d1eccf98dc4ac73aaf73b2f63a4518e86e3d49262334e8d21e9ea"
+    },
+    {
+      "path": "sim/boot/frame_capture.hpp",
+      "sha256": "d8981793862b065937219b4c4a20645cb7db9525b85a015f555051c28c3f8dda"
+    },
+    {
+      "path": "sim/boot/cabinet_input.hpp",
+      "sha256": "d373bfa94b0a938f6993dd0e0ae518ef714ba1e40d5036f3a7f961c896068a80"
+    }
+  ],
+  "workspace": "R:\\Verilator\\CrystalSystem\\tool-20261005T042532775Z-46864-477772531",
+  "stdout": "CABINET live commands: sim/obj_dir/boot_probe/activity/1791174347784916200/cabinet_commands.txt (physical pins only)\nCP0 observed transfers=7 cache enabled=1 hits=712139668 misses=12387367 invalidations=2186; descriptor/revision qualified\n",
+  "stderr": "FAIL probe timeout after 592055626 instructions / 9000000000 clocks: PC=0201537e SR=00003880 SP=021fc48c ER=00000385 memory=021fc488 MMIO=030000a4 requests=889576735 mmios=22722274 GPU packets=48545 pixels=76862084\nR0=00000001 R1=030000a6 R2=0000ec33 R3=02276df0 R4=020b786c R5=00000000 R6=0000000c R7=000000ff \n0201537c 4385\n0201537e df60\n02085e40 40c0\n02085e42 400a\n02085e44 e906\n02085e46 3820\n02085e48 4fff\n02085e4a bf00\n02085e4c 9c00\n02015380 a1c0\n02015382 d4f8\n02015374 a1d0\n02015376 db06\n02015378 be12\n0201537a 4000\n0201537c 4385\n",
+  "build_log": "sim\\obj_dir\\boot_probe\\build.log"
+}

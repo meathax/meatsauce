@@ -1,0 +1,143 @@
+{
+  "source_parent": "9d01556",
+  "terminal": {
+    "worker_pid": 159066,
+    "started": 1791561796.8764613,
+    "frames": 61,
+    "scope": "Actual CPU backdrop-write diagnosis; not a broad graphics pass",
+    "source_parent": "96248664e031bde1b92460ed83537bb6129eb5a0",
+    "executable_sha256": "c533e330d5700f1a6172405f76947c5f3e22d2fc4d9e049e3ed2e8e3cf35732d",
+    "input_trace_sha256": "9d6711c7e3c3467452a6185a219bcf1272f202517239d9d8a6314ff53fec4788",
+    "rom_sha256": "5cf728d5d40e9be14a4a9c07792bab9f44404a75c2c2eed92124ff96ee9b5ef6",
+    "command": [
+      "/mnt/d/Arcade/AI/aCORES/Alpha68k N/sim/build/kyros_instruction60_diagnostic_sim",
+      "/mnt/d/Arcade/AI/aCORES/Alpha68k N/roms/kyros/download.bin",
+      "61",
+      "/mnt/d/Arcade/AI/aCORES/Alpha68k N/sim/captures/rtl/kyros_instruction60_diagnostic",
+      "gameplay",
+      "--inputs",
+      "/mnt/d/Arcade/AI/aCORES/Alpha68k N/sim/captures/kyros/warm_reset960_refv2/frame_states.csv"
+    ],
+    "simulation_pid": 159138,
+    "exit_code": 0,
+    "ended": 1791562069.0046356
+  },
+  "fields": 61,
+  "all_field_metrics_pass": true,
+  "worst_line_cycles": 2280,
+  "read_only_source_delta": [
+    "sim/system_main.cpp"
+  ],
+  "instruction_rows": 46683,
+  "background_bus": {
+    "tick": "49032978",
+    "frame": "60",
+    "raster_x": "99",
+    "raster_y": "97",
+    "address": "393216",
+    "iack": "0",
+    "rw": "0",
+    "uds_n": "1",
+    "lds_n": "0",
+    "data_out": "20560",
+    "data_in_before": "16889",
+    "fc_after": "5",
+    "pc_after": "110140",
+    "ir_after": "5116",
+    "ird_after": "5116",
+    "phase_after": "2",
+    "cpu_phase_after": "2"
+  },
+  "prior_work_write": {
+    "tick": "49032818",
+    "frame": "60",
+    "raster_x": "79",
+    "raster_y": "97",
+    "address": "134830",
+    "iack": "0",
+    "rw": "0",
+    "uds_n": "1",
+    "lds_n": "0",
+    "data_out": "257",
+    "data_in_before": "5116",
+    "fc_after": "5",
+    "pc_after": "110132",
+    "ir_after": "5116",
+    "ird_after": "5116",
+    "phase_after": "2",
+    "cpu_phase_after": "2"
+  },
+  "mame_instruction_writes": [
+    {
+      "frame": "60",
+      "screen_frame": "60",
+      "area": "work",
+      "address": "134830",
+      "data": "257",
+      "mask": "255",
+      "vpos": "97",
+      "hpos": "61",
+      "master_ticks": "49032679",
+      "instruction_pc": "110124",
+      "next_pc": "110132"
+    },
+    {
+      "frame": "60",
+      "screen_frame": "60",
+      "area": "background_watchdog",
+      "address": "393216",
+      "data": "20560",
+      "mask": "255",
+      "vpos": "97",
+      "hpos": "81",
+      "master_ticks": "49032839",
+      "instruction_pc": "110132",
+      "next_pc": "110140"
+    }
+  ],
+  "work_to_background_interval_master_ticks_native": 160,
+  "work_to_background_interval_master_ticks_mame": 160,
+  "interpretation": "The identified MOVE.B completes with matching20-CPU-cycle write interval locally; existing backdrop beam difference was present by the previous instruction. Investigate earlier CPU/interrupt/start scheduling, without changing clocks from this observation. Before-edge debug DIN is not a claimed CPU-latched program word.",
+  "native_field60_snapshot": {
+    "frame": "60",
+    "tick": "49471481",
+    "background": "80"
+  },
+  "mame_field60_notifier": {
+    "frame": "60",
+    "master_ticks": "49471487",
+    "vpos": "240",
+    "hpos": "0"
+  },
+  "images_equal_mixed_archive": [
+    "frame_000000.rgb",
+    "frame_000001.rgb",
+    "frame_000002.rgb",
+    "frame_000003.rgb",
+    "frame_000004.rgb",
+    "frame_000005.rgb",
+    "frame_000006.rgb",
+    "frame_000007.rgb",
+    "frame_000008.rgb",
+    "frame_000009.rgb",
+    "frame_000010.rgb",
+    "frame_000011.rgb",
+    "frame_000012.rgb",
+    "frame_000013.rgb",
+    "frame_000014.rgb",
+    "frame_000015.rgb",
+    "frame_000016.rgb",
+    "frame_000030.rgb",
+    "frame_000060.rgb"
+  ],
+  "independent_reset421_checkpoints_equal": [
+    0,
+    30,
+    60
+  ],
+  "hashes": {
+    "D:\\Arcade\\AI\\aCORES\\Alpha68k N\\sim\\captures\\rtl\\kyros_instruction60_diagnostic\\instruction_events.csv": "951c7d91c10ac3c1c090dc1db94e38742f9e9ebf279b41cfcd25ba38084226bf",
+    "D:\\Arcade\\AI\\aCORES\\Alpha68k N\\sim\\captures\\rtl\\kyros_instruction60_diagnostic\\epoch_events.csv": "c7288cf0f554eb758a1dfcf6d544cfdcebe3d533b60e9388773b9a91cf3a17d2",
+    "D:\\Arcade\\AI\\aCORES\\Alpha68k N\\sim\\captures\\rtl\\kyros_instruction60_diagnostic\\frame_000060.rgb": "14034d0f5c96249cbf3df241c441f6c260b5c617c3ef81bd6f9bb579c49ab081"
+  }
+}

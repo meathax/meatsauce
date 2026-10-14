@@ -1,0 +1,21 @@
+{
+  "actual_wsl_pid": 48820,
+  "command": [
+    "wsl.exe",
+    "-d",
+    "Ubuntu",
+    "--cd",
+    "D:\\Arcade\\AI\\aCORES\\Alpha68k N",
+    "--exec",
+    "env",
+    "ALPHA_BUILD_TMP=/mnt/d/vibes/fpga/temp",
+    "TMPDIR=/mnt/d/vibes/fpga/temp",
+    "python3",
+    "scripts/prepare_kyros_sound_rom_q61.py",
+    "--candidate",
+    "/mnt/d/Arcade/AI/aCORES/Alpha68k N/research/sound_rom_aligned_candidate/alpha68kn_board.sv",
+    "--candidate-sha",
+    "3681c9e7af1818fd9475b8ce3f98eed20befa9c205a377f483a111cbe5da9085"
+  ],
+  "started": 1791612553.4105918
+}

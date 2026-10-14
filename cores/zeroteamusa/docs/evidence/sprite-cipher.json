@@ -1,0 +1,24 @@
+{
+  "words_compared": 2097152,
+  "encrypted_words": 1048576,
+  "passthrough_words": 1048576,
+  "different_words": 0,
+  "first_difference_index": 2097152,
+  "date": "2026-10-04",
+  "set": "zeroteam",
+  "command": "wsl.exe -d Ubuntu --cd D:\\Arcade\\AI\\aCORES\\zero --exec bash ./sim/run_crypt.sh",
+  "source_sha256": {
+    "rtl/Raiden2/crypt/zeroteam_sprite_decrypt.sv": "41c15dcefaaed12b82f93ae92dccf6c6ddf27eccdc75f0b36c5ef76e851d5494",
+    "sim/zero_crypt_top.sv": "6aea98c22786da097391742727c21da0aa1fd4a59d579590cfe577ecd9d877b1",
+    "sim/crypt_main.cpp": "b7efc728a7eedfa0603a7ac073b9fb47543372153f37f72752802ef6b4c85270",
+    "sim/crypt_compat.hpp": "96fd30ca4a8ec66207a9405090394579885c98c568789e01e39050b544f1932e",
+    "reference/mame/r2crypt.cpp": "f480ece8e78363185ef075500d6f0cbf2bd60615023a8041ea61498be9b1e2e1",
+    "reference/mame/seibu_helper.cpp": "d516472be3fc337714e02eab85fd4d7ddfb1545ab1dd23577ca885a90703ac63",
+    "rtl/Raiden2/crypt/rotate_zt.hex": "bee636120930fa2e21b83650ab72ecb940ba519ca13e6cb1c452ed501c5fd5a7",
+    "rtl/Raiden2/crypt/x5_zt.hex": "6be2c23a7ee7430376686ff376b46a1169caa5fca33e5345c823b8f99bdc1d17",
+    "rtl/Raiden2/crypt/x11_zt.hex": "4637f6a47d30ff2c1341008f6e1c1fc3386507a7a0d24d76f2b36c6d5a68dd03"
+  },
+  "encrypted_region_sha256": "e55641fccf9c57da409e288c9630b84235ec9ea916992faf6f080c61bd959d9d",
+  "rtl_plain_region_sha256": "27981539bd56319031893d3a37a84cc14d0f66557692a7581cf18a8754be43d4",
+  "limits": "Standalone real RTL cipher versus original MAME algorithm. This proves this US set ROM transform, not uploaded-key behavior or later COP sorting/gameplay."
+}

@@ -1,0 +1,30 @@
+--- canonical/Alpha68k_N.sv
++++ private/Alpha68k_N.sv
+@@ -25,6 +25,8 @@
+     ,output wire SIM_USER_PAUSE
+     ,output wire [4:0] SIM_HS_STATE
+     ,output wire SIM_HS_RESTORING,SIM_HS_EXTRACTING
++    ,output wire SIM_MCU_SHARED,SIM_MCU_PENDING
++    ,output wire [31:0] SIM_MCU_TICKS
+ `endif
+ );
+     `include "build_id.v"
+@@ -134,7 +136,7 @@
+             if(load_wr) begin
+                 if(board_load_addr==0) header_ok[0]<=board_load_data==16'h3641;
+                 if(board_load_addr==2) header_ok[1]<=board_load_data==16'h4e38;
+-                if(board_load_addr==4) header_ok[2]<=board_load_data[7:0]==1 && board_load_data[15:8]<=1;
++                if(board_load_addr==4) header_ok[2]<=board_load_data[7:0]==1 && board_load_data[15:8]<=2;
+                 if(board_load_addr==25'h9fffe) seen_end<=1;
+             end
+             if(!load && !gfx_busy && gfx_initialized && &header_ok && seen_end)
+@@ -170,6 +172,9 @@
+     assign SIM_JOY0=joy0;assign SIM_USER_PAUSE=user_pause;
+     assign SIM_HS_STATE=hi.state;assign SIM_HS_RESTORING=hi.restoring_dump;
+     assign SIM_HS_EXTRACTING=hi.extracting_dump;
++    assign SIM_MCU_SHARED=system.board.sting_mcu_shared_write;
++    assign SIM_MCU_PENDING=system.board.sting_mcu.p2_pending;
++    assign SIM_MCU_TICKS=system.board.sting_mcu.core_ticks;
+ `else
+     assign ram_hs_access=hs_read || hs_write_intent;assign ram_hs_write=hs_write;
+     assign ram_hs_addr=hs_addr;assign ram_hs_data=hs_to_ram;

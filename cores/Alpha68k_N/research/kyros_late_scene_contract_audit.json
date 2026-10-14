@@ -1,0 +1,263 @@
+{
+  "scope": "Existing Kyros late-scene fixtures against exact canonical plan; no replay or broad P7 closure.",
+  "plan": {
+    "path": "D:\\Arcade\\AI\\aCORES\\meatsauce-alpha68kn\\cores\\Alpha68k_N\\plan.md",
+    "sha256": "710fd73955d36162072d2e86aa478c6792a4f7cab3b59bb8531a29b37386bc5e",
+    "excerpts": [
+      {
+        "line": 9,
+        "text": "1. Real fx68k and Z80 RTL execute staged ROMs through reset, attract, coin/start and controllable gameplay. Japan Kyros and Stingray run on the same board architecture with explicit profile differences. Real T48 executes Stingray MCU firmware; Kyros's chosen MCU strategy is documented honestly."
+      },
+      {
+        "line": 10,
+        "text": "2. Graphics match pinned MAME 0.289 in native unrotated **256 x 224 RGB pixels** at aligned checkpoints, including boot/title, attract, gameplay, Kyros stage 5, ending priority, both-player/cocktail/flip cases and Stingray edge wrapping. No undocumented mismatch masks or selected-only screenshot claims."
+      },
+      {
+        "line": 53,
+        "text": "6. Obtain deterministic stage-5 and ending checkpoints for both Kyros ROM sets as needed. A debugger/Lua-created checkpoint can isolate rendering; final full-game evidence must still execute real CPU RTL. Save finite fixture inputs and expected raw pixels, not hours of unbounded logs."
+      },
+      {
+        "line": 91,
+        "text": "6. Run Kyros through full attract and actual coin/start/play with real CPU RTL. Then switch to `kyrosj` and its real gfx/program ROMs. Include flipping/cocktail and a bank-heavy scene. Stage-5/ending fixture coverage is mandatory in P7 even if isolated fixtures pass now."
+      },
+      {
+        "line": 121,
+        "text": "2. Exercise Kyros stage 5 for B01, ending for B02, sound sequence for B03/B04/B05, chip clocks for B06, Stingray commands/DIPs for B07, its palette for B08, and the explicit status/evidence for B09\u2013B15. Update `docs/bug_coverage.json` with fixture names and outcomes. Closed original behavior is a preserve condition; unresolved board timing is a qualified limit, not an invented pass."
+      },
+      {
+        "line": 122,
+        "text": "3. Record exact graphics mismatch counts (expected zero for the chosen baseline), first mismatch diagnostics, no missed line deadlines, no unexplained persistent bus stalls, calibrated audio bounds and MCU event behavior. Avoid claiming extended-play completion from a snapshot alone."
+      },
+      {
+        "line": 125,
+        "text": "Exit: **all target games fully brought up in attract and gameplay in real Verilator RTL**, with the necessary late-scene fixtures and complete bug disposition. Write a source-hash-bound `sim/acceptance.json`. Still no RBF/hardware test."
+      }
+    ]
+  },
+  "correction": "Earlier kyros_late_game_acceptance_gap.json overstated natural control-only stage5/ending progression as a mandatory first missing requirement. Its retained actualCPU RAM facts remain valid.",
+  "contract_interpretation": "P1 explicitly permits debugger/Lua-created rendering checkpoints. P7 requires realCPU attract/controllablegameplay plus necessary late-scene fixtures. Natural RTL CPU ending progression is not explicitly required; fixture coverage never replaces actual attract/gameplay.",
+  "fixture_cases": [
+    {
+      "name": "kyros_candidate5_lastroom_renderer",
+      "receipt_sha256": "10476be5a648af113ae4be2908f7d866903c4d7f860dab8ded479a775f9d9ada",
+      "source_parent": "044eef940208af327ae6f25ae59a1636720ed40a",
+      "executable_sha256": "39b911470653cd526a54660362ea15c1efc94fbd4fd551709c6e63e5d19be31f",
+      "compiled_pins_exact": 11,
+      "shared_current_canonical_pins_exact": 9,
+      "fields": [
+        {
+          "field": 1500,
+          "actual_exit_code": 0,
+          "pixels": 57344,
+          "full_rgb_differences": 0,
+          "actual_path": "D:\\Arcade\\AI\\aCORES\\Alpha68k N\\sim\\captures\\renderer\\kyros_candidate5_lastroom_renderer\\field_001500\\actual.rgb",
+          "oracle_path": "D:\\Arcade\\AI\\aCORES\\Alpha68k N\\sim\\captures\\kyros\\late_scene_candidates3600_centered_up_scene5_lastroom\\frame_001500.display.rgb",
+          "actual_sha256": "1e24ce80cdeb12e6e5a054e62af19dd312d4d9843458cc4b50f692c7fbe9416d",
+          "oracle_sha256": "1e24ce80cdeb12e6e5a054e62af19dd312d4d9843458cc4b50f692c7fbe9416d"
+        },
+        {
+          "field": 1800,
+          "actual_exit_code": 0,
+          "pixels": 57344,
+          "full_rgb_differences": 0,
+          "actual_path": "D:\\Arcade\\AI\\aCORES\\Alpha68k N\\sim\\captures\\renderer\\kyros_candidate5_lastroom_renderer\\field_001800\\actual.rgb",
+          "oracle_path": "D:\\Arcade\\AI\\aCORES\\Alpha68k N\\sim\\captures\\kyros\\late_scene_candidates3600_centered_up_scene5_lastroom\\frame_001800.display.rgb",
+          "actual_sha256": "a8cf93aedde69f1c8decd2c83b8b00176d5b49533911f89ebe827b28d191a60b",
+          "oracle_sha256": "a8cf93aedde69f1c8decd2c83b8b00176d5b49533911f89ebe827b28d191a60b"
+        },
+        {
+          "field": 2400,
+          "actual_exit_code": 0,
+          "pixels": 57344,
+          "full_rgb_differences": 0,
+          "actual_path": "D:\\Arcade\\AI\\aCORES\\Alpha68k N\\sim\\captures\\renderer\\kyros_candidate5_lastroom_renderer\\field_002400\\actual.rgb",
+          "oracle_path": "D:\\Arcade\\AI\\aCORES\\Alpha68k N\\sim\\captures\\kyros\\late_scene_candidates3600_centered_up_scene5_lastroom\\frame_002400.display.rgb",
+          "actual_sha256": "29efc3060f5adf98f59a41ff1c80182f65338c815ee99cee78478bab111f233b",
+          "oracle_sha256": "29efc3060f5adf98f59a41ff1c80182f65338c815ee99cee78478bab111f233b"
+        },
+        {
+          "field": 3000,
+          "actual_exit_code": 0,
+          "pixels": 57344,
+          "full_rgb_differences": 0,
+          "actual_path": "D:\\Arcade\\AI\\aCORES\\Alpha68k N\\sim\\captures\\renderer\\kyros_candidate5_lastroom_renderer\\field_003000\\actual.rgb",
+          "oracle_path": "D:\\Arcade\\AI\\aCORES\\Alpha68k N\\sim\\captures\\kyros\\late_scene_candidates3600_centered_up_scene5_lastroom\\frame_003000.display.rgb",
+          "actual_sha256": "618896c5ed22ad4b781b6704302b4a2bd99454712944a7b2f5ae88aa8b28f218",
+          "oracle_sha256": "618896c5ed22ad4b781b6704302b4a2bd99454712944a7b2f5ae88aa8b28f218"
+        },
+        {
+          "field": 3599,
+          "actual_exit_code": 0,
+          "pixels": 57344,
+          "full_rgb_differences": 0,
+          "actual_path": "D:\\Arcade\\AI\\aCORES\\Alpha68k N\\sim\\captures\\renderer\\kyros_candidate5_lastroom_renderer\\field_003599\\actual.rgb",
+          "oracle_path": "D:\\Arcade\\AI\\aCORES\\Alpha68k N\\sim\\captures\\kyros\\late_scene_candidates3600_centered_up_scene5_lastroom\\frame_003599.display.rgb",
+          "actual_sha256": "43b8796f5d8a8896e6f9c4cf9c53002ee49b5386e1785518e2cf34fc2b99eeb5",
+          "oracle_sha256": "43b8796f5d8a8896e6f9c4cf9c53002ee49b5386e1785518e2cf34fc2b99eeb5"
+        }
+      ],
+      "original_scope": "Complete isolated real renderer/SDRAM fields from guarded MAME selector5 snapshots; no real RTL CPU, whole-game or late-scene identity acceptance",
+      "natural_cpu_progression_proven": false
+    },
+    {
+      "name": "kyrosj_candidate5_lastroom_renderer",
+      "receipt_sha256": "575f004a5e2f01faf652493e99ae1b0276845aea87203f27ddfad0467e4e8f5c",
+      "source_parent": "044eef940208af327ae6f25ae59a1636720ed40a",
+      "executable_sha256": "39b911470653cd526a54660362ea15c1efc94fbd4fd551709c6e63e5d19be31f",
+      "compiled_pins_exact": 11,
+      "shared_current_canonical_pins_exact": 9,
+      "fields": [
+        {
+          "field": 1500,
+          "actual_exit_code": 0,
+          "pixels": 57344,
+          "full_rgb_differences": 0,
+          "actual_path": "D:\\Arcade\\AI\\aCORES\\Alpha68k N\\sim\\captures\\renderer\\kyrosj_candidate5_lastroom_renderer\\field_001500\\actual.rgb",
+          "oracle_path": "D:\\Arcade\\AI\\aCORES\\Alpha68k N\\sim\\captures\\kyrosj\\late_scene_candidates3601_centered_up_scene5_lastroom\\frame_001500.display.rgb",
+          "actual_sha256": "1e24ce80cdeb12e6e5a054e62af19dd312d4d9843458cc4b50f692c7fbe9416d",
+          "oracle_sha256": "1e24ce80cdeb12e6e5a054e62af19dd312d4d9843458cc4b50f692c7fbe9416d"
+        },
+        {
+          "field": 1800,
+          "actual_exit_code": 0,
+          "pixels": 57344,
+          "full_rgb_differences": 0,
+          "actual_path": "D:\\Arcade\\AI\\aCORES\\Alpha68k N\\sim\\captures\\renderer\\kyrosj_candidate5_lastroom_renderer\\field_001800\\actual.rgb",
+          "oracle_path": "D:\\Arcade\\AI\\aCORES\\Alpha68k N\\sim\\captures\\kyrosj\\late_scene_candidates3601_centered_up_scene5_lastroom\\frame_001800.display.rgb",
+          "actual_sha256": "a8cf93aedde69f1c8decd2c83b8b00176d5b49533911f89ebe827b28d191a60b",
+          "oracle_sha256": "a8cf93aedde69f1c8decd2c83b8b00176d5b49533911f89ebe827b28d191a60b"
+        },
+        {
+          "field": 2400,
+          "actual_exit_code": 0,
+          "pixels": 57344,
+          "full_rgb_differences": 0,
+          "actual_path": "D:\\Arcade\\AI\\aCORES\\Alpha68k N\\sim\\captures\\renderer\\kyrosj_candidate5_lastroom_renderer\\field_002400\\actual.rgb",
+          "oracle_path": "D:\\Arcade\\AI\\aCORES\\Alpha68k N\\sim\\captures\\kyrosj\\late_scene_candidates3601_centered_up_scene5_lastroom\\frame_002400.display.rgb",
+          "actual_sha256": "29efc3060f5adf98f59a41ff1c80182f65338c815ee99cee78478bab111f233b",
+          "oracle_sha256": "29efc3060f5adf98f59a41ff1c80182f65338c815ee99cee78478bab111f233b"
+        },
+        {
+          "field": 3000,
+          "actual_exit_code": 0,
+          "pixels": 57344,
+          "full_rgb_differences": 0,
+          "actual_path": "D:\\Arcade\\AI\\aCORES\\Alpha68k N\\sim\\captures\\renderer\\kyrosj_candidate5_lastroom_renderer\\field_003000\\actual.rgb",
+          "oracle_path": "D:\\Arcade\\AI\\aCORES\\Alpha68k N\\sim\\captures\\kyrosj\\late_scene_candidates3601_centered_up_scene5_lastroom\\frame_003000.display.rgb",
+          "actual_sha256": "618896c5ed22ad4b781b6704302b4a2bd99454712944a7b2f5ae88aa8b28f218",
+          "oracle_sha256": "618896c5ed22ad4b781b6704302b4a2bd99454712944a7b2f5ae88aa8b28f218"
+        },
+        {
+          "field": 3600,
+          "actual_exit_code": 0,
+          "pixels": 57344,
+          "full_rgb_differences": 0,
+          "actual_path": "D:\\Arcade\\AI\\aCORES\\Alpha68k N\\sim\\captures\\renderer\\kyrosj_candidate5_lastroom_renderer\\field_003600\\actual.rgb",
+          "oracle_path": "D:\\Arcade\\AI\\aCORES\\Alpha68k N\\sim\\captures\\kyrosj\\late_scene_candidates3601_centered_up_scene5_lastroom\\frame_003600.display.rgb",
+          "actual_sha256": "913b581a2f942a210daa0647c7f54bc758ef9948829bc318c1398d86572e2988",
+          "oracle_sha256": "913b581a2f942a210daa0647c7f54bc758ef9948829bc318c1398d86572e2988"
+        }
+      ],
+      "original_scope": "Complete isolated real renderer/SDRAM fields from guarded MAME selector5 snapshots; no real RTL CPU, whole-game or late-scene identity acceptance",
+      "natural_cpu_progression_proven": false
+    },
+    {
+      "name": "kyros_ending_renderer",
+      "receipt_sha256": "dce0141242586dd2cb7f396a5cc92a679a05c09fdc84f555fea36cb62e78ac81",
+      "source_parent": "82f0a418f71f7a7f4c0d5bca30e8a411f7fbc651",
+      "executable_sha256": "39b911470653cd526a54660362ea15c1efc94fbd4fd551709c6e63e5d19be31f",
+      "compiled_pins_exact": 11,
+      "shared_current_canonical_pins_exact": 9,
+      "fields": [
+        {
+          "field": 2400,
+          "actual_exit_code": 0,
+          "pixels": 57344,
+          "full_rgb_differences": 0,
+          "actual_path": "D:\\Arcade\\AI\\aCORES\\Alpha68k N\\sim\\captures\\renderer\\kyros_ending_renderer\\field_002400\\actual.rgb",
+          "oracle_path": "D:\\Arcade\\AI\\aCORES\\Alpha68k N\\sim\\captures\\kyros\\late_scene_candidates5400_centered_up_scene5_lastroom_ending\\frame_002400.display.rgb",
+          "actual_sha256": "5975254163547e8c81c5dfadb4512fd3667e7a79fdcc56d08a95955e7b9071f8",
+          "oracle_sha256": "5975254163547e8c81c5dfadb4512fd3667e7a79fdcc56d08a95955e7b9071f8"
+        },
+        {
+          "field": 3000,
+          "actual_exit_code": 0,
+          "pixels": 57344,
+          "full_rgb_differences": 0,
+          "actual_path": "D:\\Arcade\\AI\\aCORES\\Alpha68k N\\sim\\captures\\renderer\\kyros_ending_renderer\\field_003000\\actual.rgb",
+          "oracle_path": "D:\\Arcade\\AI\\aCORES\\Alpha68k N\\sim\\captures\\kyros\\late_scene_candidates5400_centered_up_scene5_lastroom_ending\\frame_003000.display.rgb",
+          "actual_sha256": "7d5abff288afe058d10599b5fb2f17f1259b30747f7e8b12c44b1014b43b05c6",
+          "oracle_sha256": "7d5abff288afe058d10599b5fb2f17f1259b30747f7e8b12c44b1014b43b05c6"
+        },
+        {
+          "field": 3600,
+          "actual_exit_code": 0,
+          "pixels": 57344,
+          "full_rgb_differences": 0,
+          "actual_path": "D:\\Arcade\\AI\\aCORES\\Alpha68k N\\sim\\captures\\renderer\\kyros_ending_renderer\\field_003600\\actual.rgb",
+          "oracle_path": "D:\\Arcade\\AI\\aCORES\\Alpha68k N\\sim\\captures\\kyros\\late_scene_candidates5400_centered_up_scene5_lastroom_ending\\frame_003600.display.rgb",
+          "actual_sha256": "f9e97e468ab7bf702e40a5e458092af4f5bbf552d9ed1faa78f0559579b628b1",
+          "oracle_sha256": "f9e97e468ab7bf702e40a5e458092af4f5bbf552d9ed1faa78f0559579b628b1"
+        },
+        {
+          "field": 4200,
+          "actual_exit_code": 0,
+          "pixels": 57344,
+          "full_rgb_differences": 0,
+          "actual_path": "D:\\Arcade\\AI\\aCORES\\Alpha68k N\\sim\\captures\\renderer\\kyros_ending_renderer\\field_004200\\actual.rgb",
+          "oracle_path": "D:\\Arcade\\AI\\aCORES\\Alpha68k N\\sim\\captures\\kyros\\late_scene_candidates5400_centered_up_scene5_lastroom_ending\\frame_004200.display.rgb",
+          "actual_sha256": "70fb4a224f22f8244f184d4844c0e7ce52a3257d2f61d04d33d65bc49e217097",
+          "oracle_sha256": "70fb4a224f22f8244f184d4844c0e7ce52a3257d2f61d04d33d65bc49e217097"
+        },
+        {
+          "field": 5399,
+          "actual_exit_code": 0,
+          "pixels": 57344,
+          "full_rgb_differences": 0,
+          "actual_path": "D:\\Arcade\\AI\\aCORES\\Alpha68k N\\sim\\captures\\renderer\\kyros_ending_renderer\\field_005399\\actual.rgb",
+          "oracle_path": "D:\\Arcade\\AI\\aCORES\\Alpha68k N\\sim\\captures\\kyros\\late_scene_candidates5400_centered_up_scene5_lastroom_ending\\frame_005399.display.rgb",
+          "actual_sha256": "68f54c7cac0f7fb7ca63f3dfc7a30b70c3772c6a58e512a371dfb9602dda1ddb",
+          "oracle_sha256": "68f54c7cac0f7fb7ca63f3dfc7a30b70c3772c6a58e512a371dfb9602dda1ddb"
+        }
+      ],
+      "original_scope": "Complete isolated real renderer/SDRAM fields from guarded MAME selector5 snapshots; no real RTL CPU, whole-game or late-scene identity acceptance",
+      "natural_cpu_progression_proven": false
+    }
+  ],
+  "B01_required_targeted_fixture_covered": true,
+  "B01_profiles": [
+    "kyros",
+    "kyrosj"
+  ],
+  "B01_nonvacuous_fault_changed_pixels": {
+    "kyros": 500,
+    "kyrosj": 500
+  },
+  "B02_required_targeted_fixture_covered": true,
+  "B02_profile": "kyros",
+  "B02_semantics": "Guarded explicit MAME boss-state fixture selects actual ROM staff-text ending and observed character/text overlap; existing strip priority preserved. No legal playthrough claim.",
+  "natural_cpu_stage5_progression_proven": false,
+  "natural_cpu_ending_progression_proven": false,
+  "whole_game_acceptance": false,
+  "P7_complete": false,
+  "remaining_required_work": "Reuse15 immutable complete RGB fields in final hash-bound bug disposition; resolve genuine realCPU startup/attract/gameplay atomic mismatches and remaining profile/feature/audio coverage. Re-run only invalidated dependent evidence.",
+  "limits": [
+    "No original-board attachment-image equivalence claim.",
+    "World ending fixture does not supply Japan ending; add that fixture only if profile-specific changes require it.",
+    "Original zero-effect entry/corridor negative probes remain failures."
+  ],
+  "pilot": {
+    "actual_exit_code": 0,
+    "fields": 673,
+    "integrity_checks_passed": 9,
+    "result": {
+      "fields": 673,
+      "reason": "calibration_no_actual_motion",
+      "scene": 3,
+      "room": 240,
+      "state_writes": 0,
+      "full_acceptance": false
+    },
+    "diagnosis": "Retained PC34ee/352a is in ROM3414..355e stage-announcement loop and screenshot659 displaysSTAGE3. The12-field rawUP sample found no coordinate change; this does not diagnose a production input defect or movement axes. Further pilots paused."
+  }
+}

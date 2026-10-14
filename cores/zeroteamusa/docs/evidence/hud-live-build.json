@@ -1,0 +1,177 @@
+{
+  "scope": "Verified lossless sprite-model cutover, not full gameplay or repeating attract acceptance",
+  "model_binary_sha256": "13eaeabf04c600260c63d7c292c81db45481d4d02fef25ae951d19ca689cb19b",
+  "cases": {
+    "hud-combat2p": {
+      "session_at_launch": 76569,
+      "target_cycle": 3120000000,
+      "origin_cycle": 2288000000,
+      "work_directory": "sim/results/branches/hud-combat2p",
+      "scope": "Actual RTL resumed on corrected immutable sprite model; gameplay/attract acceptance pending",
+      "native_migration": {
+        "scope": "Lossless native checkpoint migration for only the USA blank-sprite skip; not a gameplay acceptance",
+        "origin_base": "/mnt/d/Arcade/AI/aCORES/zero/sim/results/current-builds/cop-rom-combat2p/sim/results/avcop-rom-combat2p-checkpoint-2288000000",
+        "origin_streams_sha256": {
+          ".rtl": "4173a36976186515d29048df81f5f10864287a898eb3b2d0ad5be87ef7119038",
+          ".host": "e1f0124772397d5fde01a059797374c3fd116b65e7ebff48f3154e7cea4f4432",
+          ".json": "6edc894e6bcc4eef58dc5a7eaed403f0eeac8845183555097fdcc98bff32bd55"
+        },
+        "destination_base": "/mnt/d/Arcade/AI/aCORES/zero/sim/results/native-migrations/combat2p-1320/checkpoint",
+        "origin_model_sha256": "89378b6176765c8cde3002dec049afd3048adfa0959db85d891c59f8b7747069",
+        "new_model_sha256": "13eaeabf04c600260c63d7c292c81db45481d4d02fef25ae951d19ca689cb19b",
+        "changed_rtl": [
+          "rtl/Raiden2/Raiden2_sprite_renderer.sv",
+          "rtl/ZeroTeam_video.sv"
+        ],
+        "serialization_methods_sha256": {
+          "Vzero_av_top__Syms::__Vserialize": "161246458c7929eccf6b91396d5c85074ad7251a3120eb6d63d7074f791eacfd",
+          "Vzero_av_top__Syms::__Vdeserialize": "ae0d1ce01acecada7eb37bbc900e7439e21acb77b73ef43329db74b75ba16328",
+          "Vzero_av_top___024root::__Vserialize": "0dbf7d7819751618c4bce0e1eee1d776f9e6031abfcfdeeee4f08d9efea524ef",
+          "Vzero_av_top___024root::__Vdeserialize": "313f1487d5878db1f828f84c3257c0e8d8fb60a14ee0769778d00f359f08efd5"
+        },
+        "identical_model_headers_sha256": {
+          "Vzero_av_top.h": "ceac6bf2ef0292961cbf84dcd3fe1638bb84b68599191b9237cc9150b5dbea72",
+          "Vzero_av_top__Syms.h": "e03975c191365d54794881961177aae271b79f658e0722207680873059127e2c",
+          "Vzero_av_top___024root.h": "e7bc46395a65a10257237180bf1d3c3a42554dc74b46d14683f8d2cc85aa199f"
+        },
+        "roundtrip_sha256": "4173a36976186515d29048df81f5f10864287a898eb3b2d0ad5be87ef7119038",
+        "all_saved_bytes_preserved": true,
+        "host_bytes_preserved": true,
+        "passive_no_eval_no_clocks": true,
+        "cycle": 2288000000,
+        "native_reset_configuration": {
+          "dips": 65535,
+          "cabinet": 1792
+        },
+        "observer_source_sha256": "d24853900e59e38aeba95975e43a524ecc39629464fc238cdfd3f205781b5022"
+      },
+      "source_stamp_sha256": "bbc238a62d76eefd4cf6f4d39b68b7d2f778df8f2655b3e5bf0f260e350a095e"
+    },
+    "hud-combat4p": {
+      "session_at_launch": 60897,
+      "target_cycle": 3120000000,
+      "origin_cycle": 1768000000,
+      "work_directory": "sim/results/branches/hud-combat4p",
+      "scope": "Actual RTL resumed on corrected immutable sprite model; gameplay/attract acceptance pending",
+      "native_migration": {
+        "scope": "Lossless native checkpoint migration for only the USA blank-sprite skip; not a gameplay acceptance",
+        "origin_base": "/mnt/d/Arcade/AI/aCORES/zero/sim/results/branches/cop-rom-combat4p-cold/sim/results/avcop-rom-combat4p-cold-checkpoint-1768000000",
+        "origin_streams_sha256": {
+          ".rtl": "3fb222feae303f3d51fc88e4045de449634c665416d7080a0fc3d885f21afacb",
+          ".host": "b9944c0ea310db50dd3112bf1ee25b4c3d8534adc41f86af161d4aeff271db9a",
+          ".json": "391370d78b4d9ca4566b9aed66d23e5c820f97da27e861b61a08aeed02e88b4d"
+        },
+        "destination_base": "/mnt/d/Arcade/AI/aCORES/zero/sim/results/native-migrations/combat4p-1020/checkpoint",
+        "origin_model_sha256": "89378b6176765c8cde3002dec049afd3048adfa0959db85d891c59f8b7747069",
+        "new_model_sha256": "13eaeabf04c600260c63d7c292c81db45481d4d02fef25ae951d19ca689cb19b",
+        "changed_rtl": [
+          "rtl/Raiden2/Raiden2_sprite_renderer.sv",
+          "rtl/ZeroTeam_video.sv"
+        ],
+        "serialization_methods_sha256": {
+          "Vzero_av_top__Syms::__Vserialize": "161246458c7929eccf6b91396d5c85074ad7251a3120eb6d63d7074f791eacfd",
+          "Vzero_av_top__Syms::__Vdeserialize": "ae0d1ce01acecada7eb37bbc900e7439e21acb77b73ef43329db74b75ba16328",
+          "Vzero_av_top___024root::__Vserialize": "0dbf7d7819751618c4bce0e1eee1d776f9e6031abfcfdeeee4f08d9efea524ef",
+          "Vzero_av_top___024root::__Vdeserialize": "313f1487d5878db1f828f84c3257c0e8d8fb60a14ee0769778d00f359f08efd5"
+        },
+        "identical_model_headers_sha256": {
+          "Vzero_av_top.h": "ceac6bf2ef0292961cbf84dcd3fe1638bb84b68599191b9237cc9150b5dbea72",
+          "Vzero_av_top__Syms.h": "e03975c191365d54794881961177aae271b79f658e0722207680873059127e2c",
+          "Vzero_av_top___024root.h": "e7bc46395a65a10257237180bf1d3c3a42554dc74b46d14683f8d2cc85aa199f"
+        },
+        "roundtrip_sha256": "3fb222feae303f3d51fc88e4045de449634c665416d7080a0fc3d885f21afacb",
+        "all_saved_bytes_preserved": true,
+        "host_bytes_preserved": true,
+        "passive_no_eval_no_clocks": true,
+        "cycle": 1768000000,
+        "native_reset_configuration": {
+          "dips": 65535,
+          "cabinet": 1280
+        },
+        "observer_source_sha256": "d24853900e59e38aeba95975e43a524ecc39629464fc238cdfd3f205781b5022"
+      },
+      "source_stamp_sha256": "ebaa0d0dfebaa4682cb59f6b564994051b9b3a7b0d406d8fd0df898f7c7587fa"
+    },
+    "hud-attract": {
+      "session_at_launch": 94623,
+      "target_cycle": 8320000000,
+      "origin_cycle": 2288000000,
+      "work_directory": "sim/results/branches/hud-attract",
+      "scope": "Actual RTL resumed on corrected immutable sprite model; gameplay/attract acceptance pending",
+      "native_migration": {
+        "scope": "Lossless native checkpoint migration for only the USA blank-sprite skip; not a gameplay acceptance",
+        "origin_base": "/mnt/d/Arcade/AI/aCORES/zero/sim/results/branches/cop-rom-attract/sim/results/avcop-rom-attract-checkpoint-2288000000",
+        "origin_streams_sha256": {
+          ".rtl": "c23a16e52c2cfb8eee6de4e63e2af70a3af4a3e6028c72cfa0d26cc3bf65e705",
+          ".host": "dd2dfa8278f7a9252a283aa24df2bca9efdbff4e8af5cfb2a028cc42d36070fc",
+          ".json": "b9c97a8f3fd913176cc3397ee703c139f3e1a6d22c411ef69a94a31f8898fec9"
+        },
+        "destination_base": "/mnt/d/Arcade/AI/aCORES/zero/sim/results/native-migrations/attract-1320/checkpoint",
+        "origin_model_sha256": "89378b6176765c8cde3002dec049afd3048adfa0959db85d891c59f8b7747069",
+        "new_model_sha256": "13eaeabf04c600260c63d7c292c81db45481d4d02fef25ae951d19ca689cb19b",
+        "changed_rtl": [
+          "rtl/Raiden2/Raiden2_sprite_renderer.sv",
+          "rtl/ZeroTeam_video.sv"
+        ],
+        "serialization_methods_sha256": {
+          "Vzero_av_top__Syms::__Vserialize": "161246458c7929eccf6b91396d5c85074ad7251a3120eb6d63d7074f791eacfd",
+          "Vzero_av_top__Syms::__Vdeserialize": "ae0d1ce01acecada7eb37bbc900e7439e21acb77b73ef43329db74b75ba16328",
+          "Vzero_av_top___024root::__Vserialize": "0dbf7d7819751618c4bce0e1eee1d776f9e6031abfcfdeeee4f08d9efea524ef",
+          "Vzero_av_top___024root::__Vdeserialize": "313f1487d5878db1f828f84c3257c0e8d8fb60a14ee0769778d00f359f08efd5"
+        },
+        "identical_model_headers_sha256": {
+          "Vzero_av_top.h": "ceac6bf2ef0292961cbf84dcd3fe1638bb84b68599191b9237cc9150b5dbea72",
+          "Vzero_av_top__Syms.h": "e03975c191365d54794881961177aae271b79f658e0722207680873059127e2c",
+          "Vzero_av_top___024root.h": "e7bc46395a65a10257237180bf1d3c3a42554dc74b46d14683f8d2cc85aa199f"
+        },
+        "roundtrip_sha256": "c23a16e52c2cfb8eee6de4e63e2af70a3af4a3e6028c72cfa0d26cc3bf65e705",
+        "all_saved_bytes_preserved": true,
+        "host_bytes_preserved": true,
+        "passive_no_eval_no_clocks": true,
+        "cycle": 2288000000,
+        "native_reset_configuration": {
+          "dips": 65535,
+          "cabinet": 1792
+        },
+        "observer_source_sha256": "d24853900e59e38aeba95975e43a524ecc39629464fc238cdfd3f205781b5022"
+      },
+      "source_stamp_sha256": "3161c9d67f4b3bb3282977424be1fd9d166358a29b05a05a4eb012a507262ce9"
+    }
+  },
+  "superseded": [
+    {
+      "old_tag": "cop-rom-combat2p",
+      "old_pid": 3277637,
+      "new_tag": "hud-combat2p",
+      "new_pid": 3283273,
+      "preserved_checkpoint_cycle": 2288000000,
+      "migration": "combat2p-1320",
+      "old_model_sha256": "89378b6176765c8cde3002dec049afd3048adfa0959db85d891c59f8b7747069",
+      "new_model_sha256": "13eaeabf04c600260c63d7c292c81db45481d4d02fef25ae951d19ca689cb19b"
+    },
+    {
+      "old_tag": "cop-rom-combat4p-cold",
+      "old_pid": 3279539,
+      "new_tag": "hud-combat4p",
+      "new_pid": 3283319,
+      "preserved_checkpoint_cycle": 1768000000,
+      "migration": "combat4p-1020",
+      "old_model_sha256": "89378b6176765c8cde3002dec049afd3048adfa0959db85d891c59f8b7747069",
+      "new_model_sha256": "13eaeabf04c600260c63d7c292c81db45481d4d02fef25ae951d19ca689cb19b"
+    },
+    {
+      "old_tag": "cop-rom-attract",
+      "old_pid": 3278396,
+      "new_tag": "hud-attract",
+      "new_pid": 3283365,
+      "preserved_checkpoint_cycle": 2288000000,
+      "migration": "attract-1320",
+      "old_model_sha256": "89378b6176765c8cde3002dec049afd3048adfa0959db85d891c59f8b7747069",
+      "new_model_sha256": "13eaeabf04c600260c63d7c292c81db45481d4d02fef25ae951d19ca689cb19b"
+    }
+  ],
+  "stop_condition": "Exact old binary/tag and complete preserved checkpoints checked; exact new binary/tag processes confirmed live before SIGINT",
+  "normal_resume_guards_retained": true,
+  "no_state_bytes_patched": true,
+  "migration_tool_sha256": "582082ee8fa47e8e017c27bf629d421bcdd3106586e48520d1efa8fcb4e8a73d"
+}

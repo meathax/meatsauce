@@ -1,0 +1,56 @@
+{
+  "schema": "verified_MAME_stale_drawing_buffer_observer_v1",
+  "decisive_checks": true,
+  "cause": "At MACHINE_NOTIFY_FRAME MAME video.cpp has finished screen updates and update_quads has moved completed pixels into m_curtexture and switched m_curbitmap. screen:pixels()/pixel() use m_curbitmap, so they export the other drawing buffer. screen:snapshot uses completed render texture.",
+  "responsible_layer": "MAME reference recorder pixel producer, not native RTL renderer or sprite RAM.",
+  "correction": "Use the completed-frame PNG captured by the same stock-MAME callback, decode its lossless RGB and invert only the driver-declared ROT90. Preserve original RGB/Pix32 and do not shift frame labels, hide pixels, or patch native hardware.",
+  "bound_scope": "Five retained Super Stingray gameplay checkpoints, plus exact constant-RAM renderer field0 fixture. Dynamic native179 divergence remains pending corrected input replay. No all-frame/whole-game acceptance.",
+  "scope_flags": {
+    "first_field_graphics_defect_in_RTL": false,
+    "all_games_graphics_gate": false,
+    "audio_gate": false,
+    "whole_game_gate": false
+  },
+  "PNG_qualification": {
+    "path": "D:\\Arcade\\AI\\aCORES\\Alpha68k N\\research\\stingray_combined_stage\\next_coupled_scope_v2\\completed_png_diagnosis\\qualification.json",
+    "sha256": "5c2dc0343c64bd21c3905a42958873078ab43fad35564ea2d7a6f169ff2b1e69",
+    "bytes": 9598
+  },
+  "fixture_qualification": {
+    "path": "D:\\Arcade\\AI\\aCORES\\Alpha68k N\\research\\stingray_combined_stage\\next_coupled_scope_v2\\frame0_constant_fixture_recovery_v2\\qualification.json",
+    "sha256": "f999985503faa7b7fe9e528066a8c846f030724a4f5f0255894f4c4db372d6c2",
+    "bytes": 5632
+  },
+  "completed_RGB_pins": [
+    {
+      "path": "D:\\Arcade\\AI\\aCORES\\Alpha68k N\\research\\stingray_combined_stage\\next_coupled_scope_v2\\completed_png_diagnosis\\frame_000000.completed.rgb",
+      "sha256": "627f1db9ee518cc0fb2a9a223be1aa86c3a0b4fde0184de9d4334b94c1d1f27a",
+      "bytes": 172032
+    },
+    {
+      "path": "D:\\Arcade\\AI\\aCORES\\Alpha68k N\\research\\stingray_combined_stage\\next_coupled_scope_v2\\completed_png_diagnosis\\frame_000030.completed.rgb",
+      "sha256": "b31ecbebe7313f11da2ad0a89510ebe70aec1893a34e78ae5ba70ef7f9ed58ee",
+      "bytes": 172032
+    },
+    {
+      "path": "D:\\Arcade\\AI\\aCORES\\Alpha68k N\\research\\stingray_combined_stage\\next_coupled_scope_v2\\completed_png_diagnosis\\frame_000090.completed.rgb",
+      "sha256": "b31ecbebe7313f11da2ad0a89510ebe70aec1893a34e78ae5ba70ef7f9ed58ee",
+      "bytes": 172032
+    },
+    {
+      "path": "D:\\Arcade\\AI\\aCORES\\Alpha68k N\\research\\stingray_combined_stage\\next_coupled_scope_v2\\completed_png_diagnosis\\frame_000119.completed.rgb",
+      "sha256": "48a964e7a8f8231c428f9838017b70d8d0195893ea77730302dc78f7045564c5",
+      "bytes": 172032
+    },
+    {
+      "path": "D:\\Arcade\\AI\\aCORES\\Alpha68k N\\research\\stingray_combined_stage\\next_coupled_scope_v2\\completed_png_diagnosis\\frame_000179.completed.rgb",
+      "sha256": "30440d85a4387837f3148d5307ed1968497ce35275a99d9b447bb17103c11362",
+      "bytes": 172032
+    }
+  ],
+  "helper": {
+    "path": "D:\\Arcade\\AI\\aCORES\\Alpha68k N\\research\\stingray_combined_stage\\close_first_buffer_diagnosis.py",
+    "sha256": "d8c55d5bb93ea5ba2481602868ba12ccc9ba599f33a5b6a5d954135c1c2ae65c",
+    "bytes": 3597
+  }
+}

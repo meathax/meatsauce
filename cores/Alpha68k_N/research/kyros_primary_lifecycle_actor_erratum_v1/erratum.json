@@ -1,0 +1,100 @@
+{
+  "scope": "Authoritative actor-pointer source correction for frozen lifecycle labels; original artifacts retained",
+  "created_utc": "2026-10-10T20:38:46.187295+00:00",
+  "corrected_clause": "A6=020000 atROM042C; ROM048CE opcode49EE0400 LEA($400,A6),A4 setsA4=020400 beforecontroller048F0. B04 is a gate identifier, not ROM PC000B04.",
+  "supersedes_only": "labels_v1 definitions.actor_control firstclause A4=20400 atB04, and event_index_v1 B04_source embeddeddata excerpt. Omit 0B04 region from instruction producer claims.",
+  "source_ROM": {
+    "path": "D:\\Arcade\\AI\\aCORES\\Alpha68k N\\roms\\kyros\\maincpu.bin",
+    "sha256": "6949ea5dc91dfced8c1afccbadee18c2e795ab38d8adbc3795f05a19b8f3b2b3"
+  },
+  "source_disassembly": {
+    "path": "D:\\Arcade\\AI\\aCORES\\Alpha68k N\\sim\\captures\\diagnostics\\kyros_rom_disassembly\\maincpu.asm",
+    "sha256": "da4e0ed81c446f9c77107fbac9e30f950d7e4cce20f2285fe78f14115f8d707d"
+  },
+  "corrected_ROM_byte_verified_source": [
+    {
+      "pc": 18638,
+      "assembly_line": 5629,
+      "opcode_hex": "49ee0400",
+      "text": "lea     ($400,A6), A4"
+    },
+    {
+      "pc": 18642,
+      "assembly_line": 5630,
+      "opcode_hex": "08ac00070016",
+      "text": "bclr    #$7, ($16,A4)"
+    },
+    {
+      "pc": 18648,
+      "assembly_line": 5631,
+      "opcode_hex": "08140000",
+      "text": "btst    #$0, (A4)"
+    },
+    {
+      "pc": 18652,
+      "assembly_line": 5632,
+      "opcode_hex": "6706",
+      "text": "beq     $48e4"
+    },
+    {
+      "pc": 18654,
+      "assembly_line": 5633,
+      "opcode_hex": "08ec00070016",
+      "text": "bset    #$7, ($16,A4)"
+    },
+    {
+      "pc": 18660,
+      "assembly_line": 5634,
+      "opcode_hex": "610a",
+      "text": "bsr     $48f0"
+    },
+    {
+      "pc": 18662,
+      "assembly_line": 5635,
+      "opcode_hex": "610005e6",
+      "text": "bsr     $4ece"
+    },
+    {
+      "pc": 18666,
+      "assembly_line": 5636,
+      "opcode_hex": "61001684",
+      "text": "bsr     $5f70"
+    },
+    {
+      "pc": 18670,
+      "assembly_line": 5637,
+      "opcode_hex": "4e75",
+      "text": "rts"
+    },
+    {
+      "pc": 18672,
+      "assembly_line": 5638,
+      "opcode_hex": "4a2e000b",
+      "text": "tst.b   ($b,A6)"
+    }
+  ],
+  "static_callers": [
+    {
+      "pc": 40466,
+      "assembly_line": 11428,
+      "text": "jsr     $48ce.l",
+      "actual_execution_observed": false
+    }
+  ],
+  "preserved_valid_scope": [
+    "All49 named RAM markers+byte-lane eventvalues unchanged; credit/lives/energy/depletion source meanings remainvalid.",
+    "Actorstate4 snapshot eligibility appears at4290 only inprimary49; never requirestate4 for everyvisiblegameplayframe or declareactiveplay solelyfromthatstate.",
+    "ActualMAME taps have noPC/caller; staticcaller isnotobservedruntimeproof. Use nextcurrentCPU recordtojoin.",
+    "Historical source75/preP2; fullRGB/wholeRAM failuregates remainstrict. No masks/waivers or action-success inference."
+  ],
+  "parent_manifests": [
+    {
+      "path": "D:\\Arcade\\AI\\aCORES\\Alpha68k N\\research\\kyros_primary_lifecycle_labels_v1\\import_manifest.json",
+      "sha256": "c3159153e2e691352f87ce8264333f63b867a9739536bb1821234141b35ae061"
+    },
+    {
+      "path": "D:\\Arcade\\AI\\aCORES\\Alpha68k N\\research\\kyros_primary_lifecycle_event_index_v1\\import_manifest.json",
+      "sha256": "ea931b5ab24aeaf425a5affc13a8ce815300d4826e4793da1ce73bb42a2d50dd"
+    }
+  ]
+}

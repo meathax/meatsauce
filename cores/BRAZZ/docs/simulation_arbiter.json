@@ -1,0 +1,51 @@
+{
+  "target": "arbiter",
+  "acceptance": "unit verification",
+  "runtime": "native Windows PE / MSYS2 UCRT64",
+  "commands": [
+    [
+      "D:/vibes/fpga/bin/verilator.exe",
+      "--cc",
+      "--exe",
+      "--build",
+      "-j",
+      "4",
+      "-O3",
+      "--top-module",
+      "cs_bus_arbiter",
+      "--Mdir",
+      "R:/Verilator/CrystalSystem/tool-20261008T232126415Z-44332-82413125/obj_dir",
+      "-CFLAGS",
+      "-O2",
+      "-MAKEFLAGS",
+      "OPT_FAST=-O2",
+      "-MAKEFLAGS",
+      "OPT_GLOBAL=-O2",
+      "-Wno-fatal",
+      "D:/Arcade/AI/aCORES/BRAZZ/Arcade-CrystalSystem_MiSTer/rtl/memory/cs_bus_arbiter.sv",
+      "D:/Arcade/AI/aCORES/BRAZZ/Arcade-CrystalSystem_MiSTer/sim/arbiter/main.cpp"
+    ],
+    [
+      "D:/vibes/fpga/bin/verilator.exe",
+      "sim",
+      "R:/Verilator/CrystalSystem/tool-20261008T232126415Z-44332-82413125/obj_dir/Vcs_bus_arbiter.exe"
+    ]
+  ],
+  "exit_code": 0,
+  "run_seconds": 0.13446440000552684,
+  "sources": [
+    {
+      "path": "rtl/memory/cs_bus_arbiter.sv",
+      "sha256": "6bea002343d6a07c2b9d34070019885c6ff5737398f6aca239ef77c57d1789d0"
+    },
+    {
+      "path": "sim/arbiter/main.cpp",
+      "sha256": "6f6cab1f44ff0721690b34822517ecdb85e82610e308e122fd3457fa602b2cc7"
+    }
+  ],
+  "workspace": "R:/Verilator/CrystalSystem/tool-20261008T232126415Z-44332-82413125",
+  "timing_profile": null,
+  "stdout": "PASS board-bus arbiter: stalled grant retention, 128 contended requests, fair ownership and delayed/error responses\n",
+  "stderr": "",
+  "build_log": "sim/obj_dir/arbiter/build.log"
+}

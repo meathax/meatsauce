@@ -1,0 +1,56 @@
+{
+  "target": "arbiter_realtime_registered",
+  "acceptance": "Bounded sound/display shared-memory service under persistent contention; unit proof, not game audio acceptance",
+  "runtime": "native Windows PE / MSYS2 UCRT64",
+  "commands": [
+    [
+      "D:\\vibes\\fpga\\bin\\verilator.exe",
+      "--cc",
+      "--exe",
+      "--build",
+      "-j",
+      "4",
+      "-O3",
+      "--top-module",
+      "cs_bus_arbiter",
+      "--Mdir",
+      "R:/Verilator/CrystalSystem/tool-20261005T165818483Z-27684-522936687/obj_dir",
+      "-CFLAGS",
+      "-O2",
+      "-MAKEFLAGS",
+      "OPT_FAST=-O2",
+      "-MAKEFLAGS",
+      "OPT_GLOBAL=-O2",
+      "-Wno-fatal",
+      "-GCLIENTS=5",
+      "-GPRIORITY_CLIENT=4",
+      "-GSECOND_PRIORITY_CLIENT=3",
+      "-GPRIORITY_BURST=4",
+      "-GREGISTER_GRANT=1",
+      "D:/Arcade/AI/aCORES/BRAZZ/Arcade-CrystalSystem_MiSTer/rtl/memory/cs_bus_arbiter.sv",
+      "D:/Arcade/AI/aCORES/BRAZZ/Arcade-CrystalSystem_MiSTer/sim/arbiter/realtime.cpp"
+    ],
+    [
+      "D:\\vibes\\fpga\\bin\\verilator.exe",
+      "sim",
+      "R:\\Verilator\\CrystalSystem\\tool-20261005T165818483Z-27684-522936687\\obj_dir\\Vcs_bus_arbiter.exe"
+    ]
+  ],
+  "exit_code": 0,
+  "run_seconds": 0.2484559000004083,
+  "sources": [
+    {
+      "path": "rtl/memory/cs_bus_arbiter.sv",
+      "sha256": "177101ab94843ca238b3773b646a068617ed86b664898b86b973d1a8b19553e2"
+    },
+    {
+      "path": "sim/arbiter/realtime.cpp",
+      "sha256": "41e6b096b05c56f8f1f705e7c62e3e32b5f6e63cb841a4bff02e001315ca0811"
+    }
+  ],
+  "workspace": "R:\\Verilator\\CrystalSystem\\tool-20261005T165818483Z-27684-522936687",
+  "timing_profile": null,
+  "stdout": "PASS realtime arbiter: 220-cycle nonpreemptible memory, persistent five-client demand; max sound grant gap=667; replies=18/18/18/108/108\n",
+  "stderr": "",
+  "build_log": "sim\\obj_dir\\arbiter_realtime_registered\\build.log"
+}

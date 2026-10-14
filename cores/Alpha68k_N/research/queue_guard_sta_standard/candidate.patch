@@ -1,0 +1,23 @@
+--- baseline.py
++++ candidate.py
+@@ -434,10 +434,16 @@
+     collector=args[1]
+     expected_hash=approved_collectors.get(canonical(collector))
+     if expected_hash is None:return False
+-    project=r'D:/Arcade/AI/aCORES/Alpha68k N/research/sound_write_width/case2_full_map/Alpha68k_N'
+-    output=r'D:/Arcade/AI/aCORES/Alpha68k N/research/sound_write_width/case2_fit_sta/all-corners'
+-    if canonical(args[2])!=canonical(project):return False
+-    if args[3]!='Alpha68k_N' or canonical(args[4])!=canonical(output):return False
++    check_root=r'D:/Arcade/AI/aCORES/Alpha68k N/research/sound_write_width/'
++    project_outputs={
++        canonical(check_root+'case2_full_map/Alpha68k_N'):canonical(check_root+'case2_fit_sta/all-corners'),
++        canonical(check_root+'case2_standard_fit/Alpha68k_N'):canonical(check_root+'case2_standard_fit_evidence/all-corners'),
++    }
++    project=canonical(args[2])
++    output=project_outputs.get(project)
++    if output is None or canonical(args[4])!=output or args[3]!='Alpha68k_N':return False
++    # The independent standard-fit diagnostic requires the detailed collector.
++    if project==canonical(check_root+'case2_standard_fit/Alpha68k_N') and expected_hash!='ab3bffea354fa2dd1aa70cc98d8e128cd7c6bf64045c7b14e86e0f93bac02aab':return False
+     try:
+         with open(collector,'rb') as evidence:content=evidence.read(65537)
+         return len(content)<=65536 and hashlib.sha256(content).hexdigest()==expected_hash

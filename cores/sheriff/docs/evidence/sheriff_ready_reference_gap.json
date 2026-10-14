@@ -1,0 +1,65 @@
+{
+  "scope": "Local MAME0.289 source observation: direct Nintendo8080 RAM map and no READY-named interface/model; conditional related-Bandido hardware comparison, not a newly confirmed Sheriff PCB defect.",
+  "source_sha256": {
+    "src/mame/nintendo/n8080.cpp": "b6e5356393e07f83f2842346cf530f84874978153f3ff5ba966daa8d6e209b6d",
+    "src/devices/cpu/i8085/i8085.cpp": "eb478e899cc9f331c9e429f50095a37a25cf4400c87bad9184276f54280a3114",
+    "src/devices/cpu/i8085/i8085.h": "72f1bd8d19cd8e3d89862886d145b26a5fb509eb3b26b3ed404324a1e5c0e975"
+  },
+  "driver_lines": {
+    "RAM_map": 680,
+    "CPU_clock": 1188,
+    "RST1": 1202,
+    "RST2": 1203
+  },
+  "observations": [
+    "RAM4000..7fff is mapped directly with no driver-level READY or wait service.",
+    "All three complete local source files contain zero READY-named references; the public callback/input declarations are retained below.",
+    "The related-Bandido circuit explicitly drives8080 READY23 via3D Qbar8, asynchronous RAMSTB/RDY_IN controls and phi3."
+  ],
+  "device_callback_input_declarations": [
+    {
+      "line": 49,
+      "text": "auto in_inta_func() { return m_in_inta_func.bind(); }"
+    },
+    {
+      "line": 52,
+      "text": "auto out_status_func() { return m_out_status_func.bind(); }"
+    },
+    {
+      "line": 55,
+      "text": "auto out_inte_func() { return m_out_inte_func.bind(); }"
+    },
+    {
+      "line": 58,
+      "text": "auto in_sid_func() { return m_in_sid_func.bind(); }"
+    },
+    {
+      "line": 61,
+      "text": "auto out_sod_func() { return m_out_sod_func.bind(); }"
+    },
+    {
+      "line": 78,
+      "text": "virtual void execute_set_input(int inputnum, int state) override;"
+    }
+  ],
+  "physical_evidence": [
+    "docs/evidence/sheriff_memory_mux_connections.json",
+    "docs/evidence/sheriff_ram_handshake.json",
+    "docs/CPU_READY_SERVICE.md",
+    "docs/evidence/sheriff_cpu_ready_native.json"
+  ],
+  "limits": [
+    "Exact Sheriff revision and physical service/data timing remain unqualified.",
+    "A missing READY-named source path does not measure a hardware wait count or establish the cause of field66/2760.",
+    "No new public MAME ticket or independently confirmed Sheriff defect is asserted.",
+    "Synthetic joined service results do not qualify4116 DO/CAS/WE timing or real reset/IRQ origin.",
+    "Do not introduce fixed waits, shift clocks/IRQ/raster, replace existing references or waive the graphics gate to force equality."
+  ],
+  "reference_timing_equivalence_qualified": false,
+  "confirmed_Sheriff_hardware_defect": false,
+  "production_rtl_changed": false,
+  "reference_capture_modified": false,
+  "strict_graphics_gate_pass": false,
+  "quartus_executed": false,
+  "rbf_built": false
+}

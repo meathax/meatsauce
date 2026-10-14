@@ -1,0 +1,80 @@
+{
+  "scope": "Early CPU/video framework fit; not final Sheriff release acceptance",
+  "snapshot": "_checks/80639423a7a9-20261009-031108",
+  "source_revision": "80639423a7a9",
+  "resources": {
+    "alms": {
+      "used": 7494,
+      "available": 41910,
+      "percent": 17.881173944166072
+    },
+    "labs": {
+      "used": 1226,
+      "available": 4191,
+      "percent": 29.253161536626106
+    },
+    "m10k": {
+      "used": 97,
+      "available": 553,
+      "percent": 17.540687160940323
+    },
+    "memory_bits": {
+      "used": 716033,
+      "available": 5662720,
+      "percent": 12.644683120479206
+    },
+    "dsps": {
+      "used": 33,
+      "available": 112,
+      "percent": 29.464285714285715
+    },
+    "average_interconnect": {
+      "total": 7.1,
+      "horizontal": 7.2,
+      "vertical": 6.9
+    },
+    "peak_interconnect": {
+      "total": 28.6,
+      "horizontal": 29.0,
+      "vertical": 27.3
+    }
+  },
+  "missing_resource_metrics": [],
+  "resource_limit_configuration": {
+    "comparison": "strictly_less_than",
+    "maximum_percent": {
+      "logic_alms": 80,
+      "labs_partially_or_completely_used": 90,
+      "peak_interconnect_max_h_v": 85,
+      "average_interconnect": 60,
+      "m10k_blocks": 90,
+      "block_memory_bits": 85,
+      "dsp_blocks": 90
+    },
+    "game_clock_domains": 1,
+    "clock_policy": "one game master clock plus enables; document unavoidable platform clocks",
+    "missing_metric_is_pass": false,
+    "minimum_setup_slack_ns": 0,
+    "minimum_hold_slack_ns": 0
+  },
+  "default_sta_model": "Slow 1100mV 100C Model",
+  "default_corner_min_slack_ns": {
+    "Setup": 0.726,
+    "Hold": 0.246,
+    "Recovery": 3.503,
+    "Removal": 0.914,
+    "Minimum Pulse Width": 0.396
+  },
+  "all_applicable_corners_qualified": false,
+  "platform_io_exception_audit_complete": false,
+  "release_gate_pass": false,
+  "report_sha256": {
+    "Nintendo8080.fit.rpt": "3c747894032becc3531de52831bc7f906bd8d66cf36e88fecaebdd5bec6480e4",
+    "Nintendo8080.fit.summary": "84f0e887816af46b84f5ace4b156c6216c24377e78e5b3de2a9c979bdeb07e7d",
+    "Nintendo8080.flow.rpt": "04c683d31328dc27af23e92f2bc5e3eae94a94c9268ca6c2e947f9be8e3c06d3",
+    "Nintendo8080.map.rpt": "874572ad82623a66ec23c57eae9c3aaa602e42e510d232684f929b1ac86dc110",
+    "Nintendo8080.map.summary": "2ad427233dbdb56a76c6bde43361f5f17fcce8ebc5d6fb99ec4d00d653512364",
+    "Nintendo8080.sta.rpt": "001f1c0ec3351dbb0e9a21f9f32ca29613a114545dcdfeed40520401d015ad7d",
+    "Nintendo8080.sta.summary": "5e969b9ce9a19a66cf328749f0e7ad9e99dd48c04d87c0f6dbc9a50db5521d34"
+  }
+}

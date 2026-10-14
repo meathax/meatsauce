@@ -1,0 +1,1562 @@
+{
+  "actual_exit_code": 0,
+  "baseline_revision": "33abac86939e71cff65592e37596b957b07cedc2",
+  "plan_path": "D:\\Arcade\\AI\\aCORES\\Alpha68k N\\research\\sealed_terminal_phase_20261011\\prepared_status_plan.json",
+  "plan_sha256": "15281e838f8ba5379e54a98bbb3083eb3569aadc41d2598a39f7df1b49f1b445",
+  "new_compact_records": 162,
+  "existing_compact_records": 18,
+  "raw_recovery_pins": [
+    {
+      "source": "D:\\Arcade\\AI\\aCORES\\Alpha68k N\\scripts\\freeze_kyros_joined_terminal_v1.py",
+      "sha256": "985d4622275f79d02edb7afbdb5ea489e996d64d378aa4cb44f2811c64508a04",
+      "bytes": 6493,
+      "origin": "D:\\Arcade\\AI\\aCORES\\Alpha68k N\\research\\kyros_joined_terminal_bundle_v1\\import_manifest.json::files/0",
+      "recovery_only": true,
+      "local_hash_verified": false,
+      "scope": "Producer raw/source/capture pin retained; no large rehash/copy by this phase."
+    },
+    {
+      "source": "D:\\Arcade\\AI\\aCORES\\Alpha68k N\\research\\kyros_joined_lifecycle_4401_v1_verification.json",
+      "sha256": "964ad428303452448c666955f522e3ed773d8a733b7d89bcdc81df0ee2892865",
+      "bytes": 204355,
+      "origin": "D:\\Arcade\\AI\\aCORES\\Alpha68k N\\research\\kyros_joined_failure_scope_v1\\import_manifest.json::qualification_pins/0",
+      "recovery_only": true,
+      "local_hash_verified": false,
+      "scope": "Producer raw/source/capture pin retained; no large rehash/copy by this phase."
+    },
+    {
+      "source": "D:\\Arcade\\AI\\aCORES\\Alpha68k N\\sim\\captures\\rtl\\kyros_joined_lifecycle_4401_v1\\frames.csv",
+      "sha256": "38ef11edc59683373ab14c0ee8bb7ae3d4935acfc0ab674151850bd7922c4773",
+      "bytes": 343458,
+      "origin": "D:\\Arcade\\AI\\aCORES\\Alpha68k N\\research\\kyros_joined_terminal_bundle_v1\\import_manifest.json::large_recovery_files/0",
+      "recovery_only": true,
+      "local_hash_verified": false,
+      "scope": "Producer raw/source/capture pin retained; no large rehash/copy by this phase."
+    },
+    {
+      "source": "D:\\Arcade\\AI\\aCORES\\Alpha68k N\\sim\\captures\\rtl\\kyros_joined_lifecycle_4401_v1\\applied_inputs.csv",
+      "sha256": "3d785d684cebd7740a2f4c12c749e4fe4628ec68c7172021cd0cc3d9ef2b63fb",
+      "bytes": 156079,
+      "origin": "D:\\Arcade\\AI\\aCORES\\Alpha68k N\\research\\kyros_joined_terminal_bundle_v1\\import_manifest.json::large_recovery_files/2",
+      "recovery_only": true,
+      "local_hash_verified": false,
+      "scope": "Producer raw/source/capture pin retained; no large rehash/copy by this phase."
+    },
+    {
+      "source": "D:\\Arcade\\AI\\aCORES\\Alpha68k N\\sim\\captures\\rtl\\kyros_joined_lifecycle_4401_v1\\audio_events.csv",
+      "sha256": "4cd4be09392d2d42497d6645d469e4ca807fd6da9c8360e4ce2a6cb552407818",
+      "bytes": 2382978,
+      "origin": "D:\\Arcade\\AI\\aCORES\\Alpha68k N\\research\\kyros_joined_terminal_bundle_v1\\import_manifest.json::large_recovery_files/3",
+      "recovery_only": true,
+      "local_hash_verified": false,
+      "scope": "Producer raw/source/capture pin retained; no large rehash/copy by this phase."
+    },
+    {
+      "source": "D:\\Arcade\\AI\\aCORES\\Alpha68k N\\sim\\captures\\rtl\\kyros_joined_lifecycle_4401_v1\\epoch_events.csv",
+      "sha256": "71c4dc2fe8847d5a7cc033257fd7f309160bc8a1f30cb83149162340405856df",
+      "bytes": 3675369,
+      "origin": "D:\\Arcade\\AI\\aCORES\\Alpha68k N\\research\\kyros_joined_terminal_bundle_v1\\import_manifest.json::large_recovery_files/4",
+      "recovery_only": true,
+      "local_hash_verified": false,
+      "scope": "Producer raw/source/capture pin retained; no large rehash/copy by this phase."
+    },
+    {
+      "source": "D:\\Arcade\\AI\\aCORES\\Alpha68k N\\sim\\captures\\rtl\\kyros_joined_lifecycle_4401_v1\\bus.csv",
+      "sha256": "f559b05f4a8e2418c41ac2381026e8336012a62c2f383ec853189e3870102505",
+      "bytes": 197411,
+      "origin": "D:\\Arcade\\AI\\aCORES\\Alpha68k N\\research\\kyros_joined_terminal_bundle_v1\\import_manifest.json::large_recovery_files/5",
+      "recovery_only": true,
+      "local_hash_verified": false,
+      "scope": "Producer raw/source/capture pin retained; no large rehash/copy by this phase."
+    },
+    {
+      "source": "D:\\Arcade\\AI\\aCORES\\Alpha68k N\\sim\\captures\\rtl\\kyros_joined_lifecycle_4401_v1\\snapshot_state.csv",
+      "sha256": "c363baa4b2bc1338ba99b52ed4f365ba580fb741ca3e1127ca4cda8c99206865",
+      "bytes": 2973,
+      "origin": "D:\\Arcade\\AI\\aCORES\\Alpha68k N\\research\\kyros_joined_terminal_bundle_v1\\import_manifest.json::large_recovery_files/6",
+      "recovery_only": true,
+      "local_hash_verified": false,
+      "scope": "Producer raw/source/capture pin retained; no large rehash/copy by this phase."
+    },
+    {
+      "source": "D:\\Arcade\\AI\\aCORES\\Alpha68k N\\sim\\captures\\rtl\\kyros_joined_lifecycle_4401_v1\\audio.wav",
+      "sha256": "88cd08a51925d975a0a9748d6390b450381b1c85bf2a7bb051cf447836daf278",
+      "bytes": 7138536,
+      "origin": "D:\\Arcade\\AI\\aCORES\\Alpha68k N\\research\\kyros_joined_terminal_bundle_v1\\import_manifest.json::large_recovery_files/7",
+      "recovery_only": true,
+      "local_hash_verified": false,
+      "scope": "Producer raw/source/capture pin retained; no large rehash/copy by this phase."
+    },
+    {
+      "source": "D:\\Arcade\\AI\\aCORES\\Alpha68k N\\sim\\captures\\rtl\\kyros_joined_lifecycle_4401_v1\\audio.json",
+      "sha256": "aebeee195bdec45055fe03d687ad40d57e920eea7ef3383f7f4dd365119d03c3",
+      "bytes": 242,
+      "origin": "D:\\Arcade\\AI\\aCORES\\Alpha68k N\\research\\kyros_joined_terminal_bundle_v1\\import_manifest.json::large_recovery_files/8",
+      "recovery_only": true,
+      "local_hash_verified": false,
+      "scope": "Producer raw/source/capture pin retained; no large rehash/copy by this phase."
+    },
+    {
+      "source": "D:\\Arcade\\AI\\aCORES\\Alpha68k N\\scripts\\describe_kyros_terminal_failures_v1.py",
+      "sha256": "a3db844f825dd42c64c33332e8d3d2035e289a6bfe5ea203acbd87259ff19354",
+      "bytes": 6766,
+      "origin": "D:\\Arcade\\AI\\aCORES\\Alpha68k N\\research\\kyros_joined_failure_scope_v1\\import_manifest.json::files/0",
+      "recovery_only": true,
+      "local_hash_verified": false,
+      "scope": "Producer raw/source/capture pin retained; no large rehash/copy by this phase."
+    },
+    {
+      "source": "D:\\Arcade\\AI\\aCORES\\Alpha68k N\\scripts\\extend_kyros_terminal_producers_v2.py",
+      "sha256": "950d6596740b0cd541d8193e2e667e6b6d0fc06352436de042cacb498654a957",
+      "bytes": 6598,
+      "origin": "D:\\Arcade\\AI\\aCORES\\Alpha68k N\\research\\kyros_joined_producer_scope_v2\\import_manifest.json::files/0",
+      "recovery_only": true,
+      "local_hash_verified": false,
+      "scope": "Producer raw/source/capture pin retained; no large rehash/copy by this phase."
+    },
+    {
+      "source": "D:\\Arcade\\AI\\aCORES\\Alpha68k N\\research\\japan_ram_divergence_20261011\\stingray_route1800\\firsthit_reference_v1\\capture\\hit_score_events.csv",
+      "sha256": "8ed7a02f8bd857523882bf437b86c08597ef2bf88fbcf657e086541041514701",
+      "bytes": 81469,
+      "origin": "D:\\Arcade\\AI\\aCORES\\Alpha68k N\\research\\japan_ram_divergence_20261011\\stingray_route1800\\firsthit_reference_v1\\terminal_import_manifest_v2.json::files/2",
+      "recovery_only": true,
+      "local_hash_verified": false,
+      "scope": "Producer raw/source/capture pin retained; no large rehash/copy by this phase."
+    },
+    {
+      "source": "D:\\Arcade\\AI\\aCORES\\Alpha68k N\\research\\japan_ram_divergence_20261011\\stingray_route1800\\firsthit_reference_v1\\capture\\legal_actions.csv",
+      "sha256": "fdcb12dc9c7b2c2e668fda47634e4d4b87dd4b866abe4714be80d9165828038f",
+      "bytes": 452,
+      "origin": "D:\\Arcade\\AI\\aCORES\\Alpha68k N\\research\\japan_ram_divergence_20261011\\stingray_route1800\\firsthit_reference_v1\\terminal_import_manifest_v2.json::files/3",
+      "recovery_only": true,
+      "local_hash_verified": false,
+      "scope": "Producer raw/source/capture pin retained; no large rehash/copy by this phase."
+    },
+    {
+      "source": "D:\\Arcade\\AI\\aCORES\\Alpha68k N\\research\\japan_ram_divergence_20261011\\stingray_route1800\\firsthit_reference_v1\\capture\\frame_000000.work.bin",
+      "sha256": "ad7facb2586fc6e966c004d7d1d16b024f5805ff7cb47c7a85dabd8b48892ca7",
+      "bytes": 4096,
+      "origin": "D:\\Arcade\\AI\\aCORES\\Alpha68k N\\research\\japan_ram_divergence_20261011\\stingray_route1800\\firsthit_reference_v1\\terminal_import_manifest_v2.json::files/4",
+      "recovery_only": true,
+      "local_hash_verified": false,
+      "scope": "Producer raw/source/capture pin retained; no large rehash/copy by this phase."
+    },
+    {
+      "source": "D:\\Arcade\\AI\\aCORES\\Alpha68k N\\research\\japan_ram_divergence_20261011\\stingray_route1800\\firsthit_reference_v1\\capture\\frame_001009.work.bin",
+      "sha256": "2cedd2e41dab2c7224556daefbb78fc3840da883c1ab29dc7fbe85f9b9b04530",
+      "bytes": 4096,
+      "origin": "D:\\Arcade\\AI\\aCORES\\Alpha68k N\\research\\japan_ram_divergence_20261011\\stingray_route1800\\firsthit_reference_v1\\terminal_import_manifest_v2.json::files/5",
+      "recovery_only": true,
+      "local_hash_verified": false,
+      "scope": "Producer raw/source/capture pin retained; no large rehash/copy by this phase."
+    },
+    {
+      "source": "D:\\Arcade\\AI\\aCORES\\Alpha68k N\\roms\\sstingry\\maincpu.bin",
+      "sha256": "c56ccc516654c507f0fc2d3168ac4ac58f26b15aabcac00e0516b302cc0c7f53",
+      "bytes": 131072,
+      "origin": "D:\\Arcade\\AI\\aCORES\\Alpha68k N\\research\\japan_ram_divergence_20261011\\stingray_route1800\\attack_diagnosis\\import_manifest.json::pins/28",
+      "recovery_only": true,
+      "local_hash_verified": false,
+      "scope": "Producer raw/source/capture pin retained; no large rehash/copy by this phase."
+    },
+    {
+      "source": "D:\\Arcade\\AI\\aCORES\\Alpha68k N\\research\\mame_cutoff_observer_stage\\vpa_overlay_recipe1\\launch_once.lock",
+      "sha256": "ac1aa3b4b02a289ece776995748417393d21bbc59ae5c1ffba1425fa7267cadd",
+      "bytes": 5,
+      "origin": "D:\\Arcade\\AI\\aCORES\\Alpha68k N\\research\\mame_cutoff_observer_stage\\vpa_overlay_recipe1\\terminal_freeze1\\import_manifest.json::entries/37",
+      "recovery_only": true,
+      "local_hash_verified": false,
+      "scope": "Producer raw/source/capture pin retained; no large rehash/copy by this phase."
+    },
+    {
+      "source": "D:\\Arcade\\AI\\aCORES\\Alpha68k N\\research\\mame_cutoff_observer_stage\\vpa_overlay_recipe1\\owned_once.lock",
+      "sha256": "cbe52a3141e613d876a31f903e8716973cca352e37b43fceb68089f5453870ad",
+      "bytes": 4,
+      "origin": "D:\\Arcade\\AI\\aCORES\\Alpha68k N\\research\\mame_cutoff_observer_stage\\vpa_overlay_recipe1\\terminal_freeze1\\import_manifest.json::entries/44",
+      "recovery_only": true,
+      "local_hash_verified": false,
+      "scope": "Producer raw/source/capture pin retained; no large rehash/copy by this phase."
+    },
+    {
+      "source": "D:\\Arcade\\AI\\aCORES\\Alpha68k N\\research\\mame_cutoff_observer_stage\\vpa_sync_proposal2\\m68000.cpp.candidate",
+      "sha256": "75382315ae220222c460ea22eec93a8eef73f55cf279556e179cc4ff3e578840",
+      "bytes": 16593,
+      "origin": "D:\\Arcade\\AI\\aCORES\\Alpha68k N\\research\\mame_cutoff_observer_stage\\vpa_overlay_recipe1\\terminal_freeze1\\import_manifest.json::entries/57",
+      "recovery_only": true,
+      "local_hash_verified": false,
+      "scope": "Producer raw/source/capture pin retained; no large rehash/copy by this phase."
+    },
+    {
+      "source": "D:\\Arcade\\AI\\aCORES\\Alpha68k N\\sim\\captures\\kyros\\mame_vpa_sync61\\audio.wav",
+      "sha256": "cbbaa2a1b83eda432318fef8502b9484d529765ae6f6f96e0041a5b0382d784a",
+      "bytes": 97966,
+      "origin": "D:\\Arcade\\AI\\aCORES\\Alpha68k N\\research\\mame_cutoff_observer_stage\\vpa_overlay_recipe1\\terminal_freeze1\\import_manifest.json::entries/59",
+      "recovery_only": true,
+      "local_hash_verified": false,
+      "scope": "Producer raw/source/capture pin retained; no large rehash/copy by this phase."
+    },
+    {
+      "source": "D:\\Arcade\\AI\\aCORES\\Alpha68k N\\sim\\captures\\kyros\\mame_vpa_sync61\\cfg\\default.cfg",
+      "sha256": "ce6f92d4260cfa730a9cda509e6b19e58813b279f1d85a3408cccb2abb49f236",
+      "bytes": 499,
+      "origin": "D:\\Arcade\\AI\\aCORES\\Alpha68k N\\research\\mame_cutoff_observer_stage\\vpa_overlay_recipe1\\terminal_freeze1\\import_manifest.json::entries/60",
+      "recovery_only": true,
+      "local_hash_verified": false,
+      "scope": "Producer raw/source/capture pin retained; no large rehash/copy by this phase."
+    },
+    {
+      "source": "D:\\Arcade\\AI\\aCORES\\Alpha68k N\\sim\\captures\\kyros\\mame_vpa_sync61\\cfg\\kyros.cfg",
+      "sha256": "ca7eccf3ea41ede14fbea9be5e0107154dbc208d6577ec6ab6d0b017e1cb6cc6",
+      "bytes": 512,
+      "origin": "D:\\Arcade\\AI\\aCORES\\Alpha68k N\\research\\mame_cutoff_observer_stage\\vpa_overlay_recipe1\\terminal_freeze1\\import_manifest.json::entries/61",
+      "recovery_only": true,
+      "local_hash_verified": false,
+      "scope": "Producer raw/source/capture pin retained; no large rehash/copy by this phase."
+    },
+    {
+      "source": "D:\\Arcade\\AI\\aCORES\\Alpha68k N\\sim\\captures\\kyros\\mame_vpa_sync61\\complete.txt",
+      "sha256": "5f09b68ab518337e965b4b0bdecb89481c9c384840bf0aa3c75d5489a47889c9",
+      "bytes": 50,
+      "origin": "D:\\Arcade\\AI\\aCORES\\Alpha68k N\\research\\mame_cutoff_observer_stage\\vpa_overlay_recipe1\\terminal_freeze1\\import_manifest.json::entries/62",
+      "recovery_only": true,
+      "local_hash_verified": false,
+      "scope": "Producer raw/source/capture pin retained; no large rehash/copy by this phase."
+    },
+    {
+      "source": "D:\\Arcade\\AI\\aCORES\\Alpha68k N\\sim\\captures\\kyros\\mame_vpa_sync61\\cpu_space_iack.csv",
+      "sha256": "3eda5c0e3cc382c346211f301cd0463298b086fb926677445ed14c63f4a3b962",
+      "bytes": 604,
+      "origin": "D:\\Arcade\\AI\\aCORES\\Alpha68k N\\research\\mame_cutoff_observer_stage\\vpa_overlay_recipe1\\terminal_freeze1\\import_manifest.json::entries/63",
+      "recovery_only": true,
+      "local_hash_verified": false,
+      "scope": "Producer raw/source/capture pin retained; no large rehash/copy by this phase."
+    },
+    {
+      "source": "D:\\Arcade\\AI\\aCORES\\Alpha68k N\\sim\\captures\\kyros\\mame_vpa_sync61\\error.log",
+      "sha256": "0df6f74fec9ad91af3c4476da271a3b2b261b7ffc26ad88d4afa7e0ab4f6439b",
+      "bytes": 15850,
+      "origin": "D:\\Arcade\\AI\\aCORES\\Alpha68k N\\research\\mame_cutoff_observer_stage\\vpa_overlay_recipe1\\terminal_freeze1\\import_manifest.json::entries/64",
+      "recovery_only": true,
+      "local_hash_verified": false,
+      "scope": "Producer raw/source/capture pin retained; no large rehash/copy by this phase."
+    },
+    {
+      "source": "D:\\Arcade\\AI\\aCORES\\Alpha68k N\\sim\\captures\\kyros\\mame_vpa_sync61\\events.csv",
+      "sha256": "6a0c13d80a0706a423e47e637fde2e089785fcc9293110e9d140f9c58d51a987",
+      "bytes": 7165945,
+      "origin": "D:\\Arcade\\AI\\aCORES\\Alpha68k N\\research\\mame_cutoff_observer_stage\\vpa_overlay_recipe1\\terminal_freeze1\\import_manifest.json::entries/65",
+      "recovery_only": true,
+      "local_hash_verified": false,
+      "scope": "Producer raw/source/capture pin retained; no large rehash/copy by this phase."
+    },
+    {
+      "source": "D:\\Arcade\\AI\\aCORES\\Alpha68k N\\sim\\captures\\kyros\\mame_vpa_sync61\\frame_000000.palette.csv",
+      "sha256": "f54c38f7d0faeea8273acb6f049a5472e98f35c3d0ae16baa251def34aec4a1e",
+      "bytes": 4011,
+      "origin": "D:\\Arcade\\AI\\aCORES\\Alpha68k N\\research\\mame_cutoff_observer_stage\\vpa_overlay_recipe1\\terminal_freeze1\\import_manifest.json::entries/66",
+      "recovery_only": true,
+      "local_hash_verified": false,
+      "scope": "Producer raw/source/capture pin retained; no large rehash/copy by this phase."
+    },
+    {
+      "source": "D:\\Arcade\\AI\\aCORES\\Alpha68k N\\sim\\captures\\kyros\\mame_vpa_sync61\\frame_000000.pix32",
+      "sha256": "f07f9de0f87fd1fe5a0422b2be825c0cec5e7cec03b5744220152dd41deb5bad",
+      "bytes": 229376,
+      "origin": "D:\\Arcade\\AI\\aCORES\\Alpha68k N\\research\\mame_cutoff_observer_stage\\vpa_overlay_recipe1\\terminal_freeze1\\import_manifest.json::entries/67",
+      "recovery_only": true,
+      "local_hash_verified": false,
+      "scope": "Producer raw/source/capture pin retained; no large rehash/copy by this phase."
+    },
+    {
+      "source": "D:\\Arcade\\AI\\aCORES\\Alpha68k N\\sim\\captures\\kyros\\mame_vpa_sync61\\frame_000000.png",
+      "sha256": "3f73f5af9f67d67cec5fdc140acee8189521d16ee681cd990a21a54bf21f3ca3",
+      "bytes": 429,
+      "origin": "D:\\Arcade\\AI\\aCORES\\Alpha68k N\\research\\mame_cutoff_observer_stage\\vpa_overlay_recipe1\\terminal_freeze1\\import_manifest.json::entries/68",
+      "recovery_only": true,
+      "local_hash_verified": false,
+      "scope": "Producer raw/source/capture pin retained; no large rehash/copy by this phase."
+    },
+    {
+      "source": "D:\\Arcade\\AI\\aCORES\\Alpha68k N\\sim\\captures\\kyros\\mame_vpa_sync61\\frame_000000.rgb",
+      "sha256": "2cbbeef1249170a43854962fa5b19fba628470c70beb9ce23e15a0f05cb891f2",
+      "bytes": 172032,
+      "origin": "D:\\Arcade\\AI\\aCORES\\Alpha68k N\\research\\mame_cutoff_observer_stage\\vpa_overlay_recipe1\\terminal_freeze1\\import_manifest.json::entries/69",
+      "recovery_only": true,
+      "local_hash_verified": false,
+      "scope": "Producer raw/source/capture pin retained; no large rehash/copy by this phase."
+    },
+    {
+      "source": "D:\\Arcade\\AI\\aCORES\\Alpha68k N\\sim\\captures\\kyros\\mame_vpa_sync61\\frame_000000.sprites.bin",
+      "sha256": "9f1dcbc35c350d6027f98be0f5c8b43b42ca52b7604459c0c42be3aa88913d47",
+      "bytes": 8192,
+      "origin": "D:\\Arcade\\AI\\aCORES\\Alpha68k N\\research\\mame_cutoff_observer_stage\\vpa_overlay_recipe1\\terminal_freeze1\\import_manifest.json::entries/70",
+      "recovery_only": true,
+      "local_hash_verified": false,
+      "scope": "Producer raw/source/capture pin retained; no large rehash/copy by this phase."
+    },
+    {
+      "source": "D:\\Arcade\\AI\\aCORES\\Alpha68k N\\sim\\captures\\kyros\\mame_vpa_sync61\\frame_000000.work.bin",
+      "sha256": "ad7facb2586fc6e966c004d7d1d16b024f5805ff7cb47c7a85dabd8b48892ca7",
+      "bytes": 4096,
+      "origin": "D:\\Arcade\\AI\\aCORES\\Alpha68k N\\research\\mame_cutoff_observer_stage\\vpa_overlay_recipe1\\terminal_freeze1\\import_manifest.json::entries/71",
+      "recovery_only": true,
+      "local_hash_verified": false,
+      "scope": "Producer raw/source/capture pin retained; no large rehash/copy by this phase."
+    },
+    {
+      "source": "D:\\Arcade\\AI\\aCORES\\Alpha68k N\\sim\\captures\\kyros\\mame_vpa_sync61\\frame_000030.palette.csv",
+      "sha256": "f54c38f7d0faeea8273acb6f049a5472e98f35c3d0ae16baa251def34aec4a1e",
+      "bytes": 4011,
+      "origin": "D:\\Arcade\\AI\\aCORES\\Alpha68k N\\research\\mame_cutoff_observer_stage\\vpa_overlay_recipe1\\terminal_freeze1\\import_manifest.json::entries/72",
+      "recovery_only": true,
+      "local_hash_verified": false,
+      "scope": "Producer raw/source/capture pin retained; no large rehash/copy by this phase."
+    },
+    {
+      "source": "D:\\Arcade\\AI\\aCORES\\Alpha68k N\\sim\\captures\\kyros\\mame_vpa_sync61\\frame_000030.pix32",
+      "sha256": "b6f91cf6c5f7a53662cec03d63f665cecfda503164c2733a97a2061276818cd8",
+      "bytes": 229376,
+      "origin": "D:\\Arcade\\AI\\aCORES\\Alpha68k N\\research\\mame_cutoff_observer_stage\\vpa_overlay_recipe1\\terminal_freeze1\\import_manifest.json::entries/73",
+      "recovery_only": true,
+      "local_hash_verified": false,
+      "scope": "Producer raw/source/capture pin retained; no large rehash/copy by this phase."
+    },
+    {
+      "source": "D:\\Arcade\\AI\\aCORES\\Alpha68k N\\sim\\captures\\kyros\\mame_vpa_sync61\\frame_000030.png",
+      "sha256": "3f73f5af9f67d67cec5fdc140acee8189521d16ee681cd990a21a54bf21f3ca3",
+      "bytes": 429,
+      "origin": "D:\\Arcade\\AI\\aCORES\\Alpha68k N\\research\\mame_cutoff_observer_stage\\vpa_overlay_recipe1\\terminal_freeze1\\import_manifest.json::entries/74",
+      "recovery_only": true,
+      "local_hash_verified": false,
+      "scope": "Producer raw/source/capture pin retained; no large rehash/copy by this phase."
+    },
+    {
+      "source": "D:\\Arcade\\AI\\aCORES\\Alpha68k N\\sim\\captures\\kyros\\mame_vpa_sync61\\frame_000030.rgb",
+      "sha256": "9a4b97b4b079955bac86930724c8bcdd30aba4732f1dcbcbac2ec270f5f5e485",
+      "bytes": 172032,
+      "origin": "D:\\Arcade\\AI\\aCORES\\Alpha68k N\\research\\mame_cutoff_observer_stage\\vpa_overlay_recipe1\\terminal_freeze1\\import_manifest.json::entries/75",
+      "recovery_only": true,
+      "local_hash_verified": false,
+      "scope": "Producer raw/source/capture pin retained; no large rehash/copy by this phase."
+    },
+    {
+      "source": "D:\\Arcade\\AI\\aCORES\\Alpha68k N\\sim\\captures\\kyros\\mame_vpa_sync61\\frame_000030.sprites.bin",
+      "sha256": "9f1dcbc35c350d6027f98be0f5c8b43b42ca52b7604459c0c42be3aa88913d47",
+      "bytes": 8192,
+      "origin": "D:\\Arcade\\AI\\aCORES\\Alpha68k N\\research\\mame_cutoff_observer_stage\\vpa_overlay_recipe1\\terminal_freeze1\\import_manifest.json::entries/76",
+      "recovery_only": true,
+      "local_hash_verified": false,
+      "scope": "Producer raw/source/capture pin retained; no large rehash/copy by this phase."
+    },
+    {
+      "source": "D:\\Arcade\\AI\\aCORES\\Alpha68k N\\sim\\captures\\kyros\\mame_vpa_sync61\\frame_000030.work.bin",
+      "sha256": "3c14726172174d1acec8efcf7f89238390d50de5898d9aa5c84e886ed003bfdd",
+      "bytes": 4096,
+      "origin": "D:\\Arcade\\AI\\aCORES\\Alpha68k N\\research\\mame_cutoff_observer_stage\\vpa_overlay_recipe1\\terminal_freeze1\\import_manifest.json::entries/77",
+      "recovery_only": true,
+      "local_hash_verified": false,
+      "scope": "Producer raw/source/capture pin retained; no large rehash/copy by this phase."
+    },
+    {
+      "source": "D:\\Arcade\\AI\\aCORES\\Alpha68k N\\sim\\captures\\kyros\\mame_vpa_sync61\\frame_000060.palette.csv",
+      "sha256": "06749499e7534244a15d0527db153eb50259ebd7e65756b5ad5cbfb73a10fe55",
+      "bytes": 4011,
+      "origin": "D:\\Arcade\\AI\\aCORES\\Alpha68k N\\research\\mame_cutoff_observer_stage\\vpa_overlay_recipe1\\terminal_freeze1\\import_manifest.json::entries/78",
+      "recovery_only": true,
+      "local_hash_verified": false,
+      "scope": "Producer raw/source/capture pin retained; no large rehash/copy by this phase."
+    },
+    {
+      "source": "D:\\Arcade\\AI\\aCORES\\Alpha68k N\\sim\\captures\\kyros\\mame_vpa_sync61\\frame_000060.pix32",
+      "sha256": "82aaff1e946ddab8b088d5c11b06b7b9c0edda92c8b29ab49571482457d905ca",
+      "bytes": 229376,
+      "origin": "D:\\Arcade\\AI\\aCORES\\Alpha68k N\\research\\mame_cutoff_observer_stage\\vpa_overlay_recipe1\\terminal_freeze1\\import_manifest.json::entries/79",
+      "recovery_only": true,
+      "local_hash_verified": false,
+      "scope": "Producer raw/source/capture pin retained; no large rehash/copy by this phase."
+    },
+    {
+      "source": "D:\\Arcade\\AI\\aCORES\\Alpha68k N\\sim\\captures\\kyros\\mame_vpa_sync61\\frame_000060.png",
+      "sha256": "1c9737d98bef0c425f1b145d99dae865c4120792f1419c4ee5e54d43366829be",
+      "bytes": 871,
+      "origin": "D:\\Arcade\\AI\\aCORES\\Alpha68k N\\research\\mame_cutoff_observer_stage\\vpa_overlay_recipe1\\terminal_freeze1\\import_manifest.json::entries/80",
+      "recovery_only": true,
+      "local_hash_verified": false,
+      "scope": "Producer raw/source/capture pin retained; no large rehash/copy by this phase."
+    },
+    {
+      "source": "D:\\Arcade\\AI\\aCORES\\Alpha68k N\\sim\\captures\\kyros\\mame_vpa_sync61\\frame_000060.rgb",
+      "sha256": "592143c8931dd8339b789c0b5f547806a82cf641c40b9dfd02667471d701bc86",
+      "bytes": 172032,
+      "origin": "D:\\Arcade\\AI\\aCORES\\Alpha68k N\\research\\mame_cutoff_observer_stage\\vpa_overlay_recipe1\\terminal_freeze1\\import_manifest.json::entries/81",
+      "recovery_only": true,
+      "local_hash_verified": false,
+      "scope": "Producer raw/source/capture pin retained; no large rehash/copy by this phase."
+    },
+    {
+      "source": "D:\\Arcade\\AI\\aCORES\\Alpha68k N\\sim\\captures\\kyros\\mame_vpa_sync61\\frame_000060.sprites.bin",
+      "sha256": "87441607558de3191b1bc3412874bc5bc2e8dea41c8e3831b55b72c4a4c3e71c",
+      "bytes": 8192,
+      "origin": "D:\\Arcade\\AI\\aCORES\\Alpha68k N\\research\\mame_cutoff_observer_stage\\vpa_overlay_recipe1\\terminal_freeze1\\import_manifest.json::entries/82",
+      "recovery_only": true,
+      "local_hash_verified": false,
+      "scope": "Producer raw/source/capture pin retained; no large rehash/copy by this phase."
+    },
+    {
+      "source": "D:\\Arcade\\AI\\aCORES\\Alpha68k N\\sim\\captures\\kyros\\mame_vpa_sync61\\frame_000060.work.bin",
+      "sha256": "c7ba8f0adb36579e208d086517a562a54346a8f0edec833bfcbe8c0f3bb190d9",
+      "bytes": 4096,
+      "origin": "D:\\Arcade\\AI\\aCORES\\Alpha68k N\\research\\mame_cutoff_observer_stage\\vpa_overlay_recipe1\\terminal_freeze1\\import_manifest.json::entries/83",
+      "recovery_only": true,
+      "local_hash_verified": false,
+      "scope": "Producer raw/source/capture pin retained; no large rehash/copy by this phase."
+    },
+    {
+      "source": "D:\\Arcade\\AI\\aCORES\\Alpha68k N\\sim\\captures\\kyros\\mame_vpa_sync61\\frame_states.csv",
+      "sha256": "ded6137ffd7ebb89c778917cdea038686e89f7bb17b3d8e0ca464daf6b64aea6",
+      "bytes": 1975,
+      "origin": "D:\\Arcade\\AI\\aCORES\\Alpha68k N\\research\\mame_cutoff_observer_stage\\vpa_overlay_recipe1\\terminal_freeze1\\import_manifest.json::entries/84",
+      "recovery_only": true,
+      "local_hash_verified": false,
+      "scope": "Producer raw/source/capture pin retained; no large rehash/copy by this phase."
+    },
+    {
+      "source": "D:\\Arcade\\AI\\aCORES\\Alpha68k N\\sim\\captures\\kyros\\mame_vpa_sync61\\inputs.csv",
+      "sha256": "0d504027bea6e5f6b9e5647803c547d2953b4c69011dbe7ddee752defc6e90a1",
+      "bytes": 29,
+      "origin": "D:\\Arcade\\AI\\aCORES\\Alpha68k N\\research\\mame_cutoff_observer_stage\\vpa_overlay_recipe1\\terminal_freeze1\\import_manifest.json::entries/85",
+      "recovery_only": true,
+      "local_hash_verified": false,
+      "scope": "Producer raw/source/capture pin retained; no large rehash/copy by this phase."
+    },
+    {
+      "source": "D:\\Arcade\\AI\\aCORES\\Alpha68k N\\sim\\captures\\kyros\\mame_vpa_sync61\\loaded_recorder.lua",
+      "sha256": "36c4d4d8391488f8ca4764d486b25e40ae75b106a0f5e4c3b71035327795c684",
+      "bytes": 11277,
+      "origin": "D:\\Arcade\\AI\\aCORES\\Alpha68k N\\research\\mame_cutoff_observer_stage\\vpa_overlay_recipe1\\terminal_freeze1\\import_manifest.json::entries/86",
+      "recovery_only": true,
+      "local_hash_verified": false,
+      "scope": "Producer raw/source/capture pin retained; no large rehash/copy by this phase."
+    },
+    {
+      "source": "D:\\Arcade\\AI\\aCORES\\Alpha68k N\\sim\\captures\\kyros\\mame_vpa_sync61\\raster_clock.csv",
+      "sha256": "19f50b09611caa46956afd9270aca1547f18d341c5510cf679de841905f4cbcb",
+      "bytes": 1166,
+      "origin": "D:\\Arcade\\AI\\aCORES\\Alpha68k N\\research\\mame_cutoff_observer_stage\\vpa_overlay_recipe1\\terminal_freeze1\\import_manifest.json::entries/87",
+      "recovery_only": true,
+      "local_hash_verified": false,
+      "scope": "Producer raw/source/capture pin retained; no large rehash/copy by this phase."
+    },
+    {
+      "source": "D:\\Arcade\\AI\\aCORES\\Alpha68k N\\sim\\captures\\kyros\\mame_vpa_sync61\\reset_events.csv",
+      "sha256": "ebbb6325fdeccf0fad0e7958adc67e7437f813bfeedcd7b7fea2a64bd3d77a75",
+      "bytes": 30,
+      "origin": "D:\\Arcade\\AI\\aCORES\\Alpha68k N\\research\\mame_cutoff_observer_stage\\vpa_overlay_recipe1\\terminal_freeze1\\import_manifest.json::entries/88",
+      "recovery_only": true,
+      "local_hash_verified": false,
+      "scope": "Producer raw/source/capture pin retained; no large rehash/copy by this phase."
+    },
+    {
+      "source": "D:\\Arcade\\AI\\aCORES\\Alpha68k N\\sim\\captures\\kyros\\mame_vpa_sync61\\states.csv",
+      "sha256": "5df0276d73fab8ded35d9050e8214ba7a5020771c71b406d6b1e9361c5d156d6",
+      "bytes": 158,
+      "origin": "D:\\Arcade\\AI\\aCORES\\Alpha68k N\\research\\mame_cutoff_observer_stage\\vpa_overlay_recipe1\\terminal_freeze1\\import_manifest.json::entries/89",
+      "recovery_only": true,
+      "local_hash_verified": false,
+      "scope": "Producer raw/source/capture pin retained; no large rehash/copy by this phase."
+    },
+    {
+      "source": "D:\\Arcade\\AI\\aCORES\\Alpha68k N\\sim\\captures\\kyros\\mame_vpa_sync61\\status.csv",
+      "sha256": "021757155d3ea59fe50e6fa2f04033a0014971e5993289286ada5250f67ba1b0",
+      "bytes": 32,
+      "origin": "D:\\Arcade\\AI\\aCORES\\Alpha68k N\\research\\mame_cutoff_observer_stage\\vpa_overlay_recipe1\\terminal_freeze1\\import_manifest.json::entries/90",
+      "recovery_only": true,
+      "local_hash_verified": false,
+      "scope": "Producer raw/source/capture pin retained; no large rehash/copy by this phase."
+    },
+    {
+      "source": "D:\\Arcade\\AI\\aCORES\\Alpha68k N\\sim\\captures\\kyros\\mame_vpa_sync61\\write_histogram.csv",
+      "sha256": "df9dd17031ce07af3d8a71565604ec9e85096d3977047c072b88c5f45b2e96d5",
+      "bytes": 32502,
+      "origin": "D:\\Arcade\\AI\\aCORES\\Alpha68k N\\research\\mame_cutoff_observer_stage\\vpa_overlay_recipe1\\terminal_freeze1\\import_manifest.json::entries/91",
+      "recovery_only": true,
+      "local_hash_verified": false,
+      "scope": "Producer raw/source/capture pin retained; no large rehash/copy by this phase."
+    },
+    {
+      "source": "D:\\Arcade\\AI\\aCORES\\Alpha68k N\\research\\mame_cutoff_observer_stage\\manual_e_vpa\\MC68000UM.pdf",
+      "sha256": "89b690b1923f8a3cff508567090bcab0bcd07511c2deff8ffa393a08efda18e1",
+      "bytes": 2318145,
+      "origin": "D:\\Arcade\\AI\\aCORES\\Alpha68k N\\research\\timing_crossings_20261011\\fx68k_first_irq_contract_review_import_manifest.json::verified_primary_source_and_manual_files/6",
+      "recovery_only": true,
+      "local_hash_verified": false,
+      "scope": "Producer raw/source/capture pin retained; no large rehash/copy by this phase."
+    },
+    {
+      "source": "D:\\Arcade\\AI\\aCORES\\Alpha68k N\\research\\mame_cutoff_observer_stage\\manual_e_vpa\\page_185_image_0_Im29.png",
+      "sha256": "b6eea76731667131279ff85faf7b3bb37af53ab0f795608371f11b516bf3fa60",
+      "bytes": 61488,
+      "origin": "D:\\Arcade\\AI\\aCORES\\Alpha68k N\\research\\timing_crossings_20261011\\fx68k_first_irq_contract_review_import_manifest.json::verified_primary_source_and_manual_files/8",
+      "recovery_only": true,
+      "local_hash_verified": false,
+      "scope": "Producer raw/source/capture pin retained; no large rehash/copy by this phase."
+    },
+    {
+      "source": "D:\\Arcade\\AI\\aCORES\\Alpha68k N\\research\\mame_cutoff_observer_stage\\manual_e_vpa\\page_185_image_0_Im29.tiff",
+      "sha256": "0ac0b5403057b1ec1a7acf800e0d518a66749bdc7c0e77087653791e4dbbbf64",
+      "bytes": 37300,
+      "origin": "D:\\Arcade\\AI\\aCORES\\Alpha68k N\\research\\timing_crossings_20261011\\fx68k_first_irq_contract_review_import_manifest.json::verified_primary_source_and_manual_files/9",
+      "recovery_only": true,
+      "local_hash_verified": false,
+      "scope": "Producer raw/source/capture pin retained; no large rehash/copy by this phase."
+    },
+    {
+      "source": "D:\\Arcade\\AI\\aCORES\\Alpha68k N\\research\\mame_cutoff_observer_stage\\manual_e_vpa\\page_185_image_1_Im2.png",
+      "sha256": "c7af3fc8d3afafcbeeae66c0a0e88d67feb58348ca8ee3f428838ca3110108ed",
+      "bytes": 3392,
+      "origin": "D:\\Arcade\\AI\\aCORES\\Alpha68k N\\research\\timing_crossings_20261011\\fx68k_first_irq_contract_review_import_manifest.json::verified_primary_source_and_manual_files/10",
+      "recovery_only": true,
+      "local_hash_verified": false,
+      "scope": "Producer raw/source/capture pin retained; no large rehash/copy by this phase."
+    },
+    {
+      "source": "D:\\Arcade\\AI\\aCORES\\Alpha68k N\\research\\mame_cutoff_observer_stage\\manual_e_vpa\\page_186_image_0_Im30.png",
+      "sha256": "5dd1ba509a84239b5b3db520e35375273a3e45bd72e56b2b973a08c900bf23d7",
+      "bytes": 75137,
+      "origin": "D:\\Arcade\\AI\\aCORES\\Alpha68k N\\research\\timing_crossings_20261011\\fx68k_first_irq_contract_review_import_manifest.json::verified_primary_source_and_manual_files/12",
+      "recovery_only": true,
+      "local_hash_verified": false,
+      "scope": "Producer raw/source/capture pin retained; no large rehash/copy by this phase."
+    },
+    {
+      "source": "D:\\Arcade\\AI\\aCORES\\Alpha68k N\\research\\mame_cutoff_observer_stage\\manual_e_vpa\\page_186_image_0_Im30.tiff",
+      "sha256": "c09a383b564decddb0d98a60a779003ab47fbe28e92bee50f7f0d61d67937f5d",
+      "bytes": 44076,
+      "origin": "D:\\Arcade\\AI\\aCORES\\Alpha68k N\\research\\timing_crossings_20261011\\fx68k_first_irq_contract_review_import_manifest.json::verified_primary_source_and_manual_files/13",
+      "recovery_only": true,
+      "local_hash_verified": false,
+      "scope": "Producer raw/source/capture pin retained; no large rehash/copy by this phase."
+    },
+    {
+      "source": "D:\\Arcade\\AI\\aCORES\\Alpha68k N\\research\\mame_cutoff_observer_stage\\manual_e_vpa\\page_186_image_1_Im2.png",
+      "sha256": "c7af3fc8d3afafcbeeae66c0a0e88d67feb58348ca8ee3f428838ca3110108ed",
+      "bytes": 3392,
+      "origin": "D:\\Arcade\\AI\\aCORES\\Alpha68k N\\research\\timing_crossings_20261011\\fx68k_first_irq_contract_review_import_manifest.json::verified_primary_source_and_manual_files/14",
+      "recovery_only": true,
+      "local_hash_verified": false,
+      "scope": "Producer raw/source/capture pin retained; no large rehash/copy by this phase."
+    },
+    {
+      "source": "D:\\Arcade\\AI\\aCORES\\Alpha68k N\\research\\mame_cutoff_observer_stage\\manual_e_vpa\\page_187_image_0_Im31.png",
+      "sha256": "a538fe53163e3418633af5ce308754e76648b7868906efa59c460c0f1ac58eb9",
+      "bytes": 48323,
+      "origin": "D:\\Arcade\\AI\\aCORES\\Alpha68k N\\research\\timing_crossings_20261011\\fx68k_first_irq_contract_review_import_manifest.json::verified_primary_source_and_manual_files/16",
+      "recovery_only": true,
+      "local_hash_verified": false,
+      "scope": "Producer raw/source/capture pin retained; no large rehash/copy by this phase."
+    },
+    {
+      "source": "D:\\Arcade\\AI\\aCORES\\Alpha68k N\\research\\mame_cutoff_observer_stage\\manual_e_vpa\\page_187_image_0_Im31.tiff",
+      "sha256": "1937be6894adbed41c19b6aebbc4b4c3a7505865784732b84808b5545dd7b800",
+      "bytes": 28652,
+      "origin": "D:\\Arcade\\AI\\aCORES\\Alpha68k N\\research\\timing_crossings_20261011\\fx68k_first_irq_contract_review_import_manifest.json::verified_primary_source_and_manual_files/17",
+      "recovery_only": true,
+      "local_hash_verified": false,
+      "scope": "Producer raw/source/capture pin retained; no large rehash/copy by this phase."
+    },
+    {
+      "source": "D:\\Arcade\\AI\\aCORES\\Alpha68k N\\research\\mame_cutoff_observer_stage\\manual_e_vpa\\page_187_image_1_Im2.png",
+      "sha256": "c7af3fc8d3afafcbeeae66c0a0e88d67feb58348ca8ee3f428838ca3110108ed",
+      "bytes": 3392,
+      "origin": "D:\\Arcade\\AI\\aCORES\\Alpha68k N\\research\\timing_crossings_20261011\\fx68k_first_irq_contract_review_import_manifest.json::verified_primary_source_and_manual_files/18",
+      "recovery_only": true,
+      "local_hash_verified": false,
+      "scope": "Producer raw/source/capture pin retained; no large rehash/copy by this phase."
+    },
+    {
+      "source": "D:\\Arcade\\AI\\aCORES\\Alpha68k N\\research\\mame_cutoff_observer_stage\\manual_e_vpa\\page_188_image_0_Im32.png",
+      "sha256": "3f87aa5427e56aef2575f1efa4eee4ed577cdee3564558fa59ebbbff8a62758d",
+      "bytes": 109065,
+      "origin": "D:\\Arcade\\AI\\aCORES\\Alpha68k N\\research\\timing_crossings_20261011\\fx68k_first_irq_contract_review_import_manifest.json::verified_primary_source_and_manual_files/20",
+      "recovery_only": true,
+      "local_hash_verified": false,
+      "scope": "Producer raw/source/capture pin retained; no large rehash/copy by this phase."
+    },
+    {
+      "source": "D:\\Arcade\\AI\\aCORES\\Alpha68k N\\research\\mame_cutoff_observer_stage\\manual_e_vpa\\page_188_image_0_Im32.tiff",
+      "sha256": "d6a369a751cf0405880b4445e0af5ea465e1697e895b30a755e16c54157a161e",
+      "bytes": 66142,
+      "origin": "D:\\Arcade\\AI\\aCORES\\Alpha68k N\\research\\timing_crossings_20261011\\fx68k_first_irq_contract_review_import_manifest.json::verified_primary_source_and_manual_files/21",
+      "recovery_only": true,
+      "local_hash_verified": false,
+      "scope": "Producer raw/source/capture pin retained; no large rehash/copy by this phase."
+    },
+    {
+      "source": "D:\\Arcade\\AI\\aCORES\\Alpha68k N\\research\\mame_cutoff_observer_stage\\manual_e_vpa\\page_188_image_1_Im2.png",
+      "sha256": "c7af3fc8d3afafcbeeae66c0a0e88d67feb58348ca8ee3f428838ca3110108ed",
+      "bytes": 3392,
+      "origin": "D:\\Arcade\\AI\\aCORES\\Alpha68k N\\research\\timing_crossings_20261011\\fx68k_first_irq_contract_review_import_manifest.json::verified_primary_source_and_manual_files/22",
+      "recovery_only": true,
+      "local_hash_verified": false,
+      "scope": "Producer raw/source/capture pin retained; no large rehash/copy by this phase."
+    },
+    {
+      "source": "D:\\Arcade\\AI\\aCORES\\Alpha68k N\\research\\mame_cutoff_observer_stage\\manual_e_vpa\\page_189_image_0_Im33.png",
+      "sha256": "5612b185f37ddbddf4d331edc36a77d8e56e83b3b2b8853950bbb50dab480502",
+      "bytes": 36537,
+      "origin": "D:\\Arcade\\AI\\aCORES\\Alpha68k N\\research\\timing_crossings_20261011\\fx68k_first_irq_contract_review_import_manifest.json::verified_primary_source_and_manual_files/24",
+      "recovery_only": true,
+      "local_hash_verified": false,
+      "scope": "Producer raw/source/capture pin retained; no large rehash/copy by this phase."
+    },
+    {
+      "source": "D:\\Arcade\\AI\\aCORES\\Alpha68k N\\research\\mame_cutoff_observer_stage\\manual_e_vpa\\page_189_image_0_Im33.tiff",
+      "sha256": "f040c51fcdbff73a8954f33b41c87ae8f2f1900775d97461507990a261813785",
+      "bytes": 20930,
+      "origin": "D:\\Arcade\\AI\\aCORES\\Alpha68k N\\research\\timing_crossings_20261011\\fx68k_first_irq_contract_review_import_manifest.json::verified_primary_source_and_manual_files/25",
+      "recovery_only": true,
+      "local_hash_verified": false,
+      "scope": "Producer raw/source/capture pin retained; no large rehash/copy by this phase."
+    },
+    {
+      "source": "D:\\Arcade\\AI\\aCORES\\Alpha68k N\\research\\mame_cutoff_observer_stage\\manual_e_vpa\\page_189_image_1_Im2.png",
+      "sha256": "c7af3fc8d3afafcbeeae66c0a0e88d67feb58348ca8ee3f428838ca3110108ed",
+      "bytes": 3392,
+      "origin": "D:\\Arcade\\AI\\aCORES\\Alpha68k N\\research\\timing_crossings_20261011\\fx68k_first_irq_contract_review_import_manifest.json::verified_primary_source_and_manual_files/26",
+      "recovery_only": true,
+      "local_hash_verified": false,
+      "scope": "Producer raw/source/capture pin retained; no large rehash/copy by this phase."
+    },
+    {
+      "source": "D:\\Arcade\\AI\\aCORES\\Alpha68k N\\research\\mame_cutoff_observer_stage\\manual_e_vpa\\page_1_image_0_Im1.png",
+      "sha256": "c7af3fc8d3afafcbeeae66c0a0e88d67feb58348ca8ee3f428838ca3110108ed",
+      "bytes": 3392,
+      "origin": "D:\\Arcade\\AI\\aCORES\\Alpha68k N\\research\\timing_crossings_20261011\\fx68k_first_irq_contract_review_import_manifest.json::verified_primary_source_and_manual_files/27",
+      "recovery_only": true,
+      "local_hash_verified": false,
+      "scope": "Producer raw/source/capture pin retained; no large rehash/copy by this phase."
+    },
+    {
+      "source": "D:\\Arcade\\AI\\aCORES\\Alpha68k N\\rtl\\vendor\\fx68k\\fx68k.sv",
+      "sha256": "797566aa6c1dfb308d88a458550d55f86e0d023e670ab179cc39f594d9d4f73d",
+      "bytes": 79694,
+      "origin": "D:\\Arcade\\AI\\aCORES\\Alpha68k N\\research\\timing_crossings_20261011\\fx68k_first_irq_contract_review_import_manifest.json::verified_primary_source_and_manual_files/28",
+      "recovery_only": true,
+      "local_hash_verified": false,
+      "scope": "Producer raw/source/capture pin retained; no large rehash/copy by this phase."
+    },
+    {
+      "source": "D:\\Arcade\\AI\\aCORES\\Alpha68k N\\rtl\\alpha68kn_board.sv",
+      "sha256": "1d96bcb640490b62fbe6f15a9dc0e4fcf8e80b496cc108f14bd91241eb85ca0c",
+      "bytes": 16210,
+      "origin": "D:\\Arcade\\AI\\aCORES\\Alpha68k N\\research\\timing_crossings_20261011\\fx68k_first_irq_contract_review_import_manifest.json::verified_primary_source_and_manual_files/29",
+      "recovery_only": true,
+      "local_hash_verified": false,
+      "scope": "Producer raw/source/capture pin retained; no large rehash/copy by this phase."
+    },
+    {
+      "source": "D:\\Arcade\\AI\\mame289\\src\\devices\\cpu\\m68000\\m68000.cpp",
+      "sha256": "ef095e786564a203b828ed8e1e517b6af2e0d8fd64090d432f8be67480a5fab3",
+      "bytes": 14894,
+      "origin": "D:\\Arcade\\AI\\aCORES\\Alpha68k N\\research\\timing_crossings_20261011\\fx68k_first_irq_contract_review_import_manifest.json::verified_primary_source_and_manual_files/30",
+      "recovery_only": true,
+      "local_hash_verified": false,
+      "scope": "Producer raw/source/capture pin retained; no large rehash/copy by this phase."
+    },
+    {
+      "source": "D:\\Arcade\\AI\\aCORES\\Alpha68k N\\tools\\mame0289\\mame.exe",
+      "sha256": "af6966108d9b52c22465c6d50f4e5d50cc371b50f2d27dc443935f287aad37a3",
+      "bytes": null,
+      "origin": "D:\\Arcade\\AI\\aCORES\\Alpha68k N\\research\\audio_pickup_20261011\\opportunity_route_v16\\import_manifest.json::source_pins/0",
+      "recovery_only": true,
+      "local_hash_verified": false,
+      "scope": "Producer raw/source/capture pin retained; no large rehash/copy by this phase."
+    },
+    {
+      "source": "D:\\Arcade\\AI\\aCORES\\Alpha68k N\\roms\\kyros\\maincpu.bin",
+      "sha256": "6949ea5dc91dfced8c1afccbadee18c2e795ab38d8adbc3795f05a19b8f3b2b3",
+      "bytes": null,
+      "origin": "D:\\Arcade\\AI\\aCORES\\Alpha68k N\\research\\audio_pickup_20261011\\opportunity_route_v16\\import_manifest.json::source_pins/1",
+      "recovery_only": true,
+      "local_hash_verified": false,
+      "scope": "Producer raw/source/capture pin retained; no large rehash/copy by this phase."
+    },
+    {
+      "source": "D:\\Arcade\\AI\\aCORES\\Alpha68k N\\sim\\captures\\diagnostics\\kyros_rom_disassembly\\maincpu.asm",
+      "sha256": "da4e0ed81c446f9c77107fbac9e30f950d7e4cce20f2285fe78f14115f8d707d",
+      "bytes": null,
+      "origin": "D:\\Arcade\\AI\\aCORES\\Alpha68k N\\research\\audio_pickup_20261011\\opportunity_route_v16\\import_manifest.json::source_pins/2",
+      "recovery_only": true,
+      "local_hash_verified": false,
+      "scope": "Producer raw/source/capture pin retained; no large rehash/copy by this phase."
+    },
+    {
+      "source": "D:\\Arcade\\AI\\mame289\\src\\mame\\alpha\\alpha68k_n.cpp",
+      "sha256": "5f9884076ea1b5c02d2169a58de5425ae5475a13a4f1438abae2e2b9f0fdab7d",
+      "bytes": null,
+      "origin": "D:\\Arcade\\AI\\aCORES\\Alpha68k N\\research\\audio_pickup_20261011\\opportunity_route_v16\\import_manifest.json::source_pins/3",
+      "recovery_only": true,
+      "local_hash_verified": false,
+      "scope": "Producer raw/source/capture pin retained; no large rehash/copy by this phase."
+    },
+    {
+      "source": "D:\\Arcade\\AI\\mame289\\src\\frontend\\mame\\luaengine.cpp",
+      "sha256": "9e0dfa31b26a268dd41b26de9ec0b448d135a50516a137323eb71db30cd296a4",
+      "bytes": null,
+      "origin": "D:\\Arcade\\AI\\aCORES\\Alpha68k N\\research\\audio_pickup_20261011\\opportunity_route_v16\\import_manifest.json::source_pins/4",
+      "recovery_only": true,
+      "local_hash_verified": false,
+      "scope": "Producer raw/source/capture pin retained; no large rehash/copy by this phase."
+    },
+    {
+      "source": "D:\\Arcade\\AI\\mame289\\src\\frontend\\mame\\luaengine_mem.cpp",
+      "sha256": "a0a33d223269b72516e75a377ec3ed4c63fce7da116e172f2a842b83ffdee7ef",
+      "bytes": null,
+      "origin": "D:\\Arcade\\AI\\aCORES\\Alpha68k N\\research\\audio_pickup_20261011\\opportunity_route_v16\\import_manifest.json::source_pins/5",
+      "recovery_only": true,
+      "local_hash_verified": false,
+      "scope": "Producer raw/source/capture pin retained; no large rehash/copy by this phase."
+    },
+    {
+      "source": "D:\\Arcade\\AI\\aCORES\\Alpha68k N\\research\\audio_pickup_20261011\\opportunity_reference_v9\\opportunity.lua",
+      "sha256": "76c8a315bd6405639447e1cc6ebcd1758b22035c616bcc760c8553ca68a71658",
+      "bytes": null,
+      "origin": "D:\\Arcade\\AI\\aCORES\\Alpha68k N\\research\\audio_pickup_20261011\\opportunity_route_v16\\import_manifest.json::source_pins/6",
+      "recovery_only": true,
+      "local_hash_verified": false,
+      "scope": "Producer raw/source/capture pin retained; no large rehash/copy by this phase."
+    },
+    {
+      "source": "D:\\Arcade\\AI\\aCORES\\Alpha68k N\\research\\audio_pickup_20261011\\opportunity_reference_v9\\import_manifest.json",
+      "sha256": "7000eb3b125496cb0714687207aefacf3b2455d2ee66c9b6d3655730efde1434",
+      "bytes": null,
+      "origin": "D:\\Arcade\\AI\\aCORES\\Alpha68k N\\research\\audio_pickup_20261011\\opportunity_route_v16\\import_manifest.json::source_pins/7",
+      "recovery_only": true,
+      "local_hash_verified": false,
+      "scope": "Producer raw/source/capture pin retained; no large rehash/copy by this phase."
+    },
+    {
+      "source": "D:\\Arcade\\AI\\aCORES\\Alpha68k N\\research\\audio_pickup_20261011\\full_width_tile_path_v13\\import_manifest.json",
+      "sha256": "b9838a3bf9deb1358920162b9cb09653a298e7da12f158934c2a498e3f2dcdc5",
+      "bytes": null,
+      "origin": "D:\\Arcade\\AI\\aCORES\\Alpha68k N\\research\\audio_pickup_20261011\\opportunity_route_v16\\import_manifest.json::source_pins/8",
+      "recovery_only": true,
+      "local_hash_verified": false,
+      "scope": "Producer raw/source/capture pin retained; no large rehash/copy by this phase."
+    },
+    {
+      "source": "D:\\Arcade\\AI\\aCORES\\Alpha68k N\\research\\audio_pickup_20261011\\opportunity_route_v14\\opportunity.lua",
+      "sha256": "e8f8b58aaa26d23feb9b72b8ce0eb8ab0ef2a4000bd3392723f4e7d6b76f0ecc",
+      "bytes": 16275,
+      "origin": "D:\\Arcade\\AI\\aCORES\\Alpha68k N\\research\\audio_pickup_20261011\\opportunity_route_v14\\import_manifest.json::files/3",
+      "recovery_only": true,
+      "local_hash_verified": false,
+      "scope": "Producer raw/source/capture pin retained; no large rehash/copy by this phase."
+    },
+    {
+      "source": "D:\\Arcade\\AI\\aCORES\\Alpha68k N\\research\\audio_pickup_20261011\\opportunity_route_v14\\output\\actors.csv",
+      "sha256": "e1ec3653fd1d894b62a6346fddade2dd7d64059d7a8c1a5e1bbf0b0da6e75993",
+      "bytes": 859752,
+      "origin": "D:\\Arcade\\AI\\aCORES\\Alpha68k N\\research\\audio_pickup_20261011\\opportunity_route_v14\\import_manifest.json::files/4",
+      "recovery_only": true,
+      "local_hash_verified": false,
+      "scope": "Producer raw/source/capture pin retained; no large rehash/copy by this phase."
+    },
+    {
+      "source": "D:\\Arcade\\AI\\aCORES\\Alpha68k N\\research\\audio_pickup_20261011\\opportunity_route_v14\\output\\cfg\\default.cfg",
+      "sha256": "ce6f92d4260cfa730a9cda509e6b19e58813b279f1d85a3408cccb2abb49f236",
+      "bytes": 499,
+      "origin": "D:\\Arcade\\AI\\aCORES\\Alpha68k N\\research\\audio_pickup_20261011\\opportunity_route_v14\\import_manifest.json::files/5",
+      "recovery_only": true,
+      "local_hash_verified": false,
+      "scope": "Producer raw/source/capture pin retained; no large rehash/copy by this phase."
+    },
+    {
+      "source": "D:\\Arcade\\AI\\aCORES\\Alpha68k N\\research\\audio_pickup_20261011\\opportunity_route_v14\\output\\cfg\\kyros.cfg",
+      "sha256": "8904552091103b06d1700ff0470e1d5fc7cec9a9ddfbe9e1accb6f2e41ce9fc3",
+      "bytes": 612,
+      "origin": "D:\\Arcade\\AI\\aCORES\\Alpha68k N\\research\\audio_pickup_20261011\\opportunity_route_v14\\import_manifest.json::files/6",
+      "recovery_only": true,
+      "local_hash_verified": false,
+      "scope": "Producer raw/source/capture pin retained; no large rehash/copy by this phase."
+    },
+    {
+      "source": "D:\\Arcade\\AI\\aCORES\\Alpha68k N\\research\\audio_pickup_20261011\\opportunity_route_v14\\output\\collision_reads.csv",
+      "sha256": "a8e24b14258d8ed1de824ff1fc3b5d49c48a9b2b563cc21a7047cf5260585807",
+      "bytes": 567176,
+      "origin": "D:\\Arcade\\AI\\aCORES\\Alpha68k N\\research\\audio_pickup_20261011\\opportunity_route_v14\\import_manifest.json::files/7",
+      "recovery_only": true,
+      "local_hash_verified": false,
+      "scope": "Producer raw/source/capture pin retained; no large rehash/copy by this phase."
+    },
+    {
+      "source": "D:\\Arcade\\AI\\aCORES\\Alpha68k N\\research\\audio_pickup_20261011\\opportunity_route_v14\\output\\consumed_commands.csv",
+      "sha256": "f1f4711f90019578df7cb5786bc01a06f62ba2293e788ae4e635c17166d1d09c",
+      "bytes": 30473140,
+      "origin": "D:\\Arcade\\AI\\aCORES\\Alpha68k N\\research\\audio_pickup_20261011\\opportunity_route_v14\\import_manifest.json::files/9",
+      "recovery_only": true,
+      "local_hash_verified": false,
+      "scope": "Producer raw/source/capture pin retained; no large rehash/copy by this phase."
+    },
+    {
+      "source": "D:\\Arcade\\AI\\aCORES\\Alpha68k N\\research\\audio_pickup_20261011\\opportunity_route_v14\\output\\consumed_inputs.csv",
+      "sha256": "f5f48e476c6b80784560a3f2a2931648e81c7f80a974bb3d9485ee85ff1cfdaf",
+      "bytes": 217741,
+      "origin": "D:\\Arcade\\AI\\aCORES\\Alpha68k N\\research\\audio_pickup_20261011\\opportunity_route_v14\\import_manifest.json::files/10",
+      "recovery_only": true,
+      "local_hash_verified": false,
+      "scope": "Producer raw/source/capture pin retained; no large rehash/copy by this phase."
+    },
+    {
+      "source": "D:\\Arcade\\AI\\aCORES\\Alpha68k N\\research\\audio_pickup_20261011\\opportunity_route_v14\\output\\events.csv",
+      "sha256": "26d199f7604b8873299ea2bbd144279bcea3188125afd630b4e0d52d10237d51",
+      "bytes": 30380797,
+      "origin": "D:\\Arcade\\AI\\aCORES\\Alpha68k N\\research\\audio_pickup_20261011\\opportunity_route_v14\\import_manifest.json::files/12",
+      "recovery_only": true,
+      "local_hash_verified": false,
+      "scope": "Producer raw/source/capture pin retained; no large rehash/copy by this phase."
+    },
+    {
+      "source": "D:\\Arcade\\AI\\aCORES\\Alpha68k N\\research\\audio_pickup_20261011\\opportunity_route_v14\\output\\foreground_frames.csv",
+      "sha256": "72912cdc91e9049916f482b8df41c1058724899bf32696cc751f5159bf7141f3",
+      "bytes": 4744925,
+      "origin": "D:\\Arcade\\AI\\aCORES\\Alpha68k N\\research\\audio_pickup_20261011\\opportunity_route_v14\\import_manifest.json::files/14",
+      "recovery_only": true,
+      "local_hash_verified": false,
+      "scope": "Producer raw/source/capture pin retained; no large rehash/copy by this phase."
+    },
+    {
+      "source": "D:\\Arcade\\AI\\aCORES\\Alpha68k N\\research\\audio_pickup_20261011\\opportunity_route_v14\\output\\frame_000719.png",
+      "sha256": "bd39674bb91e3c0f4dc659cb6c9661ed327f4923b6adff7d0d78057eafc4416a",
+      "bytes": 8118,
+      "origin": "D:\\Arcade\\AI\\aCORES\\Alpha68k N\\research\\audio_pickup_20261011\\opportunity_route_v14\\import_manifest.json::files/15",
+      "recovery_only": true,
+      "local_hash_verified": false,
+      "scope": "Producer raw/source/capture pin retained; no large rehash/copy by this phase."
+    },
+    {
+      "source": "D:\\Arcade\\AI\\aCORES\\Alpha68k N\\research\\audio_pickup_20261011\\opportunity_route_v14\\output\\frame_000719.sprites.bin",
+      "sha256": "746342bb77fa309ed324c04b8e3dc02fc50fd2f8f78ea4eee9f92f1df897939d",
+      "bytes": 8192,
+      "origin": "D:\\Arcade\\AI\\aCORES\\Alpha68k N\\research\\audio_pickup_20261011\\opportunity_route_v14\\import_manifest.json::files/16",
+      "recovery_only": true,
+      "local_hash_verified": false,
+      "scope": "Producer raw/source/capture pin retained; no large rehash/copy by this phase."
+    },
+    {
+      "source": "D:\\Arcade\\AI\\aCORES\\Alpha68k N\\research\\audio_pickup_20261011\\opportunity_route_v14\\output\\frame_000719.work.bin",
+      "sha256": "65e3d54ca67e2b185d562afabf3b7d8b1c8d3d4b377291f3ebfa0a56b86460fb",
+      "bytes": 4096,
+      "origin": "D:\\Arcade\\AI\\aCORES\\Alpha68k N\\research\\audio_pickup_20261011\\opportunity_route_v14\\import_manifest.json::files/17",
+      "recovery_only": true,
+      "local_hash_verified": false,
+      "scope": "Producer raw/source/capture pin retained; no large rehash/copy by this phase."
+    },
+    {
+      "source": "D:\\Arcade\\AI\\aCORES\\Alpha68k N\\research\\audio_pickup_20261011\\opportunity_route_v14\\output\\frame_000720.png",
+      "sha256": "bd39674bb91e3c0f4dc659cb6c9661ed327f4923b6adff7d0d78057eafc4416a",
+      "bytes": 8118,
+      "origin": "D:\\Arcade\\AI\\aCORES\\Alpha68k N\\research\\audio_pickup_20261011\\opportunity_route_v14\\import_manifest.json::files/18",
+      "recovery_only": true,
+      "local_hash_verified": false,
+      "scope": "Producer raw/source/capture pin retained; no large rehash/copy by this phase."
+    },
+    {
+      "source": "D:\\Arcade\\AI\\aCORES\\Alpha68k N\\research\\audio_pickup_20261011\\opportunity_route_v14\\output\\frame_000720.sprites.bin",
+      "sha256": "746342bb77fa309ed324c04b8e3dc02fc50fd2f8f78ea4eee9f92f1df897939d",
+      "bytes": 8192,
+      "origin": "D:\\Arcade\\AI\\aCORES\\Alpha68k N\\research\\audio_pickup_20261011\\opportunity_route_v14\\import_manifest.json::files/19",
+      "recovery_only": true,
+      "local_hash_verified": false,
+      "scope": "Producer raw/source/capture pin retained; no large rehash/copy by this phase."
+    },
+    {
+      "source": "D:\\Arcade\\AI\\aCORES\\Alpha68k N\\research\\audio_pickup_20261011\\opportunity_route_v14\\output\\frame_000720.work.bin",
+      "sha256": "4ad319843afa026b2960c06de8cd1a1dedaa4dd8b7ca8250a3479acf6a3c7582",
+      "bytes": 4096,
+      "origin": "D:\\Arcade\\AI\\aCORES\\Alpha68k N\\research\\audio_pickup_20261011\\opportunity_route_v14\\import_manifest.json::files/20",
+      "recovery_only": true,
+      "local_hash_verified": false,
+      "scope": "Producer raw/source/capture pin retained; no large rehash/copy by this phase."
+    },
+    {
+      "source": "D:\\Arcade\\AI\\aCORES\\Alpha68k N\\research\\audio_pickup_20261011\\opportunity_route_v14\\output\\frame_000744.png",
+      "sha256": "5878709663e12b653a2ab6b0def7b54cbc79ef08de0231d7b856f971939d48a2",
+      "bytes": 8667,
+      "origin": "D:\\Arcade\\AI\\aCORES\\Alpha68k N\\research\\audio_pickup_20261011\\opportunity_route_v14\\import_manifest.json::files/21",
+      "recovery_only": true,
+      "local_hash_verified": false,
+      "scope": "Producer raw/source/capture pin retained; no large rehash/copy by this phase."
+    },
+    {
+      "source": "D:\\Arcade\\AI\\aCORES\\Alpha68k N\\research\\audio_pickup_20261011\\opportunity_route_v14\\output\\frame_000744.sprites.bin",
+      "sha256": "2cb551cf5002aa37cc47b8bcab309a1a5ceadd0fd6b8e5577d99389e4820b1f3",
+      "bytes": 8192,
+      "origin": "D:\\Arcade\\AI\\aCORES\\Alpha68k N\\research\\audio_pickup_20261011\\opportunity_route_v14\\import_manifest.json::files/22",
+      "recovery_only": true,
+      "local_hash_verified": false,
+      "scope": "Producer raw/source/capture pin retained; no large rehash/copy by this phase."
+    },
+    {
+      "source": "D:\\Arcade\\AI\\aCORES\\Alpha68k N\\research\\audio_pickup_20261011\\opportunity_route_v14\\output\\frame_000744.work.bin",
+      "sha256": "60f23347370b1d65b8d23b706eb7df9518a14a04e0da9580532d5ef71345e5a7",
+      "bytes": 4096,
+      "origin": "D:\\Arcade\\AI\\aCORES\\Alpha68k N\\research\\audio_pickup_20261011\\opportunity_route_v14\\import_manifest.json::files/23",
+      "recovery_only": true,
+      "local_hash_verified": false,
+      "scope": "Producer raw/source/capture pin retained; no large rehash/copy by this phase."
+    },
+    {
+      "source": "D:\\Arcade\\AI\\aCORES\\Alpha68k N\\research\\audio_pickup_20261011\\opportunity_route_v14\\output\\frame_001129.png",
+      "sha256": "3797690c41b39aa36af52d00022bf635d1a6f42b04cd9e59d4e2d296f975e7e7",
+      "bytes": 10359,
+      "origin": "D:\\Arcade\\AI\\aCORES\\Alpha68k N\\research\\audio_pickup_20261011\\opportunity_route_v14\\import_manifest.json::files/24",
+      "recovery_only": true,
+      "local_hash_verified": false,
+      "scope": "Producer raw/source/capture pin retained; no large rehash/copy by this phase."
+    },
+    {
+      "source": "D:\\Arcade\\AI\\aCORES\\Alpha68k N\\research\\audio_pickup_20261011\\opportunity_route_v14\\output\\frame_001129.sprites.bin",
+      "sha256": "f3eaa812018d2fd5901870dc2fbb73607b0aa6b43fdf144e66e69f3998281a84",
+      "bytes": 8192,
+      "origin": "D:\\Arcade\\AI\\aCORES\\Alpha68k N\\research\\audio_pickup_20261011\\opportunity_route_v14\\import_manifest.json::files/25",
+      "recovery_only": true,
+      "local_hash_verified": false,
+      "scope": "Producer raw/source/capture pin retained; no large rehash/copy by this phase."
+    },
+    {
+      "source": "D:\\Arcade\\AI\\aCORES\\Alpha68k N\\research\\audio_pickup_20261011\\opportunity_route_v14\\output\\frame_001129.work.bin",
+      "sha256": "59fa7b61a8925b4ba03fe0b3dba7f7ea541d60376662d8e292f624e26ee790da",
+      "bytes": 4096,
+      "origin": "D:\\Arcade\\AI\\aCORES\\Alpha68k N\\research\\audio_pickup_20261011\\opportunity_route_v14\\import_manifest.json::files/26",
+      "recovery_only": true,
+      "local_hash_verified": false,
+      "scope": "Producer raw/source/capture pin retained; no large rehash/copy by this phase."
+    },
+    {
+      "source": "D:\\Arcade\\AI\\aCORES\\Alpha68k N\\research\\audio_pickup_20261011\\opportunity_route_v14\\output\\frame_001155.png",
+      "sha256": "2fac9a86c33ff80846724b5f2a1899011812c8f601d3e59e958003448d9a0e4c",
+      "bytes": 9734,
+      "origin": "D:\\Arcade\\AI\\aCORES\\Alpha68k N\\research\\audio_pickup_20261011\\opportunity_route_v14\\import_manifest.json::files/27",
+      "recovery_only": true,
+      "local_hash_verified": false,
+      "scope": "Producer raw/source/capture pin retained; no large rehash/copy by this phase."
+    },
+    {
+      "source": "D:\\Arcade\\AI\\aCORES\\Alpha68k N\\research\\audio_pickup_20261011\\opportunity_route_v14\\output\\frame_001155.sprites.bin",
+      "sha256": "1ce17bcd4ff61e7227cd479e1b2a00c65cd5f78e9f2fe49f7bf1be94dcb42080",
+      "bytes": 8192,
+      "origin": "D:\\Arcade\\AI\\aCORES\\Alpha68k N\\research\\audio_pickup_20261011\\opportunity_route_v14\\import_manifest.json::files/28",
+      "recovery_only": true,
+      "local_hash_verified": false,
+      "scope": "Producer raw/source/capture pin retained; no large rehash/copy by this phase."
+    },
+    {
+      "source": "D:\\Arcade\\AI\\aCORES\\Alpha68k N\\research\\audio_pickup_20261011\\opportunity_route_v14\\output\\frame_001155.work.bin",
+      "sha256": "0ced7c779a13699dae5ee69144317c231efcd532df802682b5a17fdac70442f3",
+      "bytes": 4096,
+      "origin": "D:\\Arcade\\AI\\aCORES\\Alpha68k N\\research\\audio_pickup_20261011\\opportunity_route_v14\\import_manifest.json::files/29",
+      "recovery_only": true,
+      "local_hash_verified": false,
+      "scope": "Producer raw/source/capture pin retained; no large rehash/copy by this phase."
+    },
+    {
+      "source": "D:\\Arcade\\AI\\aCORES\\Alpha68k N\\research\\audio_pickup_20261011\\opportunity_route_v14\\output\\frame_001156.png",
+      "sha256": "2adea437b07df39b97467c35e611ddb8a55dc82320f088123016086b304a348c",
+      "bytes": 9803,
+      "origin": "D:\\Arcade\\AI\\aCORES\\Alpha68k N\\research\\audio_pickup_20261011\\opportunity_route_v14\\import_manifest.json::files/30",
+      "recovery_only": true,
+      "local_hash_verified": false,
+      "scope": "Producer raw/source/capture pin retained; no large rehash/copy by this phase."
+    },
+    {
+      "source": "D:\\Arcade\\AI\\aCORES\\Alpha68k N\\research\\audio_pickup_20261011\\opportunity_route_v14\\output\\frame_001156.sprites.bin",
+      "sha256": "1af6e09799b41f4c00860ead87bc4d7dc99204dd7506d357490e8b7217c7e5c9",
+      "bytes": 8192,
+      "origin": "D:\\Arcade\\AI\\aCORES\\Alpha68k N\\research\\audio_pickup_20261011\\opportunity_route_v14\\import_manifest.json::files/31",
+      "recovery_only": true,
+      "local_hash_verified": false,
+      "scope": "Producer raw/source/capture pin retained; no large rehash/copy by this phase."
+    },
+    {
+      "source": "D:\\Arcade\\AI\\aCORES\\Alpha68k N\\research\\audio_pickup_20261011\\opportunity_route_v14\\output\\frame_001156.work.bin",
+      "sha256": "7f41f4662ab6a75447f2d0e374be736f89741b2be1105dd771dbee1d7569690d",
+      "bytes": 4096,
+      "origin": "D:\\Arcade\\AI\\aCORES\\Alpha68k N\\research\\audio_pickup_20261011\\opportunity_route_v14\\import_manifest.json::files/32",
+      "recovery_only": true,
+      "local_hash_verified": false,
+      "scope": "Producer raw/source/capture pin retained; no large rehash/copy by this phase."
+    },
+    {
+      "source": "D:\\Arcade\\AI\\aCORES\\Alpha68k N\\research\\audio_pickup_20261011\\opportunity_route_v14\\output\\movement_terrain_reads.csv",
+      "sha256": "c66e94ea795765191dbe3a853ed2ca7486084c27cc130a8de20b54f5da593fb8",
+      "bytes": 438205,
+      "origin": "D:\\Arcade\\AI\\aCORES\\Alpha68k N\\research\\audio_pickup_20261011\\opportunity_route_v14\\import_manifest.json::files/36",
+      "recovery_only": true,
+      "local_hash_verified": false,
+      "scope": "Producer raw/source/capture pin retained; no large rehash/copy by this phase."
+    },
+    {
+      "source": "D:\\Arcade\\AI\\aCORES\\Alpha68k N\\research\\audio_pickup_20261011\\opportunity_route_v14\\output\\production.wav",
+      "sha256": "8d7010f5fcae252330544ca26b96e48c43c7748b6d8a273b491b238023b94495",
+      "bytes": 1875886,
+      "origin": "D:\\Arcade\\AI\\aCORES\\Alpha68k N\\research\\audio_pickup_20261011\\opportunity_route_v14\\import_manifest.json::files/38",
+      "recovery_only": true,
+      "local_hash_verified": false,
+      "scope": "Producer raw/source/capture pin retained; no large rehash/copy by this phase."
+    },
+    {
+      "source": "D:\\Arcade\\AI\\aCORES\\Alpha68k N\\research\\audio_pickup_20261011\\opportunity_route_v14\\output\\tile_producer_writes.csv",
+      "sha256": "c7db3aeda29b2f982f7c269bd4649109468216ea8cee27c9fbe0653611511b75",
+      "bytes": 623287,
+      "origin": "D:\\Arcade\\AI\\aCORES\\Alpha68k N\\research\\audio_pickup_20261011\\opportunity_route_v14\\import_manifest.json::files/45",
+      "recovery_only": true,
+      "local_hash_verified": false,
+      "scope": "Producer raw/source/capture pin retained; no large rehash/copy by this phase."
+    },
+    {
+      "source": "D:\\Arcade\\AI\\aCORES\\Alpha68k N\\research\\audio_pickup_20261011\\opportunity_route_v14\\output\\work_ancestry.csv",
+      "sha256": "eaed1be36ca020097d9519e03a99261c07c98bada869f5722f1b0aa7198713e0",
+      "bytes": 23695378,
+      "origin": "D:\\Arcade\\AI\\aCORES\\Alpha68k N\\research\\audio_pickup_20261011\\opportunity_route_v14\\import_manifest.json::files/46",
+      "recovery_only": true,
+      "local_hash_verified": false,
+      "scope": "Producer raw/source/capture pin retained; no large rehash/copy by this phase."
+    },
+    {
+      "source": "D:\\Arcade\\AI\\aCORES\\Alpha68k N\\research\\audio_pickup_20261011\\opportunity_route_v14\\import_manifest.json",
+      "sha256": "bec9a470dc803fd1db9c3a2cc4a965458b518d7f1739f9bec8c5c5d8aacf9aa1",
+      "bytes": null,
+      "origin": "D:\\Arcade\\AI\\aCORES\\Alpha68k N\\research\\audio_pickup_20261011\\opportunity_route_v16\\import_manifest.json::source_pins/9",
+      "recovery_only": true,
+      "local_hash_verified": false,
+      "scope": "Producer raw/source/capture pin retained; no large rehash/copy by this phase."
+    },
+    {
+      "source": "D:\\Arcade\\AI\\aCORES\\Alpha68k N\\research\\audio_pickup_20261011\\route_handoff_v15\\import_manifest.json",
+      "sha256": "1f17728df6bcc49a9258a26d26f4897d807e4b98b171c825c0e06f2946a27285",
+      "bytes": null,
+      "origin": "D:\\Arcade\\AI\\aCORES\\Alpha68k N\\research\\audio_pickup_20261011\\opportunity_route_v16\\import_manifest.json::source_pins/10",
+      "recovery_only": true,
+      "local_hash_verified": false,
+      "scope": "Producer raw/source/capture pin retained; no large rehash/copy by this phase."
+    },
+    {
+      "source": "D:\\Arcade\\AI\\aCORES\\Alpha68k N\\research\\audio_pickup_20261011\\route_handoff_v15\\verified_handoff.md",
+      "sha256": "4a0fa5a621cf40ae4320603ed15fd222412cb501bc6ca00c640ce9042e1cf572",
+      "bytes": null,
+      "origin": "D:\\Arcade\\AI\\aCORES\\Alpha68k N\\research\\audio_pickup_20261011\\opportunity_route_v16\\import_manifest.json::source_pins/11",
+      "recovery_only": true,
+      "local_hash_verified": false,
+      "scope": "Producer raw/source/capture pin retained; no large rehash/copy by this phase."
+    },
+    {
+      "source": "D:\\Arcade\\AI\\aCORES\\Alpha68k N\\research\\audio_pickup_20261011\\opportunity_reference_v9\\output\\frame_001177.sprites.bin",
+      "sha256": "3bb8a9e138c3cfe5459c9155d7e03108da6093720059c8f0e7407b1d3498c317",
+      "bytes": null,
+      "origin": "D:\\Arcade\\AI\\aCORES\\Alpha68k N\\research\\audio_pickup_20261011\\opportunity_route_v16\\import_manifest.json::source_pins/12",
+      "recovery_only": true,
+      "local_hash_verified": false,
+      "scope": "Producer raw/source/capture pin retained; no large rehash/copy by this phase."
+    },
+    {
+      "source": "D:\\Arcade\\AI\\aCORES\\Alpha68k N\\research\\audio_pickup_20261011\\full_width_tile_path_v13\\findings.json",
+      "sha256": "ead22913b86da1f5bde7c3a8c94d7f36d487fd91a15fc44fa18399e986655b2e",
+      "bytes": null,
+      "origin": "D:\\Arcade\\AI\\aCORES\\Alpha68k N\\research\\audio_pickup_20261011\\opportunity_route_v16\\import_manifest.json::source_pins/13",
+      "recovery_only": true,
+      "local_hash_verified": false,
+      "scope": "Producer raw/source/capture pin retained; no large rehash/copy by this phase."
+    },
+    {
+      "source": "D:\\Arcade\\AI\\aCORES\\Alpha68k N\\research\\audio_pickup_20261011\\opportunity_route_v16\\opportunity.lua",
+      "sha256": "80c92132a2cf7cef09de2503ad275e57caf8723fe5dae2cc305c77710526e973",
+      "bytes": 18937,
+      "origin": "D:\\Arcade\\AI\\aCORES\\Alpha68k N\\research\\audio_pickup_20261011\\opportunity_route_v16\\import_manifest.json::files/3",
+      "recovery_only": true,
+      "local_hash_verified": false,
+      "scope": "Producer raw/source/capture pin retained; no large rehash/copy by this phase."
+    },
+    {
+      "source": "D:\\Arcade\\AI\\aCORES\\Alpha68k N\\research\\audio_pickup_20261011\\opportunity_route_v16\\output\\actors.csv",
+      "sha256": "d62d4be5e454a6b22867602a0aaea4498dbe911ecbe34299a6a074797eba8ced",
+      "bytes": 972631,
+      "origin": "D:\\Arcade\\AI\\aCORES\\Alpha68k N\\research\\audio_pickup_20261011\\opportunity_route_v16\\import_manifest.json::files/4",
+      "recovery_only": true,
+      "local_hash_verified": false,
+      "scope": "Producer raw/source/capture pin retained; no large rehash/copy by this phase."
+    },
+    {
+      "source": "D:\\Arcade\\AI\\aCORES\\Alpha68k N\\research\\audio_pickup_20261011\\opportunity_route_v16\\output\\cfg\\default.cfg",
+      "sha256": "ce6f92d4260cfa730a9cda509e6b19e58813b279f1d85a3408cccb2abb49f236",
+      "bytes": 499,
+      "origin": "D:\\Arcade\\AI\\aCORES\\Alpha68k N\\research\\audio_pickup_20261011\\opportunity_route_v16\\import_manifest.json::files/5",
+      "recovery_only": true,
+      "local_hash_verified": false,
+      "scope": "Producer raw/source/capture pin retained; no large rehash/copy by this phase."
+    },
+    {
+      "source": "D:\\Arcade\\AI\\aCORES\\Alpha68k N\\research\\audio_pickup_20261011\\opportunity_route_v16\\output\\cfg\\kyros.cfg",
+      "sha256": "8904552091103b06d1700ff0470e1d5fc7cec9a9ddfbe9e1accb6f2e41ce9fc3",
+      "bytes": 612,
+      "origin": "D:\\Arcade\\AI\\aCORES\\Alpha68k N\\research\\audio_pickup_20261011\\opportunity_route_v16\\import_manifest.json::files/6",
+      "recovery_only": true,
+      "local_hash_verified": false,
+      "scope": "Producer raw/source/capture pin retained; no large rehash/copy by this phase."
+    },
+    {
+      "source": "D:\\Arcade\\AI\\aCORES\\Alpha68k N\\research\\audio_pickup_20261011\\opportunity_route_v16\\output\\collision_reads.csv",
+      "sha256": "1a6c98a169d00d04ac42ecab77c2dff776393b922274fac464ce788b1a1b131b",
+      "bytes": 728457,
+      "origin": "D:\\Arcade\\AI\\aCORES\\Alpha68k N\\research\\audio_pickup_20261011\\opportunity_route_v16\\import_manifest.json::files/7",
+      "recovery_only": true,
+      "local_hash_verified": false,
+      "scope": "Producer raw/source/capture pin retained; no large rehash/copy by this phase."
+    },
+    {
+      "source": "D:\\Arcade\\AI\\aCORES\\Alpha68k N\\research\\audio_pickup_20261011\\opportunity_route_v16\\output\\consumed_commands.csv",
+      "sha256": "34f27362e5f3e95fda3ce60e4773aed55185638d43e36a64338b2260dab124e7",
+      "bytes": 34847505,
+      "origin": "D:\\Arcade\\AI\\aCORES\\Alpha68k N\\research\\audio_pickup_20261011\\opportunity_route_v16\\import_manifest.json::files/9",
+      "recovery_only": true,
+      "local_hash_verified": false,
+      "scope": "Producer raw/source/capture pin retained; no large rehash/copy by this phase."
+    },
+    {
+      "source": "D:\\Arcade\\AI\\aCORES\\Alpha68k N\\research\\audio_pickup_20261011\\opportunity_route_v16\\output\\consumed_inputs.csv",
+      "sha256": "aa6e9cf559f9e5f82d3d4c934889761e69ad54f46842cbc647c5d350f9e39700",
+      "bytes": 248245,
+      "origin": "D:\\Arcade\\AI\\aCORES\\Alpha68k N\\research\\audio_pickup_20261011\\opportunity_route_v16\\import_manifest.json::files/10",
+      "recovery_only": true,
+      "local_hash_verified": false,
+      "scope": "Producer raw/source/capture pin retained; no large rehash/copy by this phase."
+    },
+    {
+      "source": "D:\\Arcade\\AI\\aCORES\\Alpha68k N\\research\\audio_pickup_20261011\\opportunity_route_v16\\output\\events.csv",
+      "sha256": "041b18c724bee423653d9c954cd6a00f8193762c54d72e21fb9ad4166223dbc8",
+      "bytes": 37635357,
+      "origin": "D:\\Arcade\\AI\\aCORES\\Alpha68k N\\research\\audio_pickup_20261011\\opportunity_route_v16\\import_manifest.json::files/12",
+      "recovery_only": true,
+      "local_hash_verified": false,
+      "scope": "Producer raw/source/capture pin retained; no large rehash/copy by this phase."
+    },
+    {
+      "source": "D:\\Arcade\\AI\\aCORES\\Alpha68k N\\research\\audio_pickup_20261011\\opportunity_route_v16\\output\\foreground_frames.csv",
+      "sha256": "bd1e570651da5e68890cc014f25f432e50b2687fd980459fbd6556650f3bb690",
+      "bytes": 5347919,
+      "origin": "D:\\Arcade\\AI\\aCORES\\Alpha68k N\\research\\audio_pickup_20261011\\opportunity_route_v16\\import_manifest.json::files/14",
+      "recovery_only": true,
+      "local_hash_verified": false,
+      "scope": "Producer raw/source/capture pin retained; no large rehash/copy by this phase."
+    },
+    {
+      "source": "D:\\Arcade\\AI\\aCORES\\Alpha68k N\\research\\audio_pickup_20261011\\opportunity_route_v16\\output\\frame_000719.png",
+      "sha256": "bd39674bb91e3c0f4dc659cb6c9661ed327f4923b6adff7d0d78057eafc4416a",
+      "bytes": 8118,
+      "origin": "D:\\Arcade\\AI\\aCORES\\Alpha68k N\\research\\audio_pickup_20261011\\opportunity_route_v16\\import_manifest.json::files/15",
+      "recovery_only": true,
+      "local_hash_verified": false,
+      "scope": "Producer raw/source/capture pin retained; no large rehash/copy by this phase."
+    },
+    {
+      "source": "D:\\Arcade\\AI\\aCORES\\Alpha68k N\\research\\audio_pickup_20261011\\opportunity_route_v16\\output\\frame_000719.sprites.bin",
+      "sha256": "746342bb77fa309ed324c04b8e3dc02fc50fd2f8f78ea4eee9f92f1df897939d",
+      "bytes": 8192,
+      "origin": "D:\\Arcade\\AI\\aCORES\\Alpha68k N\\research\\audio_pickup_20261011\\opportunity_route_v16\\import_manifest.json::files/16",
+      "recovery_only": true,
+      "local_hash_verified": false,
+      "scope": "Producer raw/source/capture pin retained; no large rehash/copy by this phase."
+    },
+    {
+      "source": "D:\\Arcade\\AI\\aCORES\\Alpha68k N\\research\\audio_pickup_20261011\\opportunity_route_v16\\output\\frame_000719.work.bin",
+      "sha256": "65e3d54ca67e2b185d562afabf3b7d8b1c8d3d4b377291f3ebfa0a56b86460fb",
+      "bytes": 4096,
+      "origin": "D:\\Arcade\\AI\\aCORES\\Alpha68k N\\research\\audio_pickup_20261011\\opportunity_route_v16\\import_manifest.json::files/17",
+      "recovery_only": true,
+      "local_hash_verified": false,
+      "scope": "Producer raw/source/capture pin retained; no large rehash/copy by this phase."
+    },
+    {
+      "source": "D:\\Arcade\\AI\\aCORES\\Alpha68k N\\research\\audio_pickup_20261011\\opportunity_route_v16\\output\\frame_000720.png",
+      "sha256": "bd39674bb91e3c0f4dc659cb6c9661ed327f4923b6adff7d0d78057eafc4416a",
+      "bytes": 8118,
+      "origin": "D:\\Arcade\\AI\\aCORES\\Alpha68k N\\research\\audio_pickup_20261011\\opportunity_route_v16\\import_manifest.json::files/18",
+      "recovery_only": true,
+      "local_hash_verified": false,
+      "scope": "Producer raw/source/capture pin retained; no large rehash/copy by this phase."
+    },
+    {
+      "source": "D:\\Arcade\\AI\\aCORES\\Alpha68k N\\research\\audio_pickup_20261011\\opportunity_route_v16\\output\\frame_000720.sprites.bin",
+      "sha256": "746342bb77fa309ed324c04b8e3dc02fc50fd2f8f78ea4eee9f92f1df897939d",
+      "bytes": 8192,
+      "origin": "D:\\Arcade\\AI\\aCORES\\Alpha68k N\\research\\audio_pickup_20261011\\opportunity_route_v16\\import_manifest.json::files/19",
+      "recovery_only": true,
+      "local_hash_verified": false,
+      "scope": "Producer raw/source/capture pin retained; no large rehash/copy by this phase."
+    },
+    {
+      "source": "D:\\Arcade\\AI\\aCORES\\Alpha68k N\\research\\audio_pickup_20261011\\opportunity_route_v16\\output\\frame_000720.work.bin",
+      "sha256": "4ad319843afa026b2960c06de8cd1a1dedaa4dd8b7ca8250a3479acf6a3c7582",
+      "bytes": 4096,
+      "origin": "D:\\Arcade\\AI\\aCORES\\Alpha68k N\\research\\audio_pickup_20261011\\opportunity_route_v16\\import_manifest.json::files/20",
+      "recovery_only": true,
+      "local_hash_verified": false,
+      "scope": "Producer raw/source/capture pin retained; no large rehash/copy by this phase."
+    },
+    {
+      "source": "D:\\Arcade\\AI\\aCORES\\Alpha68k N\\research\\audio_pickup_20261011\\opportunity_route_v16\\output\\frame_000744.png",
+      "sha256": "5878709663e12b653a2ab6b0def7b54cbc79ef08de0231d7b856f971939d48a2",
+      "bytes": 8667,
+      "origin": "D:\\Arcade\\AI\\aCORES\\Alpha68k N\\research\\audio_pickup_20261011\\opportunity_route_v16\\import_manifest.json::files/21",
+      "recovery_only": true,
+      "local_hash_verified": false,
+      "scope": "Producer raw/source/capture pin retained; no large rehash/copy by this phase."
+    },
+    {
+      "source": "D:\\Arcade\\AI\\aCORES\\Alpha68k N\\research\\audio_pickup_20261011\\opportunity_route_v16\\output\\frame_000744.sprites.bin",
+      "sha256": "2cb551cf5002aa37cc47b8bcab309a1a5ceadd0fd6b8e5577d99389e4820b1f3",
+      "bytes": 8192,
+      "origin": "D:\\Arcade\\AI\\aCORES\\Alpha68k N\\research\\audio_pickup_20261011\\opportunity_route_v16\\import_manifest.json::files/22",
+      "recovery_only": true,
+      "local_hash_verified": false,
+      "scope": "Producer raw/source/capture pin retained; no large rehash/copy by this phase."
+    },
+    {
+      "source": "D:\\Arcade\\AI\\aCORES\\Alpha68k N\\research\\audio_pickup_20261011\\opportunity_route_v16\\output\\frame_000744.work.bin",
+      "sha256": "60f23347370b1d65b8d23b706eb7df9518a14a04e0da9580532d5ef71345e5a7",
+      "bytes": 4096,
+      "origin": "D:\\Arcade\\AI\\aCORES\\Alpha68k N\\research\\audio_pickup_20261011\\opportunity_route_v16\\import_manifest.json::files/23",
+      "recovery_only": true,
+      "local_hash_verified": false,
+      "scope": "Producer raw/source/capture pin retained; no large rehash/copy by this phase."
+    },
+    {
+      "source": "D:\\Arcade\\AI\\aCORES\\Alpha68k N\\research\\audio_pickup_20261011\\opportunity_route_v16\\output\\frame_001129.png",
+      "sha256": "3797690c41b39aa36af52d00022bf635d1a6f42b04cd9e59d4e2d296f975e7e7",
+      "bytes": 10359,
+      "origin": "D:\\Arcade\\AI\\aCORES\\Alpha68k N\\research\\audio_pickup_20261011\\opportunity_route_v16\\import_manifest.json::files/24",
+      "recovery_only": true,
+      "local_hash_verified": false,
+      "scope": "Producer raw/source/capture pin retained; no large rehash/copy by this phase."
+    },
+    {
+      "source": "D:\\Arcade\\AI\\aCORES\\Alpha68k N\\research\\audio_pickup_20261011\\opportunity_route_v16\\output\\frame_001129.sprites.bin",
+      "sha256": "f3eaa812018d2fd5901870dc2fbb73607b0aa6b43fdf144e66e69f3998281a84",
+      "bytes": 8192,
+      "origin": "D:\\Arcade\\AI\\aCORES\\Alpha68k N\\research\\audio_pickup_20261011\\opportunity_route_v16\\import_manifest.json::files/25",
+      "recovery_only": true,
+      "local_hash_verified": false,
+      "scope": "Producer raw/source/capture pin retained; no large rehash/copy by this phase."
+    },
+    {
+      "source": "D:\\Arcade\\AI\\aCORES\\Alpha68k N\\research\\audio_pickup_20261011\\opportunity_route_v16\\output\\frame_001129.work.bin",
+      "sha256": "59fa7b61a8925b4ba03fe0b3dba7f7ea541d60376662d8e292f624e26ee790da",
+      "bytes": 4096,
+      "origin": "D:\\Arcade\\AI\\aCORES\\Alpha68k N\\research\\audio_pickup_20261011\\opportunity_route_v16\\import_manifest.json::files/26",
+      "recovery_only": true,
+      "local_hash_verified": false,
+      "scope": "Producer raw/source/capture pin retained; no large rehash/copy by this phase."
+    },
+    {
+      "source": "D:\\Arcade\\AI\\aCORES\\Alpha68k N\\research\\audio_pickup_20261011\\opportunity_route_v16\\output\\frame_001131.png",
+      "sha256": "236e9f9d2d9387dc5246c58f43dec3da2715fd3662fddd4a53270b55681defc2",
+      "bytes": 10365,
+      "origin": "D:\\Arcade\\AI\\aCORES\\Alpha68k N\\research\\audio_pickup_20261011\\opportunity_route_v16\\import_manifest.json::files/27",
+      "recovery_only": true,
+      "local_hash_verified": false,
+      "scope": "Producer raw/source/capture pin retained; no large rehash/copy by this phase."
+    },
+    {
+      "source": "D:\\Arcade\\AI\\aCORES\\Alpha68k N\\research\\audio_pickup_20261011\\opportunity_route_v16\\output\\frame_001131.sprites.bin",
+      "sha256": "f9a26c326b42d305a9dbd3211ed50d85705e997945d4a4931b5a4245ced24560",
+      "bytes": 8192,
+      "origin": "D:\\Arcade\\AI\\aCORES\\Alpha68k N\\research\\audio_pickup_20261011\\opportunity_route_v16\\import_manifest.json::files/28",
+      "recovery_only": true,
+      "local_hash_verified": false,
+      "scope": "Producer raw/source/capture pin retained; no large rehash/copy by this phase."
+    },
+    {
+      "source": "D:\\Arcade\\AI\\aCORES\\Alpha68k N\\research\\audio_pickup_20261011\\opportunity_route_v16\\output\\frame_001131.work.bin",
+      "sha256": "74b3467fa3a46d14a359efc09f8e1fdf488a2834d20032a408714fe9a9351cb6",
+      "bytes": 4096,
+      "origin": "D:\\Arcade\\AI\\aCORES\\Alpha68k N\\research\\audio_pickup_20261011\\opportunity_route_v16\\import_manifest.json::files/29",
+      "recovery_only": true,
+      "local_hash_verified": false,
+      "scope": "Producer raw/source/capture pin retained; no large rehash/copy by this phase."
+    },
+    {
+      "source": "D:\\Arcade\\AI\\aCORES\\Alpha68k N\\research\\audio_pickup_20261011\\opportunity_route_v16\\output\\frame_001157.png",
+      "sha256": "1396973ae3a5539d525730a087b168d2efd0901f57bfce1b2eb10903c5581a89",
+      "bytes": 9825,
+      "origin": "D:\\Arcade\\AI\\aCORES\\Alpha68k N\\research\\audio_pickup_20261011\\opportunity_route_v16\\import_manifest.json::files/30",
+      "recovery_only": true,
+      "local_hash_verified": false,
+      "scope": "Producer raw/source/capture pin retained; no large rehash/copy by this phase."
+    },
+    {
+      "source": "D:\\Arcade\\AI\\aCORES\\Alpha68k N\\research\\audio_pickup_20261011\\opportunity_route_v16\\output\\frame_001157.sprites.bin",
+      "sha256": "33d7d88134d9c7c73d76592e7bf888b357da0a693ed637a911ed4450077c229d",
+      "bytes": 8192,
+      "origin": "D:\\Arcade\\AI\\aCORES\\Alpha68k N\\research\\audio_pickup_20261011\\opportunity_route_v16\\import_manifest.json::files/31",
+      "recovery_only": true,
+      "local_hash_verified": false,
+      "scope": "Producer raw/source/capture pin retained; no large rehash/copy by this phase."
+    },
+    {
+      "source": "D:\\Arcade\\AI\\aCORES\\Alpha68k N\\research\\audio_pickup_20261011\\opportunity_route_v16\\output\\frame_001157.work.bin",
+      "sha256": "828ea28a5bee8f353fc1c2a235f7cac452b927f6857a51064805d3802a740b84",
+      "bytes": 4096,
+      "origin": "D:\\Arcade\\AI\\aCORES\\Alpha68k N\\research\\audio_pickup_20261011\\opportunity_route_v16\\import_manifest.json::files/32",
+      "recovery_only": true,
+      "local_hash_verified": false,
+      "scope": "Producer raw/source/capture pin retained; no large rehash/copy by this phase."
+    },
+    {
+      "source": "D:\\Arcade\\AI\\aCORES\\Alpha68k N\\research\\audio_pickup_20261011\\opportunity_route_v16\\output\\frame_001160.png",
+      "sha256": "72f7dfc2d2d100fa90ea4960a78d64471471ac41fb7fdef80a86926890218eda",
+      "bytes": 9886,
+      "origin": "D:\\Arcade\\AI\\aCORES\\Alpha68k N\\research\\audio_pickup_20261011\\opportunity_route_v16\\import_manifest.json::files/33",
+      "recovery_only": true,
+      "local_hash_verified": false,
+      "scope": "Producer raw/source/capture pin retained; no large rehash/copy by this phase."
+    },
+    {
+      "source": "D:\\Arcade\\AI\\aCORES\\Alpha68k N\\research\\audio_pickup_20261011\\opportunity_route_v16\\output\\frame_001160.sprites.bin",
+      "sha256": "f6bcd6b35d8c64c45c9ccef5881afb65e8851c4c650d763e084491d48348e48d",
+      "bytes": 8192,
+      "origin": "D:\\Arcade\\AI\\aCORES\\Alpha68k N\\research\\audio_pickup_20261011\\opportunity_route_v16\\import_manifest.json::files/34",
+      "recovery_only": true,
+      "local_hash_verified": false,
+      "scope": "Producer raw/source/capture pin retained; no large rehash/copy by this phase."
+    },
+    {
+      "source": "D:\\Arcade\\AI\\aCORES\\Alpha68k N\\research\\audio_pickup_20261011\\opportunity_route_v16\\output\\frame_001160.work.bin",
+      "sha256": "a9387850280e50b78e6b562b3e5f04f86115b6a36f17fd52984b5afa2980a4be",
+      "bytes": 4096,
+      "origin": "D:\\Arcade\\AI\\aCORES\\Alpha68k N\\research\\audio_pickup_20261011\\opportunity_route_v16\\import_manifest.json::files/35",
+      "recovery_only": true,
+      "local_hash_verified": false,
+      "scope": "Producer raw/source/capture pin retained; no large rehash/copy by this phase."
+    },
+    {
+      "source": "D:\\Arcade\\AI\\aCORES\\Alpha68k N\\research\\audio_pickup_20261011\\opportunity_route_v16\\output\\frame_001200.png",
+      "sha256": "0a663eaa4fd52c1d538eba9e248a41d58386aa512729f0e03df2370aae6fdcb9",
+      "bytes": 10598,
+      "origin": "D:\\Arcade\\AI\\aCORES\\Alpha68k N\\research\\audio_pickup_20261011\\opportunity_route_v16\\import_manifest.json::files/36",
+      "recovery_only": true,
+      "local_hash_verified": false,
+      "scope": "Producer raw/source/capture pin retained; no large rehash/copy by this phase."
+    },
+    {
+      "source": "D:\\Arcade\\AI\\aCORES\\Alpha68k N\\research\\audio_pickup_20261011\\opportunity_route_v16\\output\\frame_001200.sprites.bin",
+      "sha256": "8e92a28f540d28d8f7b905a6474e0c6e7c9d73fc39c709a6c2ac09aca574760f",
+      "bytes": 8192,
+      "origin": "D:\\Arcade\\AI\\aCORES\\Alpha68k N\\research\\audio_pickup_20261011\\opportunity_route_v16\\import_manifest.json::files/37",
+      "recovery_only": true,
+      "local_hash_verified": false,
+      "scope": "Producer raw/source/capture pin retained; no large rehash/copy by this phase."
+    },
+    {
+      "source": "D:\\Arcade\\AI\\aCORES\\Alpha68k N\\research\\audio_pickup_20261011\\opportunity_route_v16\\output\\frame_001200.work.bin",
+      "sha256": "dfa30fa25105149eaee9aa583dfff076b9a2ef0c35d864abf3a3bfa0cf1fd401",
+      "bytes": 4096,
+      "origin": "D:\\Arcade\\AI\\aCORES\\Alpha68k N\\research\\audio_pickup_20261011\\opportunity_route_v16\\import_manifest.json::files/38",
+      "recovery_only": true,
+      "local_hash_verified": false,
+      "scope": "Producer raw/source/capture pin retained; no large rehash/copy by this phase."
+    },
+    {
+      "source": "D:\\Arcade\\AI\\aCORES\\Alpha68k N\\research\\audio_pickup_20261011\\opportunity_route_v16\\output\\frame_001216.png",
+      "sha256": "59f5966d285567ba7e2e9f46c2f31215b996f0a8f260671d92332587a680770d",
+      "bytes": 10879,
+      "origin": "D:\\Arcade\\AI\\aCORES\\Alpha68k N\\research\\audio_pickup_20261011\\opportunity_route_v16\\import_manifest.json::files/39",
+      "recovery_only": true,
+      "local_hash_verified": false,
+      "scope": "Producer raw/source/capture pin retained; no large rehash/copy by this phase."
+    },
+    {
+      "source": "D:\\Arcade\\AI\\aCORES\\Alpha68k N\\research\\audio_pickup_20261011\\opportunity_route_v16\\output\\frame_001216.sprites.bin",
+      "sha256": "41cd75892858d8a6eca838a27b50e730b899aab79f945d755f55415ea87d4420",
+      "bytes": 8192,
+      "origin": "D:\\Arcade\\AI\\aCORES\\Alpha68k N\\research\\audio_pickup_20261011\\opportunity_route_v16\\import_manifest.json::files/40",
+      "recovery_only": true,
+      "local_hash_verified": false,
+      "scope": "Producer raw/source/capture pin retained; no large rehash/copy by this phase."
+    },
+    {
+      "source": "D:\\Arcade\\AI\\aCORES\\Alpha68k N\\research\\audio_pickup_20261011\\opportunity_route_v16\\output\\frame_001216.work.bin",
+      "sha256": "d876b3cbde2ce8240d2a3c68a0fabce8a831647fdc428af5ef1aafb3c38a34d8",
+      "bytes": 4096,
+      "origin": "D:\\Arcade\\AI\\aCORES\\Alpha68k N\\research\\audio_pickup_20261011\\opportunity_route_v16\\import_manifest.json::files/41",
+      "recovery_only": true,
+      "local_hash_verified": false,
+      "scope": "Producer raw/source/capture pin retained; no large rehash/copy by this phase."
+    },
+    {
+      "source": "D:\\Arcade\\AI\\aCORES\\Alpha68k N\\research\\audio_pickup_20261011\\opportunity_route_v16\\output\\frame_001232.png",
+      "sha256": "0bd5d6c3fe835a3d029e2ee417eb70a53a684c0aae48e957ce849e3256dc39a5",
+      "bytes": 11267,
+      "origin": "D:\\Arcade\\AI\\aCORES\\Alpha68k N\\research\\audio_pickup_20261011\\opportunity_route_v16\\import_manifest.json::files/42",
+      "recovery_only": true,
+      "local_hash_verified": false,
+      "scope": "Producer raw/source/capture pin retained; no large rehash/copy by this phase."
+    },
+    {
+      "source": "D:\\Arcade\\AI\\aCORES\\Alpha68k N\\research\\audio_pickup_20261011\\opportunity_route_v16\\output\\frame_001232.sprites.bin",
+      "sha256": "1ee140d7ef3bb9d467565fdb8b70b33ac85ee3ea864c527b6cb04febe922f90c",
+      "bytes": 8192,
+      "origin": "D:\\Arcade\\AI\\aCORES\\Alpha68k N\\research\\audio_pickup_20261011\\opportunity_route_v16\\import_manifest.json::files/43",
+      "recovery_only": true,
+      "local_hash_verified": false,
+      "scope": "Producer raw/source/capture pin retained; no large rehash/copy by this phase."
+    },
+    {
+      "source": "D:\\Arcade\\AI\\aCORES\\Alpha68k N\\research\\audio_pickup_20261011\\opportunity_route_v16\\output\\frame_001232.work.bin",
+      "sha256": "6de7f7d0855f673023c9697ec44a1b61852868155383ac539b12191368729354",
+      "bytes": 4096,
+      "origin": "D:\\Arcade\\AI\\aCORES\\Alpha68k N\\research\\audio_pickup_20261011\\opportunity_route_v16\\import_manifest.json::files/44",
+      "recovery_only": true,
+      "local_hash_verified": false,
+      "scope": "Producer raw/source/capture pin retained; no large rehash/copy by this phase."
+    },
+    {
+      "source": "D:\\Arcade\\AI\\aCORES\\Alpha68k N\\research\\audio_pickup_20261011\\opportunity_route_v16\\output\\frame_001247.png",
+      "sha256": "32320e879adafa47578613180fd727007929bc31196252b189f11dae8a4d8d88",
+      "bytes": 11888,
+      "origin": "D:\\Arcade\\AI\\aCORES\\Alpha68k N\\research\\audio_pickup_20261011\\opportunity_route_v16\\import_manifest.json::files/45",
+      "recovery_only": true,
+      "local_hash_verified": false,
+      "scope": "Producer raw/source/capture pin retained; no large rehash/copy by this phase."
+    },
+    {
+      "source": "D:\\Arcade\\AI\\aCORES\\Alpha68k N\\research\\audio_pickup_20261011\\opportunity_route_v16\\output\\frame_001247.sprites.bin",
+      "sha256": "d81561bc66b608d34f3b584e6deaf45165b51d69a31c65d07e40a9b8fd432291",
+      "bytes": 8192,
+      "origin": "D:\\Arcade\\AI\\aCORES\\Alpha68k N\\research\\audio_pickup_20261011\\opportunity_route_v16\\import_manifest.json::files/46",
+      "recovery_only": true,
+      "local_hash_verified": false,
+      "scope": "Producer raw/source/capture pin retained; no large rehash/copy by this phase."
+    },
+    {
+      "source": "D:\\Arcade\\AI\\aCORES\\Alpha68k N\\research\\audio_pickup_20261011\\opportunity_route_v16\\output\\frame_001247.work.bin",
+      "sha256": "dffd2cd249fc9a96b9d4fdc8ffd4a55c26cb601ea3f6c880c9945d659a904227",
+      "bytes": 4096,
+      "origin": "D:\\Arcade\\AI\\aCORES\\Alpha68k N\\research\\audio_pickup_20261011\\opportunity_route_v16\\import_manifest.json::files/47",
+      "recovery_only": true,
+      "local_hash_verified": false,
+      "scope": "Producer raw/source/capture pin retained; no large rehash/copy by this phase."
+    },
+    {
+      "source": "D:\\Arcade\\AI\\aCORES\\Alpha68k N\\research\\audio_pickup_20261011\\opportunity_route_v16\\output\\frame_001250.png",
+      "sha256": "4cbd1c568c4128cc140f7807cba230b293e02381033272b84aed24d11a47db65",
+      "bytes": 11890,
+      "origin": "D:\\Arcade\\AI\\aCORES\\Alpha68k N\\research\\audio_pickup_20261011\\opportunity_route_v16\\import_manifest.json::files/48",
+      "recovery_only": true,
+      "local_hash_verified": false,
+      "scope": "Producer raw/source/capture pin retained; no large rehash/copy by this phase."
+    },
+    {
+      "source": "D:\\Arcade\\AI\\aCORES\\Alpha68k N\\research\\audio_pickup_20261011\\opportunity_route_v16\\output\\frame_001250.sprites.bin",
+      "sha256": "135ad9952f63ec2609b9561341e95e81bc073e4233cb81bc04288cf1c878f537",
+      "bytes": 8192,
+      "origin": "D:\\Arcade\\AI\\aCORES\\Alpha68k N\\research\\audio_pickup_20261011\\opportunity_route_v16\\import_manifest.json::files/49",
+      "recovery_only": true,
+      "local_hash_verified": false,
+      "scope": "Producer raw/source/capture pin retained; no large rehash/copy by this phase."
+    },
+    {
+      "source": "D:\\Arcade\\AI\\aCORES\\Alpha68k N\\research\\audio_pickup_20261011\\opportunity_route_v16\\output\\frame_001250.work.bin",
+      "sha256": "febf9a2539353cee90f16604db8e95f49f16274ff306d1fde39d9e04c428af9c",
+      "bytes": 4096,
+      "origin": "D:\\Arcade\\AI\\aCORES\\Alpha68k N\\research\\audio_pickup_20261011\\opportunity_route_v16\\import_manifest.json::files/50",
+      "recovery_only": true,
+      "local_hash_verified": false,
+      "scope": "Producer raw/source/capture pin retained; no large rehash/copy by this phase."
+    },
+    {
+      "source": "D:\\Arcade\\AI\\aCORES\\Alpha68k N\\research\\audio_pickup_20261011\\opportunity_route_v16\\output\\frame_001303.png",
+      "sha256": "8501f5c669929ba9bdad63251026dca4a4011e8628dd4ae7cd69c780ae9a66be",
+      "bytes": 11916,
+      "origin": "D:\\Arcade\\AI\\aCORES\\Alpha68k N\\research\\audio_pickup_20261011\\opportunity_route_v16\\import_manifest.json::files/51",
+      "recovery_only": true,
+      "local_hash_verified": false,
+      "scope": "Producer raw/source/capture pin retained; no large rehash/copy by this phase."
+    },
+    {
+      "source": "D:\\Arcade\\AI\\aCORES\\Alpha68k N\\research\\audio_pickup_20261011\\opportunity_route_v16\\output\\frame_001303.sprites.bin",
+      "sha256": "523a08e5e45416cc6288c60f63e02e71b328c35b763bbd78ce446cc6f5a2fad4",
+      "bytes": 8192,
+      "origin": "D:\\Arcade\\AI\\aCORES\\Alpha68k N\\research\\audio_pickup_20261011\\opportunity_route_v16\\import_manifest.json::files/52",
+      "recovery_only": true,
+      "local_hash_verified": false,
+      "scope": "Producer raw/source/capture pin retained; no large rehash/copy by this phase."
+    },
+    {
+      "source": "D:\\Arcade\\AI\\aCORES\\Alpha68k N\\research\\audio_pickup_20261011\\opportunity_route_v16\\output\\frame_001303.work.bin",
+      "sha256": "67908ba76b6df25c6d670ed5c28fa19ba9296563405a6ea1bbc8a94b6a192536",
+      "bytes": 4096,
+      "origin": "D:\\Arcade\\AI\\aCORES\\Alpha68k N\\research\\audio_pickup_20261011\\opportunity_route_v16\\import_manifest.json::files/53",
+      "recovery_only": true,
+      "local_hash_verified": false,
+      "scope": "Producer raw/source/capture pin retained; no large rehash/copy by this phase."
+    },
+    {
+      "source": "D:\\Arcade\\AI\\aCORES\\Alpha68k N\\research\\audio_pickup_20261011\\opportunity_route_v16\\output\\movement_terrain_reads.csv",
+      "sha256": "8a7f916cad4f0e8563b2460fb25309c90a1e60e7e60aa6a9087903494a92368d",
+      "bytes": 592013,
+      "origin": "D:\\Arcade\\AI\\aCORES\\Alpha68k N\\research\\audio_pickup_20261011\\opportunity_route_v16\\import_manifest.json::files/57",
+      "recovery_only": true,
+      "local_hash_verified": false,
+      "scope": "Producer raw/source/capture pin retained; no large rehash/copy by this phase."
+    },
+    {
+      "source": "D:\\Arcade\\AI\\aCORES\\Alpha68k N\\research\\audio_pickup_20261011\\opportunity_route_v16\\output\\production.wav",
+      "sha256": "eb1f905a12fd7157e2f826ce23ec55ca00d8842f87bfc20e2e7e957e35c438b4",
+      "bytes": 2113966,
+      "origin": "D:\\Arcade\\AI\\aCORES\\Alpha68k N\\research\\audio_pickup_20261011\\opportunity_route_v16\\import_manifest.json::files/59",
+      "recovery_only": true,
+      "local_hash_verified": false,
+      "scope": "Producer raw/source/capture pin retained; no large rehash/copy by this phase."
+    },
+    {
+      "source": "D:\\Arcade\\AI\\aCORES\\Alpha68k N\\research\\audio_pickup_20261011\\opportunity_route_v16\\output\\tile_producer_writes.csv",
+      "sha256": "336695be1a31f75afa0a3e967bb3a60d51be8ab69357efe0e54fe1e4f851ce50",
+      "bytes": 731285,
+      "origin": "D:\\Arcade\\AI\\aCORES\\Alpha68k N\\research\\audio_pickup_20261011\\opportunity_route_v16\\import_manifest.json::files/66",
+      "recovery_only": true,
+      "local_hash_verified": false,
+      "scope": "Producer raw/source/capture pin retained; no large rehash/copy by this phase."
+    },
+    {
+      "source": "D:\\Arcade\\AI\\aCORES\\Alpha68k N\\research\\audio_pickup_20261011\\opportunity_route_v16\\output\\work_ancestry.csv",
+      "sha256": "0158193d2c3bb88d898189cc2af197a470a1995d66eaa438a7ec5bbb1745537a",
+      "bytes": 29877637,
+      "origin": "D:\\Arcade\\AI\\aCORES\\Alpha68k N\\research\\audio_pickup_20261011\\opportunity_route_v16\\import_manifest.json::files/67",
+      "recovery_only": true,
+      "local_hash_verified": false,
+      "scope": "Producer raw/source/capture pin retained; no large rehash/copy by this phase."
+    },
+    {
+      "source": "D:\\Arcade\\AI\\aCORES\\Alpha68k N\\research\\audio_pickup_20261011\\opportunity_route_v16\\route_tiles.lua",
+      "sha256": "8d103f76c87f3994b1693329db337d603420e64d953d88c7348745a6e66004fb",
+      "bytes": 75585,
+      "origin": "D:\\Arcade\\AI\\aCORES\\Alpha68k N\\research\\audio_pickup_20261011\\opportunity_route_v16\\import_manifest.json::files/72",
+      "recovery_only": true,
+      "local_hash_verified": false,
+      "scope": "Producer raw/source/capture pin retained; no large rehash/copy by this phase."
+    }
+  ],
+  "raw_rehashed_here": false,
+  "progress_before": {
+    "path": "D:\\Arcade\\AI\\aCORES\\meatsauce-alpha68kn\\cores\\Alpha68k_N\\progress.md",
+    "sha256": "25731ceda1677538b872369505199e5bb2e6cadfc449dbe9b7abefc20c903074",
+    "bytes": 201257
+  },
+  "progress_append": {
+    "path": "D:\\Arcade\\AI\\aCORES\\Alpha68k N\\research\\sealed_terminal_phase_20261011\\proposed_progress_addendum.md",
+    "sha256": "3a98e362089f41dc6f75de9ab822f3910330a71721888af1143ea8e6e823b4f7",
+    "bytes": 4868
+  },
+  "source_changes": false,
+  "build_replay_Git_executed": false
+}

@@ -1,0 +1,68 @@
+{
+  "scope": "finite current-design Kyros boot/coin/start/play checkpoints, corrected sound active; no broad MAME_EXACT/death/reset/physical pass",
+  "terminal": {
+    "worker_pid": 125738,
+    "started": 1791538555.4569178,
+    "base_revision": "ff746d2d132e128671ae41bd9248db9eb6873ff4",
+    "local_adaptation": "YMFM SSG curve 5",
+    "frames_per_game": 720,
+    "game": "kyros",
+    "command": [
+      "./alpha68kn_system_sim",
+      "../../roms/kyros/download.bin",
+      "720",
+      "../captures/rtl/kyros_current720_curvefixed_drive",
+      "gameplay",
+      "--inputs",
+      "../captures/kyros/gameplay/frame_states.csv"
+    ],
+    "executable_sha256": "54529234af5aa50cb1d486d8f037a7dd8496b0da0f83e399b0cf8eb2094498cf",
+    "rom_sha256": "5cf728d5d40e9be14a4a9c07792bab9f44404a75c2c2eed92124ff96ee9b5ef6",
+    "ports_sha256": "009afa6eab5ebbae2802f807ee000811e6716cb47c884ea1fcdc9d7243c47e2d",
+    "simulation_pid": 125976,
+    "exit_code": 0,
+    "ended": 1791540988.4656072
+  },
+  "capture": "D:\\Arcade\\AI\\aCORES\\Alpha68k N\\sim\\captures\\rtl\\kyros_current720_curvefixed_drive",
+  "fields": 720,
+  "all_fields_complete": true,
+  "worst_line_cycles": 2280,
+  "comparisons": [
+    {
+      "frame": 0,
+      "different_pixels": 0,
+      "rtl_sha256": "9a4b97b4b079955bac86930724c8bcdd30aba4732f1dcbcbac2ec270f5f5e485",
+      "mame_sha256": "9a4b97b4b079955bac86930724c8bcdd30aba4732f1dcbcbac2ec270f5f5e485"
+    },
+    {
+      "frame": 30,
+      "different_pixels": 0,
+      "rtl_sha256": "9a4b97b4b079955bac86930724c8bcdd30aba4732f1dcbcbac2ec270f5f5e485",
+      "mame_sha256": "9a4b97b4b079955bac86930724c8bcdd30aba4732f1dcbcbac2ec270f5f5e485"
+    },
+    {
+      "frame": 90,
+      "different_pixels": 0,
+      "rtl_sha256": "3bcac5c304a6099c1684bffb103dc2964200a2616be78baa744dcf123d7f8e72",
+      "mame_sha256": "3bcac5c304a6099c1684bffb103dc2964200a2616be78baa744dcf123d7f8e72"
+    },
+    {
+      "frame": 240,
+      "different_pixels": 0,
+      "rtl_sha256": "159db246e6c1ca749ddf242ec71367a07727892df17a5f760446eb58941b8cdd",
+      "mame_sha256": "159db246e6c1ca749ddf242ec71367a07727892df17a5f760446eb58941b8cdd"
+    },
+    {
+      "frame": 360,
+      "different_pixels": 0,
+      "rtl_sha256": "c70ec6bd6464f4da16a10cbc23eb328327aea1a578a4089eade1ae6f6e39178f",
+      "mame_sha256": "c70ec6bd6464f4da16a10cbc23eb328327aea1a578a4089eade1ae6f6e39178f"
+    },
+    {
+      "frame": 600,
+      "different_pixels": 0,
+      "rtl_sha256": "870367cea2cc090698af979491e7a9c75e56ca3048a484753ad11186728f9bc8",
+      "mame_sha256": "870367cea2cc090698af979491e7a9c75e56ca3048a484753ad11186728f9bc8"
+    }
+  ]
+}

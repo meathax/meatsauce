@@ -1,0 +1,27 @@
+{
+  "date": "2026-10-09",
+  "scope": "Initial real-ROM CPU/video attract and coin-input bring-up, not Sheriff release qualification",
+  "rtl_source": "c288d988e9f3",
+  "reference_capture_source": "74a70bfcefe6",
+  "reference_binary": "D:/Arcade/AI/mameexe/mame.exe",
+  "reference_version": "0.289 (mame0289)",
+  "rom_sha256": "082f0343064de9c9fc0c926aeae7d3414b7d890d3820c10899a37c64b80de997",
+  "frames_executed": 1800,
+  "native_rgb_checkpoints": 34,
+  "unexplained_pixel_mismatches_at_captured_checkpoints": 0,
+  "matching_output_transactions": 23534,
+  "total_cpu_writes": 1125256,
+  "interrupt_acknowledgements": 3550,
+  "matching_full_ram_checkpoints": 10,
+  "ram_checkpoints_still_different": 24,
+  "raw_evidence": ["sim/results/rtl/", "sim/results/mame289/", "sim/results/comparison.json"],
+  "limitations": [
+    "Only captured native frames were compared; not every pixel of every intervening frame",
+    "16-scanline raster-origin offset and input-event callback order require an aligned rerun",
+    "Early start pulse did not establish genuine gameplay; late frames still show the one-player start prompt",
+    "The first aiming script duplicated Up and omitted Right; the next script enumerates all eight directions",
+    "Work-RAM differences are not yet accepted as explained; compare the complete write streams",
+    "Sound, both players/cocktail, scoring/death/round-3/game-over/restart coverage and MiSTer features remain pending",
+    "Full-framework fit/STA/resource gates remain pending; no RBF assembly or hardware test"
+  ]
+}

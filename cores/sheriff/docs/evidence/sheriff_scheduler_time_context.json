@@ -1,0 +1,7 @@
+{
+  "path": "D:/Arcade/AI/mame289/src/emu/schedule.cpp",
+  "sha256": "b6649000fe6668185ae6868bb9d439e8d8c540cb2d57366cbd62fadb55630513",
+  "line": 329,
+  "excerpt": "attotime device_scheduler::time() const noexcept\n{\n\t// if we're currently in a callback, use the timer's expiration time as a base\n\tif (m_callback_timer != nullptr)\n\t\treturn m_callback_timer_expire_time;\n\n\t// if we're executing as a particular CPU, use its local time as a base\n\t// otherwise, return the global base time\n\treturn (m_executing_device != nullptr) ? m_executing_device->local_time() : m_basetime;\n}\n\n",
+  "scope": "Local MAME0.289 source semantics; binary runtime behavior separately observed by exact ledger."
+}

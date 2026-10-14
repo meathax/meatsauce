@@ -1,0 +1,11 @@
+Traceback (most recent call last):
+  File "D:\Arcade\AI\aCORES\Alpha68k N\research\stingray_game_divergence_20261011\p2_gameplay181_worker.py", line 116, in <module>
+    try:worker()
+        ~~~~~~^^
+  File "D:\Arcade\AI\aCORES\Alpha68k N\research\stingray_game_divergence_20261011\p2_gameplay181_worker.py", line 112, in worker
+    verify();save(JOB/'verification_exit.json',{'exit_code':0,'worker_pid':os.getpid(),'finished':time.time()})
+    ~~~~~~^^
+  File "D:\Arcade\AI\aCORES\Alpha68k N\research\stingray_game_divergence_20261011\p2_gameplay181_worker.py", line 79, in verify
+    assert len(applied)==182 and len(inputs)==181
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError

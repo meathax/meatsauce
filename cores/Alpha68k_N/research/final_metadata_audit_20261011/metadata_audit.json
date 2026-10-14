@@ -1,0 +1,1439 @@
+{
+  "scope": "Primary pinnedMAME0289 XML, archivedCRC/expandedpayload, staticmenu and intendedjoinedP6 loading audit only. No canonical changes or profile2 enablement.",
+  "source_pins": [
+    {
+      "path": "D:\\Arcade\\AI\\aCORES\\Alpha68k N\\tools\\mame0289\\mame.exe",
+      "sha256": "af6966108d9b52c22465c6d50f4e5d50cc371b50f2d27dc443935f287aad37a3",
+      "bytes": 316431360
+    },
+    {
+      "path": "D:\\Arcade\\AI\\mame289\\src\\mame\\alpha\\alpha68k_n.cpp",
+      "sha256": "5f9884076ea1b5c02d2169a58de5425ae5475a13a4f1438abae2e2b9f0fdab7d",
+      "bytes": 43931
+    },
+    {
+      "path": "D:\\Arcade\\AI\\aCORES\\meatsauce-alpha68kn\\cores\\Alpha68k_N\\Alpha68k_N.sv",
+      "sha256": "e06df32e27980fd18930da274d05538396e8be3fc7379409043dd36bef383b61",
+      "bytes": 16117
+    },
+    {
+      "path": "D:\\Arcade\\AI\\aCORES\\meatsauce-alpha68kn\\cores\\Alpha68k_N\\board_profiles.json",
+      "sha256": "6cec31f7adc511fa4eff38f18beedc3a708d70a244c0dc6827e04e30b7a21a45",
+      "bytes": 39990
+    },
+    {
+      "path": "D:\\Arcade\\AI\\aCORES\\meatsauce-alpha68kn\\cores\\Alpha68k_N\\rom_layout.json",
+      "sha256": "c042082f05cca0bf9b1f26ebd5e849b6ded9eb3e78896e9d17e8cfb9014db539",
+      "bytes": 9769
+    },
+    {
+      "path": "D:\\Arcade\\AI\\aCORES\\meatsauce-alpha68kn\\cores\\Alpha68k_N\\research\\rom_manifest.json",
+      "sha256": "e35cdfa881387e983b2df2f238775ae03d2b4bcb5cca1227ced4c6a93ddffbaa",
+      "bytes": 32548
+    },
+    {
+      "path": "D:\\Arcade\\AI\\aCORES\\meatsauce-alpha68kn\\cores\\Alpha68k_N\\research\\feature_mra_validation.json",
+      "sha256": "22d60fcd5f9e2ecf42f2397d61a3f7073f81b7fef801933601d7ae8c55664de6",
+      "bytes": 1920
+    },
+    {
+      "path": "D:\\Arcade\\AI\\aCORES\\meatsauce-alpha68kn\\cores\\Alpha68k_N\\scripts\\make_feature_mras.py",
+      "sha256": "a87f2559fa4b6e66ea4d8590596e9d5a129c4b6203442876a2f3e36f5401d2b1",
+      "bytes": 7338
+    }
+  ],
+  "cases": [
+    {
+      "set": "kyros",
+      "profile_id": 0,
+      "MRA": {
+        "path": "D:\\Arcade\\AI\\aCORES\\meatsauce-alpha68kn\\cores\\Alpha68k_N\\releases\\Kyros.mra",
+        "sha256": "34fcc2c4d934d87e2403a5e3b3442afe6822a5ba5aaaf5660d4935fbd433eb33",
+        "bytes": 3789
+      },
+      "MAME_XML": {
+        "path": "D:\\Arcade\\AI\\aCORES\\Alpha68k N\\research\\final_metadata_audit_20261011\\mame0289_kyros.xml",
+        "sha256": "1e08cc410c80b88ece8c2f0697dd52dd37a9b98421988325322f71721f144e00",
+        "bytes": 15786
+      },
+      "MAME_XML_command": [
+        "D:\\Arcade\\AI\\aCORES\\Alpha68k N\\tools\\mame0289\\mame.exe",
+        "-listxml",
+        "kyros"
+      ],
+      "MAME_XML_actual_exit": 0,
+      "checks": {
+        "source_driver_same_pinned_oracle": true,
+        "MRA_setname_version_rbf": true,
+        "MRA_description_matches_primary_MAME": true,
+        "MRA_year_matches_primary_MAME": true,
+        "profile_and_MRA_all_DIP_fields_exact": true,
+        "MRA_DIP_default_exact": true,
+        "all_DIP_menu_labels_within28": true,
+        "all_ROM_CRCs_present_in_primary_MAME": true,
+        "expanded_MRA_same_pinned_payload": true,
+        "payload_header_profile_version": true,
+        "MCU_profile2_remains_development": true
+      },
+      "failed_checks": [],
+      "DIPs": [
+        {
+          "name": "Demo Sounds",
+          "mask": 1,
+          "bits": "0",
+          "profile_matches_primary_MAME": true,
+          "MRA_bits_values_labels_match_MAME": true,
+          "max_OSD_columns": 16
+        },
+        {
+          "name": "Coinage",
+          "mask": 14,
+          "bits": "1,3",
+          "profile_matches_primary_MAME": true,
+          "MRA_bits_values_labels_match_MAME": true,
+          "max_OSD_columns": 24
+        },
+        {
+          "name": "Lives",
+          "mask": 48,
+          "bits": "4,5",
+          "profile_matches_primary_MAME": true,
+          "MRA_bits_values_labels_match_MAME": true,
+          "max_OSD_columns": 8
+        },
+        {
+          "name": "Difficulty",
+          "mask": 64,
+          "bits": "6",
+          "profile_matches_primary_MAME": true,
+          "MRA_bits_values_labels_match_MAME": true,
+          "max_OSD_columns": 16
+        },
+        {
+          "name": "Cabinet",
+          "mask": 128,
+          "bits": "7",
+          "profile_matches_primary_MAME": true,
+          "MRA_bits_values_labels_match_MAME": true,
+          "max_OSD_columns": 17
+        }
+      ],
+      "DIP_default": 142,
+      "year_MRA_MAME": [
+        "1987",
+        "1987"
+      ],
+      "manufacturer_MRA_MAME": [
+        "Alpha Denshi",
+        "Alpha Denshi Co. (World Games Inc. license)"
+      ],
+      "button_names": "Punch,Jump,Start,Coin,Pause",
+      "CRC_parts": [
+        {
+          "part_name": "2.10c",
+          "CRC": "4bd030b1",
+          "archive_member": "2.10c",
+          "primary_MAME_CRC_present": true,
+          "offset": 0,
+          "length": 16384
+        },
+        {
+          "part_name": "1.13c",
+          "CRC": "75cfbc5e",
+          "archive_member": "1.13c",
+          "primary_MAME_CRC_present": true,
+          "offset": 0,
+          "length": 16384
+        },
+        {
+          "part_name": "4.10b",
+          "CRC": "be2626c2",
+          "archive_member": "4.10b",
+          "primary_MAME_CRC_present": true,
+          "offset": 0,
+          "length": 16384
+        },
+        {
+          "part_name": "3.13b",
+          "CRC": "fb25e71a",
+          "archive_member": "3.13b",
+          "primary_MAME_CRC_present": true,
+          "offset": 0,
+          "length": 16384
+        },
+        {
+          "part_name": "2.10c",
+          "CRC": "4bd030b1",
+          "archive_member": "2.10c",
+          "primary_MAME_CRC_present": true,
+          "offset": 16384,
+          "length": 16384
+        },
+        {
+          "part_name": "1.13c",
+          "CRC": "75cfbc5e",
+          "archive_member": "1.13c",
+          "primary_MAME_CRC_present": true,
+          "offset": 16384,
+          "length": 16384
+        },
+        {
+          "part_name": "4.10b",
+          "CRC": "be2626c2",
+          "archive_member": "4.10b",
+          "primary_MAME_CRC_present": true,
+          "offset": 16384,
+          "length": 16384
+        },
+        {
+          "part_name": "3.13b",
+          "CRC": "fb25e71a",
+          "archive_member": "3.13b",
+          "primary_MAME_CRC_present": true,
+          "offset": 16384,
+          "length": 16384
+        },
+        {
+          "part_name": "2s.1f",
+          "CRC": "800ceb27",
+          "archive_member": "2s.1f",
+          "primary_MAME_CRC_present": true,
+          "offset": 0,
+          "length": 16384
+        },
+        {
+          "part_name": "1s.1d",
+          "CRC": "87d3e719",
+          "archive_member": "1s.1d",
+          "primary_MAME_CRC_present": true,
+          "offset": 0,
+          "length": 32768
+        },
+        {
+          "part_name": "mb7114l.5r",
+          "CRC": "3628bf36",
+          "archive_member": "mb7114l.5r",
+          "primary_MAME_CRC_present": true,
+          "offset": 0,
+          "length": 256
+        },
+        {
+          "part_name": "mb7114l.4r",
+          "CRC": "850704e4",
+          "archive_member": "mb7114l.4r",
+          "primary_MAME_CRC_present": true,
+          "offset": 0,
+          "length": 256
+        },
+        {
+          "part_name": "mb7114l.6r",
+          "CRC": "a54f60d7",
+          "archive_member": "mb7114l.6r",
+          "primary_MAME_CRC_present": true,
+          "offset": 0,
+          "length": 256
+        },
+        {
+          "part_name": "mb7114l.6p",
+          "CRC": "b0d6971f",
+          "archive_member": "mb7114l.6p",
+          "primary_MAME_CRC_present": true,
+          "offset": 0,
+          "length": 256
+        },
+        {
+          "part_name": "mb7114l.5p",
+          "CRC": "1cc53765",
+          "archive_member": "mb7114l.5p",
+          "primary_MAME_CRC_present": true,
+          "offset": 0,
+          "length": 256
+        },
+        {
+          "part_name": "0.1t",
+          "CRC": "5d0acb4c",
+          "archive_member": "0.1t",
+          "primary_MAME_CRC_present": true,
+          "offset": 0,
+          "length": 8192
+        },
+        {
+          "part_name": "kyros_68705u3.bin",
+          "CRC": "c20880b7",
+          "archive_member": "kyros_68705u3.bin",
+          "primary_MAME_CRC_present": true,
+          "offset": 0,
+          "length": 4096
+        },
+        {
+          "part_name": "8.9pr",
+          "CRC": "c5290944",
+          "archive_member": "8.9pr",
+          "primary_MAME_CRC_present": true,
+          "offset": 0,
+          "length": 32768
+        },
+        {
+          "part_name": "11.11m",
+          "CRC": "fbd44f1e",
+          "archive_member": "11.11m",
+          "primary_MAME_CRC_present": true,
+          "offset": 0,
+          "length": 32768
+        },
+        {
+          "part_name": "12.11n",
+          "CRC": "10fed501",
+          "archive_member": "12.11n",
+          "primary_MAME_CRC_present": true,
+          "offset": 0,
+          "length": 32768
+        },
+        {
+          "part_name": "9.9s",
+          "CRC": "dd40ca33",
+          "archive_member": "9.9s",
+          "primary_MAME_CRC_present": true,
+          "offset": 0,
+          "length": 32768
+        },
+        {
+          "part_name": "13.11p",
+          "CRC": "e6a02030",
+          "archive_member": "13.11p",
+          "primary_MAME_CRC_present": true,
+          "offset": 0,
+          "length": 32768
+        },
+        {
+          "part_name": "14.11r",
+          "CRC": "722ad23a",
+          "archive_member": "14.11r",
+          "primary_MAME_CRC_present": true,
+          "offset": 0,
+          "length": 32768
+        },
+        {
+          "part_name": "15.3t",
+          "CRC": "045fdda4",
+          "archive_member": "15.3t",
+          "primary_MAME_CRC_present": true,
+          "offset": 0,
+          "length": 32768
+        },
+        {
+          "part_name": "17.7t",
+          "CRC": "7618ec00",
+          "archive_member": "17.7t",
+          "primary_MAME_CRC_present": true,
+          "offset": 0,
+          "length": 32768
+        },
+        {
+          "part_name": "18.9t",
+          "CRC": "0ee74171",
+          "archive_member": "18.9t",
+          "primary_MAME_CRC_present": true,
+          "offset": 0,
+          "length": 32768
+        },
+        {
+          "part_name": "16.5t",
+          "CRC": "2cf14824",
+          "archive_member": "16.5t",
+          "primary_MAME_CRC_present": true,
+          "offset": 0,
+          "length": 32768
+        },
+        {
+          "part_name": "19.11t",
+          "CRC": "4f336306",
+          "archive_member": "19.11t",
+          "primary_MAME_CRC_present": true,
+          "offset": 0,
+          "length": 32768
+        },
+        {
+          "part_name": "20.13t",
+          "CRC": "a165d06b",
+          "archive_member": "20.13t",
+          "primary_MAME_CRC_present": true,
+          "offset": 0,
+          "length": 32768
+        }
+      ],
+      "payload": {
+        "path": "D:\\Arcade\\AI\\aCORES\\meatsauce-alpha68kn\\cores\\Alpha68k_N\\roms\\kyros\\download.bin",
+        "sha256": "5cf728d5d40e9be14a4a9c07792bab9f44404a75c2c2eed92124ff96ee9b5ef6",
+        "bytes": 655360
+      },
+      "ROM_regions": [
+        {
+          "name": "maincpu",
+          "base_hex": "0x100",
+          "declared": {
+            "name": "maincpu",
+            "source_path": "roms/kyros/maincpu.bin",
+            "bytes": 131072,
+            "sha256": "6949ea5dc91dfced8c1afccbadee18c2e795ab38d8adbc3795f05a19b8f3b2b3",
+            "base": 256,
+            "storage": "block RAM; even byte is 68000 D15:8",
+            "provenance": "audited MAME region image"
+          }
+        },
+        {
+          "name": "audiocpu",
+          "base_hex": "0x20100",
+          "declared": {
+            "name": "audiocpu",
+            "source_path": "roms/kyros/audiocpu.bin",
+            "bytes": 65536,
+            "sha256": "8c43e6609fc4eba74eb53dc09da396a3451e50dfe0bbd541472f74dc46f3d6f9",
+            "base": 131328,
+            "storage": "block RAM",
+            "provenance": "audited MAME region image"
+          }
+        },
+        {
+          "name": "mcu",
+          "base_hex": "0x33000",
+          "declared": {
+            "name": "mcu",
+            "source_path": "roms/kyros/mcu_dumps/kyros_68705u3.bin",
+            "bytes": 4096,
+            "sha256": "dad735af5d790422a9f79440ac19d585d4edcb5698c7cd214079106d64c8b0c9",
+            "base": 208896,
+            "storage": "block RAM; independent full raw firmware dump",
+            "provenance": "separate 4096-byte bootleg MCU dump; BAD_DUMP flags retained in ROM manifest"
+          }
+        },
+        {
+          "name": "sprites",
+          "base_hex": "0x40000",
+          "declared": {
+            "name": "sprites",
+            "source_path": "roms/kyros/sprites.bin",
+            "bytes": 393216,
+            "sha256": "e6b4f83778cf13741eae59dcbab0ce83e193978d0b5a8dd0ce1aec0cb3206230",
+            "base": 262144,
+            "storage": "SDRAM byte addresses 0x00000..0x5ffff",
+            "provenance": "audited MAME region image"
+          }
+        },
+        {
+          "name": "proms",
+          "base_hex": "0x30100",
+          "declared": {
+            "name": "proms",
+            "source_path": "roms/kyros/proms.bin",
+            "bytes": 768,
+            "sha256": "af31f33fd1e8e91dad0a34657a9154b97ed9767a5316183b79b1457322afc268",
+            "base": 196864,
+            "storage": "block RAM; R/G/B PROMs in source order",
+            "provenance": "audited MAME region image"
+          }
+        },
+        {
+          "name": "clut_proms",
+          "base_hex": "0x30400",
+          "declared": {
+            "name": "clut_proms",
+            "source_path": "roms/kyros/clut_proms.bin",
+            "bytes": 512,
+            "sha256": "d7d0d9ea5a1e2c998d9ea3bc9274c1799f40f77c5c85a6c3415fbcf9a138d086",
+            "base": 197632,
+            "storage": "block RAM; low/high nibbles in source order",
+            "provenance": "audited MAME region image"
+          }
+        },
+        {
+          "name": "color_proms",
+          "base_hex": "0x31000",
+          "declared": {
+            "name": "color_proms",
+            "source_path": "roms/kyros/color_proms.bin",
+            "bytes": 8192,
+            "sha256": "af6486e979d11b169d92e0899a2d220c3cf0b8abeebc98daec402a3dcae2dfc2",
+            "base": 200704,
+            "storage": "block RAM; absent for Stingray",
+            "provenance": "audited MAME region image"
+          }
+        }
+      ]
+    },
+    {
+      "set": "kyrosj",
+      "profile_id": 1,
+      "MRA": {
+        "path": "D:\\Arcade\\AI\\aCORES\\meatsauce-alpha68kn\\cores\\Alpha68k_N\\releases\\Kyros no Yakata (Japan).mra",
+        "sha256": "cf4d6c27ab3355f7f9d84628d0c96f74e20d5ee44c4f17356b2f9bee9233adc0",
+        "bytes": 3920
+      },
+      "MAME_XML": {
+        "path": "D:\\Arcade\\AI\\aCORES\\Alpha68k N\\research\\final_metadata_audit_20261011\\mame0289_kyrosj.xml",
+        "sha256": "e844853862f85dfc4976611c29e531871cc87e7250bb46b38d88c8ae4ded49e4",
+        "bytes": 16088
+      },
+      "MAME_XML_command": [
+        "D:\\Arcade\\AI\\aCORES\\Alpha68k N\\tools\\mame0289\\mame.exe",
+        "-listxml",
+        "kyrosj"
+      ],
+      "MAME_XML_actual_exit": 0,
+      "checks": {
+        "source_driver_same_pinned_oracle": true,
+        "MRA_setname_version_rbf": true,
+        "MRA_description_matches_primary_MAME": true,
+        "MRA_year_matches_primary_MAME": true,
+        "profile_and_MRA_all_DIP_fields_exact": true,
+        "MRA_DIP_default_exact": true,
+        "all_DIP_menu_labels_within28": true,
+        "all_ROM_CRCs_present_in_primary_MAME": true,
+        "expanded_MRA_same_pinned_payload": true,
+        "payload_header_profile_version": true,
+        "MCU_profile2_remains_development": true
+      },
+      "failed_checks": [],
+      "DIPs": [
+        {
+          "name": "Demo Sounds",
+          "mask": 1,
+          "bits": "0",
+          "profile_matches_primary_MAME": true,
+          "MRA_bits_values_labels_match_MAME": true,
+          "max_OSD_columns": 16
+        },
+        {
+          "name": "Coinage",
+          "mask": 14,
+          "bits": "1,3",
+          "profile_matches_primary_MAME": true,
+          "MRA_bits_values_labels_match_MAME": true,
+          "max_OSD_columns": 24
+        },
+        {
+          "name": "Lives",
+          "mask": 48,
+          "bits": "4,5",
+          "profile_matches_primary_MAME": true,
+          "MRA_bits_values_labels_match_MAME": true,
+          "max_OSD_columns": 8
+        },
+        {
+          "name": "Difficulty",
+          "mask": 64,
+          "bits": "6",
+          "profile_matches_primary_MAME": true,
+          "MRA_bits_values_labels_match_MAME": true,
+          "max_OSD_columns": 16
+        },
+        {
+          "name": "Cabinet",
+          "mask": 128,
+          "bits": "7",
+          "profile_matches_primary_MAME": true,
+          "MRA_bits_values_labels_match_MAME": true,
+          "max_OSD_columns": 17
+        }
+      ],
+      "DIP_default": 142,
+      "year_MRA_MAME": [
+        "1986",
+        "1986"
+      ],
+      "manufacturer_MRA_MAME": [
+        "Alpha Denshi",
+        "Alpha Denshi Co."
+      ],
+      "button_names": "Punch,Jump,Start,Coin,Pause",
+      "CRC_parts": [
+        {
+          "part_name": "kyrosj/2j.10c",
+          "CRC": "b324c11b",
+          "archive_member": "kyrosj/2j.10c",
+          "primary_MAME_CRC_present": true,
+          "offset": 0,
+          "length": 16384
+        },
+        {
+          "part_name": "kyrosj/1j.13c",
+          "CRC": "8496241b",
+          "archive_member": "kyrosj/1j.13c",
+          "primary_MAME_CRC_present": true,
+          "offset": 0,
+          "length": 16384
+        },
+        {
+          "part_name": "kyrosj/4.10a",
+          "CRC": "0187f59d",
+          "archive_member": "kyrosj/4.10a",
+          "primary_MAME_CRC_present": true,
+          "offset": 0,
+          "length": 16384
+        },
+        {
+          "part_name": "kyrosj/3.13a",
+          "CRC": "ab97941d",
+          "archive_member": "kyrosj/3.13a",
+          "primary_MAME_CRC_present": true,
+          "offset": 0,
+          "length": 16384
+        },
+        {
+          "part_name": "kyrosj/2j.10c",
+          "CRC": "b324c11b",
+          "archive_member": "kyrosj/2j.10c",
+          "primary_MAME_CRC_present": true,
+          "offset": 16384,
+          "length": 16384
+        },
+        {
+          "part_name": "kyrosj/1j.13c",
+          "CRC": "8496241b",
+          "archive_member": "kyrosj/1j.13c",
+          "primary_MAME_CRC_present": true,
+          "offset": 16384,
+          "length": 16384
+        },
+        {
+          "part_name": "kyrosj/4.10a",
+          "CRC": "0187f59d",
+          "archive_member": "kyrosj/4.10a",
+          "primary_MAME_CRC_present": true,
+          "offset": 16384,
+          "length": 16384
+        },
+        {
+          "part_name": "kyrosj/3.13a",
+          "CRC": "ab97941d",
+          "archive_member": "kyrosj/3.13a",
+          "primary_MAME_CRC_present": true,
+          "offset": 16384,
+          "length": 16384
+        },
+        {
+          "part_name": "2s.1f",
+          "CRC": "800ceb27",
+          "archive_member": "2s.1f",
+          "primary_MAME_CRC_present": true,
+          "offset": 0,
+          "length": 16384
+        },
+        {
+          "part_name": "1s.1d",
+          "CRC": "87d3e719",
+          "archive_member": "1s.1d",
+          "primary_MAME_CRC_present": true,
+          "offset": 0,
+          "length": 32768
+        },
+        {
+          "part_name": "mb7114l.5r",
+          "CRC": "3628bf36",
+          "archive_member": "mb7114l.5r",
+          "primary_MAME_CRC_present": true,
+          "offset": 0,
+          "length": 256
+        },
+        {
+          "part_name": "mb7114l.4r",
+          "CRC": "850704e4",
+          "archive_member": "mb7114l.4r",
+          "primary_MAME_CRC_present": true,
+          "offset": 0,
+          "length": 256
+        },
+        {
+          "part_name": "mb7114l.6r",
+          "CRC": "a54f60d7",
+          "archive_member": "mb7114l.6r",
+          "primary_MAME_CRC_present": true,
+          "offset": 0,
+          "length": 256
+        },
+        {
+          "part_name": "mb7114l.6p",
+          "CRC": "b0d6971f",
+          "archive_member": "mb7114l.6p",
+          "primary_MAME_CRC_present": true,
+          "offset": 0,
+          "length": 256
+        },
+        {
+          "part_name": "mb7114l.5p",
+          "CRC": "1cc53765",
+          "archive_member": "mb7114l.5p",
+          "primary_MAME_CRC_present": true,
+          "offset": 0,
+          "length": 256
+        },
+        {
+          "part_name": "kyrosj/0j.1t",
+          "CRC": "a34ecb29",
+          "archive_member": "kyrosj/0j.1t",
+          "primary_MAME_CRC_present": true,
+          "offset": 0,
+          "length": 8192
+        },
+        {
+          "part_name": "kyros_68705u3.bin",
+          "CRC": "c20880b7",
+          "archive_member": "kyros_68705u3.bin",
+          "primary_MAME_CRC_present": true,
+          "offset": 0,
+          "length": 4096
+        },
+        {
+          "part_name": "kyrosj/8.9r",
+          "CRC": "d8203284",
+          "archive_member": "kyrosj/8.9r",
+          "primary_MAME_CRC_present": true,
+          "offset": 0,
+          "length": 32768
+        },
+        {
+          "part_name": "kyrosj/11.12m",
+          "CRC": "a2f9738c",
+          "archive_member": "kyrosj/11.12m",
+          "primary_MAME_CRC_present": true,
+          "offset": 0,
+          "length": 32768
+        },
+        {
+          "part_name": "12.11n",
+          "CRC": "10fed501",
+          "archive_member": "12.11n",
+          "primary_MAME_CRC_present": true,
+          "offset": 0,
+          "length": 32768
+        },
+        {
+          "part_name": "kyrosj/9j.9s",
+          "CRC": "3e725349",
+          "archive_member": "kyrosj/9j.9s",
+          "primary_MAME_CRC_present": true,
+          "offset": 0,
+          "length": 32768
+        },
+        {
+          "part_name": "13.11p",
+          "CRC": "e6a02030",
+          "archive_member": "13.11p",
+          "primary_MAME_CRC_present": true,
+          "offset": 0,
+          "length": 32768
+        },
+        {
+          "part_name": "kyrosj/14.12r",
+          "CRC": "39d07db9",
+          "archive_member": "kyrosj/14.12r",
+          "primary_MAME_CRC_present": true,
+          "offset": 0,
+          "length": 32768
+        },
+        {
+          "part_name": "15.3t",
+          "CRC": "045fdda4",
+          "archive_member": "15.3t",
+          "primary_MAME_CRC_present": true,
+          "offset": 0,
+          "length": 32768
+        },
+        {
+          "part_name": "17.7t",
+          "CRC": "7618ec00",
+          "archive_member": "17.7t",
+          "primary_MAME_CRC_present": true,
+          "offset": 0,
+          "length": 32768
+        },
+        {
+          "part_name": "18.9t",
+          "CRC": "0ee74171",
+          "archive_member": "18.9t",
+          "primary_MAME_CRC_present": true,
+          "offset": 0,
+          "length": 32768
+        },
+        {
+          "part_name": "kyrosj/16j.5t",
+          "CRC": "e1566679",
+          "archive_member": "kyrosj/16j.5t",
+          "primary_MAME_CRC_present": true,
+          "offset": 0,
+          "length": 32768
+        },
+        {
+          "part_name": "19.11t",
+          "CRC": "4f336306",
+          "archive_member": "19.11t",
+          "primary_MAME_CRC_present": true,
+          "offset": 0,
+          "length": 32768
+        },
+        {
+          "part_name": "kyrosj/20j.13t",
+          "CRC": "0624b4c0",
+          "archive_member": "kyrosj/20j.13t",
+          "primary_MAME_CRC_present": true,
+          "offset": 0,
+          "length": 32768
+        }
+      ],
+      "payload": {
+        "path": "D:\\Arcade\\AI\\aCORES\\meatsauce-alpha68kn\\cores\\Alpha68k_N\\roms\\kyrosj\\download.bin",
+        "sha256": "07d3dbbbc22d8ba039fbbf105106bc54d484d2868b930b0eaef7a49317bea20d",
+        "bytes": 655360
+      },
+      "ROM_regions": [
+        {
+          "name": "maincpu",
+          "base_hex": "0x100",
+          "declared": {
+            "name": "maincpu",
+            "source_path": "roms/kyrosj/maincpu.bin",
+            "bytes": 131072,
+            "sha256": "6fec354d3fd5d4d7a1347a6409793c53fed1bc23bc09efba8093377973378917",
+            "base": 256,
+            "storage": "block RAM; even byte is 68000 D15:8",
+            "provenance": "audited MAME region image"
+          }
+        },
+        {
+          "name": "audiocpu",
+          "base_hex": "0x20100",
+          "declared": {
+            "name": "audiocpu",
+            "source_path": "roms/kyrosj/audiocpu.bin",
+            "bytes": 65536,
+            "sha256": "8c43e6609fc4eba74eb53dc09da396a3451e50dfe0bbd541472f74dc46f3d6f9",
+            "base": 131328,
+            "storage": "block RAM",
+            "provenance": "audited MAME region image"
+          }
+        },
+        {
+          "name": "mcu",
+          "base_hex": "0x33000",
+          "declared": {
+            "name": "mcu",
+            "source_path": "roms/kyrosj/mcu_dumps/kyros_68705u3.bin",
+            "bytes": 4096,
+            "sha256": "dad735af5d790422a9f79440ac19d585d4edcb5698c7cd214079106d64c8b0c9",
+            "base": 208896,
+            "storage": "block RAM; independent full raw firmware dump",
+            "provenance": "separate 4096-byte bootleg MCU dump; BAD_DUMP flags retained in ROM manifest"
+          }
+        },
+        {
+          "name": "sprites",
+          "base_hex": "0x40000",
+          "declared": {
+            "name": "sprites",
+            "source_path": "roms/kyrosj/sprites.bin",
+            "bytes": 393216,
+            "sha256": "6287e5dd25815eb01ffc5aab47fdc214ef7ab8156ae70a12b8646413122ec873",
+            "base": 262144,
+            "storage": "SDRAM byte addresses 0x00000..0x5ffff",
+            "provenance": "audited MAME region image"
+          }
+        },
+        {
+          "name": "proms",
+          "base_hex": "0x30100",
+          "declared": {
+            "name": "proms",
+            "source_path": "roms/kyrosj/proms.bin",
+            "bytes": 768,
+            "sha256": "af31f33fd1e8e91dad0a34657a9154b97ed9767a5316183b79b1457322afc268",
+            "base": 196864,
+            "storage": "block RAM; R/G/B PROMs in source order",
+            "provenance": "audited MAME region image"
+          }
+        },
+        {
+          "name": "clut_proms",
+          "base_hex": "0x30400",
+          "declared": {
+            "name": "clut_proms",
+            "source_path": "roms/kyrosj/clut_proms.bin",
+            "bytes": 512,
+            "sha256": "d7d0d9ea5a1e2c998d9ea3bc9274c1799f40f77c5c85a6c3415fbcf9a138d086",
+            "base": 197632,
+            "storage": "block RAM; low/high nibbles in source order",
+            "provenance": "audited MAME region image"
+          }
+        },
+        {
+          "name": "color_proms",
+          "base_hex": "0x31000",
+          "declared": {
+            "name": "color_proms",
+            "source_path": "roms/kyrosj/color_proms.bin",
+            "bytes": 8192,
+            "sha256": "515897f60b93952156b47e71adadb7a528ecbc440ad34282440b3ccdde418f73",
+            "base": 200704,
+            "storage": "block RAM; absent for Stingray",
+            "provenance": "audited MAME region image"
+          }
+        }
+      ]
+    },
+    {
+      "set": "sstingry",
+      "profile_id": 2,
+      "MRA": {
+        "path": "D:\\Arcade\\AI\\aCORES\\meatsauce-alpha68kn\\cores\\Alpha68k_N\\development\\Super Stingray (Japan).mra",
+        "sha256": "07ff17c3d3c338f6dd4dc8a096bda6f7f1b59a6e5c7aa80d9b351115436746a2",
+        "bytes": 3184
+      },
+      "MAME_XML": {
+        "path": "D:\\Arcade\\AI\\aCORES\\Alpha68k N\\research\\final_metadata_audit_20261011\\mame0289_sstingry.xml",
+        "sha256": "47cb324b7be6c727de073cf998d68a4227e51202d151a6039c20c07e0843f0a9",
+        "bytes": 15098
+      },
+      "MAME_XML_command": [
+        "D:\\Arcade\\AI\\aCORES\\Alpha68k N\\tools\\mame0289\\mame.exe",
+        "-listxml",
+        "sstingry"
+      ],
+      "MAME_XML_actual_exit": 0,
+      "checks": {
+        "source_driver_same_pinned_oracle": true,
+        "MRA_setname_version_rbf": true,
+        "MRA_description_matches_primary_MAME": true,
+        "MRA_year_matches_primary_MAME": true,
+        "profile_and_MRA_all_DIP_fields_exact": true,
+        "MRA_DIP_default_exact": true,
+        "all_DIP_menu_labels_within28": true,
+        "all_ROM_CRCs_present_in_primary_MAME": true,
+        "expanded_MRA_same_pinned_payload": true,
+        "payload_header_profile_version": true,
+        "MCU_profile2_remains_development": true
+      },
+      "failed_checks": [],
+      "DIPs": [
+        {
+          "name": "Demo Sounds",
+          "mask": 1,
+          "bits": "0",
+          "profile_matches_primary_MAME": true,
+          "MRA_bits_values_labels_match_MAME": true,
+          "max_OSD_columns": 16
+        },
+        {
+          "name": "Coinage",
+          "mask": 14,
+          "bits": "1,3",
+          "profile_matches_primary_MAME": true,
+          "MRA_bits_values_labels_match_MAME": true,
+          "max_OSD_columns": 24
+        },
+        {
+          "name": "Lives",
+          "mask": 48,
+          "bits": "4,5",
+          "profile_matches_primary_MAME": true,
+          "MRA_bits_values_labels_match_MAME": true,
+          "max_OSD_columns": 8
+        },
+        {
+          "name": "Unused",
+          "mask": 64,
+          "bits": "6",
+          "profile_matches_primary_MAME": true,
+          "MRA_bits_values_labels_match_MAME": true,
+          "max_OSD_columns": 11
+        },
+        {
+          "name": "Cabinet",
+          "mask": 128,
+          "bits": "7",
+          "profile_matches_primary_MAME": true,
+          "MRA_bits_values_labels_match_MAME": true,
+          "max_OSD_columns": 17
+        }
+      ],
+      "DIP_default": 1,
+      "year_MRA_MAME": [
+        "1986",
+        "1986"
+      ],
+      "manufacturer_MRA_MAME": [
+        "Alpha Denshi",
+        "Alpha Denshi Co."
+      ],
+      "button_names": "Fire,Special weapon,Start,Coin,Pause",
+      "CRC_parts": [
+        {
+          "part_name": "ss_05.rom",
+          "CRC": "bfb28d53",
+          "archive_member": "ss_05.rom",
+          "primary_MAME_CRC_present": true,
+          "offset": 0,
+          "length": 16384
+        },
+        {
+          "part_name": "ss_07.rom",
+          "CRC": "eb1b65c5",
+          "archive_member": "ss_07.rom",
+          "primary_MAME_CRC_present": true,
+          "offset": 0,
+          "length": 16384
+        },
+        {
+          "part_name": "ss_04.rom",
+          "CRC": "2e477a79",
+          "archive_member": "ss_04.rom",
+          "primary_MAME_CRC_present": true,
+          "offset": 0,
+          "length": 16384
+        },
+        {
+          "part_name": "ss_06.rom",
+          "CRC": "597620cb",
+          "archive_member": "ss_06.rom",
+          "primary_MAME_CRC_present": true,
+          "offset": 0,
+          "length": 16384
+        },
+        {
+          "part_name": "ss_01.rom",
+          "CRC": "fef09a92",
+          "archive_member": "ss_01.rom",
+          "primary_MAME_CRC_present": true,
+          "offset": 0,
+          "length": 16384
+        },
+        {
+          "part_name": "ss_02.rom",
+          "CRC": "ab4e8c01",
+          "archive_member": "ss_02.rom",
+          "primary_MAME_CRC_present": true,
+          "offset": 0,
+          "length": 16384
+        },
+        {
+          "part_name": "ic92",
+          "CRC": "e7ce1179",
+          "archive_member": "ic92",
+          "primary_MAME_CRC_present": true,
+          "offset": 0,
+          "length": 256
+        },
+        {
+          "part_name": "ic93",
+          "CRC": "9af8a375",
+          "archive_member": "ic93",
+          "primary_MAME_CRC_present": true,
+          "offset": 0,
+          "length": 256
+        },
+        {
+          "part_name": "ic91",
+          "CRC": "c3965079",
+          "archive_member": "ic91",
+          "primary_MAME_CRC_present": true,
+          "offset": 0,
+          "length": 256
+        },
+        {
+          "part_name": "ssprom1.bin",
+          "CRC": "1003186c",
+          "archive_member": "ssprom1.bin",
+          "primary_MAME_CRC_present": true,
+          "offset": 0,
+          "length": 256
+        },
+        {
+          "part_name": "ssprom2.bin",
+          "CRC": "c2205b71",
+          "archive_member": "ssprom2.bin",
+          "primary_MAME_CRC_present": true,
+          "offset": 0,
+          "length": 256
+        },
+        {
+          "part_name": "d8748.bin",
+          "CRC": "7fcbfc30",
+          "archive_member": "d8748.bin",
+          "primary_MAME_CRC_present": true,
+          "offset": 0,
+          "length": 1024
+        },
+        {
+          "part_name": "ss_12.rom",
+          "CRC": "74caa9e9",
+          "archive_member": "ss_12.rom",
+          "primary_MAME_CRC_present": true,
+          "offset": 0,
+          "length": 16384
+        },
+        {
+          "part_name": "ss_08.rom",
+          "CRC": "32368925",
+          "archive_member": "ss_08.rom",
+          "primary_MAME_CRC_present": true,
+          "offset": 0,
+          "length": 16384
+        },
+        {
+          "part_name": "ss_13.rom",
+          "CRC": "13da6203",
+          "archive_member": "ss_13.rom",
+          "primary_MAME_CRC_present": true,
+          "offset": 0,
+          "length": 16384
+        },
+        {
+          "part_name": "ss_10.rom",
+          "CRC": "2903234a",
+          "archive_member": "ss_10.rom",
+          "primary_MAME_CRC_present": true,
+          "offset": 0,
+          "length": 16384
+        },
+        {
+          "part_name": "ss_11.rom",
+          "CRC": "d134302e",
+          "archive_member": "ss_11.rom",
+          "primary_MAME_CRC_present": true,
+          "offset": 0,
+          "length": 16384
+        },
+        {
+          "part_name": "ss_09.rom",
+          "CRC": "6f9d938a",
+          "archive_member": "ss_09.rom",
+          "primary_MAME_CRC_present": true,
+          "offset": 0,
+          "length": 16384
+        }
+      ],
+      "payload": {
+        "path": "D:\\Arcade\\AI\\aCORES\\meatsauce-alpha68kn\\cores\\Alpha68k_N\\roms\\sstingry\\download.bin",
+        "sha256": "9c60564786045834e97f98350e8310ef37a6027dadecc31cf89f1fa8bfe4358d",
+        "bytes": 655360
+      },
+      "ROM_regions": [
+        {
+          "name": "maincpu",
+          "base_hex": "0x100",
+          "declared": {
+            "name": "maincpu",
+            "source_path": "roms/sstingry/maincpu.bin",
+            "bytes": 131072,
+            "sha256": "c56ccc516654c507f0fc2d3168ac4ac58f26b15aabcac00e0516b302cc0c7f53",
+            "base": 256,
+            "storage": "block RAM; even byte is 68000 D15:8",
+            "provenance": "audited MAME region image"
+          }
+        },
+        {
+          "name": "audiocpu",
+          "base_hex": "0x20100",
+          "declared": {
+            "name": "audiocpu",
+            "source_path": "roms/sstingry/audiocpu.bin",
+            "bytes": 65536,
+            "sha256": "e32fb53b6f852f7ec3ddfbd4a1ed02f244e8469070817c3586798599259c30d9",
+            "base": 131328,
+            "storage": "block RAM",
+            "provenance": "audited MAME region image"
+          }
+        },
+        {
+          "name": "mcu",
+          "base_hex": "0x33000",
+          "declared": {
+            "name": "mcu",
+            "source_path": "roms/sstingry/alpha8511.bin",
+            "bytes": 1024,
+            "sha256": "71b0ea0c83c962dcec11bf1336ef17d3c9efb34d4674c8c5be494b1c94c4348a",
+            "base": 208896,
+            "storage": "block RAM; independent full raw firmware dump",
+            "provenance": "audited MAME region image"
+          }
+        },
+        {
+          "name": "sprites",
+          "base_hex": "0x40000",
+          "declared": {
+            "name": "sprites",
+            "source_path": "roms/sstingry/sprites.bin",
+            "bytes": 393216,
+            "sha256": "0e426186dd05420e2f82c3af20cb1a0152bb0fc27deb7f37cb87905c0858c6d6",
+            "base": 262144,
+            "storage": "SDRAM byte addresses 0x00000..0x5ffff",
+            "provenance": "audited MAME region image"
+          }
+        },
+        {
+          "name": "proms",
+          "base_hex": "0x30100",
+          "declared": {
+            "name": "proms",
+            "source_path": "roms/sstingry/proms.bin",
+            "bytes": 768,
+            "sha256": "3cd5196154b6b02d7c9be4b4ee510ae8c1e0acb1142aea98e910862939663671",
+            "base": 196864,
+            "storage": "block RAM; R/G/B PROMs in source order",
+            "provenance": "audited MAME region image"
+          }
+        },
+        {
+          "name": "clut_proms",
+          "base_hex": "0x30400",
+          "declared": {
+            "name": "clut_proms",
+            "source_path": "roms/sstingry/clut_proms.bin",
+            "bytes": 512,
+            "sha256": "a2a48fa908655362f002c97beb5191958a842a3be3bd2c1535d38c13d4b75281",
+            "base": 197632,
+            "storage": "block RAM; low/high nibbles in source order",
+            "provenance": "audited MAME region image"
+          }
+        }
+      ]
+    }
+  ],
+  "menu_items": [
+    {
+      "selector": "H0O1",
+      "label": "Orientation",
+      "options": [
+        "Vertical",
+        "Horizontal"
+      ],
+      "max_columns": 23
+    },
+    {
+      "selector": "H0O[6]",
+      "label": "Rotate 90",
+      "options": [
+        "Clockwise",
+        "Counter-clockwise"
+      ],
+      "max_columns": 28
+    },
+    {
+      "selector": "O[7]",
+      "label": "Rotate 180",
+      "options": [
+        "Off",
+        "On"
+      ],
+      "max_columns": 15
+    },
+    {
+      "selector": "H0O[10:8]",
+      "label": "Scale",
+      "options": [
+        "Normal",
+        "V-Integer",
+        "HV-Integer-",
+        "HV-Integer+",
+        "HV-Integer"
+      ],
+      "max_columns": 18
+    },
+    {
+      "selector": "P1O[11]",
+      "label": "CRT Adjust",
+      "options": [
+        "Off",
+        "On"
+      ],
+      "max_columns": 15
+    },
+    {
+      "selector": "H1P1O[14:12]",
+      "label": "H-Size",
+      "options": [
+        "0",
+        "+1",
+        "+2",
+        "-2",
+        "-1"
+      ],
+      "max_columns": 10
+    },
+    {
+      "selector": "H1P1O[19:15]",
+      "label": "H-Position",
+      "options": [
+        "0",
+        "+1",
+        "+2",
+        "+3",
+        "+4",
+        "+5",
+        "+6",
+        "+7",
+        "+8",
+        "+9",
+        "+10",
+        "+11",
+        "+12",
+        "+13",
+        "+14",
+        "+15",
+        "-16",
+        "-15",
+        "-14",
+        "-13",
+        "-12",
+        "-11",
+        "-10",
+        "-9",
+        "-8",
+        "-7",
+        "-6",
+        "-5",
+        "-4",
+        "-3",
+        "-2",
+        "-1"
+      ],
+      "max_columns": 15
+    },
+    {
+      "selector": "H1P1O[24:20]",
+      "label": "V-Position",
+      "options": [
+        "0",
+        "+1",
+        "+2",
+        "+3",
+        "+4",
+        "+5",
+        "+6",
+        "+7",
+        "+8",
+        "+9",
+        "+10",
+        "+11",
+        "+12",
+        "+13",
+        "+14",
+        "+15",
+        "-16",
+        "-15",
+        "-14",
+        "-13",
+        "-12",
+        "-11",
+        "-10",
+        "-9",
+        "-8",
+        "-7",
+        "-6",
+        "-5",
+        "-4",
+        "-3",
+        "-2",
+        "-1"
+      ],
+      "max_columns": 15
+    },
+    {
+      "selector": "H3P1O[27:25]",
+      "label": "V-Size",
+      "options": [
+        "0",
+        "+1",
+        "+2",
+        "+3",
+        "-3",
+        "-2",
+        "-1"
+      ],
+      "max_columns": 10
+    },
+    {
+      "selector": "H2O[28]",
+      "label": "Autosave Hiscores",
+      "options": [
+        "On",
+        "Off"
+      ],
+      "max_columns": 22
+    },
+    {
+      "selector": "O24",
+      "label": "Scandoubler Fx",
+      "options": [
+        "None",
+        "HQ2x",
+        "CRT25%",
+        "CRT50%",
+        "CRT75%"
+      ],
+      "max_columns": 22
+    },
+    {
+      "selector": "O5",
+      "label": "Aspect ratio",
+      "options": [
+        "Original",
+        "Full Screen"
+      ],
+      "max_columns": 25
+    },
+    {
+      "selector": "O0",
+      "label": "Reset",
+      "options": [
+        "Off",
+        "On"
+      ],
+      "max_columns": 10
+    }
+  ],
+  "menu_checks": {
+    "all_core_OSD_option_lines_within28": true,
+    "direct_video_hides_orientation_90_scale": true,
+    "CRT_children_hide_until_active": true,
+    "VSize_hides_direct_video_or_disabledCRT": true,
+    "hiscore_hides_until_configured": true,
+    "canonical_profile2_header_still_rejected": true,
+    "DIP_transport_index254_byte0": true,
+    "ROM_transport_index0": true,
+    "no_rotary_OSD": true
+  },
+  "joined_board": {
+    "path": "D:\\Arcade\\AI\\aCORES\\Alpha68k N\\research\\stingray_combined_stage\\next_coupled_scope_v2\\source\\rtl\\alpha68kn_board.sv",
+    "sha256": "2e218dc38739fb8e3495a8807d98f0cadf0f6f94d4052afa439f5e94de35e51c",
+    "bytes": 24615
+  },
+  "joined_load_contract": [
+    {
+      "line": 120,
+      "text": "if (load_addr >= 'h00100 && load_addr < 'h20100)"
+    },
+    {
+      "line": 121,
+      "text": "main_rom[(load_addr-'h00100)>>1] <= {load_data[7:0],load_data[15:8]};"
+    },
+    {
+      "line": 122,
+      "text": "if (load_addr >= 'h20100 && load_addr < 'h30100)"
+    },
+    {
+      "line": 123,
+      "text": "sound_rom[15'((load_addr-'h20100)>>1)] <= load_data;"
+    },
+    {
+      "line": 141,
+      "text": "mcu_rom[load_addr[11:0]]<=load_data[7:0]; mcu_rom[load_addr[11:0]+12'd1]<=load_data[15:8];"
+    }
+  ],
+  "all_static_metadata_checks_pass": true,
+  "unqualified": [
+    "Actual nondefaultDIP/coin/cocktail/flip effects in each game.",
+    "Japan/Stingray earned-score save/reset/restore and profile2 MCU-safe wrapper borrowing.",
+    "Affected joined-framework video modes and physicaloutputs.",
+    "Stingray Fire/Special weapon labels remain provisional; original instructionpanel evidence is unavailable.",
+    "No runtime, physical, resource/timing or allgame acceptance follows from metadata correctness."
+  ]
+}

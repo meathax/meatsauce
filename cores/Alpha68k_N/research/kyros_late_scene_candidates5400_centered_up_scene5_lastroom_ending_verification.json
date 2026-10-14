@@ -1,0 +1,470 @@
+{
+  "worker_pid": 38280,
+  "started": 1791581039.356929,
+  "command": [
+    "D:\\Arcade\\AI\\aCORES\\Alpha68k N\\tools\\mame0289\\mame.exe",
+    "kyros",
+    "-rompath",
+    "D:\\Arcade\\AI\\aCORES\\Alpha68k N\\roms",
+    "-noreadconfig",
+    "-skip_gameinfo",
+    "-video",
+    "none",
+    "-sound",
+    "none",
+    "-nothrottle",
+    "-noautoframeskip",
+    "-frameskip",
+    "0",
+    "-autoboot_delay",
+    "0",
+    "-autoboot_script",
+    "D:\\Arcade\\AI\\aCORES\\Alpha68k N\\sim\\mame\\capture_late_scene_candidates.lua",
+    "-pluginspath",
+    "D:\\Arcade\\AI\\aCORES\\Alpha68k N\\tools\\mame0289\\plugins",
+    "-seconds_to_run",
+    "106",
+    "-snapshot_directory",
+    "D:\\Arcade\\AI\\aCORES\\Alpha68k N\\sim\\captures\\kyros\\late_scene_candidates5400_centered_up_scene5_lastroom_ending",
+    "-cfg_directory",
+    "D:\\Arcade\\AI\\aCORES\\Alpha68k N\\sim\\captures\\kyros\\late_scene_candidates5400_centered_up_scene5_lastroom_ending\\cfg",
+    "-nvram_directory",
+    "D:\\Arcade\\AI\\aCORES\\Alpha68k N\\sim\\captures\\kyros\\late_scene_candidates5400_centered_up_scene5_lastroom_ending\\nvram",
+    "-state_directory",
+    "D:\\Arcade\\AI\\aCORES\\Alpha68k N\\sim\\captures\\kyros\\late_scene_candidates5400_centered_up_scene5_lastroom_ending\\states"
+  ],
+  "source_parent": "82f0a418f71f7a7f4c0d5bca30e8a411f7fbc651",
+  "source_sha256": {
+    "sim\\mame\\capture_late_scene_candidates.lua": "6dd4ec75c6dc40c455c361392de7670d9d52b7e17b27fa81ab94896c2e54e110",
+    "scripts\\record_late_scene_candidates.py": "b9bafb3cf9eeac8cd591d6b1d927dbac59619108109b406028506678c23f1ce2",
+    "research/late_scene_cheat_historical_definitions.json": "987bcae0585dffef375f5a9b94afeecead4dbd36c4b10b6a390c5f54fcd86dbb",
+    "research/kyros_scene5_room_descriptors.json": "2627d673317a28c5f04fa3ccb8ed7252455193f0d1562069f678a67931e3f007",
+    "research/kyros_scene_fixture_profiles.json": "68bcd44c7c7f231a9f1527e97dd4ee028d838c36067f589186100cfd3d81eec7",
+    "research/kyros_ending_fixture_profile.json": "ec082314b634d2799b450cb2d24716902c35461d7c63df4a06c1624d4bd260d8"
+  },
+  "executable_sha256": "af6966108d9b52c22465c6d50f4e5d50cc371b50f2d27dc443935f287aad37a3",
+  "set": "kyros",
+  "frames": 5400,
+  "route": "centered-up",
+  "scene": "candidate-5-last-room",
+  "resume_inputs": false,
+  "ending": true,
+  "fixture_profile": {
+    "program_sha256": "6949ea5dc91dfced8c1afccbadee18c2e795ab38d8adbc3795f05a19b8f3b2b3",
+    "scene_entry": 6758,
+    "room_entry": 7056,
+    "return_pc": 40414,
+    "game_wait_lo": 40442,
+    "game_wait_hi": 40606,
+    "wait_loop": 40590,
+    "room_table": 7178,
+    "scene5_table_base": 7498,
+    "relocation_delta": 0,
+    "derivation": "Unique scene/room signatures, validated JSR return and wait-loop opcodes, PC-relative descriptor table and both late descriptors."
+  },
+  "scope": "MAME scene discovery with explicit fixture RAM writes and optional guarded PC setup; not real RTL CPU gameplay or late-scene acceptance",
+  "mame_pid": 43076,
+  "exit_code": 0,
+  "ended": 1791581048.932801,
+  "fixture_setup": {
+    "frame": 900,
+    "pc_before": 40592,
+    "sr": 8212,
+    "a6": 131072,
+    "sp": 135156,
+    "return_address": 40414,
+    "selector_before": 3,
+    "selector_after": 5,
+    "entry_pc": 6758,
+    "fixture_only": true
+  },
+  "late_room_setup": {
+    "frame": 1200,
+    "pc_before": 40592,
+    "sr": 8196,
+    "a6": 131072,
+    "sp": 135156,
+    "return_address": 40414,
+    "room_before": 240,
+    "room_requested": 2304,
+    "entry_pc": 7056,
+    "descriptor_index": 8,
+    "descriptor_address": 7562,
+    "fixture_only": true
+  },
+  "ending_setup": {
+    "frame": 1800,
+    "pc_before": 40596,
+    "sr": 8212,
+    "a6": 131072,
+    "sp": 135156,
+    "return_address": 40414,
+    "pc_redirected": false,
+    "fixture_only": true
+  },
+  "late_room_observed_fields": [
+    1500,
+    1800,
+    2100,
+    2400,
+    2700,
+    3000,
+    3300,
+    3600,
+    3900,
+    4200,
+    4500,
+    4800,
+    5100,
+    5399
+  ],
+  "ending_staff_observed_fields": [
+    2100,
+    2400,
+    2700,
+    3000,
+    3300,
+    3600
+  ],
+  "artifacts": [
+    {
+      "path": "sim\\captures\\kyros\\late_scene_candidates5400_centered_up_scene5_lastroom_ending\\frame_000000.display.rgb",
+      "sha256": "9a4b97b4b079955bac86930724c8bcdd30aba4732f1dcbcbac2ec270f5f5e485"
+    },
+    {
+      "path": "sim\\captures\\kyros\\late_scene_candidates5400_centered_up_scene5_lastroom_ending\\frame_000000.png",
+      "sha256": "27ab769c7d70ea6f343800bcb8ecb87e43bccdec012c2a385047f8d01290b278"
+    },
+    {
+      "path": "sim\\captures\\kyros\\late_scene_candidates5400_centered_up_scene5_lastroom_ending\\frame_000000.sprites.bin",
+      "sha256": "9f1dcbc35c350d6027f98be0f5c8b43b42ca52b7604459c0c42be3aa88913d47"
+    },
+    {
+      "path": "sim\\captures\\kyros\\late_scene_candidates5400_centered_up_scene5_lastroom_ending\\frame_000000.work.bin",
+      "sha256": "ad7facb2586fc6e966c004d7d1d16b024f5805ff7cb47c7a85dabd8b48892ca7"
+    },
+    {
+      "path": "sim\\captures\\kyros\\late_scene_candidates5400_centered_up_scene5_lastroom_ending\\frame_000179.display.rgb",
+      "sha256": "159db246e6c1ca749ddf242ec71367a07727892df17a5f760446eb58941b8cdd"
+    },
+    {
+      "path": "sim\\captures\\kyros\\late_scene_candidates5400_centered_up_scene5_lastroom_ending\\frame_000179.png",
+      "sha256": "a737aadd5ec024d17b735efa86e2d156e088d8f20804149bb4526d900374fdee"
+    },
+    {
+      "path": "sim\\captures\\kyros\\late_scene_candidates5400_centered_up_scene5_lastroom_ending\\frame_000179.sprites.bin",
+      "sha256": "3d8918435b6cf7e2132037e5f603e6f114428e7bd08b7455cb6de6aa077733c7"
+    },
+    {
+      "path": "sim\\captures\\kyros\\late_scene_candidates5400_centered_up_scene5_lastroom_ending\\frame_000179.work.bin",
+      "sha256": "e1db108e08bb7a4b5b58c1f9902631e1d625a62bce9f3fde775778c51feaae69"
+    },
+    {
+      "path": "sim\\captures\\kyros\\late_scene_candidates5400_centered_up_scene5_lastroom_ending\\frame_000300.display.rgb",
+      "sha256": "7f943b9faa4dbf246526e278a9e1a4bce65587ac9c5d30cfbdd0517c922cddc0"
+    },
+    {
+      "path": "sim\\captures\\kyros\\late_scene_candidates5400_centered_up_scene5_lastroom_ending\\frame_000300.png",
+      "sha256": "2c588454f4d05e7d1859aed604d84e0376a3e8008d413e885052795914843390"
+    },
+    {
+      "path": "sim\\captures\\kyros\\late_scene_candidates5400_centered_up_scene5_lastroom_ending\\frame_000300.sprites.bin",
+      "sha256": "e3ea0214928e2e06aaf738f95d162a8edafc00dde9563a2d07c158ec98d28249"
+    },
+    {
+      "path": "sim\\captures\\kyros\\late_scene_candidates5400_centered_up_scene5_lastroom_ending\\frame_000300.work.bin",
+      "sha256": "e965ed8944f6e0deb865fc5d6d3866db2069aad8c024a8596fe2348ad61f0944"
+    },
+    {
+      "path": "sim\\captures\\kyros\\late_scene_candidates5400_centered_up_scene5_lastroom_ending\\frame_000600.display.rgb",
+      "sha256": "870367cea2cc090698af979491e7a9c75e56ca3048a484753ad11186728f9bc8"
+    },
+    {
+      "path": "sim\\captures\\kyros\\late_scene_candidates5400_centered_up_scene5_lastroom_ending\\frame_000600.png",
+      "sha256": "b9ca58fd5715b21891b77c6f42b068554c1ce96a41ceb2a07fde1b64075e00f0"
+    },
+    {
+      "path": "sim\\captures\\kyros\\late_scene_candidates5400_centered_up_scene5_lastroom_ending\\frame_000600.sprites.bin",
+      "sha256": "e5278764380265c52fa179824aa7f940340123f17d548435f0c3f9d4ca30eb9a"
+    },
+    {
+      "path": "sim\\captures\\kyros\\late_scene_candidates5400_centered_up_scene5_lastroom_ending\\frame_000600.work.bin",
+      "sha256": "1ee34d8ee38c8a2d1ad1099065bfff98ff527193221339cf0731b3a223f548e8"
+    },
+    {
+      "path": "sim\\captures\\kyros\\late_scene_candidates5400_centered_up_scene5_lastroom_ending\\frame_000900.display.rgb",
+      "sha256": "be82b4879192741944905c454144e6715e4f4c45a5e165fcf1c4068c075e139e"
+    },
+    {
+      "path": "sim\\captures\\kyros\\late_scene_candidates5400_centered_up_scene5_lastroom_ending\\frame_000900.png",
+      "sha256": "634b3d4811f768ba36e83de9782635200b3a69692003e38fc6087484e37c3e9d"
+    },
+    {
+      "path": "sim\\captures\\kyros\\late_scene_candidates5400_centered_up_scene5_lastroom_ending\\frame_000900.sprites.bin",
+      "sha256": "d8ab2269f00fa6534d934186beede454d7df171c892cec647326bdd0a621ae1f"
+    },
+    {
+      "path": "sim\\captures\\kyros\\late_scene_candidates5400_centered_up_scene5_lastroom_ending\\frame_000900.work.bin",
+      "sha256": "35443c540d748906e55f903c8ef5f8952d0ce0568470c396c878624ab1ef2df6"
+    },
+    {
+      "path": "sim\\captures\\kyros\\late_scene_candidates5400_centered_up_scene5_lastroom_ending\\frame_001200.display.rgb",
+      "sha256": "23dcd9697d68a8517af4953f62b7c306508579e0063c10ce88e7ec5a374dbb4d"
+    },
+    {
+      "path": "sim\\captures\\kyros\\late_scene_candidates5400_centered_up_scene5_lastroom_ending\\frame_001200.png",
+      "sha256": "03c0ac2a82afd4f31c5ab2298126fdbfe6bdf67c028e8b5e473b3ec6abc5230f"
+    },
+    {
+      "path": "sim\\captures\\kyros\\late_scene_candidates5400_centered_up_scene5_lastroom_ending\\frame_001200.sprites.bin",
+      "sha256": "f03dd8dc7568f21e04d15da4d199db77aecf74c1457f653770780689f8d5e79e"
+    },
+    {
+      "path": "sim\\captures\\kyros\\late_scene_candidates5400_centered_up_scene5_lastroom_ending\\frame_001200.work.bin",
+      "sha256": "ea8587dee32a713ac4e77a8494c9d1f1fe51a5ad5a32eb64b0d34717f5c2cdb4"
+    },
+    {
+      "path": "sim\\captures\\kyros\\late_scene_candidates5400_centered_up_scene5_lastroom_ending\\frame_001500.display.rgb",
+      "sha256": "1e24ce80cdeb12e6e5a054e62af19dd312d4d9843458cc4b50f692c7fbe9416d"
+    },
+    {
+      "path": "sim\\captures\\kyros\\late_scene_candidates5400_centered_up_scene5_lastroom_ending\\frame_001500.png",
+      "sha256": "0481c2d63dbc0f59e2328fae767dc9d3280cdfdb9db8a661e9f4804d56444871"
+    },
+    {
+      "path": "sim\\captures\\kyros\\late_scene_candidates5400_centered_up_scene5_lastroom_ending\\frame_001500.sprites.bin",
+      "sha256": "8329d01ec5a927b77f14c098bcca73d399f4160f9509313e61c748355a68bab8"
+    },
+    {
+      "path": "sim\\captures\\kyros\\late_scene_candidates5400_centered_up_scene5_lastroom_ending\\frame_001500.work.bin",
+      "sha256": "8da81fd28b6855661fff5eb1dd8a01ad32737243164cc90dd91651da88c966b0"
+    },
+    {
+      "path": "sim\\captures\\kyros\\late_scene_candidates5400_centered_up_scene5_lastroom_ending\\frame_001800.display.rgb",
+      "sha256": "a8cf93aedde69f1c8decd2c83b8b00176d5b49533911f89ebe827b28d191a60b"
+    },
+    {
+      "path": "sim\\captures\\kyros\\late_scene_candidates5400_centered_up_scene5_lastroom_ending\\frame_001800.png",
+      "sha256": "5304aae12dd4d76fa6e2de48a5d0e236812b94064470af8a1f143339019f6bd3"
+    },
+    {
+      "path": "sim\\captures\\kyros\\late_scene_candidates5400_centered_up_scene5_lastroom_ending\\frame_001800.sprites.bin",
+      "sha256": "4ce83b1da3ee8f73c7736ad7ed99bdffd4ece8c727b9159cd9e16924b9ed0b7e"
+    },
+    {
+      "path": "sim\\captures\\kyros\\late_scene_candidates5400_centered_up_scene5_lastroom_ending\\frame_001800.work.bin",
+      "sha256": "34f152ead0c5f0ad43ad086c52f5a88ef5529dfa8d1b87e59290fadf5b83e315"
+    },
+    {
+      "path": "sim\\captures\\kyros\\late_scene_candidates5400_centered_up_scene5_lastroom_ending\\frame_002100.display.rgb",
+      "sha256": "ba056cc40bcb51cf9c145c4a67434c9317adfb047970aa4518f669ba69a6bd65"
+    },
+    {
+      "path": "sim\\captures\\kyros\\late_scene_candidates5400_centered_up_scene5_lastroom_ending\\frame_002100.png",
+      "sha256": "1a9bdabbb03bf703afc8786b4578a3725eaca61fa30acb9e9824aebd59236aac"
+    },
+    {
+      "path": "sim\\captures\\kyros\\late_scene_candidates5400_centered_up_scene5_lastroom_ending\\frame_002100.sprites.bin",
+      "sha256": "9966c01f50bbb501748777c94460cb402b7b4541cda9a08ef1e05d97356fe64f"
+    },
+    {
+      "path": "sim\\captures\\kyros\\late_scene_candidates5400_centered_up_scene5_lastroom_ending\\frame_002100.work.bin",
+      "sha256": "9be3823e54368040d397df99bd5bde4ad9d39545b36e040253661f7504509ef6"
+    },
+    {
+      "path": "sim\\captures\\kyros\\late_scene_candidates5400_centered_up_scene5_lastroom_ending\\frame_002400.display.rgb",
+      "sha256": "5975254163547e8c81c5dfadb4512fd3667e7a79fdcc56d08a95955e7b9071f8"
+    },
+    {
+      "path": "sim\\captures\\kyros\\late_scene_candidates5400_centered_up_scene5_lastroom_ending\\frame_002400.png",
+      "sha256": "82979a5e50a52dd88d6f27ef122d7ebb13eed507aea3504eaa882b8bbd9b899a"
+    },
+    {
+      "path": "sim\\captures\\kyros\\late_scene_candidates5400_centered_up_scene5_lastroom_ending\\frame_002400.sprites.bin",
+      "sha256": "c28689ff14bd1530809afdc21cb4197b8cf2a55aa76bca055974dab12e11c68c"
+    },
+    {
+      "path": "sim\\captures\\kyros\\late_scene_candidates5400_centered_up_scene5_lastroom_ending\\frame_002400.work.bin",
+      "sha256": "045222eaaff182c4557351ec8ea5adc7ef42b5641c90ce5ef6d780f05966cf83"
+    },
+    {
+      "path": "sim\\captures\\kyros\\late_scene_candidates5400_centered_up_scene5_lastroom_ending\\frame_002700.display.rgb",
+      "sha256": "1af1040057071b213a144d66cfc8208b9db211f3157384dbe93c699c798ada95"
+    },
+    {
+      "path": "sim\\captures\\kyros\\late_scene_candidates5400_centered_up_scene5_lastroom_ending\\frame_002700.png",
+      "sha256": "fa1cd32855e89754197a10f7992e5aed50997f650913ec540b72bbe9569072fa"
+    },
+    {
+      "path": "sim\\captures\\kyros\\late_scene_candidates5400_centered_up_scene5_lastroom_ending\\frame_002700.sprites.bin",
+      "sha256": "df7e8e4c0eddd68d06e3fc66ec261c8de4913979ade1e5a64670c8c857f64159"
+    },
+    {
+      "path": "sim\\captures\\kyros\\late_scene_candidates5400_centered_up_scene5_lastroom_ending\\frame_002700.work.bin",
+      "sha256": "b4fd4d62248586cf6ff2ea1b9c84ac178bb21f29f9d8ad5fd140515611a0d20c"
+    },
+    {
+      "path": "sim\\captures\\kyros\\late_scene_candidates5400_centered_up_scene5_lastroom_ending\\frame_003000.display.rgb",
+      "sha256": "7d5abff288afe058d10599b5fb2f17f1259b30747f7e8b12c44b1014b43b05c6"
+    },
+    {
+      "path": "sim\\captures\\kyros\\late_scene_candidates5400_centered_up_scene5_lastroom_ending\\frame_003000.png",
+      "sha256": "64f4076e901e7e5199e26042fedeb7eddb066f70892f06699481aa7f483b2b5f"
+    },
+    {
+      "path": "sim\\captures\\kyros\\late_scene_candidates5400_centered_up_scene5_lastroom_ending\\frame_003000.sprites.bin",
+      "sha256": "13e7503235da6056e5725d88f900416059d7feec419729bc93dcb47c57bf3153"
+    },
+    {
+      "path": "sim\\captures\\kyros\\late_scene_candidates5400_centered_up_scene5_lastroom_ending\\frame_003000.work.bin",
+      "sha256": "4f6a077564ab214ffd49ade32b21c2ea7d51a6dab31adf78be0af2985aeab3c0"
+    },
+    {
+      "path": "sim\\captures\\kyros\\late_scene_candidates5400_centered_up_scene5_lastroom_ending\\frame_003300.display.rgb",
+      "sha256": "eb26f9c236dd6965c31137fcefa1bb78108e8fcd185fe7f32895bf0c670614a6"
+    },
+    {
+      "path": "sim\\captures\\kyros\\late_scene_candidates5400_centered_up_scene5_lastroom_ending\\frame_003300.png",
+      "sha256": "df3a808ca9cf053c93e990c665255f40a55910ab503e06b0752c7287d0a3628d"
+    },
+    {
+      "path": "sim\\captures\\kyros\\late_scene_candidates5400_centered_up_scene5_lastroom_ending\\frame_003300.sprites.bin",
+      "sha256": "619382b7307c5e359350cd8191fc56a6eb4c99f53adeb98c6fded154a5d945aa"
+    },
+    {
+      "path": "sim\\captures\\kyros\\late_scene_candidates5400_centered_up_scene5_lastroom_ending\\frame_003300.work.bin",
+      "sha256": "2da9953ae18a62bdf7b5414693c83ce29c4c6bd0f5b8ce6a586c838408669396"
+    },
+    {
+      "path": "sim\\captures\\kyros\\late_scene_candidates5400_centered_up_scene5_lastroom_ending\\frame_003600.display.rgb",
+      "sha256": "f9e97e468ab7bf702e40a5e458092af4f5bbf552d9ed1faa78f0559579b628b1"
+    },
+    {
+      "path": "sim\\captures\\kyros\\late_scene_candidates5400_centered_up_scene5_lastroom_ending\\frame_003600.png",
+      "sha256": "dd0ba2158e88526c32ac19f87fd7640f303ba53a6b43cafd4320f56bce94ae23"
+    },
+    {
+      "path": "sim\\captures\\kyros\\late_scene_candidates5400_centered_up_scene5_lastroom_ending\\frame_003600.sprites.bin",
+      "sha256": "253253df3a655f00b98712fe01f26d7019e6bea649c0d433ef9f337e8a4d50f2"
+    },
+    {
+      "path": "sim\\captures\\kyros\\late_scene_candidates5400_centered_up_scene5_lastroom_ending\\frame_003600.work.bin",
+      "sha256": "08fd6acca636edef3c6712c65502c2119f92617cd059882625dc02a4cf77c440"
+    },
+    {
+      "path": "sim\\captures\\kyros\\late_scene_candidates5400_centered_up_scene5_lastroom_ending\\frame_003900.display.rgb",
+      "sha256": "346760e9d12b42b85c80068c9738019320a72f08b0cb8fd20d16a05d85019549"
+    },
+    {
+      "path": "sim\\captures\\kyros\\late_scene_candidates5400_centered_up_scene5_lastroom_ending\\frame_003900.png",
+      "sha256": "da6a1b0c646a97ed69b11b263908fb5ac99665f3fe35a025d78d18e34423f089"
+    },
+    {
+      "path": "sim\\captures\\kyros\\late_scene_candidates5400_centered_up_scene5_lastroom_ending\\frame_003900.sprites.bin",
+      "sha256": "2cafb5e67b0adb83303a6a27c378257eb75294121890b455e7937d256f6ced05"
+    },
+    {
+      "path": "sim\\captures\\kyros\\late_scene_candidates5400_centered_up_scene5_lastroom_ending\\frame_003900.work.bin",
+      "sha256": "5fb05f94cbd8666afe5a00f0831dd2e174c67757639ee6c148a3e958ab446eed"
+    },
+    {
+      "path": "sim\\captures\\kyros\\late_scene_candidates5400_centered_up_scene5_lastroom_ending\\frame_004200.display.rgb",
+      "sha256": "70fb4a224f22f8244f184d4844c0e7ce52a3257d2f61d04d33d65bc49e217097"
+    },
+    {
+      "path": "sim\\captures\\kyros\\late_scene_candidates5400_centered_up_scene5_lastroom_ending\\frame_004200.png",
+      "sha256": "4decb3e396336fb34f112f52bc48e6c92162480fd4c65cffe5c926a1c7e69a9b"
+    },
+    {
+      "path": "sim\\captures\\kyros\\late_scene_candidates5400_centered_up_scene5_lastroom_ending\\frame_004200.sprites.bin",
+      "sha256": "e91c7fbfc498c5260f5aef439733bf4dbc43eda97b38276e6e3bfeb9b2dbb87e"
+    },
+    {
+      "path": "sim\\captures\\kyros\\late_scene_candidates5400_centered_up_scene5_lastroom_ending\\frame_004200.work.bin",
+      "sha256": "c5f196a028166c83397b017b1c6e10d18d0fd5e3160648f602d15366405d79d2"
+    },
+    {
+      "path": "sim\\captures\\kyros\\late_scene_candidates5400_centered_up_scene5_lastroom_ending\\frame_004500.display.rgb",
+      "sha256": "545da3d0333848cc3b95a6a2c282f14dc23b0a8bf37e5fbfc64e1f41fe03fe93"
+    },
+    {
+      "path": "sim\\captures\\kyros\\late_scene_candidates5400_centered_up_scene5_lastroom_ending\\frame_004500.png",
+      "sha256": "1cb6975bfb038dc14ffdbf385ad255ef42104dbe9869624a60a16379203d63b7"
+    },
+    {
+      "path": "sim\\captures\\kyros\\late_scene_candidates5400_centered_up_scene5_lastroom_ending\\frame_004500.sprites.bin",
+      "sha256": "02735e37fb68095b5fd717d42b11f05d972bcd91b281631f09a59f676cf0a6fc"
+    },
+    {
+      "path": "sim\\captures\\kyros\\late_scene_candidates5400_centered_up_scene5_lastroom_ending\\frame_004500.work.bin",
+      "sha256": "391594cb70d25278eb359b20e5b5c3d00655438574d004a590f885cdc3ff4ac8"
+    },
+    {
+      "path": "sim\\captures\\kyros\\late_scene_candidates5400_centered_up_scene5_lastroom_ending\\frame_004800.display.rgb",
+      "sha256": "464bb81428e53866fe633fea59a2d37aaa825675faa4b7644edad7595a2f4b72"
+    },
+    {
+      "path": "sim\\captures\\kyros\\late_scene_candidates5400_centered_up_scene5_lastroom_ending\\frame_004800.png",
+      "sha256": "cee1d8a1c65a9a856f3441942cb28dadb17de3ea59fbb3e12291057e6a8ecf90"
+    },
+    {
+      "path": "sim\\captures\\kyros\\late_scene_candidates5400_centered_up_scene5_lastroom_ending\\frame_004800.sprites.bin",
+      "sha256": "69fadf6de02c5539989e5c8b96cdc5bea48a70b5da66df3eb0806b7bb4faaed4"
+    },
+    {
+      "path": "sim\\captures\\kyros\\late_scene_candidates5400_centered_up_scene5_lastroom_ending\\frame_004800.work.bin",
+      "sha256": "d45981c7805104788085245d88e0be5c8b7c0963affdc30f9ac3bdae06c51254"
+    },
+    {
+      "path": "sim\\captures\\kyros\\late_scene_candidates5400_centered_up_scene5_lastroom_ending\\frame_005100.display.rgb",
+      "sha256": "8566971d067bf7f87df11c1131a8b7be63a32a3b28ffeaa7fcaf66f38df01fec"
+    },
+    {
+      "path": "sim\\captures\\kyros\\late_scene_candidates5400_centered_up_scene5_lastroom_ending\\frame_005100.png",
+      "sha256": "647752f3c9d8a045f03f1d3c683c525fa299fb026f447a63a7bfdbc151d9208c"
+    },
+    {
+      "path": "sim\\captures\\kyros\\late_scene_candidates5400_centered_up_scene5_lastroom_ending\\frame_005100.sprites.bin",
+      "sha256": "d474217c4beb8039606ea2311157bcface20ca41876dfbfe128bf26ce6d73e7a"
+    },
+    {
+      "path": "sim\\captures\\kyros\\late_scene_candidates5400_centered_up_scene5_lastroom_ending\\frame_005100.work.bin",
+      "sha256": "fb7fceb5485dc32c5971dc0a4ccf168054add7ad34acd84d8b381662a2bfef57"
+    },
+    {
+      "path": "sim\\captures\\kyros\\late_scene_candidates5400_centered_up_scene5_lastroom_ending\\frame_005399.display.rgb",
+      "sha256": "68f54c7cac0f7fb7ca63f3dfc7a30b70c3772c6a58e512a371dfb9602dda1ddb"
+    },
+    {
+      "path": "sim\\captures\\kyros\\late_scene_candidates5400_centered_up_scene5_lastroom_ending\\frame_005399.png",
+      "sha256": "61fabfccf3c03e76952dbdcd594a6d23bed647821d59018971a15a809f6b6f3e"
+    },
+    {
+      "path": "sim\\captures\\kyros\\late_scene_candidates5400_centered_up_scene5_lastroom_ending\\frame_005399.sprites.bin",
+      "sha256": "0622b5969bed9ca837c1347e0a6010aa6f6a52f8ec2b6a3810eae36e4bfbd6e5"
+    },
+    {
+      "path": "sim\\captures\\kyros\\late_scene_candidates5400_centered_up_scene5_lastroom_ending\\frame_005399.work.bin",
+      "sha256": "4a22eaaaeaa688558b60125eadda43ce68ea401aeedae0d865c249849b021895"
+    },
+    {
+      "path": "sim\\captures\\kyros\\late_scene_candidates5400_centered_up_scene5_lastroom_ending\\frame_states.csv",
+      "sha256": "8bc349a12624ff9997e9a32079553e2fd3db11ec73a03b334d86f011660073a7"
+    }
+  ],
+  "checks": {
+    "exit_zero": true,
+    "completion_marker": true,
+    "no_lua_failure": true,
+    "guarded_scene_setup": true,
+    "guarded_late_room_setup": true,
+    "guarded_ending_setup": true,
+    "all_frames_observed": true,
+    "expected_snapshot_count": true,
+    "complete_assets": true,
+    "late_room_snapshot_present": true,
+    "actual_staff_text_present": true
+  },
+  "passed": true,
+  "wall_seconds": 10.076520919799805
+}

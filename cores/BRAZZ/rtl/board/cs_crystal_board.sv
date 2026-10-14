@@ -1,0 +1,112 @@
+// SPDX-License-Identifier: GPL-3.0-or-later
+// Full board with real physical memory ports. Reset the transport only at
+// power-up; game reset separately resets CPU/cache/chips and preserves RAM.
+module cs_crystal_board #(parameter SDRAM_REGISTERED_IO=0, SDRAM_PHASED_CAPTURE=0) (
+    input logic clk, reset, ce,
+    input logic [3:0] cart_banks, // MRA board record: populated flash chips (0 = legacy 3)
+    input logic rtc_seed_valid, input logic [55:0] rtc_seed_bcd, // DS1302 time from MiSTer RTC (DS1302 register order)
+    input logic pic_enable, pic_load_we, input logic [13:0] pic_load_address, input logic [15:0] pic_load_data, // protection PIC (MRA index 3)
+    input logic video_flip, // OSD Orientation Flipped: native 180-degree scanout (all video outputs)
+    input logic [31:0] p1_p2_n,p3_p4_n,
+    input logic [7:0] system_n,dips_n,
+    output logic req_valid,
+    output logic req_ready,
+    output logic [31:0] req_address, req_offset, req_data,
+    output logic [3:0] req_target, req_strobe,
+    output logic req_write,
+    output logic [2:0] req_client,
+    output logic rsp_valid,
+    output logic [31:0] rsp_data,
+    output logic rsp_error,
+    output logic fault,
+    output logic [31:0] fault_pc,
+    output logic [15:0] fault_opcode,
+    output logic retire,
+    output logic [31:0] retire_pc,
+    output logic [15:0] retire_opcode,
+    output logic [7:0][31:0] registers,
+    output logic [31:0] pc, sr, sp, er,
+    output logic [2:0] flash_bank,
+    output logic mmio_valid, mmio_ready, mmio_write,
+    output logic [31:0] mmio_address, mmio_data,
+    output logic [3:0] mmio_strobe,
+    output logic mmio_rsp_valid, mmio_rsp_error,
+    output logic [31:0] mmio_rsp_data,
+    output logic cpu_irq_ack, cpu_event,
+    output logic [7:0] cpu_event_code, irq_vector,
+    output logic dma_fault,
+    output logic [31:0] dma_fault_address,
+    output logic gpu_fault,
+    output logic [31:0] gpu_fault_address, gpu_packets, gpu_pixels,
+    output logic audio_valid,
+    output logic signed [15:0] audio_left, audio_right,
+    output logic audio_underrun, audio_fault,
+    output logic [6:0] audio_unsupported_modes,
+    output logic audio_unsupported_reverb,
+    output logic video_tick, video_de, video_hsync, video_vsync, video_hblank, video_vblank,
+    output logic [11:0] video_x, video_y,
+    output logic [7:0] video_r, video_g, video_b,
+    output logic video_armed, video_underrun, video_fault, video_unsupported_geometry,
+    output logic [31:0] video_fault_address, video_words,
+    output logic cpu_trace_valid, cpu_trace_ready, cpu_trace_write,
+    output logic [31:0] cpu_trace_address, cpu_trace_data,
+    output logic [3:0] cpu_trace_strobe,
+    output logic cpu_trace_rsp_valid, cpu_trace_rsp_error,
+    output logic [31:0] cpu_trace_rsp_data,
+    output logic cp_req_valid, cp_req_ready, cp_req_write,
+    output logic [1:0] cp_req_id, output logic [2:0] cp_req_register,
+    output logic [31:0] cp_req_data,
+    output logic cp_rsp_valid, cp_rsp_ready, cp_rsp_error,
+    output logic [31:0] cp_rsp_data,
+    output logic cache_enabled, cache_invalidating,
+    output logic [31:0] cache_hits, cache_misses, cache_invalidations, cache_writes,
+    input logic memory_reset,
+    output logic memory_initialized,
+    output logic sdram_test_done,
+    output logic [15:0] sdram_test_errors,
+    output logic [13:0] sdram_test_first_addr,
+    output logic [31:0] sdram_test_first_actual,
+    input logic load_valid,
+    output logic load_ready,
+    input logic [3:0] load_target,
+    input logic [31:0] load_offset,
+    input logic [63:0] load_data,
+    input logic [7:0] load_be,
+    output logic load_done, load_error,
+    input logic backup_valid,
+    output logic backup_ready,
+    input logic [13:0] backup_address,
+    input logic [31:0] backup_data,
+    input logic [3:0] backup_strobe,
+    input logic backup_write,
+    output logic backup_rsp_valid,
+    output logic [31:0] backup_rsp_data,
+    input logic sdram_capture_clk,
+    input logic [15:0] sdram_data_in,
+    output logic sdram_clk, sdram_cke, sdram_cs_n,
+    output logic sdram_ras_n, sdram_cas_n, sdram_we_n,
+    output logic [1:0] sdram_dqm, sdram_ba,
+    output logic [12:0] sdram_address,
+    output logic [15:0] sdram_data_out,
+    output logic sdram_data_oe,
+    input logic DDRAM_BUSY,
+    output logic [7:0] DDRAM_BURSTCNT,
+    output logic [28:0] DDRAM_ADDR,
+    input logic [63:0] DDRAM_DOUT,
+    input logic DDRAM_DOUT_READY,
+    output logic DDRAM_RD,
+    output logic [63:0] DDRAM_DIN,
+    output logic [7:0] DDRAM_BE,
+    output logic DDRAM_WE
+);
+    wire board_reset=reset || !memory_initialized;
+    logic gpu_burst_urgent;
+    logic gpu_burst_valid /*verilator public_flat*/, gpu_burst_write /*verilator public_flat*/, gpu_burst_region /*verilator public_flat*/, gpu_burst_ready /*verilator public_flat*/, gpu_burst_done;
+    logic [17:0] gpu_burst_line /*verilator public_flat*/;
+    logic [7:0][31:0] gpu_burst_wdata /*verilator public_flat*/, gpu_burst_rdata;
+    logic [7:0][3:0] gpu_burst_wstrobe /*verilator public_flat*/;
+    logic gpu_snoop_valid;
+    logic [17:0] gpu_snoop_line;
+    cs_boot_probe board (.reset(board_reset), .*);
+    cs_memory_fabric #(.SDRAM_REGISTERED_IO(SDRAM_REGISTERED_IO),.SDRAM_PHASED_CAPTURE(SDRAM_PHASED_CAPTURE)) memory (.reset(memory_reset), .*);
+endmodule

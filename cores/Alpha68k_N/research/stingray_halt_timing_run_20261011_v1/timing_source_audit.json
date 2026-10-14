@@ -1,0 +1,977 @@
+{
+  "UCP_summary_rows": {
+    "Illegal Clocks": [
+      [
+        0,
+        0
+      ]
+    ],
+    "Unconstrained Clocks": [
+      [
+        0,
+        0
+      ]
+    ],
+    "Unconstrained Input Ports": [
+      [
+        20,
+        20
+      ]
+    ],
+    "Unconstrained Input Port Paths": [
+      [
+        30,
+        30
+      ]
+    ],
+    "Unconstrained Output Ports": [
+      [
+        85,
+        85
+      ]
+    ],
+    "Unconstrained Output Port Paths": [
+      [
+        149,
+        149
+      ]
+    ]
+  },
+  "unconstrained_path_count": 358,
+  "classification": "30 input +149 output paths independently reported for setup and hold;20 input/85 output ports; inherited external constraint gate remains OPEN. No clock UCP reported.",
+  "corners": [
+    {
+      "corner": "Slow 1100mV 100C Model",
+      "model": "slow",
+      "temperature": "100",
+      "voltage": "1100",
+      "check": "setup",
+      "worst_slack_ns": "0.602",
+      "paths": "1"
+    },
+    {
+      "corner": "Slow 1100mV 100C Model",
+      "model": "slow",
+      "temperature": "100",
+      "voltage": "1100",
+      "check": "hold",
+      "worst_slack_ns": "0.189",
+      "paths": "1"
+    },
+    {
+      "corner": "Slow 1100mV 100C Model",
+      "model": "slow",
+      "temperature": "100",
+      "voltage": "1100",
+      "check": "recovery",
+      "worst_slack_ns": "3.908",
+      "paths": "1"
+    },
+    {
+      "corner": "Slow 1100mV 100C Model",
+      "model": "slow",
+      "temperature": "100",
+      "voltage": "1100",
+      "check": "removal",
+      "worst_slack_ns": "0.999",
+      "paths": "1"
+    },
+    {
+      "corner": "Slow 1100mV -40C Model",
+      "model": "slow",
+      "temperature": "-40",
+      "voltage": "1100",
+      "check": "setup",
+      "worst_slack_ns": "0.303",
+      "paths": "1"
+    },
+    {
+      "corner": "Slow 1100mV -40C Model",
+      "model": "slow",
+      "temperature": "-40",
+      "voltage": "1100",
+      "check": "hold",
+      "worst_slack_ns": "0.079",
+      "paths": "1"
+    },
+    {
+      "corner": "Slow 1100mV -40C Model",
+      "model": "slow",
+      "temperature": "-40",
+      "voltage": "1100",
+      "check": "recovery",
+      "worst_slack_ns": "4.082",
+      "paths": "1"
+    },
+    {
+      "corner": "Slow 1100mV -40C Model",
+      "model": "slow",
+      "temperature": "-40",
+      "voltage": "1100",
+      "check": "removal",
+      "worst_slack_ns": "0.938",
+      "paths": "1"
+    },
+    {
+      "corner": "Slow 1100mV 85C Model",
+      "model": "slow",
+      "temperature": "85",
+      "voltage": "1100",
+      "check": "setup",
+      "worst_slack_ns": "0.590",
+      "paths": "1"
+    },
+    {
+      "corner": "Slow 1100mV 85C Model",
+      "model": "slow",
+      "temperature": "85",
+      "voltage": "1100",
+      "check": "hold",
+      "worst_slack_ns": "0.162",
+      "paths": "1"
+    },
+    {
+      "corner": "Slow 1100mV 85C Model",
+      "model": "slow",
+      "temperature": "85",
+      "voltage": "1100",
+      "check": "recovery",
+      "worst_slack_ns": "3.958",
+      "paths": "1"
+    },
+    {
+      "corner": "Slow 1100mV 85C Model",
+      "model": "slow",
+      "temperature": "85",
+      "voltage": "1100",
+      "check": "removal",
+      "worst_slack_ns": "0.996",
+      "paths": "1"
+    },
+    {
+      "corner": "Slow 1100mV 0C Model",
+      "model": "slow",
+      "temperature": "0",
+      "voltage": "1100",
+      "check": "setup",
+      "worst_slack_ns": "0.375",
+      "paths": "1"
+    },
+    {
+      "corner": "Slow 1100mV 0C Model",
+      "model": "slow",
+      "temperature": "0",
+      "voltage": "1100",
+      "check": "hold",
+      "worst_slack_ns": "0.088",
+      "paths": "1"
+    },
+    {
+      "corner": "Slow 1100mV 0C Model",
+      "model": "slow",
+      "temperature": "0",
+      "voltage": "1100",
+      "check": "recovery",
+      "worst_slack_ns": "4.087",
+      "paths": "1"
+    },
+    {
+      "corner": "Slow 1100mV 0C Model",
+      "model": "slow",
+      "temperature": "0",
+      "voltage": "1100",
+      "check": "removal",
+      "worst_slack_ns": "0.928",
+      "paths": "1"
+    },
+    {
+      "corner": "Fast 1100mV -40C Model",
+      "model": "fast",
+      "temperature": "-40",
+      "voltage": "1100",
+      "check": "setup",
+      "worst_slack_ns": "3.797",
+      "paths": "1"
+    },
+    {
+      "corner": "Fast 1100mV -40C Model",
+      "model": "fast",
+      "temperature": "-40",
+      "voltage": "1100",
+      "check": "hold",
+      "worst_slack_ns": "0.099",
+      "paths": "1"
+    },
+    {
+      "corner": "Fast 1100mV -40C Model",
+      "model": "fast",
+      "temperature": "-40",
+      "voltage": "1100",
+      "check": "recovery",
+      "worst_slack_ns": "5.304",
+      "paths": "1"
+    },
+    {
+      "corner": "Fast 1100mV -40C Model",
+      "model": "fast",
+      "temperature": "-40",
+      "voltage": "1100",
+      "check": "removal",
+      "worst_slack_ns": "0.400",
+      "paths": "1"
+    },
+    {
+      "corner": "Fast 1100mV 0C Model",
+      "model": "fast",
+      "temperature": "0",
+      "voltage": "1100",
+      "check": "setup",
+      "worst_slack_ns": "3.730",
+      "paths": "1"
+    },
+    {
+      "corner": "Fast 1100mV 0C Model",
+      "model": "fast",
+      "temperature": "0",
+      "voltage": "1100",
+      "check": "hold",
+      "worst_slack_ns": "0.115",
+      "paths": "1"
+    },
+    {
+      "corner": "Fast 1100mV 0C Model",
+      "model": "fast",
+      "temperature": "0",
+      "voltage": "1100",
+      "check": "recovery",
+      "worst_slack_ns": "5.253",
+      "paths": "1"
+    },
+    {
+      "corner": "Fast 1100mV 0C Model",
+      "model": "fast",
+      "temperature": "0",
+      "voltage": "1100",
+      "check": "removal",
+      "worst_slack_ns": "0.409",
+      "paths": "1"
+    },
+    {
+      "corner": "Fast 1100mV 85C Model",
+      "model": "fast",
+      "temperature": "85",
+      "voltage": "1100",
+      "check": "setup",
+      "worst_slack_ns": "3.538",
+      "paths": "1"
+    },
+    {
+      "corner": "Fast 1100mV 85C Model",
+      "model": "fast",
+      "temperature": "85",
+      "voltage": "1100",
+      "check": "hold",
+      "worst_slack_ns": "0.128",
+      "paths": "1"
+    },
+    {
+      "corner": "Fast 1100mV 85C Model",
+      "model": "fast",
+      "temperature": "85",
+      "voltage": "1100",
+      "check": "recovery",
+      "worst_slack_ns": "5.061",
+      "paths": "1"
+    },
+    {
+      "corner": "Fast 1100mV 85C Model",
+      "model": "fast",
+      "temperature": "85",
+      "voltage": "1100",
+      "check": "removal",
+      "worst_slack_ns": "0.452",
+      "paths": "1"
+    },
+    {
+      "corner": "Fast 1100mV 100C Model",
+      "model": "fast",
+      "temperature": "100",
+      "voltage": "1100",
+      "check": "setup",
+      "worst_slack_ns": "3.481",
+      "paths": "1"
+    },
+    {
+      "corner": "Fast 1100mV 100C Model",
+      "model": "fast",
+      "temperature": "100",
+      "voltage": "1100",
+      "check": "hold",
+      "worst_slack_ns": "0.130",
+      "paths": "1"
+    },
+    {
+      "corner": "Fast 1100mV 100C Model",
+      "model": "fast",
+      "temperature": "100",
+      "voltage": "1100",
+      "check": "recovery",
+      "worst_slack_ns": "5.006",
+      "paths": "1"
+    },
+    {
+      "corner": "Fast 1100mV 100C Model",
+      "model": "fast",
+      "temperature": "100",
+      "voltage": "1100",
+      "check": "removal",
+      "worst_slack_ns": "0.462",
+      "paths": "1"
+    }
+  ],
+  "per_domain": {
+    "corner_1": {
+      "same_game_setup": {
+        "slacks_ns": [
+          4.714,
+          4.72,
+          4.728,
+          4.734,
+          4.74,
+          4.75,
+          4.754,
+          4.756,
+          4.775,
+          4.776
+        ],
+        "minimum_ns": 4.714
+      },
+      "same_game_hold": {
+        "slacks_ns": [
+          0.244,
+          0.251,
+          0.252,
+          0.254,
+          0.255,
+          0.256,
+          0.259,
+          0.261,
+          0.262,
+          0.262
+        ],
+        "minimum_ns": 0.244
+      },
+      "same_audio_setup": {
+        "slacks_ns": [
+          15.315,
+          15.315,
+          15.315,
+          15.315,
+          15.316,
+          15.316,
+          15.316,
+          15.316,
+          15.316,
+          15.316
+        ],
+        "minimum_ns": 15.315
+      },
+      "same_audio_hold": {
+        "slacks_ns": [
+          0.354,
+          0.355,
+          0.358,
+          0.364,
+          0.366,
+          0.384,
+          0.384,
+          0.406,
+          0.407,
+          0.412
+        ],
+        "minimum_ns": 0.354
+      },
+      "min_pulse_width": {
+        "slacks_ns": [
+          1.041
+        ],
+        "minimum_ns": 1.041
+      }
+    },
+    "corner_2": {
+      "same_game_setup": {
+        "slacks_ns": [
+          4.399,
+          4.406,
+          4.409,
+          4.41,
+          4.416,
+          4.417,
+          4.449,
+          4.454,
+          4.459,
+          4.46
+        ],
+        "minimum_ns": 4.399
+      },
+      "same_game_hold": {
+        "slacks_ns": [
+          0.178,
+          0.204,
+          0.213,
+          0.214,
+          0.22,
+          0.23,
+          0.238,
+          0.241,
+          0.241,
+          0.241
+        ],
+        "minimum_ns": 0.178
+      },
+      "same_audio_setup": {
+        "slacks_ns": [
+          14.29,
+          14.29,
+          14.29,
+          14.29,
+          14.291,
+          14.291,
+          14.291,
+          14.291,
+          14.291,
+          14.291
+        ],
+        "minimum_ns": 14.29
+      },
+      "same_audio_hold": {
+        "slacks_ns": [
+          0.326,
+          0.326,
+          0.327,
+          0.333,
+          0.333,
+          0.367,
+          0.372,
+          0.377,
+          0.391,
+          0.41
+        ],
+        "minimum_ns": 0.326
+      },
+      "min_pulse_width": {
+        "slacks_ns": [
+          1.041
+        ],
+        "minimum_ns": 1.041
+      }
+    },
+    "corner_3": {
+      "same_game_setup": {
+        "slacks_ns": [
+          4.793,
+          4.8,
+          4.817,
+          4.824,
+          4.824,
+          4.828,
+          4.831,
+          4.852,
+          4.859,
+          4.872
+        ],
+        "minimum_ns": 4.793
+      },
+      "same_game_hold": {
+        "slacks_ns": [
+          0.247,
+          0.254,
+          0.255,
+          0.255,
+          0.257,
+          0.258,
+          0.26,
+          0.262,
+          0.263,
+          0.264
+        ],
+        "minimum_ns": 0.247
+      },
+      "same_audio_setup": {
+        "slacks_ns": [
+          15.231,
+          15.231,
+          15.231,
+          15.231,
+          15.232,
+          15.232,
+          15.232,
+          15.232,
+          15.232,
+          15.232
+        ],
+        "minimum_ns": 15.231
+      },
+      "same_audio_hold": {
+        "slacks_ns": [
+          0.354,
+          0.356,
+          0.357,
+          0.364,
+          0.367,
+          0.389,
+          0.394,
+          0.408,
+          0.412,
+          0.414
+        ],
+        "minimum_ns": 0.354
+      },
+      "min_pulse_width": {
+        "slacks_ns": [
+          1.041
+        ],
+        "minimum_ns": 1.041
+      }
+    },
+    "corner_4": {
+      "same_game_setup": {
+        "slacks_ns": [
+          4.592,
+          4.6,
+          4.6,
+          4.607,
+          4.608,
+          4.615,
+          4.627,
+          4.635,
+          4.652,
+          4.66
+        ],
+        "minimum_ns": 4.592
+      },
+      "same_game_hold": {
+        "slacks_ns": [
+          0.185,
+          0.202,
+          0.224,
+          0.224,
+          0.226,
+          0.229,
+          0.236,
+          0.238,
+          0.241,
+          0.242
+        ],
+        "minimum_ns": 0.185
+      },
+      "same_audio_setup": {
+        "slacks_ns": [
+          14.539,
+          14.539,
+          14.539,
+          14.539,
+          14.54,
+          14.54,
+          14.54,
+          14.54,
+          14.54,
+          14.54
+        ],
+        "minimum_ns": 14.539
+      },
+      "same_audio_hold": {
+        "slacks_ns": [
+          0.327,
+          0.328,
+          0.329,
+          0.335,
+          0.34,
+          0.372,
+          0.381,
+          0.386,
+          0.401,
+          0.405
+        ],
+        "minimum_ns": 0.327
+      },
+      "min_pulse_width": {
+        "slacks_ns": [
+          1.041
+        ],
+        "minimum_ns": 1.041
+      }
+    },
+    "corner_5": {
+      "same_game_setup": {
+        "slacks_ns": [
+          7.838,
+          7.88,
+          7.88,
+          7.88,
+          7.892,
+          7.895,
+          7.926,
+          7.934,
+          7.934,
+          7.949
+        ],
+        "minimum_ns": 7.838
+      },
+      "same_game_hold": {
+        "slacks_ns": [
+          0.113,
+          0.117,
+          0.118,
+          0.119,
+          0.119,
+          0.119,
+          0.119,
+          0.12,
+          0.12,
+          0.12
+        ],
+        "minimum_ns": 0.113
+      },
+      "same_audio_setup": {
+        "slacks_ns": [
+          29.517,
+          29.517,
+          29.518,
+          29.518,
+          29.519,
+          29.519,
+          29.521,
+          29.521,
+          29.522,
+          29.522
+        ],
+        "minimum_ns": 29.517
+      },
+      "same_audio_hold": {
+        "slacks_ns": [
+          0.162,
+          0.166,
+          0.166,
+          0.166,
+          0.166,
+          0.166,
+          0.166,
+          0.166,
+          0.166,
+          0.166
+        ],
+        "minimum_ns": 0.162
+      },
+      "min_pulse_width": {
+        "slacks_ns": [
+          1.041
+        ],
+        "minimum_ns": 1.041
+      }
+    },
+    "corner_6": {
+      "same_game_setup": {
+        "slacks_ns": [
+          7.769,
+          7.813,
+          7.815,
+          7.822,
+          7.824,
+          7.827,
+          7.866,
+          7.868,
+          7.868,
+          7.88
+        ],
+        "minimum_ns": 7.769
+      },
+      "same_game_hold": {
+        "slacks_ns": [
+          0.118,
+          0.119,
+          0.121,
+          0.122,
+          0.122,
+          0.122,
+          0.123,
+          0.123,
+          0.124,
+          0.124
+        ],
+        "minimum_ns": 0.118
+      },
+      "same_audio_setup": {
+        "slacks_ns": [
+          29.212,
+          29.212,
+          29.213,
+          29.213,
+          29.214,
+          29.214,
+          29.216,
+          29.216,
+          29.219,
+          29.222
+        ],
+        "minimum_ns": 29.212
+      },
+      "same_audio_hold": {
+        "slacks_ns": [
+          0.168,
+          0.17,
+          0.17,
+          0.17,
+          0.17,
+          0.17,
+          0.17,
+          0.17,
+          0.17,
+          0.171
+        ],
+        "minimum_ns": 0.168
+      },
+      "min_pulse_width": {
+        "slacks_ns": [
+          1.041
+        ],
+        "minimum_ns": 1.041
+      }
+    },
+    "corner_7": {
+      "same_game_setup": {
+        "slacks_ns": [
+          7.534,
+          7.578,
+          7.585,
+          7.587,
+          7.603,
+          7.629,
+          7.631,
+          7.64,
+          7.647,
+          7.665
+        ],
+        "minimum_ns": 7.534
+      },
+      "same_game_hold": {
+        "slacks_ns": [
+          0.128,
+          0.131,
+          0.132,
+          0.132,
+          0.133,
+          0.134,
+          0.134,
+          0.134,
+          0.134,
+          0.134
+        ],
+        "minimum_ns": 0.128
+      },
+      "same_audio_setup": {
+        "slacks_ns": [
+          28.304,
+          28.304,
+          28.304,
+          28.304,
+          28.306,
+          28.306,
+          28.309,
+          28.309,
+          28.311,
+          28.343
+        ],
+        "minimum_ns": 28.304
+      },
+      "same_audio_hold": {
+        "slacks_ns": [
+          0.18,
+          0.18,
+          0.181,
+          0.181,
+          0.181,
+          0.181,
+          0.181,
+          0.181,
+          0.181,
+          0.181
+        ],
+        "minimum_ns": 0.18
+      },
+      "min_pulse_width": {
+        "slacks_ns": [
+          1.041
+        ],
+        "minimum_ns": 1.041
+      }
+    },
+    "corner_8": {
+      "same_game_setup": {
+        "slacks_ns": [
+          7.49,
+          7.531,
+          7.544,
+          7.546,
+          7.562,
+          7.585,
+          7.587,
+          7.603,
+          7.61,
+          7.629
+        ],
+        "minimum_ns": 7.49
+      },
+      "same_game_hold": {
+        "slacks_ns": [
+          0.13,
+          0.135,
+          0.135,
+          0.136,
+          0.137,
+          0.137,
+          0.137,
+          0.137,
+          0.138,
+          0.138
+        ],
+        "minimum_ns": 0.13
+      },
+      "same_audio_setup": {
+        "slacks_ns": [
+          27.996,
+          27.996,
+          27.997,
+          27.997,
+          27.999,
+          27.999,
+          28.001,
+          28.001,
+          28.004,
+          28.038
+        ],
+        "minimum_ns": 27.996
+      },
+      "same_audio_hold": {
+        "slacks_ns": [
+          0.179,
+          0.179,
+          0.179,
+          0.18,
+          0.18,
+          0.18,
+          0.181,
+          0.181,
+          0.181,
+          0.181
+        ],
+        "minimum_ns": 0.179
+      },
+      "min_pulse_width": {
+        "slacks_ns": [
+          1.041
+        ],
+        "minimum_ns": 1.041
+      }
+    }
+  },
+  "inherited_clock_group_inventory": "game pattern=*|pll|pll_inst|altera_pll_i|*[*].*|divclk count=0\nhdmi pattern=pll_hdmi|pll_hdmi_inst|altera_pll_i|*[0].*|divclk count=1\n  pll_hdmi|pll_hdmi_inst|altera_pll_i|cyclonev_pll|counter[0].output_counter|divclk\naudio pattern=pll_audio|pll_audio_inst|altera_pll_i|*[0].*|divclk count=1\n  pll_audio|pll_audio_inst|altera_pll_i|general[0].gpll~PLL_OUTPUT_COUNTER|divclk\nspi pattern=spi_sck count=1\n  spi_sck\nhdmi_i2c pattern=hdmi_sck count=1\n  hdmi_sck\nhps pattern=*|h2f_user0_clk count=1\n  sysmem|fpga_interfaces|clocks_resets|h2f_user0_clk\nref1 pattern=FPGA_CLK1_50 count=1\n  FPGA_CLK1_50\nref2 pattern=FPGA_CLK2_50 count=1\n  FPGA_CLK2_50\nref3 pattern=FPGA_CLK3_50 count=1\n  FPGA_CLK3_50\n",
+  "clock_reports": {
+    "corner_1": "+---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+\n; Clocks                                                                                                                                                                                                                                                                                                                                                                                                                                                                                            ;\n+-----------------------------------------------------------------------------------+-----------+---------+------------+--------+--------+------------+-----------+-------------+-------+--------+-----------+------------+----------+-------------------------------------------------------------------------------+--------------------------------------------------------------------------------------+---------------------------------------------------------------------------------------+\n; Clock Name                                                                        ; Type      ; Period  ; Frequency  ; Rise   ; Fall   ; Duty Cycle ; Divide by ; Multiply by ; Phase ; Offset ; Edge List ; Edge Shift ; Inverted ; Master                                                                        ; Source                                                                               ; Targets                                                                               ;\n+-----------------------------------------------------------------------------------+-----------+---------+------------+--------+--------+------------+-----------+-------------+-------+--------+-----------+------------+----------+-------------------------------------------------------------------------------+--------------------------------------------------------------------------------------+---------------------------------------------------------------------------------------+\n; emu|pll|pll|general[0].gpll~FRACTIONAL_PLL|vcoph[0]                               ; Generated ; 2.083   ; 480.0 MHz  ; 0.000  ; 1.041  ; 50.00      ; 5         ; 48          ;       ;        ;           ;            ; false    ; FPGA_CLK2_50                                                                  ; emu|pll|pll|general[0].gpll~FRACTIONAL_PLL|refclkin                                  ; { emu|pll|pll|general[0].gpll~FRACTIONAL_PLL|vcoph[0] }                               ;\n; emu|pll|pll|general[0].gpll~PLL_OUTPUT_COUNTER|divclk                             ; Generated ; 20.833  ; 48.0 MHz   ; 0.000  ; 10.416 ; 50.00      ; 10        ; 1           ;       ;        ;           ;            ; false    ; emu|pll|pll|general[0].gpll~FRACTIONAL_PLL|vcoph[0]                           ; emu|pll|pll|general[0].gpll~PLL_OUTPUT_COUNTER|vco0ph[0]                             ; { emu|pll|pll|general[0].gpll~PLL_OUTPUT_COUNTER|divclk }                             ;\n; emu|pll|pll|general[1].gpll~PLL_OUTPUT_COUNTER|divclk                             ; Generated ; 20.833  ; 48.0 MHz   ; 10.416 ; 20.832 ; 50.00      ; 10        ; 1           ; 180.0 ;        ;           ;            ; false    ; emu|pll|pll|general[0].gpll~FRACTIONAL_PLL|vcoph[0]                           ; emu|pll|pll|general[1].gpll~PLL_OUTPUT_COUNTER|vco0ph[0]                             ; { emu|pll|pll|general[1].gpll~PLL_OUTPUT_COUNTER|divclk }                             ;\n; FPGA_CLK1_50                                                                      ; Base      ; 20.000  ; 50.0 MHz   ; 0.000  ; 10.000 ;            ;           ;             ;       ;        ;           ;            ;          ;                                                                               ;                                                                                      ; { FPGA_CLK1_50 }                                                                      ;\n; FPGA_CLK2_50                                                                      ; Base      ; 20.000  ; 50.0 MHz   ; 0.000  ; 10.000 ;            ;           ;             ;       ;        ;           ;            ;          ;                                                                               ;                                                                                      ; { FPGA_CLK2_50 }                                                                      ;\n; FPGA_CLK3_50                                                                      ; Base      ; 20.000  ; 50.0 MHz   ; 0.000  ; 10.000 ;            ;           ;             ;       ;        ;           ;            ;          ;                                                                               ;                                                                                      ; { FPGA_CLK3_50 }                                                                      ;\n; hdmi_sck                                                                          ; Base      ; 100.000 ; 10.0 MHz   ; 0.000  ; 50.000 ;            ;           ;             ;       ;        ;           ;            ;          ;                                                                               ;                                                                                      ; { hdmi_i2c|out_clk }                                                                  ;\n; pll_audio|pll_audio_inst|altera_pll_i|general[0].gpll~FRACTIONAL_PLL|vcoph[0]     ; Generated ; 2.393   ; 417.87 MHz ; 0.000  ; 1.196  ; 50.00      ; 512       ; 4279        ;       ;        ;           ;            ; false    ; FPGA_CLK3_50                                                                  ; pll_audio|pll_audio_inst|altera_pll_i|general[0].gpll~FRACTIONAL_PLL|refclkin        ; { pll_audio|pll_audio_inst|altera_pll_i|general[0].gpll~FRACTIONAL_PLL|vcoph[0] }     ;\n; pll_audio|pll_audio_inst|altera_pll_i|general[0].gpll~PLL_OUTPUT_COUNTER|divclk   ; Generated ; 40.682  ; 24.58 MHz  ; 0.000  ; 20.341 ; 50.00      ; 17        ; 1           ;       ;        ;           ;            ; false    ; pll_audio|pll_audio_inst|altera_pll_i|general[0].gpll~FRACTIONAL_PLL|vcoph[0] ; pll_audio|pll_audio_inst|altera_pll_i|general[0].gpll~PLL_OUTPUT_COUNTER|vco0ph[0]   ; { pll_audio|pll_audio_inst|altera_pll_i|general[0].gpll~PLL_OUTPUT_COUNTER|divclk }   ;\n; pll_hdmi|pll_hdmi_inst|altera_pll_i|cyclonev_pll|counter[0].output_counter|divclk ; Generated ; 6.732   ; 148.54 MHz ; 0.000  ; 3.366  ; 50.00      ; 3         ; 1           ;       ;        ;           ;            ; false    ; pll_hdmi|pll_hdmi_inst|altera_pll_i|cyclonev_pll|fpll_0|fpll|vcoph[0]         ; pll_hdmi|pll_hdmi_inst|altera_pll_i|cyclonev_pll|counter[0].output_counter|vco0ph[0] ; { pll_hdmi|pll_hdmi_inst|altera_pll_i|cyclonev_pll|counter[0].output_counter|divclk } ;\n; pll_hdmi|pll_hdmi_inst|altera_pll_i|cyclonev_pll|fpll_0|fpll|vcoph[0]             ; Generated ; 2.244   ; 445.61 MHz ; 0.000  ; 1.122  ; 50.00      ; 512       ; 4563        ;       ;        ;           ;            ; false    ; FPGA_CLK1_50                                                                  ; pll_hdmi|pll_hdmi_inst|altera_pll_i|cyclonev_pll|fpll_0|fpll|refclkin                ; { pll_hdmi|pll_hdmi_inst|altera_pll_i|cyclonev_pll|fpll_0|fpll|vcoph[0] }             ;\n; spi_sck                                                                           ; Base      ; 10.000  ; 100.0 MHz  ; 0.000  ; 5.000  ;            ;           ;             ;       ;        ;           ;            ;          ;                                                                               ;                                                                                      ; { spi|sclk_out }                                                                      ;\n; sysmem|fpga_interfaces|clocks_resets|h2f_user0_clk                                ; Base      ; 10.000  ; 100.0 MHz  ; 0.000  ; 5.000  ;            ;           ;             ;       ;        ;           ;            ;          ;                                                                               ;                                                                                      ; { sysmem|fpga_interfaces|clocks_resets|h2f_user0_clk }                                ;\n+-----------------------------------------------------------------------------------+-----------+---------+------------+--------+--------+------------+-----------+-------------+-------+--------+-----------+------------+----------+-------------------------------------------------------------------------------+--------------------------------------------------------------------------------------+---------------------------------------------------------------------------------------+\n",
+    "corner_2": "+---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+\n; Clocks                                                                                                                                                                                                                                                                                                                                                                                                                                                                                            ;\n+-----------------------------------------------------------------------------------+-----------+---------+------------+--------+--------+------------+-----------+-------------+-------+--------+-----------+------------+----------+-------------------------------------------------------------------------------+--------------------------------------------------------------------------------------+---------------------------------------------------------------------------------------+\n; Clock Name                                                                        ; Type      ; Period  ; Frequency  ; Rise   ; Fall   ; Duty Cycle ; Divide by ; Multiply by ; Phase ; Offset ; Edge List ; Edge Shift ; Inverted ; Master                                                                        ; Source                                                                               ; Targets                                                                               ;\n+-----------------------------------------------------------------------------------+-----------+---------+------------+--------+--------+------------+-----------+-------------+-------+--------+-----------+------------+----------+-------------------------------------------------------------------------------+--------------------------------------------------------------------------------------+---------------------------------------------------------------------------------------+\n; emu|pll|pll|general[0].gpll~FRACTIONAL_PLL|vcoph[0]                               ; Generated ; 2.083   ; 480.0 MHz  ; 0.000  ; 1.041  ; 50.00      ; 5         ; 48          ;       ;        ;           ;            ; false    ; FPGA_CLK2_50                                                                  ; emu|pll|pll|general[0].gpll~FRACTIONAL_PLL|refclkin                                  ; { emu|pll|pll|general[0].gpll~FRACTIONAL_PLL|vcoph[0] }                               ;\n; emu|pll|pll|general[0].gpll~PLL_OUTPUT_COUNTER|divclk                             ; Generated ; 20.833  ; 48.0 MHz   ; 0.000  ; 10.416 ; 50.00      ; 10        ; 1           ;       ;        ;           ;            ; false    ; emu|pll|pll|general[0].gpll~FRACTIONAL_PLL|vcoph[0]                           ; emu|pll|pll|general[0].gpll~PLL_OUTPUT_COUNTER|vco0ph[0]                             ; { emu|pll|pll|general[0].gpll~PLL_OUTPUT_COUNTER|divclk }                             ;\n; emu|pll|pll|general[1].gpll~PLL_OUTPUT_COUNTER|divclk                             ; Generated ; 20.833  ; 48.0 MHz   ; 10.416 ; 20.832 ; 50.00      ; 10        ; 1           ; 180.0 ;        ;           ;            ; false    ; emu|pll|pll|general[0].gpll~FRACTIONAL_PLL|vcoph[0]                           ; emu|pll|pll|general[1].gpll~PLL_OUTPUT_COUNTER|vco0ph[0]                             ; { emu|pll|pll|general[1].gpll~PLL_OUTPUT_COUNTER|divclk }                             ;\n; FPGA_CLK1_50                                                                      ; Base      ; 20.000  ; 50.0 MHz   ; 0.000  ; 10.000 ;            ;           ;             ;       ;        ;           ;            ;          ;                                                                               ;                                                                                      ; { FPGA_CLK1_50 }                                                                      ;\n; FPGA_CLK2_50                                                                      ; Base      ; 20.000  ; 50.0 MHz   ; 0.000  ; 10.000 ;            ;           ;             ;       ;        ;           ;            ;          ;                                                                               ;                                                                                      ; { FPGA_CLK2_50 }                                                                      ;\n; FPGA_CLK3_50                                                                      ; Base      ; 20.000  ; 50.0 MHz   ; 0.000  ; 10.000 ;            ;           ;             ;       ;        ;           ;            ;          ;                                                                               ;                                                                                      ; { FPGA_CLK3_50 }                                                                      ;\n; hdmi_sck                                                                          ; Base      ; 100.000 ; 10.0 MHz   ; 0.000  ; 50.000 ;            ;           ;             ;       ;        ;           ;            ;          ;                                                                               ;                                                                                      ; { hdmi_i2c|out_clk }                                                                  ;\n; pll_audio|pll_audio_inst|altera_pll_i|general[0].gpll~FRACTIONAL_PLL|vcoph[0]     ; Generated ; 2.393   ; 417.87 MHz ; 0.000  ; 1.196  ; 50.00      ; 512       ; 4279        ;       ;        ;           ;            ; false    ; FPGA_CLK3_50                                                                  ; pll_audio|pll_audio_inst|altera_pll_i|general[0].gpll~FRACTIONAL_PLL|refclkin        ; { pll_audio|pll_audio_inst|altera_pll_i|general[0].gpll~FRACTIONAL_PLL|vcoph[0] }     ;\n; pll_audio|pll_audio_inst|altera_pll_i|general[0].gpll~PLL_OUTPUT_COUNTER|divclk   ; Generated ; 40.682  ; 24.58 MHz  ; 0.000  ; 20.341 ; 50.00      ; 17        ; 1           ;       ;        ;           ;            ; false    ; pll_audio|pll_audio_inst|altera_pll_i|general[0].gpll~FRACTIONAL_PLL|vcoph[0] ; pll_audio|pll_audio_inst|altera_pll_i|general[0].gpll~PLL_OUTPUT_COUNTER|vco0ph[0]   ; { pll_audio|pll_audio_inst|altera_pll_i|general[0].gpll~PLL_OUTPUT_COUNTER|divclk }   ;\n; pll_hdmi|pll_hdmi_inst|altera_pll_i|cyclonev_pll|counter[0].output_counter|divclk ; Generated ; 6.732   ; 148.54 MHz ; 0.000  ; 3.366  ; 50.00      ; 3         ; 1           ;       ;        ;           ;            ; false    ; pll_hdmi|pll_hdmi_inst|altera_pll_i|cyclonev_pll|fpll_0|fpll|vcoph[0]         ; pll_hdmi|pll_hdmi_inst|altera_pll_i|cyclonev_pll|counter[0].output_counter|vco0ph[0] ; { pll_hdmi|pll_hdmi_inst|altera_pll_i|cyclonev_pll|counter[0].output_counter|divclk } ;\n; pll_hdmi|pll_hdmi_inst|altera_pll_i|cyclonev_pll|fpll_0|fpll|vcoph[0]             ; Generated ; 2.244   ; 445.61 MHz ; 0.000  ; 1.122  ; 50.00      ; 512       ; 4563        ;       ;        ;           ;            ; false    ; FPGA_CLK1_50                                                                  ; pll_hdmi|pll_hdmi_inst|altera_pll_i|cyclonev_pll|fpll_0|fpll|refclkin                ; { pll_hdmi|pll_hdmi_inst|altera_pll_i|cyclonev_pll|fpll_0|fpll|vcoph[0] }             ;\n; spi_sck                                                                           ; Base      ; 10.000  ; 100.0 MHz  ; 0.000  ; 5.000  ;            ;           ;             ;       ;        ;           ;            ;          ;                                                                               ;                                                                                      ; { spi|sclk_out }                                                                      ;\n; sysmem|fpga_interfaces|clocks_resets|h2f_user0_clk                                ; Base      ; 10.000  ; 100.0 MHz  ; 0.000  ; 5.000  ;            ;           ;             ;       ;        ;           ;            ;          ;                                                                               ;                                                                                      ; { sysmem|fpga_interfaces|clocks_resets|h2f_user0_clk }                                ;\n+-----------------------------------------------------------------------------------+-----------+---------+------------+--------+--------+------------+-----------+-------------+-------+--------+-----------+------------+----------+-------------------------------------------------------------------------------+--------------------------------------------------------------------------------------+---------------------------------------------------------------------------------------+\n",
+    "corner_3": "+---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+\n; Clocks                                                                                                                                                                                                                                                                                                                                                                                                                                                                                            ;\n+-----------------------------------------------------------------------------------+-----------+---------+------------+--------+--------+------------+-----------+-------------+-------+--------+-----------+------------+----------+-------------------------------------------------------------------------------+--------------------------------------------------------------------------------------+---------------------------------------------------------------------------------------+\n; Clock Name                                                                        ; Type      ; Period  ; Frequency  ; Rise   ; Fall   ; Duty Cycle ; Divide by ; Multiply by ; Phase ; Offset ; Edge List ; Edge Shift ; Inverted ; Master                                                                        ; Source                                                                               ; Targets                                                                               ;\n+-----------------------------------------------------------------------------------+-----------+---------+------------+--------+--------+------------+-----------+-------------+-------+--------+-----------+------------+----------+-------------------------------------------------------------------------------+--------------------------------------------------------------------------------------+---------------------------------------------------------------------------------------+\n; emu|pll|pll|general[0].gpll~FRACTIONAL_PLL|vcoph[0]                               ; Generated ; 2.083   ; 480.0 MHz  ; 0.000  ; 1.041  ; 50.00      ; 5         ; 48          ;       ;        ;           ;            ; false    ; FPGA_CLK2_50                                                                  ; emu|pll|pll|general[0].gpll~FRACTIONAL_PLL|refclkin                                  ; { emu|pll|pll|general[0].gpll~FRACTIONAL_PLL|vcoph[0] }                               ;\n; emu|pll|pll|general[0].gpll~PLL_OUTPUT_COUNTER|divclk                             ; Generated ; 20.833  ; 48.0 MHz   ; 0.000  ; 10.416 ; 50.00      ; 10        ; 1           ;       ;        ;           ;            ; false    ; emu|pll|pll|general[0].gpll~FRACTIONAL_PLL|vcoph[0]                           ; emu|pll|pll|general[0].gpll~PLL_OUTPUT_COUNTER|vco0ph[0]                             ; { emu|pll|pll|general[0].gpll~PLL_OUTPUT_COUNTER|divclk }                             ;\n; emu|pll|pll|general[1].gpll~PLL_OUTPUT_COUNTER|divclk                             ; Generated ; 20.833  ; 48.0 MHz   ; 10.416 ; 20.832 ; 50.00      ; 10        ; 1           ; 180.0 ;        ;           ;            ; false    ; emu|pll|pll|general[0].gpll~FRACTIONAL_PLL|vcoph[0]                           ; emu|pll|pll|general[1].gpll~PLL_OUTPUT_COUNTER|vco0ph[0]                             ; { emu|pll|pll|general[1].gpll~PLL_OUTPUT_COUNTER|divclk }                             ;\n; FPGA_CLK1_50                                                                      ; Base      ; 20.000  ; 50.0 MHz   ; 0.000  ; 10.000 ;            ;           ;             ;       ;        ;           ;            ;          ;                                                                               ;                                                                                      ; { FPGA_CLK1_50 }                                                                      ;\n; FPGA_CLK2_50                                                                      ; Base      ; 20.000  ; 50.0 MHz   ; 0.000  ; 10.000 ;            ;           ;             ;       ;        ;           ;            ;          ;                                                                               ;                                                                                      ; { FPGA_CLK2_50 }                                                                      ;\n; FPGA_CLK3_50                                                                      ; Base      ; 20.000  ; 50.0 MHz   ; 0.000  ; 10.000 ;            ;           ;             ;       ;        ;           ;            ;          ;                                                                               ;                                                                                      ; { FPGA_CLK3_50 }                                                                      ;\n; hdmi_sck                                                                          ; Base      ; 100.000 ; 10.0 MHz   ; 0.000  ; 50.000 ;            ;           ;             ;       ;        ;           ;            ;          ;                                                                               ;                                                                                      ; { hdmi_i2c|out_clk }                                                                  ;\n; pll_audio|pll_audio_inst|altera_pll_i|general[0].gpll~FRACTIONAL_PLL|vcoph[0]     ; Generated ; 2.393   ; 417.87 MHz ; 0.000  ; 1.196  ; 50.00      ; 512       ; 4279        ;       ;        ;           ;            ; false    ; FPGA_CLK3_50                                                                  ; pll_audio|pll_audio_inst|altera_pll_i|general[0].gpll~FRACTIONAL_PLL|refclkin        ; { pll_audio|pll_audio_inst|altera_pll_i|general[0].gpll~FRACTIONAL_PLL|vcoph[0] }     ;\n; pll_audio|pll_audio_inst|altera_pll_i|general[0].gpll~PLL_OUTPUT_COUNTER|divclk   ; Generated ; 40.682  ; 24.58 MHz  ; 0.000  ; 20.341 ; 50.00      ; 17        ; 1           ;       ;        ;           ;            ; false    ; pll_audio|pll_audio_inst|altera_pll_i|general[0].gpll~FRACTIONAL_PLL|vcoph[0] ; pll_audio|pll_audio_inst|altera_pll_i|general[0].gpll~PLL_OUTPUT_COUNTER|vco0ph[0]   ; { pll_audio|pll_audio_inst|altera_pll_i|general[0].gpll~PLL_OUTPUT_COUNTER|divclk }   ;\n; pll_hdmi|pll_hdmi_inst|altera_pll_i|cyclonev_pll|counter[0].output_counter|divclk ; Generated ; 6.732   ; 148.54 MHz ; 0.000  ; 3.366  ; 50.00      ; 3         ; 1           ;       ;        ;           ;            ; false    ; pll_hdmi|pll_hdmi_inst|altera_pll_i|cyclonev_pll|fpll_0|fpll|vcoph[0]         ; pll_hdmi|pll_hdmi_inst|altera_pll_i|cyclonev_pll|counter[0].output_counter|vco0ph[0] ; { pll_hdmi|pll_hdmi_inst|altera_pll_i|cyclonev_pll|counter[0].output_counter|divclk } ;\n; pll_hdmi|pll_hdmi_inst|altera_pll_i|cyclonev_pll|fpll_0|fpll|vcoph[0]             ; Generated ; 2.244   ; 445.61 MHz ; 0.000  ; 1.122  ; 50.00      ; 512       ; 4563        ;       ;        ;           ;            ; false    ; FPGA_CLK1_50                                                                  ; pll_hdmi|pll_hdmi_inst|altera_pll_i|cyclonev_pll|fpll_0|fpll|refclkin                ; { pll_hdmi|pll_hdmi_inst|altera_pll_i|cyclonev_pll|fpll_0|fpll|vcoph[0] }             ;\n; spi_sck                                                                           ; Base      ; 10.000  ; 100.0 MHz  ; 0.000  ; 5.000  ;            ;           ;             ;       ;        ;           ;            ;          ;                                                                               ;                                                                                      ; { spi|sclk_out }                                                                      ;\n; sysmem|fpga_interfaces|clocks_resets|h2f_user0_clk                                ; Base      ; 10.000  ; 100.0 MHz  ; 0.000  ; 5.000  ;            ;           ;             ;       ;        ;           ;            ;          ;                                                                               ;                                                                                      ; { sysmem|fpga_interfaces|clocks_resets|h2f_user0_clk }                                ;\n+-----------------------------------------------------------------------------------+-----------+---------+------------+--------+--------+------------+-----------+-------------+-------+--------+-----------+------------+----------+-------------------------------------------------------------------------------+--------------------------------------------------------------------------------------+---------------------------------------------------------------------------------------+\n",
+    "corner_4": "+---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+\n; Clocks                                                                                                                                                                                                                                                                                                                                                                                                                                                                                            ;\n+-----------------------------------------------------------------------------------+-----------+---------+------------+--------+--------+------------+-----------+-------------+-------+--------+-----------+------------+----------+-------------------------------------------------------------------------------+--------------------------------------------------------------------------------------+---------------------------------------------------------------------------------------+\n; Clock Name                                                                        ; Type      ; Period  ; Frequency  ; Rise   ; Fall   ; Duty Cycle ; Divide by ; Multiply by ; Phase ; Offset ; Edge List ; Edge Shift ; Inverted ; Master                                                                        ; Source                                                                               ; Targets                                                                               ;\n+-----------------------------------------------------------------------------------+-----------+---------+------------+--------+--------+------------+-----------+-------------+-------+--------+-----------+------------+----------+-------------------------------------------------------------------------------+--------------------------------------------------------------------------------------+---------------------------------------------------------------------------------------+\n; emu|pll|pll|general[0].gpll~FRACTIONAL_PLL|vcoph[0]                               ; Generated ; 2.083   ; 480.0 MHz  ; 0.000  ; 1.041  ; 50.00      ; 5         ; 48          ;       ;        ;           ;            ; false    ; FPGA_CLK2_50                                                                  ; emu|pll|pll|general[0].gpll~FRACTIONAL_PLL|refclkin                                  ; { emu|pll|pll|general[0].gpll~FRACTIONAL_PLL|vcoph[0] }                               ;\n; emu|pll|pll|general[0].gpll~PLL_OUTPUT_COUNTER|divclk                             ; Generated ; 20.833  ; 48.0 MHz   ; 0.000  ; 10.416 ; 50.00      ; 10        ; 1           ;       ;        ;           ;            ; false    ; emu|pll|pll|general[0].gpll~FRACTIONAL_PLL|vcoph[0]                           ; emu|pll|pll|general[0].gpll~PLL_OUTPUT_COUNTER|vco0ph[0]                             ; { emu|pll|pll|general[0].gpll~PLL_OUTPUT_COUNTER|divclk }                             ;\n; emu|pll|pll|general[1].gpll~PLL_OUTPUT_COUNTER|divclk                             ; Generated ; 20.833  ; 48.0 MHz   ; 10.416 ; 20.832 ; 50.00      ; 10        ; 1           ; 180.0 ;        ;           ;            ; false    ; emu|pll|pll|general[0].gpll~FRACTIONAL_PLL|vcoph[0]                           ; emu|pll|pll|general[1].gpll~PLL_OUTPUT_COUNTER|vco0ph[0]                             ; { emu|pll|pll|general[1].gpll~PLL_OUTPUT_COUNTER|divclk }                             ;\n; FPGA_CLK1_50                                                                      ; Base      ; 20.000  ; 50.0 MHz   ; 0.000  ; 10.000 ;            ;           ;             ;       ;        ;           ;            ;          ;                                                                               ;                                                                                      ; { FPGA_CLK1_50 }                                                                      ;\n; FPGA_CLK2_50                                                                      ; Base      ; 20.000  ; 50.0 MHz   ; 0.000  ; 10.000 ;            ;           ;             ;       ;        ;           ;            ;          ;                                                                               ;                                                                                      ; { FPGA_CLK2_50 }                                                                      ;\n; FPGA_CLK3_50                                                                      ; Base      ; 20.000  ; 50.0 MHz   ; 0.000  ; 10.000 ;            ;           ;             ;       ;        ;           ;            ;          ;                                                                               ;                                                                                      ; { FPGA_CLK3_50 }                                                                      ;\n; hdmi_sck                                                                          ; Base      ; 100.000 ; 10.0 MHz   ; 0.000  ; 50.000 ;            ;           ;             ;       ;        ;           ;            ;          ;                                                                               ;                                                                                      ; { hdmi_i2c|out_clk }                                                                  ;\n; pll_audio|pll_audio_inst|altera_pll_i|general[0].gpll~FRACTIONAL_PLL|vcoph[0]     ; Generated ; 2.393   ; 417.87 MHz ; 0.000  ; 1.196  ; 50.00      ; 512       ; 4279        ;       ;        ;           ;            ; false    ; FPGA_CLK3_50                                                                  ; pll_audio|pll_audio_inst|altera_pll_i|general[0].gpll~FRACTIONAL_PLL|refclkin        ; { pll_audio|pll_audio_inst|altera_pll_i|general[0].gpll~FRACTIONAL_PLL|vcoph[0] }     ;\n; pll_audio|pll_audio_inst|altera_pll_i|general[0].gpll~PLL_OUTPUT_COUNTER|divclk   ; Generated ; 40.682  ; 24.58 MHz  ; 0.000  ; 20.341 ; 50.00      ; 17        ; 1           ;       ;        ;           ;            ; false    ; pll_audio|pll_audio_inst|altera_pll_i|general[0].gpll~FRACTIONAL_PLL|vcoph[0] ; pll_audio|pll_audio_inst|altera_pll_i|general[0].gpll~PLL_OUTPUT_COUNTER|vco0ph[0]   ; { pll_audio|pll_audio_inst|altera_pll_i|general[0].gpll~PLL_OUTPUT_COUNTER|divclk }   ;\n; pll_hdmi|pll_hdmi_inst|altera_pll_i|cyclonev_pll|counter[0].output_counter|divclk ; Generated ; 6.732   ; 148.54 MHz ; 0.000  ; 3.366  ; 50.00      ; 3         ; 1           ;       ;        ;           ;            ; false    ; pll_hdmi|pll_hdmi_inst|altera_pll_i|cyclonev_pll|fpll_0|fpll|vcoph[0]         ; pll_hdmi|pll_hdmi_inst|altera_pll_i|cyclonev_pll|counter[0].output_counter|vco0ph[0] ; { pll_hdmi|pll_hdmi_inst|altera_pll_i|cyclonev_pll|counter[0].output_counter|divclk } ;\n; pll_hdmi|pll_hdmi_inst|altera_pll_i|cyclonev_pll|fpll_0|fpll|vcoph[0]             ; Generated ; 2.244   ; 445.61 MHz ; 0.000  ; 1.122  ; 50.00      ; 512       ; 4563        ;       ;        ;           ;            ; false    ; FPGA_CLK1_50                                                                  ; pll_hdmi|pll_hdmi_inst|altera_pll_i|cyclonev_pll|fpll_0|fpll|refclkin                ; { pll_hdmi|pll_hdmi_inst|altera_pll_i|cyclonev_pll|fpll_0|fpll|vcoph[0] }             ;\n; spi_sck                                                                           ; Base      ; 10.000  ; 100.0 MHz  ; 0.000  ; 5.000  ;            ;           ;             ;       ;        ;           ;            ;          ;                                                                               ;                                                                                      ; { spi|sclk_out }                                                                      ;\n; sysmem|fpga_interfaces|clocks_resets|h2f_user0_clk                                ; Base      ; 10.000  ; 100.0 MHz  ; 0.000  ; 5.000  ;            ;           ;             ;       ;        ;           ;            ;          ;                                                                               ;                                                                                      ; { sysmem|fpga_interfaces|clocks_resets|h2f_user0_clk }                                ;\n+-----------------------------------------------------------------------------------+-----------+---------+------------+--------+--------+------------+-----------+-------------+-------+--------+-----------+------------+----------+-------------------------------------------------------------------------------+--------------------------------------------------------------------------------------+---------------------------------------------------------------------------------------+\n",
+    "corner_5": "+---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+\n; Clocks                                                                                                                                                                                                                                                                                                                                                                                                                                                                                            ;\n+-----------------------------------------------------------------------------------+-----------+---------+------------+--------+--------+------------+-----------+-------------+-------+--------+-----------+------------+----------+-------------------------------------------------------------------------------+--------------------------------------------------------------------------------------+---------------------------------------------------------------------------------------+\n; Clock Name                                                                        ; Type      ; Period  ; Frequency  ; Rise   ; Fall   ; Duty Cycle ; Divide by ; Multiply by ; Phase ; Offset ; Edge List ; Edge Shift ; Inverted ; Master                                                                        ; Source                                                                               ; Targets                                                                               ;\n+-----------------------------------------------------------------------------------+-----------+---------+------------+--------+--------+------------+-----------+-------------+-------+--------+-----------+------------+----------+-------------------------------------------------------------------------------+--------------------------------------------------------------------------------------+---------------------------------------------------------------------------------------+\n; emu|pll|pll|general[0].gpll~FRACTIONAL_PLL|vcoph[0]                               ; Generated ; 2.083   ; 480.0 MHz  ; 0.000  ; 1.041  ; 50.00      ; 5         ; 48          ;       ;        ;           ;            ; false    ; FPGA_CLK2_50                                                                  ; emu|pll|pll|general[0].gpll~FRACTIONAL_PLL|refclkin                                  ; { emu|pll|pll|general[0].gpll~FRACTIONAL_PLL|vcoph[0] }                               ;\n; emu|pll|pll|general[0].gpll~PLL_OUTPUT_COUNTER|divclk                             ; Generated ; 20.833  ; 48.0 MHz   ; 0.000  ; 10.416 ; 50.00      ; 10        ; 1           ;       ;        ;           ;            ; false    ; emu|pll|pll|general[0].gpll~FRACTIONAL_PLL|vcoph[0]                           ; emu|pll|pll|general[0].gpll~PLL_OUTPUT_COUNTER|vco0ph[0]                             ; { emu|pll|pll|general[0].gpll~PLL_OUTPUT_COUNTER|divclk }                             ;\n; emu|pll|pll|general[1].gpll~PLL_OUTPUT_COUNTER|divclk                             ; Generated ; 20.833  ; 48.0 MHz   ; 10.416 ; 20.832 ; 50.00      ; 10        ; 1           ; 180.0 ;        ;           ;            ; false    ; emu|pll|pll|general[0].gpll~FRACTIONAL_PLL|vcoph[0]                           ; emu|pll|pll|general[1].gpll~PLL_OUTPUT_COUNTER|vco0ph[0]                             ; { emu|pll|pll|general[1].gpll~PLL_OUTPUT_COUNTER|divclk }                             ;\n; FPGA_CLK1_50                                                                      ; Base      ; 20.000  ; 50.0 MHz   ; 0.000  ; 10.000 ;            ;           ;             ;       ;        ;           ;            ;          ;                                                                               ;                                                                                      ; { FPGA_CLK1_50 }                                                                      ;\n; FPGA_CLK2_50                                                                      ; Base      ; 20.000  ; 50.0 MHz   ; 0.000  ; 10.000 ;            ;           ;             ;       ;        ;           ;            ;          ;                                                                               ;                                                                                      ; { FPGA_CLK2_50 }                                                                      ;\n; FPGA_CLK3_50                                                                      ; Base      ; 20.000  ; 50.0 MHz   ; 0.000  ; 10.000 ;            ;           ;             ;       ;        ;           ;            ;          ;                                                                               ;                                                                                      ; { FPGA_CLK3_50 }                                                                      ;\n; hdmi_sck                                                                          ; Base      ; 100.000 ; 10.0 MHz   ; 0.000  ; 50.000 ;            ;           ;             ;       ;        ;           ;            ;          ;                                                                               ;                                                                                      ; { hdmi_i2c|out_clk }                                                                  ;\n; pll_audio|pll_audio_inst|altera_pll_i|general[0].gpll~FRACTIONAL_PLL|vcoph[0]     ; Generated ; 2.393   ; 417.87 MHz ; 0.000  ; 1.196  ; 50.00      ; 512       ; 4279        ;       ;        ;           ;            ; false    ; FPGA_CLK3_50                                                                  ; pll_audio|pll_audio_inst|altera_pll_i|general[0].gpll~FRACTIONAL_PLL|refclkin        ; { pll_audio|pll_audio_inst|altera_pll_i|general[0].gpll~FRACTIONAL_PLL|vcoph[0] }     ;\n; pll_audio|pll_audio_inst|altera_pll_i|general[0].gpll~PLL_OUTPUT_COUNTER|divclk   ; Generated ; 40.682  ; 24.58 MHz  ; 0.000  ; 20.341 ; 50.00      ; 17        ; 1           ;       ;        ;           ;            ; false    ; pll_audio|pll_audio_inst|altera_pll_i|general[0].gpll~FRACTIONAL_PLL|vcoph[0] ; pll_audio|pll_audio_inst|altera_pll_i|general[0].gpll~PLL_OUTPUT_COUNTER|vco0ph[0]   ; { pll_audio|pll_audio_inst|altera_pll_i|general[0].gpll~PLL_OUTPUT_COUNTER|divclk }   ;\n; pll_hdmi|pll_hdmi_inst|altera_pll_i|cyclonev_pll|counter[0].output_counter|divclk ; Generated ; 6.732   ; 148.54 MHz ; 0.000  ; 3.366  ; 50.00      ; 3         ; 1           ;       ;        ;           ;            ; false    ; pll_hdmi|pll_hdmi_inst|altera_pll_i|cyclonev_pll|fpll_0|fpll|vcoph[0]         ; pll_hdmi|pll_hdmi_inst|altera_pll_i|cyclonev_pll|counter[0].output_counter|vco0ph[0] ; { pll_hdmi|pll_hdmi_inst|altera_pll_i|cyclonev_pll|counter[0].output_counter|divclk } ;\n; pll_hdmi|pll_hdmi_inst|altera_pll_i|cyclonev_pll|fpll_0|fpll|vcoph[0]             ; Generated ; 2.244   ; 445.61 MHz ; 0.000  ; 1.122  ; 50.00      ; 512       ; 4563        ;       ;        ;           ;            ; false    ; FPGA_CLK1_50                                                                  ; pll_hdmi|pll_hdmi_inst|altera_pll_i|cyclonev_pll|fpll_0|fpll|refclkin                ; { pll_hdmi|pll_hdmi_inst|altera_pll_i|cyclonev_pll|fpll_0|fpll|vcoph[0] }             ;\n; spi_sck                                                                           ; Base      ; 10.000  ; 100.0 MHz  ; 0.000  ; 5.000  ;            ;           ;             ;       ;        ;           ;            ;          ;                                                                               ;                                                                                      ; { spi|sclk_out }                                                                      ;\n; sysmem|fpga_interfaces|clocks_resets|h2f_user0_clk                                ; Base      ; 10.000  ; 100.0 MHz  ; 0.000  ; 5.000  ;            ;           ;             ;       ;        ;           ;            ;          ;                                                                               ;                                                                                      ; { sysmem|fpga_interfaces|clocks_resets|h2f_user0_clk }                                ;\n+-----------------------------------------------------------------------------------+-----------+---------+------------+--------+--------+------------+-----------+-------------+-------+--------+-----------+------------+----------+-------------------------------------------------------------------------------+--------------------------------------------------------------------------------------+---------------------------------------------------------------------------------------+\n",
+    "corner_6": "+---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+\n; Clocks                                                                                                                                                                                                                                                                                                                                                                                                                                                                                            ;\n+-----------------------------------------------------------------------------------+-----------+---------+------------+--------+--------+------------+-----------+-------------+-------+--------+-----------+------------+----------+-------------------------------------------------------------------------------+--------------------------------------------------------------------------------------+---------------------------------------------------------------------------------------+\n; Clock Name                                                                        ; Type      ; Period  ; Frequency  ; Rise   ; Fall   ; Duty Cycle ; Divide by ; Multiply by ; Phase ; Offset ; Edge List ; Edge Shift ; Inverted ; Master                                                                        ; Source                                                                               ; Targets                                                                               ;\n+-----------------------------------------------------------------------------------+-----------+---------+------------+--------+--------+------------+-----------+-------------+-------+--------+-----------+------------+----------+-------------------------------------------------------------------------------+--------------------------------------------------------------------------------------+---------------------------------------------------------------------------------------+\n; emu|pll|pll|general[0].gpll~FRACTIONAL_PLL|vcoph[0]                               ; Generated ; 2.083   ; 480.0 MHz  ; 0.000  ; 1.041  ; 50.00      ; 5         ; 48          ;       ;        ;           ;            ; false    ; FPGA_CLK2_50                                                                  ; emu|pll|pll|general[0].gpll~FRACTIONAL_PLL|refclkin                                  ; { emu|pll|pll|general[0].gpll~FRACTIONAL_PLL|vcoph[0] }                               ;\n; emu|pll|pll|general[0].gpll~PLL_OUTPUT_COUNTER|divclk                             ; Generated ; 20.833  ; 48.0 MHz   ; 0.000  ; 10.416 ; 50.00      ; 10        ; 1           ;       ;        ;           ;            ; false    ; emu|pll|pll|general[0].gpll~FRACTIONAL_PLL|vcoph[0]                           ; emu|pll|pll|general[0].gpll~PLL_OUTPUT_COUNTER|vco0ph[0]                             ; { emu|pll|pll|general[0].gpll~PLL_OUTPUT_COUNTER|divclk }                             ;\n; emu|pll|pll|general[1].gpll~PLL_OUTPUT_COUNTER|divclk                             ; Generated ; 20.833  ; 48.0 MHz   ; 10.416 ; 20.832 ; 50.00      ; 10        ; 1           ; 180.0 ;        ;           ;            ; false    ; emu|pll|pll|general[0].gpll~FRACTIONAL_PLL|vcoph[0]                           ; emu|pll|pll|general[1].gpll~PLL_OUTPUT_COUNTER|vco0ph[0]                             ; { emu|pll|pll|general[1].gpll~PLL_OUTPUT_COUNTER|divclk }                             ;\n; FPGA_CLK1_50                                                                      ; Base      ; 20.000  ; 50.0 MHz   ; 0.000  ; 10.000 ;            ;           ;             ;       ;        ;           ;            ;          ;                                                                               ;                                                                                      ; { FPGA_CLK1_50 }                                                                      ;\n; FPGA_CLK2_50                                                                      ; Base      ; 20.000  ; 50.0 MHz   ; 0.000  ; 10.000 ;            ;           ;             ;       ;        ;           ;            ;          ;                                                                               ;                                                                                      ; { FPGA_CLK2_50 }                                                                      ;\n; FPGA_CLK3_50                                                                      ; Base      ; 20.000  ; 50.0 MHz   ; 0.000  ; 10.000 ;            ;           ;             ;       ;        ;           ;            ;          ;                                                                               ;                                                                                      ; { FPGA_CLK3_50 }                                                                      ;\n; hdmi_sck                                                                          ; Base      ; 100.000 ; 10.0 MHz   ; 0.000  ; 50.000 ;            ;           ;             ;       ;        ;           ;            ;          ;                                                                               ;                                                                                      ; { hdmi_i2c|out_clk }                                                                  ;\n; pll_audio|pll_audio_inst|altera_pll_i|general[0].gpll~FRACTIONAL_PLL|vcoph[0]     ; Generated ; 2.393   ; 417.87 MHz ; 0.000  ; 1.196  ; 50.00      ; 512       ; 4279        ;       ;        ;           ;            ; false    ; FPGA_CLK3_50                                                                  ; pll_audio|pll_audio_inst|altera_pll_i|general[0].gpll~FRACTIONAL_PLL|refclkin        ; { pll_audio|pll_audio_inst|altera_pll_i|general[0].gpll~FRACTIONAL_PLL|vcoph[0] }     ;\n; pll_audio|pll_audio_inst|altera_pll_i|general[0].gpll~PLL_OUTPUT_COUNTER|divclk   ; Generated ; 40.682  ; 24.58 MHz  ; 0.000  ; 20.341 ; 50.00      ; 17        ; 1           ;       ;        ;           ;            ; false    ; pll_audio|pll_audio_inst|altera_pll_i|general[0].gpll~FRACTIONAL_PLL|vcoph[0] ; pll_audio|pll_audio_inst|altera_pll_i|general[0].gpll~PLL_OUTPUT_COUNTER|vco0ph[0]   ; { pll_audio|pll_audio_inst|altera_pll_i|general[0].gpll~PLL_OUTPUT_COUNTER|divclk }   ;\n; pll_hdmi|pll_hdmi_inst|altera_pll_i|cyclonev_pll|counter[0].output_counter|divclk ; Generated ; 6.732   ; 148.54 MHz ; 0.000  ; 3.366  ; 50.00      ; 3         ; 1           ;       ;        ;           ;            ; false    ; pll_hdmi|pll_hdmi_inst|altera_pll_i|cyclonev_pll|fpll_0|fpll|vcoph[0]         ; pll_hdmi|pll_hdmi_inst|altera_pll_i|cyclonev_pll|counter[0].output_counter|vco0ph[0] ; { pll_hdmi|pll_hdmi_inst|altera_pll_i|cyclonev_pll|counter[0].output_counter|divclk } ;\n; pll_hdmi|pll_hdmi_inst|altera_pll_i|cyclonev_pll|fpll_0|fpll|vcoph[0]             ; Generated ; 2.244   ; 445.61 MHz ; 0.000  ; 1.122  ; 50.00      ; 512       ; 4563        ;       ;        ;           ;            ; false    ; FPGA_CLK1_50                                                                  ; pll_hdmi|pll_hdmi_inst|altera_pll_i|cyclonev_pll|fpll_0|fpll|refclkin                ; { pll_hdmi|pll_hdmi_inst|altera_pll_i|cyclonev_pll|fpll_0|fpll|vcoph[0] }             ;\n; spi_sck                                                                           ; Base      ; 10.000  ; 100.0 MHz  ; 0.000  ; 5.000  ;            ;           ;             ;       ;        ;           ;            ;          ;                                                                               ;                                                                                      ; { spi|sclk_out }                                                                      ;\n; sysmem|fpga_interfaces|clocks_resets|h2f_user0_clk                                ; Base      ; 10.000  ; 100.0 MHz  ; 0.000  ; 5.000  ;            ;           ;             ;       ;        ;           ;            ;          ;                                                                               ;                                                                                      ; { sysmem|fpga_interfaces|clocks_resets|h2f_user0_clk }                                ;\n+-----------------------------------------------------------------------------------+-----------+---------+------------+--------+--------+------------+-----------+-------------+-------+--------+-----------+------------+----------+-------------------------------------------------------------------------------+--------------------------------------------------------------------------------------+---------------------------------------------------------------------------------------+\n",
+    "corner_7": "+---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+\n; Clocks                                                                                                                                                                                                                                                                                                                                                                                                                                                                                            ;\n+-----------------------------------------------------------------------------------+-----------+---------+------------+--------+--------+------------+-----------+-------------+-------+--------+-----------+------------+----------+-------------------------------------------------------------------------------+--------------------------------------------------------------------------------------+---------------------------------------------------------------------------------------+\n; Clock Name                                                                        ; Type      ; Period  ; Frequency  ; Rise   ; Fall   ; Duty Cycle ; Divide by ; Multiply by ; Phase ; Offset ; Edge List ; Edge Shift ; Inverted ; Master                                                                        ; Source                                                                               ; Targets                                                                               ;\n+-----------------------------------------------------------------------------------+-----------+---------+------------+--------+--------+------------+-----------+-------------+-------+--------+-----------+------------+----------+-------------------------------------------------------------------------------+--------------------------------------------------------------------------------------+---------------------------------------------------------------------------------------+\n; emu|pll|pll|general[0].gpll~FRACTIONAL_PLL|vcoph[0]                               ; Generated ; 2.083   ; 480.0 MHz  ; 0.000  ; 1.041  ; 50.00      ; 5         ; 48          ;       ;        ;           ;            ; false    ; FPGA_CLK2_50                                                                  ; emu|pll|pll|general[0].gpll~FRACTIONAL_PLL|refclkin                                  ; { emu|pll|pll|general[0].gpll~FRACTIONAL_PLL|vcoph[0] }                               ;\n; emu|pll|pll|general[0].gpll~PLL_OUTPUT_COUNTER|divclk                             ; Generated ; 20.833  ; 48.0 MHz   ; 0.000  ; 10.416 ; 50.00      ; 10        ; 1           ;       ;        ;           ;            ; false    ; emu|pll|pll|general[0].gpll~FRACTIONAL_PLL|vcoph[0]                           ; emu|pll|pll|general[0].gpll~PLL_OUTPUT_COUNTER|vco0ph[0]                             ; { emu|pll|pll|general[0].gpll~PLL_OUTPUT_COUNTER|divclk }                             ;\n; emu|pll|pll|general[1].gpll~PLL_OUTPUT_COUNTER|divclk                             ; Generated ; 20.833  ; 48.0 MHz   ; 10.416 ; 20.832 ; 50.00      ; 10        ; 1           ; 180.0 ;        ;           ;            ; false    ; emu|pll|pll|general[0].gpll~FRACTIONAL_PLL|vcoph[0]                           ; emu|pll|pll|general[1].gpll~PLL_OUTPUT_COUNTER|vco0ph[0]                             ; { emu|pll|pll|general[1].gpll~PLL_OUTPUT_COUNTER|divclk }                             ;\n; FPGA_CLK1_50                                                                      ; Base      ; 20.000  ; 50.0 MHz   ; 0.000  ; 10.000 ;            ;           ;             ;       ;        ;           ;            ;          ;                                                                               ;                                                                                      ; { FPGA_CLK1_50 }                                                                      ;\n; FPGA_CLK2_50                                                                      ; Base      ; 20.000  ; 50.0 MHz   ; 0.000  ; 10.000 ;            ;           ;             ;       ;        ;           ;            ;          ;                                                                               ;                                                                                      ; { FPGA_CLK2_50 }                                                                      ;\n; FPGA_CLK3_50                                                                      ; Base      ; 20.000  ; 50.0 MHz   ; 0.000  ; 10.000 ;            ;           ;             ;       ;        ;           ;            ;          ;                                                                               ;                                                                                      ; { FPGA_CLK3_50 }                                                                      ;\n; hdmi_sck                                                                          ; Base      ; 100.000 ; 10.0 MHz   ; 0.000  ; 50.000 ;            ;           ;             ;       ;        ;           ;            ;          ;                                                                               ;                                                                                      ; { hdmi_i2c|out_clk }                                                                  ;\n; pll_audio|pll_audio_inst|altera_pll_i|general[0].gpll~FRACTIONAL_PLL|vcoph[0]     ; Generated ; 2.393   ; 417.87 MHz ; 0.000  ; 1.196  ; 50.00      ; 512       ; 4279        ;       ;        ;           ;            ; false    ; FPGA_CLK3_50                                                                  ; pll_audio|pll_audio_inst|altera_pll_i|general[0].gpll~FRACTIONAL_PLL|refclkin        ; { pll_audio|pll_audio_inst|altera_pll_i|general[0].gpll~FRACTIONAL_PLL|vcoph[0] }     ;\n; pll_audio|pll_audio_inst|altera_pll_i|general[0].gpll~PLL_OUTPUT_COUNTER|divclk   ; Generated ; 40.682  ; 24.58 MHz  ; 0.000  ; 20.341 ; 50.00      ; 17        ; 1           ;       ;        ;           ;            ; false    ; pll_audio|pll_audio_inst|altera_pll_i|general[0].gpll~FRACTIONAL_PLL|vcoph[0] ; pll_audio|pll_audio_inst|altera_pll_i|general[0].gpll~PLL_OUTPUT_COUNTER|vco0ph[0]   ; { pll_audio|pll_audio_inst|altera_pll_i|general[0].gpll~PLL_OUTPUT_COUNTER|divclk }   ;\n; pll_hdmi|pll_hdmi_inst|altera_pll_i|cyclonev_pll|counter[0].output_counter|divclk ; Generated ; 6.732   ; 148.54 MHz ; 0.000  ; 3.366  ; 50.00      ; 3         ; 1           ;       ;        ;           ;            ; false    ; pll_hdmi|pll_hdmi_inst|altera_pll_i|cyclonev_pll|fpll_0|fpll|vcoph[0]         ; pll_hdmi|pll_hdmi_inst|altera_pll_i|cyclonev_pll|counter[0].output_counter|vco0ph[0] ; { pll_hdmi|pll_hdmi_inst|altera_pll_i|cyclonev_pll|counter[0].output_counter|divclk } ;\n; pll_hdmi|pll_hdmi_inst|altera_pll_i|cyclonev_pll|fpll_0|fpll|vcoph[0]             ; Generated ; 2.244   ; 445.61 MHz ; 0.000  ; 1.122  ; 50.00      ; 512       ; 4563        ;       ;        ;           ;            ; false    ; FPGA_CLK1_50                                                                  ; pll_hdmi|pll_hdmi_inst|altera_pll_i|cyclonev_pll|fpll_0|fpll|refclkin                ; { pll_hdmi|pll_hdmi_inst|altera_pll_i|cyclonev_pll|fpll_0|fpll|vcoph[0] }             ;\n; spi_sck                                                                           ; Base      ; 10.000  ; 100.0 MHz  ; 0.000  ; 5.000  ;            ;           ;             ;       ;        ;           ;            ;          ;                                                                               ;                                                                                      ; { spi|sclk_out }                                                                      ;\n; sysmem|fpga_interfaces|clocks_resets|h2f_user0_clk                                ; Base      ; 10.000  ; 100.0 MHz  ; 0.000  ; 5.000  ;            ;           ;             ;       ;        ;           ;            ;          ;                                                                               ;                                                                                      ; { sysmem|fpga_interfaces|clocks_resets|h2f_user0_clk }                                ;\n+-----------------------------------------------------------------------------------+-----------+---------+------------+--------+--------+------------+-----------+-------------+-------+--------+-----------+------------+----------+-------------------------------------------------------------------------------+--------------------------------------------------------------------------------------+---------------------------------------------------------------------------------------+\n",
+    "corner_8": "+---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+\n; Clocks                                                                                                                                                                                                                                                                                                                                                                                                                                                                                            ;\n+-----------------------------------------------------------------------------------+-----------+---------+------------+--------+--------+------------+-----------+-------------+-------+--------+-----------+------------+----------+-------------------------------------------------------------------------------+--------------------------------------------------------------------------------------+---------------------------------------------------------------------------------------+\n; Clock Name                                                                        ; Type      ; Period  ; Frequency  ; Rise   ; Fall   ; Duty Cycle ; Divide by ; Multiply by ; Phase ; Offset ; Edge List ; Edge Shift ; Inverted ; Master                                                                        ; Source                                                                               ; Targets                                                                               ;\n+-----------------------------------------------------------------------------------+-----------+---------+------------+--------+--------+------------+-----------+-------------+-------+--------+-----------+------------+----------+-------------------------------------------------------------------------------+--------------------------------------------------------------------------------------+---------------------------------------------------------------------------------------+\n; emu|pll|pll|general[0].gpll~FRACTIONAL_PLL|vcoph[0]                               ; Generated ; 2.083   ; 480.0 MHz  ; 0.000  ; 1.041  ; 50.00      ; 5         ; 48          ;       ;        ;           ;            ; false    ; FPGA_CLK2_50                                                                  ; emu|pll|pll|general[0].gpll~FRACTIONAL_PLL|refclkin                                  ; { emu|pll|pll|general[0].gpll~FRACTIONAL_PLL|vcoph[0] }                               ;\n; emu|pll|pll|general[0].gpll~PLL_OUTPUT_COUNTER|divclk                             ; Generated ; 20.833  ; 48.0 MHz   ; 0.000  ; 10.416 ; 50.00      ; 10        ; 1           ;       ;        ;           ;            ; false    ; emu|pll|pll|general[0].gpll~FRACTIONAL_PLL|vcoph[0]                           ; emu|pll|pll|general[0].gpll~PLL_OUTPUT_COUNTER|vco0ph[0]                             ; { emu|pll|pll|general[0].gpll~PLL_OUTPUT_COUNTER|divclk }                             ;\n; emu|pll|pll|general[1].gpll~PLL_OUTPUT_COUNTER|divclk                             ; Generated ; 20.833  ; 48.0 MHz   ; 10.416 ; 20.832 ; 50.00      ; 10        ; 1           ; 180.0 ;        ;           ;            ; false    ; emu|pll|pll|general[0].gpll~FRACTIONAL_PLL|vcoph[0]                           ; emu|pll|pll|general[1].gpll~PLL_OUTPUT_COUNTER|vco0ph[0]                             ; { emu|pll|pll|general[1].gpll~PLL_OUTPUT_COUNTER|divclk }                             ;\n; FPGA_CLK1_50                                                                      ; Base      ; 20.000  ; 50.0 MHz   ; 0.000  ; 10.000 ;            ;           ;             ;       ;        ;           ;            ;          ;                                                                               ;                                                                                      ; { FPGA_CLK1_50 }                                                                      ;\n; FPGA_CLK2_50                                                                      ; Base      ; 20.000  ; 50.0 MHz   ; 0.000  ; 10.000 ;            ;           ;             ;       ;        ;           ;            ;          ;                                                                               ;                                                                                      ; { FPGA_CLK2_50 }                                                                      ;\n; FPGA_CLK3_50                                                                      ; Base      ; 20.000  ; 50.0 MHz   ; 0.000  ; 10.000 ;            ;           ;             ;       ;        ;           ;            ;          ;                                                                               ;                                                                                      ; { FPGA_CLK3_50 }                                                                      ;\n; hdmi_sck                                                                          ; Base      ; 100.000 ; 10.0 MHz   ; 0.000  ; 50.000 ;            ;           ;             ;       ;        ;           ;            ;          ;                                                                               ;                                                                                      ; { hdmi_i2c|out_clk }                                                                  ;\n; pll_audio|pll_audio_inst|altera_pll_i|general[0].gpll~FRACTIONAL_PLL|vcoph[0]     ; Generated ; 2.393   ; 417.87 MHz ; 0.000  ; 1.196  ; 50.00      ; 512       ; 4279        ;       ;        ;           ;            ; false    ; FPGA_CLK3_50                                                                  ; pll_audio|pll_audio_inst|altera_pll_i|general[0].gpll~FRACTIONAL_PLL|refclkin        ; { pll_audio|pll_audio_inst|altera_pll_i|general[0].gpll~FRACTIONAL_PLL|vcoph[0] }     ;\n; pll_audio|pll_audio_inst|altera_pll_i|general[0].gpll~PLL_OUTPUT_COUNTER|divclk   ; Generated ; 40.682  ; 24.58 MHz  ; 0.000  ; 20.341 ; 50.00      ; 17        ; 1           ;       ;        ;           ;            ; false    ; pll_audio|pll_audio_inst|altera_pll_i|general[0].gpll~FRACTIONAL_PLL|vcoph[0] ; pll_audio|pll_audio_inst|altera_pll_i|general[0].gpll~PLL_OUTPUT_COUNTER|vco0ph[0]   ; { pll_audio|pll_audio_inst|altera_pll_i|general[0].gpll~PLL_OUTPUT_COUNTER|divclk }   ;\n; pll_hdmi|pll_hdmi_inst|altera_pll_i|cyclonev_pll|counter[0].output_counter|divclk ; Generated ; 6.732   ; 148.54 MHz ; 0.000  ; 3.366  ; 50.00      ; 3         ; 1           ;       ;        ;           ;            ; false    ; pll_hdmi|pll_hdmi_inst|altera_pll_i|cyclonev_pll|fpll_0|fpll|vcoph[0]         ; pll_hdmi|pll_hdmi_inst|altera_pll_i|cyclonev_pll|counter[0].output_counter|vco0ph[0] ; { pll_hdmi|pll_hdmi_inst|altera_pll_i|cyclonev_pll|counter[0].output_counter|divclk } ;\n; pll_hdmi|pll_hdmi_inst|altera_pll_i|cyclonev_pll|fpll_0|fpll|vcoph[0]             ; Generated ; 2.244   ; 445.61 MHz ; 0.000  ; 1.122  ; 50.00      ; 512       ; 4563        ;       ;        ;           ;            ; false    ; FPGA_CLK1_50                                                                  ; pll_hdmi|pll_hdmi_inst|altera_pll_i|cyclonev_pll|fpll_0|fpll|refclkin                ; { pll_hdmi|pll_hdmi_inst|altera_pll_i|cyclonev_pll|fpll_0|fpll|vcoph[0] }             ;\n; spi_sck                                                                           ; Base      ; 10.000  ; 100.0 MHz  ; 0.000  ; 5.000  ;            ;           ;             ;       ;        ;           ;            ;          ;                                                                               ;                                                                                      ; { spi|sclk_out }                                                                      ;\n; sysmem|fpga_interfaces|clocks_resets|h2f_user0_clk                                ; Base      ; 10.000  ; 100.0 MHz  ; 0.000  ; 5.000  ;            ;           ;             ;       ;        ;           ;            ;          ;                                                                               ;                                                                                      ; { sysmem|fpga_interfaces|clocks_resets|h2f_user0_clk }                                ;\n+-----------------------------------------------------------------------------------+-----------+---------+------------+--------+--------+------------+-----------+-------------+-------+--------+-----------+------------+----------+-------------------------------------------------------------------------------+--------------------------------------------------------------------------------------+---------------------------------------------------------------------------------------+\n"
+  },
+  "observed_owned_processes": [
+    {
+      "ProcessId": 22540,
+      "ParentProcessId": 26184,
+      "Name": "powershell.exe"
+    },
+    {
+      "ProcessId": 33732,
+      "ParentProcessId": 22540,
+      "Name": "python.exe"
+    },
+    {
+      "ProcessId": 55608,
+      "ParentProcessId": 33732,
+      "Name": "quartus_map.exe"
+    },
+    {
+      "ProcessId": 23532,
+      "ParentProcessId": 33732,
+      "Name": "quartus_map.exe"
+    },
+    {
+      "ProcessId": 35136,
+      "ParentProcessId": 23532,
+      "Name": "ip-catalog.exe"
+    },
+    {
+      "ProcessId": 58140,
+      "ParentProcessId": 35136,
+      "Name": "java.exe"
+    },
+    {
+      "ProcessId": 56740,
+      "ParentProcessId": 23532,
+      "Name": "quartus_map.exe"
+    },
+    {
+      "ProcessId": 55652,
+      "ParentProcessId": 23532,
+      "Name": "quartus_map.exe"
+    },
+    {
+      "ProcessId": 27240,
+      "ParentProcessId": 23532,
+      "Name": "quartus_map.exe"
+    },
+    {
+      "ProcessId": 57600,
+      "ParentProcessId": 23532,
+      "Name": "quartus_map.exe"
+    },
+    {
+      "ProcessId": 43396,
+      "ParentProcessId": 33732,
+      "Name": "quartus_fit.exe"
+    },
+    {
+      "ProcessId": 3992,
+      "ParentProcessId": 33732,
+      "Name": "quartus_sta.exe"
+    },
+    {
+      "ProcessId": 54936,
+      "ParentProcessId": 33732,
+      "Name": "quartus_sta.exe"
+    }
+  ],
+  "owned_remaining": [],
+  "frontend_static_closure": {
+    "complete": false,
+    "reasons": [
+      "source\\rtl\\alpha68kn_audio.qip: unresolved file expression",
+      "source\\rtl\\pll.qip: unresolved file expression",
+      "source\\rtl\\vendor\\jt12\\jt49\\syn\\quartus\\jt49.qip: unresolved file expression",
+      "source\\rtl\\vendor\\jt12\\target\\quartus\\jt03.qip: unresolved file expression",
+      "source\\sys\\build_id.tcl: dynamic environment/execution/glob/clock",
+      "source\\sys\\pll.13.qip: unresolved file expression",
+      "source\\sys\\pll_audio.13.qip: unresolved file expression",
+      "source\\sys\\pll_audio.qip: unresolved file expression",
+      "source\\sys\\pll_cfg.qip: unresolved file expression",
+      "source\\sys\\pll_hdmi.13.qip: unresolved file expression",
+      "source\\sys\\pll_hdmi.qip: unresolved file expression",
+      "source\\sys\\pll_q13.qip: unresolved file expression",
+      "source\\sys\\pll_q17.qip: unresolved file expression",
+      "source\\sys\\sys.qip: unresolved file expression"
+    ]
+  },
+  "limits": "Per-clock game/audio reports, clock inventories/group matching and actual global full paths qualified here. Those full paths retain observed launch/latch clocks; no full clock-transfer matrix was collected. This does not close external I/O, prove all CDCs/physical reset behavior, or accept current-image gameplay/graphics/audio/persistence."
+}

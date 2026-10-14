@@ -1,0 +1,1758 @@
+{
+  "scope": "Reviewed P2 candidate real181; adapted15contract. Historical unchanged-MCU prefix assertions replaced by actual accepted coinage/start checks and completedPNG preinput checks.",
+  "checks": {
+    "actual_build0": true,
+    "actual_run0": true,
+    "same_frozen_ELF_build_admission_run": true,
+    "all75_candidate_sources_unchanged": true,
+    "compiled_real_CPU_graph_hashes_exact": false,
+    "181_contiguous_fields": true,
+    "actual_original_input_and_ROM_hashes": true,
+    "all_applied_actual_ports_match_exact_original_input": true,
+    "effective_coin122_127_and_start162_167": true,
+    "actual_CPU_consumed_first_start162_matches_MAME": true,
+    "actual_matched_PC_coinage_reply1": true,
+    "preinput_completed_MAME_RGB_exact": true,
+    "all_pixels_no_duplicates_deadlines_overflow": true,
+    "all5_required_complete_RGB_work_strip_coordinates_present": true,
+    "all_primary_reference_artifact_pins_unchanged": true
+  },
+  "protocol_source_pass": false,
+  "compiled_graph": "/tmp/alpha68kn-system.UwkVmE",
+  "compiled_hashes": {
+    "alpha68kn_audio.sv": "1aa458aab8c8ebbf061c6f371cbd506cbc1b3a5d21206f2006532ff70be6113e",
+    "alpha68kn_board.sv": "2e218dc38739fb8e3495a8807d98f0cadf0f6f94d4052afa439f5e94de35e51c",
+    "alpha68kn_gfxmem.sv": "ec21f32d4108d6e18352efbff8e58490a84d57af2252b1a2d656c7152639943e",
+    "alpha68kn_mcu.sv": "26614f565524e7dc136c3c898eb044807d22d2c6ce473dcc64d7f54258a97120",
+    "alpha68kn_mixer.sv": "93df0e2464cae387fc473bbcab830494d043c3d219fc3f3c5fff69ed67cc40f0",
+    "alpha68kn_renderer.sv": "53d16c6ff5d105a3643377c48c067452b3c83431fe4c159edceda7854a8b47bb",
+    "alpha68kn_soundchips.sv": "5031188ac069c50e0deb4594947395b5440ac288e41f29c09fec8a80e1a45e37",
+    "alpha68kn_system.sv": "ca909f97d09875ecfe98b92e04d5fbad343a2e6fed20c84542b4265eb5060152",
+    "alpha68kn_video_rom.sv": "0648d54a3ba282367d4136892b21e6cffed7a10cde64e6e794a6ef43ec26c996",
+    "fx68k.sv": "797566aa6c1dfb308d88a458550d55f86e0d023e670ab179cc39f594d9d4f73d",
+    "fx68kAlu.sv": "3f22006cbdb8cb661e5f54cc779f79bb697b587c86d586103478703fca38bcce",
+    "uaddrPla.sv": "07ceb3b1fbbd74f255c2a909151fe5efd38a575ba4f6aa47c6208050d2e27326",
+    "T80s.v": "765e1262ad7020bff0969446f97902c10f6f0918db64b45962d6f5c439e35b5a",
+    "a68n_ay49.v": "249ee4651ccac08d4c07b75a2a86e19a25c536cc9218f58d081047402a94cbed",
+    "a68n_ay49_bus.v": "1b74e9b8f18cce2ac58c0ddf2336906fef59d52b5b157e3d61b29d16cfecb9de",
+    "a68n_ay49_cen.v": "b34a3b5257b68675363f4f75482e41b24e07db0e97da01e82dab2534a914c5cd",
+    "a68n_ay49_div.v": "9d506c7a18f7976753d1e1df2070dc3d695d77497ce8e127bd97005aa7664116",
+    "a68n_ay49_eg.v": "9c271face25b367f3e377007ce9c605cc3f4f5e69c40621f741aa52811f300b4",
+    "a68n_ay49_exp.v": "89b5816cc0aa34b271c351c6dd9d9ff0c2b1decf5676905eac50bb61e0261365",
+    "a68n_ay49_noise.v": "3fa40e9ac1c2d8340af251b53e16def5d66509868a9105e85d4cbde5a448d661",
+    "jt03.v": "90e23e3bd6925062c1504cf3e554fd7c9e9fc0d5c3383026ddbb4a3f15637808",
+    "jt03_acc.v": "c0a24386702c6be50ae8ef622f351a919ceaab4a7fea74f012d887c0cc744256",
+    "jt12_csr.v": "95002e3cdd424de466243e2d4b0596dd28cb39f4300c5caa441fa1d5d6355429",
+    "jt12_div.v": "6ec575059aa4d2dcbb4384c913be31113967a09079b9bfb38e47afc6621ae87c",
+    "jt12_dout.v": "97ef1469e55604cdf19a3dd4c6d6816561c77c376b610a7f7285ac3ea0ee2715",
+    "jt12_eg.v": "1304b71730bf423a80d4bffcda316f94205f48de914037b332e49702fe8e44ad",
+    "jt12_eg_cnt.v": "82553d13d5c8e7973091cf2975488eb67a40645de1c9e9cfbf9f4c65dab40689",
+    "jt12_eg_comb.v": "b76f407e6cc453cb2adfe5d7e1bfbf14dd657df001ad4a3cef9f77f03efe9dac",
+    "jt12_eg_ctrl.v": "d06706f53f060e0ba0c6b62b5af115ea7d3119e2dc7a84ef0a01ff83841d1f53",
+    "jt12_eg_final.v": "917655582720361311658895f5beeb9a57df112623eddaa299254296e09237e1",
+    "jt12_eg_pure.v": "4462cfbb29749892999496be3a49132039002cab845730105c95fe8e816d7b6f",
+    "jt12_eg_step.v": "238da6f2955c398b7073242e3b6a2fa41ece80b7c45603bb234cfbfb131295d0",
+    "jt12_exprom.v": "fde1502e2b461c6487d67d29610069349ca60a1751c1a78f51a6b4cc0dcfa9cc",
+    "jt12_kon.v": "6424da40249e207ae59345d3da32da6b5a4f2e2d1409e39d5521b40eabb69369",
+    "jt12_lfo.v": "e1b13e5ddef2f84f6d2fa6f54f2feb996f1f5b713bbdac3ffdaf6e4b77db8cf3",
+    "jt12_logsin.v": "64e70df0139582b59e563b9b292f668c0dceb96c2101292a966c19ba4f74e51c",
+    "jt12_mmr.v": "019063a77e636053eebbc11b91c3e4903401330f05b86093750357bc5916fc47",
+    "jt12_mod.v": "0ec77a3ac2af12621c278512740ba1b7f17c18f19ea16747d6d31cc1fd9d9e17",
+    "jt12_op.v": "c187dc58534a4686e9e14c10b6da0fadbb09a43a08b254d855ef5f16c34d4417",
+    "jt12_pg.v": "5a66fa1f07fe8b09da329f6292f3d643031c153a79877d1a0f921deecf9a1419",
+    "jt12_pg_comb.v": "dfb01da96a74ac606a7bfdd50c21c2898d7ca9d43ed2dc5844aea907e4cbe1f0",
+    "jt12_pg_dt.v": "a17edbb2717255d923f609a8bf230ebbc5c9c47687de31880637ffc46a27e861",
+    "jt12_pg_inc.v": "3e60e02ef1ec489951502b0d0a0502b05309ef44c0239d00eeec9d8249e0f17f",
+    "jt12_pg_sum.v": "b28c64d784b3a3236b077a59c0fdcc80794cce0bb9f052622d4434d540b326b5",
+    "jt12_pm.v": "b386015d51dc3e627f037e79f4bcfb9634dff5eb1899ce8caec70a9e5544f046",
+    "jt12_reg.v": "816ba484f90d34f94507e27279e6c20e59ec56ab80172896aab46bc886a18a6f",
+    "jt12_reg_ch.v": "eb8536bc5ecf7d296f3f98c1b546cec53c4e7e46a090384198dc589733160621",
+    "jt12_sh.v": "c2e10923fbd5d8db1990f0e66eabc836ca79ffbdc59b79a58cade4d2b0842790",
+    "jt12_sh24.v": "be2c53adb5c097ee72f77d9a42ca4c437428a2d6e658f57b86f16b6378af9c10",
+    "jt12_sh_rst.v": "d35e1bb25ca9dac46a3950e950f28ad010757b50d868a0dea9cee40c4fc49dc2",
+    "jt12_single_acc.v": "c3f480d89287ff98099bc1fdfb3086498c52958ed873ec4c2d0cc4f3898c6ea1",
+    "jt12_sumch.v": "3e6a65b7d20425ebc59bf3b93ab419b3adc096055e06c335af5e3191fb793329",
+    "jt12_timers.v": "7d7f6ef591c51c17ec2260f159e7d8c6ce030888139e9338032f70e05ffcace0",
+    "jt12_top.v": "199dcfe54ba43ccf2e142eaa5ee82e0a63ba5fcfb5681b658b1fee1f5af72f3d",
+    "jt49.v": "69808b2f4343083ba187936af31e49a8344302e214fdb1bdeaf0fb92b0f8ced6",
+    "jt49_bus.v": "7db9d54660dd42e02ba3110ddefea922202ce275be8fb4c11bafe28e92d23d1c",
+    "jt49_cen.v": "30559e72ddc232fa1e438b927554a4e32923ba5e320b6d7806ce78d3c60110c2",
+    "jt49_div.v": "2c4e8f7924b89756c339d29b58e971238fdd8cbd8f23c64b8c9a78a6990dae4a",
+    "jt49_eg.v": "e6259c88aa71ac0ddf9b53314ae8338854ce07e76dcb718e2c1c99c9a84b17dc",
+    "jt49_exp.v": "313381b5de48b3f9f37117cc2e40295e17254315e30a50b009d7612295c29915",
+    "jt49_noise.v": "ae6f708cb1d119240c77231bc03edec1718547afc2049a59d6525a599844ca08",
+    "jtframe_sdram64.v": "039cccd60d203635de1acad84c1d505309086600aabd4c7e5fa9076c79183668",
+    "jtframe_sdram64_bank.v": "50078e5732eae354cf7459b415c022f24cfbb2f411e68db2bffd00bcfa40adde",
+    "jtframe_sdram64_init.v": "6874abf941b538f72ad1cd654f3d7cd6c300e70e13fd8ea2a0464d0a187eb248",
+    "jtframe_sdram64_latch.v": "881da704d7c3e66e4b3ed66b876f0024eed2af0e757bf74e5dce0a866ae1345f",
+    "jtframe_sdram64_rfsh.v": "44cbe280aece9f68b133b70656236f2b316ee6d1aaf6691310ed674de82a02b4",
+    "t48_core.v": "2ad3acf392e1deec18d5d7f2c8d878b33b00073c55a7c032cd0155dfac46bf6d",
+    "system_main.cpp": "b7873a25b58432453a53baec39189e23d179bc2b0dcd1cc75be78fbb717020df",
+    "sdram_model.h": "380b036600d9a24e5a1a757a66e29d20a767589373f647efe39ea36e3f5384e9",
+    "coupled_observer.vlt": "fe1b2838c1957ba37c60c624b43d8faaec26490df66f6547951341652151109b"
+  },
+  "compiled_hash_checks": {
+    "alpha68kn_audio.sv": true,
+    "alpha68kn_board.sv": true,
+    "alpha68kn_crt.sv": false,
+    "alpha68kn_gfxmem.sv": true,
+    "alpha68kn_mcu.sv": true,
+    "alpha68kn_mixer.sv": true,
+    "alpha68kn_pll.sv": false,
+    "alpha68kn_renderer.sv": true,
+    "alpha68kn_soundchips.sv": true,
+    "alpha68kn_system.sv": true,
+    "alpha68kn_video_rom.sv": true,
+    "a68n_ay49.v": true,
+    "a68n_ay49_bus.v": true,
+    "a68n_ay49_cen.v": true,
+    "a68n_ay49_div.v": true,
+    "a68n_ay49_eg.v": true,
+    "a68n_ay49_exp.v": true,
+    "a68n_ay49_noise.v": true,
+    "fx68k.sv": true,
+    "fx68kAlu.sv": true,
+    "uaddrPla.sv": true,
+    "jt03.v": true,
+    "jt03_acc.v": true,
+    "jt12_csr.v": true,
+    "jt12_div.v": true,
+    "jt12_dout.v": true,
+    "jt12_eg.v": true,
+    "jt12_eg_cnt.v": true,
+    "jt12_eg_comb.v": true,
+    "jt12_eg_ctrl.v": true,
+    "jt12_eg_final.v": true,
+    "jt12_eg_pure.v": true,
+    "jt12_eg_step.v": true,
+    "jt12_exprom.v": true,
+    "jt12_kon.v": true,
+    "jt12_lfo.v": true,
+    "jt12_logsin.v": true,
+    "jt12_mmr.v": true,
+    "jt12_mod.v": true,
+    "jt12_op.v": true,
+    "jt12_pg.v": true,
+    "jt12_pg_comb.v": true,
+    "jt12_pg_dt.v": true,
+    "jt12_pg_inc.v": true,
+    "jt12_pg_sum.v": true,
+    "jt12_pm.v": true,
+    "jt12_reg.v": true,
+    "jt12_reg_ch.v": true,
+    "jt12_sh.v": true,
+    "jt12_sh24.v": true,
+    "jt12_sh_rst.v": true,
+    "jt12_single_acc.v": true,
+    "jt12_sumch.v": true,
+    "jt12_timers.v": true,
+    "jt12_top.v": true,
+    "jt49.v": true,
+    "jt49_bus.v": true,
+    "jt49_cen.v": true,
+    "jt49_div.v": true,
+    "jt49_eg.v": true,
+    "jt49_exp.v": true,
+    "jt49_noise.v": true,
+    "jtframe_sdram64.v": true,
+    "jtframe_sdram64_bank.v": true,
+    "jtframe_sdram64_init.v": true,
+    "jtframe_sdram64_latch.v": true,
+    "jtframe_sdram64_rfsh.v": true,
+    "t48_core.v": true,
+    "T80s.v": true,
+    "sdram_model.h": true,
+    "system_main.cpp": true,
+    "coupled_observer.vlt": true
+  },
+  "compiled_hash_exit": 0,
+  "compiled_hash_stderr": "",
+  "closure_sha256": "fd57543bde48f732d69cf302d7bb53545c0613c3be45f324de3fe0eaa7c97029",
+  "admission_sha256": "d84a568d66cd88673231bde47c9d446e9364f7e17d64a0cc69f7423e369c0680",
+  "verifier_sha256": "07274a150e7905e10cf041be31688dad04872efc143fd644761d8b95ad94db45",
+  "actual_start_consumption": {
+    "native": [
+      {
+        "tick_relative": "128953071",
+        "tick_absolute": "131896691",
+        "frame": "159",
+        "raster_x": "350",
+        "raster_y": "240",
+        "address": "786432",
+        "iack": "0",
+        "rw": "1",
+        "uds_n": "1",
+        "lds_n": "0",
+        "data_out": "257",
+        "data_in_before": "26400",
+        "data_in_after": "0",
+        "controls": "0",
+        "coins_n": "3",
+        "main_pc": "4208",
+        "main_ir": "2105",
+        "main_ird": "2105",
+        "mcu_control": "216",
+        "mcu_bus": "255",
+        "irq2_held": "0"
+      },
+      {
+        "tick_relative": "129764111",
+        "tick_absolute": "132707731",
+        "frame": "160",
+        "raster_x": "354",
+        "raster_y": "240",
+        "address": "786432",
+        "iack": "0",
+        "rw": "1",
+        "uds_n": "1",
+        "lds_n": "0",
+        "data_out": "257",
+        "data_in_before": "26400",
+        "data_in_after": "0",
+        "controls": "0",
+        "coins_n": "3",
+        "main_pc": "4208",
+        "main_ir": "2105",
+        "main_ird": "2105",
+        "mcu_control": "216",
+        "mcu_bus": "255",
+        "irq2_held": "0"
+      },
+      {
+        "tick_relative": "130575172",
+        "tick_absolute": "133518792",
+        "frame": "161",
+        "raster_x": "361",
+        "raster_y": "240",
+        "address": "786432",
+        "iack": "0",
+        "rw": "1",
+        "uds_n": "1",
+        "lds_n": "0",
+        "data_out": "257",
+        "data_in_before": "26400",
+        "data_in_after": "0",
+        "controls": "0",
+        "coins_n": "3",
+        "main_pc": "4208",
+        "main_ir": "2105",
+        "main_ird": "2105",
+        "mcu_control": "216",
+        "mcu_bus": "255",
+        "irq2_held": "0"
+      },
+      {
+        "tick_relative": "131386132",
+        "tick_absolute": "134329752",
+        "frame": "162",
+        "raster_x": "355",
+        "raster_y": "240",
+        "address": "786432",
+        "iack": "0",
+        "rw": "1",
+        "uds_n": "1",
+        "lds_n": "0",
+        "data_out": "257",
+        "data_in_before": "26400",
+        "data_in_after": "128",
+        "controls": "128",
+        "coins_n": "3",
+        "main_pc": "4208",
+        "main_ir": "2105",
+        "main_ird": "2105",
+        "mcu_control": "216",
+        "mcu_bus": "255",
+        "irq2_held": "0"
+      },
+      {
+        "tick_relative": "132196924",
+        "tick_absolute": "135140544",
+        "frame": "163",
+        "raster_x": "328",
+        "raster_y": "240",
+        "address": "786432",
+        "iack": "0",
+        "rw": "1",
+        "uds_n": "1",
+        "lds_n": "0",
+        "data_out": "514",
+        "data_in_before": "8",
+        "data_in_after": "128",
+        "controls": "128",
+        "coins_n": "3",
+        "main_pc": "4300",
+        "main_ir": "7545",
+        "main_ird": "7545",
+        "mcu_control": "216",
+        "mcu_bus": "255",
+        "irq2_held": "0"
+      },
+      {
+        "tick_relative": "132197116",
+        "tick_absolute": "135140736",
+        "frame": "163",
+        "raster_x": "352",
+        "raster_y": "240",
+        "address": "786432",
+        "iack": "0",
+        "rw": "1",
+        "uds_n": "0",
+        "lds_n": "1",
+        "data_out": "32896",
+        "data_in_before": "9",
+        "data_in_after": "128",
+        "controls": "128",
+        "coins_n": "3",
+        "main_pc": "4308",
+        "main_ir": "7545",
+        "main_ird": "7545",
+        "mcu_control": "216",
+        "mcu_bus": "255",
+        "irq2_held": "0"
+      },
+      {
+        "tick_relative": "132197516",
+        "tick_absolute": "135141136",
+        "frame": "163",
+        "raster_x": "18",
+        "raster_y": "241",
+        "address": "786432",
+        "iack": "0",
+        "rw": "1",
+        "uds_n": "1",
+        "lds_n": "0",
+        "data_out": "0",
+        "data_in_before": "13",
+        "data_in_after": "128",
+        "controls": "128",
+        "coins_n": "3",
+        "main_pc": "4330",
+        "main_ir": "7545",
+        "main_ird": "7545",
+        "mcu_control": "216",
+        "mcu_bus": "255",
+        "irq2_held": "0"
+      },
+      {
+        "tick_relative": "133007884",
+        "tick_absolute": "135951504",
+        "frame": "164",
+        "raster_x": "322",
+        "raster_y": "240",
+        "address": "786432",
+        "iack": "0",
+        "rw": "1",
+        "uds_n": "1",
+        "lds_n": "0",
+        "data_out": "771",
+        "data_in_before": "8",
+        "data_in_after": "128",
+        "controls": "128",
+        "coins_n": "3",
+        "main_pc": "4300",
+        "main_ir": "7545",
+        "main_ird": "7545",
+        "mcu_control": "216",
+        "mcu_bus": "255",
+        "irq2_held": "0"
+      },
+      {
+        "tick_relative": "133008076",
+        "tick_absolute": "135951696",
+        "frame": "164",
+        "raster_x": "346",
+        "raster_y": "240",
+        "address": "786432",
+        "iack": "0",
+        "rw": "1",
+        "uds_n": "0",
+        "lds_n": "1",
+        "data_out": "32896",
+        "data_in_before": "9",
+        "data_in_after": "128",
+        "controls": "128",
+        "coins_n": "3",
+        "main_pc": "4308",
+        "main_ir": "7545",
+        "main_ird": "7545",
+        "mcu_control": "216",
+        "mcu_bus": "255",
+        "irq2_held": "0"
+      },
+      {
+        "tick_relative": "133008476",
+        "tick_absolute": "135952096",
+        "frame": "164",
+        "raster_x": "12",
+        "raster_y": "241",
+        "address": "786432",
+        "iack": "0",
+        "rw": "1",
+        "uds_n": "1",
+        "lds_n": "0",
+        "data_out": "0",
+        "data_in_before": "13",
+        "data_in_after": "128",
+        "controls": "128",
+        "coins_n": "3",
+        "main_pc": "4330",
+        "main_ir": "7545",
+        "main_ird": "7545",
+        "mcu_control": "216",
+        "mcu_bus": "255",
+        "irq2_held": "0"
+      },
+      {
+        "tick_relative": "133818981",
+        "tick_absolute": "136762601",
+        "frame": "165",
+        "raster_x": "333",
+        "raster_y": "240",
+        "address": "786432",
+        "iack": "0",
+        "rw": "1",
+        "uds_n": "1",
+        "lds_n": "0",
+        "data_out": "1028",
+        "data_in_before": "8",
+        "data_in_after": "128",
+        "controls": "128",
+        "coins_n": "3",
+        "main_pc": "4300",
+        "main_ir": "7545",
+        "main_ird": "7545",
+        "mcu_control": "216",
+        "mcu_bus": "255",
+        "irq2_held": "0"
+      },
+      {
+        "tick_relative": "133819173",
+        "tick_absolute": "136762793",
+        "frame": "165",
+        "raster_x": "357",
+        "raster_y": "240",
+        "address": "786432",
+        "iack": "0",
+        "rw": "1",
+        "uds_n": "0",
+        "lds_n": "1",
+        "data_out": "32896",
+        "data_in_before": "9",
+        "data_in_after": "128",
+        "controls": "128",
+        "coins_n": "3",
+        "main_pc": "4308",
+        "main_ir": "7545",
+        "main_ird": "7545",
+        "mcu_control": "216",
+        "mcu_bus": "255",
+        "irq2_held": "0"
+      },
+      {
+        "tick_relative": "133819573",
+        "tick_absolute": "136763193",
+        "frame": "165",
+        "raster_x": "23",
+        "raster_y": "241",
+        "address": "786432",
+        "iack": "0",
+        "rw": "1",
+        "uds_n": "1",
+        "lds_n": "0",
+        "data_out": "0",
+        "data_in_before": "13",
+        "data_in_after": "128",
+        "controls": "128",
+        "coins_n": "3",
+        "main_pc": "4330",
+        "main_ir": "7545",
+        "main_ird": "7545",
+        "mcu_control": "216",
+        "mcu_bus": "255",
+        "irq2_held": "0"
+      },
+      {
+        "tick_relative": "134629861",
+        "tick_absolute": "137573481",
+        "frame": "166",
+        "raster_x": "317",
+        "raster_y": "240",
+        "address": "786432",
+        "iack": "0",
+        "rw": "1",
+        "uds_n": "1",
+        "lds_n": "0",
+        "data_out": "1285",
+        "data_in_before": "8",
+        "data_in_after": "128",
+        "controls": "128",
+        "coins_n": "3",
+        "main_pc": "4300",
+        "main_ir": "7545",
+        "main_ird": "7545",
+        "mcu_control": "216",
+        "mcu_bus": "255",
+        "irq2_held": "0"
+      },
+      {
+        "tick_relative": "134630053",
+        "tick_absolute": "137573673",
+        "frame": "166",
+        "raster_x": "341",
+        "raster_y": "240",
+        "address": "786432",
+        "iack": "0",
+        "rw": "1",
+        "uds_n": "0",
+        "lds_n": "1",
+        "data_out": "32896",
+        "data_in_before": "9",
+        "data_in_after": "128",
+        "controls": "128",
+        "coins_n": "3",
+        "main_pc": "4308",
+        "main_ir": "7545",
+        "main_ird": "7545",
+        "mcu_control": "216",
+        "mcu_bus": "255",
+        "irq2_held": "0"
+      },
+      {
+        "tick_relative": "134630453",
+        "tick_absolute": "137574073",
+        "frame": "166",
+        "raster_x": "7",
+        "raster_y": "241",
+        "address": "786432",
+        "iack": "0",
+        "rw": "1",
+        "uds_n": "1",
+        "lds_n": "0",
+        "data_out": "0",
+        "data_in_before": "13",
+        "data_in_after": "128",
+        "controls": "128",
+        "coins_n": "3",
+        "main_pc": "4330",
+        "main_ir": "7545",
+        "main_ird": "7545",
+        "mcu_control": "216",
+        "mcu_bus": "255",
+        "irq2_held": "0"
+      },
+      {
+        "tick_relative": "135440901",
+        "tick_absolute": "138384521",
+        "frame": "167",
+        "raster_x": "321",
+        "raster_y": "240",
+        "address": "786432",
+        "iack": "0",
+        "rw": "1",
+        "uds_n": "1",
+        "lds_n": "0",
+        "data_out": "1542",
+        "data_in_before": "8",
+        "data_in_after": "128",
+        "controls": "128",
+        "coins_n": "3",
+        "main_pc": "4300",
+        "main_ir": "7545",
+        "main_ird": "7545",
+        "mcu_control": "216",
+        "mcu_bus": "255",
+        "irq2_held": "0"
+      },
+      {
+        "tick_relative": "135441093",
+        "tick_absolute": "138384713",
+        "frame": "167",
+        "raster_x": "345",
+        "raster_y": "240",
+        "address": "786432",
+        "iack": "0",
+        "rw": "1",
+        "uds_n": "0",
+        "lds_n": "1",
+        "data_out": "32896",
+        "data_in_before": "9",
+        "data_in_after": "128",
+        "controls": "128",
+        "coins_n": "3",
+        "main_pc": "4308",
+        "main_ir": "7545",
+        "main_ird": "7545",
+        "mcu_control": "216",
+        "mcu_bus": "255",
+        "irq2_held": "0"
+      },
+      {
+        "tick_relative": "135441493",
+        "tick_absolute": "138385113",
+        "frame": "167",
+        "raster_x": "11",
+        "raster_y": "241",
+        "address": "786432",
+        "iack": "0",
+        "rw": "1",
+        "uds_n": "1",
+        "lds_n": "0",
+        "data_out": "0",
+        "data_in_before": "13",
+        "data_in_after": "128",
+        "controls": "128",
+        "coins_n": "3",
+        "main_pc": "4330",
+        "main_ir": "7545",
+        "main_ird": "7545",
+        "mcu_control": "216",
+        "mcu_bus": "255",
+        "irq2_held": "0"
+      },
+      {
+        "tick_relative": "136251883",
+        "tick_absolute": "139195503",
+        "frame": "168",
+        "raster_x": "318",
+        "raster_y": "240",
+        "address": "786432",
+        "iack": "0",
+        "rw": "1",
+        "uds_n": "1",
+        "lds_n": "0",
+        "data_out": "1799",
+        "data_in_before": "8",
+        "data_in_after": "0",
+        "controls": "0",
+        "coins_n": "3",
+        "main_pc": "4300",
+        "main_ir": "7545",
+        "main_ird": "7545",
+        "mcu_control": "216",
+        "mcu_bus": "255",
+        "irq2_held": "0"
+      },
+      {
+        "tick_relative": "136252075",
+        "tick_absolute": "139195695",
+        "frame": "168",
+        "raster_x": "342",
+        "raster_y": "240",
+        "address": "786432",
+        "iack": "0",
+        "rw": "1",
+        "uds_n": "0",
+        "lds_n": "1",
+        "data_out": "0",
+        "data_in_before": "9",
+        "data_in_after": "0",
+        "controls": "0",
+        "coins_n": "3",
+        "main_pc": "4308",
+        "main_ir": "7545",
+        "main_ird": "7545",
+        "mcu_control": "216",
+        "mcu_bus": "255",
+        "irq2_held": "0"
+      },
+      {
+        "tick_relative": "136252475",
+        "tick_absolute": "139196095",
+        "frame": "168",
+        "raster_x": "8",
+        "raster_y": "241",
+        "address": "786432",
+        "iack": "0",
+        "rw": "1",
+        "uds_n": "1",
+        "lds_n": "0",
+        "data_out": "0",
+        "data_in_before": "13",
+        "data_in_after": "0",
+        "controls": "0",
+        "coins_n": "3",
+        "main_pc": "4330",
+        "main_ir": "7545",
+        "main_ird": "7545",
+        "mcu_control": "216",
+        "mcu_bus": "255",
+        "irq2_held": "0"
+      },
+      {
+        "tick_relative": "137062843",
+        "tick_absolute": "140006463",
+        "frame": "169",
+        "raster_x": "312",
+        "raster_y": "240",
+        "address": "786432",
+        "iack": "0",
+        "rw": "1",
+        "uds_n": "1",
+        "lds_n": "0",
+        "data_out": "1028",
+        "data_in_before": "8",
+        "data_in_after": "0",
+        "controls": "0",
+        "coins_n": "3",
+        "main_pc": "4300",
+        "main_ir": "7545",
+        "main_ird": "7545",
+        "mcu_control": "216",
+        "mcu_bus": "255",
+        "irq2_held": "0"
+      },
+      {
+        "tick_relative": "137063035",
+        "tick_absolute": "140006655",
+        "frame": "169",
+        "raster_x": "336",
+        "raster_y": "240",
+        "address": "786432",
+        "iack": "0",
+        "rw": "1",
+        "uds_n": "0",
+        "lds_n": "1",
+        "data_out": "0",
+        "data_in_before": "9",
+        "data_in_after": "0",
+        "controls": "0",
+        "coins_n": "3",
+        "main_pc": "4308",
+        "main_ir": "7545",
+        "main_ird": "7545",
+        "mcu_control": "216",
+        "mcu_bus": "255",
+        "irq2_held": "0"
+      },
+      {
+        "tick_relative": "137063435",
+        "tick_absolute": "140007055",
+        "frame": "169",
+        "raster_x": "2",
+        "raster_y": "241",
+        "address": "786432",
+        "iack": "0",
+        "rw": "1",
+        "uds_n": "1",
+        "lds_n": "0",
+        "data_out": "0",
+        "data_in_before": "13",
+        "data_in_after": "0",
+        "controls": "0",
+        "coins_n": "3",
+        "main_pc": "4330",
+        "main_ir": "7545",
+        "main_ird": "7545",
+        "mcu_control": "216",
+        "mcu_bus": "255",
+        "irq2_held": "0"
+      }
+    ],
+    "MAME": [
+      {
+        "frame": "159",
+        "screen_frame": "158",
+        "raster_y": "240",
+        "raster_x": "353",
+        "address": "786432",
+        "data": "0",
+        "mask": "255",
+        "main_pc": "4208",
+        "in0": "0",
+        "in1": "1",
+        "in2": "3",
+        "mcu_pc": "549"
+      },
+      {
+        "frame": "160",
+        "screen_frame": "159",
+        "raster_y": "240",
+        "raster_x": "347",
+        "address": "786432",
+        "data": "0",
+        "mask": "255",
+        "main_pc": "4208",
+        "in0": "0",
+        "in1": "1",
+        "in2": "3",
+        "mcu_pc": "547"
+      },
+      {
+        "frame": "161",
+        "screen_frame": "160",
+        "raster_y": "240",
+        "raster_x": "351",
+        "address": "786432",
+        "data": "0",
+        "mask": "255",
+        "main_pc": "4208",
+        "in0": "0",
+        "in1": "1",
+        "in2": "3",
+        "mcu_pc": "549"
+      },
+      {
+        "frame": "162",
+        "screen_frame": "161",
+        "raster_y": "240",
+        "raster_x": "355",
+        "address": "786432",
+        "data": "128",
+        "mask": "255",
+        "main_pc": "4208",
+        "in0": "128",
+        "in1": "1",
+        "in2": "3",
+        "mcu_pc": "525"
+      },
+      {
+        "frame": "163",
+        "screen_frame": "162",
+        "raster_y": "240",
+        "raster_x": "305",
+        "address": "786432",
+        "data": "128",
+        "mask": "255",
+        "main_pc": "4300",
+        "in0": "128",
+        "in1": "1",
+        "in2": "3",
+        "mcu_pc": "523"
+      },
+      {
+        "frame": "163",
+        "screen_frame": "162",
+        "raster_y": "240",
+        "raster_x": "329",
+        "address": "786432",
+        "data": "128",
+        "mask": "65280",
+        "main_pc": "4308",
+        "in0": "128",
+        "in1": "1",
+        "in2": "3",
+        "mcu_pc": "523"
+      },
+      {
+        "frame": "163",
+        "screen_frame": "162",
+        "raster_y": "240",
+        "raster_x": "379",
+        "address": "786432",
+        "data": "128",
+        "mask": "255",
+        "main_pc": "4330",
+        "in0": "128",
+        "in1": "1",
+        "in2": "3",
+        "mcu_pc": "523"
+      },
+      {
+        "frame": "164",
+        "screen_frame": "163",
+        "raster_y": "240",
+        "raster_x": "309",
+        "address": "786432",
+        "data": "128",
+        "mask": "255",
+        "main_pc": "4300",
+        "in0": "128",
+        "in1": "1",
+        "in2": "3",
+        "mcu_pc": "543"
+      },
+      {
+        "frame": "164",
+        "screen_frame": "163",
+        "raster_y": "240",
+        "raster_x": "333",
+        "address": "786432",
+        "data": "128",
+        "mask": "65280",
+        "main_pc": "4308",
+        "in0": "128",
+        "in1": "1",
+        "in2": "3",
+        "mcu_pc": "543"
+      },
+      {
+        "frame": "164",
+        "screen_frame": "163",
+        "raster_y": "240",
+        "raster_x": "383",
+        "address": "786432",
+        "data": "128",
+        "mask": "255",
+        "main_pc": "4330",
+        "in0": "128",
+        "in1": "1",
+        "in2": "3",
+        "mcu_pc": "546"
+      },
+      {
+        "frame": "165",
+        "screen_frame": "164",
+        "raster_y": "240",
+        "raster_x": "307",
+        "address": "786432",
+        "data": "128",
+        "mask": "255",
+        "main_pc": "4300",
+        "in0": "128",
+        "in1": "1",
+        "in2": "3",
+        "mcu_pc": "546"
+      },
+      {
+        "frame": "165",
+        "screen_frame": "164",
+        "raster_y": "240",
+        "raster_x": "331",
+        "address": "786432",
+        "data": "128",
+        "mask": "65280",
+        "main_pc": "4308",
+        "in0": "128",
+        "in1": "1",
+        "in2": "3",
+        "mcu_pc": "546"
+      },
+      {
+        "frame": "165",
+        "screen_frame": "164",
+        "raster_y": "240",
+        "raster_x": "381",
+        "address": "786432",
+        "data": "128",
+        "mask": "255",
+        "main_pc": "4330",
+        "in0": "128",
+        "in1": "1",
+        "in2": "3",
+        "mcu_pc": "546"
+      },
+      {
+        "frame": "166",
+        "screen_frame": "165",
+        "raster_y": "240",
+        "raster_x": "311",
+        "address": "786432",
+        "data": "128",
+        "mask": "255",
+        "main_pc": "4300",
+        "in0": "128",
+        "in1": "1",
+        "in2": "3",
+        "mcu_pc": "543"
+      },
+      {
+        "frame": "166",
+        "screen_frame": "165",
+        "raster_y": "240",
+        "raster_x": "335",
+        "address": "786432",
+        "data": "128",
+        "mask": "65280",
+        "main_pc": "4308",
+        "in0": "128",
+        "in1": "1",
+        "in2": "3",
+        "mcu_pc": "543"
+      },
+      {
+        "frame": "166",
+        "screen_frame": "165",
+        "raster_y": "241",
+        "raster_x": "1",
+        "address": "786432",
+        "data": "128",
+        "mask": "255",
+        "main_pc": "4330",
+        "in0": "128",
+        "in1": "1",
+        "in2": "3",
+        "mcu_pc": "543"
+      },
+      {
+        "frame": "167",
+        "screen_frame": "166",
+        "raster_y": "240",
+        "raster_x": "315",
+        "address": "786432",
+        "data": "128",
+        "mask": "255",
+        "main_pc": "4300",
+        "in0": "128",
+        "in1": "1",
+        "in2": "3",
+        "mcu_pc": "526"
+      },
+      {
+        "frame": "167",
+        "screen_frame": "166",
+        "raster_y": "240",
+        "raster_x": "339",
+        "address": "786432",
+        "data": "128",
+        "mask": "65280",
+        "main_pc": "4308",
+        "in0": "128",
+        "in1": "1",
+        "in2": "3",
+        "mcu_pc": "526"
+      },
+      {
+        "frame": "167",
+        "screen_frame": "166",
+        "raster_y": "241",
+        "raster_x": "5",
+        "address": "786432",
+        "data": "128",
+        "mask": "255",
+        "main_pc": "4330",
+        "in0": "128",
+        "in1": "1",
+        "in2": "3",
+        "mcu_pc": "526"
+      },
+      {
+        "frame": "168",
+        "screen_frame": "167",
+        "raster_y": "240",
+        "raster_x": "319",
+        "address": "786432",
+        "data": "0",
+        "mask": "255",
+        "main_pc": "4300",
+        "in0": "0",
+        "in1": "1",
+        "in2": "3",
+        "mcu_pc": "525"
+      },
+      {
+        "frame": "168",
+        "screen_frame": "167",
+        "raster_y": "240",
+        "raster_x": "343",
+        "address": "786432",
+        "data": "0",
+        "mask": "65280",
+        "main_pc": "4308",
+        "in0": "0",
+        "in1": "1",
+        "in2": "3",
+        "mcu_pc": "525"
+      },
+      {
+        "frame": "168",
+        "screen_frame": "167",
+        "raster_y": "241",
+        "raster_x": "9",
+        "address": "786432",
+        "data": "0",
+        "mask": "255",
+        "main_pc": "4330",
+        "in0": "0",
+        "in1": "1",
+        "in2": "3",
+        "mcu_pc": "525"
+      },
+      {
+        "frame": "169",
+        "screen_frame": "168",
+        "raster_y": "240",
+        "raster_x": "313",
+        "address": "786432",
+        "data": "0",
+        "mask": "255",
+        "main_pc": "4300",
+        "in0": "0",
+        "in1": "1",
+        "in2": "3",
+        "mcu_pc": "549"
+      },
+      {
+        "frame": "169",
+        "screen_frame": "168",
+        "raster_y": "240",
+        "raster_x": "337",
+        "address": "786432",
+        "data": "0",
+        "mask": "65280",
+        "main_pc": "4308",
+        "in0": "0",
+        "in1": "1",
+        "in2": "3",
+        "mcu_pc": "549"
+      },
+      {
+        "frame": "169",
+        "screen_frame": "168",
+        "raster_y": "241",
+        "raster_x": "3",
+        "address": "786432",
+        "data": "0",
+        "mask": "255",
+        "main_pc": "4330",
+        "in0": "0",
+        "in1": "1",
+        "in2": "3",
+        "mcu_pc": "549"
+      }
+    ]
+  },
+  "actual_coinage_consumption": {
+    "native": [
+      {
+        "tick_relative": "98974397",
+        "tick_absolute": "101918017",
+        "frame": "122",
+        "raster_x": "88",
+        "raster_y": "250",
+        "address": "131140",
+        "iack": "0",
+        "rw": "1",
+        "uds_n": "1",
+        "lds_n": "0",
+        "data_out": "0",
+        "data_in_before": "37376",
+        "data_in_after": "1",
+        "controls": "0",
+        "coins_n": "2",
+        "main_pc": "5274",
+        "main_ir": "4654",
+        "main_ird": "4654",
+        "mcu_control": "200",
+        "mcu_bus": "255",
+        "irq2_held": "0"
+      }
+    ],
+    "MAME": [
+      {
+        "frame": "122",
+        "screen_frame": "121",
+        "raster_y": "254",
+        "raster_x": "83",
+        "address": "131140",
+        "data": "1",
+        "mask": "255",
+        "main_pc": "5274",
+        "in0": "0",
+        "in1": "1",
+        "in2": "2",
+        "mcu_pc": "390"
+      }
+    ]
+  },
+  "graphics": {
+    "all5_completed_RGB_exact": true,
+    "comparisons": [
+      {
+        "frame": 0,
+        "completed_MAME": {
+          "path": "D:\\Arcade\\AI\\aCORES\\Alpha68k N\\research\\stingray_combined_stage\\next_coupled_scope_v2\\completed_png_diagnosis\\frame_000000.completed.rgb",
+          "sha256": "627f1db9ee518cc0fb2a9a223be1aa86c3a0b4fde0184de9d4334b94c1d1f27a",
+          "bytes": 172032
+        },
+        "native": {
+          "path": "D:\\Arcade\\AI\\aCORES\\Alpha68k N\\research\\stingray_game_divergence_20261011\\p2_gameplay181\\capture\\frame_000000.rgb",
+          "sha256": "627f1db9ee518cc0fb2a9a223be1aa86c3a0b4fde0184de9d4334b94c1d1f27a",
+          "bytes": 172032
+        },
+        "RGB_different_pixels": 0,
+        "work.bin": {
+          "different_bytes": 0,
+          "native": {
+            "path": "D:\\Arcade\\AI\\aCORES\\Alpha68k N\\research\\stingray_game_divergence_20261011\\p2_gameplay181\\capture\\frame_000000.work.bin",
+            "sha256": "ad7facb2586fc6e966c004d7d1d16b024f5805ff7cb47c7a85dabd8b48892ca7",
+            "bytes": 4096
+          },
+          "MAME": {
+            "path": "D:\\Arcade\\AI\\aCORES\\meatsauce-alpha68kn\\cores\\Alpha68k_N\\sim\\captures\\sstingry\\gameplay\\frame_000000.work.bin",
+            "sha256": "ad7facb2586fc6e966c004d7d1d16b024f5805ff7cb47c7a85dabd8b48892ca7",
+            "bytes": 4096
+          }
+        },
+        "sprites.bin": {
+          "different_bytes": 0,
+          "native": {
+            "path": "D:\\Arcade\\AI\\aCORES\\Alpha68k N\\research\\stingray_game_divergence_20261011\\p2_gameplay181\\capture\\frame_000000.sprites.bin",
+            "sha256": "9f1dcbc35c350d6027f98be0f5c8b43b42ca52b7604459c0c42be3aa88913d47",
+            "bytes": 8192
+          },
+          "MAME": {
+            "path": "D:\\Arcade\\AI\\aCORES\\meatsauce-alpha68kn\\cores\\Alpha68k_N\\sim\\captures\\sstingry\\gameplay\\frame_000000.sprites.bin",
+            "sha256": "9f1dcbc35c350d6027f98be0f5c8b43b42ca52b7604459c0c42be3aa88913d47",
+            "bytes": 8192
+          }
+        }
+      },
+      {
+        "frame": 30,
+        "completed_MAME": {
+          "path": "D:\\Arcade\\AI\\aCORES\\Alpha68k N\\research\\stingray_combined_stage\\next_coupled_scope_v2\\completed_png_diagnosis\\frame_000030.completed.rgb",
+          "sha256": "b31ecbebe7313f11da2ad0a89510ebe70aec1893a34e78ae5ba70ef7f9ed58ee",
+          "bytes": 172032
+        },
+        "native": {
+          "path": "D:\\Arcade\\AI\\aCORES\\Alpha68k N\\research\\stingray_game_divergence_20261011\\p2_gameplay181\\capture\\frame_000030.rgb",
+          "sha256": "b31ecbebe7313f11da2ad0a89510ebe70aec1893a34e78ae5ba70ef7f9ed58ee",
+          "bytes": 172032
+        },
+        "RGB_different_pixels": 0,
+        "work.bin": {
+          "different_bytes": 0,
+          "native": {
+            "path": "D:\\Arcade\\AI\\aCORES\\Alpha68k N\\research\\stingray_game_divergence_20261011\\p2_gameplay181\\capture\\frame_000030.work.bin",
+            "sha256": "61864913afffddd4faf60bc2afecdff33ea7a78f6e3917a8bc1a1248bd9a1ad7",
+            "bytes": 4096
+          },
+          "MAME": {
+            "path": "D:\\Arcade\\AI\\aCORES\\meatsauce-alpha68kn\\cores\\Alpha68k_N\\sim\\captures\\sstingry\\gameplay\\frame_000030.work.bin",
+            "sha256": "61864913afffddd4faf60bc2afecdff33ea7a78f6e3917a8bc1a1248bd9a1ad7",
+            "bytes": 4096
+          }
+        },
+        "sprites.bin": {
+          "different_bytes": 0,
+          "native": {
+            "path": "D:\\Arcade\\AI\\aCORES\\Alpha68k N\\research\\stingray_game_divergence_20261011\\p2_gameplay181\\capture\\frame_000030.sprites.bin",
+            "sha256": "819f95fc59fd84e82d0849991c174fc3f077b4614c873c54230276622ca0d87a",
+            "bytes": 8192
+          },
+          "MAME": {
+            "path": "D:\\Arcade\\AI\\aCORES\\meatsauce-alpha68kn\\cores\\Alpha68k_N\\sim\\captures\\sstingry\\gameplay\\frame_000030.sprites.bin",
+            "sha256": "819f95fc59fd84e82d0849991c174fc3f077b4614c873c54230276622ca0d87a",
+            "bytes": 8192
+          }
+        }
+      },
+      {
+        "frame": 90,
+        "completed_MAME": {
+          "path": "D:\\Arcade\\AI\\aCORES\\Alpha68k N\\research\\stingray_combined_stage\\next_coupled_scope_v2\\completed_png_diagnosis\\frame_000090.completed.rgb",
+          "sha256": "b31ecbebe7313f11da2ad0a89510ebe70aec1893a34e78ae5ba70ef7f9ed58ee",
+          "bytes": 172032
+        },
+        "native": {
+          "path": "D:\\Arcade\\AI\\aCORES\\Alpha68k N\\research\\stingray_game_divergence_20261011\\p2_gameplay181\\capture\\frame_000090.rgb",
+          "sha256": "b31ecbebe7313f11da2ad0a89510ebe70aec1893a34e78ae5ba70ef7f9ed58ee",
+          "bytes": 172032
+        },
+        "RGB_different_pixels": 0,
+        "work.bin": {
+          "different_bytes": 0,
+          "native": {
+            "path": "D:\\Arcade\\AI\\aCORES\\Alpha68k N\\research\\stingray_game_divergence_20261011\\p2_gameplay181\\capture\\frame_000090.work.bin",
+            "sha256": "61864913afffddd4faf60bc2afecdff33ea7a78f6e3917a8bc1a1248bd9a1ad7",
+            "bytes": 4096
+          },
+          "MAME": {
+            "path": "D:\\Arcade\\AI\\aCORES\\meatsauce-alpha68kn\\cores\\Alpha68k_N\\sim\\captures\\sstingry\\gameplay\\frame_000090.work.bin",
+            "sha256": "61864913afffddd4faf60bc2afecdff33ea7a78f6e3917a8bc1a1248bd9a1ad7",
+            "bytes": 4096
+          }
+        },
+        "sprites.bin": {
+          "different_bytes": 0,
+          "native": {
+            "path": "D:\\Arcade\\AI\\aCORES\\Alpha68k N\\research\\stingray_game_divergence_20261011\\p2_gameplay181\\capture\\frame_000090.sprites.bin",
+            "sha256": "819f95fc59fd84e82d0849991c174fc3f077b4614c873c54230276622ca0d87a",
+            "bytes": 8192
+          },
+          "MAME": {
+            "path": "D:\\Arcade\\AI\\aCORES\\meatsauce-alpha68kn\\cores\\Alpha68k_N\\sim\\captures\\sstingry\\gameplay\\frame_000090.sprites.bin",
+            "sha256": "819f95fc59fd84e82d0849991c174fc3f077b4614c873c54230276622ca0d87a",
+            "bytes": 8192
+          }
+        }
+      },
+      {
+        "frame": 119,
+        "completed_MAME": {
+          "path": "D:\\Arcade\\AI\\aCORES\\Alpha68k N\\research\\stingray_combined_stage\\next_coupled_scope_v2\\completed_png_diagnosis\\frame_000119.completed.rgb",
+          "sha256": "48a964e7a8f8231c428f9838017b70d8d0195893ea77730302dc78f7045564c5",
+          "bytes": 172032
+        },
+        "native": {
+          "path": "D:\\Arcade\\AI\\aCORES\\Alpha68k N\\research\\stingray_game_divergence_20261011\\p2_gameplay181\\capture\\frame_000119.rgb",
+          "sha256": "48a964e7a8f8231c428f9838017b70d8d0195893ea77730302dc78f7045564c5",
+          "bytes": 172032
+        },
+        "RGB_different_pixels": 0,
+        "work.bin": {
+          "different_bytes": 5,
+          "native": {
+            "path": "D:\\Arcade\\AI\\aCORES\\Alpha68k N\\research\\stingray_game_divergence_20261011\\p2_gameplay181\\capture\\frame_000119.work.bin",
+            "sha256": "e98ed1b5a2a378a7830414a1ab4defda50ba76c73de1bf623ef7d078ec76c035",
+            "bytes": 4096
+          },
+          "MAME": {
+            "path": "D:\\Arcade\\AI\\aCORES\\meatsauce-alpha68kn\\cores\\Alpha68k_N\\sim\\captures\\sstingry\\gameplay\\frame_000119.work.bin",
+            "sha256": "2e593131057319cfd79bd8f6ae1f469d3084fa50812f9e530a1f855dc6ae4963",
+            "bytes": 4096
+          }
+        },
+        "sprites.bin": {
+          "different_bytes": 0,
+          "native": {
+            "path": "D:\\Arcade\\AI\\aCORES\\Alpha68k N\\research\\stingray_game_divergence_20261011\\p2_gameplay181\\capture\\frame_000119.sprites.bin",
+            "sha256": "3c84cb3a89b9f20d4f213603392b84f484b86ac0e7c0fd83c7d8ce170150d40e",
+            "bytes": 8192
+          },
+          "MAME": {
+            "path": "D:\\Arcade\\AI\\aCORES\\meatsauce-alpha68kn\\cores\\Alpha68k_N\\sim\\captures\\sstingry\\gameplay\\frame_000119.sprites.bin",
+            "sha256": "3c84cb3a89b9f20d4f213603392b84f484b86ac0e7c0fd83c7d8ce170150d40e",
+            "bytes": 8192
+          }
+        }
+      },
+      {
+        "frame": 179,
+        "completed_MAME": {
+          "path": "D:\\Arcade\\AI\\aCORES\\Alpha68k N\\research\\stingray_combined_stage\\next_coupled_scope_v2\\completed_png_diagnosis\\frame_000179.completed.rgb",
+          "sha256": "30440d85a4387837f3148d5307ed1968497ce35275a99d9b447bb17103c11362",
+          "bytes": 172032
+        },
+        "native": {
+          "path": "D:\\Arcade\\AI\\aCORES\\Alpha68k N\\research\\stingray_game_divergence_20261011\\p2_gameplay181\\capture\\frame_000179.rgb",
+          "sha256": "30440d85a4387837f3148d5307ed1968497ce35275a99d9b447bb17103c11362",
+          "bytes": 172032
+        },
+        "RGB_different_pixels": 0,
+        "work.bin": {
+          "different_bytes": 7,
+          "native": {
+            "path": "D:\\Arcade\\AI\\aCORES\\Alpha68k N\\research\\stingray_game_divergence_20261011\\p2_gameplay181\\capture\\frame_000179.work.bin",
+            "sha256": "2f29a30936f9fcb3c3a2a7d2349e6994ee14a03326303c72417943cf2c13e013",
+            "bytes": 4096
+          },
+          "MAME": {
+            "path": "D:\\Arcade\\AI\\aCORES\\meatsauce-alpha68kn\\cores\\Alpha68k_N\\sim\\captures\\sstingry\\gameplay\\frame_000179.work.bin",
+            "sha256": "d3b7bdc71ef7ebf9f33fe68bc9d8c7401eb2a42c2a699f8d980d7fcf113d2d3e",
+            "bytes": 4096
+          }
+        },
+        "sprites.bin": {
+          "different_bytes": 0,
+          "native": {
+            "path": "D:\\Arcade\\AI\\aCORES\\Alpha68k N\\research\\stingray_game_divergence_20261011\\p2_gameplay181\\capture\\frame_000179.sprites.bin",
+            "sha256": "aca7c2d581b64ea184f27161280a872d5df9c03161b473c52653b41bb930464d",
+            "bytes": 8192
+          },
+          "MAME": {
+            "path": "D:\\Arcade\\AI\\aCORES\\meatsauce-alpha68kn\\cores\\Alpha68k_N\\sim\\captures\\sstingry\\gameplay\\frame_000179.sprites.bin",
+            "sha256": "aca7c2d581b64ea184f27161280a872d5df9c03161b473c52653b41bb930464d",
+            "bytes": 8192
+          }
+        }
+      }
+    ]
+  },
+  "historical_preinput_array_comparisons": [
+    {
+      "name": "frame_000000.rgb",
+      "baseline_sha256": "627f1db9ee518cc0fb2a9a223be1aa86c3a0b4fde0184de9d4334b94c1d1f27a",
+      "candidate_sha256": "627f1db9ee518cc0fb2a9a223be1aa86c3a0b4fde0184de9d4334b94c1d1f27a",
+      "exact": true
+    },
+    {
+      "name": "frame_000000.sprites.bin",
+      "baseline_sha256": "9f1dcbc35c350d6027f98be0f5c8b43b42ca52b7604459c0c42be3aa88913d47",
+      "candidate_sha256": "9f1dcbc35c350d6027f98be0f5c8b43b42ca52b7604459c0c42be3aa88913d47",
+      "exact": true
+    },
+    {
+      "name": "frame_000000.work.bin",
+      "baseline_sha256": "ad7facb2586fc6e966c004d7d1d16b024f5805ff7cb47c7a85dabd8b48892ca7",
+      "candidate_sha256": "ad7facb2586fc6e966c004d7d1d16b024f5805ff7cb47c7a85dabd8b48892ca7",
+      "exact": true
+    },
+    {
+      "name": "frame_000001.rgb",
+      "baseline_sha256": "627f1db9ee518cc0fb2a9a223be1aa86c3a0b4fde0184de9d4334b94c1d1f27a",
+      "candidate_sha256": "627f1db9ee518cc0fb2a9a223be1aa86c3a0b4fde0184de9d4334b94c1d1f27a",
+      "exact": true
+    },
+    {
+      "name": "frame_000001.sprites.bin",
+      "baseline_sha256": "9f1dcbc35c350d6027f98be0f5c8b43b42ca52b7604459c0c42be3aa88913d47",
+      "candidate_sha256": "9f1dcbc35c350d6027f98be0f5c8b43b42ca52b7604459c0c42be3aa88913d47",
+      "exact": true
+    },
+    {
+      "name": "frame_000001.work.bin",
+      "baseline_sha256": "ad7facb2586fc6e966c004d7d1d16b024f5805ff7cb47c7a85dabd8b48892ca7",
+      "candidate_sha256": "ad7facb2586fc6e966c004d7d1d16b024f5805ff7cb47c7a85dabd8b48892ca7",
+      "exact": true
+    },
+    {
+      "name": "frame_000002.rgb",
+      "baseline_sha256": "627f1db9ee518cc0fb2a9a223be1aa86c3a0b4fde0184de9d4334b94c1d1f27a",
+      "candidate_sha256": "627f1db9ee518cc0fb2a9a223be1aa86c3a0b4fde0184de9d4334b94c1d1f27a",
+      "exact": true
+    },
+    {
+      "name": "frame_000002.sprites.bin",
+      "baseline_sha256": "9f1dcbc35c350d6027f98be0f5c8b43b42ca52b7604459c0c42be3aa88913d47",
+      "candidate_sha256": "9f1dcbc35c350d6027f98be0f5c8b43b42ca52b7604459c0c42be3aa88913d47",
+      "exact": true
+    },
+    {
+      "name": "frame_000002.work.bin",
+      "baseline_sha256": "ad7facb2586fc6e966c004d7d1d16b024f5805ff7cb47c7a85dabd8b48892ca7",
+      "candidate_sha256": "ad7facb2586fc6e966c004d7d1d16b024f5805ff7cb47c7a85dabd8b48892ca7",
+      "exact": true
+    },
+    {
+      "name": "frame_000003.rgb",
+      "baseline_sha256": "627f1db9ee518cc0fb2a9a223be1aa86c3a0b4fde0184de9d4334b94c1d1f27a",
+      "candidate_sha256": "627f1db9ee518cc0fb2a9a223be1aa86c3a0b4fde0184de9d4334b94c1d1f27a",
+      "exact": true
+    },
+    {
+      "name": "frame_000003.sprites.bin",
+      "baseline_sha256": "9f1dcbc35c350d6027f98be0f5c8b43b42ca52b7604459c0c42be3aa88913d47",
+      "candidate_sha256": "9f1dcbc35c350d6027f98be0f5c8b43b42ca52b7604459c0c42be3aa88913d47",
+      "exact": true
+    },
+    {
+      "name": "frame_000003.work.bin",
+      "baseline_sha256": "ad7facb2586fc6e966c004d7d1d16b024f5805ff7cb47c7a85dabd8b48892ca7",
+      "candidate_sha256": "ad7facb2586fc6e966c004d7d1d16b024f5805ff7cb47c7a85dabd8b48892ca7",
+      "exact": true
+    },
+    {
+      "name": "frame_000004.rgb",
+      "baseline_sha256": "627f1db9ee518cc0fb2a9a223be1aa86c3a0b4fde0184de9d4334b94c1d1f27a",
+      "candidate_sha256": "627f1db9ee518cc0fb2a9a223be1aa86c3a0b4fde0184de9d4334b94c1d1f27a",
+      "exact": true
+    },
+    {
+      "name": "frame_000004.sprites.bin",
+      "baseline_sha256": "9f1dcbc35c350d6027f98be0f5c8b43b42ca52b7604459c0c42be3aa88913d47",
+      "candidate_sha256": "9f1dcbc35c350d6027f98be0f5c8b43b42ca52b7604459c0c42be3aa88913d47",
+      "exact": true
+    },
+    {
+      "name": "frame_000004.work.bin",
+      "baseline_sha256": "ad7facb2586fc6e966c004d7d1d16b024f5805ff7cb47c7a85dabd8b48892ca7",
+      "candidate_sha256": "ad7facb2586fc6e966c004d7d1d16b024f5805ff7cb47c7a85dabd8b48892ca7",
+      "exact": true
+    },
+    {
+      "name": "frame_000005.rgb",
+      "baseline_sha256": "627f1db9ee518cc0fb2a9a223be1aa86c3a0b4fde0184de9d4334b94c1d1f27a",
+      "candidate_sha256": "627f1db9ee518cc0fb2a9a223be1aa86c3a0b4fde0184de9d4334b94c1d1f27a",
+      "exact": true
+    },
+    {
+      "name": "frame_000005.sprites.bin",
+      "baseline_sha256": "9f1dcbc35c350d6027f98be0f5c8b43b42ca52b7604459c0c42be3aa88913d47",
+      "candidate_sha256": "9f1dcbc35c350d6027f98be0f5c8b43b42ca52b7604459c0c42be3aa88913d47",
+      "exact": true
+    },
+    {
+      "name": "frame_000005.work.bin",
+      "baseline_sha256": "ad7facb2586fc6e966c004d7d1d16b024f5805ff7cb47c7a85dabd8b48892ca7",
+      "candidate_sha256": "ad7facb2586fc6e966c004d7d1d16b024f5805ff7cb47c7a85dabd8b48892ca7",
+      "exact": true
+    },
+    {
+      "name": "frame_000006.rgb",
+      "baseline_sha256": "627f1db9ee518cc0fb2a9a223be1aa86c3a0b4fde0184de9d4334b94c1d1f27a",
+      "candidate_sha256": "627f1db9ee518cc0fb2a9a223be1aa86c3a0b4fde0184de9d4334b94c1d1f27a",
+      "exact": true
+    },
+    {
+      "name": "frame_000006.sprites.bin",
+      "baseline_sha256": "9f1dcbc35c350d6027f98be0f5c8b43b42ca52b7604459c0c42be3aa88913d47",
+      "candidate_sha256": "9f1dcbc35c350d6027f98be0f5c8b43b42ca52b7604459c0c42be3aa88913d47",
+      "exact": true
+    },
+    {
+      "name": "frame_000006.work.bin",
+      "baseline_sha256": "ad7facb2586fc6e966c004d7d1d16b024f5805ff7cb47c7a85dabd8b48892ca7",
+      "candidate_sha256": "ad7facb2586fc6e966c004d7d1d16b024f5805ff7cb47c7a85dabd8b48892ca7",
+      "exact": true
+    },
+    {
+      "name": "frame_000007.rgb",
+      "baseline_sha256": "627f1db9ee518cc0fb2a9a223be1aa86c3a0b4fde0184de9d4334b94c1d1f27a",
+      "candidate_sha256": "627f1db9ee518cc0fb2a9a223be1aa86c3a0b4fde0184de9d4334b94c1d1f27a",
+      "exact": true
+    },
+    {
+      "name": "frame_000007.sprites.bin",
+      "baseline_sha256": "9f1dcbc35c350d6027f98be0f5c8b43b42ca52b7604459c0c42be3aa88913d47",
+      "candidate_sha256": "9f1dcbc35c350d6027f98be0f5c8b43b42ca52b7604459c0c42be3aa88913d47",
+      "exact": true
+    },
+    {
+      "name": "frame_000007.work.bin",
+      "baseline_sha256": "ad7facb2586fc6e966c004d7d1d16b024f5805ff7cb47c7a85dabd8b48892ca7",
+      "candidate_sha256": "ad7facb2586fc6e966c004d7d1d16b024f5805ff7cb47c7a85dabd8b48892ca7",
+      "exact": true
+    },
+    {
+      "name": "frame_000008.rgb",
+      "baseline_sha256": "627f1db9ee518cc0fb2a9a223be1aa86c3a0b4fde0184de9d4334b94c1d1f27a",
+      "candidate_sha256": "627f1db9ee518cc0fb2a9a223be1aa86c3a0b4fde0184de9d4334b94c1d1f27a",
+      "exact": true
+    },
+    {
+      "name": "frame_000008.sprites.bin",
+      "baseline_sha256": "9f1dcbc35c350d6027f98be0f5c8b43b42ca52b7604459c0c42be3aa88913d47",
+      "candidate_sha256": "9f1dcbc35c350d6027f98be0f5c8b43b42ca52b7604459c0c42be3aa88913d47",
+      "exact": true
+    },
+    {
+      "name": "frame_000008.work.bin",
+      "baseline_sha256": "ad7facb2586fc6e966c004d7d1d16b024f5805ff7cb47c7a85dabd8b48892ca7",
+      "candidate_sha256": "ad7facb2586fc6e966c004d7d1d16b024f5805ff7cb47c7a85dabd8b48892ca7",
+      "exact": true
+    },
+    {
+      "name": "frame_000009.rgb",
+      "baseline_sha256": "627f1db9ee518cc0fb2a9a223be1aa86c3a0b4fde0184de9d4334b94c1d1f27a",
+      "candidate_sha256": "627f1db9ee518cc0fb2a9a223be1aa86c3a0b4fde0184de9d4334b94c1d1f27a",
+      "exact": true
+    },
+    {
+      "name": "frame_000009.sprites.bin",
+      "baseline_sha256": "9f1dcbc35c350d6027f98be0f5c8b43b42ca52b7604459c0c42be3aa88913d47",
+      "candidate_sha256": "9f1dcbc35c350d6027f98be0f5c8b43b42ca52b7604459c0c42be3aa88913d47",
+      "exact": true
+    },
+    {
+      "name": "frame_000009.work.bin",
+      "baseline_sha256": "ad7facb2586fc6e966c004d7d1d16b024f5805ff7cb47c7a85dabd8b48892ca7",
+      "candidate_sha256": "ad7facb2586fc6e966c004d7d1d16b024f5805ff7cb47c7a85dabd8b48892ca7",
+      "exact": true
+    },
+    {
+      "name": "frame_000010.rgb",
+      "baseline_sha256": "627f1db9ee518cc0fb2a9a223be1aa86c3a0b4fde0184de9d4334b94c1d1f27a",
+      "candidate_sha256": "627f1db9ee518cc0fb2a9a223be1aa86c3a0b4fde0184de9d4334b94c1d1f27a",
+      "exact": true
+    },
+    {
+      "name": "frame_000010.sprites.bin",
+      "baseline_sha256": "9f1dcbc35c350d6027f98be0f5c8b43b42ca52b7604459c0c42be3aa88913d47",
+      "candidate_sha256": "9f1dcbc35c350d6027f98be0f5c8b43b42ca52b7604459c0c42be3aa88913d47",
+      "exact": true
+    },
+    {
+      "name": "frame_000010.work.bin",
+      "baseline_sha256": "ad7facb2586fc6e966c004d7d1d16b024f5805ff7cb47c7a85dabd8b48892ca7",
+      "candidate_sha256": "ad7facb2586fc6e966c004d7d1d16b024f5805ff7cb47c7a85dabd8b48892ca7",
+      "exact": true
+    },
+    {
+      "name": "frame_000011.rgb",
+      "baseline_sha256": "627f1db9ee518cc0fb2a9a223be1aa86c3a0b4fde0184de9d4334b94c1d1f27a",
+      "candidate_sha256": "627f1db9ee518cc0fb2a9a223be1aa86c3a0b4fde0184de9d4334b94c1d1f27a",
+      "exact": true
+    },
+    {
+      "name": "frame_000011.sprites.bin",
+      "baseline_sha256": "9f1dcbc35c350d6027f98be0f5c8b43b42ca52b7604459c0c42be3aa88913d47",
+      "candidate_sha256": "9f1dcbc35c350d6027f98be0f5c8b43b42ca52b7604459c0c42be3aa88913d47",
+      "exact": true
+    },
+    {
+      "name": "frame_000011.work.bin",
+      "baseline_sha256": "ad7facb2586fc6e966c004d7d1d16b024f5805ff7cb47c7a85dabd8b48892ca7",
+      "candidate_sha256": "ad7facb2586fc6e966c004d7d1d16b024f5805ff7cb47c7a85dabd8b48892ca7",
+      "exact": true
+    },
+    {
+      "name": "frame_000012.rgb",
+      "baseline_sha256": "627f1db9ee518cc0fb2a9a223be1aa86c3a0b4fde0184de9d4334b94c1d1f27a",
+      "candidate_sha256": "627f1db9ee518cc0fb2a9a223be1aa86c3a0b4fde0184de9d4334b94c1d1f27a",
+      "exact": true
+    },
+    {
+      "name": "frame_000012.sprites.bin",
+      "baseline_sha256": "9f1dcbc35c350d6027f98be0f5c8b43b42ca52b7604459c0c42be3aa88913d47",
+      "candidate_sha256": "9f1dcbc35c350d6027f98be0f5c8b43b42ca52b7604459c0c42be3aa88913d47",
+      "exact": true
+    },
+    {
+      "name": "frame_000012.work.bin",
+      "baseline_sha256": "ad7facb2586fc6e966c004d7d1d16b024f5805ff7cb47c7a85dabd8b48892ca7",
+      "candidate_sha256": "ad7facb2586fc6e966c004d7d1d16b024f5805ff7cb47c7a85dabd8b48892ca7",
+      "exact": true
+    },
+    {
+      "name": "frame_000013.rgb",
+      "baseline_sha256": "627f1db9ee518cc0fb2a9a223be1aa86c3a0b4fde0184de9d4334b94c1d1f27a",
+      "candidate_sha256": "627f1db9ee518cc0fb2a9a223be1aa86c3a0b4fde0184de9d4334b94c1d1f27a",
+      "exact": true
+    },
+    {
+      "name": "frame_000013.sprites.bin",
+      "baseline_sha256": "9f1dcbc35c350d6027f98be0f5c8b43b42ca52b7604459c0c42be3aa88913d47",
+      "candidate_sha256": "9f1dcbc35c350d6027f98be0f5c8b43b42ca52b7604459c0c42be3aa88913d47",
+      "exact": true
+    },
+    {
+      "name": "frame_000013.work.bin",
+      "baseline_sha256": "ad7facb2586fc6e966c004d7d1d16b024f5805ff7cb47c7a85dabd8b48892ca7",
+      "candidate_sha256": "ad7facb2586fc6e966c004d7d1d16b024f5805ff7cb47c7a85dabd8b48892ca7",
+      "exact": true
+    },
+    {
+      "name": "frame_000014.rgb",
+      "baseline_sha256": "627f1db9ee518cc0fb2a9a223be1aa86c3a0b4fde0184de9d4334b94c1d1f27a",
+      "candidate_sha256": "627f1db9ee518cc0fb2a9a223be1aa86c3a0b4fde0184de9d4334b94c1d1f27a",
+      "exact": true
+    },
+    {
+      "name": "frame_000014.sprites.bin",
+      "baseline_sha256": "9f1dcbc35c350d6027f98be0f5c8b43b42ca52b7604459c0c42be3aa88913d47",
+      "candidate_sha256": "9f1dcbc35c350d6027f98be0f5c8b43b42ca52b7604459c0c42be3aa88913d47",
+      "exact": true
+    },
+    {
+      "name": "frame_000014.work.bin",
+      "baseline_sha256": "ad7facb2586fc6e966c004d7d1d16b024f5805ff7cb47c7a85dabd8b48892ca7",
+      "candidate_sha256": "ad7facb2586fc6e966c004d7d1d16b024f5805ff7cb47c7a85dabd8b48892ca7",
+      "exact": true
+    },
+    {
+      "name": "frame_000015.rgb",
+      "baseline_sha256": "627f1db9ee518cc0fb2a9a223be1aa86c3a0b4fde0184de9d4334b94c1d1f27a",
+      "candidate_sha256": "627f1db9ee518cc0fb2a9a223be1aa86c3a0b4fde0184de9d4334b94c1d1f27a",
+      "exact": true
+    },
+    {
+      "name": "frame_000015.sprites.bin",
+      "baseline_sha256": "9f1dcbc35c350d6027f98be0f5c8b43b42ca52b7604459c0c42be3aa88913d47",
+      "candidate_sha256": "9f1dcbc35c350d6027f98be0f5c8b43b42ca52b7604459c0c42be3aa88913d47",
+      "exact": true
+    },
+    {
+      "name": "frame_000015.work.bin",
+      "baseline_sha256": "ad7facb2586fc6e966c004d7d1d16b024f5805ff7cb47c7a85dabd8b48892ca7",
+      "candidate_sha256": "ad7facb2586fc6e966c004d7d1d16b024f5805ff7cb47c7a85dabd8b48892ca7",
+      "exact": true
+    },
+    {
+      "name": "frame_000016.rgb",
+      "baseline_sha256": "430ab6c8c658f2a4f34282fb21604eb97c66078870ed013c424fcb1155c0f6a6",
+      "candidate_sha256": "430ab6c8c658f2a4f34282fb21604eb97c66078870ed013c424fcb1155c0f6a6",
+      "exact": true
+    },
+    {
+      "name": "frame_000016.sprites.bin",
+      "baseline_sha256": "82e7acc9480d701d91008e7edaf19dd980192290e3b07c97a40f9e875ebb2d1f",
+      "candidate_sha256": "82e7acc9480d701d91008e7edaf19dd980192290e3b07c97a40f9e875ebb2d1f",
+      "exact": true
+    },
+    {
+      "name": "frame_000016.work.bin",
+      "baseline_sha256": "ad7facb2586fc6e966c004d7d1d16b024f5805ff7cb47c7a85dabd8b48892ca7",
+      "candidate_sha256": "ad7facb2586fc6e966c004d7d1d16b024f5805ff7cb47c7a85dabd8b48892ca7",
+      "exact": true
+    },
+    {
+      "name": "frame_000030.rgb",
+      "baseline_sha256": "b31ecbebe7313f11da2ad0a89510ebe70aec1893a34e78ae5ba70ef7f9ed58ee",
+      "candidate_sha256": "b31ecbebe7313f11da2ad0a89510ebe70aec1893a34e78ae5ba70ef7f9ed58ee",
+      "exact": true
+    },
+    {
+      "name": "frame_000030.sprites.bin",
+      "baseline_sha256": "819f95fc59fd84e82d0849991c174fc3f077b4614c873c54230276622ca0d87a",
+      "candidate_sha256": "819f95fc59fd84e82d0849991c174fc3f077b4614c873c54230276622ca0d87a",
+      "exact": true
+    },
+    {
+      "name": "frame_000030.work.bin",
+      "baseline_sha256": "61864913afffddd4faf60bc2afecdff33ea7a78f6e3917a8bc1a1248bd9a1ad7",
+      "candidate_sha256": "61864913afffddd4faf60bc2afecdff33ea7a78f6e3917a8bc1a1248bd9a1ad7",
+      "exact": true
+    },
+    {
+      "name": "frame_000060.rgb",
+      "baseline_sha256": "b31ecbebe7313f11da2ad0a89510ebe70aec1893a34e78ae5ba70ef7f9ed58ee",
+      "candidate_sha256": "b31ecbebe7313f11da2ad0a89510ebe70aec1893a34e78ae5ba70ef7f9ed58ee",
+      "exact": true
+    },
+    {
+      "name": "frame_000060.sprites.bin",
+      "baseline_sha256": "819f95fc59fd84e82d0849991c174fc3f077b4614c873c54230276622ca0d87a",
+      "candidate_sha256": "819f95fc59fd84e82d0849991c174fc3f077b4614c873c54230276622ca0d87a",
+      "exact": true
+    },
+    {
+      "name": "frame_000060.work.bin",
+      "baseline_sha256": "61864913afffddd4faf60bc2afecdff33ea7a78f6e3917a8bc1a1248bd9a1ad7",
+      "candidate_sha256": "61864913afffddd4faf60bc2afecdff33ea7a78f6e3917a8bc1a1248bd9a1ad7",
+      "exact": true
+    },
+    {
+      "name": "frame_000090.rgb",
+      "baseline_sha256": "b31ecbebe7313f11da2ad0a89510ebe70aec1893a34e78ae5ba70ef7f9ed58ee",
+      "candidate_sha256": "b31ecbebe7313f11da2ad0a89510ebe70aec1893a34e78ae5ba70ef7f9ed58ee",
+      "exact": true
+    },
+    {
+      "name": "frame_000090.sprites.bin",
+      "baseline_sha256": "819f95fc59fd84e82d0849991c174fc3f077b4614c873c54230276622ca0d87a",
+      "candidate_sha256": "819f95fc59fd84e82d0849991c174fc3f077b4614c873c54230276622ca0d87a",
+      "exact": true
+    },
+    {
+      "name": "frame_000090.work.bin",
+      "baseline_sha256": "61864913afffddd4faf60bc2afecdff33ea7a78f6e3917a8bc1a1248bd9a1ad7",
+      "candidate_sha256": "61864913afffddd4faf60bc2afecdff33ea7a78f6e3917a8bc1a1248bd9a1ad7",
+      "exact": true
+    },
+    {
+      "name": "frame_000119.rgb",
+      "baseline_sha256": "48a964e7a8f8231c428f9838017b70d8d0195893ea77730302dc78f7045564c5",
+      "candidate_sha256": "48a964e7a8f8231c428f9838017b70d8d0195893ea77730302dc78f7045564c5",
+      "exact": true
+    },
+    {
+      "name": "frame_000119.sprites.bin",
+      "baseline_sha256": "3c84cb3a89b9f20d4f213603392b84f484b86ac0e7c0fd83c7d8ce170150d40e",
+      "candidate_sha256": "3c84cb3a89b9f20d4f213603392b84f484b86ac0e7c0fd83c7d8ce170150d40e",
+      "exact": true
+    },
+    {
+      "name": "frame_000119.work.bin",
+      "baseline_sha256": "bb7d54943a2ab1d4151a36fcc3d0178a55e5e981c31fe693a8c16a8e617d56b7",
+      "candidate_sha256": "e98ed1b5a2a378a7830414a1ab4defda50ba76c73de1bf623ef7d078ec76c035",
+      "exact": false
+    }
+  ],
+  "historical_MCU_frame_row_exactness_is_not_candidate_acceptance": true,
+  "software_commands": {
+    "native_commands": 38,
+    "MAME_commands": 38,
+    "ordered_exact_prefix": 38,
+    "full_equal": true,
+    "native_first_mismatch": [],
+    "MAME_first_mismatch": [],
+    "physical_cycle_pairing_claimed": false
+  },
+  "audio_native": {
+    "scope": "real CPU/chip/mixer output; audio fidelity not yet qualified",
+    "samples": 146792,
+    "sample_rate": 48000,
+    "minimum": -27047,
+    "maximum": -84,
+    "changed_samples": 20461,
+    "clipped_samples": 0,
+    "ym_writes": 406,
+    "ay1_writes": 70,
+    "ay2_writes": 656
+  },
+  "audio_MAME_exactness_not_qualified": true,
+  "whole_game_1800_pass": false,
+  "production_edited": false,
+  "timing_resources_hardware_pass": false
+}

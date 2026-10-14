@@ -1,0 +1,52 @@
+REVIEW PROPOSAL ONLY. This is not runnable Tcl and must not be sourced.
+
+Retain original sys/sys_top.sdc and actual PLL clocks. Core-owned additive SDC
+must check exact collections after read_sdc/derive_pll_clocks.
+
+SDRAM_CLK forwarded generated clock:
+  Use the fitted related 48MHz phase-shifted PLL output as master/source.
+  divide_by=1; do not add invert on top of the already phase-shifted PLL.
+  DQ input max = clock_flight_max + tAC_max + read_data_flight_max.
+  DQ input min must use guaranteed hold/active-drive/release timing of chosen part.
+  Address/control/write DQ max = tSU + data_flight_max - clock_flight_min.
+  Address/control/write DQ min = data_flight_min - clock_flight_max - tH.
+  Include DQM receiver mask timing separately if selected part differs.
+  Every symbol unresolved until exact part/module/board profile is pinned.
+  No CL2 multicycle, no blanket exceptions, no zero placeholder.
+
+HDMI_TX_CLK generated clocks:
+  Represent both scaler and direct-video masters, explicit master_clock + add
+  where multiple clocks reach the same pin, and actual forwarded DDIO inversion.
+  Select waveform by receiver configuration; do not double-count inversion.
+  HDMI_TX_D[23:0], DE, HS, VS output max = 1.8ns + data_flight_max - clock_flight_min.
+  Corresponding min = data_flight_min - clock_flight_max - 1.3ns.
+  Add actual selected receiver clock adjustment/uncertainty once, consistently.
+  Multiple reference clocks need add_delay; both positive/negative data transitions.
+
+HDMI_I2S / HDMI_LRCLK:
+  ADV7513 receiver setup=2ns, hold=2ns.
+  Derive actual shortest serializer data-to-SCLK edges under 48/96kHz/rate transitions.
+  Reference actual forwarded SCLK waveform; include pad and board skew once.
+  If a single periodic generated clock cannot represent CE/startup/rate transitions,
+  qualify bounded relative pad arrivals/cadence separately, retain explicit min/max
+  constraints on actual reachable endpoint paths, and document the exact limitation.
+  MCLK forwarded audio clock treatment depends on real receiver configuration.
+  USER[2,4,5] and SDCD_SPDIF output require their own supported external sink profiles.
+
+HPS I2C / HDMI interrupt:
+  Model exact fabric-to-hard-block boundaries only after fitted sink review.
+  Keep HPS I2C electrical bus-rate/pull-up/receiver protocol qualification separate.
+  INT is asynchronous status: narrowly bind the reviewed hard-block endpoint.
+
+MCP IO_SDA:
+  Actual source-clock sampling is 50MHz CE-gated, protocol at nominal500kHz.
+  First settle a device/mode-qualified electrical envelope and valid low period.
+  Constrain endpoint arrival against exact protocol sample opportunity and guarantee
+  output-valid + pullup/flight + FPGA setup margin and corresponding hold.
+  No direct SDA-wide false path, unsupported fast-mode assumption or guessed cycle waiver.
+
+LED and analog video endpoints:
+  Precise externally asynchronous/output-only classification may justify exceptions
+  for LED[0,2,6] and the documented analog VGA/sync pad mux outputs, after confirming
+  no dynamic SD transfer receiver in this image and preserving alternate supported modes.
+  Preserve internal paths. Avoid catch-all get_ports * exceptions.

@@ -1,0 +1,465 @@
+# --------------------------------------------------------------------------
+#
+# MiSTer project
+#
+# WARNING WARNING WARNING:
+# Do not add files to project in Quartus IDE! It will mess this file!
+# Add the files manually to files.qip file.
+#
+# --------------------------------------------------------------------------
+
+set_global_assignment -name TOP_LEVEL_ENTITY sys_top
+set_global_assignment -name VERILOG_MACRO "MISTER_FB"
+set_global_assignment -name PARTITION_NETLIST_TYPE SOURCE -section_id Top
+set_global_assignment -name PARTITION_FITTER_PRESERVATION_LEVEL PLACEMENT_AND_ROUTING -section_id Top
+set_global_assignment -name PARTITION_COLOR 16764057 -section_id Top
+
+set_global_assignment -name LAST_QUARTUS_VERSION "17.0.2 Lite Edition"
+
+set_global_assignment -name GENERATE_RBF_FILE ON
+set_global_assignment -name PROJECT_OUTPUT_DIRECTORY output_files
+set_global_assignment -name SAVE_DISK_SPACE OFF
+set_global_assignment -name SMART_RECOMPILE ON
+set_global_assignment -name COMPRESSION_MODE ON
+set_global_assignment -name MIN_CORE_JUNCTION_TEMP "-40"
+set_global_assignment -name MAX_CORE_JUNCTION_TEMP 100
+set_global_assignment -name POWER_PRESET_COOLING_SOLUTION "23 MM HEAT SINK WITH 200 LFPM AIRFLOW"
+set_global_assignment -name POWER_BOARD_THERMAL_MODEL "NONE (CONSERVATIVE)"
+# Qualify release timing at all process/voltage/temperature corners, including
+# the fast-corner hold checks the single-corner flow skipped (audit R20 PF-5).
+set_global_assignment -name TIMEQUEST_MULTICORNER_ANALYSIS ON
+set_global_assignment -name OPTIMIZE_POWER_DURING_FITTING OFF
+set_global_assignment -name FINAL_PLACEMENT_OPTIMIZATION ALWAYS
+# Fast Fit is not a preference here, it is a toolchain limit. STANDARD FIT +
+# ROUTER_TIMING_OPTIMIZATION_LEVEL MAXIMUM was tried on 28 Jul 2026 to stop the
+# pll_hdmi domain being a placement lottery (+0.392 / +0.119 / -0.141 ns across
+# three compiles of near-identical logic). The fitter completed placement and
+# then died:
+#
+#   Error (293007): Current module quartus_fit ended unexpectedly.
+#   Error: Peak virtual memory: 4649 megabytes
+#
+# The host had 35 GB free at the time, so this is a Quartus 17.0.2 Lite ceiling,
+# not system memory - consistent with the Access Violation note below. Do not
+# re-enable Standard Fit on this install without first proving quartus_fit can
+# survive it. Sweep SEED instead.
+set_global_assignment -name FITTER_EFFORT "FAST FIT"
+set_global_assignment -name OPTIMIZATION_MODE "HIGH PERFORMANCE EFFORT"
+# Two trivial shift registers (ascal o_v_poly_phase_a2, vga_out din1 - 449 bits
+# between them) were being promoted into altshift_taps and burned 4 M10Ks on a
+# design that is at 98% block RAM. Registers are far cheaper here.
+set_global_assignment -name AUTO_SHIFT_REGISTER_RECOGNITION OFF
+set_global_assignment -name FITTER_AGGRESSIVE_ROUTABILITY_OPTIMIZATION ALWAYS
+# The current seed-15 image misses only the reconfigurable HDMI domain
+# (-0.411 ns at the slow -40 C corner) while clk_sys/clk_ram/SDRAM all pass.
+# Spend more Fast-Fit placement search globally without enabling Standard Fit
+# or dense packing, both of which are documented below as unsafe on this host.
+# Raised 2.0 -> 4.0 on 19 Aug 2026: seeds 1/2/6 under 2.0 all miss only
+# sys/ascal's pixel-fetch stage (best seed 2, -0.082 ns). Untried lever per
+# this file's own history; single-variable test against seed 2.
+#
+# 20 Aug 2026: on the post-area-reduction netlist (V60 datapath sharing,
+# DDR3 loader fixes; see s32_v60.sv/ssv_ddr_rom_loader.sv history), swept
+# seed at 4.0 per this file's own "sweep seed instead" policy before
+# touching a fitter option twice: 19 misses only Slow -40C by -0.022 ns
+# (single domain, 2 endpoints); 3 is far worse (-1.522/-1.199 ns, both slow
+# corners); 11 is also worse than 19 (-0.032/-0.116 ns, both slow corners).
+# 19 remains the best measured seed on this netlist. Raised 4.0 -> 6.0 as the
+# untried single-variable lever, back on seed 19: made it WORSE (-0.106 /
+# -0.100 ns, both slow corners fail, vs 4.0's -0.022 ns on -40C only).
+# Confirms this domain is placement-lottery noise, not something effort
+# tuning fixes -- reverted to 4.0. Real lever found instead: sys/sys_top.v's
+# `ifdef MISTER_FB guard only forced PALETTE2 false, leaving ascal's PALETTE
+# generic at its "true" default, which elaborates a dead pal1_mem plus a
+# second copy of the o_acpt4/o_format mux inside the exact failing o_clk
+# stage. Fixed there (see that file's comment); this core's FB_FORMAT is a
+# constant RGB code, so pal1 was never reachable. Retrying fit on 4.0 first.
+#
+# That fit (PALETTE + mlab88->M10K + hiscore config_table->M10K, still seed
+# 19) missed WORSE than the pre-savings baseline: -0.067/-0.280 ns, both slow
+# corners, vs -0.022 ns single-corner before. Adding the S_EA_MODE fb32 hoist
+# on top (s32_v60.sv, four fixes total, 40,297 ALMs) made it worse again:
+# -0.666/-0.332 ns. Freeing resources moved this domain in the wrong
+# direction three times running -- confirms placement lottery, not a
+# resource-limited path, so seed 19 was never actually tied to this netlist's
+# best placement, just the earlier one's. Swept fresh on the four-fix
+# netlist: seed 2 is CLEAN on all four corners -- Slow 100C +0.245 ns, Slow
+# -40C +0.040 ns (thin but positive), Fast 100C +2.940 ns, Fast -40C
+# +3.490 ns. Kept as the seed for this netlist.
+set_global_assignment -name PLACEMENT_EFFORT_MULTIPLIER 4.0
+set_global_assignment -name ALLOW_POWER_UP_DONT_CARE OFF
+set_global_assignment -name QII_AUTO_PACKED_REGISTERS NORMAL
+set_global_assignment -name ROUTER_LCELL_INSERTION_AND_LOGIC_DUPLICATION ON
+set_global_assignment -name PHYSICAL_SYNTHESIS_COMBO_LOGIC OFF
+set_global_assignment -name PHYSICAL_SYNTHESIS_REGISTER_DUPLICATION OFF
+set_global_assignment -name PHYSICAL_SYNTHESIS_REGISTER_RETIMING ON
+set_global_assignment -name OPTIMIZATION_TECHNIQUE SPEED
+set_global_assignment -name MUX_RESTRUCTURE ON
+set_global_assignment -name REMOVE_REDUNDANT_LOGIC_CELLS ON
+set_global_assignment -name AUTO_DELAY_CHAINS_FOR_HIGH_FANOUT_INPUT_PINS ON
+set_global_assignment -name PHYSICAL_SYNTHESIS_COMBO_LOGIC_FOR_AREA OFF
+set_global_assignment -name ADV_NETLIST_OPT_SYNTH_WYSIWYG_REMAP OFF
+set_global_assignment -name SYNTH_GATED_CLOCK_CONVERSION ON
+set_global_assignment -name PRE_MAPPING_RESYNTHESIS OFF
+set_global_assignment -name ROUTER_CLOCKING_TOPOLOGY_ANALYSIS ON
+# Raised from NORMAL on 13 Aug 2026 against measured evidence. The 13 Aug fit
+# (39,628 ALMs, fresh db) fails only pll_hdmi setup, at -0.064 ns / 100 C and
+# -0.173 ns / -40 C, and every failing path is inside sys/ascal's pixel-fetch
+# stage (o_acpt4 -> o_hpixs, o_vacpt -> o_vpixq_pre). Those paths are NOT skew
+# bound -- clock skew is only -0.170 ns -- they are data-delay bound: 6.426 ns
+# of the 6.732 ns period across 4 logic levels. Routing delay is therefore the
+# thing to attack, and this is the only setting that attacks it directly.
+#
+# This is not the configuration that crashed on 28 Jul. That failure was
+# STANDARD FIT *plus* router MAXIMUM; Fast Fit with router MAXIMUM was never
+# tried. The Fast Fit note above stands unchanged and FITTER_EFFORT is
+# deliberately left alone. Memory headroom also looks adequate: the 13 Aug Fast
+# Fit peaked at 8,732 MB virtual and completed, far above the 4,649 MB at which
+# the Standard Fit attempt died, so that figure was not a hard host ceiling.
+# If quartus_fit ever ends unexpectedly with this on, revert to NORMAL first.
+set_global_assignment -name ROUTER_TIMING_OPTIMIZATION_LEVEL MAXIMUM
+set_global_assignment -name ECO_OPTIMIZE_TIMING ON
+set_global_assignment -name PERIPHERY_TO_CORE_PLACEMENT_AND_ROUTING_OPTIMIZATION ON
+set_global_assignment -name PHYSICAL_SYNTHESIS_ASYNCHRONOUS_SIGNAL_PIPELINING ON
+# HIGH packing recovered only 132 ALMs in the measured universal fit while
+# worsening worst setup slack from -0.044 ns to -0.268 ns.  MEDIUM retains the
+# larger M10K placement saving without spending timing margin for dense packing.
+set_global_assignment -name ALM_REGISTER_PACKING_EFFORT MEDIUM
+# SEED STATUS 13 Aug 2026 -- NO SEED IS CURRENTLY KNOWN-GOOD. Do not treat this
+# value as a closed result.
+#
+# Seed 3 measured timing-clean at +0.04 ns worst pll_hdmi setup under router
+# MAXIMUM, but that was against the PRE-cleanup netlist. After the 13 Aug RTL
+# cleanup (V60 S_FILLW dead-arm removal, width/comment changes) the same seed 3
+# re-fits at -0.156 ns / 100 C and -0.069 ns / -40 C. That is the expected
+# behaviour of a placement lottery, not a regression caused by the cleanup:
+# +0.04 ns was never margin, and the cleanup REDUCED area (39,628 -> 39,257).
+#
+# Measured so far under router MAXIMUM: 3 (+0.04 pre-cleanup / -0.156 post),
+# 7 (stage failed), 11 (-0.077). Seeds 19, 23 and 31 were queued but the sweep
+# was stopped before any of them completed a fit, so 19 -- which this file was
+# left on -- has never been measured at all. Restored to 3 as the only seed
+# with any recorded clean result.
+#
+# Both failing corners show TNS == Slack, i.e. exactly ONE failing endpoint per
+# corner, and both are inside sys/ascal. Next step is a fresh sweep on the
+# current netlist.
+#
+# 19 Aug 2026 (post ssv_mlab88_sdp fix): the resource landscape changed a lot
+# since the above measurements (line_buffer4's 16 arrays moved from ~745 LABs
+# of raw logic into explicit altsyncram MLAB primitives), so the old seed
+# results are stale placement-lottery data, not a like-for-like comparison.
+# Seed 2 on the NEW netlist: -0.397 ns / 100C, -0.569 ns / -40C, single
+# endpoint each corner, both on pll_hdmi|...counter[0].output_counter|divclk
+# (sys/ framework HDMI PLL domain, not core RTL). Seed 19 was CLEAN on that
+# netlist: +0.172 ns / Slow 100C, +0.016 ns / Slow -40C (thin but positive),
+# +2.529 ns / Fast 100C, +2.587 ns / Fast -40C.
+#
+# 20 Aug 2026: netlist changed again (V60 datapath sharing cut ~900 ALMs,
+# DDR3 fast-load fixes). Seed 19 on THIS netlist: Slow 100C +0.064 ns, Fast
+# 100C/-40C both positive, but Slow -40C misses by -0.022 ns / TNS -0.031 ns
+# (2 endpoints), same pll_hdmi divclk domain as always -- another placement-
+# lottery result, not a regression from the area work (which only touched
+# s32_v60 and the DDR3 loader, neither in this clock domain). Sweeping seed
+# per this file's own policy before touching RTL.
+#
+# 21 Aug 2026: netlist changed again (DDR3 fast-load for every supported set).
+# Seed 2 on THIS netlist: Slow 100C -0.167 ns, single endpoint, same pll_hdmi
+# divclk domain as always. Trying seed 19 next -- it was the closest to clean
+# on the immediately preceding netlist (20 Aug: +0.064 ns Slow 100C, only
+# -0.022 ns miss at Slow -40C) -- before sweeping further seeds.
+#
+# Seed 19 on THIS netlist: -0.053 ns Slow 100C, TNS -0.085 ns / 2 endpoints,
+# same pll_hdmi divclk domain -- an improvement over seed 2's -0.167 ns but
+# still failing.
+#
+# 7 Sep 2026 seed sweep, netlist after the sdram p3 phase-transfer fix and the
+# hiscore/line-buffer MLAB reversion (no clock, reset, CDC or SDC change):
+# seed 3 measured -0.025 ns Multicorner worst-case setup, TNS -0.025 ns, single
+# endpoint, same pll_hdmi|...counter[0].output_counter|divclk domain as every
+# prior sweep on this file -- the closest any seed has come to clean on any
+# recorded netlist. Trying seed 19 next (first of the three-seed sweep budget)
+# since it has repeatedly been the closest competitor across earlier netlists.
+#
+# 24 Sep 2026, netlist with ssv_pixel_retime (cd428ae) and CRT Adjust removed
+# (8bd317c), 36,864 ALMs: seed 19 misses -0.116 ns Slow 100C only, single
+# endpoint csync_hdmi|csync_hs -> sys_top hs (3 levels, 5.2 ns routing, -0.48 ns
+# clock-mux skew; all ascal paths now >= +0.296 ns). Seed sweep (2,3,5,7)
+# was started and aborted before any fit finished; seed 19 kept to match
+# releases/Arcade-SSV_20260924.rbf.
+# 25-26 Sep 2026 seed sweep on the 36,864-ALM netlist (HEAD 6fe2d73): seed 19
+# Slow 100C -0.116 ns (single pll_hdmi divclk endpoint); seed 2 Slow 100C -0.055,
+# Slow -40C -0.209 (TNS -0.320), same pll_hdmi domain. Trying seed 3 next.
+set_global_assignment -name SEED 3
+# 26 Aug 2026 seed sweep, netlist after the ES5506 stale-CR-mask /
+# snapshot-blind-spot fix (+268 ALMs, 35,807 -> 36,075 vs the last accepted
+# build): both failing seeds miss in the same single-endpoint
+# pll_hdmi|...counter[0].output_counter|divclk domain (sys/ framework HDMI
+# PLL, not core RTL) -- the placement-lottery domain documented throughout
+# this file's history, now failing every seed tried because area pressure
+# rose.
+#   seed 19 (prior accepted): Slow 100C -0.097 ns, Slow -40C -0.308 ns
+#   seed 11: Slow 100C -0.078 ns, Slow -40C -0.046 ns
+# Seed 23 result on this netlist: one pll_hdmi divclk setup miss at -0.100 ns.
+# Trying seed 3 next (final measured seed in this sweep); no RTL, SDC, clock,
+# reset, or framework file changes with this experiment.
+# SEED 1 crashed quartus_fit twice in a row on 2026-08-05 with exit code -1 and
+# no Error text captured (once during placement prep, once even earlier during
+# clock-uncertainty derivation) -- inconsistent crash point across two
+# identical-config runs, matching the Quartus 17.0.2 Lite virtual-memory
+# ceiling documented below (peak VM was already 8843 MB on the last successful
+# fit before these crashes, i.e. already close to the ~9,072 MB failure point
+# recorded 29 Jul 2026). Per this file's own "Sweep SEED instead" guidance.
+# quartus_map/fit Access Violation on this host at 4-way; keep single-threaded.
+# NUM_PARALLEL_PROCESSORS is 1 on purpose, not by omission. Raising it to 4 on
+# 29 Jul 2026 took quartus_fit to 9,072 MB peak virtual memory and it died with
+# Error (293007) after 7m41s - the same crash the Fast Fit note above describes,
+# reached by a different route. More processors means more peak memory, and this
+# design has no headroom against the Quartus 17.0.2 Lite ceiling.
+set_global_assignment -name NUM_PARALLEL_PROCESSORS 1
+#set_global_assignment -name VERILOG_MACRO "MISTER_FB=1"
+
+#enable it only if 8bit indexed mode is used in core
+#set_global_assignment -name VERILOG_MACRO "MISTER_FB_PALETTE=1"
+
+
+# disable bilinear filtering when downscaling
+set_global_assignment -name VERILOG_MACRO "MISTER_DOWNSCALE_NN=1"
+
+# Dyna Gear's native image is 336x240. Disable scaler output modes smaller than
+# the source image; normal HDMI upscale and direct video remain available.
+set_global_assignment -name VERILOG_MACRO "MISTER_DISABLE_DOWNSCALE=1"
+
+# disable adaptive scanline filtering
+set_global_assignment -name VERILOG_MACRO "MISTER_DISABLE_ADAPTIVE=1"
+
+#use only 1MB per frame for scaler to free ~21MB DDR3 RAM
+#set_global_assignment -name VERILOG_MACRO "MISTER_SMALL_VBUF=1"
+
+# Keep the framework Y/C encoder in the release build so MiSTer analog
+# composite/S-Video output remains available alongside RGB/component output.
+
+# Disable ALSA audio output to save some resources
+set_global_assignment -name VERILOG_MACRO "MISTER_DISABLE_ALSA=1"
+
+source sys/sys.tcl
+set_global_assignment -name FAMILY "Cyclone V"
+set_global_assignment -name DEVICE 5CSEBA6U23I7
+set_global_assignment -name DEVICE_FILTER_PACKAGE UFBGA
+set_global_assignment -name DEVICE_FILTER_PIN_COUNT 672
+set_global_assignment -name DEVICE_FILTER_SPEED_GRADE 7
+set_instance_assignment -name IO_STANDARD "3.3-V LVTTL" -to ADC_CONVST
+set_instance_assignment -name IO_STANDARD "3.3-V LVTTL" -to ADC_SCK
+set_instance_assignment -name IO_STANDARD "3.3-V LVTTL" -to ADC_SDI
+set_instance_assignment -name IO_STANDARD "3.3-V LVTTL" -to ADC_SDO
+set_location_assignment PIN_U9 -to ADC_CONVST
+set_location_assignment PIN_V10 -to ADC_SCK
+set_location_assignment PIN_AC4 -to ADC_SDI
+set_location_assignment PIN_AD4 -to ADC_SDO
+set_location_assignment PIN_U14 -to IO_SCL
+set_location_assignment PIN_AG9 -to IO_SDA
+set_instance_assignment -name IO_STANDARD "3.3-V LVTTL" -to IO_S*
+set_instance_assignment -name WEAK_PULL_UP_RESISTOR ON -to IO_S*
+set_instance_assignment -name CURRENT_STRENGTH_NEW "MAXIMUM CURRENT" -to IO_S*
+set_location_assignment PIN_AF17 -to USER_IO[6]
+set_location_assignment PIN_AF15 -to USER_IO[5]
+set_location_assignment PIN_AG16 -to USER_IO[4]
+set_location_assignment PIN_AH11 -to USER_IO[3]
+set_location_assignment PIN_AH12 -to USER_IO[2]
+set_location_assignment PIN_AH9 -to USER_IO[1]
+set_location_assignment PIN_AG11 -to USER_IO[0]
+set_instance_assignment -name IO_STANDARD "3.3-V LVTTL" -to USER_IO[*]
+set_instance_assignment -name WEAK_PULL_UP_RESISTOR ON -to USER_IO[*]
+set_instance_assignment -name CURRENT_STRENGTH_NEW "MAXIMUM CURRENT" -to USER_IO[*]
+set_location_assignment PIN_AH7 -to SDCD_SPDIF
+set_instance_assignment -name CURRENT_STRENGTH_NEW "MAXIMUM CURRENT" -to SDCD_SPDIF
+set_instance_assignment -name IO_STANDARD "3.3-V LVTTL" -to SDCD_SPDIF
+set_instance_assignment -name WEAK_PULL_UP_RESISTOR ON -to SDCD_SPDIF
+set_location_assignment PIN_Y11 -to SDRAM_A[0]
+set_location_assignment PIN_AA26 -to SDRAM_A[1]
+set_location_assignment PIN_AA13 -to SDRAM_A[2]
+set_location_assignment PIN_AA11 -to SDRAM_A[3]
+set_location_assignment PIN_W11 -to SDRAM_A[4]
+set_location_assignment PIN_Y19 -to SDRAM_A[5]
+set_location_assignment PIN_AB23 -to SDRAM_A[6]
+set_location_assignment PIN_AC23 -to SDRAM_A[7]
+set_location_assignment PIN_AC22 -to SDRAM_A[8]
+set_location_assignment PIN_C12 -to SDRAM_A[9]
+set_location_assignment PIN_AB26 -to SDRAM_A[10]
+set_location_assignment PIN_AD17 -to SDRAM_A[11]
+set_location_assignment PIN_D12 -to SDRAM_A[12]
+set_location_assignment PIN_Y17 -to SDRAM_BA[0]
+set_location_assignment PIN_AB25 -to SDRAM_BA[1]
+set_location_assignment PIN_V12 -to SDRAM_DQ[0]
+set_location_assignment PIN_E8 -to SDRAM_DQ[1]
+set_location_assignment PIN_D11 -to SDRAM_DQ[2]
+set_location_assignment PIN_W12 -to SDRAM_DQ[3]
+set_location_assignment PIN_AH13 -to SDRAM_DQ[4]
+set_location_assignment PIN_D8 -to SDRAM_DQ[5]
+set_location_assignment PIN_AH14 -to SDRAM_DQ[6]
+set_location_assignment PIN_AF7 -to SDRAM_DQ[7]
+set_location_assignment PIN_AE24 -to SDRAM_DQ[8]
+set_location_assignment PIN_AD23 -to SDRAM_DQ[9]
+set_location_assignment PIN_AE6 -to SDRAM_DQ[10]
+set_location_assignment PIN_AE23 -to SDRAM_DQ[11]
+set_location_assignment PIN_AG14 -to SDRAM_DQ[12]
+set_location_assignment PIN_AD5 -to SDRAM_DQ[13]
+set_location_assignment PIN_AF4 -to SDRAM_DQ[14]
+set_location_assignment PIN_AH3 -to SDRAM_DQ[15]
+set_location_assignment PIN_AG13 -to SDRAM_DQML
+set_location_assignment PIN_AF13 -to SDRAM_DQMH
+set_location_assignment PIN_AD20 -to SDRAM_CLK
+set_location_assignment PIN_AG10 -to SDRAM_CKE
+set_location_assignment PIN_AA19 -to SDRAM_nWE
+set_location_assignment PIN_AA18 -to SDRAM_nCAS
+set_location_assignment PIN_Y18 -to SDRAM_nCS
+set_location_assignment PIN_W14 -to SDRAM_nRAS
+set_instance_assignment -name IO_STANDARD "3.3-V LVTTL" -to SDRAM_*
+set_instance_assignment -name CURRENT_STRENGTH_NEW "MAXIMUM CURRENT" -to SDRAM_*
+set_instance_assignment -name FAST_OUTPUT_REGISTER ON -to SDRAM_*
+set_instance_assignment -name FAST_OUTPUT_ENABLE_REGISTER ON -to SDRAM_DQ[*]
+set_instance_assignment -name FAST_INPUT_REGISTER ON -to SDRAM_DQ[*]
+set_instance_assignment -name ALLOW_SYNCH_CTRL_USAGE OFF -to *|SDRAM_*
+set_location_assignment PIN_AE15 -to SD_SPI_CS
+set_location_assignment PIN_AH8 -to SD_SPI_MISO
+set_location_assignment PIN_AG8 -to SD_SPI_CLK
+set_location_assignment PIN_U13 -to SD_SPI_MOSI
+set_instance_assignment -name CURRENT_STRENGTH_NEW "MAXIMUM CURRENT" -to SD_SPI*
+set_instance_assignment -name IO_STANDARD "3.3-V LVTTL" -to SD_SPI*
+set_instance_assignment -name WEAK_PULL_UP_RESISTOR ON -to SD_SPI*
+set_instance_assignment -name IO_STANDARD "3.3-V LVTTL" -to FPGA_CLK1_50
+set_instance_assignment -name IO_STANDARD "3.3-V LVTTL" -to FPGA_CLK2_50
+set_instance_assignment -name IO_STANDARD "3.3-V LVTTL" -to FPGA_CLK3_50
+set_location_assignment PIN_V11 -to FPGA_CLK1_50
+set_location_assignment PIN_Y13 -to FPGA_CLK2_50
+set_location_assignment PIN_E11 -to FPGA_CLK3_50
+set_instance_assignment -name IO_STANDARD "3.3-V LVTTL" -to HDMI_I2C_*
+set_instance_assignment -name IO_STANDARD "3.3-V LVTTL" -to HDMI_I2S
+set_instance_assignment -name IO_STANDARD "3.3-V LVTTL" -to HDMI_LRCLK
+set_instance_assignment -name IO_STANDARD "3.3-V LVTTL" -to HDMI_MCLK
+set_instance_assignment -name IO_STANDARD "3.3-V LVTTL" -to HDMI_SCLK
+set_instance_assignment -name IO_STANDARD "3.3-V LVTTL" -to HDMI_TX_*
+set_instance_assignment -name FAST_OUTPUT_REGISTER ON -to HDMI_TX_D[*]
+set_instance_assignment -name FAST_OUTPUT_REGISTER ON -to HDMI_TX_DE
+set_instance_assignment -name FAST_OUTPUT_REGISTER ON -to HDMI_TX_HS
+set_instance_assignment -name FAST_OUTPUT_REGISTER ON -to HDMI_TX_VS
+set_instance_assignment -name FAST_OUTPUT_REGISTER ON -to HDMI_TX_CLK
+set_location_assignment PIN_U10 -to HDMI_I2C_SCL
+set_location_assignment PIN_AA4 -to HDMI_I2C_SDA
+set_location_assignment PIN_T13 -to HDMI_I2S
+set_location_assignment PIN_T11 -to HDMI_LRCLK
+set_location_assignment PIN_U11 -to HDMI_MCLK
+set_location_assignment PIN_T12 -to HDMI_SCLK
+set_location_assignment PIN_AG5 -to HDMI_TX_CLK
+set_location_assignment PIN_AD19 -to HDMI_TX_DE
+set_location_assignment PIN_AD12 -to HDMI_TX_D[0]
+set_location_assignment PIN_AE12 -to HDMI_TX_D[1]
+set_location_assignment PIN_W8 -to HDMI_TX_D[2]
+set_location_assignment PIN_Y8 -to HDMI_TX_D[3]
+set_location_assignment PIN_AD11 -to HDMI_TX_D[4]
+set_location_assignment PIN_AD10 -to HDMI_TX_D[5]
+set_location_assignment PIN_AE11 -to HDMI_TX_D[6]
+set_location_assignment PIN_Y5 -to HDMI_TX_D[7]
+set_location_assignment PIN_AF10 -to HDMI_TX_D[8]
+set_location_assignment PIN_Y4 -to HDMI_TX_D[9]
+set_location_assignment PIN_AE9 -to HDMI_TX_D[10]
+set_location_assignment PIN_AB4 -to HDMI_TX_D[11]
+set_location_assignment PIN_AE7 -to HDMI_TX_D[12]
+set_location_assignment PIN_AF6 -to HDMI_TX_D[13]
+set_location_assignment PIN_AF8 -to HDMI_TX_D[14]
+set_location_assignment PIN_AF5 -to HDMI_TX_D[15]
+set_location_assignment PIN_AE4 -to HDMI_TX_D[16]
+set_location_assignment PIN_AH2 -to HDMI_TX_D[17]
+set_location_assignment PIN_AH4 -to HDMI_TX_D[18]
+set_location_assignment PIN_AH5 -to HDMI_TX_D[19]
+set_location_assignment PIN_AH6 -to HDMI_TX_D[20]
+set_location_assignment PIN_AG6 -to HDMI_TX_D[21]
+set_location_assignment PIN_AF9 -to HDMI_TX_D[22]
+set_location_assignment PIN_AE8 -to HDMI_TX_D[23]
+set_location_assignment PIN_T8 -to HDMI_TX_HS
+set_location_assignment PIN_AF11 -to HDMI_TX_INT
+set_location_assignment PIN_V13 -to HDMI_TX_VS
+set_instance_assignment -name IO_STANDARD "3.3-V LVTTL" -to KEY[0]
+set_instance_assignment -name IO_STANDARD "3.3-V LVTTL" -to KEY[1]
+set_location_assignment PIN_AH17 -to KEY[0]
+set_location_assignment PIN_AH16 -to KEY[1]
+set_instance_assignment -name IO_STANDARD "3.3-V LVTTL" -to LED[0]
+set_instance_assignment -name IO_STANDARD "3.3-V LVTTL" -to LED[1]
+set_instance_assignment -name IO_STANDARD "3.3-V LVTTL" -to LED[2]
+set_instance_assignment -name IO_STANDARD "3.3-V LVTTL" -to LED[3]
+set_instance_assignment -name IO_STANDARD "3.3-V LVTTL" -to LED[4]
+set_instance_assignment -name IO_STANDARD "3.3-V LVTTL" -to LED[5]
+set_instance_assignment -name IO_STANDARD "3.3-V LVTTL" -to LED[6]
+set_instance_assignment -name IO_STANDARD "3.3-V LVTTL" -to LED[7]
+set_location_assignment PIN_W15 -to LED[0]
+set_location_assignment PIN_AA24 -to LED[1]
+set_location_assignment PIN_V16 -to LED[2]
+set_location_assignment PIN_V15 -to LED[3]
+set_location_assignment PIN_AF26 -to LED[4]
+set_location_assignment PIN_AE26 -to LED[5]
+set_location_assignment PIN_Y16 -to LED[6]
+set_location_assignment PIN_AA23 -to LED[7]
+set_instance_assignment -name IO_STANDARD "3.3-V LVTTL" -to SW[0]
+set_instance_assignment -name IO_STANDARD "3.3-V LVTTL" -to SW[1]
+set_instance_assignment -name IO_STANDARD "3.3-V LVTTL" -to SW[2]
+set_instance_assignment -name IO_STANDARD "3.3-V LVTTL" -to SW[3]
+set_location_assignment PIN_Y24 -to SW[0]
+set_location_assignment PIN_W24 -to SW[1]
+set_location_assignment PIN_W21 -to SW[2]
+set_location_assignment PIN_W20 -to SW[3]
+set_hps_location_assignment HPSINTERFACEPERIPHERALSPIMASTER_X52_Y72_N111 -to spi
+set_hps_location_assignment HPSINTERFACEPERIPHERALUART_X52_Y67_N111 -to uart
+set_hps_location_assignment HPSINTERFACEPERIPHERALI2C_X52_Y60_N111 -to hdmi_i2c
+set_global_assignment -name PRE_FLOW_SCRIPT_FILE "quartus_sh:sys/build_id.tcl"
+set_global_assignment -name CDF_FILE jtag.cdf
+source sys/sys_analog.tcl
+set_location_assignment PIN_AF25 -to SDIO_DAT[0]
+set_location_assignment PIN_AF23 -to SDIO_DAT[1]
+set_location_assignment PIN_AD26 -to SDIO_DAT[2]
+set_location_assignment PIN_AF28 -to SDIO_DAT[3]
+set_location_assignment PIN_AF27 -to SDIO_CMD
+set_location_assignment PIN_AH26 -to SDIO_CLK
+set_instance_assignment -name CURRENT_STRENGTH_NEW "MAXIMUM CURRENT" -to SDIO_*
+set_instance_assignment -name IO_STANDARD "3.3-V LVTTL" -to SDIO_*
+set_instance_assignment -name WEAK_PULL_UP_RESISTOR ON -to SDIO_DAT[*]
+set_instance_assignment -name WEAK_PULL_UP_RESISTOR ON -to SDIO_CMD
+set_location_assignment PIN_AE17 -to VGA_R[0]
+set_location_assignment PIN_AE20 -to VGA_R[1]
+set_location_assignment PIN_AF20 -to VGA_R[2]
+set_location_assignment PIN_AH18 -to VGA_R[3]
+set_location_assignment PIN_AH19 -to VGA_R[4]
+set_location_assignment PIN_AF21 -to VGA_R[5]
+set_location_assignment PIN_AE19 -to VGA_G[0]
+set_location_assignment PIN_AG15 -to VGA_G[1]
+set_location_assignment PIN_AF18 -to VGA_G[2]
+set_location_assignment PIN_AG18 -to VGA_G[3]
+set_location_assignment PIN_AG19 -to VGA_G[4]
+set_location_assignment PIN_AG20 -to VGA_G[5]
+set_location_assignment PIN_AG21 -to VGA_B[0]
+set_location_assignment PIN_AA20 -to VGA_B[1]
+set_location_assignment PIN_AE22 -to VGA_B[2]
+set_location_assignment PIN_AF22 -to VGA_B[3]
+set_location_assignment PIN_AH23 -to VGA_B[4]
+set_location_assignment PIN_AH21 -to VGA_B[5]
+set_location_assignment PIN_AH22 -to VGA_HS
+set_location_assignment PIN_AG24 -to VGA_VS
+set_location_assignment PIN_AH27 -to VGA_EN
+set_instance_assignment -name WEAK_PULL_UP_RESISTOR ON -to VGA_EN
+set_instance_assignment -name IO_STANDARD "3.3-V LVTTL" -to VGA_*
+set_instance_assignment -name CURRENT_STRENGTH_NEW 8MA -to VGA_*
+set_location_assignment PIN_AC24 -to AUDIO_L
+set_location_assignment PIN_AE25 -to AUDIO_R
+set_location_assignment PIN_AG26 -to AUDIO_SPDIF
+set_instance_assignment -name IO_STANDARD "3.3-V LVTTL" -to AUDIO_*
+set_instance_assignment -name CURRENT_STRENGTH_NEW 8MA -to AUDIO_*
+set_location_assignment PIN_Y15 -to LED_USER
+set_location_assignment PIN_AA15 -to LED_HDD
+set_location_assignment PIN_AG28 -to LED_POWER
+set_location_assignment PIN_AH24 -to BTN_USER
+set_location_assignment PIN_AG25 -to BTN_OSD
+set_location_assignment PIN_AG23 -to BTN_RESET
+set_instance_assignment -name IO_STANDARD "3.3-V LVTTL" -to LED_*
+set_instance_assignment -name IO_STANDARD "3.3-V LVTTL" -to BTN_*
+set_instance_assignment -name WEAK_PULL_UP_RESISTOR ON -to BTN_*
+source files.qip
+set_instance_assignment -name PARTITION_HIERARCHY root_partition -to | -section_id Top

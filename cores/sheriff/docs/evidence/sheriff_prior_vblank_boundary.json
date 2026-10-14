@@ -1,0 +1,66 @@
+{
+  "scope": "Direct saved-model pre-IRQ fetch observation and local independent ISA/clock prediction",
+  "terminal_receipt": {
+    "model_provenance": "_checks/physical-cpu-restart-corners-20261009/model-source.json",
+    "bus_windows": [
+      2757,
+      2758
+    ],
+    "executable": "_checks/physical-cpu-restart-corners-20261009/Vn8080_board",
+    "inputs": "_checks/physical-cpu-restart-corners-20261009/inputs_restart.csv",
+    "started_utc": "2026-10-09T11:12:26.7340254Z",
+    "output": "sim/results/physical-cpu-prior-vblank-rtl-20261009",
+    "inputs_sha256": "15E27F7747D95C53762259B136B7B8AEFF7E8A7C24DCF75AC81EDAD85456DB3D",
+    "executable_sha256": "518A6614F5D1B865378805A37AEEE5E7513747154E1F017CE906A10BF158C0DA",
+    "finished_utc": "2026-10-09T11:38:27.5931464Z",
+    "exit_code": 0,
+    "frames_requested": 2759
+  },
+  "IRQ_edge": 2259353600,
+  "native_prediction": {
+    "preceding_ANA_A_PC": 1439,
+    "preceding_ANA_A_sampled_t1": 2259353400,
+    "preceding_ANA_A_last_phi2": 2259353494,
+    "JZ_PC": 1440,
+    "JZ_target": 1424,
+    "JZ_sampled_t1": 2259353500,
+    "JZ_last_phi2": 2259353744,
+    "RST_sampled_t1": 2259353750,
+    "ACK": 2259353752,
+    "stack_high": 2259353919,
+    "stack_low": 2259353994
+  },
+  "native_stack": [
+    [
+      2259353919,
+      32763,
+      5
+    ],
+    [
+      2259353994,
+      32762,
+      144
+    ]
+  ],
+  "MAME_preceding_ANA_A_PC": 1439,
+  "MAME_ANA_A_fetch_tick": "2259353524.996612800000",
+  "MAME_atomic_RST_start": "2259353624.996603200000",
+  "MAME_minus_native_ANA_epoch": "124.996612800000",
+  "native_overlapping_bus_rows_exact": 9156,
+  "file_sha256": {
+    "_checks/physical-cpu-prior-vblank-20261009/result.json": "a93c300a0b94d1f81109a190eda96ff1b48e9f0a387681abe63b0a5b7a7deb41",
+    "sim/results/physical-cpu-prior-vblank-rtl-20261009/bus.csv": "ea172711d6145140be1eb387dfcef981b0962d6d2746d25c27c5bdce8ac441d6",
+    "sim/results/prior-vblank-2758-mame-20261009/irq_program_reads.csv": "e824edddf64e842f12bd700c4770db89ef429c2851a7422522649c055d8b287b",
+    "docs/evidence/sheriff_prior_vblank_reference.json": "50a9a42feb60b19d55910c623187b8d72318246aa27d0d37098bd7538e309c97",
+    "docs/evidence/sheriff_cpu_phase_qualification.json": "eb9820394569d486813400644385f2e3efd2e1115871bf4178d1530a89e6de3f",
+    "D:/Arcade/AI/aCORES/sherrif/tools/record_prior_vblank_boundary.py": "9a73b4280aea09ff926f0164fa60cafd397422dcd7c2f161adbc0813d4e9347c"
+  },
+  "strict_graphics_gate_pass": false,
+  "current_worktree_board_qualified": false,
+  "limits": [
+    "Pre-edge native ANA A and JZ fetches are now directly observed, not inferred from operand accesses.",
+    "The local epoch gap precedes ANA A. Its upstream origin remains unqualified.",
+    "The leading MAME capture runtime exit is unknown; its transaction/overlap fidelity is independently recorded.",
+    "No raster/reference adjustment, physical memory qualification or graphics waiver follows. Quartus remains on hold."
+  ]
+}

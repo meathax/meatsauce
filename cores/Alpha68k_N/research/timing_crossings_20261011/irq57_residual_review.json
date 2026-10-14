@@ -1,0 +1,91 @@
+{
+  "schema": "alpha68kn.irq57_residual_review.v1",
+  "scope": "Read-only review of retained historical same69 temporal baseline; not current43b qualification.",
+  "decision": "Remaining16 master ticks cannot be localized from retained paired events.",
+  "checked_stack_boundaries": {
+    "PClo": {
+      "native_AS_tick": 45732633,
+      "native_DS_tick": 45732641,
+      "native_accepted_commit_tick": 45732642,
+      "MAME_write_callback_tick": 45732591,
+      "AS_minus_callback_ticks": 42
+    },
+    "SR": {
+      "native_AS_tick": 45732841,
+      "native_DS_tick": 45732849,
+      "native_accepted_commit_tick": 45732850,
+      "MAME_write_callback_tick": 45732791,
+      "AS_minus_callback_ticks": 50
+    },
+    "PChi": {
+      "native_AS_tick": 45732873,
+      "native_DS_tick": 45732881,
+      "native_accepted_commit_tick": 45732882,
+      "MAME_write_callback_tick": 45732823,
+      "AS_minus_callback_ticks": 50
+    }
+  },
+  "checked_elapsed": {
+    "native_PClo_AS_to_SR_AS": 208,
+    "MAME_PClo_callback_to_SR_callback": 200,
+    "first_stack_service_difference": 8
+  },
+  "retained_IACK_contract": {
+    "native_IACK_AS_tick": 45732665,
+    "MAME_request_local_machine_tick": 45732623,
+    "MAME_IACK_callback_tick": 45732719,
+    "PClo_to_IACK_request_native_and_MAME_ticks": 32,
+    "native_IACK_AS_to_SR_AS_ticks": 176,
+    "MAME_request_to_SR_callback_ticks": 168,
+    "MAME_callback_convention": "After vpa_sync before_time; not AS assertion or request."
+  },
+  "coverage": {
+    "native_detailed_window": [
+      45731800,
+      45733500
+    ],
+    "next_MAME_request_tick": 45735719,
+    "next_request_outside_window": true,
+    "owner_confirmed_missing_native_stack_windows": "Four frame57/58 IACKs.",
+    "available_later_limits": "Frame59 two pairs have different savedPC despite equal elapsed; frame60 +64 is separate."
+  },
+  "arithmetic_vs_cause": "66-42=24 and 24-8=16 are residual arithmetic across different matched boundaries; not proof of three +8 interrupt increments or a single IRQ57 +24 service.",
+  "exact_missing_events": [
+    "Paired native PClo-AS/DS/accepted-commit, IACK-AS/DS/VPA-sampling/E-counter/VMA/wClk/AS-release, SR and PChi boundaries for the four retained frame57/58 MAME IACKs after the first captured service.",
+    "Instruction-identical native/MAME retirement or actual IR-to-IRD boundaries across vector fetch, handler entry, return and the eventual matched loop event where offset66 is observed; PC/IR/IRD/FC/SR/SP context must establish the same event identity.",
+    "Matching bracketing events around every offset transition from first complete-stack offset50 to later66, rather than relying on cutoff callback placement or comparing different savedPC service pairs."
+  ],
+  "responsible_layer_assessment": "No source-proven board decoder or physical FX68K protocol violation follows. VPA/E phase-sensitive completion and unspecified power-on E phase remain the existing primary-manual limitation.",
+  "prohibited_inferences": [
+    "No initial E-phase tuning, IRQ delay, counter/iStop retiming, callback-to-AS equality, CPUcycles*8 machine-time substitution, raw comparison masking or current43b transfer."
+  ],
+  "no_new_runs_builds_or_source_changes": true,
+  "input_pins": [
+    {
+      "path": "D:\\Arcade\\AI\\aCORES\\Alpha68k N\\research\\mame_cutoff_observer_stage\\first_irq_native57_released1\\interpretation\\import_manifest.json",
+      "bytes": 23635,
+      "sha256": "ec16ad320f96e967f101735fc127b890541398c46ca10f466e0a622d19ebcf87"
+    },
+    {
+      "path": "D:\\Arcade\\AI\\aCORES\\Alpha68k N\\research\\mame_cutoff_observer_stage\\vpa_overlay_recipe1\\terminal_freeze1\\import_manifest.json",
+      "bytes": 23079,
+      "sha256": "07c30b8eebb21a7a5bf19a2c31ce398960fded9c71f63de3f59e0dae3ca0bf20"
+    },
+    {
+      "path": "D:\\Arcade\\AI\\aCORES\\Alpha68k N\\research\\timing_crossings_20261011\\fx68k_first_irq_contract_review_import_manifest.json",
+      "bytes": 9401,
+      "sha256": "20b0d6a854c273dc6ba2ae826a89955bdc07cfd4a96aab29ac4594d3b733757d"
+    },
+    {
+      "path": "D:\\Arcade\\AI\\aCORES\\Alpha68k N\\research\\mame_cutoff_observer_stage\\first_irq_native57_released1\\interpretation\\report.json",
+      "bytes": 111504,
+      "sha256": "89cd1cedfebd99942a59529aa1b0e40614580888c6f4356727f4552aca33037d"
+    },
+    {
+      "path": "D:\\Arcade\\AI\\aCORES\\Alpha68k N\\research\\mame_cutoff_observer_stage\\vpa_overlay_recipe1\\terminal_freeze1\\report.json",
+      "bytes": 4608,
+      "sha256": "acbbd49758879d7cde1639406f832268bc0c734e38a8c5a3c7193ea5e72b5d62"
+    }
+  ],
+  "producer_retained_large_evidence": "Original130 cutoffs, raw trace, original arrays and audio are referenced through accepted producer manifests; not rehashed or rerun here."
+}

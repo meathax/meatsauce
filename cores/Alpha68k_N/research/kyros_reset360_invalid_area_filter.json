@@ -1,0 +1,113 @@
+{
+  "scope": "Accepted sprite/position writes fields330..360; bus-lane data compared, no omitted writes, no frame shifting",
+  "mame_write_count": 3674,
+  "native_write_count": 10453,
+  "different_ordered_writes": 9045,
+  "first_differences": [
+    [
+      1408,
+      [
+        264132,
+        0,
+        65280,
+        359,
+        241
+      ],
+      [
+        264194,
+        0,
+        65535,
+        358,
+        47,
+        79,
+        290559659
+      ]
+    ],
+    [
+      1409,
+      [
+        264132,
+        0,
+        255,
+        359,
+        241
+      ],
+      [
+        264192,
+        0,
+        65535,
+        358,
+        47,
+        83,
+        290559691
+      ]
+    ],
+    [
+      1410,
+      [
+        264134,
+        0,
+        65280,
+        359,
+        241
+      ],
+      [
+        264198,
+        0,
+        65535,
+        358,
+        47,
+        109,
+        290559899
+      ]
+    ]
+  ],
+  "first_mame": [
+    [
+      264132,
+      0,
+      65280,
+      357,
+      81
+    ],
+    [
+      264132,
+      248,
+      255,
+      357,
+      81
+    ]
+  ],
+  "first_native": [
+    [
+      264132,
+      0,
+      65280,
+      357,
+      81,
+      25,
+      289852667
+    ],
+    [
+      264132,
+      248,
+      255,
+      357,
+      81,
+      37,
+      289852763
+    ]
+  ],
+  "mame_bg60": [
+    {
+      "frame": "60",
+      "screen_frame": "60",
+      "area": "background_watchdog",
+      "address": "393216",
+      "data": "20560",
+      "mask": "255",
+      "vpos": "97"
+    }
+  ],
+  "invalid": "Area whitelist omitted valid writes from the sole full-range sprite write tap; preserve failed comparison, do not use as CPU fault evidence."
+}

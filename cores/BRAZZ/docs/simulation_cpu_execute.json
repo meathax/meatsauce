@@ -1,0 +1,73 @@
+{
+  "target": "cpu_execute",
+  "acceptance": "unit verification",
+  "runtime": "native Windows PE / MSYS2 UCRT64",
+  "commands": [
+    [
+      "D:/vibes/fpga/bin/verilator.exe",
+      "--cc",
+      "--exe",
+      "--build",
+      "-j",
+      "4",
+      "-O3",
+      "--top-module",
+      "se3208_execute",
+      "--Mdir",
+      "R:/Verilator/CrystalSystem/tool-20261009T004038851Z-32488-87165562/obj_dir",
+      "-CFLAGS",
+      "-O2",
+      "-MAKEFLAGS",
+      "OPT_FAST=-O2",
+      "-MAKEFLAGS",
+      "OPT_GLOBAL=-O2",
+      "-Wno-fatal",
+      "D:/Arcade/AI/aCORES/BRAZZ/Arcade-CrystalSystem_MiSTer/rtl/cpu/se3208_pkg.sv",
+      "D:/Arcade/AI/aCORES/BRAZZ/Arcade-CrystalSystem_MiSTer/rtl/cpu/se3208_decode.sv",
+      "D:/Arcade/AI/aCORES/BRAZZ/Arcade-CrystalSystem_MiSTer/rtl/cpu/se3208_execute.sv",
+      "D:/Arcade/AI/aCORES/BRAZZ/Arcade-CrystalSystem_MiSTer/sim/cpu_execute/main.cpp"
+    ],
+    [
+      "D:/vibes/fpga/bin/verilator.exe",
+      "sim",
+      "R:/Verilator/CrystalSystem/tool-20261009T004038851Z-32488-87165562/obj_dir/Vse3208_execute.exe"
+    ]
+  ],
+  "exit_code": 0,
+  "run_seconds": 0.3911140999989584,
+  "sources": [
+    {
+      "path": "rtl/cpu/se3208_pkg.sv",
+      "sha256": "63bdde59a9eb369742ad68baabddf3be191571408bcacf7f71fa958e222e1b99"
+    },
+    {
+      "path": "rtl/cpu/se3208_decode.sv",
+      "sha256": "c03060740f22ad0c8fd0fb1c3d5cdf75093fb66adef4a01983cf5602734c2a00"
+    },
+    {
+      "path": "rtl/cpu/se3208_execute.sv",
+      "sha256": "c3ea5e1e6d1f0e7bf84ae129bf9587fe05ff2088be1857d5cabd7b4d0d54de81"
+    },
+    {
+      "path": "sim/cpu_execute/main.cpp",
+      "sha256": "1c2572213bdc08c1d42bfa5a857a9e3e7380528bcdf8739a65a3964863509922"
+    },
+    {
+      "path": "sim/obj_dir/cpu_reference/se3208_reference.hpp",
+      "sha256": "a9e775d2f920afc94f3fe474669ae732174f18aa7b9d223d0f39d5af3a0fdd79"
+    },
+    {
+      "path": "scripts/cpu_reference.py",
+      "sha256": "8827c40560a47ed62d3e20e761a717a871964bcf1a12f381272d18cc4c509dcf"
+    },
+    {
+      "path": "docs/reference/mame/src/devices/cpu/se3208/se3208.cpp",
+      "sha256": "52615b893722ef1bbfcaa88b235cf80167655421bf83cbd716e3477e37525ec5"
+    }
+  ],
+  "workspace": "R:/Verilator/CrystalSystem/tool-20261009T004038851Z-32488-87165562",
+  "timing_profile": null,
+  "stdout": "PASS SE3208 register execution: 1017344 cases across 31792 encodings / 30 families; flags, extension chains, shifts and multiply match MAME\n",
+  "stderr": "",
+  "build_log": "sim/obj_dir/cpu_execute/build.log"
+}

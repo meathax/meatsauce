@@ -1,0 +1,19 @@
+{
+  "scope": "Component qualification; complete Sheriff simulation and final-source release gates remain pending",
+  "release_gate_pass": false,
+  "native_video": {"complete_frames": 5, "active_pixels_per_frame": 57344, "rgb_errors": 0},
+  "crt_neutral": {"complete_frames": 5, "rgb_errors": 0, "path": "native bypass for zero adjustments"},
+  "crt_buffer_plus_one_line": {"complete_frames": 5, "active_pixels_per_frame": 57344, "rgb_errors": 0},
+  "crt_horizontal_minus_sixteen_pixels": {"complete_frames": 5, "rgb_errors": 0},
+  "crt_horizontal_plus_sixteen_pixels": {"complete_frames": 5, "rgb_errors": 0},
+  "crt_vertical_minus_four_lines": {"complete_frames": 4, "rgb_errors": 0},
+  "scandoubler": {"complete_frames": 5, "active_pixels_per_frame": 114688, "solid_white_rgb_errors": 0},
+  "hq2x": {"complete_frames": 5, "active_pixels_per_frame": 229376, "solid_white_rgb_errors": 0},
+  "programmed_gamma": {"table": "three 256-byte invert curves", "complete_frames": 5, "Sheriff_palette_rgb_errors": 0},
+  "crt_size_minus_four": {"complete_frames": 5, "active_pixels_per_frame": 57344, "checker_pattern_rgb_errors": 0},
+  "crt_size_plus_four": {"pass": true, "complete_frames": 5, "active_rows": 224, "visible_source_samples_per_row": 243, "active_pixels_per_frame": 54432, "rgb_errors": 0, "right_edge": "enlarged content clips at the native line boundary", "fix": "reset read counter and flush active metadata with the bank switch; align HSync with the RGB read pipeline", "log": "sim/build/crt-boundary/crt-size-plus.log"},
+  "rotation": {"checked_pixels": 172032, "errors": 0, "banks": 3, "width": 224, "height": 256, "stride_bytes": 896, "ddr_busy": 0, "native_orientation_disables_framebuffer": true},
+  "hiscore": {"descriptor_bytes": 24, "game_address": "0x60f1", "score_bytes": 3, "startup_guard": "50400000 master clocks", "paused_restore": true, "changed_score_autosave_upload": true},
+  "reproduce": "Ubuntu WSL: make -C sim video hiscore rotation BUILD=/mnt/d/Arcade/AI/aCORES/sherrif/sim/build/frontend; invoke Vn8080_video with crt-neutral, crt-buffer, crt-left, crt-right, crt-up, scandoubler, hq2x",
+  "remaining": ["nonuniform HQ filtering", "actual HPS/frontend board integration", "hardware DDR throughput"]
+}

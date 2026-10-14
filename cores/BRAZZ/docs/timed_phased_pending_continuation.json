@@ -1,0 +1,41 @@
+{
+  "status": "PASS",
+  "scope": "exact-source early BIOS continuation with two pending phased SDRAM return beats; not sound/gameplay or production timing signoff",
+  "source_identity": "cd1626ef32be797a8cf994291204d71f39024d728f925e604575b08cacbbcd15",
+  "start_clock": 123979,
+  "end_clock": 200408,
+  "continued_clocks": 76429,
+  "pending_dq_start": 2,
+  "pending_dq_end": 2,
+  "cold_endpoint": "sim\\obj_dir\\boot_probe\\activity\\1791219259193475900\\checkpoints\\200408",
+  "resumed_endpoint": "sim\\obj_dir\\boot_probe\\activity\\1791219320931693300\\checkpoints\\200408",
+  "files": [
+    {
+      "name": "rtl.bin",
+      "cold_bytes": 82140,
+      "resumed_bytes": 82140,
+      "cold_sha256": "b8287a607329329ca7a85dd9597bc0f6f3b1b00f83660841b73821d420c24d2e",
+      "resumed_sha256": "b8287a607329329ca7a85dd9597bc0f6f3b1b00f83660841b73821d420c24d2e",
+      "byte_identical": true
+    },
+    {
+      "name": "external.bin",
+      "cold_bytes": 112861795,
+      "resumed_bytes": 112861795,
+      "cold_sha256": "43be286b0179eee57f36656c3ae858c6c052eeea6396dcac52b69ca52c2a67cd",
+      "resumed_sha256": "43be286b0179eee57f36656c3ae858c6c052eeea6396dcac52b69ca52c2a67cd",
+      "byte_identical": true
+    },
+    {
+      "name": "manifest.txt",
+      "cold_bytes": 112,
+      "resumed_bytes": 112,
+      "cold_sha256": "0559a282b9f7d44e6f679b24ec43a0018b1e807d5b92eaa090f86437e96a57aa",
+      "resumed_sha256": "0559a282b9f7d44e6f679b24ec43a0018b1e807d5b92eaa090f86437e96a57aa",
+      "byte_identical": true
+    }
+  ],
+  "profile": "corner0_input_setup",
+  "capture_phase_ns": 3.175,
+  "fit_snapshot": "1791216411949065600"
+}

@@ -1,0 +1,158 @@
+{
+  "scope": "Read-only storage-port inventory and candidate; no RTL modification, simulation or Quartus launch",
+  "source_root": "D:\\Arcade\\AI\\aCORES\\meatsauce-alpha68kn\\cores\\Alpha68k_N",
+  "source_pins": {
+    "rtl/alpha68kn_board.sv": "1d96bcb640490b62fbe6f15a9dc0e4fcf8e80b496cc108f14bd91241eb85ca0c",
+    "rtl/alpha68kn_system.sv": "ca909f97d09875ecfe98b92e04d5fbad343a2e6fed20c84542b4265eb5060152",
+    "rtl/alpha68kn_renderer.sv": "53d16c6ff5d105a3643377c48c067452b3c83431fe4c159edceda7854a8b47bb",
+    "Alpha68k_N.sv": "e06df32e27980fd18930da274d05538396e8be3fc7379409043dd36bef383b61",
+    "rtl/alpha68kn_video_rom.sv": "b000479a8d41ac4d17fcd60fc129912c6a437cf2f690873fc7d62aac4094d10e",
+    "resource_limits.json": "5e167b29788b74c4ee7f182a58ae8475b75d9f565e5809958d863fedcbbe41c5"
+  },
+  "all_work_strip_sites": [
+    {
+      "line": 70,
+      "text": "logic [15:0] work_ram [0:2047];"
+    },
+    {
+      "line": 71,
+      "text": "logic [15:0] strip_ram [0:4095];"
+    },
+    {
+      "line": 82,
+      "text": "for (integer i=0;i<2048;i=i+1) begin work_ram[i]=0; sound_ram[i]=0; end"
+    },
+    {
+      "line": 83,
+      "text": "for (integer i=0;i<4096;i=i+1) strip_ram[i]=0;"
+    },
+    {
+      "line": 119,
+      "text": "debug_work_data <= work_ram[debug_word_addr[10:0]];"
+    },
+    {
+      "line": 120,
+      "text": "debug_strip_data <= strip_ram[debug_word_addr];"
+    },
+    {
+      "line": 250,
+      "text": "hs_data_out<=hs_addr[0] ? work_ram[hs_addr[11:1]][7:0] : work_ram[hs_addr[11:1]][15:8];"
+    },
+    {
+      "line": 252,
+      "text": "if(hs_addr[0]) work_ram[hs_addr[11:1]][7:0]<=hs_data_in;"
+    },
+    {
+      "line": 253,
+      "text": "else work_ram[hs_addr[11:1]][15:8]<=hs_data_in;"
+    },
+    {
+      "line": 271,
+      "text": "mdin<=work_ram[ma[11:1]];"
+    },
+    {
+      "line": 273,
+      "text": "if (!muds_n) work_ram[ma[11:1]][15:8]<=mdout[15:8];"
+    },
+    {
+      "line": 274,
+      "text": "if (!mlds_n) work_ram[ma[11:1]][7:0]<=mdout[7:0];"
+    },
+    {
+      "line": 278,
+      "text": "mdin<=strip_ram[ma[12:1]];"
+    },
+    {
+      "line": 280,
+      "text": "if (!muds_n) strip_ram[ma[12:1]][15:8]<=mdout[15:8];"
+    },
+    {
+      "line": 281,
+      "text": "if (!mlds_n) strip_ram[ma[12:1]][7:0]<=mdout[7:0];"
+    },
+    {
+      "line": 295,
+      "text": "'h22:work_ram['h22][7:0]<=credits;"
+    },
+    {
+      "line": 296,
+      "text": "'hff:work_ram['hff][7:0]<=8'h12;"
+    },
+    {
+      "line": 300,
+      "text": "coin_latch<=1;work_ram['h29][7:0]<=8'h22;work_ram['h22]<={work_ram['h29][15:8],8'd0};"
+    },
+    {
+      "line": 305,
+      "text": "coin_latch<=1;work_ram['h29][7:0]<=8'h22;work_ram['h22]<={work_ram['h29][15:8],8'd0};"
+    },
+    {
+      "line": 309,
+      "text": "end else work_ram['h29][7:0]<=0;"
+    }
+  ],
+  "physical_ports": {
+    "strip_ram": {
+      "geometry": "4096x16=65536bits",
+      "read_ports": [
+        "board120 synchronous every-clock renderer read via system81/96",
+        "board278 accepted CPU transaction read, even on writes"
+      ],
+      "write_ports": [
+        "board280/281 one accepted CPU address, independent high/low byte enables"
+      ],
+      "initial": "board83 zero power-up initialization; no reset clear",
+      "required_collision": "All clocked RHS read old pre-edge memory. Renderer must preserve OLD_DATA on same-address CPU write; CPU read/write also returns pre-write old word.",
+      "prohibition": "Top debug_strip_data appears unconnected but internal system renderer consumes it; never remove board120."
+    },
+    "work_ram": {
+      "geometry": "2048x16=32768bits",
+      "read_ports": [
+        "board119 diagnostic every-clock, physically unconsumed top196",
+        "board250 paused acknowledged hiscore byte read",
+        "board271 CPU accepted read even on write",
+        "board300/305 same-edge HLE old work[0x29].high into work[0x22].high"
+      ],
+      "write_ports": [
+        "board252/253 paused hiscore byte; exclusive with CPU/HLE due pause_game",
+        "board273/274 CPU byte lanes",
+        "board295 HLE low0x22 credits",
+        "board296 HLE low0xff=0x12",
+        "board300/305 HLE low0x29=0x22 AND full0x22={OLD high0x29,0} simultaneously",
+        "board309 HLE low0x29=0"
+      ],
+      "initial": "board82 zero power-up; no reset clear",
+      "maximum_simultaneous_writes": 2,
+      "prohibition": "One write port alone cannot preserve coin branches300/305. Initial and paused-access behavior must remain exact."
+    }
+  },
+  "candidate": {
+    "strip": "Dedicated same-clock true-dual-port storage: A accepted CPU read/write with two byte enables; B continuously reads physical renderer/reset diagnostic address, exactly one-clock output. Preserve read-before-write collisions. Keep output response at original accepted bus edge; adding an extra q pipeline into mdin would alter CPU semantics.",
+    "work": "Use true-dual-port storage. A handles mutually exclusive CPU, paused hiscore, or ordinary HLE. B supplies coin branch second write0x22 while A writes0x29. Preserve old high0x29 with an8-bit shadow initialized0 and updated by every high-byte write to that word under identical priority. Never substitute new0x29 high. Physically unused debug_work read may be optional observation service; simulator behavior must be explicit and retained, not silently removed.",
+    "response": "RAM read output and latched response-kind may update at original acceptance edge, with bus iEdb selection after that edge. Alternatively an early registered read requires proof address/output are valid at every unchanged acceptance. Keep AS/strobe predicate261\u2013262, bus_done/DTACK263/160, pause acknowledge52, HLE side effects and counter timing unchanged.",
+    "inference_obligations": [
+      "Read ports isolated into RAM-compatible clocked processes; no reset on memory array",
+      "Native byte-enable width and simultaneous two write ports must map supported M10K mode",
+      "Verify actual CycloneV same/mixed-port OLD_DATA support and collisions in simulation + current synthesis report; no no_rw_check/dont-care waiver",
+      "Do not assert a fitting/resource pass from geometry alone"
+    ]
+  },
+  "resource_reasoning": {
+    "work_strip_total_bits": 98304,
+    "reported_board_registers_from_parent": 622882,
+    "sound_rom_bits": 524288,
+    "sound_plus_work_strip_bits": 622592,
+    "difference_from_reported_regs": 290,
+    "qualification": "Numerical correspondence is a hypothesis, not a resource attribution. SoundROM524288bits dominates this sum; strip/work optimization alone may leave the main problem. Source clocked sound read187 selects byte directly from sound_rom; loader93 and physically unused debug123 are other sites. Obtain actual final per-memory inference before assigning cause. MainROM already inferred, leave unchanged.",
+    "storage_packing_candidate": "At512x16 per RAM block, strip8+work4 blocks; physical mode/byte-enable geometry and full fitted M10K/bit gates remain authoritative. No device-total claim."
+  },
+  "minimum_check_before_map": {
+    "storage_contract": "One finite old/new service comparison covering high/low/both byte CPU accesses, both HLE coin branches with nonzero old0x29 high, simultaneous renderer collision, both hiscore byte lanes after acknowledged pause, reset retention and zero power-up. Compare old read data and both memory writes at the original edge.",
+    "actual_CPU": "Then one bounded paired real-fx68k/native renderer input prefix through known boot writes and actual coin/start HLE transactions, sufficient to exercise port arbitration; compare each accepted transaction tick/AS/strobes/DTACK/data, render read latency/RGB and resulting RAM. Define terminal from actual transaction coverage, not arbitrary full-game length. Existing historical captures are baseline provenance, not current-candidate execution. No replay performed here."
+  },
+  "checks": {
+    "source_sites_count_work13_strip5": true,
+    "physical_renderer_read_not_removed": true,
+    "two_HLE_doublewrite_branches": true
+  }
+}

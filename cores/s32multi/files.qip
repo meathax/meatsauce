@@ -1,0 +1,38 @@
+# OutRunners on Sega System Multi 32 (837-8676). Every source below is real
+# hardware on that board or its 837-7536 A/D PCB; no other game's peripherals
+# are compiled in.
+set_global_assignment -name QIP_FILE sys/sys.qip
+set_global_assignment -name SDC_FILE Arcade-SegaSystem32Multi.sdc
+
+set_global_assignment -name SYSTEMVERILOG_FILE Arcade-SegaSystem32Multi.sv
+set_global_assignment -name SYSTEMVERILOG_FILE rtl/s32_pkg.sv
+set_global_assignment -name SYSTEMVERILOG_FILE rtl/s32_core.sv
+
+set_global_assignment -name SYSTEMVERILOG_FILE rtl/cpu/v60/s32_v60.sv
+set_global_assignment -name SYSTEMVERILOG_FILE rtl/cpu/v60/s32_v60_bus.sv
+
+set_global_assignment -name SYSTEMVERILOG_FILE rtl/video/s32_big_dpram.sv
+set_global_assignment -name SYSTEMVERILOG_FILE rtl/video/s32_vram.sv
+set_global_assignment -name SYSTEMVERILOG_FILE rtl/video/s32_tilemap.sv
+set_global_assignment -name SYSTEMVERILOG_FILE rtl/video/s32_sprite.sv
+set_global_assignment -name SYSTEMVERILOG_FILE rtl/video/s32_linebuf.sv
+set_global_assignment -name SYSTEMVERILOG_FILE rtl/video/s32_mixer.sv
+set_global_assignment -name SYSTEMVERILOG_FILE rtl/video/s32_palette.sv
+set_global_assignment -name SYSTEMVERILOG_FILE rtl/video/s32_video.sv
+set_global_assignment -name SYSTEMVERILOG_FILE rtl/video/s32_splitscreen_composer.sv
+set_global_assignment -name SYSTEMVERILOG_FILE rtl/audio/s32_audio_mix.sv
+set_global_assignment -name SYSTEMVERILOG_FILE rtl/audio/s32_monitor_audio_route.sv
+set_global_assignment -name SYSTEMVERILOG_FILE rtl/audio/s32_soundsys.sv
+set_global_assignment -name SYSTEMVERILOG_FILE rtl/audio/s32_audio_ce.sv
+set_global_assignment -name SYSTEMVERILOG_FILE rtl/audio/s32_multipcm.sv
+set_global_assignment -name QIP_FILE rtl/audio/T80/T80.qip
+set_global_assignment -name QIP_FILE rtl/audio/jt12/jt12.qip
+
+set_global_assignment -name SYSTEMVERILOG_FILE rtl/io/s32_io.sv
+set_global_assignment -name SYSTEMVERILOG_FILE rtl/io/s32_driving_controls.sv
+set_global_assignment -name SYSTEMVERILOG_FILE rtl/mem/sdram.sv
+set_global_assignment -name SYSTEMVERILOG_FILE rtl/mem/s32_sdram_write_mux2.sv
+set_global_assignment -name SYSTEMVERILOG_FILE rtl/mem/s32_rom_loader.sv
+set_global_assignment -name SYSTEMVERILOG_FILE rtl/mem/s32_fb_if.sv
+
+set_global_assignment -name QIP_FILE rtl/pll/pll.qip

@@ -1,0 +1,22 @@
+{
+  "observed_utc": "2026-10-10T18:18:46.9085077Z",
+  "native_ps_exit": 0,
+  "native_ps": [
+    "    PID     ELAPSED     TIME STAT COMMAND",
+    "  58820    02:16:51 00:00:00 Ss+  python3 scripts/transition_kyros_joined_4401_v1.py --transition",
+    "  58822    02:16:49 02:16:39 Rl+  /mnt/d/Arcade/AI/aCORES/Alpha68k N/sim/captures/rtl/kyros_joined_lifecycle_4401_v1/alpha68kn_merged_lifecycle_v2_sim /mnt/d/Arcade/AI/aCORES/Alpha68k N/roms/kyros/download.bin 4401 /mnt/d/Arcade/AI/aCORES/Alpha68k N/sim/captures/rtl/kyros_joined_lifecycle_4401_v1 gameplay --inputs /mnt/d/Arcade/AI/aCORES/Alpha68k N/sim/captures/kyros/idle_death_restart_actions4401/frame_states.csv"
+  ],
+  "watchers": [
+    {
+      "ProcessId": 46320,
+      "Name": "python.exe",
+      "CommandLine": "D:\\vibes\\fpga\\toolchains\\msys64\\ucrt64\\bin\\python.exe -X utf8 \"D:\\Arcade\\AI\\aCORES\\Alpha68k N\\scripts\\qualify_kyros_completed_png_v1.py\" --wait-terminal"
+    },
+    {
+      "ProcessId": 28924,
+      "Name": "python.exe",
+      "CommandLine": "D:\\vibes\\fpga\\toolchains\\msys64\\ucrt64\\bin\\python.exe -X utf8 \"D:\\Arcade\\AI\\aCORES\\Alpha68k N\\scripts\\freeze_kyros_joined_terminal_v1.py\" --wait"
+    }
+  ],
+  "scope": "Bounded process-identity supplement after sandbox WSL/CIM access denied; no native control"
+}

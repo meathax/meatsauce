@@ -1,0 +1,105 @@
+{
+  "target": "scanout_load",
+  "acceptance": "Synthetic peer-load physical scanout deadline regression only; not game acceptance",
+  "runtime": "native Windows PE / MSYS2 UCRT64",
+  "commands": [
+    [
+      "D:/vibes/fpga/bin/verilator.exe",
+      "--cc",
+      "--exe",
+      "--build",
+      "-j",
+      "4",
+      "-O3",
+      "--top-module",
+      "cs_scanout_load",
+      "--Mdir",
+      "R:/Verilator/CrystalSystem/tool-20261008T190029486Z-36460-66756203/obj_dir",
+      "-CFLAGS",
+      "-O2",
+      "-MAKEFLAGS",
+      "OPT_FAST=-O2",
+      "-MAKEFLAGS",
+      "OPT_GLOBAL=-O2",
+      "-Wno-fatal",
+      "-GDISPLAY_PRIORITY=1",
+      "D:/Arcade/AI/aCORES/BRAZZ/Arcade-CrystalSystem_MiSTer/rtl/memory/cs_bus_arbiter.sv",
+      "D:/Arcade/AI/aCORES/BRAZZ/Arcade-CrystalSystem_MiSTer/rtl/board/cs_address_decode.sv",
+      "D:/Arcade/AI/aCORES/BRAZZ/Arcade-CrystalSystem_MiSTer/rtl/video/cs_diagnostic_video.sv",
+      "D:/Arcade/AI/aCORES/BRAZZ/Arcade-CrystalSystem_MiSTer/rtl/video/vr0_scanout.sv",
+      "D:/Arcade/AI/aCORES/BRAZZ/Arcade-CrystalSystem_MiSTer/donors/sdram/src_v/sdram_axi_core.v",
+      "D:/Arcade/AI/aCORES/BRAZZ/Arcade-CrystalSystem_MiSTer/rtl/memory/cs_sdram_backend.sv",
+      "D:/Arcade/AI/aCORES/BRAZZ/Arcade-CrystalSystem_MiSTer/rtl/memory/cs_ddr_rom_backend.sv",
+      "D:/Arcade/AI/aCORES/BRAZZ/Arcade-CrystalSystem_MiSTer/rtl/memory/cs_nvram_port.sv",
+      "D:/Arcade/AI/aCORES/BRAZZ/Arcade-CrystalSystem_MiSTer/rtl/memory/cs_memory_fabric.sv",
+      "D:/Arcade/AI/aCORES/BRAZZ/Arcade-CrystalSystem_MiSTer/sim/video/scanout_load.sv",
+      "D:/Arcade/AI/aCORES/BRAZZ/Arcade-CrystalSystem_MiSTer/sim/video/scanout_load.cpp"
+    ],
+    [
+      "D:/vibes/fpga/bin/verilator.exe",
+      "sim",
+      "R:/Verilator/CrystalSystem/tool-20261008T190029486Z-36460-66756203/obj_dir/Vcs_scanout_load.exe"
+    ]
+  ],
+  "exit_code": 0,
+  "run_seconds": 1.6602805000002263,
+  "sources": [
+    {
+      "path": "rtl/memory/cs_bus_arbiter.sv",
+      "sha256": "177101ab94843ca238b3773b646a068617ed86b664898b86b973d1a8b19553e2"
+    },
+    {
+      "path": "rtl/board/cs_address_decode.sv",
+      "sha256": "ad4140238e5d1eee3c5f20d3ca99e7d5ae361c92d59798508262494378551f36"
+    },
+    {
+      "path": "rtl/video/cs_diagnostic_video.sv",
+      "sha256": "a4b8dd6ec0c58fd9d207f6c0d098ccd902d45911feb76d742e84f8868a16f660"
+    },
+    {
+      "path": "rtl/video/vr0_scanout.sv",
+      "sha256": "905f02ab2b6f794842efc09946718d6cb5d345592102c371faaa644b515163f3"
+    },
+    {
+      "path": "donors/sdram/src_v/sdram_axi_core.v",
+      "sha256": "bf7b3cdd53383051f8a108010bf5f19171eaff7e416b9b5b8d70ac1928b6af5f"
+    },
+    {
+      "path": "rtl/memory/cs_sdram_backend.sv",
+      "sha256": "9c1c603f184cfbe1c6cc102f74153160bbb0cd225c2957aeb647cafb334b15e0"
+    },
+    {
+      "path": "rtl/memory/cs_ddr_rom_backend.sv",
+      "sha256": "44555deb1fd50424e0b084ef0612ce0f89ea2b82230969621daea04b1a18fcdd"
+    },
+    {
+      "path": "rtl/memory/cs_nvram_port.sv",
+      "sha256": "6d0aef204357fcc17ad2a3526235576427b497a777ed3694b30d1d02840ab688"
+    },
+    {
+      "path": "rtl/memory/cs_memory_fabric.sv",
+      "sha256": "a79a3aaae8931ee94663c2c9e90ca93ef2ff4aa8caf7110ebdfa81139cc1df09"
+    },
+    {
+      "path": "sim/video/scanout_load.sv",
+      "sha256": "0d91910be07c01cd1efc59747948474e25d65fe3ad94dfd00457606ab44b36f1"
+    },
+    {
+      "path": "sim/video/scanout_load.cpp",
+      "sha256": "a57a7a8c05badb39f1c6f5722a900442e8014991b03572478ae9b7f4e3989c47"
+    },
+    {
+      "path": "sim/memory/sdram_model.hpp",
+      "sha256": "e5e7b878d407b474214bcbddf070a55be56ef16d5dcf53cb31a685d9e782e5b9"
+    },
+    {
+      "path": "sim/memory/ddr_model.hpp",
+      "sha256": "bfcc0d8bcc6db95ee41fda4b8e3625bf0808c89d5fc2dad52f5550bc43c8d0e6"
+    }
+  ],
+  "workspace": "R:/Verilator/CrystalSystem/tool-20261008T190029486Z-36460-66756203",
+  "timing_profile": null,
+  "stdout": "PASS reserved display bandwidth: frames=3 pixels=230400 peers=129443/129257 max service latency=47/47 SDRAM reads/writes/refresh=541216/7988/8335 clocks=5600342\n",
+  "stderr": "",
+  "build_log": "sim/obj_dir/scanout_load/build.log"
+}

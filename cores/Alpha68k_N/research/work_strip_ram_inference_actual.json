@@ -1,0 +1,77 @@
+{
+  "actual_exit": 0,
+  "actual_session": 60446,
+  "terminal_chunk": "833640",
+  "mapped_logic_cells": 95818,
+  "RAM_segments": 32,
+  "elapsed_seconds": 137,
+  "errors": 0,
+  "warnings": 19,
+  "inference_qualified": false,
+  "scope": "Exact peer extracted work/strip RAM architecture, no full-design fit or CPU equivalence claim",
+  "candidate_source_sha256": "15f9db786ac04ea38c3e511ef0bf9a0d0af4a696064c9352797025780cd88e9c",
+  "report_path": "D:\\Arcade\\AI\\aCORES\\Alpha68k N\\sim\\captures\\diagnostics\\work_strip_ram_inference_word22\\WorkStripProbe.map.rpt",
+  "report_sha256": "51e5128838b2c4133d0d55c0ff62eca3bae55d685457cabd83866b7bcbba89e3",
+  "selected": [
+    {
+      "line": 61,
+      "text": "; Top-level Entity Name           ; ram_candidate_inference_probe               ;"
+    },
+    {
+      "line": 64,
+      "text": "; Total registers                 ; 65603                                       ;"
+    },
+    {
+      "line": 67,
+      "text": "; Total block memory bits         ; 98,304                                      ;"
+    },
+    {
+      "line": 84,
+      "text": "; Top-level entity name                                                           ; ram_candidate_inference_probe ; WorkStripProbe     ;"
+    },
+    {
+      "line": 227,
+      "text": "; Total block memory bits                     ; 98304     ;"
+    },
+    {
+      "line": 243,
+      "text": "; |ram_candidate_inference_probe         ; 30232 (30232)       ; 65603 (65603)             ; 98304             ; 0          ; 202  ; 0            ; |ram_candidate_inference_probe                                                          ; ram_candidate_inference_probe ; work         ;"
+    },
+    {
+      "line": 261,
+      "text": "; altsyncram:strip_hi_rtl_0|altsyncram_0su1:auto_generated|ALTSYNCRAM ; AUTO ; Simple Dual Port ; 4096         ; 8            ; 4096         ; 8            ; 32768 ; db/WorkStripProbe.ram2_ram_candidate_inference_probe_8e52eb4.hdl.mif ;"
+    },
+    {
+      "line": 262,
+      "text": "; altsyncram:strip_lo_rtl_0|altsyncram_1su1:auto_generated|ALTSYNCRAM ; AUTO ; Simple Dual Port ; 4096         ; 8            ; 4096         ; 8            ; 32768 ; db/WorkStripProbe.ram3_ram_candidate_inference_probe_8e52eb4.hdl.mif ;"
+    },
+    {
+      "line": 263,
+      "text": "; altsyncram:work_hi_rtl_0|altsyncram_eo12:auto_generated|ALTSYNCRAM  ; AUTO ; Simple Dual Port ; 2048         ; 8            ; 2048         ; 8            ; 16384 ; db/WorkStripProbe.ram0_ram_candidate_inference_probe_8e52eb4.hdl.mif ;"
+    },
+    {
+      "line": 264,
+      "text": "; altsyncram:work_lo_rtl_0|altsyncram_fo12:auto_generated|ALTSYNCRAM  ; AUTO ; Simple Dual Port ; 2048         ; 8            ; 2048         ; 8            ; 16384 ; db/WorkStripProbe.ram1_ram_candidate_inference_probe_8e52eb4.hdl.mif ;"
+    },
+    {
+      "line": 273,
+      "text": "; Total registers                              ; 65603 ;"
+    },
+    {
+      "line": 716,
+      "text": "    Info (12023): Found entity 1: ram_candidate_inference_probe File: D:/Arcade/AI/aCORES/Alpha68k N/research/quartus_check_current_stage/work_strip_inference_probe/ram_candidate_inference_probe.sv Line: 2"
+    },
+    {
+      "line": 719,
+      "text": "Info (276014): Found 2 instances of uninferred RAM logic"
+    },
+    {
+      "line": 720,
+      "text": "    Info (276007): RAM logic \"strip_hi\" is uninferred due to asynchronous read logic File: D:/Arcade/AI/aCORES/Alpha68k N/research/quartus_check_current_stage/work_strip_inference_probe/ram_candidate_inference_probe.sv Line: 16"
+    },
+    {
+      "line": 721,
+      "text": "    Info (276007): RAM logic \"strip_lo\" is uninferred due to asynchronous read logic File: D:/Arcade/AI/aCORES/Alpha68k N/research/quartus_check_current_stage/work_strip_inference_probe/ram_candidate_inference_probe.sv Line: 16"
+    }
+  ]
+}

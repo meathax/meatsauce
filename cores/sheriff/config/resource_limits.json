@@ -1,0 +1,17 @@
+{
+  "comparison": "strictly_less_than",
+  "maximum_percent": {
+    "logic_alms": 80,
+    "labs_partially_or_completely_used": 90,
+    "peak_interconnect_max_h_v": 85,
+    "average_interconnect": 60,
+    "m10k_blocks": 90,
+    "block_memory_bits": 85,
+    "dsp_blocks": 90
+  },
+  "game_clock_domains": 1,
+  "clock_policy": "one game master clock plus enables; document unavoidable platform clocks",
+  "missing_metric_is_pass": false,
+  "minimum_setup_slack_ns": 0,
+  "minimum_hold_slack_ns": 0
+}

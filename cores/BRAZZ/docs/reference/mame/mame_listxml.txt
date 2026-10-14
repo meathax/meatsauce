@@ -1,0 +1,293 @@
+<?xml version="1.0"?>
+<!DOCTYPE mame [
+<!ELEMENT mame (machine+)>
+	<!ATTLIST mame build CDATA #IMPLIED>
+	<!ATTLIST mame debug (yes|no) "no">
+	<!ATTLIST mame mameconfig CDATA #REQUIRED>
+	<!ELEMENT machine (description, year?, manufacturer?, biosset*, rom*, disk*, device_ref*, sample*, chip*, display*, sound?, input?, dipswitch*, configuration*, port*, adjuster*, driver?, feature*, device*, slot*, softwarelist*, ramoption*)>
+		<!ATTLIST machine name CDATA #REQUIRED>
+		<!ATTLIST machine sourcefile CDATA #IMPLIED>
+		<!ATTLIST machine isbios (yes|no) "no">
+		<!ATTLIST machine isdevice (yes|no) "no">
+		<!ATTLIST machine ismechanical (yes|no) "no">
+		<!ATTLIST machine runnable (yes|no) "yes">
+		<!ATTLIST machine cloneof CDATA #IMPLIED>
+		<!ATTLIST machine romof CDATA #IMPLIED>
+		<!ATTLIST machine sampleof CDATA #IMPLIED>
+		<!ELEMENT description (#PCDATA)>
+		<!ELEMENT year (#PCDATA)>
+		<!ELEMENT manufacturer (#PCDATA)>
+		<!ELEMENT biosset EMPTY>
+			<!ATTLIST biosset name CDATA #REQUIRED>
+			<!ATTLIST biosset description CDATA #REQUIRED>
+			<!ATTLIST biosset default (yes|no) "no">
+		<!ELEMENT rom EMPTY>
+			<!ATTLIST rom name CDATA #REQUIRED>
+			<!ATTLIST rom bios CDATA #IMPLIED>
+			<!ATTLIST rom size CDATA #REQUIRED>
+			<!ATTLIST rom crc CDATA #IMPLIED>
+			<!ATTLIST rom sha1 CDATA #IMPLIED>
+			<!ATTLIST rom merge CDATA #IMPLIED>
+			<!ATTLIST rom region CDATA #IMPLIED>
+			<!ATTLIST rom offset CDATA #IMPLIED>
+			<!ATTLIST rom status (baddump|nodump|good) "good">
+			<!ATTLIST rom optional (yes|no) "no">
+		<!ELEMENT disk EMPTY>
+			<!ATTLIST disk name CDATA #REQUIRED>
+			<!ATTLIST disk sha1 CDATA #IMPLIED>
+			<!ATTLIST disk merge CDATA #IMPLIED>
+			<!ATTLIST disk region CDATA #IMPLIED>
+			<!ATTLIST disk index CDATA #IMPLIED>
+			<!ATTLIST disk writable (yes|no) "no">
+			<!ATTLIST disk status (baddump|nodump|good) "good">
+			<!ATTLIST disk optional (yes|no) "no">
+		<!ELEMENT device_ref EMPTY>
+			<!ATTLIST device_ref tag CDATA #REQUIRED>
+			<!ATTLIST device_ref name CDATA #REQUIRED>
+		<!ELEMENT sample EMPTY>
+			<!ATTLIST sample name CDATA #REQUIRED>
+		<!ELEMENT chip EMPTY>
+			<!ATTLIST chip name CDATA #REQUIRED>
+			<!ATTLIST chip tag CDATA #IMPLIED>
+			<!ATTLIST chip type (cpu|audio) #REQUIRED>
+			<!ATTLIST chip clock CDATA #IMPLIED>
+		<!ELEMENT display EMPTY>
+			<!ATTLIST display tag CDATA #IMPLIED>
+			<!ATTLIST display type (raster|vector|lcd|svg|unknown) #REQUIRED>
+			<!ATTLIST display rotate (0|90|180|270) #IMPLIED>
+			<!ATTLIST display flipx (yes|no) "no">
+			<!ATTLIST display width CDATA #IMPLIED>
+			<!ATTLIST display height CDATA #IMPLIED>
+			<!ATTLIST display refresh CDATA #REQUIRED>
+			<!ATTLIST display pixclock CDATA #IMPLIED>
+			<!ATTLIST display htotal CDATA #IMPLIED>
+			<!ATTLIST display hbend CDATA #IMPLIED>
+			<!ATTLIST display hbstart CDATA #IMPLIED>
+			<!ATTLIST display vtotal CDATA #IMPLIED>
+			<!ATTLIST display vbend CDATA #IMPLIED>
+			<!ATTLIST display vbstart CDATA #IMPLIED>
+		<!ELEMENT sound EMPTY>
+			<!ATTLIST sound channels CDATA #REQUIRED>
+		<!ELEMENT condition EMPTY>
+			<!ATTLIST condition tag CDATA #REQUIRED>
+			<!ATTLIST condition mask CDATA #REQUIRED>
+			<!ATTLIST condition relation (eq|ne|gt|le|lt|ge) #REQUIRED>
+			<!ATTLIST condition value CDATA #REQUIRED>
+		<!ELEMENT input (control*)>
+			<!ATTLIST input service (yes|no) "no">
+			<!ATTLIST input tilt (yes|no) "no">
+			<!ATTLIST input players CDATA #REQUIRED>
+			<!ATTLIST input coins CDATA #IMPLIED>
+			<!ELEMENT control EMPTY>
+				<!ATTLIST control type CDATA #REQUIRED>
+				<!ATTLIST control player CDATA #IMPLIED>
+				<!ATTLIST control buttons CDATA #IMPLIED>
+				<!ATTLIST control minimum CDATA #IMPLIED>
+				<!ATTLIST control maximum CDATA #IMPLIED>
+				<!ATTLIST control sensitivity CDATA #IMPLIED>
+				<!ATTLIST control keydelta CDATA #IMPLIED>
+				<!ATTLIST control reverse (yes|no) "no">
+				<!ATTLIST control ways CDATA #IMPLIED>
+				<!ATTLIST control ways2 CDATA #IMPLIED>
+				<!ATTLIST control ways3 CDATA #IMPLIED>
+		<!ELEMENT dipswitch (condition?, diplocation*, dipvalue*)>
+			<!ATTLIST dipswitch name CDATA #REQUIRED>
+			<!ATTLIST dipswitch tag CDATA #REQUIRED>
+			<!ATTLIST dipswitch mask CDATA #REQUIRED>
+			<!ELEMENT diplocation EMPTY>
+				<!ATTLIST diplocation name CDATA #REQUIRED>
+				<!ATTLIST diplocation number CDATA #REQUIRED>
+				<!ATTLIST diplocation inverted (yes|no) "no">
+			<!ELEMENT dipvalue (condition?)>
+				<!ATTLIST dipvalue name CDATA #REQUIRED>
+				<!ATTLIST dipvalue value CDATA #REQUIRED>
+				<!ATTLIST dipvalue default (yes|no) "no">
+		<!ELEMENT configuration (condition?, conflocation*, confsetting*)>
+			<!ATTLIST configuration name CDATA #REQUIRED>
+			<!ATTLIST configuration tag CDATA #REQUIRED>
+			<!ATTLIST configuration mask CDATA #REQUIRED>
+			<!ELEMENT conflocation EMPTY>
+				<!ATTLIST conflocation name CDATA #REQUIRED>
+				<!ATTLIST conflocation number CDATA #REQUIRED>
+				<!ATTLIST conflocation inverted (yes|no) "no">
+			<!ELEMENT confsetting (condition?)>
+				<!ATTLIST confsetting name CDATA #REQUIRED>
+				<!ATTLIST confsetting value CDATA #REQUIRED>
+				<!ATTLIST confsetting default (yes|no) "no">
+		<!ELEMENT port (analog*)>
+			<!ATTLIST port tag CDATA #REQUIRED>
+			<!ELEMENT analog EMPTY>
+				<!ATTLIST analog mask CDATA #REQUIRED>
+		<!ELEMENT adjuster (condition?)>
+			<!ATTLIST adjuster name CDATA #REQUIRED>
+			<!ATTLIST adjuster default CDATA #REQUIRED>
+		<!ELEMENT driver EMPTY>
+			<!ATTLIST driver status (good|imperfect|preliminary) #REQUIRED>
+			<!ATTLIST driver emulation (good|imperfect|preliminary) #REQUIRED>
+			<!ATTLIST driver cocktail (good|imperfect|preliminary) #IMPLIED>
+			<!ATTLIST driver savestate (supported|unsupported) #REQUIRED>
+			<!ATTLIST driver requiresartwork (yes|no) "no">
+			<!ATTLIST driver unofficial (yes|no) "no">
+			<!ATTLIST driver nosoundhardware (yes|no) "no">
+			<!ATTLIST driver incomplete (yes|no) "no">
+		<!ELEMENT feature EMPTY>
+			<!ATTLIST feature type (protection|timing|graphics|palette|sound|capture|camera|microphone|controls|keyboard|mouse|media|disk|printer|tape|punch|drum|rom|comms|lan|wan) #REQUIRED>
+			<!ATTLIST feature status (unemulated|imperfect) #IMPLIED>
+			<!ATTLIST feature overall (unemulated|imperfect) #IMPLIED>
+		<!ELEMENT device (instance?, extension*)>
+			<!ATTLIST device type CDATA #REQUIRED>
+			<!ATTLIST device tag CDATA #IMPLIED>
+			<!ATTLIST device fixed_image CDATA #IMPLIED>
+			<!ATTLIST device mandatory CDATA #IMPLIED>
+			<!ATTLIST device interface CDATA #IMPLIED>
+			<!ELEMENT instance EMPTY>
+				<!ATTLIST instance name CDATA #REQUIRED>
+				<!ATTLIST instance briefname CDATA #REQUIRED>
+			<!ELEMENT extension EMPTY>
+				<!ATTLIST extension name CDATA #REQUIRED>
+		<!ELEMENT slot (slotoption*)>
+			<!ATTLIST slot name CDATA #REQUIRED>
+			<!ELEMENT slotoption EMPTY>
+				<!ATTLIST slotoption name CDATA #REQUIRED>
+				<!ATTLIST slotoption devname CDATA #REQUIRED>
+				<!ATTLIST slotoption default (yes|no) "no">
+		<!ELEMENT softwarelist EMPTY>
+			<!ATTLIST softwarelist tag CDATA #REQUIRED>
+			<!ATTLIST softwarelist name CDATA #REQUIRED>
+			<!ATTLIST softwarelist status (original|compatible) #REQUIRED>
+			<!ATTLIST softwarelist filter CDATA #IMPLIED>
+		<!ELEMENT ramoption (#PCDATA)>
+			<!ATTLIST ramoption name CDATA #REQUIRED>
+			<!ATTLIST ramoption default CDATA #IMPLIED>
+]>
+
+<mame build="0.289 (mame0289)" debug="no" mameconfig="10">
+	<machine name="crysking" sourcefile="misc/crystal.cpp" romof="crysbios">
+		<description>The Crystal of Kings</description>
+		<year>2001</year>
+		<manufacturer>BrezzaSoft</manufacturer>
+		<biosset name="amg0110b" description="AMG0110B PCB"/>
+		<biosset name="amg0110d" description="AMG0110D PCB"/>
+		<rom name="mx27l1000.u14" merge="mx27l1000.u14" bios="amg0110b" size="131072" crc="beff39a9" sha1="b6f6dda58d9c82273f9422c1bd623411e58982cb" region="maincpu" offset="0"/>
+		<rom name="mx27l1000-alt.u14" merge="mx27l1000-alt.u14" bios="amg0110d" size="131072" crc="1e8175c8" sha1="f60c016be2ff11e47b2192acddb92676043af501" region="maincpu" offset="0"/>
+		<rom name="bcsv0004f01.u1" size="16777216" crc="8feff120" sha1="2ea42fa893bff845b5b855e2556789f8354e9066" region="flash" offset="0"/>
+		<rom name="bcsv0004f02.u2" size="16777216" crc="0e799845" sha1="419674ce043cb1efb18303f4cb7fdbbae642ee39" region="flash" offset="1000000"/>
+		<rom name="bcsv0004f03.u3" size="16777216" crc="659e2d17" sha1="342c98f3f695ef4dea8b533612451c4d2fb58809" region="flash" offset="2000000"/>
+		<device_ref tag=":maincpu" name="se3208"/>
+		<device_ref tag=":nvram" name="nvram"/>
+		<device_ref tag=":vr0soc" name="vrender0"/>
+		<device_ref tag=":vr0soc:uart0" name="vr0uart"/>
+		<device_ref tag=":vr0soc:uart1" name="vr0uart"/>
+		<device_ref tag=":vr0soc:screen" name="screen"/>
+		<device_ref tag=":vr0soc:vr0vid" name="vr0video"/>
+		<device_ref tag=":vr0soc:palette" name="palette"/>
+		<device_ref tag=":vr0soc:vr0snd" name="vr0sound"/>
+		<device_ref tag=":rtc" name="ds1302"/>
+		<device_ref tag=":speaker" name="speaker"/>
+		<chip type="cpu" tag="maincpu" name="ADChips SE3208" clock="42954540"/>
+		<chip type="audio" tag="vr0soc" name="MagicEyes VRender0 SoC" clock="85909080"/>
+		<chip type="audio" tag="vr0soc:vr0snd" name="MagicEyes VRender0 Sound Engine" clock="42954540"/>
+		<chip type="audio" tag="speaker" name="Speaker"/>
+		<display tag="vr0soc:screen" type="raster" rotate="0" width="320" height="240" refresh="60.054442" pixclock="7159090" htotal="455" hbend="0" hbstart="320" vtotal="262" vbend="0" vbstart="240" />
+		<sound channels="1"/>
+		<input players="4" coins="2" service="yes">
+			<control type="joy" player="1" buttons="4" ways="8"/>
+			<control type="joy" player="2" buttons="4" ways="8"/>
+			<control type="joy" player="3" buttons="4" ways="8"/>
+			<control type="joy" player="4" buttons="4" ways="8"/>
+		</input>
+		<dipswitch name="Pause" tag="DSW" mask="1">
+			<diplocation name="DSW" number="1"/>
+			<dipvalue name="Off" value="1" default="yes"/>
+			<dipvalue name="On" value="0"/>
+		</dipswitch>
+		<dipswitch name="Free Play" tag="DSW" mask="2">
+			<diplocation name="DSW" number="2"/>
+			<dipvalue name="Off" value="2" default="yes"/>
+			<dipvalue name="On" value="0"/>
+		</dipswitch>
+		<dipswitch name="Unknown" tag="DSW" mask="4">
+			<diplocation name="DSW" number="3"/>
+			<dipvalue name="Off" value="4" default="yes"/>
+			<dipvalue name="On" value="0"/>
+		</dipswitch>
+		<dipswitch name="Unknown" tag="DSW" mask="8">
+			<diplocation name="DSW" number="4"/>
+			<dipvalue name="Off" value="8" default="yes"/>
+			<dipvalue name="On" value="0"/>
+		</dipswitch>
+		<dipswitch name="Unknown" tag="DSW" mask="16">
+			<diplocation name="DSW" number="5"/>
+			<dipvalue name="Off" value="16" default="yes"/>
+			<dipvalue name="On" value="0"/>
+		</dipswitch>
+		<dipswitch name="Unknown" tag="DSW" mask="32">
+			<diplocation name="DSW" number="6"/>
+			<dipvalue name="Off" value="32" default="yes"/>
+			<dipvalue name="On" value="0"/>
+		</dipswitch>
+		<dipswitch name="Unknown" tag="DSW" mask="64">
+			<diplocation name="DSW" number="7"/>
+			<dipvalue name="Off" value="64" default="yes"/>
+			<dipvalue name="On" value="0"/>
+		</dipswitch>
+		<dipswitch name="Test" tag="DSW" mask="128">
+			<diplocation name="DSW" number="8"/>
+			<dipvalue name="Off" value="128" default="yes"/>
+			<dipvalue name="On" value="0"/>
+		</dipswitch>
+		<port tag=":DSW">
+		</port>
+		<port tag=":P1_P2">
+		</port>
+		<port tag=":P3_P4">
+		</port>
+		<port tag=":SYSTEM">
+		</port>
+		<driver status="imperfect" emulation="good" savestate="unsupported"/>
+		<feature type="sound" overall="imperfect"/>
+	</machine>
+	<machine name="ds1302" sourcefile="devices/machine/ds1302.cpp" isdevice="yes" runnable="no">
+		<description>Dallas DS1302 Trickle-Charge Timekeeping Chip</description>
+	</machine>
+	<machine name="nvram" sourcefile="devices/machine/nvram.cpp" isdevice="yes" runnable="no">
+		<description>NVRAM</description>
+	</machine>
+	<machine name="palette" sourcefile="emu/emupal.cpp" isdevice="yes" runnable="no">
+		<description>palette</description>
+	</machine>
+	<machine name="screen" sourcefile="emu/screen.cpp" isdevice="yes" runnable="no">
+		<description>Video Screen</description>
+	</machine>
+	<machine name="se3208" sourcefile="devices/cpu/se3208/se3208.cpp" isdevice="yes" runnable="no">
+		<description>ADChips SE3208</description>
+	</machine>
+	<machine name="speaker" sourcefile="emu/speaker.cpp" isdevice="yes" runnable="no">
+		<description>Speaker</description>
+		<sound channels="1"/>
+	</machine>
+	<machine name="vr0sound" sourcefile="devices/sound/vrender0.cpp" isdevice="yes" runnable="no">
+		<description>MagicEyes VRender0 Sound Engine</description>
+		<sound channels="0"/>
+		<feature type="sound" status="imperfect"/>
+	</machine>
+	<machine name="vr0uart" sourcefile="devices/machine/vr0uart.cpp" isdevice="yes" runnable="no">
+		<description>MagicEyes VRender0 UART</description>
+	</machine>
+	<machine name="vr0video" sourcefile="devices/video/vrender0.cpp" isdevice="yes" runnable="no">
+		<description>MagicEyes VRender0 Video Engine</description>
+	</machine>
+	<machine name="vrender0" sourcefile="devices/machine/vrender0.cpp" isdevice="yes" runnable="no">
+		<description>MagicEyes VRender0 SoC</description>
+		<device_ref tag=":_tmp:uart0" name="vr0uart"/>
+		<device_ref tag=":_tmp:uart1" name="vr0uart"/>
+		<device_ref tag=":_tmp:screen" name="screen"/>
+		<device_ref tag=":_tmp:vr0vid" name="vr0video"/>
+		<device_ref tag=":_tmp:palette" name="palette"/>
+		<device_ref tag=":_tmp:vr0snd" name="vr0sound"/>
+		<chip type="audio" tag=":vr0snd" name="MagicEyes VRender0 Sound Engine"/>
+		<display tag=":screen" type="raster" rotate="0" width="320" height="240" refresh="60.054442" pixclock="7159090" htotal="455" hbend="0" hbstart="320" vtotal="262" vbend="0" vbstart="240" />
+		<sound channels="0"/>
+		<feature type="sound" overall="imperfect"/>
+	</machine>
+</mame>

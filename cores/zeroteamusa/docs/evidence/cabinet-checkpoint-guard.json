@@ -1,0 +1,22 @@
+{
+  "scope": "Actual launcher rejects four-player input profile with two-player reset checkpoint before spawning a model",
+  "guard_source_sha256": "c9b7bb6b1c5ed8a3e959d54abb899686c337b2a290a3d2d461a46400a2d92c2a",
+  "checkpoint_base": "sim/results/current-builds/cop-rom-combat2p/sim/results/avcop-rom-combat2p-checkpoint-104000000",
+  "initial_two_player_cabinet": 1792,
+  "initial_four_player_cabinet": 1280,
+  "rejected_before_output_creation": true,
+  "stopped_branch": [
+    {
+      "pid": 3278351,
+      "checkpoint": "/mnt/d/Arcade/AI/aCORES/zero/sim/results/branches/cop-rom-combat4p/sim/results/avcop-rom-combat4p-checkpoint-416000000.json",
+      "model_binary_sha256": "89378b6176765c8cde3002dec049afd3048adfa0959db85d891c59f8b7747069",
+      "reason": "Four-player profile requires its own initial cabinet configuration; parent was two-player"
+    }
+  ],
+  "replacement": {
+    "name": "cop-rom-combat4p-cold",
+    "session_id": 99889,
+    "cold_boot": true,
+    "model_binary_sha256": "89378b6176765c8cde3002dec049afd3048adfa0959db85d891c59f8b7747069"
+  }
+}

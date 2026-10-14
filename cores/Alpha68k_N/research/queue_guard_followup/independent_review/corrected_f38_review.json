@@ -1,0 +1,59 @@
+{
+  "scope": "Independent exact narrow guard correction and same4 pure cases; no unsafe command execution.",
+  "previous_source_sha256": "25307fcc82a89954efe918a7b916cb807a034528c98e81806e380f010cc0654c",
+  "deployed_source_sha256": "f38be3c621d0c0d4127356fd85c76d7e2cdbd4e23ae740ed8e8b457dfae5992b",
+  "only_added_line": "        if c in \"\\r\\n\":raise Refusal(\"Multiple command lines are unsupported\")",
+  "all_other_content_exact": true,
+  "unquoted_newline_refusal_before_whitespace": true,
+  "quoted_branch_unchanged": true,
+  "results": [
+    {
+      "name": "benign_quoted_tool_literal",
+      "actual_reader": true,
+      "actual_deny": false,
+      "hook_result": {},
+      "passed": true
+    },
+    {
+      "name": "unquoted_LF_delegate",
+      "actual_reader": false,
+      "actual_deny": true,
+      "hook_result": {
+        "hookSpecificOutput": {
+          "hookEventName": "PreToolUse",
+          "permissionDecision": "deny",
+          "permissionDecisionReason": "Unsupported structured MCP Quartus execution Use the reviewed QuartusFast frontend for check-only work; full compiles require the shared queue and separate explicit RBF authorization."
+        }
+      },
+      "passed": true
+    },
+    {
+      "name": "unquoted_CRLF_delegate",
+      "actual_reader": false,
+      "actual_deny": true,
+      "hook_result": {
+        "hookSpecificOutput": {
+          "hookEventName": "PreToolUse",
+          "permissionDecision": "deny",
+          "permissionDecisionReason": "Unsupported structured MCP Quartus execution Use the reviewed QuartusFast frontend for check-only work; full compiles require the shared queue and separate explicit RBF authorization."
+        }
+      },
+      "passed": true
+    },
+    {
+      "name": "quoted_multiline_data",
+      "actual_reader": true,
+      "actual_deny": false,
+      "hook_result": {},
+      "passed": true
+    }
+  ],
+  "all_cases_pass": true,
+  "original_failure_receipt_sha256": "749624ea3787733f1996b0f1a35b1ad3dec134c80828bd25db4494cadab60cb8",
+  "unsafe_test_commands_executed": false,
+  "global_guard_modified": false,
+  "limits": [
+    "The hook returns ordinary permission review for benign readers; it does not authorize or execute them.",
+    "Executable startup/import/environment behavior remains outside this finite literal classifier."
+  ]
+}

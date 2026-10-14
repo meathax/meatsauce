@@ -1,0 +1,147 @@
+{
+  "pass": true,
+  "previous_sha256": "2fd6ba7bd2bd3e42c89c86196bf274a21d0fda29994923fe3c3333ebc87c9fb7",
+  "candidate_sha256": "25307fcc82a89954efe918a7b916cb807a034528c98e81806e380f010cc0654c",
+  "legacy_cases": 69,
+  "capsule_cases": 14,
+  "direct_reader_negative_cases": 2,
+  "results": [
+    {
+      "name": "actual_readonly_queue_search",
+      "normal_review_only": true,
+      "result": {}
+    },
+    {
+      "name": "quoted_unsafe_name_is_only_data",
+      "normal_review_only": true,
+      "result": {}
+    },
+    {
+      "name": "typed_python_evidence",
+      "normal_review_only": true,
+      "result": {}
+    },
+    {
+      "name": "raw_assembly",
+      "normal_review_only": false,
+      "result": {
+        "hookSpecificOutput": {
+          "hookEventName": "PreToolUse",
+          "permissionDecision": "deny",
+          "permissionDecisionReason": "Unsupported structured MCP Quartus execution Use the reviewed QuartusFast frontend for check-only work; full compiles require the shared queue and separate explicit RBF authorization."
+        }
+      }
+    },
+    {
+      "name": "raw_full_compile",
+      "normal_review_only": false,
+      "result": {
+        "hookSpecificOutput": {
+          "hookEventName": "PreToolUse",
+          "permissionDecision": "deny",
+          "permissionDecisionReason": "Unsupported structured MCP Quartus execution Use the reviewed QuartusFast frontend for check-only work; full compiles require the shared queue and separate explicit RBF authorization."
+        }
+      }
+    },
+    {
+      "name": "typed_check_not_forwarded",
+      "normal_review_only": false,
+      "result": {
+        "hookSpecificOutput": {
+          "hookEventName": "PreToolUse",
+          "permissionDecision": "deny",
+          "permissionDecisionReason": "Unsupported structured MCP Quartus execution Use the reviewed QuartusFast frontend for check-only work; full compiles require the shared queue and separate explicit RBF authorization."
+        }
+      }
+    },
+    {
+      "name": "unknown_mcp_reader",
+      "normal_review_only": false,
+      "result": {
+        "hookSpecificOutput": {
+          "hookEventName": "PreToolUse",
+          "permissionDecision": "deny",
+          "permissionDecisionReason": "Unsupported structured MCP Quartus execution Use the reviewed QuartusFast frontend for check-only work; full compiles require the shared queue and separate explicit RBF authorization."
+        }
+      }
+    },
+    {
+      "name": "wrong_action",
+      "normal_review_only": false,
+      "result": {
+        "hookSpecificOutput": {
+          "hookEventName": "PreToolUse",
+          "permissionDecision": "deny",
+          "permissionDecisionReason": "Unsupported structured MCP Quartus execution Use the reviewed QuartusFast frontend for check-only work; full compiles require the shared queue and separate explicit RBF authorization."
+        }
+      }
+    },
+    {
+      "name": "hidden_additional_args",
+      "normal_review_only": false,
+      "result": {
+        "hookSpecificOutput": {
+          "hookEventName": "PreToolUse",
+          "permissionDecision": "deny",
+          "permissionDecisionReason": "Unsupported structured MCP Quartus execution Use the reviewed QuartusFast frontend for check-only work; full compiles require the shared queue and separate explicit RBF authorization."
+        }
+      }
+    },
+    {
+      "name": "reader_chain",
+      "normal_review_only": false,
+      "result": {
+        "hookSpecificOutput": {
+          "hookEventName": "PreToolUse",
+          "permissionDecision": "deny",
+          "permissionDecisionReason": "Unsupported structured MCP Quartus execution Use the reviewed QuartusFast frontend for check-only work; full compiles require the shared queue and separate explicit RBF authorization."
+        }
+      }
+    },
+    {
+      "name": "reader_preprocessor",
+      "normal_review_only": false,
+      "result": {
+        "hookSpecificOutput": {
+          "hookEventName": "PreToolUse",
+          "permissionDecision": "deny",
+          "permissionDecisionReason": "Unsupported structured MCP Quartus execution Use the reviewed QuartusFast frontend for check-only work; full compiles require the shared queue and separate explicit RBF authorization."
+        }
+      }
+    },
+    {
+      "name": "reader_preprocessor_separate",
+      "normal_review_only": false,
+      "result": {
+        "hookSpecificOutput": {
+          "hookEventName": "PreToolUse",
+          "permissionDecision": "deny",
+          "permissionDecisionReason": "Unsupported structured MCP Quartus execution Use the reviewed QuartusFast frontend for check-only work; full compiles require the shared queue and separate explicit RBF authorization."
+        }
+      }
+    },
+    {
+      "name": "reader_substitution",
+      "normal_review_only": false,
+      "result": {
+        "hookSpecificOutput": {
+          "hookEventName": "PreToolUse",
+          "permissionDecision": "deny",
+          "permissionDecisionReason": "Unsupported structured MCP Quartus execution Use the reviewed QuartusFast frontend for check-only work; full compiles require the shared queue and separate explicit RBF authorization."
+        }
+      }
+    },
+    {
+      "name": "python_execution",
+      "normal_review_only": false,
+      "result": {
+        "hookSpecificOutput": {
+          "hookEventName": "PreToolUse",
+          "permissionDecision": "deny",
+          "permissionDecisionReason": "Unsupported structured MCP Quartus execution Use the reviewed QuartusFast frontend for check-only work; full compiles require the shared queue and separate explicit RBF authorization."
+        }
+      }
+    }
+  ],
+  "limits": "Pure classification only; no Quartus jobs, negatives, queues or unsafe commands executed. Allowed reads return {} for ordinary review."
+}

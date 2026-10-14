@@ -1,0 +1,207 @@
+{
+  "status": "matched_actual_terminal_inference_proof",
+  "canonical_hardware_commit": "6dfeca51f027e5d431f4ebe68c58f7a3a5df9a68",
+  "source_pins": {
+    "status": "prepared_not_launched",
+    "canonical_board_sha256": "adff9fcb8c7018e8605c2b549e72dee36c0b29d892afbd7a145a778fca09e910",
+    "candidate_sha256": "3bbf5c3719801a26a962d78a579dafbf92950c9929d60fa73b53a4931063440a",
+    "accepted_range_equivalence": {
+      "checked_byte_addresses": 65536,
+      "distinct_word_addresses": 32768,
+      "all_indices_equal": true,
+      "read_clock_lane_selection_NBAs_unchanged": true
+    },
+    "probes": {
+      "SoundWriteCast": {
+        "project": "D:\\Arcade\\AI\\aCORES\\Alpha68k N\\research\\sound_write_width\\SoundWriteCast\\SoundWriteCast.qpf",
+        "source_sha256": "d9b0f559ea9f72545be12379e83d52154fd98efad86dd096f7061c565df9131c"
+      },
+      "SoundWriteUncast": {
+        "project": "D:\\Arcade\\AI\\aCORES\\Alpha68k N\\research\\sound_write_width\\SoundWriteUncast\\SoundWriteUncast.qpf",
+        "source_sha256": "26e5ff46de51a1493e7f0523a31cdc2a73adfa0a1e97fba9fe1ea7f30e4ce6d4"
+      }
+    },
+    "limits": "Full32768x16 geometry, identical load enable/range/read logic, internal sound RAM, exact debug byte-concat with physically unused output. Other board memories/CPU not present. FAST profile/retiming match relevant actual full QSF. No inference success claimed before actual terminals.",
+    "full_run_actual": {
+      "session": 96534,
+      "wrapper_exit": 1,
+      "wrapper_terminal_chunk": "044cd8",
+      "map_exit": 0,
+      "fit": "deliberately_cancelled_owned_PID70068",
+      "fit_numeric_exit": "not_exposed_by_frontend",
+      "sta": "not_run",
+      "rbf": "not_authorized_not_run"
+    },
+    "failure_capture": {
+      "Alpha68k_N.map.rpt": "bf6a8f1c5fc6f0ba3434239468528de3acf3d485f7d9e0f6168eaccd8b129af0",
+      "Alpha68k_N.qsf": "5316e10da69634cfa314bc5aa2889fb15a0ea54e866f46833b14ed11f120c3d9",
+      "fit.log": "fd3316d2254e0e4255d428d9d5e4932adf598754ba2a40f463ac65abe149e12b",
+      "map.log": "8eda5ae3e35f79a74788953bca04f9c7a0cad24993fb57d402868fd2d869e1d9"
+    }
+  },
+  "only_candidate_delta": "explicit15-bit sound-ROM loader write index; existing accepted range and all read/clock/CE/lane/NBA logic unchanged",
+  "exhaustive_accepted_range": {
+    "byte_addresses": 65536,
+    "word_indices": 32768,
+    "equal": true
+  },
+  "exact_probe_source_join": true,
+  "jobs": {
+    "cast": {
+      "name": "SoundWriteCast",
+      "run": "20261010-185927-56504-dev-fast",
+      "cache": "49fddc988ebc8dd665e6",
+      "cells": 22027,
+      "registers": 16396,
+      "bits": 524288,
+      "map_exit": 0,
+      "fit_exit": 0,
+      "sta_exit": 0,
+      "wrapper_exit": 1,
+      "terminal_chunk": "32cf02",
+      "files": [
+        {
+          "original": "C:\\Users\\meath\\QuartusFast\\cache\\49fddc988ebc8dd665e6\\dev-fast-check\\output_files\\SoundWriteCast.map.rpt",
+          "recovery": "D:\\Arcade\\AI\\aCORES\\Alpha68k N\\sim\\captures\\diagnostics\\sound_write_width\\cast_SoundWriteCast.map.rpt",
+          "sha256": "0cd70a3757e888e8fcfda4e90b728d1840e3e81df4b69b6ce11f3882e99ae680"
+        },
+        {
+          "original": "C:\\Users\\meath\\QuartusFast\\runs\\20261010-185927-56504-dev-fast\\map.log",
+          "recovery": "D:\\Arcade\\AI\\aCORES\\Alpha68k N\\sim\\captures\\diagnostics\\sound_write_width\\cast_map.log",
+          "sha256": "9e4dad6d8dc5a932cc181ce7da0974cd118b3bd647b47339a1fdee3c52103046"
+        },
+        {
+          "original": "C:\\Users\\meath\\QuartusFast\\runs\\20261010-185927-56504-dev-fast\\fit.log",
+          "recovery": "D:\\Arcade\\AI\\aCORES\\Alpha68k N\\sim\\captures\\diagnostics\\sound_write_width\\cast_fit.log",
+          "sha256": "6191c71b81b264c7eb283076d9e9878eef45a949171c6deef6d496dd5ee2ba5b"
+        },
+        {
+          "original": "C:\\Users\\meath\\QuartusFast\\cache\\49fddc988ebc8dd665e6\\dev-fast-check\\SoundWriteCast.qsf",
+          "recovery": "D:\\Arcade\\AI\\aCORES\\Alpha68k N\\sim\\captures\\diagnostics\\sound_write_width\\cast_SoundWriteCast.qsf",
+          "sha256": "13329884d31018bc46f907b810fcc08d4a682227a051a7b38053f2d2c9e33dbd"
+        },
+        {
+          "original": "C:\\Users\\meath\\QuartusFast\\runs\\20261010-185927-56504-dev-fast\\sta.log",
+          "recovery": "D:\\Arcade\\AI\\aCORES\\Alpha68k N\\sim\\captures\\diagnostics\\sound_write_width\\cast_sta.log",
+          "sha256": "093b23e60ae2168485fba33a236bceb7930cbee8017df91d4c40895d1db34fac"
+        },
+        {
+          "original": "C:\\Users\\meath\\QuartusFast\\cache\\49fddc988ebc8dd665e6\\dev-fast-check\\output_files\\SoundWriteCast.fit.rpt",
+          "recovery": "D:\\Arcade\\AI\\aCORES\\Alpha68k N\\sim\\captures\\diagnostics\\sound_write_width\\cast_SoundWriteCast.fit.rpt",
+          "sha256": "1f053d58f1dbe3a8a1c7113cfd39993bab8f06ba2d63f5ea7b8564b3fbb2c349"
+        }
+      ],
+      "decisive_report_lines": [
+        {
+          "line": 16,
+          "line_text": "8. Analysis & Synthesis RAM Summary"
+        },
+        {
+          "line": 58,
+          "line_text": "; Total registers                 ; 16396                                       ;"
+        },
+        {
+          "line": 61,
+          "line_text": "; Total block memory bits         ; 524,288                                     ;"
+        },
+        {
+          "line": 202,
+          "line_text": "; Estimate of Logic utilization (ALMs needed) ; 13780     ;"
+        },
+        {
+          "line": 215,
+          "line_text": "; Total block memory bits                     ; 524288    ;"
+        },
+        {
+          "line": 242,
+          "line_text": "; Analysis & Synthesis RAM Summary                                                                                                                                                                       ;"
+        },
+        {
+          "line": 255,
+          "line_text": "; Total registers                              ; 16396 ;"
+        }
+      ]
+    },
+    "uncast": {
+      "name": "SoundWriteUncast",
+      "run": "20261010-190433-38544-dev-fast",
+      "cache": "e260bc6151deecad2146",
+      "cells": 753954,
+      "registers": 540698,
+      "bits": 0,
+      "map_exit": 0,
+      "fit_exit": "cancelled_numeric_exit_not_exposed",
+      "sta_exit": "not_run",
+      "wrapper_exit": 1,
+      "terminal_chunk": "fa45b8",
+      "files": [
+        {
+          "original": "C:\\Users\\meath\\QuartusFast\\cache\\e260bc6151deecad2146\\dev-fast-check\\output_files\\SoundWriteUncast.map.rpt",
+          "recovery": "D:\\Arcade\\AI\\aCORES\\Alpha68k N\\sim\\captures\\diagnostics\\sound_write_width\\uncast_SoundWriteUncast.map.rpt",
+          "sha256": "1e61cd182fd47ae464594748abc451494753a0904b21dfc7df820b8ea8d00c01"
+        },
+        {
+          "original": "C:\\Users\\meath\\QuartusFast\\runs\\20261010-190433-38544-dev-fast\\map.log",
+          "recovery": "D:\\Arcade\\AI\\aCORES\\Alpha68k N\\sim\\captures\\diagnostics\\sound_write_width\\uncast_map.log",
+          "sha256": "ae79a4ba0bbf6ae7c2b876d8d307ed5a77622a9618a89ed669683eacc6061ccc"
+        },
+        {
+          "original": "C:\\Users\\meath\\QuartusFast\\runs\\20261010-190433-38544-dev-fast\\fit.log",
+          "recovery": "D:\\Arcade\\AI\\aCORES\\Alpha68k N\\sim\\captures\\diagnostics\\sound_write_width\\uncast_fit.log",
+          "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+        },
+        {
+          "original": "C:\\Users\\meath\\QuartusFast\\cache\\e260bc6151deecad2146\\dev-fast-check\\SoundWriteUncast.qsf",
+          "recovery": "D:\\Arcade\\AI\\aCORES\\Alpha68k N\\sim\\captures\\diagnostics\\sound_write_width\\uncast_SoundWriteUncast.qsf",
+          "sha256": "4f618725343d8ab4fe75e2a8bc944eec06292b47821ae584b04b5297a3fdf7d4"
+        }
+      ],
+      "decisive_report_lines": [
+        {
+          "line": 54,
+          "line_text": "; Total registers                 ; 540698                                      ;"
+        },
+        {
+          "line": 57,
+          "line_text": "; Total block memory bits         ; 0                                           ;"
+        },
+        {
+          "line": 187,
+          "line_text": "; Estimate of Logic utilization (ALMs needed) ; 378072    ;"
+        },
+        {
+          "line": 225,
+          "line_text": "; Total registers                              ; 540698 ;"
+        },
+        {
+          "line": 241,
+          "line_text": "; 32768:1            ; 16 bits   ; 349520 LEs    ; 349520 LEs           ; 0 LEs                  ; Yes        ; |SoundWriteUncast|SoundWidthMemory:memory|sound_rom_q[0]    ;"
+        }
+      ]
+    }
+  },
+  "uncast_cancellation": {
+    "status": "cancelled_our_fit_only",
+    "utc": "2026-10-10T08:28:18.2202631Z",
+    "parent_id": 38544,
+    "leaf_id": 22012,
+    "reason": "Actual matched uncast map implemented 753954 logic cells versus cast22027; gross device capacity failure. Preserve actualmap0 and stop fruitless ownedfit; no STA/RBF.",
+    "exact_owned_processes": [
+      {
+        "ProcessId": 22012,
+        "ParentProcessId": 38544,
+        "Name": "quartus_fit.exe",
+        "CommandLine": "D:\\q17\\quartus\\bin64\\quartus_fit.exe SoundWriteUncast -c SoundWriteUncast --read_settings_files=on --write_settings_files=off"
+      }
+    ],
+    "expected_project": "D:\\Arcade\\AI\\aCORES\\Alpha68k N\\research\\sound_write_width\\SoundWriteUncast\\SoundWriteUncast.qpf",
+    "unrelated_jobs_touched": false
+  },
+  "qualification_limits": [
+    "Probes omit other board memories/CPU; soundRAM conditional read stays uninferred in both twins.",
+    "Cast internal setup/hold do not qualify unconstrained external I/O. Wrapper1 despite native map/fit/STA0.",
+    "Uncast actualmap0, ownedfitcancelled, separateSTA notrun; no fitted-resource/timing pass.",
+    "Full production overlay check still required; canonical remains unchanged.",
+    "No assembly or RBF authorized/run."
+  ]
+}

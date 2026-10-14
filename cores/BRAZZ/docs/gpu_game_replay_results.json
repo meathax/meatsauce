@@ -1,0 +1,31 @@
+{
+  "scope": "First coherent native game GPU submission, not RTL game boot or frame presentation",
+  "result": "PASS",
+  "command": "python -X utf8 scripts/sim.py gpu_game",
+  "native_capture_frame": 154,
+  "packet_flags": "1110",
+  "packets_completed": 1,
+  "exact_pixel_stores": 481,
+  "compared_framebuffer_bytes": 8388608,
+  "bus_requests": 77858,
+  "clocks": 726095,
+  "memory_service": "0\u20136-cycle delayed responses, random request-ready stalls; exclusive GPU client",
+  "framebuffer_sha256": "da40186cab0b01d72c3b8d3dc6ce4e8d9722acefc6fee6e6efe203ddcedb3d3a",
+  "oracle": "Five unchanged pinned MAME drawing bodies; optional test-only store tracing checks address/data/order independently",
+  "production_rtl_changed": false,
+  "limits": [
+    "Single first coherent submission only",
+    "Later assets/state/packets require coherent CPU/DMA-write capture",
+    "No scanout/frame presentation proven",
+    "No shared-client SDRAM deadlines proven",
+    "Original game cold boot remains halted on unresolved MVTC R0,CR5"
+  ],
+  "sources": {
+    "rtl/video/vr0_gpu.sv": "acb38c616a5dbcbe5e40a5d5e2ef3809c5c6a3dbea4f30ae14456d81c4397d6d",
+    "rtl/video/vr0_pixel_pkg.sv": "8fc4c932cab3725c9f9412c650c8f90efa3834225e0a0058d1d6ed5fe22119d9",
+    "scripts/gpu_reference.py": "c289768755c4a94bc0dc08a342c1bae4ebbdc9932bad59f7a5bf6fbd2810eb23",
+    "scripts/gpu_game_fixture.py": "c51bbd17936b383d8dd5d481943ce42ead054c1292c53faaa56ddb71a255d785",
+    "sim/video/gpu.cpp": "e995c7af5eff6318dcb0bd9f81c5211300aeb3c3980e259f3629c7e4bb3d693a",
+    "sim/video/gpu_game.cpp": "c4b1beb019101f7b1bbeb64f1650ed243d2bed5a166182948d8e8444169ec004"
+  }
+}

@@ -1,0 +1,51 @@
+{
+  "target": "mister_nvram",
+  "acceptance": "unit verification",
+  "runtime": "native Windows PE / MSYS2 UCRT64",
+  "commands": [
+    [
+      "D:/vibes/fpga/bin/verilator.exe",
+      "--cc",
+      "--exe",
+      "--build",
+      "-j",
+      "4",
+      "-O3",
+      "--top-module",
+      "cs_nvram",
+      "--Mdir",
+      "R:/Verilator/CrystalSystem/tool-20261007T025736537Z-29688-60617171/obj_dir",
+      "-CFLAGS",
+      "-O2",
+      "-MAKEFLAGS",
+      "OPT_FAST=-O2",
+      "-MAKEFLAGS",
+      "OPT_GLOBAL=-O2",
+      "-Wno-fatal",
+      "D:/Arcade/AI/aCORES/BRAZZ/Arcade-CrystalSystem_MiSTer/rtl/board/cs_nvram.sv",
+      "D:/Arcade/AI/aCORES/BRAZZ/Arcade-CrystalSystem_MiSTer/sim/mister/nvram.cpp"
+    ],
+    [
+      "D:/vibes/fpga/bin/verilator.exe",
+      "sim",
+      "R:/Verilator/CrystalSystem/tool-20261007T025736537Z-29688-60617171/obj_dir/Vcs_nvram.exe"
+    ]
+  ],
+  "exit_code": 0,
+  "run_seconds": 0.15843060000042897,
+  "sources": [
+    {
+      "path": "rtl/board/cs_nvram.sv",
+      "sha256": "7665764060dfb5cd381823f27e0cbee93a4f2009347a9cb6ed88ec41c9d6093e"
+    },
+    {
+      "path": "sim/mister/nvram.cpp",
+      "sha256": "4d9373d5acda580a70ff3ddac8092ad198c4df4793a7f5028905a0ebd8156d96"
+    }
+  ],
+  "workspace": "R:/Verilator/CrystalSystem/tool-20261007T025736537Z-29688-60617171",
+  "timing_profile": null,
+  "stdout": "PASS NVRAM: 229414 checks; lanes, restore, OSD save, reset, cancellation/order\n",
+  "stderr": "",
+  "build_log": "sim/obj_dir/mister_nvram/build.log"
+}

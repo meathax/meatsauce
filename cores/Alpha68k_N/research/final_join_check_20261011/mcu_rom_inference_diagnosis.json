@@ -1,0 +1,494 @@
+{
+  "map_qualification_sha256": "eebec35488e210232d5b8cbe19c5b915abf35bf8463098e9bd85b3aeb7d582bb",
+  "source_contexts": [
+    {
+      "path": "C:\\Users\\meath\\QuartusFast\\workspaces\\c5ddef9be5618b3de3b6\\54285f926b7353feaaf3\\project\\source\\rtl\\alpha68kn_board.sv",
+      "sha256": "714511ffa52963bd02e5b5b31a5335c7929bde281398267a5d7f981b8f4b9fa3",
+      "rows": [
+        {
+          "line": 46,
+          "text": "    output wire [23:0] background_rgb,"
+        },
+        {
+          "line": 47,
+          "text": "    input logic [3:0] debug_rom_kind,"
+        },
+        {
+          "line": 48,
+          "text": "    input logic [15:0] debug_rom_addr,"
+        },
+        {
+          "line": 49,
+          "text": "    output logic [15:0] debug_rom_data"
+        },
+        {
+          "line": 50,
+          "text": ");"
+        },
+        {
+          "line": 51,
+          "text": "    wire held_reset = reset | downloading;"
+        },
+        {
+          "line": 157,
+          "text": "        debug_strip_data <= {renderer_strip_hi[debug_word_addr],renderer_strip_lo[debug_word_addr]};"
+        },
+        {
+          "line": 158,
+          "text": "        case (debug_rom_kind)"
+        },
+        {
+          "line": 159,
+          "text": "            1:debug_rom_data<=main_rom[debug_rom_addr];"
+        },
+        {
+          "line": 160,
+          "text": "`ifdef VERILATOR"
+        },
+        {
+          "line": 161,
+          "text": "            2:debug_rom_data<={sound_rom[debug_rom_addr[14:0]][7:0],sound_rom[debug_rom_addr[14:0]][15:8]};"
+        },
+        {
+          "line": 162,
+          "text": "`endif"
+        },
+        {
+          "line": 163,
+          "text": "            3:debug_rom_data<={prom_r[debug_rom_addr[7:0]],prom_r[debug_rom_addr[7:0]+8'd1]};"
+        },
+        {
+          "line": 164,
+          "text": "            4:debug_rom_data<={prom_g[debug_rom_addr[7:0]],prom_g[debug_rom_addr[7:0]+8'd1]};"
+        },
+        {
+          "line": 165,
+          "text": "            5:debug_rom_data<={prom_b[debug_rom_addr[7:0]],prom_b[debug_rom_addr[7:0]+8'd1]};"
+        },
+        {
+          "line": 166,
+          "text": "            6:debug_rom_data<={clut_rom[debug_rom_addr[8:0]],clut_rom[debug_rom_addr[8:0]+9'd1]};"
+        },
+        {
+          "line": 167,
+          "text": "            7:debug_rom_data<={color_rom[debug_rom_addr[12:0]],color_rom[debug_rom_addr[12:0]+13'd1]};"
+        },
+        {
+          "line": 168,
+          "text": "            8:debug_rom_data<={mcu_rom[debug_rom_addr[11:0]],mcu_rom[debug_rom_addr[11:0]+12'd1]};"
+        },
+        {
+          "line": 169,
+          "text": "            default:debug_rom_data<=16'hffff;"
+        },
+        {
+          "line": 170,
+          "text": "        endcase"
+        },
+        {
+          "line": 171,
+          "text": "    end"
+        },
+        {
+          "line": 174,
+          "text": "    // A dedicated synchronous ROM read port permits M10K inference."
+        },
+        {
+          "line": 175,
+          "text": "    // Qualify the response with its registered address before asserting DTACK."
+        },
+        {
+          "line": 176,
+          "text": "    logic [15:0] main_rom_q,main_rom_addr_q;"
+        },
+        {
+          "line": 177,
+          "text": "    always_ff @(posedge clk) begin"
+        },
+        {
+          "line": 178,
+          "text": "        main_rom_q<=main_rom[ma[16:1]];"
+        },
+        {
+          "line": 179,
+          "text": "        main_rom_addr_q<=ma[16:1];"
+        },
+        {
+          "line": 180,
+          "text": "    end"
+        },
+        {
+          "line": 181,
+          "text": ""
+        },
+        {
+          "line": 193,
+          "text": "    assign debug_main_din = mdin;"
+        },
+        {
+          "line": 194,
+          "text": "    assign debug_main_dout = mdout;"
+        },
+        {
+          "line": 195,
+          "text": "    wire [11:0] sting_mcu_program_addr;"
+        },
+        {
+          "line": 196,
+          "text": "    logic [7:0] sting_mcu_program_q=0;"
+        },
+        {
+          "line": 197,
+          "text": "    wire sting_mcu_main_halt,sting_mcu_irq2,sting_mcu_shared_write,sting_mcu_flip;"
+        },
+        {
+          "line": 198,
+          "text": "    wire sting_mcu_command_valid,sting_mcu_bus_event,sting_mcu_control_event;"
+        },
+        {
+          "line": 203,
+          "text": "    // requires a coupled-CPU trace before physical/MAME timing qualification."
+        },
+        {
+          "line": 204,
+          "text": "    wire sting_main_pause=is_stingray && sting_mcu_main_halt && mas_n;"
+        },
+        {
+          "line": 205,
+          "text": "    always @(posedge clk) sting_mcu_program_q<=mcu_rom[sting_mcu_program_addr];"
+        },
+        {
+          "line": 206,
+          "text": "    alpha68kn_mcu sting_mcu ("
+        },
+        {
+          "line": 207,
+          "text": "        .clk(clk),.reset(held_reset || !is_stingray),.pause_game(pause_game),"
+        },
+        {
+          "line": 208,
+          "text": "        .program_addr(sting_mcu_program_addr),.program_data(sting_mcu_program_q),"
+        },
+        {
+          "line": 209,
+          "text": "        .command_valid(sting_mcu_command_valid),.command_read(mrw_n),"
+        },
+        {
+          "line": 210,
+          "text": "        .command_addr(ma[8:1]),.command_data(mdout[7:0]),.coins_n(coins_n),"
+        },
+        {
+          "line": 291,
+          "text": "    wire ram_bus_service=!held_reset && !pause_game && !mas_n && !bus_done"
+        },
+        {
+          "line": 292,
+          "text": "        && (iack || !muds_n || !mlds_n)"
+        },
+        {
+          "line": 293,
+          "text": "        && (iack || maddr>=24'h020000 || main_rom_addr_q==ma[16:1])"
+        },
+        {
+          "line": 294,
+          "text": "        && (!sting_mcu_work_service || iack || maddr<24'h020000 || maddr>=24'h021000);"
+        },
+        {
+          "line": 295,
+          "text": "    assign sting_mcu_command_valid=is_stingray && ram_bus_service && !iack &&"
+        }
+      ]
+    },
+    {
+      "path": "C:\\Users\\meath\\QuartusFast\\workspaces\\c5ddef9be5618b3de3b6\\54285f926b7353feaaf3\\project\\source\\rtl\\alpha68kn_mcu.sv",
+      "sha256": "26614f565524e7dc136c3c898eb044807d22d2c6ce473dcc64d7f54258a97120",
+      "rows": [
+        {
+          "line": 2,
+          "text": "module alpha68kn_mcu ("
+        },
+        {
+          "line": 3,
+          "text": " input wire clk,reset,pause_game,"
+        },
+        {
+          "line": 4,
+          "text": " output wire [11:0] program_addr,input wire [7:0] program_data,"
+        },
+        {
+          "line": 5,
+          "text": " input wire command_valid,command_read,input wire [7:0] command_addr,command_data,"
+        },
+        {
+          "line": 6,
+          "text": " input wire [1:0] coins_n,"
+        },
+        {
+          "line": 62,
+          "text": "   .clk_i(clk),.en_clk_i(core_ce),.xtal3_o(core_ce),"
+        },
+        {
+          "line": 63,
+          "text": "   .int_n_i(!interrupt_pending),.t0_i(coins_n[0]),.t1_i(coins_n[1]),"
+        },
+        {
+          "line": 64,
+          "text": "   .ea_i(|program_addr[11:10]),.db_i(psen_n ? bus_data : 8'hff),"
+        },
+        {
+          "line": 65,
+          "text": "   .p1_i(address_latch),.p2_i(read_mode ? 8'hff : 8'hf7),"
+        },
+        {
+          "line": 66,
+          "text": "   .dmem_addr_o(ram_addr),.dmem_we_o(ram_we),.dmem_data_o(ram_out),"
+        },
+        {
+          "line": 67,
+          "text": "   .dmem_data_i(ram[ram_read_addr]),.pmem_addr_o(program_addr),.pmem_data_i(program_data),"
+        },
+        {
+          "line": 68,
+          "text": "   .db_o(db_out),.p2_o(p2_out),.psen_n_o(psen_n),"
+        },
+        {
+          "line": 69,
+          "text": "   .alpha_bus_write_o(bus_we),.alpha_p2_write_o(p2_we),.alpha_p2_latch_o(p2_latched),"
+        }
+      ]
+    }
+  ],
+  "native_resource_rows": [
+    [
+      "Resource",
+      "Usage"
+    ],
+    [
+      "Estimate of Logic utilization (ALMs needed)",
+      "41346"
+    ],
+    [],
+    [
+      "Combinational ALUT usage for logic",
+      "57232"
+    ],
+    [
+      "    -- 7 input functions",
+      "470"
+    ],
+    [
+      "    -- 6 input functions",
+      "17068"
+    ],
+    [
+      "    -- 5 input functions",
+      "3799"
+    ],
+    [
+      "    -- 4 input functions",
+      "20421"
+    ],
+    [
+      "    -- <=3 input functions",
+      "15474"
+    ],
+    [],
+    [
+      "Dedicated logic registers",
+      "58957"
+    ],
+    [],
+    [
+      "I/O pins",
+      "145"
+    ],
+    [
+      "I/O registers",
+      "4"
+    ],
+    [
+      "Total MLAB memory bits",
+      "0"
+    ],
+    [
+      "Total block memory bits",
+      "2437976"
+    ],
+    [],
+    [
+      "Total DSP Blocks",
+      "41"
+    ],
+    [],
+    [
+      "Total PLLs",
+      "4"
+    ],
+    [
+      "    -- PLLs",
+      "3"
+    ],
+    [
+      "    -- Fractional PLLs",
+      "1"
+    ],
+    [
+      "",
+      ""
+    ],
+    [
+      "Maximum fan-out node",
+      "emu:emu|alpha68kn_pll:pll|altera_pll:pll|outclk_wire[0]"
+    ],
+    [
+      "Maximum fan-out",
+      "51911"
+    ],
+    [
+      "Total fan-out",
+      "442431"
+    ],
+    [
+      "Average fan-out",
+      "3.75"
+    ]
+  ],
+  "board_ram_rows": [
+    [
+      "emu:emu|alpha68kn_system:system|alpha68kn_board:board|alpha68kn_mcu:sting_mcu|altsyncram:ram[0][7]__10|altsyncram_g0n1:auto_generated|ALTSYNCRAM",
+      "AUTO",
+      "Simple Dual Port",
+      "64",
+      "8",
+      "64",
+      "8",
+      "512",
+      "None"
+    ],
+    [
+      "emu:emu|alpha68kn_system:system|alpha68kn_board:board|altsyncram:main_rom_rtl_0|altsyncram_egn1:auto_generated|ALTSYNCRAM",
+      "AUTO",
+      "Simple Dual Port",
+      "65536",
+      "16",
+      "65536",
+      "16",
+      "1048576",
+      "None"
+    ],
+    [
+      "emu:emu|alpha68kn_system:system|alpha68kn_board:board|altsyncram:renderer_strip_hi_rtl_0|altsyncram_aqs1:auto_generated|ALTSYNCRAM",
+      "AUTO",
+      "Simple Dual Port",
+      "4096",
+      "8",
+      "4096",
+      "8",
+      "32768",
+      "db/Alpha68k_N.ram5_alpha68kn_board_ce55f273.hdl.mif"
+    ],
+    [
+      "emu:emu|alpha68kn_system:system|alpha68kn_board:board|altsyncram:renderer_strip_lo_rtl_0|altsyncram_bqs1:auto_generated|ALTSYNCRAM",
+      "AUTO",
+      "Simple Dual Port",
+      "4096",
+      "8",
+      "4096",
+      "8",
+      "32768",
+      "db/Alpha68k_N.ram6_alpha68kn_board_ce55f273.hdl.mif"
+    ],
+    [
+      "emu:emu|alpha68kn_system:system|alpha68kn_board:board|altsyncram:sound_ram_rtl_0|altsyncram_29u1:auto_generated|ALTSYNCRAM",
+      "AUTO",
+      "Simple Dual Port",
+      "2048",
+      "8",
+      "2048",
+      "8",
+      "16384",
+      "db/Alpha68k_N.ram2_alpha68kn_board_ce55f273.hdl.mif"
+    ],
+    [
+      "emu:emu|alpha68kn_system:system|alpha68kn_board:board|altsyncram:sound_rom_rtl_0|altsyncram_fgn1:auto_generated|ALTSYNCRAM",
+      "AUTO",
+      "Simple Dual Port",
+      "32768",
+      "16",
+      "32768",
+      "16",
+      "524288",
+      "None"
+    ],
+    [
+      "emu:emu|alpha68kn_system:system|alpha68kn_board:board|altsyncram:strip_hi_rtl_0|altsyncram_4nv1:auto_generated|ALTSYNCRAM",
+      "AUTO",
+      "Simple Dual Port",
+      "4096",
+      "8",
+      "4096",
+      "8",
+      "32768",
+      "db/Alpha68k_N.ram3_alpha68kn_board_ce55f273.hdl.mif"
+    ],
+    [
+      "emu:emu|alpha68kn_system:system|alpha68kn_board:board|altsyncram:strip_lo_rtl_0|altsyncram_5nv1:auto_generated|ALTSYNCRAM",
+      "AUTO",
+      "Simple Dual Port",
+      "4096",
+      "8",
+      "4096",
+      "8",
+      "32768",
+      "db/Alpha68k_N.ram4_alpha68kn_board_ce55f273.hdl.mif"
+    ],
+    [
+      "emu:emu|alpha68kn_system:system|alpha68kn_board:board|altsyncram:work_hi_rtl_0|altsyncram_lmv1:auto_generated|ALTSYNCRAM",
+      "AUTO",
+      "Simple Dual Port",
+      "2048",
+      "8",
+      "2048",
+      "8",
+      "16384",
+      "db/Alpha68k_N.ram0_alpha68kn_board_ce55f273.hdl.mif"
+    ],
+    [
+      "emu:emu|alpha68kn_system:system|alpha68kn_board:board|altsyncram:work_lo_rtl_0|altsyncram_mmv1:auto_generated|ALTSYNCRAM",
+      "AUTO",
+      "Simple Dual Port",
+      "2048",
+      "8",
+      "2048",
+      "8",
+      "16384",
+      "db/Alpha68k_N.ram1_alpha68kn_board_ce55f273.hdl.mif"
+    ],
+    [
+      "emu:emu|alpha68kn_system:system|alpha68kn_board:board|fx68k:maincpu|nanoRom:nanoRom|altsyncram:nRam_rtl_0|altsyncram_ddd1:auto_generated|ALTSYNCRAM",
+      "AUTO",
+      "ROM",
+      "336",
+      "68",
+      "--",
+      "--",
+      "22848",
+      "db/Alpha68k_N.ram0_nanoRom_eb8e7439.hdl.mif"
+    ],
+    [
+      "emu:emu|alpha68kn_system:system|alpha68kn_board:board|fx68k:maincpu|uRom:uRom|altsyncram:uRam_rtl_0|altsyncram_v0d1:auto_generated|ALTSYNCRAM",
+      "AUTO",
+      "ROM",
+      "1024",
+      "17",
+      "--",
+      "--",
+      "17408",
+      "db/Alpha68k_N.ram0_uRom_41e27d.hdl.mif"
+    ]
+  ],
+  "resource_estimate_gate": "EstimatedALMs41346/41910\u224898.65% exceeds80%; fit not authorized until ROM inference cause addressed.",
+  "sound_inference_preserved": true,
+  "RBF": false,
+  "no_RTL_or_constraint_changes": true
+}

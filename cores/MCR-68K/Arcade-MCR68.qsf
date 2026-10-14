@@ -1,0 +1,71 @@
+# NOTE (2026-08-14): MAX_NUMBER_OF_REGISTERS_FROM_UNINFERRED_RAMS was set to
+# 1000 here from the project's first commit. It had never been exercised -- no
+# full Analysis & Synthesis had ever been run. At real design scale it does not
+# behave as a RAM-specific guard: this design has ~128,900 total registers and
+# the setting only stops failing above ~120,000, i.e. it gates on essentially
+# the whole design, and the largest contributors are the vendored MiSTer
+# framework's own osd/hq2x buffers (sys/, not ours to change). Removed so
+# Quartus's default applies, matching stock MiSTer cores which do not set it.
+# Memory-inference regressions are caught instead by the per-entity table
+# (grep the map report for an entity whose register count approaches its array
+# bit count) -- see CLAUDE.md "Diagnosing a design that does not fit".
+# MCR-68k MiSTer project. The generated PLL is sourced through files.qip;
+# Quartus will fail immediately if its synthesis QIP is unavailable.
+set_global_assignment -name TOP_LEVEL_ENTITY sys_top
+set_global_assignment -name LAST_QUARTUS_VERSION "17.0.2 Lite Edition"
+set_global_assignment -name GENERATE_RBF_FILE ON
+set_global_assignment -name PROJECT_OUTPUT_DIRECTORY output_files
+set_global_assignment -name SAVE_DISK_SPACE OFF
+# SMART_RECOMPILE turned OFF 2026-08-14. With it ON, quartus_map silently
+# returned a STALE "Total block memory bits" for a changed design -- two of
+# four measurement runs reported the old figure until db/ was deleted by hand.
+# A resource number that can silently be wrong is worse than a slower build.
+set_global_assignment -name SMART_RECOMPILE OFF
+set_global_assignment -name NUM_PARALLEL_PROCESSORS 8
+
+set_global_assignment -name SEED 5
+# Release fitter effort.  "FAST FIT" is a reduced-effort development profile
+# and left this design marginal on the clk_ram -> clk_sys handoff: worst-case
+# hold flipped between +0.052 ns and -0.540 ns purely on placement luck across
+# otherwise-equivalent builds, and one build shipped with -2.746 ns setup.
+# Full fitter effort and maximum router timing optimization are behaviourally
+# neutral -- they change placement/routing only, never logic -- and are what a
+# release bitstream requires.  Do not lower these to speed up a release build;
+# use a scratch revision for fast iteration instead.
+set_global_assignment -name FITTER_EFFORT "STANDARD FIT"
+set_global_assignment -name ROUTER_TIMING_OPTIMIZATION_LEVEL MAXIMUM
+set_global_assignment -name PHYSICAL_SYNTHESIS_COMBO_LOGIC OFF
+set_global_assignment -name PHYSICAL_SYNTHESIS_REGISTER_DUPLICATION OFF
+# Bitstream format is deliberately left at Quartus defaults (compressed).
+# The DE10-nano HPS configuration path only accepts compressed bitstreams:
+# with COMPRESSION_MODE OFF (present here from the initial commit until
+# 2026-08-04) every produced RBF was a fixed 7,007,204 bytes, failed FPGA
+# configuration on real hardware, and left the fabric out of user mode --
+# Main then read GPI[31]==1 and quit. Healthy MiSTer RBFs for this device
+# are ~4-6 MB and vary in size with content. Never force these options.
+set_global_assignment -name OPTIMIZE_POWER_DURING_FITTING OFF
+set_global_assignment -name TIMEQUEST_MULTICORNER_ANALYSIS ON
+set_global_assignment -name ALLOW_POWER_UP_DONT_CARE OFF
+# Fail quickly instead of turning a missed block-RAM inference into hundreds
+# of thousands of registers and exhausting host memory.
+
+set_global_assignment -name VERILOG_MACRO "MISTER_DOWNSCALE_NN=1"
+set_global_assignment -name VERILOG_MACRO "MISTER_DISABLE_DOWNSCALE=1"
+set_global_assignment -name VERILOG_MACRO "MISTER_DISABLE_ADAPTIVE=1"
+set_global_assignment -name VERILOG_MACRO "MISTER_DISABLE_YC=1"
+set_global_assignment -name VERILOG_MACRO "MISTER_DISABLE_ALSA=1"
+set_global_assignment -name VERILOG_MACRO "SYNTHESIS"
+
+# Vendored from the user's known-working System 32 MiSTer framework.
+source sys/sys.tcl
+source sys/sys_analog.tcl
+source files.qip
+set_global_assignment -name SDC_FILE sys/sys_top.sdc
+set_global_assignment -name SDC_FILE Arcade-MCR68.sdc
+
+# Pack the controller's already-registered SDRAM interface into the I/O cells.
+# This is the standard MiSTer SDRAM placement contract and preserves the RTL
+# protocol while removing avoidable core-to-pad routing delay.
+set_instance_assignment -name FAST_INPUT_REGISTER ON -to SDRAM_DQ[*]
+set_instance_assignment -name FAST_OUTPUT_REGISTER ON -to SDRAM_*
+set_instance_assignment -name FAST_OUTPUT_ENABLE_REGISTER ON -to SDRAM_DQ[*]

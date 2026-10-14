@@ -1,0 +1,259 @@
+{
+  "scope": "Finite actual RTL CPU feature replay; no synthetic game/score behavior, image masks or frame shifts. Unsampled frames, full-game correctness, fitted resources/timing and physical hardware remain unqualified.",
+  "mode": "earned",
+  "fields": 901,
+  "checks": {
+    "terminal_exit_zero": true,
+    "complete_field_sequence": true,
+    "complete_input_sequence": true,
+    "exact_observed_port_application": true,
+    "pinned_oracle_ports": true,
+    "pinned_executable": true,
+    "complete_unique_pixels_and_no_renderer_failures": true,
+    "actual_cpu_activity": true,
+    "all_canonical_images_available": false,
+    "actual_earned_save_reset_restore": true,
+    "saved_score_artifact": true,
+    "settled_vga_coverage": true,
+    "pinned_build_manifest": true,
+    "restored_score_artifact_exact": true,
+    "observed_actual_reset_clear": true,
+    "observed_real_donor_completion": true,
+    "current_pinned_sources": true
+  },
+  "finite_feature_pass": false,
+  "canonical_graphics_pass": false,
+  "full_acceptance_pass": false,
+  "source_mismatches": [],
+  "canonical_images": [
+    {
+      "field": 0,
+      "available": true,
+      "reference": "D:/Arcade/AI/aCORES/Alpha68k N/sim/captures/kyros/combat3600_v2/frame_000000.display.rgb",
+      "actual": "D:/Arcade/AI/aCORES/Alpha68k N/sim/captures/rtl/kyros_earned_wrapper901_v5/frame_000000.core.rgb",
+      "reference_sha256": "9a4b97b4b079955bac86930724c8bcdd30aba4732f1dcbcbac2ec270f5f5e485",
+      "actual_sha256": "9a4b97b4b079955bac86930724c8bcdd30aba4732f1dcbcbac2ec270f5f5e485",
+      "reference_bytes": 172032,
+      "actual_bytes": 172032,
+      "different_units": 0
+    },
+    {
+      "field": 30,
+      "available": true,
+      "reference": "D:/Arcade/AI/aCORES/Alpha68k N/sim/captures/kyros/combat3600_v2/frame_000030.display.rgb",
+      "actual": "D:/Arcade/AI/aCORES/Alpha68k N/sim/captures/rtl/kyros_earned_wrapper901_v5/frame_000030.core.rgb",
+      "reference_sha256": "9a4b97b4b079955bac86930724c8bcdd30aba4732f1dcbcbac2ec270f5f5e485",
+      "actual_sha256": "9a4b97b4b079955bac86930724c8bcdd30aba4732f1dcbcbac2ec270f5f5e485",
+      "reference_bytes": 172032,
+      "actual_bytes": 172032,
+      "different_units": 0
+    },
+    {
+      "field": 60,
+      "available": true,
+      "reference": "D:/Arcade/AI/aCORES/Alpha68k N/sim/captures/kyros/combat3600_v2/frame_000060.display.rgb",
+      "actual": "D:/Arcade/AI/aCORES/Alpha68k N/sim/captures/rtl/kyros_earned_wrapper901_v5/frame_000060.core.rgb",
+      "reference_sha256": "b0c2e61fc0ac448f9d93dbb033ed154beb7f698804fe93ae4aa47b8e31d2a700",
+      "actual_sha256": "14034d0f5c96249cbf3df241c441f6c260b5c617c3ef81bd6f9bb579c49ab081",
+      "reference_bytes": 172032,
+      "actual_bytes": 172032,
+      "different_units": 20835
+    },
+    {
+      "field": 90,
+      "available": true,
+      "reference": "D:/Arcade/AI/aCORES/Alpha68k N/sim/captures/kyros/combat3600_v2/frame_000090.display.rgb",
+      "actual": "D:/Arcade/AI/aCORES/Alpha68k N/sim/captures/rtl/kyros_earned_wrapper901_v5/frame_000090.core.rgb",
+      "reference_sha256": "3bcac5c304a6099c1684bffb103dc2964200a2616be78baa744dcf123d7f8e72",
+      "actual_sha256": "3bcac5c304a6099c1684bffb103dc2964200a2616be78baa744dcf123d7f8e72",
+      "reference_bytes": 172032,
+      "actual_bytes": 172032,
+      "different_units": 0
+    },
+    {
+      "field": 119,
+      "available": false
+    },
+    {
+      "field": 120,
+      "available": true,
+      "reference": "D:/Arcade/AI/aCORES/Alpha68k N/sim/captures/kyros/combat3600_v2/frame_000120.display.rgb",
+      "actual": "D:/Arcade/AI/aCORES/Alpha68k N/sim/captures/rtl/kyros_earned_wrapper901_v5/frame_000120.core.rgb",
+      "reference_sha256": "3bcac5c304a6099c1684bffb103dc2964200a2616be78baa744dcf123d7f8e72",
+      "actual_sha256": "3bcac5c304a6099c1684bffb103dc2964200a2616be78baa744dcf123d7f8e72",
+      "reference_bytes": 172032,
+      "actual_bytes": 172032,
+      "different_units": 0
+    },
+    {
+      "field": 179,
+      "available": false
+    },
+    {
+      "field": 180,
+      "available": true,
+      "reference": "D:/Arcade/AI/aCORES/Alpha68k N/sim/captures/kyros/combat3600_v2/frame_000180.display.rgb",
+      "actual": "D:/Arcade/AI/aCORES/Alpha68k N/sim/captures/rtl/kyros_earned_wrapper901_v5/frame_000180.core.rgb",
+      "reference_sha256": "159db246e6c1ca749ddf242ec71367a07727892df17a5f760446eb58941b8cdd",
+      "actual_sha256": "159db246e6c1ca749ddf242ec71367a07727892df17a5f760446eb58941b8cdd",
+      "reference_bytes": 172032,
+      "actual_bytes": 172032,
+      "different_units": 0
+    },
+    {
+      "field": 240,
+      "available": true,
+      "reference": "D:/Arcade/AI/aCORES/Alpha68k N/sim/captures/kyros/combat3600_v2/frame_000240.display.rgb",
+      "actual": "D:/Arcade/AI/aCORES/Alpha68k N/sim/captures/rtl/kyros_earned_wrapper901_v5/frame_000240.core.rgb",
+      "reference_sha256": "159db246e6c1ca749ddf242ec71367a07727892df17a5f760446eb58941b8cdd",
+      "actual_sha256": "159db246e6c1ca749ddf242ec71367a07727892df17a5f760446eb58941b8cdd",
+      "reference_bytes": 172032,
+      "actual_bytes": 172032,
+      "different_units": 0
+    },
+    {
+      "field": 300,
+      "available": true,
+      "reference": "D:/Arcade/AI/aCORES/Alpha68k N/sim/captures/kyros/combat3600_v2/frame_000300.display.rgb",
+      "actual": "D:/Arcade/AI/aCORES/Alpha68k N/sim/captures/rtl/kyros_earned_wrapper901_v5/frame_000300.core.rgb",
+      "reference_sha256": "7f943b9faa4dbf246526e278a9e1a4bce65587ac9c5d30cfbdd0517c922cddc0",
+      "actual_sha256": "7f943b9faa4dbf246526e278a9e1a4bce65587ac9c5d30cfbdd0517c922cddc0",
+      "reference_bytes": 172032,
+      "actual_bytes": 172032,
+      "different_units": 0
+    },
+    {
+      "field": 360,
+      "available": true,
+      "reference": "D:/Arcade/AI/aCORES/Alpha68k N/sim/captures/kyros/combat3600_v2/frame_000360.display.rgb",
+      "actual": "D:/Arcade/AI/aCORES/Alpha68k N/sim/captures/rtl/kyros_earned_wrapper901_v5/frame_000360.core.rgb",
+      "reference_sha256": "c70ec6bd6464f4da16a10cbc23eb328327aea1a578a4089eade1ae6f6e39178f",
+      "actual_sha256": "c70ec6bd6464f4da16a10cbc23eb328327aea1a578a4089eade1ae6f6e39178f",
+      "reference_bytes": 172032,
+      "actual_bytes": 172032,
+      "different_units": 0
+    },
+    {
+      "field": 420,
+      "available": true,
+      "reference": "D:/Arcade/AI/aCORES/Alpha68k N/sim/captures/kyros/combat3600_v2/frame_000420.display.rgb",
+      "actual": "D:/Arcade/AI/aCORES/Alpha68k N/sim/captures/rtl/kyros_earned_wrapper901_v5/frame_000420.core.rgb",
+      "reference_sha256": "548e79ae4b09aa7169811a125f4fe8e80e251f2b03c6110605f4a0b7a308c0a9",
+      "actual_sha256": "548e79ae4b09aa7169811a125f4fe8e80e251f2b03c6110605f4a0b7a308c0a9",
+      "reference_bytes": 172032,
+      "actual_bytes": 172032,
+      "different_units": 0
+    },
+    {
+      "field": 480,
+      "available": true,
+      "reference": "D:/Arcade/AI/aCORES/Alpha68k N/sim/captures/kyros/combat3600_v2/frame_000480.display.rgb",
+      "actual": "D:/Arcade/AI/aCORES/Alpha68k N/sim/captures/rtl/kyros_earned_wrapper901_v5/frame_000480.core.rgb",
+      "reference_sha256": "c70ec6bd6464f4da16a10cbc23eb328327aea1a578a4089eade1ae6f6e39178f",
+      "actual_sha256": "c70ec6bd6464f4da16a10cbc23eb328327aea1a578a4089eade1ae6f6e39178f",
+      "reference_bytes": 172032,
+      "actual_bytes": 172032,
+      "different_units": 0
+    },
+    {
+      "field": 540,
+      "available": true,
+      "reference": "D:/Arcade/AI/aCORES/Alpha68k N/sim/captures/kyros/combat3600_v2/frame_000540.display.rgb",
+      "actual": "D:/Arcade/AI/aCORES/Alpha68k N/sim/captures/rtl/kyros_earned_wrapper901_v5/frame_000540.core.rgb",
+      "reference_sha256": "3246babe9a469ed27de8b8b621a89f7058947d302a95d6de217ef570c95b8616",
+      "actual_sha256": "3246babe9a469ed27de8b8b621a89f7058947d302a95d6de217ef570c95b8616",
+      "reference_bytes": 172032,
+      "actual_bytes": 172032,
+      "different_units": 0
+    },
+    {
+      "field": 600,
+      "available": true,
+      "reference": "D:/Arcade/AI/aCORES/Alpha68k N/sim/captures/kyros/combat3600_v2/frame_000600.display.rgb",
+      "actual": "D:/Arcade/AI/aCORES/Alpha68k N/sim/captures/rtl/kyros_earned_wrapper901_v5/frame_000600.core.rgb",
+      "reference_sha256": "870367cea2cc090698af979491e7a9c75e56ca3048a484753ad11186728f9bc8",
+      "actual_sha256": "870367cea2cc090698af979491e7a9c75e56ca3048a484753ad11186728f9bc8",
+      "reference_bytes": 172032,
+      "actual_bytes": 172032,
+      "different_units": 0
+    },
+    {
+      "field": 660,
+      "available": true,
+      "reference": "D:/Arcade/AI/aCORES/Alpha68k N/sim/captures/kyros/combat3600_v2/frame_000660.display.rgb",
+      "actual": "D:/Arcade/AI/aCORES/Alpha68k N/sim/captures/rtl/kyros_earned_wrapper901_v5/frame_000660.core.rgb",
+      "reference_sha256": "f46bc711fdcbda1885244c672e31b89e73f96c6f5b806951ee2c80f65421258c",
+      "actual_sha256": "f46bc711fdcbda1885244c672e31b89e73f96c6f5b806951ee2c80f65421258c",
+      "reference_bytes": 172032,
+      "actual_bytes": 172032,
+      "different_units": 0
+    },
+    {
+      "field": 720,
+      "available": true,
+      "reference": "D:/Arcade/AI/aCORES/Alpha68k N/sim/captures/kyros/combat3600_v2/frame_000720.display.rgb",
+      "actual": "D:/Arcade/AI/aCORES/Alpha68k N/sim/captures/rtl/kyros_earned_wrapper901_v5/frame_000720.core.rgb",
+      "reference_sha256": "25b78f9daffd17210ae33554aea1c117c7bbb6dafdd49d497c4a2e7d87c64e05",
+      "actual_sha256": "25b78f9daffd17210ae33554aea1c117c7bbb6dafdd49d497c4a2e7d87c64e05",
+      "reference_bytes": 172032,
+      "actual_bytes": 172032,
+      "different_units": 0
+    },
+    {
+      "field": 780,
+      "available": true,
+      "reference": "D:/Arcade/AI/aCORES/Alpha68k N/sim/captures/kyros/combat3600_v2/frame_000780.display.rgb",
+      "actual": "D:/Arcade/AI/aCORES/Alpha68k N/sim/captures/rtl/kyros_earned_wrapper901_v5/frame_000780.core.rgb",
+      "reference_sha256": "32262a45829b64ff48decaee4ca06512a2be7ad6d5e7edd4f7b3fef12bea717c",
+      "actual_sha256": "32262a45829b64ff48decaee4ca06512a2be7ad6d5e7edd4f7b3fef12bea717c",
+      "reference_bytes": 172032,
+      "actual_bytes": 172032,
+      "different_units": 0
+    },
+    {
+      "field": 840,
+      "available": true,
+      "reference": "D:/Arcade/AI/aCORES/Alpha68k N/sim/captures/kyros/combat3600_v2/frame_000840.display.rgb",
+      "actual": "D:/Arcade/AI/aCORES/Alpha68k N/sim/captures/rtl/kyros_earned_wrapper901_v5/frame_000840.core.rgb",
+      "reference_sha256": "ce48adc5d8f467488081bc42cea8b4153f27039e1483d6742679a2e284a1aad0",
+      "actual_sha256": "ce48adc5d8f467488081bc42cea8b4153f27039e1483d6742679a2e284a1aad0",
+      "reference_bytes": 172032,
+      "actual_bytes": 172032,
+      "different_units": 0
+    },
+    {
+      "field": 900,
+      "available": true,
+      "reference": "D:/Arcade/AI/aCORES/Alpha68k N/sim/captures/kyros/combat3600_v2/frame_000900.display.rgb",
+      "actual": "D:/Arcade/AI/aCORES/Alpha68k N/sim/captures/rtl/kyros_earned_wrapper901_v5/frame_000900.core.rgb",
+      "reference_sha256": "bb6ba8da1959f17b4238b23d6a85c4b5088e72d0802daff4b2e0406289157adb",
+      "actual_sha256": "5a4e21bd81654bc46b13f70e23ffe40d0f9907bb764347bfb66434f7cc9d2264",
+      "reference_bytes": 172032,
+      "actual_bytes": 172032,
+      "different_units": 8
+    }
+  ],
+  "evidence": {
+    "earned_score": {
+      "passed": true,
+      "earned_best_raw": 8192,
+      "saved_bytes": 178,
+      "cpu_reset_cleared_best": true,
+      "reset_steps": 2446,
+      "restore_steps": 9668523,
+      "hps_upload_exact": true,
+      "hps_restore_exact": true,
+      "synthetic_ram_writes": 0,
+      "limit": "Ideal PLL/peripheral interfaces; finite Kyros gameplay and score protocol only; no physical qualification"
+    },
+    "saved_sha256": "24b3c8eec5546dd618d0c7bbb28efd145bcfd6495d838d26c6f9ca266755a783",
+    "framework_limit": "First startup VGA field retained separately; real framework with ideal PLL/peripheral interfaces, not physical output.",
+    "restored_sha256": "24b3c8eec5546dd618d0c7bbb28efd145bcfd6495d838d26c6f9ca266755a783",
+    "reset_probe_sha256": "c0f5c64d4837021b1730b20649dc0dbfee140fa68d72cdb9e017886f26983bb9",
+    "restore_probe_sha256": "5a441dd163c6d78ccaabf38664e22261b34f0817ce988cb5f74685b214b63157"
+  },
+  "job_sha256": "b6d7401f6536d78eadea1b3c0ee3da85fb6521d5da7f7dc33523e1d4e2028183",
+  "terminal_sha256": "76154779fdc8af482d08c67ffe0fabc820799774991a02970ac87831d62a600a",
+  "metrics_sha256": "ddb224150ae99b380266fc5468ff096eb08e85c99acd5a4df5f865b102aa88c5",
+  "applied_ports_sha256": "36a9a595f372fa5d0faf2a140c98f3fb471bc03eea0e24a0f73c3794780771be"
+}

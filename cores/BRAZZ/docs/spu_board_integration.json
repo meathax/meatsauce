@@ -1,0 +1,47 @@
+{
+  "scope": "Integrated real-ROM diagnostic cold boot; full boot/attract/gameplay NOT achieved",
+  "memory_clients": {
+    "CPU": 0,
+    "DMA": 1,
+    "GPU": 2,
+    "SPU": 3
+  },
+  "sound_mmio_window": [
+    "04800000",
+    "04800fff"
+  ],
+  "sound_soc_interrupt": 2,
+  "four_client_arbitration_result": "PASS",
+  "spu_regression_result": "PASS",
+  "boot_probe_exit_code": 1,
+  "boot_stop": {
+    "pc": "020820c4",
+    "opcode": "fc65",
+    "cause": "Unresolved MVTC R0,CR5 physical semantics"
+  },
+  "matched_instructions": 8233974,
+  "clocks": 154545349,
+  "client_requests": [
+    10736151,
+    0,
+    0,
+    0
+  ],
+  "sound_mmios": 0,
+  "audio_samples": 79498,
+  "audio_nonzero_samples": 0,
+  "audio_faults": 0,
+  "audio_underruns": 0,
+  "limits": [
+    "Active firmware sound MMIO not reached",
+    "Active sound memory contention not exercised by real firmware",
+    "No SDRAM refresh/turnaround model yet",
+    "Global sound bank layout unresolved"
+  ],
+  "sources": {
+    "rtl/board/cs_boot_probe.sv": "fa8fcefe983f3d316385d984cf900e61e5acb0a391c151ecf556f392cb01b8f1",
+    "rtl/audio/vr0_spu.sv": "d70cfcc2a522d3c5618ba985addb172d2e8264206884a182aa63336dd177cbc2",
+    "sim/boot/main.cpp": "860dc77ea1db8fa2e4c3f8d840576b80900d84e4cc72dd7ca3119da99f30d126",
+    "sim/arbiter/four.cpp": "d25f9f7eb402e9682967cb6d30e002c9957c96ea61cf199139d57f3534b24873"
+  }
+}

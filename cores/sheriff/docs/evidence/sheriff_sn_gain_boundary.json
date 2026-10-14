@@ -1,0 +1,73 @@
+{
+  "scope": "First larger SN PCM residual difference: source-derived gain-boundary arithmetic.",
+  "first_difference": {
+    "sample": 781185,
+    "native_SN": -5231,
+    "reference_PCM_residual": -5079
+  },
+  "command_triggers": [
+    {
+      "row": {
+        "tick": "819405319",
+        "frame": "1000",
+        "y": "48",
+        "x": "50",
+        "kind": "out",
+        "address": "1028",
+        "data": "17",
+        "status": "16",
+        "inte": "1"
+      },
+      "trigger_bits": 16,
+      "first_new_sample": 780386
+    },
+    {
+      "row": {
+        "time": "16.258041666642",
+        "frame": "1000",
+        "y": "48",
+        "x": "50",
+        "kind": "out",
+        "address": "4",
+        "data": "17",
+        "pc": "9129"
+      },
+      "trigger_bits": 16,
+      "first_new_sample": 780386
+    }
+  ],
+  "charge_updates": 800,
+  "charging_step_double": 0.004625000000000001,
+  "voltage_double": 3.6999999999999758,
+  "gain_index_double": 36,
+  "AD_UP_Q32": 19864224,
+  "voltage_Q32": 3.700000047683716,
+  "gain_index_Q32": 37,
+  "current_negative_gain_entries": {
+    "36": -5080,
+    "37": -5231
+  },
+  "direct_live_capacitor_state_observed": false,
+  "limitations": [
+    "Enable sample indices are derived from frozen I/O and documented stream/harness ordering.",
+    "Native latch/monostable propagation is shorter than the remaining distance to its next audio sample.",
+    "Calculated floating capacitor value is not a private live MAME state capture.",
+    "This boundary explains an applicable152LSB discrepancy; later oscillator/noise and mixed-waveform differences remain open.",
+    "No upstream MAME bug report is asserted; this is local numerical comparison evidence."
+  ],
+  "evidence_sha256": {
+    "D:/Arcade/AI/aCORES/sherrif/tools/diagnose_sn_gain_boundary.py": "0dd60509e7edfab750c82d8d07a38331e7212830e21bf56caee36b7adc89ba68",
+    "docs/evidence/sheriff_dac_waveform_origin.json": "d77e978789be24025ae1a1f1640d848caca4980c2316f3ce786cf97678ca1735",
+    "rtl/sheriff_sn_constants.svh": "538b6a5ccef0b264f99f10fc4266abedee70e928dc29a9335e81248fc503acea",
+    "sim/results/current-gameplay-1201-rtl-20261010/io.csv": "2873c77b5b50d13b26c2e0f3db1e3fdcce1b0cde02a3651aff2731a1791cf261",
+    "sim/results/current-sound-precision-1201-mame-20261010/io.csv": "1d9e0149c0cb17fa007d968a762e2214b56d3f1a349dc12017c7cc55da6c1e05",
+    "rtl/n8080_mcs48.sv": "9add3d3ee9d50080dff1afa10d42970aa3e395251e0372f55eb1343f7dda5a7d",
+    "rtl/sheriff_sn76477.sv": "e4be6daec69f507efaead7779a2fdd9fbebc9db72d942d07c45ac81ea36e1381",
+    "D:/Arcade/AI/mame289/src/devices/sound/sn76477.cpp": "31f1a57922beda4e40775e648b2f7807834ab6085b235a2366f6d7a1f8d8bc8c",
+    "D:/Arcade/AI/mame289/src/emu/sound.cpp": "a1c9c5bc45468058f34572b5a4275238454e27f23c68d8062e677bc591f4271b"
+  },
+  "fitted_parameters": false,
+  "rtl_changed": false,
+  "whole_sound_gate_pass": false,
+  "release_qualified": false
+}
