@@ -1,7 +1,0 @@
-The retained complete Kyros1800 CPU trace contains no embedded SSG period-zero tone with tone enabled and nonzero fixed volume or envelope selection after its observed startup volume initialization. The current merged4401 prefix gives the same finite result. Explicit register timelines and immutable event/frame prefixes accompany the receipts; no replay was launched.
-
-The conservative unknown-seeded audit initially exited1 because three startup channel classifications remain unknown before all volume writes are observed. That failure is retained. The separate finite qualifier excludes precisely that initial gap and checks the subsequent known-state window. The source-defined reset-zero reconstruction also finds no active-zero candidate, but is not substituted for the conservative result.
-
-Event ticks are host-observed IO pulse coordinates. Register order follows YM ports0x10/0x11, JT12 register selection and the embedded JT49 write interface; downstream internal latch ticks and actual envelope amplitude were not captured. Envelope selection is treated as a potential nonzero source. Historical1800 runtime/input/terminal provenance is retained; present interface excerpts are not a claim that every historical compiled file was re-pinned.
-
-The isolated period-zero defect and candidate correction remain valid. This finite software-impact audit does not rule out audible zero-period use in other scenes, sets or controls, and establishes no PCM phase identity or broad audio acceptance. Current4401 is ongoing; its retained prefix is not terminal acceptance.

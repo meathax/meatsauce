@@ -1,8 +1,0 @@
-{
-  "actual_native_exit_code": 1,
-  "python": "D:\\vibes\\fpga\\toolchains\\msys64\\ucrt64\\bin\\python.exe",
-  "stdout": "",
-  "stderr": "Traceback (most recent call last):\n  File \"D:\\Arcade\\AI\\aCORES\\Alpha68k N\\research\\queue_guard_sta_standard\\independent_review_v2.py\", line 157, in <module>\n    worker()\n    ~~~~~~^^\n  File \"D:\\Arcade\\AI\\aCORES\\Alpha68k N\\research\\queue_guard_sta_standard\\independent_review_v2.py\", line 121, in worker\n    case('arg_' + str(i) + '_' + str(j), EXE, changed, False)\n    ~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"D:\\Arcade\\AI\\aCORES\\Alpha68k N\\research\\queue_guard_sta_standard\\independent_review_v2.py\", line 77, in case\n    assert after['hookSpecificOutput']['permissionDecision'] == ('allow' if adapter_accepted else 'deny'), name\n           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\nAssertionError: arg_3_2\n",
-  "script_sha256": "3cb3fc92d8803e0ec0677f63285ea9c5a8b9f06fdde264d53444a65e8bbfec5c",
-  "executed_quartus_or_tcl": false
-}

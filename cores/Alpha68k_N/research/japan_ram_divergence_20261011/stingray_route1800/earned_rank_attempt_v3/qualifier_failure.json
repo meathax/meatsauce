@@ -1,5 +1,0 @@
-{
-  "exception": "AssertionError('b8b8b9b9')",
-  "traceback": "Traceback (most recent call last):\n  File \"D:\\Arcade\\AI\\aCORES\\Alpha68k N\\research\\japan_ram_divergence_20261011\\stingray_route1800\\earned_rank_attempt_v3\\qualify_once.py\", line 81, in <module>\n    off=4+i*14;rows.append(dict(score=bcd(data[off:off+4]),name_hex=data[off+4:off+12].hex(),stage_hex=data[off+12:off+14].hex()))\n                                      ^^^^^^^^^^^^^^^^^^^^\n  File \"D:\\Arcade\\AI\\aCORES\\Alpha68k N\\research\\japan_ram_divergence_20261011\\stingray_route1800\\earned_rank_attempt_v3\\qualify_once.py\", line 16, in bcd\n    s=data.hex();assert all(x in '0123456789' for x in s),s;return int(s)*10\n                        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\nAssertionError: b8b8b9b9\n",
-  "automatic_retry": false
-}

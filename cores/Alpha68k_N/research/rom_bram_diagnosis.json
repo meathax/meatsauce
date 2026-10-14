@@ -1,9 +1,0 @@
-{
-  "source_base": "277283a",
-  "failed_attempt": "artifacts/quartus/20261009_121812",
-  "map_log_sha256": "330633b2f0b700167814ab5f00aefe87845dd110aaf462fceb6b280732aa3d97",
-  "finding": "Info 276007 main_rom uninferred due to asynchronous read logic",
-  "memory_size": "65536 x 16 bits (128 KiB)",
-  "change": "dedicated unconditional synchronous read register; registered address comparison delays acceptance until read data belongs to the request",
-  "verification": "90-frame CPU regression passes with identical final work/strip RAM and counters; fitted RAM inference/timing still pending"
-}

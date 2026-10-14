@@ -1,1 +1,0 @@
-Official MAME and supervisor exit0; 17/17 observation checks. Stopped at 1178 fields: source_no_motion48. Queued53=0, accepted53=0; semantic pickup remains unqualified. Actual pickup tile producers=0, foreground opportunity fields=0, gameplay changed score writes=0. No native replay or repeat. Result.json retains exact field/producer evidence and coverage limits.

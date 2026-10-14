@@ -1,3 +1,0 @@
-The complete private board15-bit-only candidate actualmap0 still has 771,962 logic cells, 548,181 registers and 372,510 estimated ALMs. Sound ROM is absent from the authentic RAM summary; main ROM, sound RAM, work/strip banks and video memories remain inferred. The isolated write-width result does not transfer to full integration.
-
-Only our verified fitterPID2840 (parent46508) was deliberately stopped after the gross capacity result. Wrapper actualexit1, separateSTA and assembly notrun. All161canonicalhardwarepins and the private board candidate hash are unchanged. This is a source-bound capacity failure, not a fitted-resource or timing pass. Result JSON records the frontend dependency inventory and any metadata changes separately from hardware pins.

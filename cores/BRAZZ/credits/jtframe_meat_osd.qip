@@ -1,5 +1,0 @@
-# JTFRAME hosts only: set the existing main OSD background to the requested red.
-# Include once from the host project, after resolving any older conflicting
-# JTFRAME_OSDCOLOR definition in that core's own configuration/build settings.
-# Reference: https://github.com/somhi/jtframe/blob/master/doc/osd.md
-set_global_assignment -name VERILOG_MACRO "JTFRAME_OSDCOLOR=6'h35"
