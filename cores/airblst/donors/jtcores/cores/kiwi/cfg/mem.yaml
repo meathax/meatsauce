@@ -1,0 +1,82 @@
+params:
+  - name: PCM_OFFSET
+    value: "(`PCM_START-`JTFRAME_BA2_START)>>1"
+  - name: BRAM_OFFSET
+clocks:
+  clk48:
+    - freq: 12M
+      gate: [ main, sub ]
+      outputs:
+        - dummy12
+        - cen6
+        - cen3
+        - cen1p5
+audio:
+  channels:
+    # The same sound subsystem seems to be used in all games except for Kabuki Z
+    # the following set up produces FM too low in Kabuki Z but it is accurate
+    # for the rest
+    # on board FM gain 0.067 / PCM gain 0.039
+    # normalized gain FM 1.0 / PCM 0.58
+    # filters cut-off freq above 20kHz, so ignored
+    - { name:  fm, module: jt03_fm,  rsum: 1 }
+    - { name: psg, module: jt03_psg, rsum: 1, pre: 0.58 }
+    # there is a 2nd order filter on the board but the component values
+    # are not right in the schematics (so far). Using the FIR filter for now
+    - { name: pcm, dcrm: true,       rsum: 1, data_width: 10, fir: fir_192k_4k.csv }
+sdram:
+  # post_addr: true
+  banks:
+    - buses:
+        - name: main
+          addr_width: 17
+          data_width: 8
+    # Bank 1 for the sub CPU
+    - buses:
+        - name: sub
+          addr_width: 16
+          data_width: 8
+    # Bank 2 for audio
+    - buses:
+        - name: audiocpu
+          addr_width: 17
+          data_width: 8
+        - name: pcm
+          addr_width: 16
+          data_width: 8
+          offset: PCM_OFFSET
+    # Bank 3 for graphics. The multiplexed access
+    # would've been inside the SETA chip in the original
+    # whereas I'm taking out of the core and into the
+    # JTFRAME-managed logic for simplicity
+    - buses:
+        - name: scr
+          addr_width: 21
+          data_width: 32
+        - name: obj
+          addr_width: 21
+          data_width: 32
+bram:
+  - name: bram
+    addr_width: 15
+    data_width: 8
+    rw: true
+    # offset: BRAM_OFFSET
+  # X1-001 internal RAM
+  - name: yram
+    addr_width: 10
+    data_width: 8
+    din: cpu_dout
+    addr: main_addr[9:0]
+    rw: true
+    dual_port:
+      name: col
+      dout: col_data
+  # X1-001 external video RAM
+  - name: dma
+    addr_width: 13
+    data_width: 16
+    rw: true
+    dual_port:
+      name: code
+      dout: code_dout

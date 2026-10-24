@@ -1,0 +1,26 @@
+#!/bin/bash
+if [ -z "$JTFRAME" ]; then
+    echo "Missing JTFRAME environment variable definition"
+    exit 1
+fi
+
+RECOMPILE=FALSE
+BIN=$JTFRAME/src/jtutil/jtutil
+
+if [ ! -e $BIN ]; then
+    RECOMPILE=TRUE
+else
+    # Recompile if any source file is newer than the binary
+    NEWER=$(find $JTFRAME/src -name '*.go' -newer $BIN 2>/dev/null)
+    if [ -n "$NEWER" ]; then
+        RECOMPILE=TRUE
+    fi
+fi
+
+if [ $RECOMPILE = TRUE ]; then
+    cd $JTFRAME/src/jtutil > /dev/null
+    go build . || exit $?
+    cd - > /dev/null
+fi
+
+$BIN "$@"

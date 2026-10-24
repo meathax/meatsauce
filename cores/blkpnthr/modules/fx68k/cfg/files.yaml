@@ -1,0 +1,13 @@
+fx68k:
+  - unless: [VERILATOR]
+    get:
+    - fx68k.sv
+    - fx68kAlu.sv
+    - uaddrPla.sv
+  # Verilator-compatible version:
+  - when: [VERILATOR]
+    from: verilator
+    get:
+    - fx68k.sv
+    - fx68kAlu.sv
+    - uaddrPla.sv

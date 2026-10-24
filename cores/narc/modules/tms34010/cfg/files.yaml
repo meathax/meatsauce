@@ -1,0 +1,46 @@
+tms34010:
+  - from: ../rtl
+    get:
+    - tms34010_pkg.sv
+  - from: ../rtl/core
+    get:
+    - tms34010_status_reg.sv
+    - tms34010_regfile.sv
+    - tms34010_alu.sv
+    - tms34010_shifter.sv
+    - tms34010_divider.sv
+    - tms34010_decode.sv
+    - tms34010_pc.sv
+    - tms34010_int_ctrl.sv
+    - tms34010_core.sv
+    - tms34010_icache.sv
+  - from: ../rtl/io
+    get:
+    - tms34010_io_regs.sv
+  - from: ../rtl/cdc
+    get:
+    - tms34010_sync_bit.sv
+    - tms34010_sync_bit_ce.sv
+    - tms34010_cdc_mailbox.sv
+    - tms34010_screen_cdc.sv
+  - from: ../rtl/video
+    get:
+    - tms34010_video.sv
+    - tms34010_display_addr.sv
+    - tms34010_refresh.sv
+    - tms34010_video_subsystem.sv
+  - from: ../rtl/host
+    get:
+    - tms34010_host_if.sv
+  - from: ../rtl/memory
+    get:
+    - tms34010_field_sequencer.sv
+    - tms34010_bus_arbiter.sv
+    - tms34010_memory_fabric.sv
+    - tms34010_bus_timer.sv
+  - from: ../rtl
+    get:
+    - tms34010_system.sv
+  - from: ../fpga
+    get:
+    - tms34010_core.sdc

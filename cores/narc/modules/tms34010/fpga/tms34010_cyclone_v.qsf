@@ -1,0 +1,240 @@
+# TMS34010 stand-alone DE10-Nano implementation.
+#
+# Pin locations are from the Terasic DE10-Nano User Manual, Tables 3-5,
+# 3-7, and 3-10 (board revision A/B pinout). The two expansion headers are
+# 3.3-V-only FPGA I/O; external TMS34010 systems require appropriate voltage
+# translation and buffering as documented in PINOUT.md.
+
+set_global_assignment -name FAMILY "Cyclone V"
+set_global_assignment -name DEVICE 5CSEBA6U23I7
+set_global_assignment -name TOP_LEVEL_ENTITY tms34010_cyclone_v_top
+set_global_assignment -name PROJECT_OUTPUT_DIRECTORY ../work/quartus/output_files
+set_global_assignment -name SDC_FILE tms34010_cyclone_v.sdc
+set_global_assignment -name VERILOG_MACRO "TMS34010_QUARTUS"
+
+set_global_assignment -name NUM_PARALLEL_PROCESSORS 4
+set_global_assignment -name SEED 1
+set_global_assignment -name OPTIMIZATION_MODE "HIGH PERFORMANCE EFFORT"
+set_global_assignment -name FITTER_EFFORT "STANDARD FIT"
+set_global_assignment -name AUTO_GLOBAL_CLOCK ON
+set_global_assignment -name MIN_CORE_JUNCTION_TEMP -40
+set_global_assignment -name MAX_CORE_JUNCTION_TEMP 100
+set_global_assignment -name RESERVE_ALL_UNUSED_PINS "AS INPUT TRI-STATED"
+
+# Package first, followed by every synthesizable design unit.
+set_global_assignment -name SYSTEMVERILOG_FILE ../rtl/tms34010_pkg.sv
+set_global_assignment -name SYSTEMVERILOG_FILE ../rtl/cdc/tms34010_cdc_mailbox.sv
+set_global_assignment -name SYSTEMVERILOG_FILE ../rtl/cdc/tms34010_emu_bridge.sv
+set_global_assignment -name SYSTEMVERILOG_FILE ../rtl/cdc/tms34010_local_bus_bridge.sv
+set_global_assignment -name SYSTEMVERILOG_FILE ../rtl/cdc/tms34010_screen_cdc.sv
+set_global_assignment -name SYSTEMVERILOG_FILE ../rtl/cdc/tms34010_sync_bit.sv
+set_global_assignment -name SYSTEMVERILOG_FILE ../rtl/core/tms34010_alu.sv
+set_global_assignment -name SYSTEMVERILOG_FILE ../rtl/core/tms34010_core.sv
+set_global_assignment -name SYSTEMVERILOG_FILE ../rtl/core/tms34010_decode.sv
+set_global_assignment -name SYSTEMVERILOG_FILE ../rtl/core/tms34010_divider.sv
+set_global_assignment -name SYSTEMVERILOG_FILE ../rtl/core/tms34010_icache.sv
+set_global_assignment -name SYSTEMVERILOG_FILE ../rtl/core/tms34010_int_ctrl.sv
+set_global_assignment -name SYSTEMVERILOG_FILE ../rtl/core/tms34010_pc.sv
+set_global_assignment -name SYSTEMVERILOG_FILE ../rtl/core/tms34010_regfile.sv
+set_global_assignment -name SYSTEMVERILOG_FILE ../rtl/core/tms34010_shifter.sv
+set_global_assignment -name SYSTEMVERILOG_FILE ../rtl/core/tms34010_status_reg.sv
+set_global_assignment -name SYSTEMVERILOG_FILE ../rtl/fpga/tms34010_cyclone_v_pll.sv
+set_global_assignment -name SYSTEMVERILOG_FILE ../rtl/fpga/tms34010_cyclone_v_top.sv
+set_global_assignment -name SYSTEMVERILOG_FILE ../rtl/fpga/tms34010_cyclone_v_video_pll.sv
+set_global_assignment -name SYSTEMVERILOG_FILE ../rtl/fpga/tms34010_fpga_io.sv
+set_global_assignment -name SYSTEMVERILOG_FILE ../rtl/fpga/tms34010_reset_sync.sv
+set_global_assignment -name SYSTEMVERILOG_FILE ../rtl/host/tms34010_host_bus.sv
+set_global_assignment -name SYSTEMVERILOG_FILE ../rtl/host/tms34010_host_if.sv
+set_global_assignment -name SYSTEMVERILOG_FILE ../rtl/io/tms34010_io_regs.sv
+set_global_assignment -name SYSTEMVERILOG_FILE ../rtl/memory/tms34010_bus_arbiter.sv
+set_global_assignment -name SYSTEMVERILOG_FILE ../rtl/memory/tms34010_field_sequencer.sv
+set_global_assignment -name SYSTEMVERILOG_FILE ../rtl/memory/tms34010_local_bus.sv
+set_global_assignment -name SYSTEMVERILOG_FILE ../rtl/memory/tms34010_memory_fabric.sv
+set_global_assignment -name SYSTEMVERILOG_FILE ../rtl/memory/tms34010_bus_timer.sv
+set_global_assignment -name SYSTEMVERILOG_FILE ../rtl/tms34010_pin_system.sv
+set_global_assignment -name SYSTEMVERILOG_FILE ../rtl/tms34010_system.sv
+set_global_assignment -name SYSTEMVERILOG_FILE ../rtl/video/tms34010_display_addr.sv
+set_global_assignment -name SYSTEMVERILOG_FILE ../rtl/video/tms34010_refresh.sv
+set_global_assignment -name SYSTEMVERILOG_FILE ../rtl/video/tms34010_video.sv
+set_global_assignment -name SYSTEMVERILOG_FILE ../rtl/video/tms34010_video_subsystem.sv
+
+# Board clocks and debounced active-low KEY0 reset.
+set_location_assignment PIN_V11 -to FPGA_CLK1_50
+set_location_assignment PIN_Y13 -to FPGA_CLK2_50
+set_location_assignment PIN_AH17 -to RESET_N
+
+# JP1 / GPIO_0: host, interrupt/arbitration, and video surface.
+set_location_assignment PIN_V12 -to RUN_EMU_N
+set_location_assignment PIN_E8 -to HCS_N
+set_location_assignment PIN_W12 -to HREAD_N
+set_location_assignment PIN_D11 -to HWRITE_N
+set_location_assignment PIN_D8 -to HLDS_N
+set_location_assignment PIN_AH13 -to HUDS_N
+set_location_assignment PIN_AF7 -to HFS[0]
+set_location_assignment PIN_AH14 -to HFS[1]
+set_location_assignment PIN_AF4 -to HD[0]
+set_location_assignment PIN_AH3 -to HD[1]
+set_location_assignment PIN_AD5 -to HD[2]
+set_location_assignment PIN_AG14 -to HD[3]
+set_location_assignment PIN_AE23 -to HD[4]
+set_location_assignment PIN_AE6 -to HD[5]
+set_location_assignment PIN_AD23 -to HD[6]
+set_location_assignment PIN_AE24 -to HD[7]
+set_location_assignment PIN_D12 -to HD[8]
+set_location_assignment PIN_AD20 -to HD[9]
+set_location_assignment PIN_C12 -to HD[10]
+set_location_assignment PIN_AD17 -to HD[11]
+set_location_assignment PIN_AC23 -to HD[12]
+set_location_assignment PIN_AC22 -to HD[13]
+set_location_assignment PIN_Y19 -to HD[14]
+set_location_assignment PIN_AB23 -to HD[15]
+set_location_assignment PIN_AA19 -to HRDY
+set_location_assignment PIN_W11 -to HINT_N
+set_location_assignment PIN_AA18 -to LINT1_N
+set_location_assignment PIN_W14 -to LINT2_N
+set_location_assignment PIN_Y18 -to HOLD_N
+set_location_assignment PIN_Y17 -to HLDA_EMUA_N
+set_location_assignment PIN_AB25 -to VIDEO_VCLK
+set_location_assignment PIN_AB26 -to HSYNC_N
+set_location_assignment PIN_Y11 -to VSYNC_N
+set_location_assignment PIN_AA26 -to BLANK
+set_location_assignment PIN_AA13 -to LRDY
+set_location_assignment PIN_AA11 -to LCLK1
+
+# JP7 / GPIO_1: remaining local-memory bus surface.
+set_location_assignment PIN_Y15 -to LCLK2
+set_location_assignment PIN_AC24 -to LAD[0]
+set_location_assignment PIN_AA15 -to LAD[1]
+set_location_assignment PIN_AD26 -to LAD[2]
+set_location_assignment PIN_AG28 -to LAD[3]
+set_location_assignment PIN_AF28 -to LAD[4]
+set_location_assignment PIN_AE25 -to LAD[5]
+set_location_assignment PIN_AF27 -to LAD[6]
+set_location_assignment PIN_AG26 -to LAD[7]
+set_location_assignment PIN_AH27 -to LAD[8]
+set_location_assignment PIN_AG25 -to LAD[9]
+set_location_assignment PIN_AH26 -to LAD[10]
+set_location_assignment PIN_AH24 -to LAD[11]
+set_location_assignment PIN_AF25 -to LAD[12]
+set_location_assignment PIN_AG23 -to LAD[13]
+set_location_assignment PIN_AF23 -to LAD[14]
+set_location_assignment PIN_AG24 -to LAD[15]
+set_location_assignment PIN_AH22 -to RAS_N
+set_location_assignment PIN_AH21 -to LAL_N
+set_location_assignment PIN_AG21 -to CAS_N
+set_location_assignment PIN_AH23 -to WE_N
+set_location_assignment PIN_AA20 -to TR_QE_N
+set_location_assignment PIN_AF22 -to DEN_N
+set_location_assignment PIN_AE22 -to DDOUT
+
+# Every assigned board pin is in a 3.3-V bank.
+set_instance_assignment -name IO_STANDARD "3.3-V LVTTL" -to FPGA_CLK1_50
+set_instance_assignment -name IO_STANDARD "3.3-V LVTTL" -to FPGA_CLK2_50
+set_instance_assignment -name IO_STANDARD "3.3-V LVTTL" -to RESET_N
+set_instance_assignment -name IO_STANDARD "3.3-V LVTTL" -to RUN_EMU_N
+set_instance_assignment -name IO_STANDARD "3.3-V LVTTL" -to HCS_N
+set_instance_assignment -name IO_STANDARD "3.3-V LVTTL" -to HREAD_N
+set_instance_assignment -name IO_STANDARD "3.3-V LVTTL" -to HWRITE_N
+set_instance_assignment -name IO_STANDARD "3.3-V LVTTL" -to HLDS_N
+set_instance_assignment -name IO_STANDARD "3.3-V LVTTL" -to HUDS_N
+set_instance_assignment -name IO_STANDARD "3.3-V LVTTL" -to HFS[0]
+set_instance_assignment -name IO_STANDARD "3.3-V LVTTL" -to HFS[1]
+set_instance_assignment -name IO_STANDARD "3.3-V LVTTL" -to HD[0]
+set_instance_assignment -name IO_STANDARD "3.3-V LVTTL" -to HD[1]
+set_instance_assignment -name IO_STANDARD "3.3-V LVTTL" -to HD[2]
+set_instance_assignment -name IO_STANDARD "3.3-V LVTTL" -to HD[3]
+set_instance_assignment -name IO_STANDARD "3.3-V LVTTL" -to HD[4]
+set_instance_assignment -name IO_STANDARD "3.3-V LVTTL" -to HD[5]
+set_instance_assignment -name IO_STANDARD "3.3-V LVTTL" -to HD[6]
+set_instance_assignment -name IO_STANDARD "3.3-V LVTTL" -to HD[7]
+set_instance_assignment -name IO_STANDARD "3.3-V LVTTL" -to HD[8]
+set_instance_assignment -name IO_STANDARD "3.3-V LVTTL" -to HD[9]
+set_instance_assignment -name IO_STANDARD "3.3-V LVTTL" -to HD[10]
+set_instance_assignment -name IO_STANDARD "3.3-V LVTTL" -to HD[11]
+set_instance_assignment -name IO_STANDARD "3.3-V LVTTL" -to HD[12]
+set_instance_assignment -name IO_STANDARD "3.3-V LVTTL" -to HD[13]
+set_instance_assignment -name IO_STANDARD "3.3-V LVTTL" -to HD[14]
+set_instance_assignment -name IO_STANDARD "3.3-V LVTTL" -to HD[15]
+set_instance_assignment -name IO_STANDARD "3.3-V LVTTL" -to HRDY
+set_instance_assignment -name IO_STANDARD "3.3-V LVTTL" -to HINT_N
+set_instance_assignment -name IO_STANDARD "3.3-V LVTTL" -to LINT1_N
+set_instance_assignment -name IO_STANDARD "3.3-V LVTTL" -to LINT2_N
+set_instance_assignment -name IO_STANDARD "3.3-V LVTTL" -to HOLD_N
+set_instance_assignment -name IO_STANDARD "3.3-V LVTTL" -to HLDA_EMUA_N
+set_instance_assignment -name IO_STANDARD "3.3-V LVTTL" -to VIDEO_VCLK
+set_instance_assignment -name IO_STANDARD "3.3-V LVTTL" -to HSYNC_N
+set_instance_assignment -name IO_STANDARD "3.3-V LVTTL" -to VSYNC_N
+set_instance_assignment -name IO_STANDARD "3.3-V LVTTL" -to BLANK
+set_instance_assignment -name IO_STANDARD "3.3-V LVTTL" -to LRDY
+set_instance_assignment -name IO_STANDARD "3.3-V LVTTL" -to LAD[0]
+set_instance_assignment -name IO_STANDARD "3.3-V LVTTL" -to LAD[1]
+set_instance_assignment -name IO_STANDARD "3.3-V LVTTL" -to LAD[2]
+set_instance_assignment -name IO_STANDARD "3.3-V LVTTL" -to LAD[3]
+set_instance_assignment -name IO_STANDARD "3.3-V LVTTL" -to LAD[4]
+set_instance_assignment -name IO_STANDARD "3.3-V LVTTL" -to LAD[5]
+set_instance_assignment -name IO_STANDARD "3.3-V LVTTL" -to LAD[6]
+set_instance_assignment -name IO_STANDARD "3.3-V LVTTL" -to LAD[7]
+set_instance_assignment -name IO_STANDARD "3.3-V LVTTL" -to LAD[8]
+set_instance_assignment -name IO_STANDARD "3.3-V LVTTL" -to LAD[9]
+set_instance_assignment -name IO_STANDARD "3.3-V LVTTL" -to LAD[10]
+set_instance_assignment -name IO_STANDARD "3.3-V LVTTL" -to LAD[11]
+set_instance_assignment -name IO_STANDARD "3.3-V LVTTL" -to LAD[12]
+set_instance_assignment -name IO_STANDARD "3.3-V LVTTL" -to LAD[13]
+set_instance_assignment -name IO_STANDARD "3.3-V LVTTL" -to LAD[14]
+set_instance_assignment -name IO_STANDARD "3.3-V LVTTL" -to LAD[15]
+set_instance_assignment -name IO_STANDARD "3.3-V LVTTL" -to LCLK1
+set_instance_assignment -name IO_STANDARD "3.3-V LVTTL" -to LCLK2
+set_instance_assignment -name IO_STANDARD "3.3-V LVTTL" -to RAS_N
+set_instance_assignment -name IO_STANDARD "3.3-V LVTTL" -to LAL_N
+set_instance_assignment -name IO_STANDARD "3.3-V LVTTL" -to CAS_N
+set_instance_assignment -name IO_STANDARD "3.3-V LVTTL" -to WE_N
+set_instance_assignment -name IO_STANDARD "3.3-V LVTTL" -to TR_QE_N
+set_instance_assignment -name IO_STANDARD "3.3-V LVTTL" -to DEN_N
+set_instance_assignment -name IO_STANDARD "3.3-V LVTTL" -to DDOUT
+
+# Make the electrical policy explicit for every output-capable header pin.
+# Forwarded clocks use the fast edge setting; all other signals use the slow
+# edge setting to reduce header ringing. Eight-milliamp drive leaves margin
+# for the documented external level translator/buffer without using the
+# device's maximum drive setting.
+set_instance_assignment -name CURRENT_STRENGTH_NEW "8MA" -to HRDY
+set_instance_assignment -name CURRENT_STRENGTH_NEW "8MA" -to BLANK
+set_instance_assignment -name CURRENT_STRENGTH_NEW "8MA" -to HINT_N
+set_instance_assignment -name CURRENT_STRENGTH_NEW "8MA" -to HLDA_EMUA_N
+set_instance_assignment -name CURRENT_STRENGTH_NEW "8MA" -to VIDEO_VCLK
+set_instance_assignment -name CURRENT_STRENGTH_NEW "8MA" -to LCLK1
+set_instance_assignment -name CURRENT_STRENGTH_NEW "8MA" -to LCLK2
+set_instance_assignment -name CURRENT_STRENGTH_NEW "8MA" -to HD*
+set_instance_assignment -name CURRENT_STRENGTH_NEW "8MA" -to HSYNC_N
+set_instance_assignment -name CURRENT_STRENGTH_NEW "8MA" -to VSYNC_N
+set_instance_assignment -name CURRENT_STRENGTH_NEW "8MA" -to LAD*
+set_instance_assignment -name CURRENT_STRENGTH_NEW "8MA" -to RAS_N
+set_instance_assignment -name CURRENT_STRENGTH_NEW "8MA" -to LAL_N
+set_instance_assignment -name CURRENT_STRENGTH_NEW "8MA" -to CAS_N
+set_instance_assignment -name CURRENT_STRENGTH_NEW "8MA" -to WE_N
+set_instance_assignment -name CURRENT_STRENGTH_NEW "8MA" -to TR_QE_N
+set_instance_assignment -name CURRENT_STRENGTH_NEW "8MA" -to DEN_N
+set_instance_assignment -name CURRENT_STRENGTH_NEW "8MA" -to DDOUT
+
+set_instance_assignment -name SLEW_RATE 0 -to HRDY
+set_instance_assignment -name SLEW_RATE 0 -to BLANK
+set_instance_assignment -name SLEW_RATE 0 -to HINT_N
+set_instance_assignment -name SLEW_RATE 0 -to HLDA_EMUA_N
+set_instance_assignment -name SLEW_RATE 1 -to VIDEO_VCLK
+set_instance_assignment -name SLEW_RATE 1 -to LCLK1
+set_instance_assignment -name SLEW_RATE 1 -to LCLK2
+set_instance_assignment -name SLEW_RATE 0 -to HD*
+set_instance_assignment -name SLEW_RATE 0 -to HSYNC_N
+set_instance_assignment -name SLEW_RATE 0 -to VSYNC_N
+set_instance_assignment -name SLEW_RATE 0 -to LAD*
+set_instance_assignment -name SLEW_RATE 0 -to RAS_N
+set_instance_assignment -name SLEW_RATE 0 -to LAL_N
+set_instance_assignment -name SLEW_RATE 0 -to CAS_N
+set_instance_assignment -name SLEW_RATE 0 -to WE_N
+set_instance_assignment -name SLEW_RATE 0 -to TR_QE_N
+set_instance_assignment -name SLEW_RATE 0 -to DEN_N
+set_instance_assignment -name SLEW_RATE 0 -to DDOUT
+
+set_global_assignment -name LAST_QUARTUS_VERSION "17.0.2 Lite Edition"
+
+set_global_assignment -name RESERVE_ALL_UNUSED_PINS_NO_OUTPUT_GND "AS INPUT TRI-STATED"

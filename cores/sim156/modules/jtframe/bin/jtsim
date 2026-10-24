@@ -1,0 +1,671 @@
+#!/bin/bash
+
+# This file is part of JTFRAME.
+# JTFRAME program is free software: you can redistribute it and/or modify
+# it under the terms of the GNU General Public License as published by
+# the Free Software Foundation, either version 3 of the License, or
+# (at your option) any later version.
+#
+# JTFRAME program is distributed in the hope that it will be useful,
+# but WITHOUT ANY WARRANTY; without even the implied warranty of
+# MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+# GNU General Public License for more details.
+#
+# You should have received a copy of the GNU General Public License
+# along with JTFRAME.  If not, see <http://www.gnu.org/licenses/>.
+#
+# Author: Jose Tejada Gomez. Twitter: @topapate
+# Date: 20-8-2022
+
+source $JTFRAME/bin/jtsim-funcs
+
+define_terminal_colors
+
+COV=
+DIR=
+DUMP=
+SIM_MS=1
+SIMARGS="-f core.def -f filtered.f"
+SIMULATOR=verilator
+SETNAME=
+SCENE=
+SCENE_ARG=
+SKIPROM=
+ROMLESS=
+DUMMYROM=
+TOP=game_test
+TARGET=
+FILES=
+MACROPREFIX=+define+
+# All command line macros separated by commas, this is used
+# in calls to jtframe
+ALLMACROS=
+BATCH=
+VERILATOR_SAFE=
+EXTRA=
+SHOWCMD=
+ARGNUMBER=1
+SAMPLING_RATE=
+TESTCPP=
+GATES=NO
+MACOS=NO
+KEEP_FX68K=
+SED="sed -i"
+SHAUP=
+START_TIME=$(date +%s)
+UNDEF=
+FAST=
+# Extra arguments for the simulator, passed with -args
+SIMULATOR_EXTRA=
+# Arguments passed to the generated simulation executable.
+RUNTIME_ARGS=()
+CABINET_INPUTS=
+TRACE_FROM_COMMAND_LINE=
+
+# sed and stat are different for MacOS and GNU
+if [ `uname` = Darwin ]; then
+    MACOS=YES
+    # BSD version for sed command
+    if ! sed --version > /dev/null; then
+        SED="sed -i bak"
+    fi
+fi
+
+trap "clean_up; exit 1" INT TERM
+
+preparse_args $*
+for arg in "$@"; do
+    case "$arg" in
+        -help|-h|--help)
+            show_help
+            exit 0
+            ;;
+    esac
+done
+require "$JTFRAME" "You need to source the project setprj.sh"
+require "$MODULES" "Missing the modules path. You need to source the project setprj.sh"
+
+if ! has_parent ver; then
+    echo "jtsim must be called from within the ver folder of the core"
+    exit 1
+fi
+
+while [ $# -gt 0 ]; do
+case "$1" in
+    -args) shift; SIMULATOR_EXTRA="$SIMULATOR_EXTRA $1";;
+    -batch) BATCH=1;;
+    -cov) COV=--coverage;;
+    -debug_bus) shift; add_macro "JTFRAME_SIM_DEBUG=$1";;
+    -fx68k) KEEP_FX68K=1;;
+    -showcmd) SHOWCMD="echo";;
+    -modules) shift;; # ignore here
+    -w | -deep)
+        add_macro DUMP
+        DUMP=1
+        TRACE_FROM_COMMAND_LINE=1
+        if [ $1 = "-deep" ]; then add_macro DEEPDUMP; fi
+        if [[ $2 =~ ^[0-9]+$ ]]; then
+            # you can specify at which frame the dumping starts
+            # right after -w or -deep
+            shift
+            add_macro DUMP_START=$1
+        fi
+        ;;
+    ######## Macros
+    -d) shift
+        check_jtframe_macro_name $1 || exit 1
+        add_macro $1;;
+    -u|-undef) shift
+        if [ ! -z "$UNDEF" ]; then UNDEF="$UNDEF,"; fi
+        UNDEF="$UNDEF$1";;
+    -dir)
+        DIR=1
+        ;;
+    -dipsw)
+        shift
+        add_macro JTFRAME_SIM_DIPS=0x${1#0x};;
+    -dump)
+        shift
+        add_macro "JTFRAME_SIM_IODUMP=$1";;
+    -test)
+        add_macro DIP_TEST;;
+    -gates)
+        GATES=YES
+        if [ $SIMULATOR = verilator ]; then
+            echo "${rBG}Error:${NC} Verilator cannot be used for gate-level sims"
+            exit 1
+        fi
+        ;;
+    -gfx)
+        shift
+        add_macro JTFRAME_SIM_GFXEN=0x${1#0x};;
+    -fast) FAST=1;;
+    *.cab)
+        if [ "$SIMULATOR" != verilator ]; then
+            echo "Error: .cab cabinet scripts require the Verilator simulator"
+            exit 1
+        fi
+        if [ -n "$CABINET_INPUTS" ]; then
+            echo "Error: only one .cab cabinet script may be specified"
+            exit 1
+        fi
+        if [ ! -f "$1" ]; then
+            echo "Error: cabinet inputs must be an existing .cab file: $1"
+            exit 1
+        fi
+        RUNTIME_ARGS+=(--inputs "$(realpath "$1")")
+        CABINET_INPUTS=1
+        # Trace support is compiled for cabinet runs. The Verilator harness
+        # parses tracing_on and decides whether to write waveform samples.
+        DUMP=1
+        add_macro DUMP;;
+    -keepcpp)
+        shift
+        TESTCPP=KEEP
+        ;;
+    -pause)
+        add_macro DIP_PAUSE;;
+    -skipROM) SKIPROM="--skipROM";;
+    -dummyROM) DUMMYROM=1;;
+    -srate)
+        shift
+        if [ "$1" = "" ]; then
+            echo "${rBG}Error:${NC} Must specify the sampling rate"
+            exit 1
+        fi
+        SAMPLING_RATE="-s $1"
+        ;;
+    #################### Pocket setup
+    -pocket)
+        TOP=test
+        TARGET=pocket
+        ;;
+    #################### MiST setup
+    -mist) set_mist_as_target;;
+    -sidi128) set_sidi128_as_target;;
+    #################### MiSTer setup
+    -mister|-mr)
+        TOP=mister_test
+        TARGET=mister
+        # Generate a fake build_id.v file
+        echo "\`define BUILD_DATE \"190311\"" > build_id.v
+        echo "\`define BUILD_TIME \"190311\"" >> build_id.v
+        ;;
+    ##########################
+    -nosnd|-q)
+        add_macro NOSOUND
+        add_macro NOFM
+        add_macro NOSSG;;
+    -norotate)
+        RUNTIME_ARGS+=(--no-rotate);;
+    -setname)
+        shift
+        SETNAME=$1;;
+    -s|-scene)
+        shift
+        if [ -z "${JOTEGO:-}" ]; then
+            echo "jtsim -s requires JOTEGO to be defined as the support-files directory" >&2
+            exit 1
+        fi
+        SCENE_ARG="$1"
+        ;;
+    -shaup) SHAUP=1;;
+    -time)
+        shift
+        if [ "$1" = "" ]; then
+            echo "${rBG}Error:${NC} Must specify number of milliseconds to simulate"
+            exit 1
+        fi
+        SIM_MS="$1"
+        echo Simulate $1 ms
+        ;;
+    -safe)
+        VERILATOR_SAFE=-fno-dfg-peephole;;
+    -stats)
+        add_macro JTFRAME_SDRAM_STATS
+        echo RAM stats enabled
+        ;;
+    -video)
+        add_macro DUMP_VIDEO
+        if [ "${2:0:1}" != - ]; then
+            # get number of frames to simulate
+            shift
+            add_macro MAXFRAME=$1
+            RUNTIME_ARGS+=(--video-limit)
+        fi
+        rm -rf video.bin frame_*.jpg frame_*.png frame.raw frames
+        VIDEO_DUMP=TRUE
+        ;;
+    -load)
+        enable_load
+        ;;
+    -lint)
+        # only possible with verilator
+        EXTRA="$EXTRA --lint-only -Wno-REDEFMACRO -Wno-UNOPTFLAT"
+        add_macro LINT
+        export LINT=1
+        ;;
+    -ncverilog|-verilator|-synap|-modelsim|-iverilog|-questasim|-xcelium)
+        # This is parsed in the first argument loop
+        ;;
+    -help|-h|--help)
+        show_help
+        exit 0;;
+    -zoom) set_zoom;; # export it for Verilator's test.cpp
+    *) echo "${rBG}Error:${NC} Unknown option $1. Use -help to see the list of options"; exit 1;;
+esac
+    shift
+    ARGNUMBER=$((ARGNUMBER+1))
+done
+
+if [ -n "$TRACE_FROM_COMMAND_LINE" ]; then
+    RUNTIME_ARGS+=(--trace-command-line)
+fi
+
+if [ -z "$TARGET" ]; then
+    set_sidi128_as_target
+fi
+
+SYSNAME=`derive_corename_from_folder`
+
+require "$SYSNAME" "Missing core name. Run jtsim for a cores/corename/ver/setname folder"
+
+generate_mra_header_module() {
+    local toml="$CORES/$SYSNAME/cfg/mame2mra.toml"
+    local header_file="$CORES/$SYSNAME/hdl/jt${SYSNAME}_header.v"
+
+    if [ ! -e "$toml" ] || [ -e "$header_file" ]; then
+        return 0
+    fi
+    if grep -q '^[[:space:]]*registers[[:space:]]*=' "$toml"; then
+        jtframe mra "$SYSNAME" --skipMRA --skipROM --skipPocket --mainonly > /dev/null
+    fi
+}
+
+generate_mra_header_module || exit $?
+
+if jtcfgstr bash | grep -q 'JTFRAME_ROMLESS='; then
+    ROMLESS=1
+fi
+
+# Load a specific rom set
+if [ -n "$DUMMYROM" ]; then
+    unset SETNAME
+elif [ ! -z "$SETNAME" ]; then
+    use_setname
+else
+    SETNAME=`derive_setname_from_folder`
+fi
+
+if [ "$SETNAME" = game ]; then
+    if [ -n "$ROMLESS" ]; then
+        unset SETNAME
+    else
+        unset SETNAME
+        echo "Specify a valid ROM set name or run jtsim from a folder in ver/setname"
+        exit 1
+    fi
+fi
+
+if [ -n "$SCENE_ARG" ]; then
+    link_scene_folder "$SYSNAME" "$SETNAME" || exit $?
+    rename_scene_file "$SCENE_ARG"
+    SCENE="$SCENE_ARG/dump.bin"
+    if [ ! -e "$SCENE" ]; then
+        SCENE="scenes/$SCENE"
+    fi
+    if [[ -e "$SCENE" && -x ../game/dump2bin.sh ]]; then
+        ../game/dump2bin.sh "$SCENE" 2> /dev/null || exit 1
+        add_macro NOMAIN NOSOUND DUMP DUMP_VIDEO MAXFRAME=3 SIMSCENE
+        rm -rf video.bin frame_*.jpg frame_*.png frame.raw frames
+        VIDEO_DUMP=TRUE
+    else
+        echo "Scene file $SCENE or dump2bin.sh were not found"
+        exit 1
+    fi
+fi
+
+if ! acquire_simulation_lock; then
+    exit 1
+fi
+trap release_simulation_lock EXIT
+
+# Set blank .f files only after taking the folder lock: another simulation
+# may still be compiling or consuming them.
+echo -n > jtsim_vhdl.f
+echo -n > jtsim.f
+
+delete_scene_dump_files || exit $?
+
+echo "${wBG}=========== JTSIM $SYSNAME $SETNAME ($TARGET) ===========${NC}" > /dev/stderr
+warn_if_longsim_noinputs
+
+if [ -n "$SETNAME" ] && ! has_macro JTFRAME_SIM_DIPS; then
+    get_default_dipsw $SETNAME
+fi
+
+if [ -n "$SETNAME" ]; then
+    copy_mod_file $SETNAME
+fi
+if [ -n "$DUMMYROM" ]; then
+    if [ -L rom.bin ]; then
+        unlink rom.bin
+    fi
+    if ls sdram_bank?.* > /dev/null 2>&1; then
+        echo "Moving old sdram_bank files to sdram.old" >&2
+        mkdir -p sdram.old
+        mv sdram_bank?.* sdram.old > /dev/null
+    fi
+    dd if=/dev/zero of=rom.bin bs=1 count=64 status=none
+elif [ -n "$ROMLESS" ]; then
+    if [ -L rom.bin ]; then
+        unlink rom.bin
+    fi
+    : > rom.bin
+elif [[ ! -s rom.bin && -z "$LINT" ]]; then
+    make_rombin_link $SETNAME
+fi
+check_mra_outputs_current
+add_macro GAME_ROM_LEN=`get_file_length rom.bin`
+
+# Add a local copy of the dump file if it doesn't exist
+if [ ! -e ${TARGET}_dump.v ]; then
+    cp $JTFRAME/target/$TARGET/ver/${TARGET}_dump.v .
+fi
+FILES="$FILES ${TARGET}_dump.v"
+
+if [ ! -z "$EXTRA" ]; then
+    echo Verilog macros: "$EXTRA"
+fi
+
+if [ ! -z "$MEM_CHECK_TIME" ]; then
+    add_macro MEM_CHECK_TIME=$MEM_CHECK_TIME
+fi
+
+# Common macros
+add_macro SIM_MS=$SIM_MS
+add_macro SIMULATION
+add_macro $(echo $SIMULATOR | tr '[:lower:]' '[:upper:]')
+
+# Parse the core .def file
+if ! jtcfgstr $SIMULATOR > core.def; then
+    cat core.def
+    exit 1
+fi
+if [[ "$SIMULATOR" = verilator && "$TARGET" = mister ]]; then
+    $SED 's/+define+JTFRAME_SHIFT=1/+define+JTFRAME_SHIFT=0/' core.def
+fi
+
+disable_patreon_credits
+
+# Verilator macros
+if ! jtcfgstr cpp > defmacros.h ; then
+    cat defmacros.h
+    exit 1
+fi
+
+# Get the macros in cfg/macros.def into bash
+eval `jtcfgstr bash`
+
+# Cabinet cheats are optional per-core metadata. The Verilator harness only
+# reads it when a cabinet script requests cheat=<name>.
+export JTFRAME_SIM_SETNAME="$SETNAME"
+if [ -f "$CORES/$SYSNAME/cfg/cheat.yaml" ]; then
+    export JTFRAME_SIM_CHEATS="$CORES/$SYSNAME/cfg/cheat.yaml"
+else
+    unset JTFRAME_SIM_CHEATS
+fi
+
+build_core_firmware "$CORES/$SYSNAME"
+
+if [ -z "$GAMETOP" ]; then
+    GAMETOP=${CORENAME,,}_game
+    echo Using $GAMETOP as top module
+fi
+
+# Non Verilator sims do image conversion via raw2png
+if [[ "$VIDEO_DUMP" = TRUE && $SIMULATOR != verilator ]]; then
+    rm -f video.pipe
+    # mkfifo video.pipe
+    # raw2png -w $JTFRAME_WIDTH -h $JTFRAME_HEIGHT -f video.pipe : $CONVERT_OPTIONS&
+fi
+
+# Link to hex files in HDL folder
+for i in $CORES/$SYSNAME/hdl/*.hex; do
+    if [ -e $i ]; then
+        ln -fs $i $(basename $i)
+    fi
+done
+
+if [ $GATES = NO ]; then
+    # Prepare all file lists
+    jtframe mem $SYSNAME --target "$TARGET" --local || exit $?
+    jtframe mmr $SYSNAME || exit $?
+    jtframe files sim $SYSNAME --rel --local --target "$TARGET" --macro "$ALLMACROS" || exit $?
+    if grep --quiet fx68k game.f; then
+        # These files are read by the FX68K module but they must be in the
+        # simulation folder. Forgetting to have them there results in X everywhere
+        ln -sfr $MODULES/fx68k/hdl/microrom.mem
+        ln -sfr $MODULES/fx68k/hdl/nanorom.mem
+    fi
+    # Remove duplicated lines
+    rm -f tmp.f
+    rm -f game_env.f
+    # Simulator-specific needs
+    case $SIMULATOR in
+        verilator)
+            $SED "/\.vhd/d" game.f
+            $SED "/\.qip/d" game.f;;
+        modelsim|questasim)
+            # ' induces new line by modelsim
+            $SED "s/'h/\\\\'h/g" core.def;;
+        iverilog)
+            if [ ! -z "$KEEP_FX68K" ]; then
+                # Remove references to fx68k as it is not supported in iverilog
+                $SED /fx68k/d game.f
+            fi;;
+    esac
+    cat game.f jtsim.f >> tmp.f
+    cat tmp.f | envsubst | grep -v "^#" | xargs realpath --relative-to=. | awk '!seen[$0]++' > game_env.f
+    # Sort and delete duplicates
+    emulate_F game_env.f | awk '!seen[$0]++' > filtered.f
+    rm -f game_env.f tmp.f
+else
+    prepare_gatelevel_sim
+fi
+
+# Link to hex filters in module files as needed
+if grep -q jtframe_jt49_filters filtered.f; then
+    ln -srf $JTFRAME/hdl/sound/firjt49.hex
+fi
+
+for mod in jt6295 jt539; do
+    if grep -q $mod filtered.f; then
+        for i in $MODULES/$mod/hdl/*.hex; do ln -srf $i; done
+    fi
+done
+
+# These tools use the same names for their executables, so the
+# PATH is defined here
+case $SIMULATOR in
+    questasim)
+        require "$QUESTASIM_LIC" "Define the right path for the QuestaSim license"
+        export LM_LICENSE_FILE="$QUESTASIM_LIC"
+        require "$QUESTASIM_PATH" "Define QUESTASIM_PATH to run ModelSim"
+        export PATH="$PATH:$QUESTASIM_PATH";;
+    modelsim)
+        require "$MODELSIM_PATH" "Define MODELSIM_PATH to run ModelSim"
+        export PATH="$PATH:$MODELSIM_PATH";;
+esac
+
+case $SIMULATOR in
+iverilog)
+    SIMEXE=sim
+    $SHOWCMD iverilog -g2005-sv $SIMARGS \
+        $SIMULATOR_EXTRA \
+        -s $TOP -o $SIMEXE \
+        -DIVERILOG $EXTRA -I$CORES/$SYSNAME/hdl -I$JTFRAME/hdl/inc \
+        -I$MODULES/jtkcpu/hdl -I$MODULES/jt900h/hdl -I$JTFRAME/hdl/cpu/ika32010 \
+        -DDUMP_VIDEO_FNAME=\"video.pipe\" $FILES \
+    || exit 1
+    clear_frames
+    $SHOWCMD $SIMEXE -lxt
+    rm -f $SIMEXE;;
+modelsim|questasim)
+    # vcom compiles VHDL, vlog compiles verilog
+    if [ -s jtsim_vhdl.f ]; then
+        $SHOWCMD vcom -f jtsim_vhdl.f || exit $?
+    fi
+    $SHOWCMD vlog -svfilesuffix=sv -svinputport=net -suppress vlog-7061 \
+        +initwireX $SIMULATOR_EXTRA \
+        +incdir+$CORES/$SYSNAME/hdl +incdir+$JTFRAME/hdl/inc \
+        +incdir+$MODULES/jtkcpu/hdl +incdir+$MODULES/jt900h/hdl +incdir+$JTFRAME/hdl/cpu/ika32010 \
+        $SIMARGS $SIMULATOR_EXTRA\
+        $EXTRA +define+DUMP_VIDEO_FNAME=\"video.pipe\" \
+        $FILES || exit $?
+    echo calling vsim $TOP
+    # The simulation script can be replaced locally
+    if [ ! -e vsim.do ]; then
+        cat >vsim.do <<EOF
+run -all
+EOF
+    fi
+    clear_frames
+    vsim -64 -batch -do "do vsim.do" $TOP || exit $?
+    if [ -e test.vcd ]; then vcd2fst test.vcd test.fst && rm test.vcd; fi
+    ;;
+xcelium)
+    clear_frames
+    $SHOWCMD xrun -64bit -access +r -timescale 1ns/1ps\
+        -f filtered.f $FILES -nowarn RECOME \
+        -top $TOP \
+        -incdir $CORES/$SYSNAME/hdl -incdir $JTFRAME/hdl/inc \
+        -incdir $MODULES/jtkcpu/hdl -incdir $MODULES/jt900h/hdl -incdir $JTFRAME/hdl/cpu/ika32010 \
+        $SIMARGS $SIMULATOR_EXTRA\
+        -define DUMP_VIDEO_FNAME=\"video.pipe\" \
+        $EXTRA -l /dev/null || exit $?;;
+synapticad)
+    # ls $JTFRAME/hdl/cpu/t80/T80{pa,_ALU,_Reg,_MCode,"",s}.vhd >> jtsim_vhdl.f
+    clear_frames
+    $SHOWCMD simx +access+r +define+SYNAPTICAD +timescale+1ns/1ps\
+        -f filtered.f $FILES \
+        +scd_top+$TOP \
+        +incdir+$CORES/$SYSNAME/hdl +incdir+$JTFRAME/hdl/inc \
+        +incdir+$MODULES/jtkcpu/hdl +incdir+$MODULES/jt900h/hdl +incdir+$JTFRAME/hdl/cpu/ika32010 \
+        $SIMARGS $SIMULATOR_EXTRA\
+        +define+DUMP_VIDEO_FNAME=\"video.pipe\" \
+        $EXTRA -l /dev/null || exit $?;;
+ncverilog)
+    # ls $JTFRAME/hdl/cpu/t80/T80{pa,_ALU,_Reg,_MCode,"",s}.vhd >> jtsim_vhdl.f
+    clear_frames
+    $SHOWCMD ncverilog +access+r +nc64bit +define+NCVERILOG +nctimescale+1ns/1ps\
+        -mcmaxcores 3 -mccodegen \
+        -sysv -f jtsim_vhdl.f \
+        -disable_sem2009 $FILES \
+        +nctop+$TOP \
+        +incdir+$CORES/$SYSNAME/hdl +incdir+$JTFRAME/hdl/inc \
+        +incdir+$MODULES/jtkcpu/hdl +incdir+$MODULES/jt900h/hdl +incdir+$JTFRAME/hdl/cpu/ika32010 \
+        -ncvhdl_args,-V93 \
+        $SIMARGS $SIMULATOR_EXTRA\
+        +define+DUMP_VIDEO_FNAME=\"video.pipe\" \
+        -nowarn "MCONDE" -nowarn "NOCOND" -nowarn "RECOME" -nowarn "ZROMCW" \
+        $EXTRA -l /dev/null || exit $?;;
+verilator)
+    TRACE=$(if [ ! -z "$DUMP" ]; then echo --trace; fi)
+    set_verilator_optimization
+    echo "Using OPT_FAST=$OPT_FAST OPT_SLOW=$OPT_SLOW OPT_GLOBAL=$OPT_GLOBAL"
+    if [ ! -z "$TRACE" ]; then
+        export CPPFLAGS="$CPPFLAGS -DVERILATOR_TRACE"
+    fi
+    if [ -z "$TESTCPP" ]; then
+        cp $JTFRAME/verilator/test.cpp .
+        cp $JTFRAME/verilator/sdram.cpp .
+        cp $JTFRAME/verilator/sdram.h .
+        cp $JTFRAME/verilator/wavewritter.cpp .
+        cp $JTFRAME/verilator/wavewritter.h .
+        cp $JTFRAME/verilator/cabinet.cpp .
+        cp $JTFRAME/verilator/cabinet.h .
+        cp $JTFRAME/verilator/cheats.cpp .
+        cp $JTFRAME/verilator/cheats.h .
+        cp $JTFRAME/verilator/sim_utils.cpp .
+        cp $JTFRAME/verilator/sim_utils.h .
+    else
+        [ -e test.cpp ] || cp $JTFRAME/verilator/test.cpp .
+        [ -e sdram.cpp ] || cp $JTFRAME/verilator/sdram.cpp .
+        [ -e sdram.h ] || cp $JTFRAME/verilator/sdram.h .
+        [ -e wavewritter.cpp ] || cp $JTFRAME/verilator/wavewritter.cpp .
+        [ -e wavewritter.h ] || cp $JTFRAME/verilator/wavewritter.h .
+        [ -e cabinet.cpp ] || cp $JTFRAME/verilator/cabinet.cpp .
+        [ -e cabinet.h ] || cp $JTFRAME/verilator/cabinet.h .
+        [ -e cheats.cpp ] || cp $JTFRAME/verilator/cheats.cpp .
+        [ -e cheats.h ] || cp $JTFRAME/verilator/cheats.h .
+        [ -e sim_utils.cpp ] || cp $JTFRAME/verilator/sim_utils.cpp .
+        [ -e sim_utils.h ] || cp $JTFRAME/verilator/sim_utils.h .
+    fi
+    # verilog to C++ conversion
+    GAME_VLT=
+    if [ -e game.vlt ]; then
+        GAME_VLT=game.vlt
+    fi
+    # Ignore FX68k in Verilator sims with this:
+    # but if you use JTFPGA/FX68K branch fix 6, you should be able to simulate it
+    if [ ! -z "$VERILATOR_ROOT" ]; then VERILATOR_PATH=${VERILATOR_ROOT}/bin/; fi
+    if [ ! -z "$COV" ]; then echo "#define _COVERAGE" >> defmacros.h; fi
+    rm -rf logs
+    VERILATOR_CMD=`make_verilator_command`
+    $SHOWCMD $VERILATOR_CMD --top-module game_test || exit $?
+    if is_lint_on; then
+        $VERILATOR_CMD --top-module jtframe_board
+    fi
+    # Only use parallel compilation if we are not in a regression. Otherwise
+    # all simulations will compete against each other for CPU resources
+    if [ -z "$JTFRAME_REGRESSION" ]; then MAKEJOBS=-j; fi
+    if echo "$EXTRA" | grep -q lint-only; then
+        echo "Lint only: no simulation "
+    else
+        compile_verilator_sim
+        # Run the simulation
+        prepare_fst_pipe
+        clear_frames
+        run_verilator_sim
+        clean_fst_pipe
+        if [ -e logs/coverage.dat ]; then
+            run_coverage
+        fi
+        if [ ! -z "$SHOWCMD" ]; then exit 0; fi
+    fi
+esac
+
+clean_up
+
+convert_raw2wav
+check_shasum
+if [ `count_frame_images` -gt 250 ]; then
+    make_mpeg
+fi
+
+# convert per-channel raw sound files to wav
+convert_channel_raw2wav
+
+# Show simulation time
+END_TIME=$(date +%s)
+COMPILE_TIME=$[$END_TIME - $START_TIME]
+MINUTES=$[$COMPILE_TIME / 60]
+SECONDS=$[$COMPILE_TIME % 60]
+
+echo "====== JTSIM finished in "$MINUTES\'$SECONDS\"" ======"
+
+if [[ ! -z "$SCENE" && ( -e frames/frame_00001.png || -e frames/frame_00001.jpg ) ]]; then
+    if [ ! -z "$BATCH" ]; then
+        scene_frame=$(copy_scene_frame)
+        compare_scene_snapshot "$scene_frame" || exit $?
+    else
+        scene_frame=$(last_frame_image)
+        scene_compare_status=0
+        compare_scene_snapshot "$scene_frame" || scene_compare_status=$?
+        if which eom > /dev/null; then
+            display_scene_frame&
+        fi
+        exit $scene_compare_status
+    fi
+fi

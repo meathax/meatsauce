@@ -1,0 +1,107 @@
+# Osman / Cannon Dancer — MAME -> MRA. Data East Simple 156 (dataeast/simpl156.cpp).
+# Decryption is at-fetch (deco156 ARM, deco56 tiles) — the MRA only assembles ROMs into SDRAM banks.
+# Base pattern: nslasher (ARM width=32 maincpu). gfx packing borrows cninja's deco16/decospr technique.
+
+[global]
+author=["andrea bogazzi"]
+
+[parse]
+main_setnames=["osman","joemacr","chainrec","magdrop","magdropp","charlien","hvysmsh"]
+sourcefile=[ "simpl156.cpp", "deco156.cpp" ]   # deco156.cpp = hvysmsh+wcvol95 in MAME 0.282 (split to hvysmsh.cpp later)
+# All simpl156.cpp families enabled. Shared by all: ARM DE156 @28MHz, 93C46, deco16ic
+# 2x64x32 w/ bank_cb, DECO52 sprites, 2xOKI (sfx 1MHz + music), 320x240@58Hz, xBGR555;
+# oki-music bitswap is common. Per-family deltas live in the [header] registers below.
+# joemacr (+2 clones)  DE-0491-1 DECO;   blk @0x10xxxx; tiles 1MB, spr 1MB; music 2MHz
+# chainrec             DECO;             blk @0x40xxxx; tiles 1MB, spr 2MB; music 2MHz; 4-way joy
+#   magdrop/magdropp   DECO clone maps;  blk @0x38xxxx / @0x68xxxx
+# charlien             Mitchell MT5601-0; blk @0x18xxxx; tiles 2MB, spr 2MB; music 1MHz; no eeprom dump
+# prtytime (+gangonta) Mitchell, ROT90;  blk @0x18xxxx; tiles 2MB, spr 8MB; music 1MHz
+# osman (+candance)    Mitchell;         blk @0x18xxxx; tiles 2MB, spr 8MB; clones differ in EEPROM only
+# hvysmsh (+2 clones)  DECO (deco156.cpp); scattered map; tiles 2MB (ROM_CONTINUE), spr 8MB region
+#                      (4MB dumped); pal xBGR888 32-bit; sfx OKI 512KB banked; music 2MHz, same address bitswap
+# sets without an available dump:
+skip.setnames=[
+    "candance", "joemacra", "prtytime", "gangonta", "hvysmsha", "hvysmshj",
+    "joemacrj",   # its own 1MB tile ROM (mbn00, crc 11b2dac7) is not in the collection
+]
+skip.machines=[
+    "wcvol95",    # deco156.cpp but YMZ280B sound + own map: different hardware class
+]
+
+[header]
+# cninja pattern: ONE-HOT family bits only - the per-family address decode and
+# behaviour flags live in jtosman_main/jtosman_game muxes, not in the MRA.
+# All-zero = Mitchell MT5601-0 map (osman, candance, prtytime, gangonta).
+# cn only widens the sprite-interleave decode (charlien map IS the Mitchell one).
+registers=[
+    { name="jm",  pos="0[0]", desc="Joe & Mac Returns",  values=[{ machine="joemacr",  value=1 }] },
+    { name="cr",  pos="0[1]", desc="Chain Reaction",     values=[{ setname="chainrec", value=1 }] },
+    { name="md",  pos="0[2]", desc="Magical Drop",       values=[{ setname="magdrop",  value=1 }] },
+    { name="mdp", pos="0[3]", desc="Magical Drop Plus",  values=[{ setname="magdropp", value=1 }] },
+    { name="cn",  pos="0[4]", desc="Charlie Ninja",      values=[{ machine="charlien", value=1 }] },
+    { name="hv",  pos="0[5]", desc="Heavy Smash",        values=[{ machine="hvysmsh",  value=1 }] },
+]
+
+[buttons]
+# osman is a Strider-like action game, 3 buttons (EEPROM is fixed to 3-button).
+Names = [ { machine="osman", names="Attack,Jump,Special" },
+          { machine="joemacr", names="Club Attack,Jump" },
+          { setname="chainrec", names="Grab,Throw" },
+          { setname="magdrop", names="Grab,Throw" },
+          { setname="magdropp", names="Grab,Throw" },
+          { machine="charlien", names="Attack,Jump" },
+          { machine="hvysmsh", names="Shoot-Tackle,Jump,Pass-Weapon" } ]
+
+[ROM]
+# These families have no EEPROM ROM region in MAME. Start with an erased
+# 93C46 so the game can initialize it; clones inherit machine matching.
+nvram = { defaults=[
+    { machine="joemacr", data="FF FF FF FF FF FF FF FF FF FF FF FF FF FF FF FF FF FF FF FF FF FF FF FF FF FF FF FF FF FF FF FF FF FF FF FF FF FF FF FF FF FF FF FF FF FF FF FF FF FF FF FF FF FF FF FF FF FF FF FF FF FF FF FF FF FF FF FF FF FF FF FF FF FF FF FF FF FF FF FF FF FF FF FF FF FF FF FF FF FF FF FF FF FF FF FF FF FF FF FF FF FF FF FF FF FF FF FF FF FF FF FF FF FF FF FF FF FF FF FF FF FF FF FF FF FF FF FF" },
+    { machine="charlien", data="FF FF FF FF FF FF FF FF FF FF FF FF FF FF FF FF FF FF FF FF FF FF FF FF FF FF FF FF FF FF FF FF FF FF FF FF FF FF FF FF FF FF FF FF FF FF FF FF FF FF FF FF FF FF FF FF FF FF FF FF FF FF FF FF FF FF FF FF FF FF FF FF FF FF FF FF FF FF FF FF FF FF FF FF FF FF FF FF FF FF FF FF FF FF FF FF FF FF FF FF FF FF FF FF FF FF FF FF FF FF FF FF FF FF FF FF FF FF FF FF FF FF FF FF FF FF FF FF" },
+    { machine="hvysmsh", data="FF FF FF FF FF FF FF FF FF FF FF FF FF FF FF FF FF FF FF FF FF FF FF FF FF FF FF FF FF FF FF FF FF FF FF FF FF FF FF FF FF FF FF FF FF FF FF FF FF FF FF FF FF FF FF FF FF FF FF FF FF FF FF FF FF FF FF FF FF FF FF FF FF FF FF FF FF FF FF FF FF FF FF FF FF FF FF FF FF FF FF FF FF FF FF FF FF FF FF FF FF FF FF FF FF FF FF FF FF FF FF FF FF FF FF FF FF FF FF FF FF FF FF FF FF FF FF FF" },
+] }
+regions = [
+    { name="maincpu",  width=32, reverse=true },                         # ARM DE156, deco156-encrypted
+    # hvysmsh code = 2x ROM_LOAD32_WORD halves; the offset-sort + reverse=true path swaps the
+    # halves (full 32-bit reversal). Explicit parts keep halves in place, byte-swap each 16-bit
+    # word — byte-checked against the single-ROM convention (osman: cc 02 9b 0f).
+    { name="maincpu", setname="hvysmsh", width=32, parts=[
+        { name="lt01-2.3j", crc="ce2a75e2", map="0012" },
+        { name="lt00-2.2j", crc="f6e10fc0", map="1200" },
+    ]},
+    { name="maincpu", setname="hvysmsha", width=32, parts=[
+        { name="xx01-4.3j", crc="8c24c5ed", map="0012" },
+        { name="xx00-4.2j", crc="333a92c1", map="1200" },
+    ]},
+    { name="maincpu", setname="hvysmshj", width=32, parts=[
+        { name="lp01-2.3j", crc="a6fe282a", map="0012" },
+        { name="lp00-2.2j", crc="3f8fd724", map="1200" },
+    ]},
+    # ---- tiles (deco56-encrypted, decrypt-at-fetch). RAW load for now — boot doesn't fetch gfx.
+    # TODO(video step): ROM_CONTINUE reorder (blk0->0,blk1->0x100000,blk2->0x080000,blk3->0x180000)
+    # + 4bpp RGN_FRAC(1,2) plane split, byte-checked (never hand-derive).
+    { name="tiles",    start="JTFRAME_BA1_START", No_offset=true },
+    # ---- sprites (8 MB, 4bpp RGN_FRAC(1,2), NOT encrypted). MAME loads mcf-01..04 reversed
+    # (@0x600000/0x400000/0x200000/0x000000). Plane-pair pack for jtframe_decospr = TODO byte-check
+    # (cninja darkseal/supbtime pattern: load straight + game.v plane-pair rotate, OR width=32 parts).
+    { name="sprites",  start="JTFRAME_BA3_START", No_offset=true },
+    # Chain Reaction uses ROM_LOAD16_BYTE pairs (u3/u4 and u5/u6), unlike
+    # the contiguous sprite mask ROMs used by the other simpl156 games.
+    # Preserve MAME's even/odd byte lanes before HDL packs the plane halves.
+    { name="sprites", setname="chainrec", start="JTFRAME_BA3_START", width=16, No_offset=false },
+    # Heavy Smash has 2MB ROMs at 0 and 4MB in an 8MB plane-split region.
+    # Keep the intervening/trailing holes: compacting them loses bitplanes.
+    { name="sprites", machine="hvysmsh", start="JTFRAME_BA3_START", No_offset=false, len=0x800000 },
+    { name="okisfx",   rename="oki1", start="PCM1_START", No_offset=true },   # OKI #1 SFX 256 KB (512 KB slot)
+    { name="okimusic", rename="oki2", start="PCM2_START", No_offset=true },   # raw 2 MB; bank/address descramble on reads
+    # hvysmsh names its OKI regions oki1/oki2 directly. Music is loaded raw here;
+    # jtosman_snd applies the inverse MAME descramble to its read addresses.
+    { name="oki1", machine="hvysmsh", start="PCM1_START", No_offset=true },
+    { name="oki2", machine="hvysmsh", start="PCM2_START", No_offset=true },
+    # Raw per-set defaults at index 2. Magical Drop / Plus use WORD_SWAP in
+    # MAME; jtosman_eeprom swaps both download and upload byte pairs for them.
+    { name="eeprom", rename="nvram", skip=true },
+    { name="plds",     skip=true },
+]
+
+order = [ "maincpu", "tiles", "oki1", "oki2", "sprites" ]

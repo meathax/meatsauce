@@ -1,0 +1,444 @@
+#!/bin/bash
+# This file is part of JTFRAME.
+# JTFRAME program is free software: you can redistribute it and/or modify
+# it under the terms of the GNU General Public License as published by
+# the Free Software Foundation, either version 3 of the License, or
+# (at your option) any later version.
+
+# JTFRAME program is distributed in the hope that it will be useful,
+# but WITHOUT ANY WARRANTY; without even the implied warranty of
+# MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+# GNU General Public License for more details.
+
+# You should have received a copy of the GNU General Public License
+# along with JTFRAME.  If not, see <http://www.gnu.org/licenses/>.
+
+# Author: Jose Tejada Gomez. Twitter: @topapate
+# Version: 1.0
+# Date: 7-7-2022
+
+source $JTFRAME/bin/jtcore-funcs
+
+CORESTAMP=$(date +"%Y%m%d")
+EXT=rbf
+FAIL=0
+JTBIN2SD=
+MACROS=
+OUTPUTDIR=output_files
+OUTPUT_FOLDER=
+PRJ=
+NODBG=
+NOLINTER=
+NOCOPY=0
+PROG=FALSE
+SEED=1
+SKIPTIMING=
+SIM=FALSE
+SKIP_COMPILE=FALSE
+UNMACROS=
+
+# use setprj.sh's target function to
+# change the current default target
+if [ -z "$TARGET" ]; then
+    TARGET=mist
+fi
+
+# Device names for JTAG programming
+# Only MiST programming is fully implemented
+DEVICE_MIST=EP3C25E144
+DEVICE_POCKET=5CEBA4F23C8
+DEVICE=$DEVICE_MIST
+
+# Define colours if running on a terminal
+if [ -t 1 ]; then
+    red=`tput setaf 1`
+    green=`tput setaf 2`
+    blue=`tput setaf 4`
+    white=`tput setaf 7`
+    rBG=`tput setab 1; tput setaf 7`
+    gBG=`tput setab 2; tput setaf 7`
+    bBG=`tput setab 4; tput setaf 7`
+    yBG=`tput setab 3; tput setaf 7`
+    wBG=`tput setab 7; tput setaf 0`
+    NC=`tput sgr0`
+fi
+
+parse_args $JTCORE_DEFAULT
+parse_args $*
+
+# Is the root folder environment variable set?
+
+if [ "$JTROOT" = "" ]; then
+    cd ${0%%modules/jtframe/bin/jtcore}
+    if [ -e setprj.sh ]; then
+        source setprj.sh --quiet
+    else
+        echo -e "${yBG}WARNING:${NC}${wBG} cannot find setprj.sh in ${red}$(pwd)${NC}"
+        exit 1
+    fi
+fi
+
+if [ "$JTROOT" = "" ]; then
+    echo -e "${rBG}ERROR:${NC}${wBG} Missing JTROOT environment variable.${NC}"
+    echo -e "      ${wBG}Source JTFRAME/bin/setprj.sh in bash before compiling.${NC}"
+    exit 1
+fi
+
+if [ -e $JTROOT/.jtcore ]; then source $JTROOT/.jtcore; fi
+
+# Is the project defined?
+if [ -z "$PRJ" ]; then
+    PRJ=`get_corename_from_folder`
+fi
+
+cd $JTROOT
+MODULES=$JTROOT/modules
+JTFRAME=$MODULES/jtframe
+
+if [ ! -e "$JTFRAME" ]; then
+    echo -e "${rBG}ERROR:${NC}${wBG} cannot locate jtframe folder.${NC}"
+    echo -e "      ${wBG} It should be at ${red}$JTFRAME${NC}"
+    exit 1
+fi
+
+if [ ${PRJ:0:1} = - ]; then
+    echo -e "${rBG}ERROR:${NC}${wBG} Missing project name.${NC}"
+    exit 1
+fi
+
+if [ -d $JTROOT/cores/$PRJ ]; then
+    PRJPATH=$JTROOT/cores/$PRJ
+else
+    echo -e "${rBG}ERROR:${NC}${wBG} Cannot find a valid project path${NC}"
+    exit 1
+fi
+shift
+
+if [ -e $CORES/$PRJ/cfg/skip ]; then
+    echo "Skipping compilation of $PRJ because of cfg/skip file"
+    exit 0
+fi
+
+# Use the local release folder unless the command line overrides it
+if [ -z "$OUTPUT_FOLDER" ]; then
+    export JTBIN=$JTROOT/release
+else
+    export JTBIN=$OUTPUT_FOLDER
+fi
+mkdir -p $JTBIN
+
+if [[ "$NOCOPY" = 1 && -n "$OUTPUT_FOLDER" ]]; then
+    BUILDDIR=$OUTPUT_FOLDER
+else
+    BUILDDIR=$PRJPATH/$TARGET
+fi
+LOCAL_GEN=
+if [[ "$BUILDDIR" != "$PRJPATH/$TARGET" ]]; then
+    LOCAL_GEN=--local
+fi
+
+# Check Quartus path
+case $TARGET in
+    mist) # MiST can only be compiled on Quartus 13, which is slower on systems with many CPU cores
+        if ! (which quartus_sh|grep 13 -q); then
+            PATH=/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:.
+            if [ -d "/opt/altera/13.1" ]; then
+                PATH=$PATH:/opt/altera/13.1/quartus/bin
+            else
+                echo "Cannot find Quartus 13 in /opt/altera/13.1 (`hostname`)"
+                exit 1
+            fi
+        fi;;
+    *)
+        if ! (which quartus_sh|grep intelFPGA_lite -q); then
+            PATH=/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:.
+            if [ -d /opt/intelFPGA_lite ]; then
+                cd /opt/intelFPGA_lite
+                cd $(ls | head -n 1)
+                PATH=$PATH:`pwd`/quartus/bin
+            else
+                echo "Cannot find Quartus in /opt/intelFPGA_lite (`hostname`)"
+                exit 1
+            fi
+        fi;;
+esac
+export PATH=$PATH:$JTFRAME/bin
+
+make_macros_env_vars
+# lower case version
+corename=${CORENAME,,}
+
+if [ -v JTFRAME_SKIP ]; then
+    echo "Compilation skipped for $TARGET because of JTFRAME_SKIP"
+    echo "Use -u JTFRAME_SKIP to override this."
+    echo "PASS"
+    exit 0
+fi
+
+START_TIME=$(date +%s)
+echo =============== JTCORE =======================
+echo -e "${wBG}$CORENAME $TARGET compilation ${blue}starts${NC}${wBG} at ${red}$(date +%T)${NC}${wBG} with seed ${red}$SEED${NC}${wBG} on $(hostname)${NC}"
+if [ "$MACROS" != "" ]; then
+    echo -e Explicit macros:
+    for i in $MACROS; do
+        if [ ${i:0:17} != JTFRAME_UNLOCKKEY ]; then
+            echo -n "$i "
+        else # Do not print the key value
+            echo -n "JTFRAME_UNLOCKKEY "
+        fi
+        echo
+    done
+fi
+
+################ compilation
+if [ $SKIP_COMPILE = FALSE ]; then
+    if ! which quartus_sh>/dev/null; then
+        echo -e "${rBG}ERROR:${NC}${wBG} cannot find quartus_sh in the path. Please add the correct path${NC}"
+        echo -e "      ${wBG} to the PATH environment variable${NC}"
+        exit 1
+    fi
+    build_core_firmware "$PRJPATH"
+    rm -rf $BUILDDIR
+    mkdir -p $BUILDDIR
+    cd $BUILDDIR || exit 1
+    if [ -z "$NOLINTER" ]; then
+        lint_core $PRJ
+    fi
+    ############################################
+    # Credits via jtframe_credits:
+    if [[ -e $PRJPATH/cfg/msg ]]; then
+        jtframe msg $PRJ || exit $?
+    fi
+    # Fonts and graphics
+    ln -srf $JTFRAME/bin/font0.hex
+    ln -srf $JTFRAME/hdl/video/logodata.hex
+    ln -srf $JTFRAME/hdl/video/logomap.hex
+    ############################################
+    # Link filter files in case they are needed
+    for i in $JTFRAME/hdl/sound/*.hex; do
+        ln -srf $i $(basename $i) || exit $?
+    done
+
+    # If JT6295 exists, adds its filter file to the folder
+    if [ -d $MODULES/jt6295 ]; then
+        ln -srf $MODULES/jt6295/hdl/jt6295_up4.hex .
+        ln -srf $MODULES/jt6295/hdl/jt6295_up4_soft.hex .
+    fi
+
+    # Link .hex files in hdl, if they exist
+    for i in $PRJPATH/hdl/*.hex; do
+        if [ -e "$i" ]; then
+            ln -srf $i $BUILDDIR/$(basename $i)
+        fi
+    done
+
+    ############################################
+    # Recompile
+    rm -rf db incremental_db output_files
+    mkdir -p $JTROOT/log/$TARGET
+    LOG="$JTROOT/log/$TARGET/$corename.log"
+    echo Log file: $LOG
+    copy_templates
+    echo -e "\nset_global_assignment -name seed $SEED" >> $corename.qsf
+    # ensure SEARCH_PATH starts from core hdl folder and not from build output.
+    # Avoid a silent failure in recovering include files that ends up picking up
+    # files with the same name in other folders
+    echo -e "\nset_global_assignment -name SEARCH_PATH \"$PRJPATH/hdl\"" >> $corename.qsf
+    append_signaltap_qsf
+    if [ $SIM = FALSE ]; then
+        # Create the QIP file
+        if [ -e $CORES/$PRJ/cfg/mem.yaml ]; then jtframe mem $PRJ --target=$TARGET $LOCAL_GEN $NODBG || exit $?; fi
+        jtframe mmr $PRJ
+        jtframe files syn $PRJ --target=$TARGET $LOCAL_GEN || exit $?
+        # Compilation
+        quartus_sh -v
+        quartus_sh --flow compile $corename > "$LOG"
+        if ! grep "Full Compilation was successful" "$LOG"; then
+            grep -i error "$LOG" -A 2
+            echo -e "${rBG}ERROR:${NC}${wBG} while compiling the project. ${red}Aborting${NC}"
+            exit 1
+        fi
+        if [ ! -e $corename.map.rpt ]; then
+            RPTPATH=$OUTPUTDIR
+        else
+            RPTPATH=.
+        fi
+        (grep "SDRAM_.* is stuck" $RPTPATH/$corename.map.rpt | grep "SDRAM_[^\"]*" -o > $RPTPATH/sdram_stuck.rpt) || true
+        gawk -f $JTFRAME/bin/jtioreg.awk $RPTPATH/$corename.fit.rpt > $RPTPATH/sdram_io.rpt
+        cat $RPTPATH/sdram_stuck.rpt $RPTPATH/sdram_io.rpt | sort | uniq --unique > sdram_badio.rpt
+        if [ -s sdram_badio.rpt ]; then
+            echo -e "${yBG}WARNING:${NC}${wBG} some SDRAM signals are not IO registers${NC}"
+            cat sdram_badio.rpt
+        fi
+        if grep "inferring latch" $RPTPATH/jt$PRJ.map.rpt; then
+            echo "Warning: latch inferred"
+        fi
+        # Report FPGA usage
+        if [ $(find $RPTPATH -name "*.fit.summary"|wc -l) -gt 0 ]; then
+            grep "Total logic\|Logic utilization" $RPTPATH/*.fit.summary
+            grep "Total memory\|Total RAM" $RPTPATH/*.fit.summary
+        fi
+        # Report connectivity problems
+        AUX=`mktemp`
+        (grep \^Warning $LOG | grep \\.v | grep -v altera_pll\\.v \
+        | grep -v altera_cyclonev_pll\\.v \
+        | grep -v "\.data_a.*has no driver or initial value" \
+        | grep -v "\.waddr_a.*has no driver or initial value" \
+        | grep -v "\.we_a.*has no driver or initial value" \
+        | grep -v "Warning: RST port on the PLL" \
+        | grep -v "Warning: OUTCLK port on the PLL" \
+        | grep -v "Can't pack node.*to I/O pin" \
+        | grep -v "jitter performance" \
+        | grep -v "Warning \(10762\)" > $AUX) || true
+        if [[ "$MACROS" == *MISTER_DEBUG_NOHDMI* ]]; then
+            # There are many warnings coming from sys_top when HDMI is disabled, ignore them.
+            grep -v sys_top.v $AUX
+        else
+            cat $AUX
+        fi
+        rm -f $AUX
+        # Report timing
+        if neg_slack=$(worst_negative_sta_slack "$LOG"); then
+            grep --color=auto "Worst-case.*-[0-9.]*" "$LOG" || true
+            # Emit the worst-path detail so a timing failure can be triaged from
+            # the CI log artifact alone. Runs only when slack is negative, so it
+            # adds no time to cores that already close. Lands next to $LOG, which
+            # the compile workflow uploads on failure.
+            TIMING_RPT="$JTROOT/log/$TARGET/$corename.timing.rpt"
+            if quartus_sta -t $JTFRAME/bin/jtreport_timing.tcl $corename > "$TIMING_RPT" 2>&1; then
+                echo "Detailed timing report written to $TIMING_RPT"
+            else
+                echo "WARNING: could not generate detailed timing report (see $TIMING_RPT)"
+            fi
+            if [[ -z "$SKIPTIMING" && ! -v JTFRAME_NOSTA ]]; then
+                if [[ -v JTFRAME_EASY_STA ]] && easy_sta_accepts "$neg_slack"; then
+                    echo "JTFRAME_EASY_STA accepts worst slack $neg_slack ns (limit -0.333 ns)"
+                else
+                    FAIL=1
+                fi
+            fi
+        fi
+        report_sdc_problems "$RPTPATH"
+        if [ "$FAIL" = 0 ]; then
+            echo PASS
+        else
+            echo FAIL
+        fi
+    else
+        # Simulation
+        echo Preparing simulation netlist. Logfile:
+        echo $LOG
+        quartus_map $CORENAME --64bit --parallel=1 --efort=fast > "$LOG"
+        exit $?
+    fi
+elif [ ! -z "$VERBOSE" ]; then
+    echo "Skipping compilation"
+fi
+
+################# Store output file
+# Determine file extension
+case $TARGET in
+    neptuno) EXT=np1;;
+    mc2) EXT=mc2;;
+    mcp) EXT=mcp;;
+    pocket) EXT=rbf_r;;
+    *) EXT=rbf;;
+esac
+
+# Rename output file
+cd $JTROOT
+
+if [ $SEED != 1 ]; then
+    SEED_SUFFIX=_$SEED
+fi
+
+# Do not use [[ ]] in this if statement !!
+if is_mister_family || test $TARGET = neptuno; then
+    echo $TARGET
+    RBF=$BUILDDIR/$OUTPUTDIR/$corename.rbf
+else
+    RBF=$BUILDDIR/$corename.rbf
+fi
+
+if [ ! -e $RBF ]; then
+    echo -e "${rBG}ERROR:${NC}${wBG} file ${red}$RBF${NC}${wBG} does not exist. You need to recompile.${NC}"
+    exit 1
+fi
+
+if [ $TARGET = pocket ]; then
+    # The Pocket must have something misconnected inside
+    # and it requires the bit order in each RBF byte to
+    # be reversed
+    if [ ! -e $JTFRAME/bin/reverse_bits ]; then
+        echo "Compiling reverse_bits"
+        cd $JTFRAME/cc
+        make
+        cd -
+    fi
+    $JTFRAME/bin/reverse_bits $RBF ${RBF}_r
+    RBF=${RBF}_r
+fi
+
+# Copy to JTBIN and SD card
+if [[ "$FAIL" = 0  && "$NOCOPY" = 0 ]]; then
+    announce "Copy to $JTBIN"
+    BINFOLDER=$JTBIN/$TARGET
+    if [ $TARGET = pocket ]; then
+        BINFOLDER=$BINFOLDER/raw/Cores/jotego.$corename
+    fi
+    BINRBF=$BINFOLDER/$corename.$EXT
+    mkdir -p $(dirname $BINRBF)
+    cp -v $RBF $BINRBF || exit 1
+    if [ ! -z "$JTBIN2SD" ]; then jtbin2sd $JTBIN2SD; fi
+elif [ ! -z "$VERBOSE" ]; then
+    echo "Skipping copy to release"
+fi
+rm -f $corename.rbf
+
+###########################################
+## Program the target device via JTAG
+if [ $PROG = TRUE ]; then
+    announce "Device programming"
+    if [ $TARGET = mister ]; then
+        CABLE="DE-SoC"
+        cd $PRJPATH/mister
+        FILE=jtag.cdf
+    else
+        # if the cable is not recognized, run quartus_pgm -l
+        # and copy the cable name here
+        # this is not done automatically to speed up compilation
+        # as this rarely changes
+        CABLE=$(jtagconfig | grep -o "USB-Blaster.*")
+        FILE=$BUILDDIR/$corename.cdf
+        cat > $FILE << EOF
+JedecChain;
+    FileRevision(JESD32A);
+    DefaultMfr(6E);
+    P ActionCode(Cfg)
+        Device PartName($DEVICE) Path("") File("$corename.sof") MfrSpec(OpMask(1));
+ChainEnd;
+
+AlteraBegin;
+    ChainType(JTAG);
+AlteraEnd;
+EOF
+    fi
+    PROGRETRY=2
+    while ! quartus_pgm -c "$CABLE" $FILE; do
+        PROGRETRY=$((PROGRETRY-1))
+        if [ $PROGRETRY -lt 0 ]; then
+            echo "Failed to program the device $DEVICE"
+            echo "See file $FILE for programming details"
+            break;
+        fi
+    done
+fi
+
+# Show compilation  time
+END_TIME=$(date +%s)
+COMPILE_TIME=$[$END_TIME - $START_TIME]
+MINUTES=$[$COMPILE_TIME / 60]
+SECONDS=$[$COMPILE_TIME % 60]
+
+echo -e "${gBG}completed${NC}${wBG} at $(date) - compile Time: ${red}${MINUTES}m${SECONDS}s${NC}"
+exit $FAIL

@@ -1,0 +1,190 @@
+/* SPDX-FileCopyrightText: 2026 Jose Tejada Gomez
+ * SPDX-License-Identifier: GPL-3.0-or-later
+ * Date: 20-11-2022 */
+
+module jtframe_lfbuf_sram_ctrl #(parameter
+    CLK96   =   0,   // assume 48-ish MHz operation by default
+    VW      =   8,
+    HW      =   9
+)(
+    input               rst,    // hold in reset for >150 us
+    input               clk,
+    input               pxl_cen,
+
+    input               lhbl,
+    input               ln_done,
+    input               fb_keep,
+    input      [VW-1:0] vrender,
+    input      [VW-1:0] ln_v,
+    input               vs,
+    // data written to external memory
+    input               frame,
+    input               fb_blank,
+    output reg [HW-1:0] fb_addr,
+    input      [  15:0] fb_din,
+    output reg          fb_clr,
+    output reg          fb_done,
+
+    // data read from external memory to screen buffer
+    // during h blank
+    output     [  15:0] fb_dout,
+    output reg [HW-1:0] rd_addr,
+    output reg          line,
+    output reg          scr_we,
+
+    // SRAM
+    output      [20:0] sram_addr,
+    inout       [15:0] sram_data,   
+    output             sram_we,		//negative logic
+
+    // Status
+    input       [7:0]   st_addr,
+    output reg  [7:0]   st_dout
+);
+
+localparam AW=HW+VW+1;
+localparam [1:0] IDLE=0, READ=1, WRITE=2;
+localparam [15:0] LFBUF_CLR = `ifndef JTFRAME_LFBUF_CLR 0 `else `JTFRAME_LFBUF_CLR `endif ;
+
+reg           vsl, lhbl_l, ln_done_l, do_wr;
+reg  [   1:0] st;
+reg  [AW-1:0] act_addr;
+wire [HW-1:0] nx_rd_addr;
+reg  [HW-1:0] hblen, hlim, hcnt, wr_addr;
+wire          fb_over, wr_over, fb_rd_bank, fb_wr_bank, sram_keep_blank;
+reg 		  sram_rd;
+reg           sram_wen;
+reg  [VW-1:0] wr_v;
+
+assign fb_over    = &fb_addr;
+assign wr_over    = &wr_addr;
+assign sram_addr  = { {21-AW{1'd0}}, act_addr };
+assign nx_rd_addr = rd_addr + 1'd1;
+assign sram_data  = sram_we  ? 16'hzzzz : fb_din;
+assign fb_dout    = ~sram_we ? 16'd0    : sram_data;
+assign sram_we    = !(sram_wen && !sram_keep_blank);
+assign fb_rd_bank = fb_keep ? 1'b0 : ~frame;
+assign fb_wr_bank = fb_keep ? 1'b0 :  frame;
+assign sram_keep_blank = fb_keep && fb_din == LFBUF_CLR;
+
+
+always @(posedge clk) begin
+    case( st_addr[3:0] )
+        0: st_dout <= { 2'd0, sram_we, sram_rd, 2'd0, st };
+        1: st_dout <= { 3'd0, frame, fb_done, 1'd0, 1'd0, line };
+        2: st_dout <= fb_din[7:0];
+        3: st_dout <= fb_din[15:8];
+        4: st_dout <= sram_data[7:0];
+        5: st_dout <= sram_data[15:8];
+        6: st_dout <= 0;
+        7: st_dout <= 0;
+        8: st_dout <= ln_v[7:0];
+        9: st_dout <= vrender[7:0];
+        default: st_dout <= 0;
+    endcase
+end
+
+always @( posedge clk ) begin
+    if( rst ) begin
+        hblen  <= 0;
+        hlim   <= 0;
+        hcnt   <= 0;
+        lhbl_l <= 0;
+        vsl    <= 0;
+    end else if(pxl_cen) begin
+        lhbl_l  <= lhbl;
+        vsl     <= vs;
+        hcnt    <= hcnt+1'd1;
+        if( ~lhbl & lhbl_l ) begin // enters blanking
+            hcnt   <= 0;
+            hlim   <= hcnt - hblen; // H limit below which we allow do_wr events
+        end
+        if( lhbl & ~lhbl_l ) begin // leaves blanking
+            hblen <= hcnt;
+        end
+    end
+end
+
+wire skip_blank_lines = do_wr && fb_blank;
+
+always @( posedge clk ) begin
+    if( rst ) begin
+        sram_wen <= 0;
+        sram_rd  <= 0;
+        fb_addr  <= 0;
+        wr_addr  <= 0;
+        fb_clr   <= 0;
+        fb_done  <= 0;
+        act_addr <= 0;
+        rd_addr  <= 0;
+        line     <= 0;
+        scr_we   <= 0;
+        ln_done_l<= 0;
+        wr_v     <= 0;
+        do_wr    <= 0;
+        st       <= IDLE;
+    end else begin
+        fb_done <= 0;
+        ln_done_l <= ln_done;
+        if (ln_done && !ln_done_l ) begin
+            do_wr <= 1;
+            wr_v  <= ln_v;
+        end
+        if( fb_clr ) begin
+            // the line is cleared outside the state machine so a
+            // read operation can happen independently
+            fb_addr <= fb_addr + 1'd1;
+            if( fb_over ) begin
+                fb_clr  <= 0;
+            end
+        end
+        case( st )
+            IDLE: begin
+                sram_wen <= 0;
+                sram_rd <= 0;
+                scr_we   <= 0;
+                if( lhbl_l & ~lhbl ) begin
+                    act_addr <= { fb_rd_bank, vrender, {HW{1'd0}}  };
+                    sram_rd <= 1;
+                    rd_addr  <= 0;
+                    scr_we   <= 1;
+                    st       <= READ;
+                end else if( skip_blank_lines ) begin
+                    fb_done  <= 1;
+                    do_wr    <= 0;
+                end else if( do_wr && !fb_clr &&
+                    hcnt<hlim && lhbl ) begin // do not start too late so it doesn't run over H blanking
+                    fb_addr  <= 1;
+                    wr_addr  <= 0;
+                    act_addr <= { fb_wr_bank, wr_v, {HW{1'd0}}  };
+                    sram_wen <= 1;
+                    do_wr    <= 0;
+                    st       <= WRITE;
+                end
+            end
+            READ: begin
+                sram_rd <= 0;
+                rd_addr <= nx_rd_addr;
+                if( &rd_addr ) st <= IDLE;
+                else act_addr[HW-1:0] <= nx_rd_addr;
+                sram_rd <= 1;
+            end
+            WRITE: begin
+                act_addr[HW-1:0] <= act_addr[HW-1:0]+1'd1;
+                wr_addr <= wr_addr + 1'd1;
+                fb_addr <= fb_addr + 1'd1;
+                if( wr_over ) begin
+                    sram_wen <= 0;
+                    fb_addr  <= 0;
+                    line     <= ~line;
+                    fb_done  <= 1;
+                    fb_clr   <= 1;
+                    st       <= IDLE;
+                end
+            end
+            default: st <= IDLE;
+        endcase
+    end
+end
+
+endmodule

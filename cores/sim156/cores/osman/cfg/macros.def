@@ -1,0 +1,73 @@
+# Osman / Cannon Dancer — JTFRAME macros. Data East "Simple 156" (Mitchell MT5601-0).
+# Base: nslasher cfg (same ARM DE156 spine), stripped — no Z80/YM/Ace/2nd-sprite/fold.
+# NOTE: no trailing comments on NAME=value lines — jtframe takes everything after '=' as value.
+CORENAME=JTOSMAN
+
+# DDR3 ROM staging for all seven parent sets. Keep this in the common scope:
+# MRA generation must see it too, to emit ROM index 0 address=0x30000000.
+JTFRAME_MR_DDRLOAD
+
+# Local MiSTer presentation; licensing remains in source and provenance.
+JTFRAME_OSD_NOLOGO
+JTFRAME_NOCREDITS
+-JTFRAME_CREDITS
+JTFRAME_OSD_HU_LAYOUT
+JTFRAME_NOMRA_DIP
+# JTFRAME_SHIFT XOR JTFRAME_180SHIFT selects SDRAM's read-return schedule.
+# Falling-edge capture uses related56MHz +2232ps PLL output, then original
+# rising-edge retiming; SHIFTED=0 preserves consumer/DOK alignment.
+JTFRAME_SHIFT=1
+JTFRAME_DQ_CAPTURE=1
+JTFRAME_SDRAM_HF=1
+JTFRAME_SDRAM_INIT_CYCLES=12000
+
+JTFRAME_BUTTONS=3
+JTFRAME_HEADER=16
+
+# IN1 wants MAME's TAITO-style U/D/L/R at bits 0-3 (b0=up..b3=right). JTFRAME's default
+# joystick order is up,down,left,right at [3:0] (i.e. [3]=up..[0]=right), so bit-reverse
+# [3:0] -> RLDU. Without this, pressing up lands on bit3 = right. Same as cninja/karnov.
+JTFRAME_JOY_RLDU=1
+
+# Screen: 7 MHz dot clock, htotal 442, vtotal 274 -> 15.84 kHz / 57.79 Hz, straight from
+# nslasher's set_raw(28MHz/4, 442, 0, 320, 274, 8, 248) in fghthist.cpp (same DECO video
+# chips; simpl156.cpp's set_size(512) is the tilemap bitmap, not the scan line). Mostly
+# ROT0; prtytime/gangonta are ROT90 (MRA rotate flag), so vertical support is enabled.
+JTFRAME_WIDTH=320
+JTFRAME_HEIGHT=240
+JTFRAME_COLORW=8
+# Clocking: reuse the cps3 pll7000 (base 56 MHz -> 28/56/112). PXLCLK=6 divides by 8,
+# so pxl_cen = 56/8 = 7 MHz, the DE156's native dot clock; the /8 base also gives clean
+# cen divisors (ARM 7, OKI 1/2 MHz). JTFRAME_180SHIFT is required for the SDRAM to meet
+# timing at this clock (without it the core does not boot), same as cps3.
+JTFRAME_PXLCLK=6
+JTFRAME_PLL=jtframe_pll7000
+# The PLL is bypassed in Verilator, so the sim pixel clock (nominal) differs from the
+# pll7000 hardware clock; skip the sim rate check as cps3 does. RATE documents hardware.
+JTFRAME_RATE=57.79
+JTFRAME_SKIP_RATE_TEST
+
+# Osman has NO dipswitches — region/lives/buttons live in the 93C46 EEPROM + service menu.
+# JTFRAME_OSD_TEST adds the OSD "Service mode" toggle (TESTSW). No JTFRAME_DIPSW/DIPBASE.
+JTFRAME_OSD_TEST=1
+# 93C46 contents via the MRA nvram node (128 bytes, ioctl index 2, save/restore)
+JTFRAME_IOCTL_RD=128
+
+# ---- ROM / SDRAM layout (download-blob byte offsets, MRA concat order) ----
+# BA0: main ARM ROM (32-bit, deco156 decrypt-at-fetch; 1MB slot: 512KB simpl156, 1MB hvysmsh)
+# BA1: tiles 0x200000 (16-bit, deco56 decrypt-at-fetch; mcf-00 ROM_CONTINUE + RGN_FRAC(1,2))
+# BA2: okisfx (8-bit; 512 KB slot: 256 KB on simpl156, 512 KB banked on hvysmsh)
+#      + okimusic 0x200000 (8-bit; same address-bitswap + bank[2:0] for every supported family)
+# BA3: sprites 0x800000 (4bpp RGN_FRAC(1,2), plain; 32-bit packed fetch)
+JTFRAME_BA1_START=0x100000
+JTFRAME_BA2_START=0x300000
+PCM1_START=0x300000
+PCM2_START=0x380000
+JTFRAME_BA3_START=0x580000
+
+[mister]
+# SDRAM phase shift: hardware-only (the verilator SDRAM model breaks with it,
+# garbage ARM opcodes). Required on MiSTer or the core does not boot — like cps3.
+JTFRAME_180SHIFT
+JTFRAME_ARX=4
+JTFRAME_ARY=3

@@ -1,0 +1,302 @@
+/* SPDX-FileCopyrightText: 2026 Jose Tejada Gomez
+ * SPDX-License-Identifier: GPL-3.0-or-later
+ * Date: 20-11-2022 */
+
+module jtframe_lfbuf_ctrl #(parameter
+    CLK96   =   0,   // assume 48-ish MHz operation by default
+    VW      =   8,
+    HW      =   9
+)(
+    input               rst,    // hold in reset for >150 us
+    input               clk,
+    input               pxl_cen,
+
+    input               lhbl,
+    input               vs,
+    input               ln_done,
+    input               fb_keep,
+    input      [VW-1:0] vrender,
+    input      [VW-1:0] ln_v,
+    // data written to external memory
+    input               frame,
+    input               fb_blank,
+    output reg [HW-1:0] fb_addr,
+    input      [  15:0] fb_din,
+    output reg          fb_clr,
+    output reg          fb_done,
+
+    // data read from external memory to screen buffer
+    // during h blank
+    output     [  15:0] fb_dout,
+    output reg [HW-1:0] rd_addr,
+    output reg          line,
+    output              scr_we,
+
+    // cell RAM (PSRAM) signals
+    output reg [ 21:16] cr_addr,
+    inout      [  15:0] cr_adq,
+    input               cr_wait,
+    output              cr_clk,
+    output reg          cr_advn,
+    output reg          cr_cre,
+    output     [   1:0] cr_cen, // chip enable
+    output reg          cr_oen,
+    output reg          cr_wen,
+    output     [   1:0] cr_dsn
+);
+
+localparam [3:0] INIT       = { 3'd0, 1'd0 },
+                 IDLE       = { 3'd1, 1'd0 },
+                 WRITE_ADDR = { 3'd2, 1'd0 },
+                 WRITEOUT   = { 3'd2, 1'd1 },
+                 READ_ADDR  = { 3'd4, 1'd0 },
+                 READIN     = { 3'd4, 1'd1 };
+
+localparam AW = HW+VW;
+
+localparam [21:0] BUS_CFG = {
+    2'd0, // reserved
+    2'd2, // bus configuration register
+    2'd0, // reserved
+    1'b0, // synchronous burst access
+    1'b0, // variable latency
+    3'd3, // default latency counter
+    1'b0, // wait is active low
+    1'b0, // reserved
+    1'b0, // 1=wait set 1 clock ahead of data
+    2'd0, // reserved
+    2'd1, // drive strength (default)
+    1'b1, // no burst wrap
+    3'd7  // continuous burst
+}, REF_CFG = {
+    2'd0, // reserved
+    2'd0, // refresh configuration register
+    13'd0, // reserved
+    1'b1, // deep power power down disabled
+    1'd0, // reserved
+    3'b100 // array not refreshed
+    // 1'b1, // use bottom half of the array (or all of it)
+    // AW == 21 ? 2'd0 : // full array    (4096 x 16 bits = 64Mbit per chip half)
+    // AW == 20 ? 2'd1 : // half the array(2048 x 16 bits)
+    // AW == 19 ? 2'd2 : // 1/4 the array (1024 x 16 bits)
+    //            2'd3   // 1/8 the array (512k x 16 bits)
+};
+
+reg    [ 3:0] st;
+reg    [ 4:0] cntup; // use a larger count to capture data using Signal Tap
+wire   [ 7:0] vram; // current row (v) being processed through the external RAM
+reg    [15:0] adq_reg, wr_first;
+reg  [VW-1:0] wr_v;
+reg  [HW-1:0] hblen, hlim, hcnt, wr_addr;
+reg           lhbl_l, do_wr, wait1, adq_en, wr_first_sel,
+              csn, ln_done_l, vsl, startup;
+wire          fb_over;
+wire          wring;
+wire   [15:0] cr_wr_data;
+wire          cr_keep_blank, cr_bank;
+
+localparam [15:0] LFBUF_CLR = `ifndef JTFRAME_LFBUF_CLR 0 `else `JTFRAME_LFBUF_CLR `endif ;
+
+`ifdef SIMULATION
+wire   rding   = st[3]; `endif
+assign wring   = st[2];
+assign cr_cen  = { 1'b1, csn }; // I call it csn to avoid the confusion with the common cen (clock enable) signal
+assign cr_dsn  = {2{cr_keep_blank}};
+assign fb_dout = cr_oen ? 16'd0 : cr_adq;
+assign cr_adq  =!cr_oen ? 16'hzzzz : adq_en ? adq_reg : fb_din;
+assign cr_clk  = clk;
+assign fb_over =&fb_addr;
+assign vram    = lhbl ? wr_v : vrender;
+assign scr_we  = cr_wait & ~cr_oen;
+assign cr_wr_data    = wr_first_sel ? wr_first : fb_din;
+assign cr_keep_blank = fb_keep && st == WRITEOUT && cr_wr_data == LFBUF_CLR;
+assign cr_bank       = fb_keep ? 1'b0 : lhbl ^ frame;
+
+always @( posedge clk ) begin
+    if( rst ) begin
+        hblen  <= 0;
+        hlim   <= 0;
+        hcnt   <= 0;
+        lhbl_l <= 0;
+        vsl    <= 0;
+        cntup  <= 0;
+        startup<= `ifdef NOMAIN 1 `else 0 `endif ;
+    end else if(pxl_cen) begin
+        lhbl_l  <= lhbl;
+        vsl     <= vs;
+        hcnt    <= hcnt+1'd1;
+`ifndef NOMAIN
+        startup <= &cntup;
+`endif
+        if( ~lhbl & lhbl_l ) begin // enters blanking
+            hcnt   <= 0;
+            hlim   <= hcnt - hblen; // H limit below which we allow do_wr events
+        end
+        if( lhbl & ~lhbl_l ) begin // leaves blanking
+            hblen <= hcnt;
+        end
+        if( vs & ~vsl & ~&cntup ) cntup <= cntup+1'd1;
+    end
+end
+
+wire skip_blank_lines = do_wr && fb_blank;
+
+always @( posedge clk ) begin
+    if( rst ) begin
+        do_wr <= 0;
+        wr_v  <= 0;
+    end else begin
+        ln_done_l <= ln_done;
+        if( ln_done & ~ln_done_l ) begin
+            do_wr <= 1;
+            wr_v  <= ln_v;
+        end
+        if( st==WRITEOUT && fb_over ) do_wr <= 0;
+        if( st==IDLE && skip_blank_lines ) do_wr <= 0;
+    end
+end
+
+reg [4:0] init_seq[0:15];
+reg [4:0] init_cnt;
+
+initial begin
+    //                cen,  cre, advn,  oen,  wen
+    init_seq[ 0] =  { 1'b1, 1'b1, 1'b1, 1'b1, 1'b1 };
+    init_seq[ 1] =  { 1'b0, 1'b1, 1'b0, 1'b1, 1'b1 };  // latch address
+    init_seq[ 2] =  { 1'b0, 1'b0, 1'b1, 1'b1, 1'b1 };
+    init_seq[ 3] =  { 1'b0, 1'b0, 1'b1, 1'b1, 1'b0 };  // write starts
+    init_seq[ 4] =  { 1'b0, 1'b0, 1'b1, 1'b1, 1'b0 };
+    init_seq[ 5] =  { 1'b0, 1'b0, 1'b1, 1'b1, 1'b0 };  // cfg written
+    //                cen,  cre, advn,  oen,  wen
+    init_seq[ 6] =  { 1'b1, 1'b0, 1'b1, 1'b1, 1'b1 }; // read
+    init_seq[ 7] =  { 1'b0, 1'b0, 1'b0, 1'b1, 1'b1 };
+    init_seq[ 8] =  { 1'b0, 1'b0, 1'b1, 1'b1, 1'b1 };
+    init_seq[ 9] =  { 1'b0, 1'b0, 1'b1, 1'b1, 1'b1 };
+    init_seq[10] =  { 1'b0, 1'b0, 1'b1, 1'b0, 1'b1 };
+    init_seq[11] =  { 1'b0, 1'b0, 1'b1, 1'b0, 1'b1 };
+    init_seq[12] =  { 1'b0, 1'b0, 1'b1, 1'b0, 1'b1 };
+    init_seq[13] =  { 1'b1, 1'b0, 1'b1, 1'b1, 1'b1 };
+    //                cen,  cre, advn,  oen,  wen
+    init_seq[14] =  { 1'b1, 1'b0, 1'b1, 1'b1, 1'b1 }; // idle
+    init_seq[15] =  { 1'b1, 1'b0, 1'b1, 1'b1, 1'b1 };
+end
+
+always @( posedge clk ) begin
+    if( rst ) begin
+        st       <= INIT;
+        cr_advn  <= 0;
+        cr_oen   <= 0;
+        cr_cre   <= 0;
+        csn      <= 0;
+        fb_addr  <= 0;
+        fb_clr   <= 0;
+        fb_done  <= 0;
+        rd_addr  <= 0;
+        line     <= 0;
+        wait1    <= 0;
+        init_cnt <= 0;
+        adq_en   <= 0;
+        wr_first_sel <= 0;
+        wr_first     <= 0;
+    end else begin
+        fb_done <= 0;
+        wait1   <= 0;
+        cr_advn <= 1;
+        if(!wait1) adq_en <= 0;
+        if( fb_clr ) begin
+            // the line is cleared outside the state machine so a
+            // read operation can happen independently
+            fb_addr <= fb_addr + 1'd1;
+            if( fb_over ) begin
+                fb_clr  <= 0;
+            end
+        end
+        if( !startup ) begin
+            csn <= 1;
+        end else case( st )
+            INIT: begin
+                case(init_cnt)
+                    1,2,7,8: adq_en <= 1;
+                    default: adq_en <= 0;
+                endcase
+                if( init_cnt==0  ) { cr_addr, adq_reg } <= REF_CFG;
+                if( init_cnt==15 ) { cr_addr, adq_reg } <= BUS_CFG;
+                init_cnt <= init_cnt + 1'd1;
+                { csn, cr_cre, cr_advn, cr_oen, cr_wen } <= init_seq[init_cnt[3:0]];
+                if( &init_cnt ) st <= IDLE;
+            end
+            // Wait for requests
+            IDLE: begin
+                csn     <= 1;
+                cr_wen  <= 1;
+                cr_cre  <= 0;
+                adq_reg <= { vram[VW-6:0], {16+5-VW{1'b0}} };
+                cr_addr <= { cr_bank, vram[VW-1-:5]  };
+                if( lhbl_l & ~lhbl ) begin
+                    // it doesn't matter if vrender changes after the LHBL edge
+                    // is set as it is latched in { cr_addr, adq_reg }
+                    csn     <= 0;
+                    rd_addr <= 0;
+                    cr_oen  <= 1;
+                    st      <= READ_ADDR;
+                end else if( skip_blank_lines ) begin
+                    fb_done  <= 1;
+                end else if( do_wr && !fb_clr &&
+                    hcnt<hlim && lhbl ) begin // do not start too late so it doesn't run over H blanking
+                    csn     <= 0;
+                    fb_addr      <= 1;
+                    wr_addr      <= 0;
+                    wr_first     <= fb_din;
+                    wr_first_sel <= 1;
+                    cr_oen       <= 1;
+                    st           <= WRITE_ADDR;
+                end
+            end
+            WRITE_ADDR, READ_ADDR: begin
+                adq_reg[HW-1:0] <= wring ? wr_addr : rd_addr;
+                csn             <= 0;
+                cr_advn         <= 0;
+                adq_en          <= 1;
+                cr_oen          <= 1;
+                cr_wen          <=~wring;
+                st              <= wring ? WRITEOUT : READIN;
+                wait1           <= 1; // give time to cr_wait to react
+            end
+            WRITEOUT: begin // Write line from internal BRAM to PSRAM
+                adq_en  <= wr_first_sel;
+                adq_reg <= wr_first;
+                cr_wen  <= 0;
+                if( cr_wait && !wait1 ) begin
+                    wr_first_sel <= 0;
+                    adq_en       <= 0;
+                    if( &wr_addr ) begin // This violates the max 4us time, but it is ok as refresh is not required
+                        st      <= IDLE;
+                        csn     <= 1;
+                        cr_wen  <= 1;
+                        fb_addr <= 0;
+                        fb_clr  <= 1;
+                        line    <= ~line;
+                        fb_done <= 1;
+                        adq_en  <= 0;
+                    end else begin
+                        fb_addr <= fb_addr + 1'd1;
+                        wr_addr <= wr_addr + 1'd1;
+                    end
+                end
+            end
+            READIN: begin // Read line from PSRAM
+                cr_oen <= 0;
+                if( cr_wait && !wait1 ) begin
+                    rd_addr <= rd_addr + 1'd1;
+                    if( &rd_addr ) begin // 4us max /csn violated, but ok
+                        csn    <= 1;
+                        st     <= IDLE;
+                    end
+                end
+            end
+            default: st <= IDLE;
+        endcase
+    end
+end
+
+endmodule
