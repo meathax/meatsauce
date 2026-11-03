@@ -20,6 +20,7 @@ set_global_assignment -name SYSTEMVERILOG_FILE rtl/video/s32_mixer.sv
 set_global_assignment -name SYSTEMVERILOG_FILE rtl/video/s32_palette.sv
 set_global_assignment -name SYSTEMVERILOG_FILE rtl/video/s32_video.sv
 set_global_assignment -name SYSTEMVERILOG_FILE rtl/video/s32_splitscreen_composer.sv
+set_global_assignment -name SYSTEMVERILOG_FILE rtl/video/s32_lcd_panel.sv
 set_global_assignment -name SYSTEMVERILOG_FILE rtl/audio/s32_audio_mix.sv
 set_global_assignment -name SYSTEMVERILOG_FILE rtl/audio/s32_monitor_audio_route.sv
 set_global_assignment -name SYSTEMVERILOG_FILE rtl/audio/s32_soundsys.sv
@@ -29,6 +30,7 @@ set_global_assignment -name QIP_FILE rtl/audio/T80/T80.qip
 set_global_assignment -name QIP_FILE rtl/audio/jt12/jt12.qip
 
 set_global_assignment -name SYSTEMVERILOG_FILE rtl/io/s32_io.sv
+set_global_assignment -name SYSTEMVERILOG_FILE rtl/io/s32_hd44780.sv
 set_global_assignment -name SYSTEMVERILOG_FILE rtl/io/s32_driving_controls.sv
 set_global_assignment -name SYSTEMVERILOG_FILE rtl/mem/sdram.sv
 set_global_assignment -name SYSTEMVERILOG_FILE rtl/mem/s32_sdram_write_mux2.sv

@@ -131,6 +131,8 @@ wire  [8:0] spinner_1;
 wire        core_hs, core_vs;
 wire        mode_416_active;
 wire  [1:0] core_steering_motors;
+wire  [7:0] core_lamps_a, core_lamps_b;
+wire [15:0] core_port_g;
 wire [24:0] ps2_mouse;
 // This RBF contains the common Sega System Multi 32 (837-8676) hardware used
 // by the supported Multi 32 titles.  The descriptor is committed by the ROM
@@ -185,6 +187,7 @@ localparam CONF_STR = {
     "-;",
     "O[6],Screen (Multi32),A,B;",
     "O[38],Splitscreen,Off,On;",
+    "h0O[46],Cabinet LCD Panel,On,Off;",
     "O[7],Service Mode,Off,On;",
     "-;",
     "O[40:39],P1 Steering,Analog Wheel,Paddle,Spinner,Spinner Reverse;",
@@ -197,6 +200,7 @@ localparam CONF_STR = {
     // Input) -- OutRunners has no positional-gun cabinet. Left unallocated
     // rather than reclaimed, matching the status[29] convention below.
     // status[43] = OutRunners rumble enable; status[45:44] = rumble strength.
+    // status[46] = OutRunners cabinet LCD/lamp panel below the picture (0=On).
     // status[29] is RESERVED and intentionally unused.  It used to select
     // "V60 Fetch,Fast,PCB (Reset)"; the Fast instruction-fetch transport has
     // been removed and the core always uses the PCB fetch path.  The bit is
@@ -921,8 +925,10 @@ s32_core core (
     .hcnt_o(core_hcnt), .vcnt_o(),
     .mode_416_active(mode_416_active),
     .audio_l(aud_l), .audio_r(aud_r),
-    .out_lamps(),
-    .out_steering_motors(core_steering_motors)
+    .out_lamps(core_lamps_a),
+    .out_steering_motors(core_steering_motors),
+    .out_lamps_b(core_lamps_b),
+    .out_port_g(core_port_g)
 );
 
 wire splitscreen_en = status[38];
@@ -963,6 +969,24 @@ wire        disp_vs     = splitscreen_en ? comp_vs     : core_vs;
 wire        disp_hb     = splitscreen_en ? comp_hb     : core_hb;
 wire        disp_vb     = splitscreen_en ? comp_vb     : core_vb;
 
+// OutRunners cabinet panel: each seat's HD44780 LCD and its four lamps in a
+// 20-line strip added BELOW the picture from vertical-blanking lines (VSync
+// moves down accordingly; totals, CE_PIXEL and every game pixel unchanged).
+// Other titles, and the Off setting, pass the raster through untouched.
+wire [23:0] pan_rgb;
+wire        pan_hs, pan_vs, pan_hb, pan_vb, panel_active;
+s32_lcd_panel u_lcd_panel (
+    .clk(clk_sys), .rst(reset), .video_rst(video_reset),
+    .enable((active_board.game_profile == MULTI32_OUTRUNNERS) && ~status[46]),
+    .mode_416(mode_416_active), .splitscreen(splitscreen_en), .screen_sel(status[6]),
+    .port_d_a(core_lamps_a), .port_g_a(core_port_g[7:0]),
+    .port_d_b(core_lamps_b), .port_g_b(core_port_g[15:8]),
+    .rgb_in(disp_rgb), .ce_in(disp_ce_pix),
+    .hs_in(disp_hs), .vs_in(disp_vs), .hb_in(disp_hb), .vb_in(disp_vb),
+    .rgb_out(pan_rgb), .hs_out(pan_hs), .vs_out(pan_vs),
+    .hb_out(pan_hb), .vb_out(pan_vb), .active(panel_active)
+);
+
 wire [2:0] scandoubler_fx = status[5:3];
 // Scandoubler Fx is a 3-bit field (None/CRT 25/50/75). VGA_SL takes the two
 // low bits directly so None=0 and CRT 25/50/75 map to 1/2/3.
@@ -977,12 +1001,14 @@ wire [1:0] aspect = status[2:1];
 // Two 4:3 screens side by side is ~8:3 in the Original setting, but split
 // mode still honours Full Screen and the framework's ARC1/ARC2 encodings.
 // ARY=0 with ARX=1/2 is decoded by sys_top as ARC1/ARC2; 0:0 is Full Screen.
+// With the cabinet panel the frame is 244 lines; Original keeps the game's
+// 224 lines at 4:3 (4*224 : 3*244 = 224:183, 448:183 for two screens).
 wire [11:0] aspect_arx = splitscreen_en
-                       ? ((aspect == 0) ? 12'd8 :
+                       ? ((aspect == 0) ? (panel_active ? 12'd448 : 12'd8) :
                           (aspect == 1) ? 12'd0 : {10'd0, (aspect - 1'd1)})
-                       : (aspect == 0) ? 12'd4 : {10'd0, (aspect - 1'd1)};
-wire [11:0] aspect_ary = splitscreen_en ? ((aspect == 0) ? 12'd3 : 12'd0) :
-                          (aspect == 0) ? 12'd3 : 12'd0;
+                       : (aspect == 0) ? (panel_active ? 12'd224 : 12'd4)
+                                       : {10'd0, (aspect - 1'd1)};
+wire [11:0] aspect_ary = (aspect == 0) ? (panel_active ? 12'd183 : 12'd3) : 12'd0;
 
 // Keep the framework's integer-scaling size calculation available through the
 // OSD while retaining the direct native RGB/sync/DE/CE path below.  SCALE=0 is
@@ -994,13 +1020,13 @@ wire scale_de_unused;
 video_freak s32_video_freak (
     .CLK_VIDEO (clk_sys),
     .CE_PIXEL  (disp_ce_pix),
-    .VGA_VS    (disp_vs),
+    .VGA_VS    (pan_vs),
     .HDMI_WIDTH(HDMI_WIDTH),
     .HDMI_HEIGHT(HDMI_HEIGHT),
     .VGA_DE    (scale_de_unused),
     .VIDEO_ARX (VIDEO_ARX),
     .VIDEO_ARY (VIDEO_ARY),
-    .VGA_DE_IN(~(disp_hb | disp_vb)),
+    .VGA_DE_IN(~(pan_hb | pan_vb)),
     .ARX       (aspect_arx),
     .ARY       (aspect_ary),
     .CROP_SIZE (12'd0),
@@ -1011,11 +1037,11 @@ video_freak s32_video_freak (
 // OutRunners uses the native game raster directly. CRT geometry adjustment
 // is intentionally not part of this single-board production image.
 assign CE_PIXEL = disp_ce_pix;
-assign VGA_R  = disp_rgb[23:16];
-assign VGA_G  = disp_rgb[15:8];
-assign VGA_B  = disp_rgb[7:0];
-assign VGA_HS = disp_hs;
-assign VGA_VS = disp_vs;
-assign VGA_DE = ~(disp_hb | disp_vb);
+assign VGA_R  = pan_rgb[23:16];
+assign VGA_G  = pan_rgb[15:8];
+assign VGA_B  = pan_rgb[7:0];
+assign VGA_HS = pan_hs;
+assign VGA_VS = pan_vs;
+assign VGA_DE = ~(pan_hb | pan_vb);
 
 endmodule
