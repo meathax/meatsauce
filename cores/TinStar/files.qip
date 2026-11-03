@@ -1,0 +1,8 @@
+set_global_assignment -name QIP_FILE "modules/cpu-t80/index.qip"
+set_global_assignment -name QIP_FILE "modules/sound-jt49/index.qip"
+set_global_assignment -name SYSTEMVERILOG_FILE Arcade-TaitoSJ.sv
+set_global_assignment -name SDC_FILE Arcade-TaitoSJ.sdc
+
+set_global_assignment -name SYSTEMVERILOG_FILE rtl/controls/stick_controls.sv
+set_global_assignment -name SYSTEMVERILOG_FILE rtl/controls/snk_aim_quant4.sv
+set_global_assignment -name SYSTEMVERILOG_FILE rtl/controls/analog_move8.sv

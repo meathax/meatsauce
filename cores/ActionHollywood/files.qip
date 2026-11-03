@@ -1,0 +1,41 @@
+# Action Hollywood source list (add new lane files here; never via the Quartus IDE).
+set_global_assignment -name SYSTEMVERILOG_FILE AH.sv
+set_global_assignment -name SYSTEMVERILOG_FILE rtl/ah_dbg.sv
+set_global_assignment -name SYSTEMVERILOG_FILE rtl/ah_game.sv
+set_global_assignment -name SYSTEMVERILOG_FILE rtl/ah_sdram.sv
+set_global_assignment -name SYSTEMVERILOG_FILE rtl/ah_pll.sv
+set_global_assignment -name SYSTEMVERILOG_FILE rtl/ah_loader.sv
+set_global_assignment -name SYSTEMVERILOG_FILE rtl/ah_audio.sv
+set_global_assignment -name SYSTEMVERILOG_FILE rtl/crt/ah_crt.sv
+set_global_assignment -name SYSTEMVERILOG_FILE rtl/crt/crt_adjust.sv
+# lane A: main CPU / bus / EEPROM
+set_global_assignment -name SYSTEMVERILOG_FILE rtl/ah_main.sv
+set_global_assignment -name SYSTEMVERILOG_FILE rtl/ah_cpu_ce.sv
+set_global_assignment -name SYSTEMVERILOG_FILE rtl/ah_cpu_rom.sv
+# lane B: video
+set_global_assignment -name SYSTEMVERILOG_FILE rtl/ah_video.sv
+set_global_assignment -name SYSTEMVERILOG_FILE rtl/ah_vid_ram.sv
+set_global_assignment -name SYSTEMVERILOG_FILE rtl/ah_vid_tiles.sv
+set_global_assignment -name SYSTEMVERILOG_FILE rtl/ah_vid_spr.sv
+# lane C: sound
+set_global_assignment -name SYSTEMVERILOG_FILE rtl/ah_sound.sv
+# hiscore (standard donor hiscore.sv unmodified; the zz file restores `default_nettype after it)
+set_global_assignment -name SYSTEMVERILOG_FILE rtl/hiscore/ah_hiscore.sv
+set_global_assignment -name SYSTEMVERILOG_FILE rtl/hiscore/hiscore.sv
+set_global_assignment -name SYSTEMVERILOG_FILE rtl/hiscore/hiscore_zz_nettype.sv
+# donors (fx68k reads rtl/fx68k/{microrom,nanorom}.mem relative to the project directory)
+set_global_assignment -name SYSTEMVERILOG_FILE donors/fx68k/fx68k.sv
+set_global_assignment -name SYSTEMVERILOG_FILE donors/fx68k/fx68kAlu.sv
+set_global_assignment -name SYSTEMVERILOG_FILE donors/fx68k/uaddrPla.sv
+set_global_assignment -name MISC_FILE rtl/fx68k/microrom.mem
+set_global_assignment -name MISC_FILE rtl/fx68k/nanorom.mem
+set_global_assignment -name QIP_FILE donors/jt6295/jt6295.qip
+set_global_assignment -name VERILOG_FILE donors/jt9346/jt9346.v
+set_global_assignment -name SDC_FILE AH.sdc
+set_global_assignment -name SEARCH_PATH "sys"
+set_global_assignment -name SEARCH_PATH "rtl"
+set_global_assignment -name SEARCH_PATH "rtl/crt"
+set_global_assignment -name SEARCH_PATH "donors/jt6295"
+# Credits (MeatCore Credits overlay, MIT; generated ROM files are committed - check-mode map does not run PRE_FLOW)
+set_global_assignment -name SYSTEMVERILOG_FILE rtl/ah_credits.sv
+set_global_assignment -name QIP_FILE credits/credits.qip

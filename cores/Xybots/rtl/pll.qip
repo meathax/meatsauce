@@ -1,0 +1,10 @@
+# Xybots core PLL.  Hand-written replacement for the MegaWizard-generated
+# pll.qip: only the three file registrations and the instance assignments in
+# pll/pll_0002.qip actually affect synthesis — the ~330 base64 IP_COMPONENT_*
+# lines the wizard emits exist solely so the GUI can re-open the wizard, and
+# they would go stale the moment the parameters in pll/pll_0002.v are edited by
+# hand (which is how this PLL is maintained).  See rtl/pll/pll_0002.v.
+
+set_global_assignment -library "pll" -name VERILOG_FILE [file join $::quartus(qip_path) "pll.v"]
+set_global_assignment -library "pll" -name VERILOG_FILE [file join $::quartus(qip_path) "pll/pll_0002.v"]
+set_global_assignment -library "pll" -name QIP_FILE     [file join $::quartus(qip_path) "pll/pll_0002.qip"]

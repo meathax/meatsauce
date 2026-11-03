@@ -1,0 +1,18 @@
+# Production core dependencies. Root owns sys/QSF/SDC.
+# Works both when sourced by the QSF and when loaded as a native QIP.
+set penguin_qip_root [file normalize [file dirname [info script]]]
+set_global_assignment -name QIP_FILE [file join $penguin_qip_root donors/fx68k.qip]
+foreach source {
+    Penguin.sv rtl/penguin_board.sv rtl/penguin_cpu_subsystem.sv rtl/penguin_sprite_packed_ram.sv
+    rtl/penguin_tmp68301.sv rtl/penguin_timing.sv rtl/penguin_video.sv rtl/penguin_dx101_video.sv rtl/penguin_x1_010.sv
+    rtl/penguin_memory.sv rtl/penguin_fast_rom.sv rtl/penguin_rom_cache.sv rtl/penguin_memory_ddr.sv rtl/penguin_memory_sdram.sv rtl/penguin_rom_loader.sv rtl/penguin_pll.sv
+    rtl/penguin_platform_crt_clock.sv rtl/penguin_platform_arcade_video.sv rtl/penguin_platform_video_mixer.sv
+    donors/guardians/rtl/gd_sprite_ram.sv donors/guardians/rtl/gd_word_ram.sv donors/guardians/rtl/gd_raster_irq.sv
+    donors/guardians/rtl/gd_gfx_arbiter.sv rtl/penguin_gfx_arbiter.sv donors/guardians/rtl/gd_pause_toggle.sv rtl/penguin_platform_crt_adjust.sv rtl/penguin_platform_crt_vsize.sv
+} {set_global_assignment -name SYSTEMVERILOG_FILE [file join $penguin_qip_root $source]}
+set_global_assignment -name SYSTEMVERILOG_FILE [file join $penguin_qip_root rtl/penguin_platform_framebuffer.sv]
+
+# Coherent synchronous program and shared CPU/restore work caches.
+set_global_assignment -name SYSTEMVERILOG_FILE [file join $penguin_qip_root rtl/penguin_cache_store.sv]
+set_global_assignment -name SYSTEMVERILOG_FILE [file join $penguin_qip_root rtl/penguin_cache_valid.sv]
+set_global_assignment -name SYSTEMVERILOG_FILE [file join $penguin_qip_root rtl/penguin_work_cache.sv]

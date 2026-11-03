@@ -1,0 +1,160 @@
+# --------------------------------------------------------------------------
+#
+# MiSTer project
+#
+# WARNING WARNING WARNING:
+# Do not add files to project in Quartus IDE! It will mess this file!
+# Add the files manually to files.qip file.
+#
+# --------------------------------------------------------------------------
+
+set_global_assignment -name TOP_LEVEL_ENTITY sys_top
+set_global_assignment -name PARTITION_NETLIST_TYPE SOURCE -section_id Top
+set_global_assignment -name PARTITION_FITTER_PRESERVATION_LEVEL PLACEMENT_AND_ROUTING -section_id Top
+set_global_assignment -name PARTITION_COLOR 16764057 -section_id Top
+
+set_global_assignment -name LAST_QUARTUS_VERSION "17.0.2 Standard Edition"
+
+set_global_assignment -name GENERATE_RBF_FILE OFF
+set_global_assignment -name COMPRESSION_MODE ON
+set_global_assignment -name ON_CHIP_BITSTREAM_DECOMPRESSION ON
+set_global_assignment -name PROJECT_OUTPUT_DIRECTORY output_files
+set_global_assignment -name NUM_PARALLEL_PROCESSORS ALL
+set_global_assignment -name SAVE_DISK_SPACE OFF
+set_global_assignment -name SMART_RECOMPILE ON
+set_global_assignment -name MIN_CORE_JUNCTION_TEMP "-40"
+set_global_assignment -name MAX_CORE_JUNCTION_TEMP 100
+set_global_assignment -name POWER_PRESET_COOLING_SOLUTION "23 MM HEAT SINK WITH 200 LFPM AIRFLOW"
+set_global_assignment -name POWER_BOARD_THERMAL_MODEL "NONE (CONSERVATIVE)"
+set_global_assignment -name TIMEQUEST_MULTICORNER_ANALYSIS ON
+set_global_assignment -name OPTIMIZE_POWER_DURING_FITTING OFF
+set_global_assignment -name FINAL_PLACEMENT_OPTIMIZATION ALWAYS
+set_global_assignment -name FITTER_EFFORT "STANDARD FIT"
+set_global_assignment -name OPTIMIZATION_MODE "HIGH PERFORMANCE EFFORT"
+set_global_assignment -name ALLOW_POWER_UP_DONT_CARE ON
+set_global_assignment -name QII_AUTO_PACKED_REGISTERS NORMAL
+set_global_assignment -name ROUTER_LCELL_INSERTION_AND_LOGIC_DUPLICATION ON
+set_global_assignment -name PHYSICAL_SYNTHESIS_REGISTER_RETIMING ON
+set_global_assignment -name OPTIMIZATION_TECHNIQUE SPEED
+set_global_assignment -name MUX_RESTRUCTURE ON
+set_global_assignment -name REMOVE_REDUNDANT_LOGIC_CELLS ON
+set_global_assignment -name AUTO_DELAY_CHAINS_FOR_HIGH_FANOUT_INPUT_PINS ON
+set_global_assignment -name ADV_NETLIST_OPT_SYNTH_WYSIWYG_REMAP ON
+set_global_assignment -name SYNTH_GATED_CLOCK_CONVERSION ON
+set_global_assignment -name PRE_MAPPING_RESYNTHESIS ON
+set_global_assignment -name ROUTER_CLOCKING_TOPOLOGY_ANALYSIS ON
+set_global_assignment -name ECO_OPTIMIZE_TIMING ON
+set_global_assignment -name PERIPHERY_TO_CORE_PLACEMENT_AND_ROUTING_OPTIMIZATION ON
+set_global_assignment -name PHYSICAL_SYNTHESIS_ASYNCHRONOUS_SIGNAL_PIPELINING ON
+set_global_assignment -name ALM_REGISTER_PACKING_EFFORT HIGH
+set_global_assignment -name SEED 5
+set_global_assignment -name VERILOG_MACRO "MISTER_FB=1"
+set_global_assignment -name VERILOG_MACRO "SYNTHESIS=1"
+set_instance_assignment -name FAST_INPUT_REGISTER ON -to "SDRAM_DQ[*]"
+set_instance_assignment -name FAST_OUTPUT_ENABLE_REGISTER ON -to "SDRAM_DQ[*]"
+
+#enable it only if 8bit indexed mode is used in core
+#set_global_assignment -name VERILOG_MACRO "MISTER_FB_PALETTE=1"
+
+#do not enable DEBUG_NOHDMI in release!
+#set_global_assignment -name VERILOG_MACRO "MISTER_DEBUG_NOHDMI=1"
+
+# disable bilinear filtering when downscaling
+#set_global_assignment -name VERILOG_MACRO "MISTER_DOWNSCALE_NN=1"
+
+# disable adaptive scanline filtering
+#set_global_assignment -name VERILOG_MACRO "MISTER_DISABLE_ADAPTIVE=1"
+
+#use only 1MB per frame for scaler to free ~21MB DDR3 RAM
+#set_global_assignment -name VERILOG_MACRO "MISTER_SMALL_VBUF=1"
+
+# Disable YC / Composite output to save some resources
+#set_global_assignment -name VERILOG_MACRO "MISTER_DISABLE_YC=1"
+
+# Disable ALSA audio output to save some resources
+#set_global_assignment -name VERILOG_MACRO "MISTER_DISABLE_ALSA=1"
+
+# The owned QIP preserves all stock dependencies and substitutes only the
+# MCP23009 wrapper's documented 100 kHz bus rate. Framework files stay intact.
+source rtl/penguin_platform_sys.tcl
+source sys/sys_analog.tcl
+source files.qip
+# Load stock board reference clocks before deriving/qualifying owned clocks.
+set_global_assignment -name SDC_FILE Penguin.sdc
+set_global_assignment -name SDC_FILE tools/native-check/sdram-envelope.sdc
+set_global_assignment -name SDC_FILE tools/native-check/platform-io.sdc
+set_global_assignment -name SDC_FILE tools/native-check/platform-clock-families.sdc
+set_instance_assignment -name PARTITION_HIERARCHY root_partition -to | -section_id Top
+# Physical HDMI clock-pad delay; no RTL/data-cycle or frequency change.
+# Cyclone V 150ps nominal buffer step; native legality/mapped timing required.
+set_instance_assignment -name OUTPUT_BUFFER_DELAY 150 -to HDMI_TX_CLK
+set_instance_assignment -name OUTPUT_BUFFER_DELAY_CONTROL "Both Edges" -to HDMI_TX_CLK
+
+
+# V14 physical candidate: nonreserved Standard LogicLock return-data cluster.
+# Input I/O capture registers stay outside; fit must prove resource/timing caps.
+
+# Proven ACK-qualified payload stability; no control or raw-data hold waiver.
+set_global_assignment -name SDC_FILE tools/native-check/sdram-dma-ack.sdc
+
+
+# Duplicate only the reported control cones near their critical consumers.
+# Quartus DUPLICATE_ATOM preserves logic and cycle timing; new names are physical copies.
+set_instance_assignment -name DUPLICATE_ATOM board_reset_to_ddr -from "*|board_reset" -to "*f2sdram_safe_terminator_ram1*|*"
+# Keep the proved renderer capture boundary visible to its narrow multicycle path.
+# Other registers retain the project's physical synthesis optimizations.
+set_instance_assignment -name PRESERVE_REGISTER ON -to "emu|board|video|engine|map_tile_base*"
+set_instance_assignment -name ADV_NETLIST_OPT_ALLOWED "NEVER ALLOW" -to "emu|board|video|engine|map_tile_base*"
+# Local copy of the reported shared ready/reset gate for the ROM-loader controls.
+set_instance_assignment -name DUPLICATE_ATOM loader_ready_gate -from "emu|framebuffer_queue|gated_vbl~1" -to "emu|memory|loader|*"
+
+# Retain the existing scaler pixel-register boundary through physical optimization.
+set_instance_assignment -name PRESERVE_REGISTER ON -to "ascal|i_pix.*"
+set_instance_assignment -name ADV_NETLIST_OPT_ALLOWED "NEVER ALLOW" -to "ascal|i_pix.*"
+
+# Keep the same-edge ROM index predicate outside the DDR combinational cone.
+set_instance_assignment -name ADV_NETLIST_OPT_ALLOWED "NEVER ALLOW" -to "emu|hps_io|ioctl_is_rom"
+
+
+set_instance_assignment -name ADV_NETLIST_OPT_ALLOWED "NEVER ALLOW" -to "emu|rotate|geometry_*_changed"
+set_instance_assignment -name PRESERVE_REGISTER ON -to "emu|board|timing|scan_*_active"
+set_instance_assignment -name ADV_NETLIST_OPT_ALLOWED "NEVER ALLOW" -to "emu|board|timing|scan_*_active"
+
+
+# Coarse CPU read group captures on the existing RAM address edge.
+set_instance_assignment -name PRESERVE_REGISTER ON -to "emu|board|cpu|sprite_ram|packed_ram|cpu_group_select*"
+set_instance_assignment -name ADV_NETLIST_OPT_ALLOWED "NEVER ALLOW" -to "emu|board|cpu|sprite_ram|packed_ram|cpu_group_select*"
+
+# Same-edge per-lane bank decode: retain physical locality through fit.
+set_instance_assignment -name PRESERVE_REGISTER ON -to "emu|board|cpu|sprite_ram|packed_ram|*cpu_lane_select*"
+set_instance_assignment -name ADV_NETLIST_OPT_ALLOWED "NEVER ALLOW" -to "emu|board|cpu|sprite_ram|packed_ram|*cpu_lane_select*"
+
+# R16 measured route repair: same-edge copies; no clock or timing exception.
+set_instance_assignment -name MAX_FANOUT 2 -to "emu|board|sound|sample_req"
+set_instance_assignment -name PRESERVE_REGISTER ON -to "emu|board|sound|sample_req"
+set_instance_assignment -name DUPLICATE_ATOM sdram_address_idle -from "emu|memory|graphics_sdram|state.ST_IDLE" -to "emu|memory|graphics_sdram|SDRAM_A[3]~12"
+# Keep the 256x11 dual-clock lookup in M10K; move it toward the RGB coefficient FFs.
+set_location_assignment M10K_X49_Y30_N0 -to "HDMI_shadowmask|mask_lut_rtl_0|auto_generated|ram_block1a0"
+
+# Measured cold-corner header path: localize its source RAM toward CPU/header mux.
+set_location_assignment M10K_X38_Y20_N0 -to "emu|board|cpu|sprite_ram|packed_ram|lanes[5].banks[9].ram|auto_generated|ram_block1a0"
+
+# R18: same-edge physical copies for measured fanout; no RTL/cycle/clock cuts.
+set_instance_assignment -name MAX_FANOUT 32 -to "emu|memory|live_copies[1]"
+set_instance_assignment -name PRESERVE_REGISTER ON -to "emu|memory|live_copies[1]"
+# Exact direct fanout of the 37-load valid-word reduction, not a downstream FF.
+
+# Cold scaler direction-to-fraction path: localize its preserved launch FF.
+
+# R18 cold scaler stage1-to-stage2 route: duplicate its direct carry input.
+set_instance_assignment -name DUPLICATE_ATOM scaler_dir_stage2 -from "ascal|o_dir[1][8]" -to "ascal|Add110~65"
+
+# R19 HPS controls: shorten the measured21-column audio route and DDR-busy detour.
+set_location_assignment FF_X45_Y36_N14 -to "emu|board|sound|sample_req~SynDup_1"
+set_location_assignment LABCELL_X45_Y36_N6 -to "emu|memory|memory_busy~0"
+
+set_global_assignment -name PHYSICAL_SYNTHESIS_COMBO_LOGIC ON
+set_global_assignment -name PHYSICAL_SYNTHESIS_REGISTER_DUPLICATION ON
+set_global_assignment -name PHYSICAL_SYNTHESIS_EFFORT EXTRA
+set_global_assignment -name PLACEMENT_EFFORT_MULTIPLIER 3.0
+set_global_assignment -name ROUTER_TIMING_OPTIMIZATION_LEVEL MAXIMUM

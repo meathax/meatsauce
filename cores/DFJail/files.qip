@@ -1,0 +1,21 @@
+# DFJail on the pinned, unmodified JTFRAME MiSTer platform (jotego sys_top,
+# hps_io, ascal, OSD, audio, PLL reconfiguration). The earlier bespoke
+# rtl/dfjail_sys_top.v platform gated the HPS SPI acknowledge on HDMI/PLL/
+# scaler handshakes and could stall Main_MiSTer on core load; it is no longer
+# compiled. Only game-side glue remains in rtl/.
+set_global_assignment -name SDC_FILE Template.sdc
+set_global_assignment -name SYSTEMVERILOG_FILE rtl/dfjail_emu.sv
+set_global_assignment -name VERILOG_FILE rtl/dfjail_arcade_video.v
+set_global_assignment -name SYSTEMVERILOG_FILE rtl/dfjail_video_mixer.sv
+set_global_assignment -name VERILOG_FILE rtl/dfjail_ioctl_route.v
+set_global_assignment -name VERILOG_FILE rtl/dfjail_mister_dwnld.v
+set_global_assignment -name QIP_FILE cores/s16b/cfg/files.qip
+
+# JTFRAME include closure and generated S16B headers.
+set_global_assignment -name SEARCH_PATH rtl
+set_global_assignment -name SEARCH_PATH cores/s16b/cfg
+set_global_assignment -name SEARCH_PATH modules/jtframe/hdl/inc
+set_global_assignment -name SEARCH_PATH modules/jtframe/hdl/debug
+set_global_assignment -name SEARCH_PATH cores/s16b/mister
+set_global_assignment -name SEARCH_PATH modules/jtframe/bin
+set_global_assignment -name SEARCH_PATH modules/jtframe/hdl/video

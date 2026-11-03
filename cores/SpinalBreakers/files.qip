@@ -1,0 +1,12 @@
+set_global_assignment -name QIP_FILE rtl/pll.qip
+set_global_assignment -name SYSTEMVERILOG_FILE SpinalBreakers.sv
+set_global_assignment -name SDC_FILE SpinalBreakers.sdc
+set_global_assignment -name SDC_FILE constraints/spinal_hps_packet_clock.sdc
+set_global_assignment -name QIP_FILE rtl/spinal_game_sources.qip
+set_global_assignment -name SYSTEMVERILOG_FILE rtl/framework/spinal_platform_hps_io.sv
+set_global_assignment -name SYSTEMVERILOG_FILE rtl/framework/spinal_metrics_cdc.sv
+set_global_assignment -name SYSTEMVERILOG_FILE rtl/framework/spinal_metrics_reset.sv
+set_global_assignment -name SDC_FILE constraints/spinal_sdram_pins.sdc
+
+# ADV7513 reference receiver; legal modes share the real selected output clock.
+set_global_assignment -name SDC_FILE constraints/spinal_hdmi_receiver.sdc

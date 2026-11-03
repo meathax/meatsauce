@@ -1,0 +1,51 @@
+# Sega X Board — project file list. Add files here, never in the Quartus IDE.
+set_global_assignment -name QIP_FILE sys/sys.qip
+set_global_assignment -name SDC_FILE Arcade-SegaXBoard.sdc
+
+set_global_assignment -name SYSTEMVERILOG_FILE Arcade-SegaXBoard.sv
+set_global_assignment -name SYSTEMVERILOG_FILE rtl/xb_pkg.sv
+set_global_assignment -name SYSTEMVERILOG_FILE rtl/xb_core.sv
+
+set_global_assignment -name SYSTEMVERILOG_FILE rtl/video/xb_video_timing.sv
+set_global_assignment -name SYSTEMVERILOG_FILE rtl/mem/xb_fb_if.sv
+set_global_assignment -name SYSTEMVERILOG_FILE rtl/video/xb_sprite_5211.sv
+set_global_assignment -name SYSTEMVERILOG_FILE rtl/video/xb_roadrom.sv
+set_global_assignment -name SYSTEMVERILOG_FILE rtl/video/xb_road_5275.sv
+set_global_assignment -name SYSTEMVERILOG_FILE rtl/video/xb_tilerom.sv
+set_global_assignment -name SYSTEMVERILOG_FILE rtl/video/xb_tilemap_5197.sv
+set_global_assignment -name SYSTEMVERILOG_FILE rtl/video/xb_palette_5242.sv
+set_global_assignment -name SYSTEMVERILOG_FILE rtl/video/xb_mixer.sv
+
+set_global_assignment -name SYSTEMVERILOG_FILE rtl/cpu/xb_m68k_bus.sv
+set_global_assignment -name SYSTEMVERILOG_FILE rtl/cpu/xb_rom_cache.sv
+set_global_assignment -name VERILOG_FILE rtl/cpu/fd1094/jts16_fd1094_ctrl.v
+set_global_assignment -name VERILOG_FILE rtl/cpu/fd1094/jts16_fd1094_dec.v
+set_global_assignment -name SYSTEMVERILOG_FILE rtl/cpu/xb_fd1094.sv
+set_global_assignment -name SYSTEMVERILOG_FILE rtl/cpu/xb_math_5248.sv
+set_global_assignment -name SYSTEMVERILOG_FILE rtl/cpu/xb_math_5249.sv
+set_global_assignment -name SYSTEMVERILOG_FILE rtl/cpu/xb_cmptimer_5250.sv
+
+set_global_assignment -name SYSTEMVERILOG_FILE rtl/io/xb_cxd1095.sv
+set_global_assignment -name SYSTEMVERILOG_FILE rtl/io/xb_adc0804.sv
+set_global_assignment -name SYSTEMVERILOG_FILE rtl/io/xb_ana_shape.sv
+set_global_assignment -name SYSTEMVERILOG_FILE rtl/io/xb_stick.sv
+
+set_global_assignment -name SYSTEMVERILOG_FILE rtl/mem/sdram.sv
+set_global_assignment -name SYSTEMVERILOG_FILE rtl/mem/xb_rom_loader.sv
+set_global_assignment -name SYSTEMVERILOG_FILE rtl/mem/xb_dpram.sv
+
+set_global_assignment -name SYSTEMVERILOG_FILE rtl/audio/xb_segapcm_5218.sv
+set_global_assignment -name SYSTEMVERILOG_FILE rtl/audio/xb_soundsys.sv
+
+# JimmyStones' Pause_MiSTer and Hiscores_MiSTer (GPL-3), with the 16-bit ioctl glue
+set_global_assignment -name VERILOG_FILE rtl/pause/pause.v
+set_global_assignment -name VERILOG_FILE rtl/hiscore/hiscore.v
+set_global_assignment -name SYSTEMVERILOG_FILE rtl/hiscore/xb_hiscore.sv
+
+set_global_assignment -name QIP_FILE rtl/cpu/fx68k/fx68k.qip
+set_global_assignment -name QIP_FILE rtl/audio/jt51/jt51.qip
+set_global_assignment -name QIP_FILE rtl/audio/T80/T80.qip
+
+set_global_assignment -name SYSTEMVERILOG_FILE rtl/controls/stick_controls.sv
+set_global_assignment -name SYSTEMVERILOG_FILE rtl/controls/snk_aim_quant4.sv
+set_global_assignment -name SYSTEMVERILOG_FILE rtl/controls/analog_move8.sv

@@ -1,0 +1,29 @@
+set_global_assignment -name QIP_FILE sys/sys.qip
+set_global_assignment -name SDC_FILE Arcade-Exterminator.sdc
+
+# ---------------------------------------------------------------------------
+# Lane 4 (framework) files -- owned by the framework lane.
+# ---------------------------------------------------------------------------
+set_global_assignment -name SYSTEMVERILOG_FILE Arcade-Exterminator.sv
+set_global_assignment -name QIP_FILE rtl/pll/pll.qip
+set_global_assignment -name SYSTEMVERILOG_FILE rtl/fw/exterm_inputs.sv
+set_global_assignment -name SYSTEMVERILOG_FILE rtl/fw/exterm_aim.sv
+set_global_assignment -name SYSTEMVERILOG_FILE rtl/fw/exterm_nvram.sv
+set_global_assignment -name SYSTEMVERILOG_FILE rtl/fw/exterm_boot_video.sv
+set_global_assignment -name SYSTEMVERILOG_FILE rtl/fw/exterm_reset_sync.sv
+set_global_assignment -name SYSTEMVERILOG_FILE rtl/fw/exterm_audio_cdc.sv
+set_global_assignment -name SYSTEMVERILOG_FILE rtl/fw/exterm_crt.sv
+set_global_assignment -name SYSTEMVERILOG_FILE rtl/fw/crt_adjust.sv
+set_global_assignment -name SYSTEMVERILOG_FILE rtl/fw/exterm_screen_rotate.sv
+set_global_assignment -name SYSTEMVERILOG_FILE rtl/fw/exterm_freak.sv
+set_global_assignment -name SYSTEMVERILOG_FILE rtl/fw/exterm_audio_dc.sv
+set_global_assignment -name VERILOG_FILE       rtl/fw/vendor/nvram.v
+# rtl/fw/vendor/hiscore.v is vendored for reference but NOT instantiated
+# (see docs/lane4_framework.md: the NVRAM image index 4 *is* the hi-score store).
+
+# ---------------------------------------------------------------------------
+# Core RTL (exterm_core and all lane 1/2/3 files) is listed in rtl/core_files.qip,
+# written by the orchestrator. Until the real exterm_core.sv exists that file
+# and is included exactly once, below.
+# ---------------------------------------------------------------------------
+set_global_assignment -name QIP_FILE rtl/core_files.qip

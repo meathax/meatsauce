@@ -1,0 +1,22 @@
+set_global_assignment -name VERILOG_INPUT_VERSION SYSTEMVERILOG_2005
+set_global_assignment -name SDC_FILE rtl/jackal_sdram.sdc
+set_global_assignment -name SDC_FILE rtl/jackal_hdmi.sdc
+
+set_global_assignment -name SYSTEMVERILOG_FILE Arcade-Jackal.sv
+set_global_assignment -name SYSTEMVERILOG_FILE rtl/Jackal.sv
+set_global_assignment -name VERILOG_FILE rtl/pause.v
+set_global_assignment -name VERILOG_FILE rtl/hiscore.v
+set_global_assignment -name VERILOG_FILE rtl/jtframe_frac_cen.v
+set_global_assignment -name QIP_FILE rtl/cpu/jackal_cpu.qip
+set_global_assignment -name QIP_FILE rtl/custom/jackal_custom.qip
+set_global_assignment -name QIP_FILE rtl/ram_rom/jackal_ram_rom.qip
+set_global_assignment -name QIP_FILE rtl/sound/jackal_sound.qip
+
+set_global_assignment -name SYSTEMVERILOG_FILE "rtl/jackal_pixel_ce.sv"
+set_global_assignment -name SYSTEMVERILOG_FILE "rtl/jackal_gfx_cache.sv"
+
+set_global_assignment -name SYSTEMVERILOG_FILE "rtl/controls/jackal_aim_controls.sv"
+
+set_global_assignment -name SYSTEMVERILOG_FILE "rtl/controls/snk_aim_quant4.sv"
+
+set_global_assignment -name SYSTEMVERILOG_FILE "rtl/controls/rotary_target_servo.sv"

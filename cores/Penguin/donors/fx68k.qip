@@ -1,0 +1,6 @@
+# Unmodified vendor source; GNU GPL-3.0. Micro/nano ROMs must remain searchable.
+set_global_assignment -name SEARCH_PATH [file join $::quartus(qip_path) guardians rtl fx68k hdl]
+set_global_assignment -name SEARCH_PATH [file join $::quartus(qip_path) guardians rtl fx68k hdl verilator]
+foreach src {fx68k.sv fx68kAlu.sv uaddrPla.sv} {
+    set_global_assignment -name SYSTEMVERILOG_FILE [file join $::quartus(qip_path) guardians rtl fx68k hdl verilator $src]
+}

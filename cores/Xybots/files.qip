@@ -1,0 +1,150 @@
+# Authoritative synthesis source list for the Xybots core.
+# Game RTL lives here and ONLY here — never add files from the Quartus GUI, and
+# never put game logic in sys/ (that directory is the untouched MiSTer framework).
+#
+# Every file listed here is instantiated somewhere under rtl/xybots_core.sv,
+# and every module the core instantiates is listed here.  The vendored CPU and
+# sound cores under rtl/lib/ are all enabled — see rtl/lib/README.md.
+#
+# The main CPU is **fx68k** and is the only 68000 in the tree; see the fx68k
+# block below.
+#
+# rtl/video/xybots_testpat.sv is the one exception to "instantiated": it is a
+# bring-up pattern, and rtl/xybots_core.sv only instantiates it under
+# `ifdef XYBOTS_BRINGUP_DEBUG`, which is undefined for release.  It stays in the
+# list so it keeps compiling and is one macro away from being usable on a board
+# that comes up black.
+
+set_global_assignment -name SEARCH_PATH rtl/main
+set_global_assignment -name QIP_FILE sys/sys.qip
+
+# ---- clocking ----
+set_global_assignment -name QIP_FILE rtl/pll.qip
+
+# ---- vendored libraries (see rtl/lib/README.md) ----
+# The 68000 main CPU is fx68k; its three SystemVerilog sources, its search path
+# and the rationale for all of it are in the "main board" section below, next to
+# the sheet-2 RTL that instantiates it.
+#
+# T65 + jt51 are the JSA I sound board (6502 + YM2151).  Xybots' JSA has NO
+# POKEY and NO TMS5220 populated, so no POKEY core is vendored at all.
+set_global_assignment -name VHDL_FILE rtl/lib/T65/T65_Pack.vhd
+set_global_assignment -name VHDL_FILE rtl/lib/T65/T65_MCode.vhd
+set_global_assignment -name VHDL_FILE rtl/lib/T65/T65_ALU.vhd
+set_global_assignment -name VHDL_FILE rtl/lib/T65/T65.vhd
+set_global_assignment -name VHDL_FILE rtl/lib/T65/T65_wrap.vhd
+set_global_assignment -name QIP_FILE rtl/lib/jt51/hdl/jt51.qip
+
+# ---- main board (SP-313 sheet 2) ----
+# SLAPSTIC 137412-107 at 14B, instantiated by xybots_main_bus.
+set_global_assignment -name SYSTEMVERILOG_FILE rtl/main/xybots_slapstic.sv
+
+# The 68000 side of sheet 2.  xybots_main_bus is the single module xybots_core
+# instantiates; the others are its children and are never instantiated
+# directly.  It needs the fx68k lines below.
+set_global_assignment -name SYSTEMVERILOG_FILE rtl/main/xybots_addr_decode.sv
+set_global_assignment -name SYSTEMVERILOG_FILE rtl/main/xybots_dtack.sv
+set_global_assignment -name SYSTEMVERILOG_FILE rtl/main/xybots_irq.sv
+set_global_assignment -name SYSTEMVERILOG_FILE rtl/main/xybots_watchdog.sv
+set_global_assignment -name SYSTEMVERILOG_FILE rtl/main/xybots_eeprom_2804.sv
+set_global_assignment -name SYSTEMVERILOG_FILE rtl/main/xybots_nvram_io.sv
+set_global_assignment -name SYSTEMVERILOG_FILE rtl/main/xybots_inputs.sv
+set_global_assignment -name SYSTEMVERILOG_FILE rtl/main/xybots_dpram_be.sv
+set_global_assignment -name SYSTEMVERILOG_FILE rtl/main/xybots_cpu.sv
+set_global_assignment -name SYSTEMVERILOG_FILE rtl/main/xybots_main_bus.sv
+
+# ---- the main CPU: fx68k (SP-313 sheet 2, 16A) -------------------------------
+# rtl/main/xybots_cpu.sv is the wrapper; rtl/lib/fx68k/ is Jorge Cwik's
+# cycle-exact 68000, vendored verbatim (GPL-3.0-or-later; see NOTICE.md and
+# rtl/lib/README.md).  It is the ONLY 68000 in the tree: there is no
+# alternative core, no selection macro and nothing to keep in step.
+#
+# The SEARCH_PATH line is load-bearing.  fx68k.sv:2474/:2485 do
+# `$readmemb("microrom.mem", ...)` / `$readmemb("nanorom.mem", ...)` with
+# RELATIVE paths, and the vendored files are not edited.  Quartus resolves them
+# against the project directory plus SEARCH_PATH, so the two .mem files must be
+# reachable from the project root — hence this line.  IF THE MICROCODE IS NOT
+# FOUND THE ROMs SYNTHESISE EMPTY AND THE CORE BOOTS TO A BLACK SCREEN WITH NO
+# ERROR THAT LOOKS LIKE THE CAUSE, so the build must CHECK it loaded:
+# Analysis & Synthesis emits `Info (10905)` naming each .mem file it read, and
+# the RAM summary must show 1024x17 and 336x68 ROMs with those init files.
+#
+# It lives here rather than in Xybots.qsf on purpose: Quartus REWRITES
+# Xybots.qsf on every compile (it appends the fitter's set_location_assignment
+# lines), so anything hand-edited there is one `git checkout` away from being
+# silently lost.  files.qip is never rewritten by the tool, and Quartus applies
+# set_global_assignment from a QIP exactly as from the QSF.
+set_global_assignment -name SEARCH_PATH rtl/lib/fx68k
+#
+# uaddrPla.sv is the combinational opcode PLA between Ir and the microcode
+# address — the path Xybots.sdc gives fx68k's own documented multicycle
+# exception (see rtl/lib/fx68k/fx68k.txt).
+set_global_assignment -name SYSTEMVERILOG_FILE rtl/lib/fx68k/fx68k.sv
+set_global_assignment -name SYSTEMVERILOG_FILE rtl/lib/fx68k/fx68kAlu.sv
+set_global_assignment -name SYSTEMVERILOG_FILE rtl/lib/fx68k/uaddrPla.sv
+
+# ---- memory path: ROM download, program/char BRAM, SDRAM graphics ----
+# xybots_mem is the single wrapper xybots_core instantiates; the other five are
+# its children and are never instantiated directly.
+set_global_assignment -name SYSTEMVERILOG_FILE rtl/mem/xybots_rom_loader.sv
+set_global_assignment -name SYSTEMVERILOG_FILE rtl/mem/xybots_prog_rom.sv
+set_global_assignment -name SYSTEMVERILOG_FILE rtl/mem/xybots_sdram.sv
+set_global_assignment -name SYSTEMVERILOG_FILE rtl/mem/xybots_sdram_loader.sv
+set_global_assignment -name SYSTEMVERILOG_FILE rtl/mem/xybots_gfx_mem.sv
+set_global_assignment -name SYSTEMVERILOG_FILE rtl/mem/xybots_mem.sv
+
+# ---- JSA I audio PCB (SP-313 sheets 11-14) ----
+# xybots_jsa is the single module xybots_core instantiates; the others are its
+# children and are never instantiated directly.  The T65 and jt51 lines above
+# are enabled for it.
+set_global_assignment -name SYSTEMVERILOG_FILE rtl/sound/xybots_jsa_pal_2l.sv
+set_global_assignment -name SYSTEMVERILOG_FILE rtl/sound/xybots_jsa_decode.sv
+set_global_assignment -name SYSTEMVERILOG_FILE rtl/sound/xybots_jsa_mem.sv
+set_global_assignment -name SYSTEMVERILOG_FILE rtl/sound/xybots_jsa_io.sv
+set_global_assignment -name SYSTEMVERILOG_FILE rtl/sound/xybots_sound_comm.sv
+set_global_assignment -name SYSTEMVERILOG_FILE rtl/sound/xybots_jsa_bus.sv
+set_global_assignment -name SYSTEMVERILOG_FILE rtl/sound/xybots_ym.sv
+set_global_assignment -name SYSTEMVERILOG_FILE rtl/sound/xybots_jsa_mix.sv
+set_global_assignment -name SYSTEMVERILOG_FILE rtl/sound/xybots_jsa_lpf.sv
+set_global_assignment -name SYSTEMVERILOG_FILE rtl/sound/xybots_jsa.sv
+
+# ---- video ----
+# SP-313 sheet 4 — SYNGEN 11E/F, the clock tree and the sheet-4 glue.
+set_global_assignment -name SYSTEMVERILOG_FILE rtl/video/xybots_syngen.sv
+set_global_assignment -name SYSTEMVERILOG_FILE rtl/video/xybots_testpat.sv
+
+# SP-313 sheets 7, 8 and 9 — the alphanumerics and playfield layers, the
+# priority network, the GPC, the colour-RAM read path and the DACs.
+# xybots_video is the layer/compositor top (it instantiates xybots_syngen and
+# everything above); the motion-object engine is its SIBLING and hands it
+# lb_pix/lb_col/lb_pri.
+set_global_assignment -name SYSTEMVERILOG_FILE rtl/video/xybots_alpha.sv
+set_global_assignment -name SYSTEMVERILOG_FILE rtl/video/xybots_pf.sv
+set_global_assignment -name SYSTEMVERILOG_FILE rtl/video/xybots_prio.sv
+set_global_assignment -name SYSTEMVERILOG_FILE rtl/video/xybots_gpc.sv
+set_global_assignment -name SYSTEMVERILOG_FILE rtl/video/xybots_cram.sv
+set_global_assignment -name SYSTEMVERILOG_FILE rtl/video/xybots_dac.sv
+set_global_assignment -name SYSTEMVERILOG_FILE rtl/video/xybots_video.sv
+# CRT Adjust (H-Size / H-Position / V-Shift), outside the core: rmonic79's
+# MiSTer-CRT-Adjust engine c682de9 (GPL-3.0-or-later) and this core's glue
+set_global_assignment -name SYSTEMVERILOG_FILE rtl/video/crt_adjust.sv
+set_global_assignment -name SYSTEMVERILOG_FILE rtl/video/xybots_analog_adjust.sv
+
+# SP-313 sheets 5, 6 and 8 — the motion-object engine.  xybots_mo is a SIBLING
+# of xybots_video, not its child: xybots_core instantiates both and hands
+# xybots_video's scram_d and SYNGEN taps to xybots_mo, which hands back
+# lb_pix/lb_col/lb_pri.  The other three files are xybots_mo's children.
+set_global_assignment -name SYSTEMVERILOG_FILE rtl/video/xybots_mo_vmatch.sv
+set_global_assignment -name SYSTEMVERILOG_FILE rtl/video/xybots_mo_fetch.sv
+set_global_assignment -name SYSTEMVERILOG_FILE rtl/video/xybots_mo_linebuf.sv
+set_global_assignment -name SYSTEMVERILOG_FILE rtl/video/xybots_mo.sv
+
+# ---- core + emu glue ----
+# rtl/xybots_core.sv wires all five boards together.
+set_global_assignment -name SYSTEMVERILOG_FILE rtl/xybots_core.sv
+set_global_assignment -name SDC_FILE Xybots.sdc
+set_global_assignment -name SYSTEMVERILOG_FILE Arcade-Xybots.sv
+
+set_global_assignment -name SYSTEMVERILOG_FILE rtl/controls/stick_controls.sv
+set_global_assignment -name SYSTEMVERILOG_FILE rtl/controls/snk_aim_quant4.sv
+set_global_assignment -name SYSTEMVERILOG_FILE rtl/controls/analog_move8.sv

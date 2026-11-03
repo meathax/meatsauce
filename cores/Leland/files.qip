@@ -1,0 +1,127 @@
+## Leland - MiSTer FPGA Core
+## Source file list for Quartus
+## Do NOT edit in Quartus IDE — add files here manually.
+
+## ── tv80 Z80 CPU core (submodule: rtl/tv80) ─────────────────────────
+## Pure Verilog — compiles cleanly on Quartus 17 Lite (no VHDL parser crash).
+## tv80s_ce.v is a local wrapper that exposes the cen clock-enable port.
+set_global_assignment -name VERILOG_FILE rtl/tv80/rtl/core/tv80_alu.v
+set_global_assignment -name VERILOG_FILE rtl/tv80/rtl/core/tv80_reg.v
+set_global_assignment -name VERILOG_FILE rtl/tv80/rtl/core/tv80_mcode.v
+set_global_assignment -name VERILOG_FILE rtl/tv80/rtl/core/tv80_core.v
+set_global_assignment -name VERILOG_FILE rtl/cpu/tv80s_ce.v
+
+## ── Core RTL ─────────────────────────────────────────────────────────
+## leland_board_pkg is imported by the modules below, so it comes first.
+set_global_assignment -name SYSTEMVERILOG_FILE rtl/leland_board_pkg.sv
+set_global_assignment -name SYSTEMVERILOG_FILE rtl/leland_target_enables.sv
+set_global_assignment -name SYSTEMVERILOG_FILE Leland.sv
+set_global_assignment -name SYSTEMVERILOG_FILE rtl/io/steering_input.sv
+set_global_assignment -name SYSTEMVERILOG_FILE rtl/io/trackball_input.sv
+set_global_assignment -name SYSTEMVERILOG_FILE rtl/io/button_map.sv
+set_global_assignment -name SYSTEMVERILOG_FILE rtl/mem/sdram.sv
+set_global_assignment -name SYSTEMVERILOG_FILE rtl/mem/sdram_banked.sv
+set_global_assignment -name SYSTEMVERILOG_FILE rtl/mem/rom_line_cache.sv
+set_global_assignment -name SYSTEMVERILOG_FILE rtl/video/leland_vram_port.sv
+set_global_assignment -name SYSTEMVERILOG_FILE rtl/leland_board.sv
+set_global_assignment -name SYSTEMVERILOG_FILE rtl/cpu/leland_master.sv
+set_global_assignment -name SYSTEMVERILOG_FILE rtl/cpu/leland_slave.sv
+set_global_assignment -name SYSTEMVERILOG_FILE rtl/cpu/leland_master_ataxx.sv
+set_global_assignment -name SYSTEMVERILOG_FILE rtl/leland_cpu_recovery.sv
+set_global_assignment -name SYSTEMVERILOG_FILE rtl/leland_cpu_input_recovery.sv
+set_global_assignment -name SYSTEMVERILOG_FILE rtl/leland_irq_timeline.sv
+set_global_assignment -name SYSTEMVERILOG_FILE rtl/cpu/leland_slave_ataxx.sv
+set_global_assignment -name SYSTEMVERILOG_FILE rtl/video/leland_video.sv
+set_global_assignment -name SYSTEMVERILOG_FILE rtl/video/leland_retimer.sv
+set_global_assignment -name SYSTEMVERILOG_FILE rtl/video/leland_render_snapshot.sv
+set_global_assignment -name SYSTEMVERILOG_FILE rtl/video/leland_ddr_client_mux.sv
+set_global_assignment -name SYSTEMVERILOG_FILE rtl/video/leland_display.sv
+set_global_assignment -name SYSTEMVERILOG_FILE rtl/video/leland_crt_fixed.sv
+set_global_assignment -name SYSTEMVERILOG_FILE rtl/video/leland_screen_rotate.sv
+set_global_assignment -name SYSTEMVERILOG_FILE rtl/video/leland_rotation_path.sv
+set_global_assignment -name SYSTEMVERILOG_FILE rtl/video/leland_ddr_arbiter.sv
+set_global_assignment -name SYSTEMVERILOG_FILE rtl/mem/leland_ddr_loader.sv
+set_global_assignment -name SYSTEMVERILOG_FILE rtl/mem/leland_dpram.sv
+set_global_assignment -name SYSTEMVERILOG_FILE rtl/mem/leland_qram_compact_candidate.sv
+set_global_assignment -name SYSTEMVERILOG_FILE rtl/mem/leland_eeprom_93c46.sv
+set_global_assignment -name SYSTEMVERILOG_FILE rtl/mem/leland_eeprom_93c56.sv
+
+
+## ── Sound board ─────────────────────────────────────────────────────
+## Vendored s80x86 core (rtl/s80x86, GPLv3, see its README_VENDORING.md), i186_periph,
+## KF8253 PIT8254 (rtl/KF8253, MIT), leland_sound_board and leland_dac_mixer, bundled
+## by rtl/audio/leland_sound.sv. config.v's `define must precede Flags.sv, which reads it
+## with no `include, so file order matters.
+set_global_assignment -name SEARCH_PATH rtl/KF8253
+set_global_assignment -name SEARCH_PATH rtl/s80x86/microcode
+set_global_assignment -name VERILOG_FILE rtl/s80x86/config.v
+set_global_assignment -name SYSTEMVERILOG_FILE rtl/s80x86/microcode/MicrocodeTypes.sv
+set_global_assignment -name SYSTEMVERILOG_FILE rtl/s80x86/FlagsEnum.sv
+set_global_assignment -name SYSTEMVERILOG_FILE rtl/s80x86/alu/aaa.sv
+set_global_assignment -name SYSTEMVERILOG_FILE rtl/s80x86/alu/aas.sv
+set_global_assignment -name SYSTEMVERILOG_FILE rtl/s80x86/alu/adc.sv
+set_global_assignment -name SYSTEMVERILOG_FILE rtl/s80x86/alu/add.sv
+set_global_assignment -name SYSTEMVERILOG_FILE rtl/s80x86/alu/and.sv
+set_global_assignment -name SYSTEMVERILOG_FILE rtl/s80x86/alu/bound.sv
+set_global_assignment -name SYSTEMVERILOG_FILE rtl/s80x86/alu/daa.sv
+set_global_assignment -name SYSTEMVERILOG_FILE rtl/s80x86/alu/das.sv
+set_global_assignment -name SYSTEMVERILOG_FILE rtl/s80x86/alu/enter.sv
+set_global_assignment -name SYSTEMVERILOG_FILE rtl/s80x86/alu/extend.sv
+set_global_assignment -name SYSTEMVERILOG_FILE rtl/s80x86/alu/flags.sv
+set_global_assignment -name SYSTEMVERILOG_FILE rtl/s80x86/alu/mul.sv
+set_global_assignment -name SYSTEMVERILOG_FILE rtl/s80x86/alu/or.sv
+set_global_assignment -name SYSTEMVERILOG_FILE rtl/s80x86/alu/not.sv
+set_global_assignment -name SYSTEMVERILOG_FILE rtl/s80x86/alu/rcl.sv
+set_global_assignment -name SYSTEMVERILOG_FILE rtl/s80x86/alu/rcr.sv
+set_global_assignment -name SYSTEMVERILOG_FILE rtl/s80x86/alu/rol.sv
+set_global_assignment -name SYSTEMVERILOG_FILE rtl/s80x86/alu/ror.sv
+set_global_assignment -name SYSTEMVERILOG_FILE rtl/s80x86/alu/sar.sv
+set_global_assignment -name SYSTEMVERILOG_FILE rtl/s80x86/alu/shift_flags.sv
+set_global_assignment -name SYSTEMVERILOG_FILE rtl/s80x86/alu/shl.sv
+set_global_assignment -name SYSTEMVERILOG_FILE rtl/s80x86/alu/shr.sv
+set_global_assignment -name SYSTEMVERILOG_FILE rtl/s80x86/alu/sub.sv
+set_global_assignment -name SYSTEMVERILOG_FILE rtl/s80x86/alu/xor.sv
+set_global_assignment -name SYSTEMVERILOG_FILE rtl/s80x86/alu/ALU.sv
+set_global_assignment -name SYSTEMVERILOG_FILE rtl/s80x86/RegisterEnum.sv
+set_global_assignment -name SYSTEMVERILOG_FILE rtl/s80x86/Instruction.sv
+set_global_assignment -name SYSTEMVERILOG_FILE rtl/s80x86/InstructionDefinitions.sv
+set_global_assignment -name SYSTEMVERILOG_FILE rtl/s80x86/InsnDecoder.sv
+set_global_assignment -name SYSTEMVERILOG_FILE rtl/s80x86/microcode/Microcode.sv
+set_global_assignment -name SYSTEMVERILOG_FILE rtl/s80x86/InstructionCycleCost.sv
+set_global_assignment -name SYSTEMVERILOG_FILE rtl/s80x86/PhysicalCycleBudget.sv
+set_global_assignment -name SYSTEMVERILOG_FILE rtl/s80x86/Core.sv
+set_global_assignment -name SYSTEMVERILOG_FILE rtl/s80x86/CSIPSync.sv
+set_global_assignment -name SYSTEMVERILOG_FILE rtl/s80x86/Divider.sv
+set_global_assignment -name SYSTEMVERILOG_FILE rtl/s80x86/Fifo.sv
+set_global_assignment -name SYSTEMVERILOG_FILE rtl/s80x86/Flags.sv
+set_global_assignment -name SYSTEMVERILOG_FILE rtl/s80x86/ImmediateReader.sv
+set_global_assignment -name SYSTEMVERILOG_FILE rtl/s80x86/IP.sv
+set_global_assignment -name SYSTEMVERILOG_FILE rtl/s80x86/JumpTest.sv
+set_global_assignment -name SYSTEMVERILOG_FILE rtl/s80x86/LoadStore.sv
+set_global_assignment -name SYSTEMVERILOG_FILE rtl/s80x86/LoopCounter.sv
+set_global_assignment -name SYSTEMVERILOG_FILE rtl/s80x86/ModRMDecode.sv
+set_global_assignment -name SYSTEMVERILOG_FILE rtl/s80x86/PosedgeToPulse.sv
+set_global_assignment -name SYSTEMVERILOG_FILE rtl/s80x86/Prefetch.sv
+set_global_assignment -name SYSTEMVERILOG_FILE rtl/s80x86/RegisterFile.sv
+set_global_assignment -name SYSTEMVERILOG_FILE rtl/s80x86/SegmentOverride.sv
+set_global_assignment -name SYSTEMVERILOG_FILE rtl/s80x86/SegmentRegisterFile.sv
+set_global_assignment -name SYSTEMVERILOG_FILE rtl/s80x86/TempReg.sv
+set_global_assignment -name SYSTEMVERILOG_FILE rtl/s80x86/cdc/BitSync.sv
+set_global_assignment -name SYSTEMVERILOG_FILE rtl/s80x86/cdc/MCP.sv
+set_global_assignment -name SYSTEMVERILOG_FILE rtl/s80x86/cdc/SyncPulse.sv
+set_global_assignment -name SYSTEMVERILOG_FILE rtl/s80x86/MemArbiter.sv
+set_global_assignment -name SYSTEMVERILOG_FILE rtl/KF8253/KF8253_Counter.sv
+set_global_assignment -name SYSTEMVERILOG_FILE rtl/KF8253/KF8253_Control_Logic.sv
+set_global_assignment -name SYSTEMVERILOG_FILE rtl/KF8253/KF8253.sv
+set_global_assignment -name SYSTEMVERILOG_FILE rtl/KF8253/kf8253_leland_bus.sv
+set_global_assignment -name SYSTEMVERILOG_FILE rtl/cpu/i186_periph.sv
+set_global_assignment -name SYSTEMVERILOG_FILE rtl/audio/leland_sound_board.sv
+set_global_assignment -name QIP_FILE rtl/jt51/hdl/jt51.qip
+set_global_assignment -name SYSTEMVERILOG_FILE rtl/audio/leland_dac_mixer.sv
+set_global_assignment -name SYSTEMVERILOG_FILE rtl/audio/leland_dac_mixer_wsf_candidate.sv
+set_global_assignment -name SYSTEMVERILOG_FILE rtl/audio/leland_sound.sv
+
+set_global_assignment -name SEARCH_PATH "credits/generated"
+set_global_assignment -name QIP_FILE credits/credits.qip
+
+set_global_assignment -name SDC_FILE Leland.sdc

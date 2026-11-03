@@ -1,0 +1,176 @@
+/* SPDX-FileCopyrightText: 2026 Jose Tejada Gomez
+ * SPDX-License-Identifier: GPL-3.0-or-later
+ * Date: 7-11-2022 */
+
+// This is object processor section of the SETA chip
+
+module jtkiwi_obj #(
+    parameter [8:0] XOFF=0,
+    parameter [7:0] YOFF=0,
+    parameter       YWRAP=0,
+    parameter [8:0] LIMIT=9'h1ff,
+    // 12 = 8kB sprite RAM, page selects the 0x800 half (tnzs/calibr50)
+    // 13 = 16kB, page selects the 0x1000 buffer (metafox/arbalest, MAME seta001 setac)
+    parameter       OBJAW=12
+)(
+    input               rst,
+    input               clk,
+    input               lut_cen,
+    input               pxl_cen,
+
+    input               hs,
+    input               flip,
+    input               page,
+
+    output     [OBJAW:1] lut_addr,
+    input      [15:0]   lut_data,
+
+    output     [ 8:0]   y_addr,
+    input      [ 7:0]   y_data,
+
+    output     [20:2]   rom_addr,
+    output              rom_cs,
+    input               rom_ok,
+    input      [31:0]   rom_data,
+
+    input      [ 8:0]   vdump,
+    input      [ 8:0]   hdump,
+    output     [ 8:0]   pxl,
+
+    input      [ 7:0]   debug_bus
+);
+
+reg         done;
+reg  [ 8:0] objcnt;
+reg  [ 4:0] pal, dr_pal;
+reg  [ 3:0] dr_ysub, ysub;
+reg  [ 8:0] ydiff, dr_xpos;
+reg  [ 8:0] xpos;
+wire [ 7:0] ypos;
+wire [ 8:0] vf;
+reg  [ 1:0] st;
+reg         dr_draw, dr_hflip, dr_vflip,
+            match, vflip, hflip;
+reg  [15:0] code;
+reg  [13:0] dr_code;
+wire        dr_busy;
+wire [ 8:0] buf_din, buf_addr;
+wire        buf_we;
+
+generate
+    if( OBJAW==13 ) assign lut_addr = { page, 2'b00, ~st[1], objcnt }; // 1 + 2 + 1 + 9 = 13
+    else            assign lut_addr = { page, 1'b0,  ~st[1], objcnt }; // 1 + 1 + 1 + 9 = 12
+endgenerate
+assign y_addr   = objcnt;
+assign vf       = {9{flip}} ^ (vdump-9'd1);
+assign ypos     = y_data + YOFF;
+
+always @* begin
+    if( YWRAP ) begin
+        ydiff = {1'b0, vf[7:0] - ypos};
+        match = ydiff[7:4]==0;
+    end else begin
+        ydiff = {1'b0, vf[7:0]} - {1'b0, ypos};
+        match = ydiff[8:4]==0;
+    end
+end
+
+// Columns are 32-pixel wide
+always @(posedge clk, posedge rst) begin
+    if( rst ) begin
+        st      <= 0;
+        objcnt  <= 0;
+        dr_draw <= 0;
+        dr_code <= 0;
+        dr_pal  <= 0;
+        dr_hflip<= 0;
+        dr_vflip<= 0;
+        dr_xpos <= 0;
+        dr_ysub <= 0;
+    end else begin
+        dr_draw <= 0;
+        if( hs || (!YWRAP && vdump>9'hf8) ) begin
+            objcnt  <= LIMIT;
+            done    <= 0;
+            st      <= 0;
+            dr_draw <= 0;
+        end else if( !done && lut_cen ) begin
+            st <= st + 1'd1;
+            case( st )
+                0: begin
+                    ysub <= ydiff[3:0];
+                    if( !match ) begin
+                        objcnt <= objcnt - 1'd1;
+                        st     <= 0;
+                        done   <= objcnt==0;
+                    end
+                end
+                1: { pal, code[15:14], xpos } <= lut_data;
+                2: { hflip, vflip, code[13:0] } <= lut_data;
+                3: begin
+                    if( !dr_busy )  begin
+                        dr_draw  <= 1;
+                        dr_code  <= code[13:0];
+                        dr_hflip <= hflip^flip;
+                        dr_vflip <= vflip;
+                        dr_pal   <= pal;
+                        dr_xpos  <= xpos + XOFF;
+                        dr_ysub  <= ~ysub;
+                        objcnt   <= objcnt - 1'd1;
+                        done     <= objcnt==0;
+                    end else begin
+                        st <= st;
+                    end
+                end
+            endcase
+        end
+    end
+end
+
+jtkiwi_draw #(.SWAP_HALVES(1'b1)) u_draw (
+    .rst        ( rst           ),
+    .clk        ( clk           ),
+
+    .draw       ( dr_draw       ),
+    .busy       ( dr_busy       ),
+    .code       ( dr_code       ),
+    .pal        ( dr_pal        ),
+    .hflip      ( dr_hflip      ),
+    .vflip      ( dr_vflip      ),
+    .xpos       ( dr_xpos       ),
+    .ysub       ( dr_ysub       ),
+    .flip       ( flip          ),
+
+    .rom_addr   ( rom_addr      ),
+    .rom_cs     ( rom_cs        ),
+    .rom_ok     ( rom_ok        ),
+    .rom_data   ( rom_data      ),
+
+    .buf_addr   ( buf_addr      ),
+    .buf_we     ( buf_we        ),
+    .buf_din    ( buf_din       ),
+    .debug_bus  ( 8'd0          )
+    //.debug_bus  ( debug_bus     )
+);
+
+// During HS the contents of the memory are cleared
+
+jtframe_obj_buffer #(
+    .DW   ( 9 ),
+    .ALPHA( 0 ),
+    .FLIP_OFFSET(9'h100)
+) u_linebuf(
+    .clk    ( clk       ),
+    .flip   ( 1'b0      ),
+    .LHBL   ( ~hs       ),
+    // New line writting
+    .we     ( buf_we    ),
+    .wr_data( buf_din   ),
+    .wr_addr( buf_addr  ),
+    // Previous line reading
+    .rd     ( pxl_cen   ),
+    .rd_addr( hdump     ),
+    .rd_data( pxl       )
+);
+
+endmodule

@@ -1,0 +1,146 @@
+# DEC8 core file list, sourced by Arcade-DEC8.qsf. Paths relative to the
+# project directory. Only real .qip files (QIP_FILE) may use
+# $::quartus(qip_path).
+
+# core RTL
+set_global_assignment -name SYSTEMVERILOG_FILE rtl/d8_dpram.sv
+set_global_assignment -name SYSTEMVERILOG_FILE rtl/d8_snapram.sv
+set_global_assignment -name SYSTEMVERILOG_FILE rtl/d8_fifo.sv
+set_global_assignment -name SYSTEMVERILOG_FILE rtl/d8_video.sv
+set_global_assignment -name SYSTEMVERILOG_FILE rtl/d8_linebuf_pair.sv
+set_global_assignment -name SYSTEMVERILOG_FILE rtl/d8_bac06.sv
+set_global_assignment -name VERILOG_FILE rtl/vendor/bac06/jtcop_bac06.v
+set_global_assignment -name VERILOG_FILE rtl/vendor/bac06/jtframe_linebuf.v
+set_global_assignment -name VERILOG_FILE rtl/vendor/bac06/jtframe_rpwp_ram.v
+set_global_assignment -name SYSTEMVERILOG_FILE rtl/d8_mcu.sv
+set_global_assignment -name SYSTEMVERILOG_FILE rtl/d8_snd.sv
+set_global_assignment -name SYSTEMVERILOG_FILE rtl/d8_adpcm.sv
+set_global_assignment -name VERILOG_FILE rtl/vendor/jt5205/jt5205.v
+set_global_assignment -name VERILOG_FILE rtl/vendor/jt5205/jt5205_timing.v
+set_global_assignment -name VERILOG_FILE rtl/vendor/jt5205/jt5205_adpcm.v
+set_global_assignment -name VERILOG_FILE rtl/vendor/jt5205/jt5205_interpol2x.v
+set_global_assignment -name SYSTEMVERILOG_FILE rtl/d8_cpu_recovery.sv
+set_global_assignment -name SYSTEMVERILOG_FILE rtl/d8_cpu_rom_latch.sv
+set_global_assignment -name SYSTEMVERILOG_FILE rtl/d8_sys.sv
+set_global_assignment -name SYSTEMVERILOG_FILE rtl/d8_sdram.sv
+set_global_assignment -name SYSTEMVERILOG_FILE rtl/d8_sdram_clock.sv
+set_global_assignment -name SYSTEMVERILOG_FILE rtl/d8_board.sv
+set_global_assignment -name SYSTEMVERILOG_FILE rtl/d8_rotary.sv
+set_global_assignment -name SYSTEMVERILOG_FILE rtl/snk_aim_quant4.sv
+set_global_assignment -name SYSTEMVERILOG_FILE rtl/d8_stick_aim.sv
+set_global_assignment -name SYSTEMVERILOG_FILE rtl/d8_inputs.sv
+set_global_assignment -name SYSTEMVERILOG_FILE rtl/d8_geometry.sv
+set_global_assignment -name SYSTEMVERILOG_FILE rtl/d8_screen_rotate.sv
+set_global_assignment -name SYSTEMVERILOG_FILE rtl/d8_hiscore.sv
+set_global_assignment -name SYSTEMVERILOG_FILE rtl/vendor/crt_adjust/crt_adjust.sv
+set_global_assignment -name VERILOG_FILE rtl/vendor/hiscore/hiscore.v
+
+# mc6809i (cycle-accurate 6809, jtframe copy)
+set_global_assignment -name VERILOG_FILE rtl/d8_mc6809i.v
+
+# jt8051 (i8751); jt8051.uc read by $readmemb, found via SEARCH_PATH
+set_global_assignment -name VERILOG_FILE rtl/vendor/jt8051/jt8051_alu.v
+set_global_assignment -name VERILOG_FILE rtl/vendor/jt8051/jt8051_ctrl.v
+set_global_assignment -name VERILOG_FILE rtl/vendor/jt8051/jt8051_periph.v
+set_global_assignment -name VERILOG_FILE rtl/vendor/jt8051/jt8051_regs.v
+set_global_assignment -name VERILOG_FILE rtl/vendor/jt8051/jt8051_serial.v
+set_global_assignment -name VERILOG_FILE rtl/vendor/jt8051/jt8051.v
+set_global_assignment -name SEARCH_PATH rtl/vendor/jt8051
+
+# jt65c02 (DECO 222 / R65C02); deco222.uc read by $readmemb, found via SEARCH_PATH
+set_global_assignment -name VERILOG_FILE rtl/vendor/jt65c02/jt65c02_alu.v
+set_global_assignment -name VERILOG_FILE rtl/vendor/jt65c02/jt65c02_ctrl.v
+set_global_assignment -name VERILOG_FILE rtl/vendor/jt65c02/jt65c02_regs.v
+set_global_assignment -name VERILOG_FILE rtl/vendor/jt65c02/jt65c02.v
+set_global_assignment -name SEARCH_PATH rtl/vendor/jt65c02
+
+# jt03 (YM2203: jt12 FM + jt49 SSG)
+set_global_assignment -name VERILOG_FILE rtl/vendor/jt03/hdl/jt03_acc.v
+set_global_assignment -name VERILOG_FILE rtl/vendor/jt03/hdl/jt03.v
+set_global_assignment -name VERILOG_FILE rtl/vendor/jt03/hdl/jt12_csr.v
+set_global_assignment -name VERILOG_FILE rtl/vendor/jt03/hdl/jt12_div.v
+set_global_assignment -name VERILOG_FILE rtl/vendor/jt03/hdl/jt12_dout.v
+set_global_assignment -name VERILOG_FILE rtl/vendor/jt03/hdl/jt12_eg_cnt.v
+set_global_assignment -name VERILOG_FILE rtl/vendor/jt03/hdl/jt12_eg_comb.v
+set_global_assignment -name VERILOG_FILE rtl/vendor/jt03/hdl/jt12_eg_ctrl.v
+set_global_assignment -name VERILOG_FILE rtl/vendor/jt03/hdl/jt12_eg_final.v
+set_global_assignment -name VERILOG_FILE rtl/vendor/jt03/hdl/jt12_eg_pure.v
+set_global_assignment -name VERILOG_FILE rtl/vendor/jt03/hdl/jt12_eg_step.v
+set_global_assignment -name VERILOG_FILE rtl/vendor/jt03/hdl/jt12_eg.v
+set_global_assignment -name VERILOG_FILE rtl/vendor/jt03/hdl/jt12_exprom.v
+set_global_assignment -name VERILOG_FILE rtl/vendor/jt03/hdl/jt12_kon.v
+set_global_assignment -name VERILOG_FILE rtl/vendor/jt03/hdl/jt12_lfo.v
+set_global_assignment -name VERILOG_FILE rtl/vendor/jt03/hdl/jt12_logsin.v
+set_global_assignment -name VERILOG_FILE rtl/vendor/jt03/hdl/jt12_mmr.v
+set_global_assignment -name VERILOG_FILE rtl/vendor/jt03/hdl/jt12_mod.v
+set_global_assignment -name VERILOG_FILE rtl/vendor/jt03/hdl/jt12_op.v
+set_global_assignment -name VERILOG_FILE rtl/vendor/jt03/hdl/jt12_pg_comb.v
+set_global_assignment -name VERILOG_FILE rtl/vendor/jt03/hdl/jt12_pg_dt.v
+set_global_assignment -name VERILOG_FILE rtl/vendor/jt03/hdl/jt12_pg_inc.v
+set_global_assignment -name VERILOG_FILE rtl/vendor/jt03/hdl/jt12_pg_sum.v
+set_global_assignment -name VERILOG_FILE rtl/vendor/jt03/hdl/jt12_pg.v
+set_global_assignment -name VERILOG_FILE rtl/vendor/jt03/hdl/jt12_pm.v
+set_global_assignment -name VERILOG_FILE rtl/vendor/jt03/hdl/jt12_reg_ch.v
+set_global_assignment -name VERILOG_FILE rtl/vendor/jt03/hdl/jt12_reg.v
+set_global_assignment -name VERILOG_FILE rtl/vendor/jt03/hdl/jt12_sh_rst.v
+set_global_assignment -name VERILOG_FILE rtl/vendor/jt03/hdl/jt12_sh.v
+set_global_assignment -name VERILOG_FILE rtl/vendor/jt03/hdl/jt12_sh24.v
+set_global_assignment -name VERILOG_FILE rtl/vendor/jt03/hdl/jt12_single_acc.v
+set_global_assignment -name VERILOG_FILE rtl/vendor/jt03/hdl/jt12_sumch.v
+set_global_assignment -name VERILOG_FILE rtl/vendor/jt03/hdl/jt12_timers.v
+set_global_assignment -name VERILOG_FILE rtl/vendor/jt03/hdl/jt12_top.v
+set_global_assignment -name VERILOG_FILE rtl/vendor/jt03/hdl/jt49_bus.v
+set_global_assignment -name VERILOG_FILE rtl/vendor/jt03/hdl/jt49_cen.v
+set_global_assignment -name VERILOG_FILE rtl/vendor/jt03/hdl/jt49_div.v
+set_global_assignment -name VERILOG_FILE rtl/vendor/jt03/hdl/jt49_eg.v
+set_global_assignment -name VERILOG_FILE rtl/vendor/jt03/hdl/jt49_exp.v
+set_global_assignment -name VERILOG_FILE rtl/vendor/jt03/hdl/jt49_noise.v
+set_global_assignment -name VERILOG_FILE rtl/vendor/jt03/hdl/jt49.v
+set_global_assignment -name SEARCH_PATH rtl/vendor/jt03/hdl
+
+# jtopl (YM3526 / YM3812)
+set_global_assignment -name VERILOG_FILE rtl/vendor/jtopl/hdl/jtopl_acc.v
+set_global_assignment -name VERILOG_FILE rtl/vendor/jtopl/hdl/jtopl_csr.v
+set_global_assignment -name VERILOG_FILE rtl/vendor/jtopl/hdl/jtopl_div.v
+set_global_assignment -name VERILOG_FILE rtl/vendor/jtopl/hdl/jtopl_eg_cnt.v
+set_global_assignment -name VERILOG_FILE rtl/vendor/jtopl/hdl/jtopl_eg_comb.v
+set_global_assignment -name VERILOG_FILE rtl/vendor/jtopl/hdl/jtopl_eg_ctrl.v
+set_global_assignment -name VERILOG_FILE rtl/vendor/jtopl/hdl/jtopl_eg_final.v
+set_global_assignment -name VERILOG_FILE rtl/vendor/jtopl/hdl/jtopl_eg_pure.v
+set_global_assignment -name VERILOG_FILE rtl/vendor/jtopl/hdl/jtopl_eg_step.v
+set_global_assignment -name VERILOG_FILE rtl/vendor/jtopl/hdl/jtopl_eg.v
+set_global_assignment -name VERILOG_FILE rtl/vendor/jtopl/hdl/jtopl_exprom.v
+set_global_assignment -name VERILOG_FILE rtl/vendor/jtopl/hdl/jtopl_lfo.v
+set_global_assignment -name VERILOG_FILE rtl/vendor/jtopl/hdl/jtopl_logsin.v
+set_global_assignment -name VERILOG_FILE rtl/vendor/jtopl/hdl/jtopl_mmr.v
+set_global_assignment -name VERILOG_FILE rtl/vendor/jtopl/hdl/jtopl_noise.v
+set_global_assignment -name VERILOG_FILE rtl/vendor/jtopl/hdl/jtopl_op.v
+set_global_assignment -name VERILOG_FILE rtl/vendor/jtopl/hdl/jtopl_pg_comb.v
+set_global_assignment -name VERILOG_FILE rtl/vendor/jtopl/hdl/jtopl_pg_inc.v
+set_global_assignment -name VERILOG_FILE rtl/vendor/jtopl/hdl/jtopl_pg_rhy.v
+set_global_assignment -name VERILOG_FILE rtl/vendor/jtopl/hdl/jtopl_pg_sum.v
+set_global_assignment -name VERILOG_FILE rtl/vendor/jtopl/hdl/jtopl_pg.v
+set_global_assignment -name VERILOG_FILE rtl/vendor/jtopl/hdl/jtopl_pm.v
+set_global_assignment -name VERILOG_FILE rtl/vendor/jtopl/hdl/jtopl_reg_ch.v
+set_global_assignment -name VERILOG_FILE rtl/vendor/jtopl/hdl/jtopl_reg.v
+set_global_assignment -name VERILOG_FILE rtl/vendor/jtopl/hdl/jtopl_sh_rst.v
+set_global_assignment -name VERILOG_FILE rtl/vendor/jtopl/hdl/jtopl_sh.v
+set_global_assignment -name VERILOG_FILE rtl/vendor/jtopl/hdl/jtopl_single_acc.v
+set_global_assignment -name VERILOG_FILE rtl/vendor/jtopl/hdl/jtopl_slot_cnt.v
+set_global_assignment -name VERILOG_FILE rtl/vendor/jtopl/hdl/jtopl_timers.v
+set_global_assignment -name VERILOG_FILE rtl/vendor/jtopl/hdl/jtopl.v
+set_global_assignment -name VERILOG_FILE rtl/vendor/jtopl/hdl/jtopl2.v
+set_global_assignment -name SEARCH_PATH rtl/vendor/jtopl/hdl
+
+# core PLL: 96 MHz system, 96 MHz -90 degrees for SDRAM_CLK, 48 MHz video
+set_global_assignment -name VERILOG_FILE pll.v
+set_global_assignment -name VERILOG_FILE pll/pll_0002.v
+
+# shell
+set_global_assignment -name SDC_FILE Arcade-DEC8.sdc
+set_global_assignment -name SYSTEMVERILOG_FILE Arcade-DEC8.sv
+
+# MeatCore credits overlay (credits/, names in credits.txt)
+set_global_assignment -name QIP_FILE credits/credits.qip
+
+set_global_assignment -name SYSTEMVERILOG_FILE rtl/d8_aim_servo.sv

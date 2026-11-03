@@ -1,0 +1,152 @@
+# Mad Motor emu wrapper and existing game/board source closure.
+set mm_src_root [file dirname [file normalize [info script]]]
+# Loaded after sys/sys.tcl's platform roots; guarded hard-HPS port affinity.
+set_global_assignment -name SDC_FILE [file join $mm_src_root constraints/madmotor_hps_affinity.sdc]
+# Define the SDRAM boundary clock after the guarded hard-HPS inventory.
+set_global_assignment -name SDC_FILE [file join $mm_src_root constraints/madmotor_sdram.sdc]
+set_global_assignment -name SDC_FILE [file join $mm_src_root constraints/madmotor_user_cdc.sdc]
+set_global_assignment -name SDC_FILE [file join $mm_src_root constraints/madmotor_hdmi_modes.sdc]
+set_global_assignment -name SDC_FILE [file join $mm_src_root constraints/madmotor_video_status_cdc.sdc]
+set_global_assignment -name SDC_FILE [file join $mm_src_root constraints/madmotor_video_metrics_cdc.sdc]
+set_global_assignment -name SDC_FILE [file join $mm_src_root constraints/madmotor_video_measurement_input_cdc.sdc]
+set_global_assignment -name SDC_FILE [file join $mm_src_root constraints/madmotor_platform_ram_reset_cdc.sdc]
+set_global_assignment -name SDC_FILE [file join $mm_src_root constraints/madmotor_mcp_led_cdc.sdc]
+set_global_assignment -name VERILOG_FILE [file join $mm_src_root rtl/memory/jtframe_sdram64.v]
+set_global_assignment -name SYSTEMVERILOG_FILE [file join $mm_src_root rtl/framework/madmotor_arcade_video.sv]
+set_global_assignment -name SYSTEMVERILOG_FILE [file join $mm_src_root rtl/framework/madmotor_hps_io.sv]
+set_global_assignment -name SYSTEMVERILOG_FILE [file join $mm_src_root rtl/framework/madmotor_video_mixer.sv]
+set_global_assignment -name SYSTEMVERILOG_FILE [file join $mm_src_root rtl/framework/madmotor_sync_fix.sv]
+set_global_assignment -name SYSTEMVERILOG_FILE [file join $mm_src_root rtl/framework/madmotor_gamma_corr.sv]
+set_global_assignment -name SYSTEMVERILOG_FILE [file join $mm_src_root MadMotor.sv]
+set_global_assignment -name VERILOG_FILE [file join $mm_src_root rtl/madmotor_pll.v]
+set_global_assignment -name SYSTEMVERILOG_FILE [file join $mm_src_root rtl/madmotor_reset.sv]
+set_global_assignment -name SYSTEMVERILOG_FILE [file join $mm_src_root rtl/madmotor_audio_cdc.sv]
+set_global_assignment -name SYSTEMVERILOG_FILE [file join $mm_src_root rtl/madmotor_config_cdc.sv]
+set_global_assignment -name SYSTEMVERILOG_FILE [file join $mm_src_root rtl/madmotor_palette_cdc.sv]
+set_global_assignment -name SYSTEMVERILOG_FILE [file join $mm_src_root rtl/madmotor_sdram_clock.sv]
+set_global_assignment -name SYSTEMVERILOG_FILE [file join $mm_src_root rtl/madmotor_controls.sv]
+set_global_assignment -name SYSTEMVERILOG_FILE [file join $mm_src_root rtl/madmotor_rom_loader.sv]
+set_global_assignment -name SYSTEMVERILOG_FILE [file join $mm_src_root rtl/framework/madmotor_ddr_rom_spool.sv]
+set_global_assignment -name SYSTEMVERILOG_FILE [file join $mm_src_root rtl/madmotor_cpu_ce.sv]
+set_global_assignment -name SYSTEMVERILOG_FILE [file join $mm_src_root rtl/madmotor_game.sv]
+set_global_assignment -name SYSTEMVERILOG_FILE [file join $mm_src_root rtl/madmotor_main.sv]
+set_global_assignment -name SYSTEMVERILOG_FILE [file join $mm_src_root rtl/madmotor_video.sv]
+set_global_assignment -name SYSTEMVERILOG_FILE [file join $mm_src_root rtl/madmotor_memory.sv]
+set_global_assignment -name SYSTEMVERILOG_FILE [file join $mm_src_root rtl/madmotor_game_rom.sv]
+set_global_assignment -name SYSTEMVERILOG_FILE [file join $mm_src_root rtl/madmotor_rom_bridge.sv]
+set_global_assignment -name SYSTEMVERILOG_FILE [file join $mm_src_root rtl/madmotor_board.sv]
+set_global_assignment -name SYSTEMVERILOG_FILE [file join $mm_src_root rtl/madmotor_sdram.sv]
+set_global_assignment -name SYSTEMVERILOG_FILE [file join $mm_src_root rtl/madmotor_audio.sv]
+set_global_assignment -name VERILOG_FILE [file join $mm_src_root rtl/audio/madmotor_sound.v]
+set_global_assignment -name VERILOG_FILE [file join $mm_src_root rtl/audio/madmotor_ikaopm.v]
+set_global_assignment -name SYSTEMVERILOG_FILE [file join $mm_src_root rtl/audio/madmotor_frac_ce.sv]
+set_global_assignment -name SYSTEMVERILOG_FILE [file join $mm_src_root rtl/audio/madmotor_audio_mix.sv]
+set_global_assignment -name SYSTEMVERILOG_FILE [file join $mm_src_root rtl/audio/madmotor_audio_resampler.sv]
+set_global_assignment -name VERILOG_FILE [file join $mm_src_root rtl/video/madmotor_bac06.v]
+set_global_assignment -name VERILOG_FILE [file join $mm_src_root rtl/video/madmotor_mxc06_draw.v]
+set_global_assignment -name SOURCE_FILE [file join $mm_src_root rtl/video/madmotor_mxc06_parser.vh]
+set_global_assignment -name SYSTEMVERILOG_FILE [file join $mm_src_root rtl/fx68k/fx68k.sv]
+set_global_assignment -name SYSTEMVERILOG_FILE [file join $mm_src_root rtl/fx68k/fx68kAlu.sv]
+set_global_assignment -name SYSTEMVERILOG_FILE [file join $mm_src_root rtl/fx68k/uaddrPla.sv]
+set_global_assignment -name VERILOG_FILE [file join $mm_src_root rtl/memory/madmotor_dual_ram.v]
+set_global_assignment -name VERILOG_FILE [file join $mm_src_root rtl/memory/madmotor_dual_ram16.v]
+
+# The Mad Motor sound CPU is kept as native VHDL in Quartus. The GHDL-created
+# huc6280_ce.v is only a temporary host-simulation source.
+set_global_assignment -name VHDL_FILE [file join $mm_src_root rtl/audio/huc6280/HUC6280_PKG.vhd]
+set_global_assignment -name VHDL_FILE [file join $mm_src_root rtl/audio/huc6280/AddSubBCD.vhd]
+set_global_assignment -name VHDL_FILE [file join $mm_src_root rtl/audio/huc6280/HUC6280_ALU.vhd]
+set_global_assignment -name VHDL_FILE [file join $mm_src_root rtl/audio/huc6280/HUC6280_AG.vhd]
+set_global_assignment -name VHDL_FILE [file join $mm_src_root rtl/audio/huc6280/HUC6280_MC.vhd]
+set_global_assignment -name VHDL_FILE [file join $mm_src_root rtl/audio/huc6280/HUC6280_CPU.vhd]
+set_global_assignment -name VHDL_FILE [file join $mm_src_root rtl/audio/huc6280/HUC6280.vhd]
+
+set_global_assignment -name SYSTEMVERILOG_FILE [file join $mm_src_root rtl/framework/heavyunit_native_crt_adjust.sv]
+set_global_assignment -name SYSTEMVERILOG_FILE [file join $mm_src_root rtl/framework/crt_adjust.sv]
+set_global_assignment -name SYSTEMVERILOG_FILE [file join $mm_src_root rtl/framework/madmotor_native_crt_adjust.sv]
+set_global_assignment -name SYSTEMVERILOG_FILE [file join $mm_src_root rtl/framework/madmotor_crt_adjust.sv]
+set_global_assignment -name SYSTEMVERILOG_FILE [file join $mm_src_root rtl/framework/madmotor_framebuffer_rotation.sv]
+set_global_assignment -name SOURCE_FILE [file join $mm_src_root rtl/framework/heavyunit_crt_menu.vh]
+
+# Host/game initialization tables consumed by $readmem*. These are source
+# data, not additional game-ROM upload indices.
+set_global_assignment -name SOURCE_FILE [file join $mm_src_root microrom.mem]
+set_global_assignment -name SOURCE_FILE [file join $mm_src_root nanorom.mem]
+set_global_assignment -name SOURCE_FILE [file join $mm_src_root madmotor_lofi_coeff.hex]
+
+foreach mm_rtl [glob -nocomplain [file join $mm_src_root donors/Arcade-Deco16_Mister/rtl/jt12/*.v]] {
+    set_global_assignment -name VERILOG_FILE $mm_rtl
+}
+foreach mm_rtl [glob -nocomplain [file join $mm_src_root donors/Arcade-Deco16_Mister/rtl/jt49/*.v]] {
+    set_global_assignment -name VERILOG_FILE $mm_rtl
+}
+foreach mm_rtl [glob -nocomplain [file join $mm_src_root donors/Arcade-Deco16_Mister/rtl/ikaopm/*.v]] {
+    set_global_assignment -name VERILOG_FILE $mm_rtl
+}
+foreach mm_rtl [glob -nocomplain [file join $mm_src_root donors/Arcade-Deco16_Mister/rtl/jtframe/sdram/jtframe_sdram64*.v]] {
+    # The private top preserves the tested donor except its input capture edge.
+    if {[file tail $mm_rtl] ne "jtframe_sdram64.v"} {
+        set_global_assignment -name VERILOG_FILE $mm_rtl
+    }
+}
+set_global_assignment -name VERILOG_FILE [file join $mm_src_root donors/Arcade-Deco16_Mister/rtl/jtframe/ram/jtframe_prom.v]
+set_global_assignment -name VERILOG_FILE [file join $mm_src_root donors/Arcade-ActFancer_MiSTer/jtframe/hdl/video/jtframe_vtimer.v]
+set_global_assignment -name VERILOG_FILE [file join $mm_src_root donors/Arcade-ActFancer_MiSTer/jtframe/hdl/video/jtframe_linebuf.v]
+set_global_assignment -name VERILOG_FILE [file join $mm_src_root donors/Arcade-ActFancer_MiSTer/jtframe/hdl/ram/jtframe_rpwp_ram.v]
+set_global_assignment -name VERILOG_FILE [file join $mm_src_root donors/Arcade-ActFancer_MiSTer/jtframe/hdl/ram/jtframe_obj_buffer.v]
+set_global_assignment -name VERILOG_FILE [file join $mm_src_root donors/Arcade-ActFancer_MiSTer/jtframe/hdl/ram/jtframe_dual_ram16.v]
+set_global_assignment -name VERILOG_FILE [file join $mm_src_root donors/Arcade-ActFancer_MiSTer/jtframe/hdl/ram/jtframe_dual_ram.v]
+foreach mm_rtl [glob -nocomplain [file join $mm_src_root donors/TUMBLE-jt6295-b803636/*.v]] {
+    set_global_assignment -name VERILOG_FILE $mm_rtl
+}
+
+set_global_assignment -name SDC_FILE [file join $mm_src_root constraints/madmotor_scaler_read_cdc.sdc]
+set_global_assignment -name SYSTEMVERILOG_FILE [file join $mm_src_root rtl/framework/madmotor_pll_config_cdc.sv]
+set_global_assignment -name SDC_FILE [file join $mm_src_root constraints/madmotor_pll_config_cdc.sdc]
+
+# Bandit runtime profile uses the shared CPU, graphics, memory and audio fabric.
+set_global_assignment -name SYSTEMVERILOG_FILE [file join $mm_src_root rtl/bandit/bandit_controls.sv]
+set_global_assignment -name SYSTEMVERILOG_FILE [file join $mm_src_root rtl/bandit/bandit_mcu.sv]
+set_global_assignment -name SEARCH_PATH [file join $mm_src_root donors/bandit-audio/jt8051]
+set_global_assignment -name VERILOG_FILE [file join $mm_src_root donors/bandit-audio/jt8051/jt8051_alu.v]
+set_global_assignment -name VERILOG_FILE [file join $mm_src_root donors/bandit-audio/jt8051/jt8051_ctrl.v]
+set_global_assignment -name VERILOG_FILE [file join $mm_src_root donors/bandit-audio/jt8051/jt8051_periph.v]
+set_global_assignment -name VERILOG_FILE [file join $mm_src_root donors/bandit-audio/jt8051/jt8051_regs.v]
+set_global_assignment -name VERILOG_FILE [file join $mm_src_root donors/bandit-audio/jt8051/jt8051_serial.v]
+set_global_assignment -name VERILOG_FILE [file join $mm_src_root donors/bandit-audio/jt8051/jt8051.v]
+set_global_assignment -name VERILOG_FILE [file join $mm_src_root donors/bandit-audio/jt65c02/jt65c02.v]
+set_global_assignment -name SEARCH_PATH [file join $mm_src_root donors/bandit-audio/jt65c02]
+set_global_assignment -name VERILOG_FILE [file join $mm_src_root donors/bandit-audio/jt65c02/jt65c02_alu.v]
+set_global_assignment -name VERILOG_FILE [file join $mm_src_root donors/bandit-audio/jt65c02/jt65c02_ctrl.v]
+set_global_assignment -name VERILOG_FILE [file join $mm_src_root donors/bandit-audio/jt65c02/jt65c02_regs.v]
+set_global_assignment -name VERILOG_FILE [file join $mm_src_root donors/bandit-audio/jtopl/jtopl.v]
+set_global_assignment -name VERILOG_FILE [file join $mm_src_root donors/bandit-audio/jtopl/jtopl2.v]
+set_global_assignment -name VERILOG_FILE [file join $mm_src_root donors/bandit-audio/jtopl/jtopl_acc.v]
+set_global_assignment -name VERILOG_FILE [file join $mm_src_root donors/bandit-audio/jtopl/jtopl_csr.v]
+set_global_assignment -name VERILOG_FILE [file join $mm_src_root donors/bandit-audio/jtopl/jtopl_div.v]
+set_global_assignment -name VERILOG_FILE [file join $mm_src_root donors/bandit-audio/jtopl/jtopl_eg.v]
+set_global_assignment -name VERILOG_FILE [file join $mm_src_root donors/bandit-audio/jtopl/jtopl_eg_cnt.v]
+set_global_assignment -name VERILOG_FILE [file join $mm_src_root donors/bandit-audio/jtopl/jtopl_eg_comb.v]
+set_global_assignment -name VERILOG_FILE [file join $mm_src_root donors/bandit-audio/jtopl/jtopl_eg_ctrl.v]
+set_global_assignment -name VERILOG_FILE [file join $mm_src_root donors/bandit-audio/jtopl/jtopl_eg_final.v]
+set_global_assignment -name VERILOG_FILE [file join $mm_src_root donors/bandit-audio/jtopl/jtopl_eg_pure.v]
+set_global_assignment -name VERILOG_FILE [file join $mm_src_root donors/bandit-audio/jtopl/jtopl_eg_step.v]
+set_global_assignment -name VERILOG_FILE [file join $mm_src_root donors/bandit-audio/jtopl/jtopl_exprom.v]
+set_global_assignment -name VERILOG_FILE [file join $mm_src_root donors/bandit-audio/jtopl/jtopl_lfo.v]
+set_global_assignment -name VERILOG_FILE [file join $mm_src_root donors/bandit-audio/jtopl/jtopl_logsin.v]
+set_global_assignment -name VERILOG_FILE [file join $mm_src_root donors/bandit-audio/jtopl/jtopl_mmr.v]
+set_global_assignment -name VERILOG_FILE [file join $mm_src_root donors/bandit-audio/jtopl/jtopl_noise.v]
+set_global_assignment -name VERILOG_FILE [file join $mm_src_root donors/bandit-audio/jtopl/jtopl_op.v]
+set_global_assignment -name VERILOG_FILE [file join $mm_src_root donors/bandit-audio/jtopl/jtopl_pg.v]
+set_global_assignment -name VERILOG_FILE [file join $mm_src_root donors/bandit-audio/jtopl/jtopl_pg_comb.v]
+set_global_assignment -name VERILOG_FILE [file join $mm_src_root donors/bandit-audio/jtopl/jtopl_pg_inc.v]
+set_global_assignment -name VERILOG_FILE [file join $mm_src_root donors/bandit-audio/jtopl/jtopl_pg_rhy.v]
+set_global_assignment -name VERILOG_FILE [file join $mm_src_root donors/bandit-audio/jtopl/jtopl_pg_sum.v]
+set_global_assignment -name VERILOG_FILE [file join $mm_src_root donors/bandit-audio/jtopl/jtopl_pm.v]
+set_global_assignment -name VERILOG_FILE [file join $mm_src_root donors/bandit-audio/jtopl/jtopl_reg.v]
+set_global_assignment -name VERILOG_FILE [file join $mm_src_root donors/bandit-audio/jtopl/jtopl_reg_ch.v]
+set_global_assignment -name VERILOG_FILE [file join $mm_src_root donors/bandit-audio/jtopl/jtopl_sh.v]
+set_global_assignment -name VERILOG_FILE [file join $mm_src_root donors/bandit-audio/jtopl/jtopl_sh_rst.v]
+set_global_assignment -name VERILOG_FILE [file join $mm_src_root donors/bandit-audio/jtopl/jtopl_single_acc.v]
+set_global_assignment -name VERILOG_FILE [file join $mm_src_root donors/bandit-audio/jtopl/jtopl_slot_cnt.v]
+set_global_assignment -name VERILOG_FILE [file join $mm_src_root donors/bandit-audio/jtopl/jtopl_timers.v]

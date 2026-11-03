@@ -1,0 +1,78 @@
+# --------------------------------------------------------------------------
+#
+# MiSTer project -- Exterminator (Premier Technology / Gottlieb 1989, MAME set "exterm")
+#
+# WARNING: Do not add files to the project in the Quartus IDE! It rewrites this
+# file. Add source files manually to files.qip (framework/lane files) or
+# rtl/core_files.qip (core RTL, owned by the orchestrator). Device / pins /
+# config come from sys/sys.tcl (the MiSTer framework).
+#
+# Build with Quartus Prime Lite 17.0.0.2 (D:\q17), through the queue only:
+#   powershell -File D:\vibes\fpga\bin\quartus-safe.ps1 ...
+#
+# --------------------------------------------------------------------------
+
+set_global_assignment -name TOP_LEVEL_ENTITY sys_top
+set_global_assignment -name PARTITION_NETLIST_TYPE SOURCE -section_id Top
+set_global_assignment -name PARTITION_FITTER_PRESERVATION_LEVEL PLACEMENT_AND_ROUTING -section_id Top
+set_global_assignment -name PARTITION_COLOR 16764057 -section_id Top
+
+set_global_assignment -name LAST_QUARTUS_VERSION "17.0.2 Lite Edition"
+
+# NEVER set COMPRESSION_MODE / ON_CHIP_BITSTREAM_DECOMPRESSION OFF: MiSTer needs a
+# compressed RBF (mister-hardware-hazards.md). Compression is the Quartus default.
+set_global_assignment -name GENERATE_RBF_FILE ON
+set_global_assignment -name PROJECT_OUTPUT_DIRECTORY output_files
+set_global_assignment -name SAVE_DISK_SPACE OFF
+set_global_assignment -name SMART_RECOMPILE ON
+set_global_assignment -name MIN_CORE_JUNCTION_TEMP "-40"
+set_global_assignment -name MAX_CORE_JUNCTION_TEMP 100
+set_global_assignment -name POWER_PRESET_COOLING_SOLUTION "23 MM HEAT SINK WITH 200 LFPM AIRFLOW"
+set_global_assignment -name POWER_BOARD_THERMAL_MODEL "NONE (CONSERVATIVE)"
+
+# Multicorner timing analysis is REQUIRED for sign-off (fast corner catches the
+# DE10-Nano hold failures). Costs STA time only.
+set_global_assignment -name TIMEQUEST_MULTICORNER_ANALYSIS ON
+
+# Fitter policy inherited from the hardware-proven NARC build (same TMS34010
+# family, same single-SDRAM design): Fast Fit + normal router effort, no
+# fitter netlist optimizations. Do NOT turn on PHYSICAL_SYNTHESIS_REGISTER_RETIMING.
+# Change these only for a measured reason, in a commit of their own.
+set_global_assignment -name OPTIMIZE_POWER_DURING_FITTING OFF
+set_global_assignment -name FITTER_EFFORT "FAST FIT"
+set_global_assignment -name OPTIMIZATION_MODE "BALANCED"
+set_global_assignment -name ALLOW_POWER_UP_DONT_CARE ON
+set_global_assignment -name QII_AUTO_PACKED_REGISTERS NORMAL
+# LAB budget (<90%): denser ALM register packing (lesson 10789)
+set_global_assignment -name ALM_REGISTER_PACKING_EFFORT HIGH
+set_global_assignment -name ROUTER_TIMING_OPTIMIZATION_LEVEL NORMAL
+set_global_assignment -name OPTIMIZE_HOLD_TIMING "ALL PATHS"
+set_global_assignment -name PHYSICAL_SYNTHESIS_COMBO_LOGIC OFF
+set_global_assignment -name PHYSICAL_SYNTHESIS_REGISTER_DUPLICATION OFF
+set_global_assignment -name SEED 1
+set_global_assignment -name NUM_PARALLEL_PROCESSORS 6
+
+# jotego JT51 / JT49 (sound lane): keep short operator/envelope delay lines in logic.
+set_instance_assignment -name AUTO_SHIFT_REGISTER_RECOGNITION OFF -to * -entity jt51_sh
+set_instance_assignment -name AUTO_SHIFT_REGISTER_RECOGNITION OFF -to * -entity jt51_eg
+
+# MiSTer framework options.
+#   MISTER_FB            framebuffer ports in emu (needed by screen_rotate / DDRAM FB path)
+#   MISTER_DOWNSCALE_NN  no bilinear downscale (saves resources)
+#   MISTER_DISABLE_ADAPTIVE  no adaptive scanline filter
+#   MISTER_DISABLE_ALSA  no ALSA audio
+# MISTER_DISABLE_YC is deliberately NOT defined: the Y/C / composite analog
+# output stays available (mister-video-output.md rule 11).
+set_global_assignment -name VERILOG_MACRO "MISTER_FB=1"
+set_global_assignment -name VERILOG_MACRO "MISTER_DOWNSCALE_NN=1"
+set_global_assignment -name VERILOG_MACRO "MISTER_DISABLE_ADAPTIVE=1"
+set_global_assignment -name VERILOG_MACRO "MISTER_DISABLE_ALSA=1"
+
+source sys/sys.tcl
+source sys/sys_analog.tcl
+source files.qip
+
+set_instance_assignment -name PARTITION_HIERARCHY root_partition -to | -section_id Top
+
+set_global_assignment -name COMPRESSION_MODE ON
+set_global_assignment -name ON_CHIP_BITSTREAM_DECOMPRESSION ON

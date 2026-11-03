@@ -1,0 +1,59 @@
+set_global_assignment -name SDC_FILE Arcade-TaitoF2.sdc
+set_global_assignment -name SYSTEMVERILOG_FILE Arcade-TaitoF2.sv
+
+set_global_assignment -name SYSTEMVERILOG_FILE rtl/fx68k/hdl/fx68k.sv
+set_global_assignment -name SYSTEMVERILOG_FILE rtl/fx68k/hdl/fx68kAlu.sv
+set_global_assignment -name SYSTEMVERILOG_FILE rtl/fx68k/hdl/uaddrPla.sv
+
+set_global_assignment -name SYSTEMVERILOG_FILE rtl/pause.sv
+set_global_assignment -name SYSTEMVERILOG_FILE rtl/savestate_ui.sv
+set_global_assignment -name SYSTEMVERILOG_FILE rtl/sdram.sv
+set_global_assignment -name SYSTEMVERILOG_FILE rtl/system_consts.sv
+set_global_assignment -name SYSTEMVERILOG_FILE rtl/F2.sv
+set_global_assignment -name SYSTEMVERILOG_FILE rtl/game_board_config.sv
+set_global_assignment -name SYSTEMVERILOG_FILE rtl/address_translator.sv
+set_global_assignment -name SYSTEMVERILOG_FILE rtl/tc0100scn.sv
+set_global_assignment -name SYSTEMVERILOG_FILE rtl/tc0110pr.sv
+set_global_assignment -name SYSTEMVERILOG_FILE rtl/tc0190fmc.sv
+set_global_assignment -name SYSTEMVERILOG_FILE rtl/tc0220ioc.sv
+set_global_assignment -name SYSTEMVERILOG_FILE rtl/tc0200obj.sv
+set_global_assignment -name SYSTEMVERILOG_FILE rtl/tc0200obj_extender.sv
+set_global_assignment -name SYSTEMVERILOG_FILE rtl/tc0200obj_koshien.sv
+set_global_assignment -name SYSTEMVERILOG_FILE rtl/tc0260dar.sv
+set_global_assignment -name SYSTEMVERILOG_FILE rtl/tc0360pri.sv
+set_global_assignment -name SYSTEMVERILOG_FILE rtl/tc0480scp.sv
+set_global_assignment -name SYSTEMVERILOG_FILE rtl/tc0140syt.sv
+set_global_assignment -name SYSTEMVERILOG_FILE rtl/tc0030cmd.sv
+set_global_assignment -name SYSTEMVERILOG_FILE rtl/tc0430grw.sv
+set_global_assignment -name SYSTEMVERILOG_FILE rtl/tmp82c265.sv
+set_global_assignment -name SYSTEMVERILOG_FILE rtl/te7750.sv
+set_global_assignment -name SYSTEMVERILOG_FILE rtl/ram.sv
+set_global_assignment -name VERILOG_FILE rtl/jtframe_frac_cen.v
+set_global_assignment -name VERILOG_FILE rtl/jtframe_resync.v
+set_global_assignment -name SYSTEMVERILOG_FILE rtl/memory_stream.sv
+set_global_assignment -name SYSTEMVERILOG_FILE rtl/savestates.sv
+set_global_assignment -name SYSTEMVERILOG_FILE rtl/ddram.sv
+set_global_assignment -name SYSTEMVERILOG_FILE rtl/rom_loader.sv
+set_global_assignment -name SYSTEMVERILOG_FILE rtl/audio_mix.sv
+set_global_assignment -name SYSTEMVERILOG_FILE rtl/video_path.sv
+set_global_assignment -name SYSTEMVERILOG_FILE rtl/rom_cache.sv
+set_global_assignment -name SYSTEMVERILOG_FILE rtl/mame_keys.sv
+set_global_assignment -name SYSTEMVERILOG_FILE rtl/coin_pulse.sv
+set_global_assignment -name SYSTEMVERILOG_FILE rtl/video_timing.sv
+
+if (1) {
+    set_global_assignment -name VERILOG_MACRO "USE_AUTO_SS=1"
+    set_global_assignment -name SYSTEMVERILOG_FILE ./rtl/tv80_auto_ss.sv
+    set_global_assignment -name SYSTEMVERILOG_FILE ./rtl/jt10_auto_ss.sv
+} else {
+    set_global_assignment -name VERILOG_FILE ./rtl/tv80/tv80s.v
+    set_global_assignment -name VERILOG_FILE ./rtl/tv80/tv80_alu.v
+    set_global_assignment -name VERILOG_FILE ./rtl/tv80/tv80_reg.v
+    set_global_assignment -name VERILOG_FILE ./rtl/tv80/tv80_core.v
+    set_global_assignment -name VERILOG_FILE ./rtl/tv80/tv80_mcode.v
+
+    set_global_assignment -name QIP_FILE rtl/jt12/target/quartus/jt10.qip
+    set_global_assignment -name VERILOG_FILE ./rtl/jt12/hdl/jt12_reg_ch.v
+}
+
+set_global_assignment -name SYSTEMVERILOG_FILE rtl/controls/analog_move8.sv

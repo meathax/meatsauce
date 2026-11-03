@@ -1,0 +1,5 @@
+# Generated once before source inventory; immutable thereafter.
+set pwb_build_date_ymd 20261019
+set pwb_build_id_sha256 1003b039d59909c21b267e2ca688ce6b970bf356c6b200d4236ec6922f13e405
+set pwb_build_id_bytes_hex 60646566696e65204255494c445f44415445202232363130313922
+set pwb_build_id_generator_sha256 ff65801e212a22701e42fabeefa48afc12d8569d6a1e21fb5f066a76c754f42c
