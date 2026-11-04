@@ -150,13 +150,15 @@ end
 
 endmodule
 
-// MiSTer index-3 NVRAM upload adapter. The MRA persists 128 bytes while the
-// 93C46 is organized as 64 little-endian 16-bit words.
+// MiSTer index-3 NVRAM upload adapter. The first 128 bytes are the 93C46,
+// organized as 64 little-endian 16-bit words; bytes 128+ (OutRunners only)
+// come from the high-score shadow (ext_rd_data, already address-decoded).
 module s32_eeprom_nvram_if #(parameter WIDE=0) (
     input             ioctl_upload,
     input      [15:0] ioctl_index,
     input      [26:0] ioctl_addr,
     input      [15:0] eep_rd_data,
+    input      [15:0] ext_rd_data,
     output            eep_upload,
     output      [5:0] eep_rd_addr,
     output     [15:0] ioctl_din
@@ -164,8 +166,9 @@ module s32_eeprom_nvram_if #(parameter WIDE=0) (
 
 assign eep_upload = ioctl_upload && (ioctl_index == 16'd3);
 assign eep_rd_addr = ioctl_addr[6:1];
+wire   eep_region = (ioctl_addr[26:7] == 0);
 assign ioctl_din = WIDE
-                 ? (eep_upload ? eep_rd_data : 16'h0000)
+                 ? (eep_upload ? (eep_region ? eep_rd_data : ext_rd_data) : 16'h0000)
                  : {8'h00, (eep_upload
                      ? (ioctl_addr[0] ? eep_rd_data[15:8] : eep_rd_data[7:0])
                      : 8'h00)};

@@ -460,6 +460,10 @@ ARCHITECTURE rtl OF ascal IS
 	ATTRIBUTE ramstyle of pal1_mem : signal is "no_rw_check";
 	ATTRIBUTE ramstyle of pal2_mem : signal is "no_rw_check";
 	SIGNAL o_htotal,o_hsstart,o_hsend : uint12;
+	-- o_htotal-2, registered on the same edge as o_htotal (so always equal
+	-- to o_htotal-2) to keep the adder out of the o_hcpt -> o_hlast path.
+	-- Covered by the existing sys_top.sdc o_htotal* false path.
+	SIGNAL o_htotal_m2 : integer RANGE -2 TO 4093;
 	SIGNAL o_hmin,o_hmax,o_hdisp,o_v_hmin_adj : uint12;
 	SIGNAL o_hsize,o_vsize : uint12;
 	SIGNAL o_vtotal,o_vsstart,o_vsend : uint12;
@@ -1887,6 +1891,7 @@ BEGIN
 			o_run    <=run; -- <ASYNC> ?
 
 			o_htotal <=htotal; -- <ASYNC> ?
+			o_htotal_m2 <=htotal-2; -- <ASYNC> ?
 			o_hsstart<=hsstart; -- <ASYNC> ?
 			o_hsend  <=hsend; -- <ASYNC> ?
 			o_hdisp  <=hdisp; -- <ASYNC> ?
@@ -2766,7 +2771,8 @@ BEGIN
 				-- 148.5 MHz while preserving the exact wrap pixel.
 				IF o_hlast='0' THEN
 					o_hcpt<=(o_hcpt+1) MOD 4096;
-					o_hlast<=to_std_logic(o_hcpt+2>=o_htotal);
+					-- o_hcpt+2>=o_htotal, with the subtraction precomputed.
+					o_hlast<=to_std_logic(o_hcpt>=o_htotal_m2);
 				ELSE
 					o_hcpt<=0;
 					o_hlast<=to_std_logic(1>=o_htotal);

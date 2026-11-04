@@ -157,6 +157,13 @@ module s32_core #(
     input             eep_upload,
     output            eep_modified,
 
+    // OutRunners high-score engine: work RAM port B (see s32_or_hiscore)
+    input      [15:0] hs_ram_addr,
+    input             hs_ram_we,
+    input       [1:0] hs_ram_be,
+    input      [15:0] hs_ram_wdata,
+    output     [15:0] hs_ram_q,
+
     // inputs (already mapped per game class by emu top)
     input       [7:0] in_p1a, in_p2a, in_portc, in_svc12, in_svc34,
     input       [7:0] in_p1b, in_p2b, in_portc_b, in_svc12_b, in_svc34_b,
@@ -360,19 +367,19 @@ wire [15:0] wram_q;
 wire [WRAM_ADDR_WIDTH-1:0] wram_a = SYSTEM32_ONLY ? A[15:1] :
                                     (is_multi32 ? A[16:1] : {1'b0, A[15:1]});
 
-// Work RAM's second port existed only for the standard-board protection
-// responders (Dark Edge / J.League / Burning Rival HLE) and the V25 mailbox.
-// OutRunners uses neither -- MAME's init_orunners() installs no protection --
-// so port B is tied inactive rather than carried as dead arbitration logic.
+// Work RAM's second port is the OutRunners high-score engine's private view
+// (s32_or_hiscore in the emu top): it reads/restores the ranking table at
+// 0x20E301 without stalling the V70.  No Multi 32 title has protection or a
+// V25 mailbox on this port.
 s32_big_dpram #(
     .ADDR_WIDTH(WRAM_ADDR_WIDTH), .NUM_WORDS(WRAM_WORDS)
 ) work_ram (
     .clock_a(clk_sys), .address_a(wram_a),
     .data_a(m_wdata), .byteena_a(m_be),
     .wren_a(m_req && m_we && sel_wram), .q_a(wram_q),
-    .clock_b(clk_sys), .address_b('0),
-    .data_b(16'h0000), .byteena_b(2'b00),
-    .wren_b(1'b0), .q_b()
+    .clock_b(clk_sys), .address_b(hs_ram_addr[WRAM_ADDR_WIDTH-1:0]),
+    .data_b(hs_ram_wdata), .byteena_b(hs_ram_be),
+    .wren_b(hs_ram_we), .q_b(hs_ram_q)
 );
 
 
@@ -793,17 +800,30 @@ wire [15:0] fb_rd_pix_b = fb_rd2_pix;
 // still snapshots them together, one clock later within the same 12+ clock
 // pixel period, but the long M10K-to-priority-bank route is split at a
 // freely placeable register.
+//
+// mix_disp_x_pipe samples hcnt directly.  clk_sys is clk_ram/2 from the same
+// PLL at 0 ps phase, so hcnt (a clk_sys register) only changes on clk_ram
+// rising edges, and its value just before a rising edge equals its value at
+// the preceding falling edge: this is cycle-identical to the former
+// negedge mix_disp_x_cdc -> posedge pipe pair, but gives the crossing a full
+// clk_ram period instead of half (the half-cycle was the failing setup path).
+// Screen B's sprite pixel gets the same stage as screen A's, so both mixers
+// see identical spr_pix/disp_x latency.
 reg [15:0] fb_rd_pix_mix_pipe;
+reg [15:0] fb_rd_pix_b_mix_pipe;
 reg  [8:0] mix_disp_x_pipe;
 always @(posedge clk_ram) begin
-    fb_rd_pix_mix_pipe <= fb_rd_pix;
-    mix_disp_x_pipe    <= mix_disp_x_cdc;
+    fb_rd_pix_mix_pipe   <= fb_rd_pix;
+    fb_rd_pix_b_mix_pipe <= fb_rd_pix_b;
+    mix_disp_x_pipe      <= hcnt;
 end
-wire [15:0] fb_rd_pix_mix = fb_rd_pix_mix_pipe;
-wire  [8:0] mix_disp_x    = mix_disp_x_pipe;
+wire [15:0] fb_rd_pix_mix   = fb_rd_pix_mix_pipe;
+wire [15:0] fb_rd_pix_b_mix = fb_rd_pix_b_mix_pipe;
+wire  [8:0] mix_disp_x      = mix_disp_x_pipe;
 `else
-wire [15:0] fb_rd_pix_mix = fb_rd_pix;
-wire  [8:0] mix_disp_x    = mix_disp_x_cdc;
+wire [15:0] fb_rd_pix_mix   = fb_rd_pix;
+wire [15:0] fb_rd_pix_b_mix = fb_rd_pix_b;
+wire  [8:0] mix_disp_x      = mix_disp_x_cdc;
 `endif
 wire [15:0] pal0_cpu_q, pal1_cpu_q;
 wire [13:0] mix0_pal_addr, mix1_pal_addr;
@@ -884,7 +904,7 @@ generate
             .px_text(mix_px_text), .px_nbg0(mix_px_nbg0),
             .px_nbg1(mix_px_nbg1), .px_nbg2(mix_px_nbg2),
             .px_nbg3(mix_px_nbg3), .px_bmp(mix_px_bmp),
-            .spr_pix(fb_rd_pix_b),
+            .spr_pix(fb_rd_pix_b_mix),
             .pal_addr(mix1_pal_addr), .pal_data(mix1_pal_q),
             .rgb(rgb_b)
         );

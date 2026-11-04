@@ -75,40 +75,84 @@ localparam [1:0] ENV_DECAY1  = 2'd1;
 localparam [1:0] ENV_DECAY2  = 2'd2;
 localparam [1:0] ENV_RELEASE = 2'd3;
 
-reg [7:0] sreg [0:27][0:7];
+// ---------------------------------------------------------------------
+// Per-voice state storage.
+//
+// Every per-voice array lives in a 32-entry MLAB (single write port,
+// asynchronous read), one copy per read address, instead of 28-entry
+// flip-flop arrays with wide 28:1 read multiplexers (the previous form used
+// ~7.4k registers / ~5.7k ALMs).  Asynchronous MLAB reads return the
+// pre-edge contents exactly like the register arrays did, so every read
+// keeps its original cycle.
+//
+// Arrays the old code reset, or cleared with a constant from a second writer,
+// keep a 28-bit flag vector instead: a set flag makes the read return the
+// reset/constant value, and the RAM's own writer clears it.  Flag updates use
+// the same NBA order as the old array writes, so same-edge write priority is
+// unchanged.  Descriptor fields and the sample hold need no flag: they are
+// only read for active voices, and the key-on descriptor completion that sets
+// s_active rewrites every one of them.
+//
+// Arrays with three writers (s_active, s_env_state) and the two LFO
+// registers that descriptor completion also writes (sreg 6/7) stay as
+// flip-flops.
+// ---------------------------------------------------------------------
 reg [4:0] cur_slot;
 reg       cur_slot_valid;
 reg [2:0] cur_reg;
 
-reg [21:0] s_start [0:27];
-reg [15:0] s_loop  [0:27];
-reg [16:0] s_end   [0:27];
-reg        s_fmt12 [0:27];
-reg        s_active[0:27];
-reg [37:0] s_pos   [0:27];
-reg  [3:0] s_release [0:27];
+// Voice registers 0..5 (MLAB, Z80 is the only writer).  Register 4 (key
+// on/off) is never read back and has no storage.
+(* ramstyle = "MLAB, no_rw_check" *) reg [3:0] r0_mem  [0:31]; // [7:4] pan
+(* ramstyle = "MLAB, no_rw_check" *) reg [7:0] r1_mem  [0:31]; // sample[7:0]
+(* ramstyle = "MLAB, no_rw_check" *) reg       r2p_mem [0:31]; // [0] sample[8]
+(* ramstyle = "MLAB, no_rw_check" *) reg [5:0] r2s_mem [0:31]; // [7:2] pitch lo
+(* ramstyle = "MLAB, no_rw_check" *) reg [7:0] r3s_mem [0:31]; // octave/pitch hi
+(* ramstyle = "MLAB, no_rw_check" *) reg [4:0] r3d_mem [0:31]; // [7:3] for rate base
+(* ramstyle = "MLAB, no_rw_check" *) reg [6:0] r5_mem  [0:31]; // [7:1] total level
+reg [27:0] zr0, zr1, zr2, zr3, zr5;   // 1 = register still at reset value 0
+reg  [7:0] sreg6 [0:27];               // LFO freq/pitch depth (Z80 + descriptor)
+reg  [7:0] sreg7 [0:27];               // amplitude LFO depth (Z80 + descriptor)
 
-// Envelope generator per-voice state (gew.h envelope_gen_t / sample_t ADSR
-// fields). s_env_vol is the raw EG_SHIFT=16 fixed-point volume accumulator
-// (0..0x3ff<<16); s_env_gain is the EXP_VOL_ROM-converted linear gain
-// (Q12, matching gew.cpp's m_linear_to_exp_volume) latched once per voice
-// per output-sample tick and consumed later at the ROM-ack mix stage.
-reg  [1:0]  s_env_state [0:27];
-reg [26:0]  s_env_vol   [0:27];
-reg [11:0]  s_env_gain  [0:27];
-reg  [3:0]  s_attack  [0:27];
-reg  [3:0]  s_decay1  [0:27];
-reg  [3:0]  s_decay2  [0:27];
-reg  [3:0]  s_dlevel  [0:27];
-reg  [3:0]  s_krs     [0:27];
-reg signed [6:0] s_rate_base [0:27];
+// Descriptor-derived fields, written together on descriptor completion.
+// da: read by the voice at `slot`; dl: read by the pitch stage-2 slot.
+(* ramstyle = "MLAB, no_rw_check" *) reg [42:0] da_mem [0:31]; // start,fmt12,rel,att,d1,d2,dl
+(* ramstyle = "MLAB, no_rw_check" *) reg [32:0] dl_mem [0:31]; // loop,end
+(* ramstyle = "MLAB, no_rw_check" *) reg  [6:0] rb_mem [0:31]; // envelope rate base
 
-// LFO per-voice phase accumulator (gew.h lfo_t::m_phase). 24 bits: top 8
-// bits are the LFO_SHIFT waveform-table index, low 16 bits are extra
-// fractional precision (this design's own choice) so that the slowest
-// LFO_FREQ entry (0.168 Hz) does not round its phase step to zero.
-reg [23:0] s_lfo_phase [0:27];
-reg [12:0] s_alfo_gain [0:27];
+// Play position: one copy for the tick-0 fetch, one for the pitch stage.
+(* ramstyle = "MLAB, no_rw_check" *) reg [37:0] pa_mem [0:31];
+(* ramstyle = "MLAB, no_rw_check" *) reg [37:0] pb_mem [0:31];
+reg [27:0] zp;                         // 1 = position reads as 0
+
+reg  [1:0] s_env_state [0:27];
+reg [27:0] s_active;
+
+// Envelope accumulator (EG_SHIFT=16 fixed point), converted linear gain
+// (Q12, consumed by the mix MAC), LFO phase (top 8 bits index the waveform)
+// and amplitude-LFO gain (Q10, 1024 = neutral).
+(* ramstyle = "MLAB, no_rw_check" *) reg [26:0] ev_mem [0:31];
+(* ramstyle = "MLAB, no_rw_check" *) reg [11:0] eg_mem [0:31];
+(* ramstyle = "MLAB, no_rw_check" *) reg [23:0] lf_mem [0:31];
+(* ramstyle = "MLAB, no_rw_check" *) reg [10:0] ag_mem [0:31];
+reg [27:0] ze, zg, zl, za;             // reset/zero flags for the four above
+
+`ifdef MPCM_GARBAGE_INIT
+// Simulation only: start every MLAB with junk to prove no read depends on
+// power-up contents.
+integer gi;
+initial begin
+    for (gi = 0; gi < 32; gi = gi + 1) begin
+        r0_mem[gi] = $random; r1_mem[gi] = $random; r2p_mem[gi] = $random;
+        r2s_mem[gi] = $random; r3s_mem[gi] = $random; r3d_mem[gi] = $random;
+        r5_mem[gi] = $random; da_mem[gi] = {$random, $random};
+        dl_mem[gi] = {$random, $random}; rb_mem[gi] = $random;
+        pa_mem[gi] = {$random, $random}; pb_mem[gi] = {$random, $random};
+        ev_mem[gi] = $random; eg_mem[gi] = $random; lf_mem[gi] = $random;
+        ag_mem[gi] = $random;
+    end
+end
+`endif
 
 // Descriptor work is queued by sample writes and key-on.  key_wait records
 // that completion must start/retrigger the voice.
@@ -161,7 +205,6 @@ reg signed [21:0] acc_l, acc_r;
 // A fetch that misses its slot leaves the previous byte in s_hold for one
 // frame (a 22us first-order hold) -- fidelity degrades gracefully under
 // worst-case bus load while pitch and tempo stay exact.
-reg signed [15:0] s_hold [0:27];
 
 // Timing-driven pipeline for the per-sample mix MAC (sample*tl_gain ->
 // *env_gain -> *alfo_gain -> pan -> accumulate). The original code chained
@@ -580,6 +623,223 @@ begin
 end
 endfunction
 
+// ---------------------------------------------------------------------
+// Storage read ports.
+// ---------------------------------------------------------------------
+reg [4:0] desc_pick;    // lowest pending descriptor slot
+integer pi;
+always @* begin
+    desc_pick = 5'd0;
+    for (pi = 27; pi >= 0; pi = pi - 1)
+        if (desc_pending[pi]) desc_pick = pi[4:0];
+end
+
+wire [3:0]  pan_q      = zr0[mac_p2_slot] ? 4'h0 : r0_mem[mac_p2_slot];
+wire [7:0]  r1_pick_q  = zr1[desc_pick]   ? 8'h00 : r1_mem[desc_pick];
+wire        r2_pick_q  = zr2[desc_pick]   ? 1'b0 : r2p_mem[desc_pick];
+wire [5:0]  r2_slot_q  = zr2[slot]        ? 6'd0 : r2s_mem[slot];
+wire [7:0]  r3_slot_q  = zr3[slot]        ? 8'h00 : r3s_mem[slot];
+wire [4:0]  r3_df_q    = zr3[df_slot]     ? 5'd0 : r3d_mem[df_slot];
+wire [6:0]  tl_slot_q  = zr5[slot]        ? 7'd0 : r5_mem[slot];
+wire [7:0]  r6_slot_q  = sreg6[slot];
+wire [7:0]  r7_slot_q  = sreg7[slot];
+
+wire [42:0] da_q       = da_mem[slot];
+wire [21:0] start_q    = da_q[42:21];
+wire        fmt12_q    = da_q[20];
+wire [3:0]  rel_q      = da_q[19:16];
+wire [3:0]  att_q      = da_q[15:12];
+wire [3:0]  d1_q       = da_q[11:8];
+wire [3:0]  d2_q       = da_q[7:4];
+wire [3:0]  dlev_q     = da_q[3:0];
+wire [32:0] dl_q       = dl_mem[pitch_p1_slot];
+wire [15:0] loop_p1_q  = dl_q[32:17];
+wire [16:0] end_p1_q   = dl_q[16:0];
+wire signed [6:0] rb_q = rb_mem[slot];
+
+wire [37:0] pos_slot_q = zp[slot]          ? 38'd0 : pa_mem[slot];
+wire [37:0] pos_p1_q   = zp[pitch_p1_slot] ? 38'd0 : pb_mem[pitch_p1_slot];
+wire [26:0] vol_q      = ze[slot]          ? 27'd0 : ev_mem[slot];
+wire [11:0] egain_q    = zg[mac_p1_slot]   ? 12'd0 : eg_mem[mac_p1_slot];
+wire [23:0] lfo_q      = zl[slot]          ? 24'd0 : lf_mem[slot];
+wire [12:0] again_q    = za[mac_p2_slot]   ? 13'd1024 : {2'b00, ag_mem[mac_p2_slot]};
+wire signed [15:0] hold_q;
+
+// ---------------------------------------------------------------------
+// Tick-0 voice update (combinational): LFO step, pitch-LFO stage 1,
+// amplitude-LFO gain and the envelope generator for the voice at `slot`.
+// Committed by the sequential block below and the RAM write ports.
+// ---------------------------------------------------------------------
+reg [24:0] t0_step;
+reg [23:0] t0_lfo_next;
+reg signed [25:0] t0_pdelta;
+reg [12:0] t0_alfo;
+reg [26:0] t0_newvol;
+reg  [1:0] t0_state;
+reg        t0_state_we;
+reg        t0_release_done;
+always @* begin
+    reg [9:0] pitch;
+    reg [7:0]  lfo_idx;
+    reg signed [8:0] pitch_off;
+    reg [7:0]  amp_off;
+    reg [14:0] amp_idx_wide;
+    reg [6:0]  amp_idx;
+    reg [26:0] evstep;
+    reg [26:0] d1step;
+    reg  [1:0] st;
+
+    pitch = {r3_slot_q[3:0], r2_slot_q};
+    t0_step = pitch_step(r3_slot_q[7:4], pitch);
+
+    // --- LFO: advance phase, then apply PLFO/ALFO. ---
+    t0_lfo_next = lfo_q + lfo_phase_step_rom[r6_slot_q[5:3]];
+    lfo_idx = t0_lfo_next[23:16];
+
+    // Pitch-LFO pipeline stage 1/2: only the small (9x17) multiply happens
+    // here; the 25x26 step*delta multiply runs in the pitch_p1_valid stage.
+    pitch_off = 9'sd0;
+    if (r6_slot_q[2:0] != 3'd0) begin
+        pitch_off = lfo_pitch_wave(lfo_idx);
+        t0_pdelta = $signed(pitch_off) *
+            $signed({1'b0, pitch_k_rom[r6_slot_q[2:0]]});
+    end
+    else
+        t0_pdelta = 26'sd0;
+
+    amp_off = 8'd0;
+    amp_idx_wide = 15'd0;
+    amp_idx = 7'd0;
+    if (r7_slot_q[2:0] != 3'd0) begin
+        amp_off = lfo_amp_wave(lfo_idx);
+        amp_idx_wide = amp_off * amp_step_pow2(r7_slot_q[2:0]);
+        // Index is the SHIFTED product (tri*K)>>8, i.e. bits [14:8] --
+        // taking the raw low bits [6:0] swept the index 0..127 (up to -48dB,
+        // oscillating at the LFO rate) instead of the intended 0..K-1 range.
+        // OutRunners' engine voice is the only voice with tremolo enabled
+        // (driver writes r7=01 every frame; all sample descriptors carry
+        // lfo_amp=0), so that bug silenced exactly the car engine. With
+        // K<=64 and tri<=255 the >>8 result maxes at 63, so the 127 clamp is
+        // headroom only.
+        amp_idx = (amp_idx_wide >> 8) > 15'd127 ? 7'd127 : amp_idx_wide[14:8];
+        t0_alfo = {2'b0, tl_gain_rom[amp_idx]};
+    end
+    else
+        t0_alfo = 13'd1024;
+
+    // --- Envelope generator: one update per voice per output-sample tick,
+    // matching gew.cpp's envelope_generator_update() call cadence. ---
+    st = s_env_state[slot];
+    evstep = env_step(st, att_q, d1_q, d2_q, rel_q, rb_q);
+    d1step = 27'd0;
+    t0_state = st;
+    t0_state_we = 1'b0;
+    t0_release_done = 1'b0;
+    case (st)
+        ENV_ATTACK: begin
+            t0_newvol = vol_q + evstep;
+            if (t0_newvol >= 27'h4000000) begin
+                d1step = env_step(ENV_DECAY1, att_q, d1_q, d2_q, rel_q, rb_q);
+                t0_state = (d1step >= 27'h4000000) ? ENV_DECAY2 : ENV_DECAY1;
+                t0_state_we = 1'b1;
+                t0_newvol = 27'h3ff0000;
+            end
+        end
+        ENV_DECAY1: begin
+            t0_newvol = (vol_q > evstep) ? (vol_q - evstep) : 27'd0;
+            if ((t0_newvol >> 22) <= {23'd0, dlev_q}) begin
+                t0_state = ENV_DECAY2;
+                t0_state_we = 1'b1;
+            end
+        end
+        ENV_DECAY2: begin
+            t0_newvol = (vol_q > evstep) ? (vol_q - evstep) : 27'd0;
+        end
+        default: begin // ENV_RELEASE
+            t0_newvol = (vol_q > evstep) ? (vol_q - evstep) : 27'd0;
+            t0_release_done = (t0_newvol == 27'd0);
+        end
+    endcase
+end
+
+// Stage 3 of the s_pos position-update pipeline: loop-wrap compare and
+// conditional subtract of the raw add registered by the pitch stage.
+wire [37:0] pos_committed =
+    (pos_commit_add >= pos_commit_end16 && pos_commit_loop_span != 0) ?
+        pos_commit_add - {4'd0, pos_commit_loop_span} : pos_commit_add;
+
+// ---------------------------------------------------------------------
+// RAM write ports.  Every enable is the exact condition under which the old
+// array assignment executed (never during rst).
+// ---------------------------------------------------------------------
+wire z_reg_we   = !rst && cs && we && (addr == 2'd0) && cur_slot_valid;
+wire desc_done  = !rst && rom_req && rom_ack && rom_is_desc && (df_idx == 4'd11);
+wire desc_key   = desc_done && key_wait[df_slot];
+wire hold_ack   = !rst && rom_req && rom_ack && !rom_is_desc && !rom_beat12;
+wire t0_we      = !rst && ce && (tick == 3'd0) && s_active[slot];
+wire pos_we     = !rst && ce && pos_commit_pending;
+wire egain_we   = !rst && ce && env_p1_valid;
+
+wire signed [15:0] hold_sample =
+    play_fmt12 ? (play_odd ? {rom_data, play_mid[7:4], 4'h0}
+                           : {rom_data, play_mid[3:0], 4'h0})
+               : {rom_data, 8'h00};
+// Sample-byte ack and key-on descriptor completion are exclusive (one ROM
+// ack is either a descriptor beat or a sample beat).
+wire               hold_we   = hold_ack || desc_key;
+wire        [4:0]  hold_wa   = hold_ack ? play_slot : df_slot;
+wire signed [15:0] hold_wd   = hold_ack ? hold_sample : 16'sd0;
+
+(* ramstyle = "MLAB, no_rw_check" *) reg [15:0] hd_mem [0:31];
+`ifdef MPCM_GARBAGE_INIT
+initial for (gi = 0; gi < 32; gi = gi + 1) hd_mem[gi] = $random;
+`endif
+assign hold_q = hd_mem[slot];
+
+always @(posedge clk) begin
+    if (z_reg_we) begin
+        case (cur_reg)
+            3'd0: r0_mem[cur_slot] <= wdata[7:4];
+            3'd1: r1_mem[cur_slot] <= wdata;
+            3'd5: r5_mem[cur_slot] <= wdata[7:1];
+            default: ;
+        endcase
+        if (cur_reg == 3'd2) r2p_mem[cur_slot] <= wdata[0];
+        if (cur_reg == 3'd2) r2s_mem[cur_slot] <= wdata[7:2];
+        if (cur_reg == 3'd3) r3s_mem[cur_slot] <= wdata;
+        if (cur_reg == 3'd3) r3d_mem[cur_slot] <= wdata[7:3];
+    end
+end
+
+always @(posedge clk) begin
+    if (desc_done) begin
+        da_mem[df_slot] <= {df_buf[0][5:0], df_buf[1], df_buf[2], df_buf[0][6],
+                            df_buf[10][3:0], df_buf[8][7:4], df_buf[8][3:0],
+                            df_buf[9][3:0], df_buf[9][7:4]};
+        dl_mem[df_slot] <= {df_buf[3], df_buf[4],
+                            17'h10000 - {1'b0, df_buf[5], df_buf[6]}};
+    end
+    // gew.cpp retrigger_sample()+envelope_generator_calc: key-scaled rate
+    // base from the raw octave nibble, pitch bit 9 and key_rate_scale.
+    if (desc_key)
+        rb_mem[df_slot] <= calc_rate_base(r3_df_q[4:1], r3_df_q[0],
+                                          df_buf[10][7:4]);
+    if (hold_we) hd_mem[hold_wa] <= hold_wd;
+end
+
+always @(posedge clk) begin
+    if (pos_we) begin
+        pa_mem[pos_commit_slot] <= pos_committed;
+        pb_mem[pos_commit_slot] <= pos_committed;
+    end
+    if (t0_we) begin
+        ev_mem[slot] <= t0_newvol;
+        lf_mem[slot] <= t0_lfo_next;
+        ag_mem[slot] <= t0_alfo[10:0];
+    end
+    if (egain_we) eg_mem[env_p1_slot] <= exp_vol_rom[env_p1_idx];
+end
+
 always @(posedge clk) begin
     if (rst) begin
         cur_slot <= 0;
@@ -612,47 +872,35 @@ always @(posedge clk) begin
         acc_r <= 0;
         out_l <= 0;
         out_r <= 0;
+        s_active <= 28'd0;
+        zr0 <= {28{1'b1}};
+        zr1 <= {28{1'b1}};
+        zr2 <= {28{1'b1}};
+        zr3 <= {28{1'b1}};
+        zr5 <= {28{1'b1}};
+        zp  <= {28{1'b1}};
+        ze  <= {28{1'b1}};
+        zg  <= {28{1'b1}};
+        zl  <= {28{1'b1}};
+        za  <= {28{1'b1}};
         for (ri = 0; ri < 28; ri = ri + 1) begin
-            s_start[ri] <= 0;
-            s_loop[ri] <= 0;
-            s_end[ri] <= 0;
-            s_fmt12[ri] <= 0;
-            s_active[ri] <= 0;
-            s_pos[ri] <= 0;
-            s_release[ri] <= 4'hf;
             s_env_state[ri] <= ENV_RELEASE;
-            s_env_vol[ri] <= 0;
-            s_env_gain[ri] <= 0;
-            s_attack[ri] <= 0;
-            s_decay1[ri] <= 0;
-            s_decay2[ri] <= 0;
-            s_dlevel[ri] <= 0;
-            s_krs[ri] <= 0;
-            s_rate_base[ri] <= 0;
-            s_lfo_phase[ri] <= 0;
-            s_alfo_gain[ri] <= 11'd1024;
-            s_hold[ri] <= 16'sd0;
-            for (rj = 0; rj < 8; rj = rj + 1)
-                sreg[ri][rj] <= 0;
+            sreg6[ri] <= 0;
+            sreg7[ri] <= 0;
         end
         for (ri = 0; ri < 12; ri = ri + 1)
             df_buf[ri] <= 0;
     end
     else begin
-        // Default-pulse mac_p1_valid low; the rom_ack MAC-pipeline stage 0
-        // below overrides this with <= 1'b1 in the same cycle a new sample
-        // is fetched, so this only takes effect on cycles with no fresh
-        // rom_ack (standard default-then-override NBA idiom -- the override
-        // wins because it executes later in program order this same edge).
+        // Default-pulse mac_p1_valid low; the tick==4 MAC stage 0 below
+        // overrides this with <= 1'b1 (default-then-override NBA idiom).
         mac_p1_valid <= 1'b0;
         // NOTE: pitch_p1_valid deliberately has NO every-clk default clear.
-        // Unlike the MAC pipeline above (whose stages all live in this
-        // always-on clk domain), the pitch-LFO pipeline is produced and
-        // consumed inside the `ce`-gated voice state machine below, and `ce`
-        // is a slow audio-sample enable. A default clear here would fire on
-        // the very next clk -- long before the next `ce` -- and silently drop
-        // every deferred position update. It is cleared explicitly by its
-        // stage-2 consumer instead, exactly like pos_commit_pending.
+        // The pitch-LFO pipeline is produced and consumed inside the
+        // `ce`-gated voice state machine below; a default clear here would
+        // fire long before the next `ce` and drop every deferred position
+        // update. It is cleared explicitly by its stage-2 consumer instead,
+        // exactly like pos_commit_pending.
         // Register writes are on the Z80 clock domain represented by clk and
         // must not be dropped merely because the audio sample CE is low.
         if (cs && we) begin
@@ -665,7 +913,16 @@ always @(posedge clk) begin
                 end
                 2'd2: cur_reg <= (wdata > 8'd7) ? 3'd7 : wdata[2:0];
                 2'd0: if (cur_slot_valid) begin
-                    sreg[cur_slot][cur_reg] <= wdata;
+                    case (cur_reg)
+                        3'd0: zr0[cur_slot] <= 1'b0;
+                        3'd1: zr1[cur_slot] <= 1'b0;
+                        3'd2: zr2[cur_slot] <= 1'b0;
+                        3'd3: zr3[cur_slot] <= 1'b0;
+                        3'd5: zr5[cur_slot] <= 1'b0;
+                        3'd6: sreg6[cur_slot] <= wdata;
+                        3'd7: sreg7[cur_slot] <= wdata;
+                        default: ;
+                    endcase
                     if (cur_reg == 3'd1) begin
                         // Sample index is nine bits; bit 8 lives in pitch reg2.
                         desc_pending[cur_slot] <= 1'b1;
@@ -705,36 +962,25 @@ always @(posedge clk) begin
             if (rom_is_desc) begin
                 df_buf[df_idx] <= rom_data;
                 if (df_idx == 4'd11) begin
+                    // Descriptor fields commit through da/dl/rb_mem above.
                     df_busy <= 1'b0;
-                    s_start[df_slot] <= {df_buf[0][5:0], df_buf[1], df_buf[2]};
-                    s_fmt12[df_slot] <= df_buf[0][6];
-                    s_loop[df_slot] <= {df_buf[3], df_buf[4]};
-                    s_end[df_slot] <= 17'h10000 - {1'b0, df_buf[5], df_buf[6]};
-                    s_release[df_slot] <= df_buf[10][3:0];
-                    // multipcm.cpp init_sample(): attack/decay1 in byte 8,
-                    // decay2/decay_level in byte 9, key_rate_scale/release
-                    // in byte 10 (release already latched above).
-                    s_attack[df_slot] <= df_buf[8][7:4];
-                    s_decay1[df_slot] <= df_buf[8][3:0];
-                    s_decay2[df_slot] <= df_buf[9][3:0];
-                    s_dlevel[df_slot] <= df_buf[9][7:4];
-                    s_krs[df_slot]    <= df_buf[10][7:4];
                     // Hardware copies descriptor defaults into LFO registers.
-                    sreg[df_slot][6] <= df_buf[7];
-                    sreg[df_slot][7] <= {4'b0000, rom_data[3:0]};
+                    sreg6[df_slot] <= df_buf[7];
+                    sreg7[df_slot] <= {4'b0000, rom_data[3:0]};
                     if (key_wait[df_slot]) begin
                         s_active[df_slot] <= 1'b1;
-                        s_pos[df_slot] <= 0;
-                        // Silence the holding register so the retriggered
-                        // voice does not replay one frame of its previous
-                        // sample before the first fresh fetch lands.
-                        s_hold[df_slot] <= 16'sd0;
+                        // Position and envelope volume restart at zero; the
+                        // hold RAM is cleared through its write port so the
+                        // retriggered voice does not replay one frame of its
+                        // previous sample.  A same-edge tick-0 or position
+                        // commit for this slot clears the flag again below,
+                        // matching the old later-NBA-wins order.
+                        zp[df_slot] <= 1'b1;
+                        ze[df_slot] <= 1'b1;
                         key_wait[df_slot] <= 1'b0;
-                        // A stage-2 position commit (see the pipeline above)
-                        // may still be in flight for this same slot from
-                        // before the retrigger; cancel it so it cannot land
-                        // after this reset and clobber s_pos back to a stale
-                        // pre-retrigger position.
+                        // A stage-2 position commit may still be in flight
+                        // for this same slot from before the retrigger;
+                        // cancel it so it cannot land after this reset.
                         if (pos_commit_pending && pos_commit_slot == df_slot)
                             pos_commit_pending <= 1'b0;
                         // Same cancellation, one stage earlier: a pitch-LFO
@@ -744,19 +990,12 @@ always @(posedge clk) begin
                             pitch_p1_valid <= 1'b0;
                         // Same cancellation for the envelope-gain pipeline:
                         // a stale pre-retrigger newvol index must not land
-                        // in s_env_gain after ATTACK/vol=0 below.
+                        // in the envelope gain after ATTACK/vol=0 below.
                         if (env_p1_valid && env_p1_slot == df_slot)
                             env_p1_valid <= 1'b0;
-                        // gew.cpp retrigger_sample()+envelope_generator_calc:
-                        // restart the envelope from ATTACK/vol=0 and
-                        // recompute the key-scaled rate base. LFO phase is
-                        // NOT reset here (retrigger_sample doesn't touch it).
+                        // gew.cpp retrigger_sample(): restart the envelope
+                        // from ATTACK/vol=0. LFO phase is NOT reset here.
                         s_env_state[df_slot] <= ENV_ATTACK;
-                        s_env_vol[df_slot] <= 0;
-                        s_rate_base[df_slot] <= calc_rate_base(
-                            sreg[df_slot][3][7:4],
-                            sreg[df_slot][3][3],
-                            df_buf[10][7:4]);
                     end
                 end
                 else begin
@@ -766,45 +1005,23 @@ always @(posedge clk) begin
             else if (rom_beat12) begin
                 // First beat of a 12-bit fetch: the shared nibble byte.
                 // The second beat reuses play_base3, latched at issue time
-                // in the tick==0 branch below (s_pos has already advanced
-                // to the *next* sample by the time this ack arrives, so it
-                // cannot be re-read here). rom_req is left deasserted this
-                // cycle (matching the descriptor multi-beat fetch pattern
-                // below) rather than re-issued in the same cycle, so any
-                // ROM/cache responder that requires rom_req to fall before
-                // recognising a new request (e.g. this design's own
-                // testbench) sees a clean request boundary between beats.
+                // in the tick==0 branch below. rom_req is left deasserted
+                // this cycle so the responder sees a clean request boundary
+                // between beats.
                 play_mid <= rom_data;
                 rom_beat12 <= 1'b0;
                 play_beat2_pending <= 1'b1;
             end
-            else begin
-                // Sample byte lands in the holding register only; the MAC
-                // launches from s_hold at the slot's fixed mix phase
-                // (tick==4 in the ce arm below), so a late ack can never
-                // stall or skew the frame cadence.
-                // MultiPCM 8-bit samples are signed two's-complement, not
-                // unsigned/offset-binary.  Byte 80h therefore means -32768.
-                // 12-bit samples (gew.cpp sound_stream_update, format&4):
-                // even index -> {byte(adr), nibble(adr+1), 4'b0}; odd index
-                // -> {byte(adr+2), nibble(adr+1)[7:4], 4'b0}. play_mid holds
-                // the shared middle byte fetched on the first beat; rom_data
-                // here is the second (outer) byte.
-                if (play_fmt12)
-                    s_hold[play_slot] <= play_odd
-                        ? {rom_data, play_mid[7:4], 4'h0}
-                        : {rom_data, play_mid[3:0], 4'h0};
-                else
-                    s_hold[play_slot] <= {rom_data, 8'h00};
-            end
+            // else: the sample byte lands in the hold RAM (hold_we above);
+            // the MAC launches from it at the slot's fixed mix phase
+            // (tick==4), so a late ack can never stall the frame cadence.
         end
 
         // Pipeline stage 1/3: *env_gain (EXP_VOL_ROM, Q12). Runs every clk,
-        // independent of rom_ack, one cycle after stage 0 registers
-        // mac_p1_val/mac_p1_slot.
+        // one cycle after stage 0 registers mac_p1_val/mac_p1_slot.
         if (mac_p1_valid) begin
             reg signed [31:0] mul2;
-            mul2 = mac_p1_val * $signed({1'b0, s_env_gain[mac_p1_slot]});
+            mul2 = mac_p1_val * $signed({1'b0, egain_q});
             mac_p2_valid <= 1'b1;
             mac_p2_slot  <= mac_p1_slot;
             mac_p2_val   <= mul2 >>> 12;
@@ -812,14 +1029,9 @@ always @(posedge clk) begin
         else
             mac_p2_valid <= 1'b0;
 
-        // Pipeline stage 2/3: Amplitude LFO (tremolo) gain, Q10 via
+        // Pipeline stage 2/3: amplitude-LFO (tremolo) gain, Q10 via
         // TL_GAIN_ROM reuse (neutral 1024 when tremolo depth is zero), then
-        // pan and commit to acc_l/acc_r. Two cycles after the ROM ack that
-        // started this MAC -- well inside the >=7-cycle idle-tick margin
-        // before the next frame-wrap acc_l/acc_r reset, so this always
-        // lands before that reset and never overlaps a later voice's own
-        // stage-2 commit (ROM acks for successive voices are separated by
-        // that same margin).
+        // pan and commit to acc_l/acc_r.
         if (mac_p2_valid) begin
             reg signed [31:0] mul3;
             reg signed [15:0] attenuated;
@@ -828,9 +1040,9 @@ always @(posedge clk) begin
             reg signed [15:0] panned_r;
             reg [3:0] pan_code;
             reg [3:0] pan_distance;
-            mul3 = mac_p2_val * $signed({1'b0, s_alfo_gain[mac_p2_slot]});
+            mul3 = mac_p2_val * $signed({1'b0, again_q});
             attenuated = mul3 >>> 10;
-            pan_code = sreg[mac_p2_slot][0][7:4];
+            pan_code = pan_q;
             pan_distance = pan_code[3] ? (4'd0 - pan_code) : pan_code;
             pan_attenuated = pan_attenuate(attenuated, pan_distance[2:0]);
             if (pan_code == 4'h8) begin
@@ -857,16 +1069,12 @@ always @(posedge clk) begin
             reg sample_will_issue;
             // Will the tick==0 voice logic below claim the ROM port on this
             // edge? Arbitration must skip this edge so two writers never
-            // race rom_addr/rom_is_desc (the sample issue is later in
-            // program order and would silently clobber a descriptor beat).
+            // race rom_addr/rom_is_desc.
             sample_will_issue = (tick == 3'd0) && s_active[slot] && !rom_req &&
                                 !df_busy && !play_beat2_pending;
 
             // Fixed 224-ce frame cadence: tick/slot advance every ce and are
-            // never gated by ROM traffic (see the s_hold note above). The
-            // real 315-5560's sample rate is clk/224 regardless of fetch
-            // activity; the previous stall-on-fetch scheduler stretched the
-            // frame by up to 175% under load (measured, tb_mpcm_cadence).
+            // never gated by ROM traffic.
             tick <= tick + 1'b1;
             if (tick == 3'd7) begin
                 tick <= 0;
@@ -880,14 +1088,13 @@ always @(posedge clk) begin
                 else slot <= slot + 1'b1;
             end
 
-            // MAC stage 0 at the slot's fixed mix phase, from the holding
-            // register. tick==4 gives a same-frame fresh byte whenever the
-            // fetch issued at this slot's tick==0 acks within ~19 clk;
-            // slower acks mix the previous frame's byte (a 22us hold).
+            // MAC stage 0 at the slot's fixed mix phase, from the hold RAM.
+            // tick==4 gives a same-frame fresh byte whenever the fetch issued
+            // at this slot's tick==0 acks within ~19 clk; slower acks mix the
+            // previous frame's byte (a 22us hold).
             if (tick == 3'd4 && s_active[slot]) begin
                 reg signed [31:0] mul1;
-                mul1 = s_hold[slot] *
-                       $signed({1'b0, tl_gain_rom[sreg[slot][5][7:1]]});
+                mul1 = hold_q * $signed({1'b0, tl_gain_rom[tl_slot_q]});
                 mac_p1_valid <= 1'b1;
                 mac_p1_slot  <= slot;
                 mac_p1_val   <= mul1 >>> 10;
@@ -895,21 +1102,11 @@ always @(posedge clk) begin
 
             if (!sample_will_issue && !df_busy && desc_pending != 0 &&
                 !rom_req && !play_beat2_pending) begin
-                reg found;
-                reg [4:0] picked;
-                found = 1'b0;
-                picked = 0;
-                for (ri = 0; ri < 28; ri = ri + 1) begin
-                    if (desc_pending[ri] && !found) begin
-                        found = 1'b1;
-                        picked = ri[4:0];
-                    end
-                end
-                df_slot <= picked;
-                df_sample <= {sreg[picked][2][0], sreg[picked][1]};
+                df_slot <= desc_pick;
+                df_sample <= {r2_pick_q, r1_pick_q};
                 df_idx <= 0;
                 df_busy <= 1'b1;
-                desc_pending[picked] <= 1'b0;
+                desc_pending[desc_pick] <= 1'b0;
             end
             else if (!sample_will_issue && df_busy && !rom_req) begin
                 rom_req <= 1'b1;
@@ -923,190 +1120,85 @@ always @(posedge clk) begin
                 play_beat2_pending <= 1'b0;
             end
 
-                if (tick == 0 && s_active[slot]) begin
-                    reg [9:0] pitch;
-                    reg [24:0] step;
-                    reg [23:0] lfo_phase_next;
-                    reg [7:0]  lfo_idx;
-                    reg signed [8:0] pitch_off;
-                    reg signed [25:0] pitch_delta_q24;
-                    reg [7:0]  amp_off;
-                    reg [14:0] amp_idx_wide;
-                    reg [6:0]  amp_idx;
-                    reg [26:0] evstep;
-                    reg [26:0] newvol;
-                    reg [26:0] d1step;
-                    reg [21:0] base3_comb;
+            if (tick == 0 && s_active[slot]) begin
+                reg [21:0] base3_comb;
 
-                    pitch = {sreg[slot][3][3:0], sreg[slot][2][7:2]};
-                    step = pitch_step(sreg[slot][3][7:4], pitch);
+                // LFO phase, amplitude-LFO gain and envelope volume commit
+                // through their RAM write ports (t0_we).
+                zl[slot] <= 1'b0;
+                za[slot] <= 1'b0;
+                ze[slot] <= 1'b0;
 
-                    // --- LFO: advance phase, then apply PLFO/ALFO. ---
-                    lfo_phase_next = s_lfo_phase[slot] +
-                        lfo_phase_step_rom[sreg[slot][6][5:3]];
-                    s_lfo_phase[slot] <= lfo_phase_next;
-                    lfo_idx = lfo_phase_next[23:16];
+                pitch_p1_valid <= 1'b1;
+                pitch_p1_slot  <= slot;
+                pitch_p1_step  <= t0_step;
+                pitch_p1_delta <= t0_pdelta;
 
-                    // Pitch-LFO pipeline stage 1/2: only the small (9x17)
-                    // multiply happens here. The big 25x26 step*delta
-                    // multiply, the s_pos add and the pos_commit handoff are
-                    // deferred one clk_sys cycle to the pitch_p1_valid block
-                    // below -- see the pipeline note by its declaration.
-                    if (sreg[slot][6][2:0] != 3'd0) begin
-                        pitch_off = lfo_pitch_wave(lfo_idx);
-                        pitch_delta_q24 = $signed(pitch_off) *
-                            $signed({1'b0, pitch_k_rom[sreg[slot][6][2:0]]});
+                if (sample_will_issue) begin
+                    play_slot <= slot;
+                    play_fmt12 <= fmt12_q;
+                    play_odd <= pos_slot_q[16];
+                    rom_req <= 1'b1;
+                    rom_is_desc <= 1'b0;
+                    if (fmt12_q) begin
+                        // First beat fetches the shared nibble byte (adr+1);
+                        // the second beat (adr for even samples, adr+2 for
+                        // odd) follows from play_base3.
+                        base3_comb = start_q + (pos_slot_q[37:17] * 22'd3);
+                        play_base3 <= base3_comb;
+                        rom_beat12 <= 1'b1;
+                        rom_addr <= banked(base3_comb + 22'd1);
                     end
-                    else
-                        pitch_delta_q24 = 26'sd0;
-                    pitch_p1_valid <= 1'b1;
-                    pitch_p1_slot  <= slot;
-                    pitch_p1_step  <= step;
-                    pitch_p1_delta <= pitch_delta_q24;
-
-                    if (sreg[slot][7][2:0] != 3'd0) begin
-                        amp_off = lfo_amp_wave(lfo_idx);
-                        amp_idx_wide = amp_off * amp_step_pow2(sreg[slot][7][2:0]);
-                        // Index is the SHIFTED product (tri*K)>>8, i.e. bits
-                        // [14:8] -- taking the raw low bits [6:0] here swept
-                        // the index 0..127 (up to -48dB, oscillating at the
-                        // LFO rate) instead of the intended 0..K-1 range.
-                        // OutRunners' engine voice is the only voice with
-                        // tremolo enabled (driver writes r7=01 every frame;
-                        // all sample descriptors carry lfo_amp=0), so this
-                        // bug silenced exactly the car engine and nothing
-                        // else. With K<=64 and tri<=255 the >>8 result
-                        // maxes at 63, so the 127 clamp is headroom only.
-                        amp_idx = (amp_idx_wide >> 8) > 15'd127 ? 7'd127
-                                                                 : amp_idx_wide[14:8];
-                        s_alfo_gain[slot] <= {2'b0, tl_gain_rom[amp_idx]};
+                    else begin
+                        rom_beat12 <= 1'b0;
+                        rom_addr <= banked(start_q + pos_slot_q[37:16]);
                     end
-                    else
-                        s_alfo_gain[slot] <= 11'd1024;
-
-                    if (sample_will_issue) begin
-                        play_slot <= slot;
-                        play_fmt12 <= s_fmt12[slot];
-                        play_odd <= s_pos[slot][16];
-                        rom_req <= 1'b1;
-                        rom_is_desc <= 1'b0;
-                        if (s_fmt12[slot]) begin
-                            // First beat fetches the shared nibble byte
-                            // (adr+1); see the rom_beat12 branch above for
-                            // the second beat (adr for even samples, adr+2
-                            // for odd) and the ack branch for the 12-bit
-                            // assembly into s_hold.
-                            base3_comb = s_start[slot] +
-                                (s_pos[slot][37:17] * 22'd3);
-                            play_base3 <= base3_comb;
-                            rom_beat12 <= 1'b1;
-                            rom_addr <= banked(base3_comb + 22'd1);
-                        end
-                        else begin
-                            rom_beat12 <= 1'b0;
-                            rom_addr <= banked(s_start[slot] +
-                                               s_pos[slot][37:16]);
-                        end
-                    end
-                    // else: ROM port busy this edge -- skip this frame's
-                    // fetch; s_hold keeps the previous byte and the position
-                    // still advances, so tempo and pitch are unaffected.
-
-                    // --- Envelope generator: one update per voice per
-                    // output-sample tick, matching gew.cpp's
-                    // envelope_generator_update() call cadence. ---
-                    evstep = env_step(s_env_state[slot], s_attack[slot],
-                        s_decay1[slot], s_decay2[slot], s_release[slot],
-                        s_rate_base[slot]);
-                    case (s_env_state[slot])
-                        ENV_ATTACK: begin
-                            newvol = s_env_vol[slot] + evstep;
-                            if (newvol >= 27'h4000000) begin
-                                d1step = env_step(ENV_DECAY1, s_attack[slot],
-                                    s_decay1[slot], s_decay2[slot],
-                                    s_release[slot], s_rate_base[slot]);
-                                s_env_state[slot] <= (d1step >= 27'h4000000) ?
-                                    ENV_DECAY2 : ENV_DECAY1;
-                                s_env_vol[slot] <= 27'h3ff0000;
-                                newvol = 27'h3ff0000;
-                            end
-                            else
-                                s_env_vol[slot] <= newvol;
-                        end
-                        ENV_DECAY1: begin
-                            newvol = (s_env_vol[slot] > evstep) ?
-                                (s_env_vol[slot] - evstep) : 27'd0;
-                            s_env_vol[slot] <= newvol;
-                            if ((newvol >> 22) <= {23'd0, s_dlevel[slot]})
-                                s_env_state[slot] <= ENV_DECAY2;
-                        end
-                        ENV_DECAY2: begin
-                            newvol = (s_env_vol[slot] > evstep) ?
-                                (s_env_vol[slot] - evstep) : 27'd0;
-                            s_env_vol[slot] <= newvol;
-                        end
-                        default: begin // ENV_RELEASE
-                            newvol = (s_env_vol[slot] > evstep) ?
-                                (s_env_vol[slot] - evstep) : 27'd0;
-                            s_env_vol[slot] <= newvol;
-                            if (newvol == 27'd0)
-                                s_active[slot] <= 1'b0;
-                        end
-                    endcase
-                    env_p1_valid <= 1'b1;
-                    env_p1_slot  <= slot;
-                    env_p1_idx   <= newvol[25:16];
                 end
+                // else: ROM port busy this edge -- skip this frame's fetch;
+                // the hold RAM keeps the previous byte and the position still
+                // advances, so tempo and pitch are unaffected.
 
-                // Pitch-LFO pipeline stage 2/2 (see pitch_p1_valid's
-                // declaration): the 25x26 step*delta multiply that was too
-                // deep to share a cycle with pos_commit_add's own logic.
-                // Feeds the existing pos_commit pipeline exactly as tick==0
-                // used to feed it directly, just one idle-tick cycle later.
-                if (pitch_p1_valid) begin
-                    reg signed [50:0] pitch_adj_mul;
-                    reg signed [24:0] step_lfo;
-                    reg [37:0] next_pos;
-                    reg [33:0] loop_span;
-                    pitch_p1_valid <= 1'b0;
-                    pitch_adj_mul = $signed({1'b0, pitch_p1_step}) * pitch_p1_delta;
-                    step_lfo = $signed({1'b0, pitch_p1_step}) +
-                        (pitch_adj_mul >>> 24);
-                    next_pos = s_pos[pitch_p1_slot] + {13'd0, step_lfo[24:0]};
-                    loop_span = ({17'd0, s_end[pitch_p1_slot]} -
-                        {18'd0, s_loop[pitch_p1_slot]}) << 16;
-                    pos_commit_pending  <= 1'b1;
-                    pos_commit_slot     <= pitch_p1_slot;
-                    pos_commit_add      <= next_pos;
-                    pos_commit_loop_span<= loop_span;
-                    pos_commit_end16    <= {21'd0, s_end[pitch_p1_slot]} << 16;
-                end
+                if (t0_state_we)
+                    s_env_state[slot] <= t0_state;
+                if (t0_release_done)
+                    s_active[slot] <= 1'b0;
+                env_p1_valid <= 1'b1;
+                env_p1_slot  <= slot;
+                env_p1_idx   <= t0_newvol[25:16];
+            end
 
-                // Envelope-generator gain pipeline stage 2 (see env_p1_valid's
-                // declaration): the exp_vol_rom lookup that was too deep to
-                // share tick==0 with env_step()'s own rate-table chain. One
-                // ce-tick later, same margin as pos_commit's stages.
-                if (env_p1_valid) begin
-                    env_p1_valid <= 1'b0;
-                    s_env_gain[env_p1_slot] <= exp_vol_rom[env_p1_idx];
-                end
+            // Pitch-LFO pipeline stage 2/2: the 25x26 step*delta multiply,
+            // feeding the pos_commit pipeline one idle-tick cycle later.
+            if (pitch_p1_valid) begin
+                reg signed [50:0] pitch_adj_mul;
+                reg signed [24:0] step_lfo;
+                reg [37:0] next_pos;
+                reg [33:0] loop_span;
+                pitch_p1_valid <= 1'b0;
+                pitch_adj_mul = $signed({1'b0, pitch_p1_step}) * pitch_p1_delta;
+                step_lfo = $signed({1'b0, pitch_p1_step}) +
+                    (pitch_adj_mul >>> 24);
+                next_pos = pos_p1_q + {13'd0, step_lfo[24:0]};
+                loop_span = ({17'd0, end_p1_q} - {18'd0, loop_p1_q}) << 16;
+                pos_commit_pending  <= 1'b1;
+                pos_commit_slot     <= pitch_p1_slot;
+                pos_commit_add      <= next_pos;
+                pos_commit_loop_span<= loop_span;
+                pos_commit_end16    <= {21'd0, end_p1_q} << 16;
+            end
 
-                // Stage 3 of the s_pos position-update pipeline (see the
-                // declarations above): one clk_sys cycle after the pitch-LFO
-                // stage above registered the raw add, do the loop-wrap
-                // compare and conditional subtract here and commit
-                // s_pos[slot]. tick reaches 2 well before this slot's next
-                // tick==0 (224 ticks later), so this is always ready in time.
-                if (pos_commit_pending) begin
-                    reg [37:0] committed_pos;
-                    pos_commit_pending <= 1'b0;
-                    committed_pos = pos_commit_add;
-                    if (committed_pos >= pos_commit_end16 &&
-                        pos_commit_loop_span != 0)
-                        committed_pos = committed_pos -
-                            {4'd0, pos_commit_loop_span};
-                    s_pos[pos_commit_slot] <= committed_pos;
-                end
+            // Envelope-generator gain pipeline stage 2: the exp_vol_rom
+            // lookup commits through eg_mem's write port (egain_we).
+            if (env_p1_valid) begin
+                env_p1_valid <= 1'b0;
+                zg[env_p1_slot] <= 1'b0;
+            end
+
+            // Position-update pipeline stage 3: commit through pa/pb_mem.
+            if (pos_commit_pending) begin
+                pos_commit_pending <= 1'b0;
+                zp[pos_commit_slot] <= 1'b0;
+            end
         end
     end
 end

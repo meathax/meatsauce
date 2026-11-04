@@ -112,6 +112,8 @@ wire [15:0] ioctl_index;
 wire [26:0] ioctl_addr;
 wire [15:0] ioctl_dout, ioctl_din;
 wire        eep_upload, eep_modified;
+wire        hs_dirty;               // OutRunners high-score table changed
+wire [15:0] hs_ul_data;             // NVRAM bytes 128+ (s32_or_hiscore)
 wire  [5:0] eep_rd_addr;
 wire [15:0] eep_rd_data;
 wire [31:0] joystick_0, joystick_1, joystick_2, joystick_3, joystick_4, joystick_5;
@@ -371,7 +373,7 @@ hps_io #(.CONF_STR(CONF_STR), .WIDE(1)) hps_io (
 
     .ioctl_download(ioctl_download),
     .ioctl_upload(ioctl_upload),
-    .ioctl_upload_req(eep_modified),
+    .ioctl_upload_req(eep_modified | hs_dirty),
     .ioctl_upload_index(8'd3),
     .ioctl_wr(ioctl_wr),
     .ioctl_rd(ioctl_rd),
@@ -413,8 +415,25 @@ hps_io #(.CONF_STR(CONF_STR), .WIDE(1)) hps_io (
 s32_eeprom_nvram_if #(.WIDE(1)) eep_nvram_if (
     .ioctl_upload(ioctl_upload), .ioctl_index(ioctl_index),
     .ioctl_addr(ioctl_addr), .eep_rd_data(eep_rd_data),
+    .ext_rd_data(hs_ul_data),
     .eep_upload(eep_upload), .eep_rd_addr(eep_rd_addr),
     .ioctl_din(ioctl_din)
+);
+
+// OutRunners high-score persistence: the ranking table rides in the same
+// index-3 NVRAM file after the EEPROM (MRA nvram size 188).
+wire [15:0] hs_ram_addr, hs_ram_wdata, hs_ram_q;
+wire        hs_ram_we;
+wire  [1:0] hs_ram_be;
+s32_or_hiscore or_hiscore (
+    .clk(clk_sys), .rst(reset),
+    .enable(active_board.game_profile == MULTI32_OUTRUNNERS),
+    .dl_wr(ioctl_download && ioctl_wr && ioctl_index[7:0] == 8'd3),
+    .dl_addr(ioctl_addr), .dl_data(ioctl_dout),
+    .ul_active(eep_upload), .ul_addr(ioctl_addr), .ul_data(hs_ul_data),
+    .ram_addr(hs_ram_addr), .ram_we(hs_ram_we), .ram_be(hs_ram_be),
+    .ram_wdata(hs_ram_wdata), .ram_q(hs_ram_q),
+    .dirty(hs_dirty)
 );
 
 ////////////////////////////   ROM LOADING   //////////////////////////////////
@@ -909,6 +928,8 @@ s32_core core (
     .eep_ld_wr(eep_wr), .eep_ld_addr(eep_waddr), .eep_ld_data(eep_wdata),
     .eep_rd_data(eep_rd_data), .eep_rd_addr(eep_rd_addr),
     .eep_upload(eep_upload), .eep_modified(eep_modified),
+    .hs_ram_addr(hs_ram_addr), .hs_ram_we(hs_ram_we), .hs_ram_be(hs_ram_be),
+    .hs_ram_wdata(hs_ram_wdata), .hs_ram_q(hs_ram_q),
     .in_p1a(core_p1a), .in_p2a(core_p2a),
     .in_portc(portc), .in_svc12(core_svc12), .in_svc34(svc34),
     // Second cockpit (Player 2, joystick_1): P1_B bits 1:0 = P2 shift

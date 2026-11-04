@@ -248,7 +248,10 @@ always @(posedge clk) begin
                     end
                 end
             end
-            else if (ioctl_index == 8'd2 || ioctl_index == 8'd3) begin
+            else if (ioctl_index == 8'd2 ||
+                     (ioctl_index == 8'd3 && ioctl_addr[26:7] == 0)) begin
+                // Index-3 bytes 128+ are the OutRunners high-score table
+                // (s32_or_hiscore); only the first 128 are EEPROM cells.
                 // The factory ROM image (2) stores each 93C46 x16 cell
                 // big-endian. Persisted NVRAM (3) is our internal-word stream
                 // and must round-trip unchanged.
