@@ -1,0 +1,129 @@
+{
+ "core": "JTAPACH3 (Apache 3) jotego/jtcores andrea-cores 47b46e40 + local OSD/credits/target-case edits",
+ "evidence": "MAME apache3: cores/apach3/doc/apache3.cpp:429-491 and doc/tatsumi.h:53-54 (CLOCK_1=16MHz, CLOCK_2=50MHz). Source plan, not fitted timing qualification.",
+ "pcb_clocks": [
+  {
+   "name": "CLOCK_2 XTAL",
+   "hz": 50000000,
+   "source": "doc/tatsumi.h:54"
+  },
+  {
+   "name": "CLOCK_1 XTAL",
+   "hz": 16000000,
+   "source": "doc/tatsumi.h:53"
+  },
+  {
+   "name": "V30 main",
+   "hz": 8000000,
+   "source": "apache3.cpp:429 CLOCK_1/2"
+  },
+  {
+   "name": "68000 sub",
+   "hz": 12500000,
+   "source": "apache3.cpp:433 CLOCK_2/4"
+  },
+  {
+   "name": "V20 sound",
+   "hz": 8000000,
+   "source": "apache3.cpp:438 CLOCK_1/2"
+  },
+  {
+   "name": "Z80 road",
+   "hz": 6250000,
+   "source": "apache3.cpp:441 CLOCK_2/8"
+  },
+  {
+   "name": "pixel",
+   "hz": 6250000,
+   "source": "apache3.cpp:462 set_raw(CLOCK_2/8,400,..,280,..)"
+  },
+  {
+   "name": "YM2151",
+   "hz": 4000000,
+   "source": "apache3.cpp:486 CLOCK_1/4"
+  },
+  {
+   "name": "OKI6295",
+   "hz": 2000000,
+   "source": "apache3.cpp:491 CLOCK_1/4/2"
+  }
+ ],
+ "video": {
+  "pcb_pixel_hz": 6250000,
+  "htotal": 400,
+  "vtotal": 280,
+  "pcb_refresh_hz": 55.80357142857143,
+  "source": "MAME set_raw 400x280 (apache3.cpp:462); core jtframe_vtimer HB_END/H_VNEXT 399, VB_END 279 (hdl/jtapach3_video.v:74-83)"
+ },
+ "clk_sys_hz": 50347216,
+ "clk_video_hz": 50347216,
+ "clock_net_evidence": "JTFRAME MiSTer: clk_sys = pll6293 outclk_0 drives game and CLK_VIDEO (jtframe_mister); JTFRAME_MCLK=50347216 after target-case fix",
+ "pixel_divider": 8,
+ "pixel_implementation": "jtframe_pxlcen JTFRAME_PXLCLK=6: jtframe_frac_cen n=1 m=4, pxl_cen = clk/8 (integer counter behaviour)",
+ "sdram_hz": 50347216,
+ "pll": {
+  "files": [
+   "modules/jtframe/target/mister/hdl/pll6293/pll/pll_0002.v"
+  ],
+  "clk_sys_output": 0
+ },
+ "enables": [
+  {
+   "name": "v30_main",
+   "pcb_hz": 8000000,
+   "n": 8000000,
+   "m": 50347216,
+   "recovery": false,
+   "note": "mem.yaml 8M CE from JTFRAME_MCLK; ready-stalls on master/slave ROM SDRAM with NO catch-up recovery (R7 gap, upstream design)"
+  },
+  {
+   "name": "m68k_sub",
+   "pcb_hz": 12500000,
+   "n": 7818,
+   "m": 31471,
+   "recovery": true,
+   "note": "jtframe_68kdtack_cen RECOVERY=1 num/den 7818/31471 -> 12.507214 MHz (+577 ppm; author's num/den assumed 50.318 MHz)",
+   "max_hz": 25148434
+  },
+  {
+   "name": "v20_sound",
+   "pcb_hz": 8000000,
+   "n": 8000000,
+   "m": 50347216,
+   "recovery": false,
+   "note": "mem.yaml 8M CE; stalls on sound ROM SDRAM with NO catch-up recovery (R7 gap, upstream design)"
+  },
+  {
+   "name": "z80_road",
+   "pcb_hz": 6250000,
+   "n": 6250000,
+   "m": 50347216,
+   "recovery": false,
+   "note": "mem.yaml 6.25M CE"
+  },
+  {
+   "name": "ym2151",
+   "pcb_hz": 4000000,
+   "n": 4000000,
+   "m": 50347216,
+   "recovery": false,
+   "note": "mem.yaml 4M CE"
+  },
+  {
+   "name": "oki6295",
+   "pcb_hz": 2000000,
+   "n": 2000000,
+   "m": 50347216,
+   "recovery": false,
+   "note": "mem.yaml 2M CE"
+  }
+ ],
+ "measured_pixel_spacing": {
+  "source": "cores/apach3/ver/ce_pixel_spacing.log",
+  "spacings": [
+   8
+  ],
+  "note": "Icarus jtframe_pxlcen PXLCLK=6 over two 400x280 frames: 223999 gaps all 8 (cores/apach3/ver/pxl_spacing_tb.v)"
+ },
+ "approved_deviations": []
+}

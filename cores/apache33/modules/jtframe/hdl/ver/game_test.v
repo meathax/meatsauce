@@ -1,0 +1,739 @@
+/* SPDX-FileCopyrightText: 2026 Jose Tejada Gomez
+ * SPDX-License-Identifier: GPL-3.0-or-later
+ * Date: 13-4-2022 */
+
+`ifndef JTFRAME_BUTTONS
+`define JTFRAME_BUTTONS 2
+`endif
+
+`ifndef JTFRAME_SIM_SNDEN
+`define JTFRAME_SIM_SNDEN 6'h3f
+`endif
+
+// Top level for verilator simulations
+
+module game_test(
+    input           sdram_rst,
+
+    // Clocks and resets, depending on the JTFRAME_CLK macros
+    // some of these inputs will be used
+    input           rst,
+    input           clk,
+    input           rst24,
+    input           clk24,
+    input           rst48,
+    input           clk48,
+    input           rst96,
+    input           clk96,
+
+    output          pxl2_cen,   // 12   MHz
+    output          pxl_cen,    //  6   MHz
+    output   [7:0]  red,
+    output   [7:0]  green,
+    output   [7:0]  blue,
+    output          LHBL,
+    output          LVBL,
+    output          HS,
+    output          VS,
+    // cabinet I/O
+    input   [ 3:0]  cab_1p,
+    input   [ 3:0]  coin,
+    input   [ 9:0]  joystick1,
+    input   [ 9:0]  joystick2,
+    input   [ 9:0]  joystick3,
+    input   [ 9:0]  joystick4,
+
+    // Analog inputs
+    input   [15:0]  joyana_l1,
+    input   [15:0]  joyana_l2,
+    input   [15:0]  joyana_l3,
+    input   [15:0]  joyana_l4,
+    input   [15:0]  joyana_r1,
+    input   [15:0]  joyana_r2,
+    input   [15:0]  joyana_r3,
+    input   [15:0]  joyana_r4,
+
+    // SDRAM interface
+    input           ioctl_rom,
+    input           ioctl_cart,
+    output          dwnld_busy,
+
+    // ROM LOAD
+`ifdef JTFRAME_SDRAM_XL
+    input   [26:0]  ioctl_addr,
+`else
+    input   [25:0]  ioctl_addr,
+`endif
+    input   [ 7:0]  ioctl_dout,
+    input           ioctl_wr,
+    input           ioctl_ram,
+    output  [ 7:0]  ioctl_din,
+
+    // DIP switches
+    input   [31:0]  status,
+    input   [31:0]  dipsw,
+    input           service,
+    input           tilt,
+    input           dip_test,
+    input           dip_pause,
+`ifdef JTFRAME_OSD_FLIP
+    input           dip_flip,
+`else
+    output          dip_flip,
+`endif
+    input   [ 1:0]  dip_fxlevel, // Not a DIP on the original PCB
+    // Sound output
+    output  signed [15:0] snd_left,
+    output  signed [15:0] snd_right,
+    output          sample,
+
+    // SDRAM interface
+    output          sdram_init,
+    inout  [15:0]   SDRAM_DQ,       // SDRAM Data bus 16 Bits
+    output [15:0]   SDRAM_DIN,      // SDRAM Data bus 16 Bits
+    output [12:0]   SDRAM_A,        // SDRAM Address bus 13 Bits
+    output [ 1:0]   SDRAM_DQM,      // SDRAM Data Mask
+    output          SDRAM_nWE,      // SDRAM Write Enable
+    output          SDRAM_nCAS,     // SDRAM Column Address Strobe
+    output          SDRAM_nRAS,     // SDRAM Row Address Strobe
+    output          SDRAM_nCS,      // SDRAM Chip Select
+    output [1:0]    SDRAM_BA,       // SDRAM Bank Address
+    output          SDRAM_CLK,      // SDRAM Clock
+    output          SDRAM_CKE,      // SDRAM Clock Enable
+    // input  [21:0]   SDRAM_BA_ADDR0,
+    // input  [21:0]   SDRAM_BA_ADDR1,
+    // input  [21:0]   SDRAM_BA_ADDR2,
+    // input  [21:0]   SDRAM_BA_ADDR3,
+
+    // JTFRAME_LF_BUFFER
+    // output   [`JTFRAME_LF_VW-1:0] game_vrender,
+    // output   [`JTFRAME_LF_HW-1:0] game_hdump,
+    // output   [`JTFRAME_LF_HW-1:0] ln_addr,
+    // output   [15:0] ln_data,
+    // output          ln_done,
+    // input           ln_hs,
+    // input    [15:0] ln_dout,
+    // input    [15:0] ln_pxl,
+    // input    [`JTFRAME_LF_VW-1:0] ln_v,
+    // output          ln_we,
+    // output          fb_keep,
+
+    // Debug
+    input   [3:0]   gfx_en,
+    input   [7:0]   st_addr,
+    output  [7:0]   st_dout,
+    input   [7:0]   debug_bus,
+    output  [7:0]   debug_view
+);
+
+`ifdef JTFRAME_SDRAM_XL
+    localparam SDRAMW=24; // 128 MB
+`elsif JTFRAME_SDRAM_LARGE
+    localparam SDRAMW=23; // 64 MB
+`else
+    localparam SDRAMW=22; // 32 MB
+`endif
+
+`ifdef JTFRAME_COLORW
+    localparam COLORW=`JTFRAME_COLORW;
+`else
+    localparam COLORW=4;
+`endif
+
+wire [SDRAMW-1:0] ba0_addr;
+wire [SDRAMW-1:0] ba1_addr;
+wire [SDRAMW-1:0] ba2_addr;
+wire [SDRAMW-1:0] ba3_addr;
+wire [SDRAMW-1:0] burst_addr;
+wire [SDRAMW-1:0] prog_addr;
+wire [15:0] ba0_din, ba1_din, ba2_din, ba3_din;
+wire [15:0] burst_din;
+wire [ 1:0] ba0_dsn, ba1_dsn, ba2_dsn, ba3_dsn;
+wire [ 1:0] burst_ba;
+wire [ 3:0] ba_rd, ba_wr, ba_ack, ba_dst, ba_dok, ba_rdy;
+wire        burst_rd, burst_wr, burst_ack, burst_rdy, burst_dst, burst_dok;
+
+wire [15:0] prog_data;
+wire [ 1:0] prog_mask;
+wire [ 1:0] prog_ba;
+wire        prog_we;
+wire        prog_rd;
+wire        prog_ack;
+wire        prog_dst;
+wire        prog_dok;
+wire        prog_rdy;
+wire [15:0] data_read;
+wire        SDRAM_DQML;     // SDRAM Low-byte Data Mask
+wire        SDRAM_DQMH;     // SDRAM High-byte Data Mask
+// SRAM
+wire [16:0]  sram_addr;
+wire [15:0]  sram_din, sram_dout;
+wire [ 1:0]  sram_dsn;
+wire         sram_wen, sram_ok;
+// Save/Load
+wire [15:0]  sav_din, sav_dout, sav_addr;
+wire         sav_change, sav_wait, sav_done, sav_ack;
+wire [ 1:0]  sav_wr;
+
+assign {sav_dout, sav_addr, sav_wr, sav_ack} = 0;
+
+assign SDRAM_DQM= { SDRAM_DQMH, SDRAM_DQML };
+
+`ifndef JTFRAME_IOCTL_RD
+    assign ioctl_din = 0;
+`endif
+
+localparam GAME_BUTTONS=`JTFRAME_BUTTONS;
+localparam STARTW=2;
+
+`ifndef JTFRAME_STEREO
+assign snd_right = snd_left;
+`endif
+
+`ifndef JTFRAME_STATUS
+assign st_dout = 0;
+`endif
+
+integer frame_cnt=0;
+reg VSl;
+
+always @(posedge clk) begin
+    VSl <= VS;
+    if( VS && !VSl ) frame_cnt<=frame_cnt+1;
+end
+
+wire clk_rom = clk;
+assign SDRAM_CLK = clk_rom;
+
+generate
+    genvar i;
+    for(i=7;i>COLORW-1;i=i-1) begin
+        assign red[i]=0;
+        assign green[i]=0;
+        assign blue[i]=0;
+    end
+endgenerate
+
+// support for 48MHz
+// Above 64MHz HF should be 1. SHIFTED depends on whether the SDRAM
+// clock is shifted or not.
+`ifdef VERILATOR_KEEP_SDRAM /* verilator tracing_on */ `else /* verilator tracing_off */ `endif
+wire prog_en = ioctl_rom | dwnld_busy;
+
+`ifdef JTFRAME_SRAM
+    // SRAM
+    assign sram_ok=1; // to do: change it to proper delay
+    jtframe_ram16 #(.AW(18))u_sram(
+        .clk    ( clk48     ),
+        .data   ( sram_din  ),
+        .addr   ( sram_addr ),
+        .we     ( ~sram_dsn ),
+        .q      ( sram_dout )
+    );
+`endif
+
+jtframe_board_sdram #(
+    .SDRAMW     ( SDRAMW        ),
+    .MISTER     ( 0             )
+) u_sdram(
+    .rst        ( sdram_rst     ),
+    .clk        ( clk_rom       ),
+    .init       ( sdram_init    ),
+    .prog_en    ( prog_en       ),
+
+    .ba0_addr   ( ba0_addr      ),
+    .ba1_addr   ( ba1_addr      ),
+    .ba2_addr   ( ba2_addr      ),
+    .ba3_addr   ( ba3_addr      ),
+    .burst_addr ( burst_addr    ),
+    .burst_ba   ( burst_ba      ),
+    .burst_rd   ( burst_rd      ),
+    .burst_wr   ( burst_wr      ),
+    .burst_ack  ( burst_ack     ),
+    .burst_rdy  ( burst_rdy     ),
+    .burst_dst  ( burst_dst     ),
+    .burst_dok  ( burst_dok     ),
+
+    .ba_rd      ( ba_rd         ),
+    .ba_wr      ( ba_wr         ),
+    .ba0_din    ( ba0_din       ),
+    .ba0_dsn    ( ba0_dsn       ),
+    .ba1_din    ( ba1_din       ),
+    .ba1_dsn    ( ba1_dsn       ),
+    .ba2_din    ( ba2_din       ),
+    .ba2_dsn    ( ba2_dsn       ),
+    .ba3_din    ( ba3_din       ),
+    .ba3_dsn    ( ba3_dsn       ),
+    .burst_din  ( burst_din     ),
+
+    .ba_rdy     ( ba_rdy        ),
+    .ba_ack     ( ba_ack        ),
+    .ba_dok     ( ba_dok        ),
+    .ba_dst     ( ba_dst        ),
+
+    // ROM-load interface
+    .prog_addr  ( prog_addr     ),
+    .prog_ba    ( prog_ba       ),
+    .prog_rd    ( prog_rd       ),
+    .prog_we    ( prog_we       ),
+    .prog_data  ( prog_data     ),
+    .prog_dsn   ( prog_mask     ),
+    .prog_rdy   ( prog_rdy      ),
+    .prog_dst   ( prog_dst      ),
+    .prog_dok   ( prog_dok      ),
+    .prog_ack   ( prog_ack      ),
+    .sdram_dq   ( SDRAM_DQ      ),
+    .din        ( SDRAM_DIN     ),
+    .sdram_a    ( SDRAM_A       ),
+    .sdram_dqml ( SDRAM_DQML    ),
+    .sdram_dqmh ( SDRAM_DQMH    ),
+    .sdram_nwe  ( SDRAM_nWE     ),
+    .sdram_ncas ( SDRAM_nCAS    ),
+    .sdram_nras ( SDRAM_nRAS    ),
+    .sdram_ncs  ( SDRAM_nCS     ),
+    .sdram_ba   ( SDRAM_BA      ),
+    .sdram_cke  ( SDRAM_CKE     ),
+    .dout       ( data_read     )
+);
+/* verilator tracing_off */
+
+`ifdef JTFRAME_SDRAM_STATS
+jtframe_sdram_stats_sim #(.AW(SDRAMW)) u_stats(
+    .rst        ( sdram_rst     ),
+    .clk        ( clk_rom       ),
+    // SDRAM interface
+    .sdram_a    ( SDRAM_A       ),
+    .sdram_ba   ( SDRAM_BA      ),
+    .sdram_nwe  ( SDRAM_nWE     ),
+    .sdram_ncas ( SDRAM_nCAS    ),
+    .sdram_nras ( SDRAM_nRAS    ),
+    .sdram_ncs  ( SDRAM_nCS     )
+);
+`endif
+
+`ifdef VERILATOR_KEEP_LFBUF
+    /* verilator tracing_on */
+`else
+    /* verilator tracing_off */
+`endif
+`ifdef JTFRAME_LF_BUFFER
+        wire  [`JTFRAME_LF_VW-1:0] game_vrender;
+        wire  [`JTFRAME_LF_HW-1:0] game_hdump;
+        wire  [`JTFRAME_LF_HW-1:0] ln_addr;
+        wire  [15:0] ln_data;
+        wire         ln_done;
+        wire         ln_hs, ln_vs, ln_lvbl;
+        wire  [15:0] ln_dout;
+        wire  [15:0] ln_pxl;
+        wire  [`JTFRAME_LF_VW-1:0] ln_v;
+        wire         ln_we;
+        wire         fb_keep;
+`ifdef JTFRAME_LF_ZOOM
+    wire [ 8:0] game_h_step, game_v_step;
+`endif
+
+    `ifdef POCKET
+        wire [21:16] cr_addr;
+        wire [ 15:0] cr_adq;
+        wire         cr_advn;
+        wire [  1:0] cr_cen;
+        wire         cr_clk;
+        wire         cr_cre;
+        wire [  1:0] cr_dsn;
+        wire         cr_oen;
+        wire         cr_wait;
+        wire         cr_wen;
+
+        jtframe_lfbuf_cram #(.HW(`JTFRAME_LF_HW),.VW(`JTFRAME_LF_VW)) u_lf_buf(
+            .rst        ( rst           ),
+            .clk        ( clk_rom       ),
+            .clk48      ( clk48         ),
+            .pxl_cen    ( pxl_cen       ),
+
+            .hs         ( HS            ),
+            .vs         ( VS            ),
+            .lvbl       ( LVBL          ),
+            .lhbl       ( LHBL          ),
+            .vrender    ( game_vrender  ),
+            .hdump      ( game_hdump    ),
+
+            // interface with the game core
+            .ln_addr    ( ln_addr       ),
+            .ln_data    ( ln_data       ),
+            .ln_done    ( ln_done       ),
+            .ln_hs      ( ln_hs         ),
+            .ln_dout    ( ln_dout       ),
+            .ln_pxl     ( ln_pxl        ),
+            .ln_v       ( ln_v          ),
+            .ln_vs      ( ln_vs         ),
+            .ln_lvbl    ( ln_lvbl       ),
+            .ln_we      ( ln_we         ),
+            .fb_keep    ( fb_keep       ),
+`ifdef JTFRAME_LF_ZOOM
+            .h_step     ( game_h_step   ),
+            .v_step     ( game_v_step   ),
+`else
+            .h_step     ( 9'h100        ),
+            .v_step     ( 9'h100        ),
+`endif
+
+            // PSRAM chip 0
+            .cr_addr    ( cr_addr       ),
+            .cr_adq     ( cr_adq        ),
+            .cr_advn    ( cr_advn       ),
+            .cr_cen     ( cr_cen        ),
+            .cr_clk     ( cr_clk        ),
+            .cr_cre     ( cr_cre        ),
+            .cr_dsn     ( cr_dsn        ),
+            .cr_oen     ( cr_oen        ),
+            .cr_wait    ( cr_wait       ),
+            .cr_wen     ( cr_wen        )
+        );
+
+        psram128 u_cram0(
+            .a      ( cr_addr        ),
+            .adq    ( cr_adq         ),
+            .advn   ( cr_advn        ),
+            .cen    ( cr_cen         ),
+            .clk    ( cr_clk         ),
+            .cre    ( cr_cre         ),
+            .lbn    ( cr_dsn[0]      ),
+            .ubn    ( cr_dsn[1]      ),
+            .oen    ( cr_oen         ),
+            .wt     ( cr_wait        ),
+            .wen    ( cr_wen         )
+        );
+    `else // MiSTer family
+`ifdef JTFRAME_MR_LF_BRAM
+        jtframe_lfbuf_bram #(.HW(`JTFRAME_LF_HW),.VW(`JTFRAME_LF_VW)) u_lf_buf(
+            .rst        ( rst           ),
+            .clk        ( clk_rom       ),
+            .pxl_cen    ( pxl_cen       ),
+
+            .hs         ( HS            ),
+            .vs         ( VS            ),
+            .lvbl       ( LVBL          ),
+            .lhbl       ( LHBL          ),
+            .vrender    ( game_vrender  ),
+            .hdump      ( game_hdump    ),
+
+            // interface with the game core
+            .ln_addr    ( ln_addr       ),
+            .ln_data    ( ln_data       ),
+            .ln_done    ( ln_done       ),
+            .ln_hs      ( ln_hs         ),
+            .ln_dout    ( ln_dout       ),
+            .ln_pxl     ( ln_pxl        ),
+            .ln_v       ( ln_v          ),
+            .ln_vs      ( ln_vs         ),
+            .ln_lvbl    ( ln_lvbl       ),
+            .ln_we      ( ln_we         ),
+            .fb_keep    ( fb_keep       ),
+`ifdef JTFRAME_LF_ZOOM
+            .h_step     ( game_h_step   ),
+            .v_step     ( game_v_step   ),
+`else
+            .h_step     ( 9'h100        ),
+            .v_step     ( 9'h100        ),
+`endif
+
+            .st_addr    ( 8'd0 ),
+            .st_dout    (      )
+        );
+`else
+        wire          DDRAM_CLK, DDRAM_BUSY, DDRAM_RD, DDRAM_WE, DDRAM_DOUT_READY;
+        wire    [7:0] DDRAM_BURSTCNT, DDRAM_BE;
+        wire   [28:0] DDRAM_ADDR;
+        wire   [63:0] DDRAM_DOUT, DDRAM_DIN;
+
+        jtframe_ddr_model u_ddr(
+            .clk          ( DDRAM_CLK     ),
+            .busy         ( DDRAM_BUSY    ),
+            .burstcnt     ( DDRAM_BURSTCNT),
+            .addr         ( DDRAM_ADDR    ),
+            .dout         ( DDRAM_DOUT    ),
+            .dout_ready   ( DDRAM_DOUT_READY ),
+            .rd           ( DDRAM_RD      ),
+            .din          ( DDRAM_DIN     ),
+            .be           ( DDRAM_BE      ),
+            .we           ( DDRAM_WE      )
+        );
+
+        jtframe_lfbuf_ddr #(.HW(`JTFRAME_LF_HW),.VW(`JTFRAME_LF_VW)) u_lf_buf(
+            .rst        ( rst           ),
+            .clk        ( clk_rom       ),
+            .pxl_cen    ( pxl_cen       ),
+
+            .hs         ( HS            ),
+            .vs         ( VS            ),
+            .lvbl       ( LVBL          ),
+            .lhbl       ( LHBL          ),
+            .vrender    ( game_vrender  ),
+            .hdump      ( game_hdump    ),
+
+            // interface with the game core
+            .ln_addr    ( ln_addr       ),
+            .ln_data    ( ln_data       ),
+            .ln_done    ( ln_done       ),
+            .ln_hs      ( ln_hs         ),
+            .ln_dout    ( ln_dout       ),
+            .ln_pxl     ( ln_pxl        ),
+            .ln_v       ( ln_v          ),
+            .ln_vs      ( ln_vs         ),
+            .ln_lvbl    ( ln_lvbl       ),
+            .ln_we      ( ln_we         ),
+            .fb_keep    ( fb_keep       ),
+`ifdef JTFRAME_LF_ZOOM
+            .h_step     ( game_h_step   ),
+            .v_step     ( game_v_step   ),
+`else
+            .h_step     ( 9'h100        ),
+            .v_step     ( 9'h100        ),
+`endif
+
+            .ddram_clk  ( DDRAM_CLK     ),
+            .ddram_busy ( DDRAM_BUSY    ),
+            .ddram_addr ( DDRAM_ADDR    ),
+            .ddram_dout ( DDRAM_DOUT    ),
+            .ddram_rd   ( DDRAM_RD      ),
+            .ddram_din  ( DDRAM_DIN     ),
+            .ddram_be   ( DDRAM_BE      ),
+            .ddram_we   ( DDRAM_WE      ),
+            .ddram_burstcnt  ( DDRAM_BURSTCNT    ),
+            .ddram_dout_ready( DDRAM_DOUT_READY  ),
+            .st_addr    ( 8'd0 ),
+            .st_dout    (      )
+        );
+`endif
+    `endif
+`endif
+`ifdef JTFRAME_MR_GAME_DDR
+wire [ 7:0] ddr_burstcnt, ddr_be;
+wire [28:0] ddr_addr;
+wire        ddr_rd, ddr_we, ddr_busy, ddr_dout_ready;
+wire [63:0] ddr_din, ddr_dout;
+
+jtframe_ddr_model u_game_ddr(
+    .clk          ( clk_rom        ),
+    .busy         ( ddr_busy       ),
+    .burstcnt     ( ddr_burstcnt   ),
+    .addr         ( ddr_addr       ),
+    .dout         ( ddr_dout       ),
+    .dout_ready   ( ddr_dout_ready ),
+    .rd           ( ddr_rd         ),
+    .din          ( ddr_din        ),
+    .be           ( ddr_be         ),
+    .we           ( ddr_we         )
+);
+`endif
+`ifndef JTFRAME_SDRAM_CACHE
+assign burst_addr=0, burst_ba=0, burst_rd=0, burst_wr=0, burst_din=0,
+       burst_ack=0, burst_rdy=0, burst_dst=0, burst_dok=0;
+`endif
+/* verilator tracing_on */
+//////// GAME MODULE
+`GAMETOP
+u_game(
+    .rst         ( rst            ),
+    // The main clock is always the same one as the SDRAM
+    .clk         ( clk_rom        ),
+    .clk96       ( clk96          ),
+    .rst96       ( rst            ),
+`ifdef JTFRAME_CLK48
+    .clk48       ( clk48          ),
+    .rst48       ( rst            ),
+`endif
+    .clk24       ( clk24          ),
+    .rst24       ( rst            ),
+    // Video
+    .pxl2_cen    ( pxl2_cen       ),
+    .pxl_cen     ( pxl_cen        ),
+    .red         ( red[COLORW-1:0]   ),
+    .green       ( green[COLORW-1:0] ),
+    .blue        ( blue[COLORW-1:0]  ),
+    .LHBL        ( LHBL           ),
+    .LVBL        ( LVBL           ),
+    .HS          ( HS             ),
+    .VS          ( VS             ),
+
+    .cab_1p      ( cab_1p         ),
+    .coin        ( coin           ),
+    // Joysticks
+    .joystick1   ( joystick1[GAME_BUTTONS+3:0]   ),
+    .joystick2   ( joystick2[GAME_BUTTONS+3:0]   ),
+    .joystick3   ( joystick3[GAME_BUTTONS+3:0]   ),
+    .joystick4   ( joystick4[GAME_BUTTONS+3:0]   ),
+
+    .dial_x (2'd0), .dial_y(2'd0),
+
+    .joyana_l1    ( joyana_l1        ),
+    .joyana_l2    ( joyana_l2        ),
+    .joyana_l3    ( joyana_l3        ),
+    .joyana_l4    ( joyana_l4        ),
+    .joyana_r1    ( joyana_r1        ),
+    .joyana_r2    ( joyana_r2        ),
+    .joyana_r3    ( joyana_r3        ),
+    .joyana_r4    ( joyana_r4        ),
+
+`ifdef JTFRAME_MOUSE
+    .mouse_1p( 16'd0 ), .mouse_2p( 16'd0 ), .mouse_strobe( 2'd0 ), `endif
+`ifdef JTFRAME_LIGHTGUN
+    .gun_1p_x( 9'd0 ), .gun_1p_y( 9'd0 ),
+    .gun_2p_x( 9'd0 ), .gun_2p_y( 9'd0 ), `endif
+
+    // PROM programming
+    .ioctl_addr  ( ioctl_addr     ),
+    .ioctl_dout  ( ioctl_dout     ),
+    .ioctl_wr    ( ioctl_wr       ),
+    .ioctl_ram   ( ioctl_ram      ), `ifdef JTFRAME_IOCTL_RD
+    .ioctl_din   ( ioctl_din      ), `endif
+    // ROM load
+    .ioctl_rom   ( ioctl_rom      ),
+    .ioctl_cart  ( ioctl_cart     ),
+    .dwnld_busy  ( dwnld_busy     ),
+    .data_read   ( data_read      ),
+
+    // Bank 0: allows R/W
+    .ba0_addr   ( ba0_addr      ),
+    .ba1_addr   ( ba1_addr      ),
+    .ba2_addr   ( ba2_addr      ),
+    .ba3_addr   ( ba3_addr      ),
+`ifdef JTFRAME_SDRAM_CACHE
+    .burst_addr ( burst_addr    ),
+    .burst_ba   ( burst_ba      ),
+    .burst_rd   ( burst_rd      ),
+    .burst_wr   ( burst_wr      ),
+    .burst_ack  ( burst_ack     ),
+    .burst_rdy  ( burst_rdy     ),
+    .burst_dst  ( burst_dst     ),
+    .burst_dok  ( burst_dok     ),
+`endif
+    .ba_rd      ( ba_rd         ),
+    .ba_wr      ( ba_wr         ),
+    .ba_dst     ( ba_dst        ),
+    .ba_dok     ( ba_dok        ),
+    .ba_rdy     ( ba_rdy        ),
+    .ba_ack     ( ba_ack        ),
+    .ba0_din    ( ba0_din       ),
+    .ba0_dsn    ( ba0_dsn       ),
+    .ba1_din    ( ba1_din       ),
+    .ba1_dsn    ( ba1_dsn       ),
+    .ba2_din    ( ba2_din       ),
+    .ba2_dsn    ( ba2_dsn       ),
+    .ba3_din    ( ba3_din       ),
+    .ba3_dsn    ( ba3_dsn       ),
+`ifdef JTFRAME_SDRAM_CACHE
+    .burst_din  ( burst_din     ),
+`endif
+
+    .prog_ba    ( prog_ba       ),
+    .prog_rdy   ( prog_rdy      ),
+    .prog_ack   ( prog_ack      ),
+    .prog_dok   ( prog_dok      ),
+    .prog_dst   ( prog_dst      ),
+    .prog_data  ( prog_data     ),
+
+    // common ROM-load interface
+    .prog_addr  ( prog_addr     ),
+    .prog_rd    ( prog_rd       ),
+    .prog_we    ( prog_we       ),
+    .prog_mask  ( prog_mask     ),
+`ifdef JTFRAME_SRAM
+    // SRAM
+    .sram_addr   ( sram_addr      ),
+    .sram_din    ( sram_din       ),
+    .sram_dout   ( sram_dout      ),
+    .sram_wen    ( sram_wen       ),
+    .sram_dsn    ( sram_dsn       ),
+    .sram_ok     ( sram_ok        ),
+`endif
+`ifdef JTFRAME_SAVEGAME
+    // Save/Load
+    .sav_change ( sav_change    ),
+    .sav_wait   ( sav_wait      ),
+    .sav_done   ( sav_done      ),
+    .sav_wr     ( sav_wr        ),
+    .sav_ack    ( sav_ack       ),
+    .sav_din    ( sav_din       ),
+    .sav_dout   ( sav_dout      ),
+    .sav_addr   ( sav_addr      ),
+`endif
+    // DIP switches
+    .status      ( status[31:0]   ),
+    .dip_pause   ( dip_pause      ),
+    .dip_flip    ( dip_flip       ),
+    .dip_test    ( dip_test       ),
+    .dip_fxlevel ( dip_fxlevel    ),
+    .service     ( service        ),
+    .tilt        ( tilt           ),
+    .dipsw       ( dipsw          ),
+
+`ifdef JTFRAME_GAME_UART
+    .uart_tx     ( UART_TX        ),
+    .uart_rx     ( UART_RX        ),
+`endif
+
+`ifdef JTFRAME_LF_BUFFER
+    .game_vrender( game_vrender   ),
+    .game_hdump  ( game_hdump     ),
+    .ln_addr     ( ln_addr        ),
+    .ln_data     ( ln_data        ),
+    .ln_done     ( ln_done        ),
+    .ln_hs       ( ln_hs          ),
+    .ln_dout     ( ln_dout        ),
+    .ln_pxl      ( ln_pxl         ),
+    .ln_v        ( ln_v           ),
+    .ln_vs       ( ln_vs          ),
+    .ln_lvbl     ( ln_lvbl        ),
+    .ln_we       ( ln_we          ),
+    .fb_keep     ( fb_keep        ),
+`ifdef JTFRAME_LF_ZOOM
+    .h_step      ( game_h_step    ),
+    .v_step      ( game_v_step    ),
+`endif
+`endif
+`ifdef JTFRAME_MR_GAME_DDR
+    .ddr_burstcnt  ( ddr_burstcnt   ),
+    .ddr_addr      ( ddr_addr       ),
+    .ddr_rd        ( ddr_rd         ),
+    .ddr_we        ( ddr_we         ),
+    .ddr_be        ( ddr_be         ),
+    .ddr_din       ( ddr_din        ),
+    .ddr_busy      ( ddr_busy       ),
+    .ddr_dout      ( ddr_dout       ),
+    .ddr_dout_ready( ddr_dout_ready ),
+`endif
+
+    // sound
+`ifndef JTFRAME_STEREO
+    .snd         ( snd_left       ),
+`else
+    .snd_left    ( snd_left       ),
+    .snd_right   ( snd_right      ),
+    `endif
+    .sample      ( sample         ),
+    .snd_en      (`JTFRAME_SIM_SNDEN),
+    .snd_vol     ( 8'h80          ), // matching value in jtframe_volume.v
+    .snd_vu      (                ),
+    .snd_peak    (                ),
+    // Debug
+`ifdef JTFRAME_STATUS
+    .st_addr     ( st_addr        ),
+    .st_dout     ( st_dout        ),
+`endif
+    .gfx_en      ( gfx_en         ),
+    .debug_bus   ( debug_bus      ),
+    .debug_view  ( debug_view     )
+);
+
+`ifdef JTFRAME_PXLCLK
+    /* verilator tracing_off */
+    jtframe_pxlcen u_pxlcen(
+        .clk        ( clk_rom   ),
+        .pxl_cen    ( pxl_cen   ),
+        .pxl2_cen   ( pxl2_cen  )
+    );
+`endif
+
+endmodule
+/* verilator tracing_on */
