@@ -1,0 +1,386 @@
+/*  This file is part of JTCORES.
+    JTCORES program is free software: you can redistribute it and/or modify
+    it under the terms of the GNU General Public License as published by
+    the Free Software Foundation, either version 3 of the License, or
+    (at your option) any later version.
+
+    JTCORES program is distributed in the hope that it will be useful,
+    but WITHOUT ANY WARRANTY; without even the implied warranty of
+    MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+    GNU General Public License for more details.
+
+    You should have received a copy of the GNU General Public License
+    along with JTCORES.  If not, see <http://www.gnu.org/licenses/>.
+
+    Author: Jose Tejada Gomez. Twitter: @topapate
+    Version: 1.0
+    Date: 23-7-2023 */
+
+module jtsimson_video #(
+    // Donor defaults remain disabled.  The Escape Kids game wrapper opts in
+    // explicitly at its single instantiation boundary.
+    parameter GX975 = 0,
+              EXT_TIMING = 0
+)(
+    input             rst,
+    output            rst8,     // reset signal at 8th frame
+    input             clk,
+    input             simson, paroda, esckids, suratk,
+    input             video_bank,
+    input             k053252_cs,
+    output     [ 7:0] k053252_dout,
+
+    // Base Video
+    input             pxl_cen,
+    input             pxl2_cen,
+    output            lhbl,
+    output            lvbl,
+    output            hs,
+    output            vs,
+    output            flip,
+
+    // CPU interface
+    input      [15:0] cpu_addr,
+    input      [ 7:0] cpu_dout,
+    input             cpu_we,
+    input             pal_bank,
+
+    output     [ 7:0] pal_dout,
+    output     [ 7:0] tilesys_dout,
+    output            tilesys_rom_dtack,
+    output     [ 7:0] objsys_dout,
+
+    input             pal_we,
+    input             pcu_cs,   // priority control unit
+    input             tilesys_cs,
+    input             objsys_cs,
+    input             objreg_cs,
+
+    // control
+    input             rmrd,     // Tile ROM read mode
+    input             objcha_n, // object ROM read mode
+    output            cpu_irqn,
+    output            cpu_firqn,
+    output            cpu_nmin,
+    output            dma_bsy,
+
+    // Tile ROMs
+    output     [19:2] lyrf_addr,
+    output     [19:2] lyra_addr,
+    output     [19:2] lyrb_addr,
+    output     [21:2] lyro_addr,
+
+    output            lyrf_cs,
+    output            lyra_cs,
+    output            lyrb_cs,
+    output            lyro_cs,
+
+    input             lyra_ok,
+    input             lyro_ok,
+
+    input      [31:0] lyrf_data,
+    input      [31:0] lyra_data,
+    input      [31:0] lyrb_data,
+    input      [31:0] lyro_data,
+
+    // Color
+    output     [ 7:0] red,
+    output     [ 7:0] green,
+    output     [ 7:0] blue,
+
+    // Debug
+    input      [15:0] ioctl_addr,
+    input             ioctl_ram,
+    output     [ 7:0] ioctl_din,
+
+    input      [ 3:0] gfx_en,
+    input      [ 7:0] debug_bus,
+    output     [ 7:0] st_dout
+);
+
+localparam FULLOBJ = `ifdef PARODA 1 `else 0 `endif;
+
+wire [ 8:0] hdump, vdump, vrender, vrender1;
+wire [ 7:0] lyrf_pxl, st_scr,
+            dump_scr, scr_mmr, dump_obj, dump_pal, obj_mmr, pal_mmr;
+wire [ 6:0] lyra_eff, lyrb_eff;
+wire [11:0] lyra_pxl, lyrb_pxl, pal_addr;
+wire [ 8:0] lyro_pxl;
+wire [ 1:0] obj_shd, shd_eff;
+wire [ 4:0] obj_prio;
+wire [15:0] obj16_dout;
+wire [ 3:0] obj_amsb;
+reg         parsur;
+wire        ccu_lhbl, ccu_lvbl, ccu_hs, ccu_vs, ccu_hld, ccu_vld, ccu_lhbs;
+wire        ccu_int1, ccu_int2;
+wire [7:0]  ccu_dout;
+
+assign k053252_dout = ccu_dout;
+
+// Escape Kids carries the CCU's registered counters/blanking onto the video
+// path.  Other JTSIMSON profiles do not instantiate this block.
+// Escape uses the Furrtek reset state, not Run-and-Gun's packed game setup:
+// regs 0/4/8 reset to 03/01/01 and all other writable bytes reset to zero.
+jtk053252 #(.INIT(128'h00_00_00_00_00_00_00_01_00_00_00_01_00_00_00_03)) u_k053252(
+    .rst        ( rst          ),
+    .clk        ( clk          ),
+    .pxl_cen    ( pxl_cen      ),
+    .sel        ( 3'b000       ),
+    .vldi       ( 1'b1         ),
+    .hldi       ( 1'b1         ),
+    .cs         ( esckids & k053252_cs ),
+    .addr       ( cpu_addr[3:0] ),
+    .rnw        ( ~cpu_we       ),
+    .din        ( cpu_dout      ),
+    .dout       ( ccu_dout      ),
+    .lhbl       ( ccu_lhbl      ),
+    .lvbl       ( ccu_lvbl      ),
+    .hs         ( ccu_hs        ),
+    .vs         ( ccu_vs        ),
+    .int1       ( ccu_int1      ),
+    .int2       ( ccu_int2      ),
+    .hld        ( ccu_hld       ),
+    .vld        ( ccu_vld       ),
+    .lhbs       ( ccu_lhbs      ),
+    .ioctl_addr ( 4'd0          ),
+    .ioctl_din  (               )
+);
+
+assign pal_addr    = { parsur ? pal_bank : cpu_addr[11], cpu_addr[10:0] };
+assign objsys_dout = ~cpu_addr[0] ? obj16_dout[15:8] : obj16_dout[7:0]; // big endian
+
+always @(posedge clk) begin
+    parsur <= paroda | suratk;
+end
+
+// Debug
+jtriders_dump #(.FULLOBJ(FULLOBJ)) u_dump(
+    .clk            ( clk             ),
+    .dump_scr       ( dump_scr        ),
+    .dump_obj       ( dump_obj        ),
+    .dump_pal       ( dump_pal        ),
+    .pal_mmr        ( pal_mmr         ),
+    .scr_mmr        ( scr_mmr         ),
+    .obj_mmr        ( obj_mmr         ),
+    .psac_mmr       ( 8'b0            ),
+    .other          ( 8'b0            ),
+
+    .ioctl_addr     ( ioctl_addr      ),
+    .ioctl_din      ( ioctl_din       ),
+    .obj_amsb       ( obj_amsb        ),
+    .part_addr      (                 ),
+
+    .debug_bus      ( debug_bus       ),
+    .st_scr         ( st_scr          ),
+    .st_dout        ( st_dout         )
+);
+
+/* verilator tracing_on */
+jtsimson_scroll #(.HB_OFFSET(2),.EXT_TIMING(EXT_TIMING)) u_scroll(
+    .rst        ( rst       ),
+    .clk        ( clk       ),
+    .pxl_cen    ( pxl_cen   ),
+    .pxl2_cen   ( pxl2_cen  ),
+
+    .paroda     ( paroda    ),
+    .simson     ( simson    ),
+    .esckids    ( esckids   ),
+    .suratk     ( suratk    ),
+    .ext_lhbl   ( ccu_lhbl  ),
+    .ext_lvbl   ( ccu_lvbl  ),
+    .ext_hs     ( ccu_hs    ),
+    .ext_vs     ( ccu_vs    ),
+    .ext_hld    ( ccu_hld   ),
+    .ext_vld    ( ccu_vld   ),
+    // Base Video
+    .lhbl       ( lhbl      ),
+    .lvbl       ( lvbl      ),
+    .hs         ( hs        ),
+    .vs         ( vs        ),
+
+    // CPU interface
+    .cpu_addr   ( cpu_addr  ),
+    .cpu_dout   ( cpu_dout  ),
+    .cpu_we     ( cpu_we    ),
+    .gfx_cs     ( tilesys_cs),
+    .rst8       ( rst8      ),
+    .tile_dout  ( tilesys_dout ),
+    .cpu_rom_dtack ( tilesys_rom_dtack),
+
+    // control
+    .rmrd       ( rmrd      ),
+    .hdump      ( hdump     ),
+    .vdump      ( vdump     ),
+    .vrender    ( vrender   ),
+    .vrender1   ( vrender1  ),
+
+    .irq_n      ( cpu_irqn  ),
+    .firq_n     ( cpu_firqn ),
+    .nmi_n      ( cpu_nmin  ),
+    .flip       ( flip      ),
+
+
+    // Tile ROMs
+    .lyrf_addr  ( lyrf_addr ),
+    .lyra_addr  ( lyra_addr ),
+    .lyrb_addr  ( lyrb_addr ),
+
+    .lyrf_cs    ( lyrf_cs   ),
+    .lyra_cs    ( lyra_cs   ),
+    .lyrb_cs    ( lyrb_cs   ),
+
+    .lyrf_data  ( lyrf_data ),
+    .lyra_data  ( lyra_data ),
+    .lyrb_data  ( lyrb_data ),
+    .lyra_ok    ( lyra_ok   ),
+
+    // Final pixels
+    .lyrf_blnk_n(           ),
+    .lyra_blnk_n(           ),
+    .lyrb_blnk_n(           ),
+    .lyrf_pxl   ( lyrf_pxl  ),
+    .lyra_pxl   ( lyra_pxl  ),
+    .lyrb_pxl   ( lyrb_pxl  ),
+
+    // Debug
+    .ioctl_addr ( ioctl_addr[14:0]),
+    .ioctl_ram  ( ioctl_ram ),
+    .ioctl_din  ( dump_scr  ),
+    .mmr_dump   ( scr_mmr   ),
+
+    .gfx_en     ( gfx_en    ),
+    .debug_bus  ( debug_bus ),
+    .st_dout    ( st_scr    )
+);
+
+localparam ORAMW=12;
+wire [ORAMW:1] oram_a;
+wire           nc;
+
+assign oram_a = { cpu_addr[12] & ~parsur, cpu_addr[11:1] };
+
+/* verilator tracing_on  */
+`ifdef SIMSON
+wire [9:0] voffset = simson ? 10'h117 : 10'h107;
+
+jtsimson_obj #(.RAMW(ORAMW)) u_obj(    // sprite logic
+    .voffset    ( voffset   ),
+    .simson     ( simson    ),
+    .ln_done    (           ),
+`else
+jtriders_obj #(
+    .RAMW         ( ORAMW   ),
+    .HFLIP_OFFSET ( 10'd134 ),
+    .GX975        ( GX975   )
+   ,.SHADOW       ( 1       )
+) u_obj(
+    .lgtnfght   ( 1'b0      ),
+    .esckids     ( esckids   ),
+`endif
+    .lvbl       ( lvbl      ),
+    .rst        ( rst       ),
+    .clk        ( clk       ),
+    .pxl_cen    ( pxl_cen   ),
+    .pxl2_cen   ( pxl2_cen  ),
+
+    // Base Video (inputs)
+    .hs         ( hs        ),
+    .hdump      ( hdump     ),
+    .vdump      ( vrender   ),
+    // CPU interface
+    .ram_cs     ( objsys_cs ),
+    .ram_addr   ( oram_a    ),
+    .ram_din    ({2{cpu_dout}}),
+    .ram_we     ( {~cpu_addr[0],cpu_addr[0]}&{2{cpu_we}} ),
+    .cpu_din    ( obj16_dout),
+
+    .reg_cs     ( objreg_cs ),
+    .mmr_addr   (cpu_addr[3:0]),
+    .mmr_din    ({8'd0,cpu_dout}),
+    .mmr_we     ( cpu_we    ),
+    .mmr_dsn    ({1'b1,cpu_addr[0]}),
+
+    .dma_bsy    ( dma_bsy   ),
+    // ROM
+    .rom_data   ( lyro_data ),
+    .rom_ok     ( lyro_ok   ),
+    .rom_cs     ( lyro_cs   ),
+    .objcha_n   ( objcha_n  ),
+`ifdef SIMSON
+    .rom_addr   ({nc,lyro_addr}),
+    .shd        ( obj_shd   ),
+`else
+    .rom_addr   ( lyro_addr ),
+    .shd        ( obj_shd   ),
+`endif
+    // pixel output
+    .pxl        ( lyro_pxl  ),
+    .prio       ( obj_prio  ),
+    // Debug
+    .ioctl_ram  ( ioctl_ram ),
+    .ioctl_addr ( {obj_amsb[1:0],ioctl_addr[11:0]} ),
+    .dump_ram   ( dump_obj  ),
+    .dump_reg   ( obj_mmr   ),
+    .gfx_en     ( gfx_en    ),
+    .debug_bus  ( debug_bus )
+);
+
+function [6:0] lyrcol( input [7:0] pxl );
+    // MAME konami/vendetta.cpp K052109_CB_MEMBER: vendetta_tile_callback uses
+    // a 2-bit color code (color&0xc0)>>6, but esckids_tile_callback (the
+    // callback actually bound for Escape Kids, vendetta.cpp:207-210) uses a
+    // 3-bit color code (color&0xe0)>>5 -- one more attribute bit feeds the
+    // palette group select than in the generic/Vendetta case. Route esckids
+    // through the same 3-bit extraction already used for parsur (Parodius/
+    // Surprise Attack), instead of the 2-bit Vendetta-style path.
+    lyrcol = (parsur | esckids) ? {       pxl[7:5], pxl[3:0] } :
+                                  { 1'b0, pxl[7:6], pxl[3:0] };
+endfunction
+
+// scroll layers swapped in Parodius/Surprise Attack
+assign lyra_eff = lyrcol( parsur ? lyrb_pxl[7:0] : lyra_pxl[7:0] );
+assign lyrb_eff = lyrcol( parsur ? lyra_pxl[7:0] : lyrb_pxl[7:0] );
+assign shd_eff  = parsur ? {1'b0, obj_shd[0] }
+                         : obj_shd;
+
+/* verilator tracing_on */
+jtsimson_colmix u_colmix(
+    .rst        ( rst       ),
+    .clk        ( clk       ),
+
+    .dim_onlyred( parsur    ),
+    // Base Video
+    .pxl_cen    ( pxl_cen   ),
+    .lhbl       ( lhbl      ),
+    .lvbl       ( lvbl      ),
+
+    // CPU interface
+    .cpu_addr   ( pal_addr  ),
+    .cpu_din    ( pal_dout  ),
+    .cpu_dout   ( cpu_dout  ),
+    .cpu_we     ( pal_we    ),
+    .pcu_cs     ( pcu_cs    ),
+
+    // Final pixels
+    .lyrf_pxl   ( lyrcol(lyrf_pxl) ),
+    .lyra_pxl   ( lyra_eff  ),
+    .lyrb_pxl   ( lyrb_eff  ),
+    .lyro_pxl   ( lyro_pxl  ),
+
+    .obj_prio   ( obj_prio  ),
+    .obj_shd    ( shd_eff   ), // shadow resistors are not mounted on the Parodius PCB
+
+    .red        ( red       ),
+    .green      ( green     ),
+    .blue       ( blue      ),
+
+    // Debug
+    .ioctl_addr ( ioctl_addr[11:0]),
+    .ioctl_ram  ( ioctl_ram ),
+    .ioctl_din  ( dump_pal  ),
+    .dump_mmr   ( pal_mmr   ),
+
+    .debug_bus  ( debug_bus )
+);
+
+endmodule

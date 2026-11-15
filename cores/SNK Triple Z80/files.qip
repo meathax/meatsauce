@@ -1,0 +1,18 @@
+set_global_assignment -name QIP_FILE "rtl/pll.qip"
+set_global_assignment -name QIP_FILE "credits/credits.qip"
+set_global_assignment -name QIP_FILE "rtl/snk/psychos.qip"
+set_global_assignment -name SDC_FILE "SNK_TripleZ80.sdc"
+set_global_assignment -name SYSTEMVERILOG_FILE "SNK_TripleZ80.sv"
+
+set_global_assignment -name SYSTEMVERILOG_FILE "rtl/snk/features/snk_mister_video.sv"
+set_global_assignment -name SYSTEMVERILOG_FILE "rtl/snk/features/crt_adjust.sv"
+set_global_assignment -name VERILOG_FILE "rtl/snk/features/pause.v"
+
+set_global_assignment -name SYSTEMVERILOG_FILE rtl/snk/features/snk_video_mixer.sv
+set_global_assignment -name SYSTEMVERILOG_FILE rtl/snk/features/snk_scandoubler.sv
+set_global_assignment -name VERILOG_FILE rtl/snk/features/snk_arcade_video.v
+
+set_global_assignment -name SYSTEMVERILOG_FILE rtl/snk/features/psychos_hiscore.sv
+set_global_assignment -name SYSTEMVERILOG_FILE rtl/snk/features/psychos_standard_hiscore.sv
+
+set_global_assignment -name QIP_FILE "rtl/snk/target_union.qip"

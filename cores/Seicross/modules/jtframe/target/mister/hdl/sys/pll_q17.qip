@@ -1,0 +1,4 @@
+# Explicitly loaded by JTFRAME files.qip
+set_global_assignment -name QIP_FILE           [file join $::quartus(qip_path) pll_hdmi.qip ]
+set_global_assignment -name QIP_FILE           [file join $::quartus(qip_path) pll_audio.qip ]
+set_global_assignment -name QIP_FILE           [file join $::quartus(qip_path) pll_cfg.qip ]

@@ -1,0 +1,341 @@
+// SPDX-License-Identifier: GPL-3.0-or-later
+// Private integration: one state/sound RAM and one graphics provider, external CPU/program/raster/clock.
+module snk_early_board_storage_audio #(parameter integer CLK_HZ=96000000)(
+ input wire load_wr,input wire [24:0] load_addr,input wire [7:0] load_data,
+ input wire legacy_active,input wire [14:0] legacy_tx_addr,input wire [9:0] legacy_prom_addr,
+ output wire [7:0] legacy_tx_data,output wire [11:0] legacy_prom_data,
+ output wire signed [25:0] ay_normalized_q23,output wire ay_normalized_valid,
+ output wire signed [15:0] audio_mono_pcm,output wire audio_sample_valid,
+ input wire clk,
+ input wire reset,
+ input wire pause_cpu,
+ input wire display_flip,
+ input wire [7:0] profile,
+ input wire irq_vblank,
+ input wire ce_sound,
+ input wire ce_ay,
+ input wire ce_wave,
+ input wire [7:0] in0,
+ input wire [7:0] in1,
+ input wire [7:0] in2,
+ input wire [7:0] dsw1,
+ input wire [7:0] dsw2,
+ input wire [7:0] in3,
+ input wire [7:0] in4,
+ input wire [7:0] in5,
+ input wire [47:0] cpu_addr,
+ input wire [23:0] cpu_dout,
+ input wire [23:0] cpu_rom,
+ input wire [2:0] cpu_m1_n,
+ input wire [2:0] cpu_mreq_n,
+ input wire [2:0] cpu_iorq_n,
+ input wire [2:0] cpu_rd_n,
+ input wire [2:0] cpu_wr_n,
+ output wire [23:0] cpu_din,
+ output wire [2:0] cpu_irq_n,
+ output wire [2:0] cpu_nmi_n,
+ output wire [2:0] cpu_wait_n,
+ input wire hs_grant,
+ input wire hs_req,
+ input wire hs_write,
+ input wire [15:0] hs_addr,
+ input wire [7:0] hs_wdata,
+ output wire hs_ack,
+ output wire [7:0] hs_rdata,
+ output wire drained,
+ output wire canonical_wr,
+ output wire [15:0] canonical_addr,
+ output wire [15:0] video_commit_addr,
+ output wire [7:0] canonical_data,
+ output wire flip,
+ output wire sound_busy,
+ output wire [8:0] bg_x,
+ output wire [8:0] bg_y,
+ output wire [8:0] sprite_x,
+ output wire [8:0] sprite_y,
+ output wire [8:0] fg_x,
+ output wire [7:0] fg_y,
+ output wire [7:0] sprite_split,
+ output wire bg_tile_bank,
+ output wire [3:0] bg_palette_bank,
+ output wire [6:0] bg_palette_offset,
+ output wire [6:0] fg_palette_offset,
+ output wire [10:0] ay_unsigned,
+ output wire ay_sample,
+ output wire signed [15:0] wave_pcm,
+ output wire wave_sample,
+ input wire video_reset,
+ input wire [2:0] layer_ena_dbg,
+ input wire wave_pce,
+ input wire wave_hblank,
+ input wire wave_vblank,
+ input wire wave_hsync,
+ input wire wave_vsync,
+ output wire graphics_socket_high,
+ output wire family_wave,
+ output wire family_hsj,
+ output wire ce_wave_response,
+ output wire ce_hsj_response,
+ output wire ce_pixel_response,
+ output wire [7:0] red,
+ output wire [7:0] green,
+ output wire [7:0] blue,
+ output wire [11:0] hsj_rgb_nibbles,
+ output wire [23:0] wave_rgb_bytes,
+ output wire hblank,
+ output wire vblank,
+ output wire hsync,
+ output wire vsync,
+ output wire [8:0] hsj_scr_x,
+ output wire [8:0] hsj_scr_y,
+ output wire hsj_pix_clk,
+ output wire hsj_vbl,
+ output wire hsj_sync,
+ output wire hsj_vs,
+ output wire hsj_hs,
+ output wire hsj_disp,
+ output wire [31:0] wave_line_overruns,
+ output wire wave_busy_any,
+ output wire supported,
+ output wire tnk_active,
+ output wire [15:0] tnk_snd_addr,
+ output wire [7:0] tnk_snd_data,
+ output wire tnk_snd_mem,
+ output wire tnk_snd_rd,
+ output wire tnk_snd_wr,
+ output wire tnk_snd_cmd_wr,
+ output wire [7:0] tnk_snd_cmd,
+ output wire tnk_snd_audio_rd
+);
+ wire [7:0] shared_qa;
+ wire [7:0] shared_qb;
+ wire [7:0] ram_qs;
+ wire memory_b_wait_n;
+ wire [13:0] ram_addr_a;
+ wire [13:0] ram_addr_b;
+ wire [13:0] ram_hs_addr;
+ wire ram_write_a;
+ wire ram_write_b;
+ wire ram_hs_req;
+ wire cpu_ram_commit_allowed;
+ wire [7:0] ram_data_a;
+ wire [7:0] ram_data_b;
+ wire [11:0] sound_ram_addr;
+ wire [7:0] sound_ram_data;
+ wire sound_ram_write;
+ wire memory_commit;
+ wire [13:0] committed_addr;
+ wire [7:0] committed_data;
+ wire memory_hs_ack;
+ wire [7:0] memory_hs_rdata;
+ wire memory_drained;
+ wire memory_reset;
+ wire memory_hs_grant;
+ wire [31:0] memory_video_data;
+ wire [127:0] memory_video_words;
+ wire [3:0] memory_video_valid;
+ wire [13:0] memory_video_addr0;
+ wire [13:0] memory_video_addr1;
+ wire [13:0] memory_video_addr2;
+ wire [13:0] memory_video_addr3;
+ wire graphics_tile_req;
+ wire [1:0] graphics_tile_sel;
+ wire [10:0] graphics_tile_addr;
+ wire graphics_tile_ack;
+ wire [31:0] graphics_tile_data;
+ wire graphics_sp_req;
+ wire [12:0] graphics_sp_addr;
+ wire graphics_sp_ack;
+ wire [31:0] graphics_sp_data;
+ wire [14:0] graphics_tx_byte_addr;
+ wire [14:0] graphics_bg_socket_addr;
+ wire [14:0] graphics_sp_socket_addr;
+ wire [7:0] graphics_tx_byte_data;
+ wire [7:0] graphics_bg_byte_data;
+ wire [23:0] graphics_sp_plane_data;
+ wire [9:0] graphics_prom_addr;
+ wire [11:0] graphics_prom_data;
+ wire [7:0] graphics_profile;
+ wire graphics_reset;
+ snk_early_board_normalized_audio_external #(.CLK_HZ(CLK_HZ)) core(
+  .display_flip(display_flip),
+  .clk(clk),
+  .reset(reset),
+  .pause_cpu(pause_cpu),
+  .profile(profile),
+  .irq_vblank(irq_vblank),
+  .ce_sound(ce_sound),
+  .ce_ay(ce_ay),
+  .ce_wave(ce_wave),
+  .in0(in0),
+  .in1(in1),
+  .in2(in2),
+  .dsw1(dsw1),
+  .dsw2(dsw2),
+  .in3(in3),
+  .in4(in4),
+  .in5(in5),
+  .tnk_active(tnk_active),
+  .tnk_snd_addr(tnk_snd_addr),
+  .tnk_snd_data(tnk_snd_data),
+  .tnk_snd_mem(tnk_snd_mem),
+  .tnk_snd_rd(tnk_snd_rd),
+  .tnk_snd_wr(tnk_snd_wr),
+  .tnk_snd_cmd_wr(tnk_snd_cmd_wr),
+  .tnk_snd_cmd(tnk_snd_cmd),
+  .tnk_snd_audio_rd(tnk_snd_audio_rd),
+  .cpu_addr(cpu_addr),
+  .cpu_dout(cpu_dout),
+  .cpu_rom(cpu_rom),
+  .cpu_m1_n(cpu_m1_n),
+  .cpu_mreq_n(cpu_mreq_n),
+  .cpu_iorq_n(cpu_iorq_n),
+  .cpu_rd_n(cpu_rd_n),
+  .cpu_wr_n(cpu_wr_n),
+  .cpu_din(cpu_din),
+  .cpu_irq_n(cpu_irq_n),
+  .cpu_nmi_n(cpu_nmi_n),
+  .cpu_wait_n(cpu_wait_n),
+  .shared_qa(shared_qa),
+  .shared_qb(shared_qb),
+  .ram_qs(ram_qs),
+  .memory_b_wait_n(memory_b_wait_n),
+  .ram_addr_a(ram_addr_a),
+  .ram_addr_b(ram_addr_b),
+  .ram_hs_addr(ram_hs_addr),
+  .ram_write_a(ram_write_a),
+  .ram_write_b(ram_write_b),
+  .ram_hs_req(ram_hs_req),
+  .cpu_ram_commit_allowed(cpu_ram_commit_allowed),
+  .ram_data_a(ram_data_a),
+  .ram_data_b(ram_data_b),
+  .sound_ram_addr(sound_ram_addr),
+  .sound_ram_data(sound_ram_data),
+  .sound_ram_write(sound_ram_write),
+  .memory_commit(memory_commit),
+  .committed_addr(committed_addr),
+  .committed_data(committed_data),
+  .memory_hs_ack(memory_hs_ack),
+  .memory_hs_rdata(memory_hs_rdata),
+  .memory_drained(memory_drained),
+  .memory_reset(memory_reset),
+  .memory_hs_grant(memory_hs_grant),
+  .hs_grant(hs_grant),
+  .hs_req(hs_req),
+  .hs_write(hs_write),
+  .hs_addr(hs_addr),
+  .hs_wdata(hs_wdata),
+  .hs_ack(hs_ack),
+  .hs_rdata(hs_rdata),
+  .drained(drained),
+  .canonical_wr(canonical_wr),
+  .canonical_addr(canonical_addr),
+  .video_commit_addr(video_commit_addr),
+  .canonical_data(canonical_data),
+  .flip(flip),
+  .sound_busy(sound_busy),
+  .bg_x(bg_x),
+  .bg_y(bg_y),
+  .sprite_x(sprite_x),
+  .sprite_y(sprite_y),
+  .fg_x(fg_x),
+  .fg_y(fg_y),
+  .sprite_split(sprite_split),
+  .bg_tile_bank(bg_tile_bank),
+  .bg_palette_bank(bg_palette_bank),
+  .bg_palette_offset(bg_palette_offset),
+  .fg_palette_offset(fg_palette_offset),
+  .ay_unsigned(ay_unsigned),
+  .ay_sample(ay_sample),
+  .wave_pcm(wave_pcm),
+  .wave_sample(wave_sample),
+  .video_reset(video_reset),
+  .layer_ena_dbg(layer_ena_dbg),
+  .wave_pce(wave_pce),
+  .wave_hblank(wave_hblank),
+  .wave_vblank(wave_vblank),
+  .wave_hsync(wave_hsync),
+  .wave_vsync(wave_vsync),
+  .memory_video_data(memory_video_data),
+  .memory_video_words(memory_video_words),
+  .memory_video_valid(memory_video_valid),
+  .memory_video_addr0(memory_video_addr0),
+  .memory_video_addr1(memory_video_addr1),
+  .memory_video_addr2(memory_video_addr2),
+  .memory_video_addr3(memory_video_addr3),
+  .graphics_tile_req(graphics_tile_req),
+  .graphics_tile_sel(graphics_tile_sel),
+  .graphics_tile_addr(graphics_tile_addr),
+  .graphics_tile_ack(graphics_tile_ack),
+  .graphics_tile_data(graphics_tile_data),
+  .graphics_sp_req(graphics_sp_req),
+  .graphics_sp_addr(graphics_sp_addr),
+  .graphics_sp_ack(graphics_sp_ack),
+  .graphics_sp_data(graphics_sp_data),
+  .graphics_tx_byte_addr(graphics_tx_byte_addr),
+  .graphics_bg_socket_addr(graphics_bg_socket_addr),
+  .graphics_sp_socket_addr(graphics_sp_socket_addr),
+  .graphics_tx_byte_data(graphics_tx_byte_data),
+  .graphics_bg_byte_data(graphics_bg_byte_data),
+  .graphics_sp_plane_data(graphics_sp_plane_data),
+  .graphics_prom_addr(graphics_prom_addr),
+  .graphics_prom_data(graphics_prom_data),
+  .graphics_socket_high(graphics_socket_high),
+  .family_wave(family_wave),
+  .family_hsj(family_hsj),
+  .ce_wave_response(ce_wave_response),
+  .ce_hsj_response(ce_hsj_response),
+  .ce_pixel_response(ce_pixel_response),
+  .red(red),
+  .green(green),
+  .blue(blue),
+  .hsj_rgb_nibbles(hsj_rgb_nibbles),
+  .wave_rgb_bytes(wave_rgb_bytes),
+  .hblank(hblank),
+  .vblank(vblank),
+  .hsync(hsync),
+  .vsync(vsync),
+  .hsj_scr_x(hsj_scr_x),
+  .hsj_scr_y(hsj_scr_y),
+  .hsj_pix_clk(hsj_pix_clk),
+  .hsj_vbl(hsj_vbl),
+  .hsj_sync(hsj_sync),
+  .hsj_vs(hsj_vs),
+  .hsj_hs(hsj_hs),
+  .hsj_disp(hsj_disp),
+  .wave_line_overruns(wave_line_overruns),
+  .wave_busy_any(wave_busy_any),
+  .supported(supported),
+  .graphics_profile(graphics_profile),
+  .graphics_reset(graphics_reset),
+  .ay_normalized_q23(ay_normalized_q23),
+  .ay_normalized_valid(ay_normalized_valid),
+  .audio_mono_pcm(audio_mono_pcm),
+  .audio_sample_valid(audio_sample_valid)
+ );
+ snk_early_shared_memory_word state_ram(
+  .clk(clk),.reset(memory_reset),.cpu_commit_allowed(cpu_ram_commit_allowed),
+  .addr_a(ram_addr_a),.addr_b(ram_addr_b),.write_a(ram_write_a),.write_b(ram_write_b),
+  .data_a(ram_data_a),.data_b(ram_data_b),.q_a(shared_qa),.q_b(shared_qb),.b_wait_n(memory_b_wait_n),
+  .sound_addr(sound_ram_addr),.sound_write(sound_ram_write),.sound_data(sound_ram_data),.sound_q(ram_qs),
+  .hs_grant(memory_hs_grant),.hs_req(ram_hs_req),.hs_write(hs_write),.hs_addr(ram_hs_addr),
+  .hs_wdata(hs_wdata),.hs_ack(memory_hs_ack),.hs_rdata(memory_hs_rdata),
+  .video_valid(memory_video_valid),.video_addr0(memory_video_addr0),.video_addr1(memory_video_addr1),
+  .video_addr2(memory_video_addr2),.video_addr3(memory_video_addr3),.video_data(memory_video_data),.video_words(memory_video_words),
+  .drained(memory_drained),.commit(memory_commit),.commit_addr(committed_addr),.commit_data(committed_data));
+ snk_early_graphics_store graphics(
+  .clk(clk),.reset(graphics_reset),.profile(graphics_profile),
+  .load_wr(load_wr),.load_addr(load_addr),.load_data(load_data),
+  .legacy_active(legacy_active),.legacy_tx_addr(legacy_tx_addr),.legacy_prom_addr(legacy_prom_addr),
+  .legacy_tx_data(legacy_tx_data),.legacy_prom_data(legacy_prom_data),
+  .tile_req(graphics_tile_req),.tile_sel(graphics_tile_sel),.tile_addr(graphics_tile_addr),
+  .tile_ack(graphics_tile_ack),.tile_data(graphics_tile_data),
+  .sp_req(graphics_sp_req),.sp_addr(graphics_sp_addr),.sp_ack(graphics_sp_ack),.sp_data(graphics_sp_data),
+  .tx_byte_addr(graphics_tx_byte_addr),.bg_byte_addr(graphics_bg_socket_addr),.sp_byte_addr(graphics_sp_socket_addr),
+  .tx_byte_data(graphics_tx_byte_data),.bg_byte_data(graphics_bg_byte_data),.sp_plane_data(graphics_sp_plane_data),
+  .prom_addr(graphics_prom_addr),.prom_data(graphics_prom_data));
+ // Canonical BG/SP socket bit14 is structurally0 in the accepted HSJ tops.
+ `ifdef VERILATOR
+ always @(posedge clk)if(!reset&&family_hsj&&graphics_socket_high)$fatal(1,"Unexpected canonical HSJ socket bit14");
+ `endif
+endmodule
