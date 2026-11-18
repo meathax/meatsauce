@@ -1,4 +1,5 @@
 // SPDX-License-Identifier: GPL-3.0-or-later
+//Author: @RndMnkIII
 // HAL21 adapter generated from snk_early_board: actual TTL tile/sprite/linebuffer/PROM paths.
 // Source coordinate equivalence and real-frame comparison remain required before integration.
 `default_nettype none
