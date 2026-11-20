@@ -1,0 +1,142 @@
+# --------------------------------------------------------------------------
+#
+# MiSTer project
+#
+# WARNING WARNING WARNING:
+# Do not add files to project in Quartus IDE! It will mess this file!
+# Add the files manually to files.qip file.
+#
+# --------------------------------------------------------------------------
+
+set_global_assignment -name TOP_LEVEL_ENTITY sys_top
+set_global_assignment -name VHDL_INPUT_VERSION VHDL_2008
+set_global_assignment -name PARTITION_NETLIST_TYPE SOURCE -section_id Top
+set_global_assignment -name PARTITION_FITTER_PRESERVATION_LEVEL PLACEMENT_AND_ROUTING -section_id Top
+set_global_assignment -name PARTITION_COLOR 16764057 -section_id Top
+
+set_global_assignment -name LAST_QUARTUS_VERSION "17.0.2 Lite Edition"
+
+set_global_assignment -name GENERATE_RBF_FILE OFF
+set_global_assignment -name COMPRESSION_MODE ON
+set_global_assignment -name ON_CHIP_BITSTREAM_DECOMPRESSION ON
+set_global_assignment -name PROJECT_OUTPUT_DIRECTORY output_files
+# Preserve physical retiming while avoiding parallel compiler crash exposure.
+# Native map/fit and all timing corners must still qualify this recipe.
+set_global_assignment -name NUM_PARALLEL_PROCESSORS 1
+set_global_assignment -name SAVE_DISK_SPACE OFF
+set_global_assignment -name SMART_RECOMPILE ON
+set_global_assignment -name MIN_CORE_JUNCTION_TEMP "-40"
+set_global_assignment -name MAX_CORE_JUNCTION_TEMP 100
+set_global_assignment -name POWER_PRESET_COOLING_SOLUTION "23 MM HEAT SINK WITH 200 LFPM AIRFLOW"
+set_global_assignment -name POWER_BOARD_THERMAL_MODEL "NONE (CONSERVATIVE)"
+set_global_assignment -name TIMEQUEST_MULTICORNER_ANALYSIS ON
+set_global_assignment -name OPTIMIZE_POWER_DURING_FITTING OFF
+set_global_assignment -name FINAL_PLACEMENT_OPTIMIZATION ALWAYS
+set_global_assignment -name FITTER_EFFORT "STANDARD FIT"
+set_global_assignment -name OPTIMIZATION_MODE "AGGRESSIVE AREA"
+set_global_assignment -name ALLOW_POWER_UP_DONT_CARE ON
+# The fitted LAB count remains high despite spare capacity inside many ALMs.
+# Pack unrelated registers and eligible chains more densely; qualify with fit/STA.
+set_global_assignment -name QII_AUTO_PACKED_REGISTERS "MINIMIZE AREA WITH CHAINS"
+set_global_assignment -name ROUTER_LCELL_INSERTION_AND_LOGIC_DUPLICATION ON
+set_global_assignment -name PHYSICAL_SYNTHESIS_COMBO_LOGIC ON
+set_global_assignment -name PHYSICAL_SYNTHESIS_REGISTER_DUPLICATION ON
+set_global_assignment -name PHYSICAL_SYNTHESIS_REGISTER_RETIMING ON
+set_global_assignment -name OPTIMIZATION_TECHNIQUE AREA
+# Diagnostic synthesis: expose full RAM demand instead of spilling memories
+# into registers. This option alone does not establish device capacity.
+set_global_assignment -name SYNTH_RESOURCE_AWARE_INFERENCE_FOR_BLOCK_RAM OFF
+set_global_assignment -name MUX_RESTRUCTURE ON
+set_global_assignment -name REMOVE_REDUNDANT_LOGIC_CELLS ON
+set_global_assignment -name AUTO_DELAY_CHAINS_FOR_HIGH_FANOUT_INPUT_PINS ON
+set_global_assignment -name PHYSICAL_SYNTHESIS_COMBO_LOGIC_FOR_AREA ON
+set_global_assignment -name PHYSICAL_SYNTHESIS_EFFORT EXTRA
+set_global_assignment -name PLACEMENT_EFFORT_MULTIPLIER 3.0
+set_global_assignment -name ADV_NETLIST_OPT_SYNTH_WYSIWYG_REMAP ON
+set_global_assignment -name SYNTH_GATED_CLOCK_CONVERSION ON
+set_global_assignment -name PRE_MAPPING_RESYNTHESIS ON
+set_global_assignment -name ROUTER_CLOCKING_TOPOLOGY_ANALYSIS ON
+set_global_assignment -name ECO_OPTIMIZE_TIMING ON
+set_global_assignment -name PERIPHERY_TO_CORE_PLACEMENT_AND_ROUTING_OPTIMIZATION ON
+set_global_assignment -name PHYSICAL_SYNTHESIS_ASYNCHRONOUS_SIGNAL_PIPELINING ON
+set_global_assignment -name ALM_REGISTER_PACKING_EFFORT HIGH
+set_global_assignment -name SEED 9
+
+# Physical optimization target only. Independent TimeQuest signoff reloads
+# GalacticStorm.sdc and checks its original same-edge hold contract at all
+# supported corners; it must never read this additional fitter-only target.
+set_global_assignment -name SDC_FILE fit_hold_guardband.sdc
+
+set_global_assignment -name VERILOG_MACRO "MISTER_FB=1"
+
+#enable it only if 8bit indexed mode is used in core
+#set_global_assignment -name VERILOG_MACRO "MISTER_FB_PALETTE=1"
+
+#do not enable DEBUG_NOHDMI in release!
+#set_global_assignment -name VERILOG_MACRO "MISTER_DEBUG_NOHDMI=1"
+
+# disable bilinear filtering when downscaling
+# Use nearest-neighbour sampling when the output is smaller than the input.
+set_global_assignment -name VERILOG_MACRO "MISTER_DOWNSCALE_NN=1"
+
+# disable adaptive scanline filtering
+set_global_assignment -name VERILOG_MACRO "MISTER_DISABLE_ADAPTIVE=1"
+
+#use only 1MB per frame for scaler to free ~21MB DDR3 RAM
+#set_global_assignment -name VERILOG_MACRO "MISTER_SMALL_VBUF=1"
+
+# Disable YC / Composite output to save some resources
+#set_global_assignment -name VERILOG_MACRO "MISTER_DISABLE_YC=1"
+
+# Disable ALSA audio output to save some resources
+set_global_assignment -name VERILOG_MACRO "MISTER_DISABLE_ALSA=1"
+
+source rtl/platform/scaler/gs_sys.tcl
+source sys/sys_analog.tcl
+source files.qip
+set_instance_assignment -name PARTITION_HIERARCHY root_partition -to | -section_id Top
+
+# Keep scaler counter feedback on the data input; avoid the failing SCLR path.
+set_instance_assignment -name ALLOW_SYNCH_CTRL_USAGE OFF -to "ascal|o_vcpt_pre3*"
+set_instance_assignment -name OPTIMIZATION_TECHNIQUE SPEED -to ascal
+# The remaining OSD path terminates on a slow dedicated synchronous-load pin.
+set_instance_assignment -name ALLOW_SYNCH_CTRL_USAGE OFF -to vga_osd
+set_instance_assignment -name OPTIMIZATION_TECHNIQUE SPEED -to vga_osd
+
+# Keep the HDMI DE delay beside its OSD consumers, rather than packing it
+# with unrelated scaler delays into a remote shift-tap M10K. No cycle change.
+set_instance_assignment -name AUTO_SHIFT_REGISTER_RECOGNITION OFF -to "HDMI_shadowmask|vid*"
+set_instance_assignment -name AUTO_SHIFT_REGISTER_RECOGNITION OFF -to "HDMI_shadowmask|de_out"
+
+# Loader validation follows a registered HPS tuple at 96 MHz.
+set_instance_assignment -name OPTIMIZATION_TECHNIQUE SPEED -to "emu|loader"
+# Route the vertical polyphase clamp through D rather than the slow SCLR pin.
+set_instance_assignment -name ALLOW_SYNCH_CTRL_USAGE OFF -to "ascal|o_v_poly_pix*"
+
+
+# Keep horizontal polyphase pixel clearing off the slow dedicated SCLR pin.
+set_instance_assignment -name ALLOW_SYNCH_CTRL_USAGE OFF -to "ascal|o_h_poly_pix*"
+# Normal cache enable recognition uses fewer LABs than the bounded override trial.
+# Retain normal reset routing and time every transfer.
+
+# Keep the real half-cycle DQ transfer local to its fixed IO capture.
+set_location_assignment FF_X60_Y3_N16 -to "emu|game|video|roms|controller|dq_pos[4]"
+set_location_assignment FF_X82_Y1_N1 -to "emu|game|video|roms|controller|dq_pos[8]"
+set_location_assignment FF_X82_Y1_N14 -to "emu|game|video|roms|controller|dq_pos[11]"
+
+# Anchor the reset sources; let the DSP capture follow its local reset logic.
+# The old X48 capture anchor forced an X48 -> X75 -> X48 reset round trip.
+set_location_assignment FF_X48_Y24_N1 -to "emu|game_release[1]"
+set_location_assignment FF_X48_Y24_N17 -to "emu|ready_ram[1]"
+set_location_assignment FF_X48_Y25_N47 -to "emu|cold_release[2]"
+
+# Keep the CL3 retiming transfer near its actual input capture cell.
+set_location_assignment FF_X37_Y79_N1 -to "emu|game|video|roms|controller|dq_pos[1]"
+
+# Separate the cache tag write-address launch from its short MLAB hold path.
+set_location_assignment FF_X23_Y18_N40 -to "emu|game|board|main_cpu|rom_cache|pending_addr[5]"
+
+# Keep SDRAM bit2 rising-edge retiming next to its top-edge capture IO.
+set_location_assignment FF_X37_Y79_N17 -to "emu|game|video|roms|controller|dq_pos[2]"
+# Bit5 captures at DDIOINCELL_X38_Y81; unpinned it was placed at X37_Y30 (-0.153ns).
+set_location_assignment FF_X37_Y79_N2 -to "emu|game|video|roms|controller|dq_pos[5]"

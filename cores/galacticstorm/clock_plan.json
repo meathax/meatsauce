@@ -1,0 +1,101 @@
+{
+  "core": "GalacticStorm",
+  "status": "production_common64_release_candidate",
+  "evidence": "Approved target arithmetic; staging is incomplete. Checker PASS is not actual source clock topology, boot, recovery or fitted qualification.",
+  "pcb_clocks": [
+    {
+      "name": "main OSC1",
+      "hz": 32000000,
+      "source": "D:/Arcade/AI/mame289/src/mame/taito/galastrm.cpp PCB oscillator notes, lines22-30"
+    },
+    {
+      "name": "main OSC2",
+      "hz": 20000000,
+      "source": "D:/Arcade/AI/mame289/src/mame/taito/galastrm.cpp PCB oscillator notes, lines22-30"
+    },
+    {
+      "name": "sound OSC1",
+      "hz": 16000000,
+      "source": "D:/Arcade/AI/mame289/src/mame/taito/galastrm.cpp PCB oscillator notes, lines22-30"
+    },
+    {
+      "name": "sound OSC2",
+      "hz": 30476180,
+      "source": "D:/Arcade/AI/mame289/src/mame/taito/galastrm.cpp PCB oscillator notes, lines22-30"
+    }
+  ],
+  "video": {
+    "pcb_pixel_hz": null,
+    "pcb_refresh_hz": null,
+    "htotal": 512,
+    "vtotal": 260,
+    "reference_refresh_hz": 60,
+    "source": "Human-approved provisional presentation target; no physical PCB measurement."
+  },
+  "clk_sys_hz": 64000000,
+  "clk_video_hz": 64000000,
+  "pixel_divider": 8,
+  "sdram_hz": 64000000,
+  "pll": {
+    "files": [
+      "rtl/galastrm/gs_pll.sv"
+    ],
+    "clk_sys_output": 0
+  },
+  "enables": [
+    {
+      "name": "main_cpu",
+      "pcb_hz": 16000000,
+      "n": 16000000,
+      "m": 64000000,
+      "actual_source_clock_hz": 64000000,
+      "actual_hz": 16000000,
+      "recovery": true,
+      "note": "Nominal rational /4 CE from common root; phase-debt catch-up is capped at 32 MHz (minimum two root edges). Component qualification pending; whole-core average accepted rate remains unqualified.",
+      "max_hz": 32000000
+    },
+    {
+      "name": "sound_cpu",
+      "pcb_hz": 15238090,
+      "n": 1523809,
+      "m": 6400000,
+      "actual_source_clock_hz": 64000000,
+      "actual_hz": 15238090,
+      "recovery": true,
+      "note": "FX68K phases at 15.23809MHz from shared 64MHz; recovery max 32MHz phases. Sound work RAM served by gs_sound_ram_cache (M10K, write-through) so read hits need no SDRAM wait; misses earn and repay phase debt.",
+      "max_hz": 32000000
+    }
+  ],
+  "enable_inventory_complete": false,
+  "stall_recovery": {
+    "required_by_R7": true,
+    "implemented": true,
+    "average_accepted_PCB_rate_qualified": false,
+    "source": "rtl/galastrm/gs_cpu_recovery_cen.sv; ready-gated main 68020 nominal CE with bounded phase-debt recovery."
+  },
+  "measured_pixel_spacing": {
+    "source": "docs/evidence/presentation64-r4/verification.json",
+    "spacings": [
+      8
+    ],
+    "note": "Actual source-bound raster/CRT/mixer native output fixture; doubled output{4}; full emu/HPS/game integration remains unqualified."
+  },
+  "approved_deviations": [
+    {
+      "item": "raster_evidence",
+      "approved_by": "human: i approve your timing recomendation, continue",
+      "reason": "Approved provisional local simulation target; PCB raster remains unmeasured. Applies only when realized target matches exactly.",
+      "pixel_hz": 8000000,
+      "htotal": 512,
+      "vtotal": 260,
+      "receipt": "build/completion-20261021/timing-target-user-approval.json"
+    },
+    {
+      "item": "main_cpu_fast_option",
+      "approved_by": "human 2026-11-03: \"Yes, build RBF\" (in reply to the RBF request for the palette fix plus Fast CPU default)",
+      "reason": "OSD CPU Speed (status[34]) default Fast runs the main 68020 enable at 32 MHz, the existing recovery cadence (min two 64 MHz edges, unchanged TG68K multicycle contract). Measured TG68K needs 1.64x MAME 68020 time per game tick at 16 MHz. 'Original 16MHz' restores the PCB rate bit-exactly.",
+      "max_hz": 32000000,
+      "receipt": "build/turbo-cen-20261103; dump/oracle/cpu-work-shot-only-20261103"
+    }
+  ]
+}
